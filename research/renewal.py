@@ -5,8 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal
 
-from .highway import PERIOD, P104, first_blank_hit, standard_terminal
-from .model import Point, State, step
+from one_black.langtons_ant.highway import PERIOD, P104, first_blank_hit, standard_terminal
+from one_black.langtons_ant.model import Point, State, step
 
 
 def escape_bound(cell_count: int) -> int:

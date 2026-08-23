@@ -8,9 +8,14 @@ classical two-colour Langton ant:
 2. Every initial state with exactly one black square eventually enters that
    highway, for every ant position and heading.
 
-It also proves the clean-envelope sufficient condition and the lossless
-structural theorems collected in [`PROOF.md`](./PROOF.md). Complete-history
-renewal is reconstructed there as a total computable, lossless presentation:
+The complete theorem, proof narrative, exact dynamics, finite verifier, and
+reproduction entrypoint are closed under [`one_black/`](./one_black/README.md).
+That directory has no dependency on the rest of the repository.
+
+The root [`PROOF.md`](./PROOF.md) collects consequences outside that theorem:
+the clean-envelope condition, exact interaction index, and structural results.
+Complete-history renewal is reconstructed there as a total computable,
+lossless presentation:
 a seed reaches P104 exactly when its renewal program halts, exactly when its
 canonical divergence genealogy has finite height.
 
@@ -19,17 +24,32 @@ research program. Their mathematical content, evidence status, failed
 abstractions, and remaining proof fork are compressed in [`RESEARCH.md`](./RESEARCH.md).
 They are not silently treated as locally reconstructed proofs.
 
-Run the finite proof obligations with:
+Replay only the universal one-black proof with:
 
 ```sh
-python3 scripts/check.py
+python3 one_black/check.py
 ```
 
-The repository has three proof-bearing parts:
+Replay the separate renewal consequences with:
 
-- `engine/langtons_ant/` — the exact update rule, witnesses and renewal event;
-- `PROOF.md` — terminal and structural proofs;
-- `scripts/check.py` — direct replay of every finite obligation claimed here.
+```sh
+python3 research/check.py
+```
+
+The architecture is one-way:
+
+```text
+one_black/            closed theorem and replay
+    ^
+    |
+research/             executable consequences
+PROOF.md              proved general consequences
+RESEARCH.md           evidence map and open frontier
+```
+
+`one_black/` owns the theorem. `research/` owns executable deductions that use
+it. Root documents provide the general proof boundary and research map; they
+are not hidden inputs to the one-black replay.
 
 `RESEARCH.md` is the sole research-state surface. No predecessor source,
 certificate data, test matrix, or directory topology was imported.

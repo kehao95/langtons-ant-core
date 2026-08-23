@@ -1,34 +1,24 @@
 #!/usr/bin/env python3
-"""Replay every proof obligation currently claimed by this repository."""
+"""Check executable consequences outside the universal one-black proof."""
 
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "engine"))
+sys.path.insert(0, str(ROOT))
 
-from langtons_ant.highway import (
+from one_black.langtons_ant.highway import (
     ENTRY_UPDATES,
     clean_envelope_entry,
     first_blank_hit,
     verify_blank_highway,
-    verify_prefix_one_black,
 )
-from langtons_ant.model import Heading, State, advance
-from langtons_ant.one_black import (
-    verify_actual_entry_ordinary,
-    verify_phase72,
-    verify_pristine_one_obstacle,
-)
-from langtons_ant.renewal import Carrier, initial_carrier, renew
+from one_black.langtons_ant.model import Heading, State, advance
+from research.renewal import Carrier, initial_carrier, renew
 
 
 def main() -> None:
     witness = verify_blank_highway()
-    verify_prefix_one_black(witness)
-    verify_pristine_one_obstacle(witness)
-    verify_actual_entry_ordinary(witness)
-    verify_phase72(witness)
     if not clean_envelope_entry(State.blank(), witness):
         raise AssertionError("blank state fails its clean-envelope theorem")
     if first_blank_hit(frozenset({(0, 0)}), (0, 0), State.blank().heading, witness) != 0:
@@ -48,10 +38,7 @@ def main() -> None:
         or edge.target.time <= edge.source.time
     ):
         raise AssertionError("renewal edge lost strict complete-history progress")
-    print(
-        "verified: blank P104; interaction index; renewal outcomes; clean envelope; "
-        "universal one-black partition"
-    )
+    print("verified: clean envelope, interaction index, and renewal outcomes")
 
 
 if __name__ == "__main__":

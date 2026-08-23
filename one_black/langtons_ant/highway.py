@@ -1,4 +1,4 @@
-"""Finite witness and terminal predicate for the standard P104 highway."""
+"""Finite P104 witness, recurrence checks, and blank-prefix verifier."""
 
 from __future__ import annotations
 

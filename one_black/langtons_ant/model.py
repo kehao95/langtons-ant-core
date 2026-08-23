@@ -1,4 +1,4 @@
-"""Exact classical Langton-ant update on the integer lattice."""
+"""Exact classical Langton-ant update used by the one-black proof."""
 
 from __future__ import annotations
 

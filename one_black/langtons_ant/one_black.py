@@ -1,4 +1,4 @@
-"""Clean-room finite obligations for one obstacle at a pristine P104 boundary."""
+"""Finite obligations completing the universal one-black theorem."""
 
 from .highway import (
     ENTRY_UPDATES,
