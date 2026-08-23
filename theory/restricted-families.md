@@ -5,7 +5,7 @@ between theorem and experiment unmistakable. Each family gets its own file,
 finite data when needed, and verifier; no family is elevated by sharing a name
 with a broader conjecture.
 
-## First target: one black square
+## One black square
 
 The smallest nonblank initial family consists of one black square, an ant at a
 specified lattice point, and a specified heading. Symmetry can reduce the
@@ -19,8 +19,9 @@ A reconstructed one-black result must provide all of the following:
 3. the terminal predicate it reaches; and
 4. an argument that that predicate implies indefinite highway evolution.
 
-No such certificate is present yet. This section names a target and a required
-proof shape; it does not assert the target has been met.
+The under-ant subfamily has been promoted in
+[`one-black-under-ant.md`](./one-black-under-ant.md). The arbitrary-offset
+one-black theorem remains open: its quantified family is strictly larger.
 
 ## Family expansion
 

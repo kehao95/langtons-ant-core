@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import unittest
 
-from langtons_ant import Heading, State, step
+from langtons_ant import Heading, State, advance, rotate_state, step, translate_state
 
 
 class ClassicalStepTests(unittest.TestCase):
@@ -30,6 +30,20 @@ class ClassicalStepTests(unittest.TestCase):
         self.assertEqual(after.black, frozenset())
         self.assertEqual(after.position, (-1, 0))
         self.assertEqual(before.black, frozenset({(0, 0)}))
+
+    def test_advance_rejects_negative_lengths(self) -> None:
+        with self.assertRaises(ValueError):
+            advance(State.blank(), -1)
+
+    def test_rotation_commutes_with_a_classical_update(self) -> None:
+        source = State(frozenset({(-1, 2), (3, -4)}), (0, 0), Heading.NORTH)
+
+        self.assertEqual(rotate_state(step(source), 1), step(rotate_state(source, 1)))
+
+    def test_translation_commutes_with_a_classical_update(self) -> None:
+        source = State(frozenset({(-1, 2), (3, -4)}), (0, 0), Heading.NORTH)
+
+        self.assertEqual(translate_state(step(source), (7, -9)), step(translate_state(source, (7, -9))))
 
 
 if __name__ == "__main__":

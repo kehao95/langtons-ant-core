@@ -44,6 +44,11 @@ class Heading(IntEnum):
             return (x, y - 1)
         return (x - 1, y)
 
+    def rotate_clockwise(self, quarter_turns: int) -> Heading:
+        """Rotate this heading by a multiple of a right angle."""
+
+        return Heading((int(self) + quarter_turns) % 4)
+
 
 @dataclass(frozen=True, slots=True)
 class State:
@@ -74,3 +79,14 @@ def step(state: State) -> State:
     else:
         black = state.black | {state.position}
     return State(frozenset(black), heading.advance(state.position), heading)
+
+
+def advance(state: State, updates: int) -> State:
+    """Return the state obtained after ``updates`` applications of :func:`step`."""
+
+    if updates < 0:
+        raise ValueError("updates must be non-negative")
+    current = state
+    for _ in range(updates):
+        current = step(current)
+    return current

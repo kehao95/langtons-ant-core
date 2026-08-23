@@ -19,6 +19,13 @@ The first planned restricted family is specified in
 [`restricted-families.md`](./restricted-families.md); it has no promoted
 certificate yet.
 
+The arbitrary-offset one-black route is reduced into a finite prefix domain and
+an entry-state obstacle theorem in [`one-black-reduction.md`](./one-black-reduction.md).
+
+The remaining finite-support ladder is stated without overclaim in
+[`global-conjecture.md`](./global-conjecture.md) and operationalized in the
+research [`PROGRAM.md`](../research/PROGRAM.md).
+
 ## Information flow
 
 ```text

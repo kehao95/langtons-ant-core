@@ -21,6 +21,8 @@ alone is insufficient unless its exterior condition is also stated.
 
 ## Current status
 
-No terminal predicate has yet been reconstructed in this clean-room project.
-Accordingly, there is no claim here that a finite state has been recognized as
-highway-bound.
+[`blank-highway.md`](./blank-highway.md) supplies the first, deliberately
+narrow instance: one oriented boundary predicate for the blank trajectory.
+Its requirements are derived and checked by the reference model. It is not yet
+a full terminal predicate modulo symmetry, and it does not decide whether an
+arbitrary state eventually becomes highway-bound.

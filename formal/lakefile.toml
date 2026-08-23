@@ -1,0 +1,5 @@
+name = "langtons-ant-hc"
+defaultTargets = ["LangtonsAntHC"]
+
+[[lean_lib]]
+name = "LangtonsAntHC"
