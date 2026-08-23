@@ -30,6 +30,8 @@ def move (heading : Heading) (point : Point) : Point :=
 
 def rotatePointCW (point : Point) : Point := (point.2, -point.1)
 
+def rotatePointCCW (point : Point) : Point := (-point.2, point.1)
+
 def Heading.rotateCW : Heading → Heading
   | .north => .east
   | .east => .south
@@ -43,5 +45,23 @@ theorem left_eq_right_right_right (heading : Heading) :
 theorem rotate_move_cw (heading : Heading) (point : Point) :
     rotatePointCW (move heading point) = move heading.rotateCW (rotatePointCW point) := by
   cases heading <;> rcases point with ⟨x, y⟩ <;> simp [move, rotatePointCW, Heading.rotateCW] <;> omega
+
+theorem rotatePointCW_rotatePointCCW (point : Point) :
+    rotatePointCW (rotatePointCCW point) = point := by
+  rcases point with ⟨x, y⟩
+  simp [rotatePointCW, rotatePointCCW]
+
+theorem rotatePointCCW_rotatePointCW (point : Point) :
+    rotatePointCCW (rotatePointCW point) = point := by
+  rcases point with ⟨x, y⟩
+  simp [rotatePointCW, rotatePointCCW]
+
+theorem rotate_left_cw (heading : Heading) :
+    heading.left.rotateCW = heading.rotateCW.left := by
+  cases heading <;> rfl
+
+theorem rotate_right_cw (heading : Heading) :
+    heading.right.rotateCW = heading.rotateCW.right := by
+  cases heading <;> rfl
 
 end LangtonsAntHC
