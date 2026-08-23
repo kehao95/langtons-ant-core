@@ -2,8 +2,18 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 from .highway import ENTRY_UPDATES
 from .model import Point, State, advance, step
+
+
+@dataclass(frozen=True, slots=True)
+class FirstRead:
+    """A square's first read in a finite literal trajectory."""
+
+    point: Point
+    update: int
 
 
 def toggle_square(state: State, point: Point) -> State:
@@ -26,10 +36,29 @@ def visited_squares(state: State, updates: int) -> frozenset[Point]:
     return frozenset(visited)
 
 
+def first_reads(state: State, updates: int) -> tuple[FirstRead, ...]:
+    """Derive the first-read schedule for a finite trajectory prefix."""
+
+    if updates < 0:
+        raise ValueError("updates must be non-negative")
+    first_update: dict[Point, int] = {}
+    current = state
+    for update in range(updates):
+        first_update.setdefault(current.position, update)
+        current = step(current)
+    return tuple(FirstRead(point, update) for point, update in first_update.items())
+
+
 def blank_entry_prefix_domain() -> frozenset[Point]:
     """Derive the set of squares read before the blank trajectory's P104 entry."""
 
     return visited_squares(State.blank(), ENTRY_UPDATES)
+
+
+def blank_entry_prefix_schedule() -> tuple[FirstRead, ...]:
+    """Return the ordered, reproducible case domain for prefix-hit one-black work."""
+
+    return first_reads(State.blank(), ENTRY_UPDATES)
 
 
 def unreached_perturbation_reduces_to_entry(point: Point) -> bool:

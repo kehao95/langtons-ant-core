@@ -20,7 +20,8 @@ and must name the previous rung it consumes.
    parameterization is [`lanes.md`](./lanes.md).
 2. **Prefix closure.** For the 1,376 positions reached before blank entry,
    construct proof-producing finite traces or a common invariant; do not store
-   opaque pass/fail outcomes.
+   opaque pass/fail outcomes. The required derived domain is
+   [`prefix-cases.md`](./prefix-cases.md).
 3. **History language.** Propose only a grammar whose objects can be shown both
    to preserve the literal dynamics and to represent every relevant encounter.
 4. **Descent candidate.** Every proposed rank must identify its domain,

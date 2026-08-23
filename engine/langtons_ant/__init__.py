@@ -13,7 +13,15 @@ from .highway import (
     is_standard_p104_terminal,
     rotate_witness,
 )
-from .coupling import blank_entry_prefix_domain, toggle_square, unreached_perturbation_reduces_to_entry, visited_squares
+from .coupling import (
+    FirstRead,
+    blank_entry_prefix_domain,
+    blank_entry_prefix_schedule,
+    first_reads,
+    toggle_square,
+    unreached_perturbation_reduces_to_entry,
+    visited_squares,
+)
 from .model import Heading, Point, State, advance, step
 from .lanes import LaneContact, lane_contact, p104_boundary_after
 from .one_black import CANONICAL_ENTRY_UPDATES, canonical_one_black_entry, canonical_one_black_initial
@@ -47,6 +55,9 @@ __all__ = [
     "add_unread_obstacle",
     "is_permanently_unread_entry_obstacle",
     "blank_entry_prefix_domain",
+    "blank_entry_prefix_schedule",
+    "FirstRead",
+    "first_reads",
     "toggle_square",
     "unreached_perturbation_reduces_to_entry",
     "visited_squares",

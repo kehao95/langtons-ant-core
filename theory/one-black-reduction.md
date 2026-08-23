@@ -15,8 +15,10 @@ case list.
   turns, flips, and moves. At entry the perturbed state is exactly the blank
   entry state with `q` toggled.
 - If `q` is inside the set, the interaction occurs in a finite, explicitly
-  derived domain of 1,376 locations. Those cases still require a terminating
-  certificate or a proof-producing solver; they have not been discharged here.
+  derived domain of 1,376 locations. Their first-read schedule is specified in
+  [`research/prefix-cases.md`](../research/prefix-cases.md). Those cases still
+  require a terminating certificate or a proof-producing solver; they have not
+  been discharged here.
 
 The first bullet follows by induction on time: before the first visit to `q`,
 the two black sets differ only at `q`, which is not under the ant. The checker
