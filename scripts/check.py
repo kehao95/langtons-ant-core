@@ -25,10 +25,10 @@ from langtons_ant.renewal import Carrier, initial_carrier, renew
 
 def main() -> None:
     witness = verify_blank_highway()
-    maximum = verify_prefix_one_black(witness)
-    pristine = verify_pristine_one_obstacle(witness)
-    historical = verify_actual_entry_ordinary(witness)
-    phase72 = verify_phase72(witness)
+    verify_prefix_one_black(witness)
+    verify_pristine_one_obstacle(witness)
+    verify_actual_entry_ordinary(witness)
+    verify_phase72(witness)
     if not clean_envelope_entry(State.blank(), witness):
         raise AssertionError("blank state fails its clean-envelope theorem")
     if first_blank_hit(frozenset({(0, 0)}), (0, 0), State.blank().heading, witness) != 0:
@@ -50,10 +50,7 @@ def main() -> None:
         raise AssertionError("renewal edge lost strict complete-history progress")
     print(
         "verified: blank P104; interaction index; renewal outcomes; clean envelope; "
-        f"{1_376} prefix one-black cases (max {maximum} updates); "
-        f"{pristine.direct_cases} pristine obstacle bases; "
-        f"{historical.ordinary_lanes} ordinary historical lanes; "
-        f"phase-72 hit {phase72.historical_hit}"
+        "universal one-black partition"
     )
 
 

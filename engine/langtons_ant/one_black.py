@@ -1,7 +1,5 @@
 """Clean-room finite obligations for one obstacle at a pristine P104 boundary."""
 
-from dataclasses import dataclass
-
 from .highway import (
     ENTRY_UPDATES,
     PERIOD,
@@ -16,28 +14,6 @@ from .model import Point, State, advance
 LANES = 22
 ACTIVE_WHITE = 27
 INDUCTION_DEPTH = 20
-
-
-@dataclass(frozen=True, slots=True)
-class PristineReport:
-    direct_cases: int
-    maximum_updates: int
-
-
-@dataclass(frozen=True, slots=True)
-class HistoricalReport:
-    ordinary_lanes: int
-    direct_cases: int
-    exceptional_head: Point
-    maximum_updates: int
-
-
-@dataclass(frozen=True, slots=True)
-class Phase72Report:
-    direct_cases: int
-    historical_hit: Point
-    post_hit_updates: int
-    maximum_updates: int
 
 
 def _factor(difference: Point, direction: Point) -> int | None:
@@ -216,7 +192,7 @@ def _orientation(state: State, witness: P104) -> P104:
     raise AssertionError("declared endpoint is not terminal")
 
 
-def verify_pristine_one_obstacle(witness: P104) -> PristineReport:
+def verify_pristine_one_obstacle(witness: P104) -> None:
     entry = advance(State.blank(), ENTRY_UPDATES)
     origin = entry.position
     support = frozenset(_shift(origin, point) for point, _ in witness.requirements)
@@ -227,14 +203,10 @@ def verify_pristine_one_obstacle(witness: P104) -> PristineReport:
     if len(heads) != LANES or len(support - pattern) != ACTIVE_WHITE:
         raise AssertionError("wrong pristine obstacle partition")
 
-    maximum = 0
-    direct = 0
     for point in support - pattern:
         elapsed = _terminal_time(State(pattern | {point}, origin, witness.heading), witness, PREFIX_CASE_BOUND)
         if elapsed is None:
             raise AssertionError(f"active-white obstacle did not terminate: {point}")
-        maximum = max(maximum, elapsed)
-        direct += 1
 
     clean_end, _ = _run(State(pattern, origin, witness.heading), PERIOD)
     shifted_pattern = _shifted(pattern, witness.displacement)
@@ -250,8 +222,6 @@ def verify_pristine_one_obstacle(witness: P104) -> PristineReport:
             elapsed = _terminal_time(initial, witness, PREFIX_CASE_BOUND)
             if elapsed is None:
                 raise AssertionError(f"lane obstacle did not terminate: {relative_head}, {depth}")
-            maximum = max(maximum, elapsed)
-            direct += 1
             if depth == INDUCTION_DEPTH:
                 base, base_time = initial, elapsed
 
@@ -295,10 +265,7 @@ def verify_pristine_one_obstacle(witness: P104) -> PristineReport:
                 ):
                     raise AssertionError("accumulated wake enters the terminal corridor")
 
-    return PristineReport(direct, maximum)
-
-
-def verify_actual_entry_ordinary(witness: P104) -> HistoricalReport:
+def verify_actual_entry_ordinary(witness: P104) -> None:
     entry = advance(State.blank(), ENTRY_UPDATES)
     origin = entry.position
     support = frozenset(_shift(origin, point) for point, _ in witness.requirements)
@@ -309,16 +276,12 @@ def verify_actual_entry_ordinary(witness: P104) -> HistoricalReport:
     if len(entry.black) != 715 or len(history) != 702:
         raise AssertionError("wrong actual blank-entry history")
 
-    maximum = 0
-    direct = 0
     for point in support - pattern:
         elapsed = _terminal_time(
             State(entry.black | {point}, origin, witness.heading), witness, PREFIX_CASE_BOUND
         )
         if elapsed is None:
             raise AssertionError(f"historical active-white case did not terminate: {point}")
-        maximum = max(maximum, elapsed)
-        direct += 1
 
     heads = _lane_heads(
         frozenset(point for point, _ in witness.requirements), witness.displacement
@@ -374,8 +337,6 @@ def verify_actual_entry_ordinary(witness: P104) -> HistoricalReport:
                 raise AssertionError(
                     f"ordinary historical lane did not terminate: {relative_head}, {depth}"
                 )
-            maximum = max(maximum, elapsed)
-            direct += 1
             stable_time = elapsed
 
         expected = base_time + (stable_depth - INDUCTION_DEPTH) * PERIOD
@@ -383,12 +344,11 @@ def verify_actual_entry_ordinary(witness: P104) -> HistoricalReport:
             raise AssertionError("historical lane does not reduce to pristine translation")
         ordinary += 1
 
-    if ordinary != 21 or len(exceptional) != 1:
+    if ordinary != 21 or exceptional != [(-2, -8)]:
         raise AssertionError("historical lanes do not split 21+1")
-    return HistoricalReport(ordinary, direct, exceptional[0], maximum)
 
 
-def verify_phase72(witness: P104) -> Phase72Report:
+def verify_phase72(witness: P104) -> None:
     entry = advance(State.blank(), ENTRY_UPDATES)
     origin = entry.position
     pattern = frozenset(
@@ -439,6 +399,7 @@ def verify_phase72(witness: P104) -> Phase72Report:
 
     if not (
         hits[0].position == hits[1].position == hits[2].position
+        and hits[0].position == (20, -22)
         and hits[0].heading is hits[1].heading is hits[2].heading
         and hit_elapsed[1] == hit_elapsed[0] + PERIOD
         and hit_elapsed[2] == hit_elapsed[1] + PERIOD
@@ -451,8 +412,8 @@ def verify_phase72(witness: P104) -> Phase72Report:
         raise AssertionError("phase-72 hit-state XOR layer does not translate")
 
     post_hit = _terminal_time(hits[0], witness, 20_000)
-    if post_hit is None:
-        raise AssertionError("phase-72 post-hit base does not terminate")
+    if post_hit != 7_994:
+        raise AssertionError("phase-72 post-hit duration changed")
     end0, end1, reads = _same_trace(hits[0], hits[1], post_hit)
     final = _orientation(end0, witness)
     if (
@@ -470,7 +431,6 @@ def verify_phase72(witness: P104) -> Phase72Report:
             if _rays_meet(cell, witness.displacement, corridor, final.displacement):
                 raise AssertionError("phase-72 variable layer enters the final corridor")
 
-    maximum = 0
     for depth in range(1, INDUCTION_DEPTH):
         obstacle = _shift(head, witness.displacement, depth)
         elapsed = _terminal_time(
@@ -480,11 +440,3 @@ def verify_phase72(witness: P104) -> Phase72Report:
         )
         if elapsed is None:
             raise AssertionError(f"shallow phase-72 case did not terminate: {depth}")
-        maximum = max(maximum, elapsed)
-
-    return Phase72Report(
-        INDUCTION_DEPTH - 1,
-        hits[0].position,
-        post_hit,
-        maximum,
-    )

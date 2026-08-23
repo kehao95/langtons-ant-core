@@ -224,12 +224,9 @@ def verify_blank_highway() -> P104:
     return witness
 
 
-def verify_prefix_one_black(witness: P104) -> int:
-    maximum = 0
+def verify_prefix_one_black(witness: P104) -> None:
     for point in _blank_prefix_reads():
         initial = State(frozenset({point}), (0, 0), Heading.NORTH)
         elapsed = _terminal_time(initial, witness, PREFIX_CASE_BOUND)
         if elapsed is None:
             raise AssertionError(f"prefix one-black case did not terminate: {point}")
-        maximum = max(maximum, elapsed)
-    return maximum

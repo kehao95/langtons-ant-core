@@ -52,9 +52,8 @@ The blank orbit first reads exactly 1,376 cells before update 9,977.
 `verify_prefix_one_black` derives this set from the literal blank replay. For
 each cell `q` it starts from the otherwise white plane with only `q` black and
 searches at most 110,000 exact updates for a terminal P104 boundary. Every case
-is accepted; the largest observed terminal time is 106,258 updates. This is a
-finite exhaustive proof of every prefix-hit position, not a sample. The case
-where the black square starts under the ant is included.
+is accepted. This is a finite exhaustive proof of every prefix-hit position,
+not a sample. The case where the black square starts under the ant is included.
 
 Translation and quarter-turn rotation commute with one ant update: they
 preserve colour membership, exchange headings and unit moves in the same way,
@@ -80,7 +79,7 @@ Let `P` be the 13 black requirements of a pristine cycle boundary and `S` its
 Integer divisibility proves that this partition is exhaustive and unique.
 `verify_pristine_one_obstacle` directly replays the 27 active-white cases and
 depths 1 through 20 on every lane, for 467 finite cases. All reach a terminal
-boundary; the largest finite replay is 64,978 updates.
+boundary.
 
 It remains to cover every greater depth. One clean P104 block moves the active
 pattern by `v=(-2,-2)` and leaves a finite XOR wake `E`. For a fixed lane, let
@@ -117,10 +116,10 @@ drift and the rotated terminal drift. `verify_actual_entry_ordinary` solves
 them over all 702 history cells and all finite trace/support cells.
 
 On 21 lanes, every bad parameter is below the depth-20 base. Exact replay of
-that finite prefix plus the active-white cases gives 447 cases, with maximum
-terminal time 57,717. Beyond the base, `H` is never read and never enters the
-terminal corridor, so XOR coupling reduces the complete 715-cell state to the
-translated pristine theorem at every depth.
+that finite prefix plus the active-white cases closes every exception. Beyond
+the base, `H` is never read and never enters the terminal corridor, so XOR
+coupling reduces the complete 715-cell state to the translated pristine theorem
+at every depth.
 
 The remaining head is `(-2,-8)`. Its pristine terminal drift is the reverse of
 the clean drift, and the two-ray equation has infinitely many intersections
