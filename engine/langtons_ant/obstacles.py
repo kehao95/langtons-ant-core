@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from .coupling import toggle_square
-from .highway import P104Witness, first_future_read_period, is_p104_boundary
+from .highway import P104Witness, first_future_read_period, is_p104_terminal
 from .model import Point, State
 
 
@@ -16,7 +16,7 @@ def is_permanently_unread_entry_obstacle(
     104-step footprint is intentionally classified as potentially interactive.
     """
 
-    return is_p104_boundary(entry, witness) and first_future_read_period(point, entry.position, witness) is None
+    return is_p104_terminal(entry, witness) and first_future_read_period(point, entry.position, witness) is None
 
 
 def add_unread_obstacle(entry: State, point: Point, witness: P104Witness) -> State:

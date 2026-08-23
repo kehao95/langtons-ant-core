@@ -11,8 +11,9 @@ anchor + footprint_offset + n * (-2,-2),    n >= 0.
 ```
 
 If `q` is on none of these rays, `E` with the colour at `q` toggled still has
-the same read colour at every future update as `E`. Induction over successive
-P104 periods gives a permanent boundary. The classifier in
+the same read colour at every future update as `E`. It preserves the terminal
+predicate's clear-future-corridor condition, so induction over successive P104
+periods gives a permanent boundary. The classifier in
 [`engine/langtons_ant/obstacles.py`](../engine/langtons_ant/obstacles.py)
 solves the ray equation from the finite footprint; it does not search a long
 future trace.

@@ -22,7 +22,8 @@ alone is insufficient unless its exterior condition is also stated.
 ## Current status
 
 [`blank-highway.md`](./blank-highway.md) supplies the first, deliberately
-narrow instance: one oriented boundary predicate for the blank trajectory.
-Its requirements are derived and checked by the reference model. It is not yet
-a full terminal predicate modulo symmetry, and it does not decide whether an
-arbitrary state eventually becomes highway-bound.
+narrow instance: one oriented terminal predicate for the blank trajectory. It
+combines local boundary colours with a decidable clear-future-corridor condition
+over the finite black support. It is not yet a fully formalized terminal
+predicate modulo symmetry, and it does not decide whether an arbitrary state
+eventually becomes highway-bound.

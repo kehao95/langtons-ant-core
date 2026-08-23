@@ -23,13 +23,18 @@ external table is trusted.
 
 ## Why the local recurrence is sufficient
 
-Call a state a boundary when its heading and the colours on those 40 relative
-squares agree with the witness. During the 104-step execution every read is
-one of those squares. Thus an induction over the 104 individual updates fixes
-every turn and flip: black cells outside the read set cannot affect that
-period. The finite check establishes that the state at the end has the same
-requirements around the translated ant. Applying the same argument repeatedly
-gives an infinite sequence of period boundaries.
+Call a state a *local boundary* when its heading and the colours on those 40
+relative squares agree with the witness. During the 104-step execution every
+read is one of those squares. Thus an induction over the 104 individual updates
+fixes every turn and flip for that period.
+
+Local agreement alone is not terminal: an extra black square can be outside
+the current footprint but on a later footprint ray. The terminal predicate
+therefore also requires the future corridor to be white: no black square may
+have first future-read period greater than zero. The finite ray equation decides
+that condition over the finite black support. The macro transition preserves
+both the local boundary and the clear corridor, so its induction gives a
+permanent sequence of P104 boundaries.
 
 The checker supplies the finite premises of this argument: entry, displacement,
 heading preservation, equality of the two requirement maps, and equality of

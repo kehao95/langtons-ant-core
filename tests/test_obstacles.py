@@ -12,6 +12,7 @@ from langtons_ant import (
     first_future_read_period,
     future_read_lane_heads,
     is_p104_boundary,
+    is_p104_terminal,
     is_permanently_unread_entry_obstacle,
 )
 from langtons_ant.highway import DISPLACEMENT, ENTRY_UPDATES, PERIOD
@@ -41,7 +42,9 @@ class EntryObstacleTests(unittest.TestCase):
 
         self.assertTrue(is_permanently_unread_entry_obstacle(entry, point, witness))
         self.assertTrue(is_p104_boundary(decorated, witness))
+        self.assertTrue(is_p104_terminal(decorated, witness))
         self.assertTrue(is_p104_boundary(advance(decorated, PERIOD), witness))
+        self.assertTrue(is_p104_terminal(advance(decorated, PERIOD), witness))
 
     def test_ray_obstacle_is_not_misreported_as_irrelevant(self) -> None:
         witness = blank_p104_witness()

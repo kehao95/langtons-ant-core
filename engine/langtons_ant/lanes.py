@@ -6,7 +6,6 @@ from dataclasses import dataclass
 
 from .coupling import toggle_square
 from .highway import (
-    DISPLACEMENT,
     P104Witness,
     first_future_read_period,
     future_read_lane_heads,
@@ -59,8 +58,8 @@ def lane_contact(entry: State, witness: P104Witness, lane: int, depth: int) -> L
     except IndexError as error:
         raise ValueError(f"lane must be between 0 and {len(heads) - 1}") from error
     obstacle = (
-        entry.position[0] + head[0] + depth * DISPLACEMENT[0],
-        entry.position[1] + head[1] + depth * DISPLACEMENT[1],
+        entry.position[0] + head[0] + depth * witness.displacement[0],
+        entry.position[1] + head[1] + depth * witness.displacement[1],
     )
     first_period = first_future_read_period(obstacle, entry.position, witness)
     if first_period is None:

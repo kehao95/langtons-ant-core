@@ -13,6 +13,7 @@ from langtons_ant import (
     canonical_one_black_entry,
     canonical_one_black_initial,
     is_standard_p104_boundary,
+    is_standard_p104_terminal,
     rotate_state,
     translate_state,
 )
@@ -26,6 +27,7 @@ class CanonicalOneBlackTests(unittest.TestCase):
         self.assertEqual(CANONICAL_ENTRY_UPDATES, 9_978)
         self.assertEqual(len(entry.black), 715)
         self.assertTrue(is_standard_p104_boundary(entry, witness))
+        self.assertTrue(is_standard_p104_terminal(entry, witness))
 
     def test_rotations_and_translations_preserve_the_entry_claim(self) -> None:
         witness = blank_p104_witness()
@@ -37,6 +39,7 @@ class CanonicalOneBlackTests(unittest.TestCase):
         self.assertEqual(transported_entry, expected)
         self.assertEqual(transported_entry.heading, Heading.EAST)
         self.assertTrue(is_standard_p104_boundary(transported_entry, witness))
+        self.assertTrue(is_standard_p104_terminal(transported_entry, witness))
 
     def test_an_offset_black_square_is_not_silently_included(self) -> None:
         witness = blank_p104_witness()

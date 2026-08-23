@@ -10,8 +10,10 @@ from langtons_ant import (
     advance,
     blank_p104_witness,
     is_p104_boundary,
+    is_p104_terminal,
     is_standard_p104_boundary,
     p104_period_successor,
+    p104_terminal_successor,
     rotate_state,
 )
 from langtons_ant.highway import DISPLACEMENT, ENTRY_UPDATES, PERIOD
@@ -28,11 +30,14 @@ class BlankP104WitnessTests(unittest.TestCase):
         self.assertEqual(len(witness.toggles), 32)
         self.assertTrue(is_p104_boundary(entry, witness))
         self.assertTrue(is_p104_boundary(successor, witness))
+        self.assertTrue(is_p104_terminal(entry, witness))
+        self.assertTrue(is_p104_terminal(successor, witness))
         self.assertEqual(
             (successor.position[0] - entry.position[0], successor.position[1] - entry.position[1]),
             DISPLACEMENT,
         )
         self.assertEqual(p104_period_successor(entry, witness), successor)
+        self.assertEqual(p104_terminal_successor(entry, witness), successor)
 
     def test_one_required_colour_change_breaks_recognition(self) -> None:
         witness = blank_p104_witness()
@@ -50,7 +55,21 @@ class BlankP104WitnessTests(unittest.TestCase):
 
         self.assertTrue(is_p104_boundary(decorated, witness))
         self.assertTrue(is_p104_boundary(advance(decorated, PERIOD), witness))
+        self.assertTrue(is_p104_terminal(decorated, witness))
         self.assertEqual(p104_period_successor(decorated, witness), advance(decorated, PERIOD))
+
+    def test_future_ray_obstacle_is_not_a_terminal_boundary(self) -> None:
+        witness = blank_p104_witness()
+        entry = advance(State.blank(), ENTRY_UPDATES)
+        offset, _ = witness.requirements[0]
+        delayed = (
+            entry.position[0] + offset[0] + witness.displacement[0],
+            entry.position[1] + offset[1] + witness.displacement[1],
+        )
+        contaminated = State(entry.black | {delayed}, entry.position, entry.heading)
+
+        self.assertTrue(is_p104_boundary(contaminated, witness))
+        self.assertFalse(is_p104_terminal(contaminated, witness))
 
     def test_rotated_boundary_is_recognized_in_its_own_orientation(self) -> None:
         witness = blank_p104_witness()

@@ -25,6 +25,7 @@ class P104Witness:
     heading: Heading
     requirements: tuple[tuple[Point, bool], ...]
     toggles: tuple[Point, ...]
+    displacement: Point
 
 
 def _relative(point: Point, origin: Point) -> Point:
@@ -92,7 +93,7 @@ def blank_p104_witness() -> P104Witness:
         raise AssertionError("P104 local requirements do not recur")
     if _toggle_offsets(successor, next_successor) != toggles:
         raise AssertionError("P104 toggle mask does not recur")
-    witness = P104Witness(entry.heading, requirements, toggles)
+    witness = P104Witness(entry.heading, requirements, toggles, DISPLACEMENT)
     if not _matches(entry, witness) or not _matches(successor, witness):
         raise AssertionError("derived P104 witness does not recognize its boundaries")
     return witness
@@ -111,6 +112,7 @@ def rotate_witness(witness: P104Witness, quarter_turns: int) -> P104Witness:
         witness.heading.rotate_clockwise(quarter_turns),
         tuple(sorted((rotate_point(point, quarter_turns), black) for point, black in witness.requirements)),
         tuple(sorted(rotate_point(point, quarter_turns) for point in witness.toggles)),
+        rotate_point(witness.displacement, quarter_turns),
     )
 
 
@@ -118,6 +120,29 @@ def is_standard_p104_boundary(state: State, witness: P104Witness) -> bool:
     """Recognize any of the four rotated forms of the derived P104 boundary."""
 
     return any(_matches(state, rotate_witness(witness, turns)) for turns in range(4))
+
+
+def is_standard_p104_terminal(state: State, witness: P104Witness) -> bool:
+    """Recognize a clear-corridor P104 terminal state in any rotated orientation."""
+
+    return any(is_p104_terminal(state, rotate_witness(witness, turns)) for turns in range(4))
+
+
+def _nonnegative_multiple(difference: Point, direction: Point) -> int | None:
+    """Solve ``difference = count * direction`` with a non-negative integer count."""
+
+    counts: list[int] = []
+    for difference_component, direction_component in zip(difference, direction, strict=True):
+        if direction_component == 0:
+            if difference_component:
+                return None
+            continue
+        if difference_component % direction_component:
+            return None
+        counts.append(difference_component // direction_component)
+    if not counts or any(count != counts[0] for count in counts) or counts[0] < 0:
+        return None
+    return counts[0]
 
 
 def first_future_read_period(point: Point, anchor: Point, witness: P104Witness) -> int | None:
@@ -131,11 +156,11 @@ def first_future_read_period(point: Point, anchor: Point, witness: P104Witness) 
     relative = _relative(point, anchor)
     candidates: list[int] = []
     for offset, _ in witness.requirements:
-        x_gap = offset[0] - relative[0]
-        y_gap = offset[1] - relative[1]
-        if x_gap < 0 or y_gap < 0 or x_gap != y_gap or x_gap % 2:
-            continue
-        candidates.append(x_gap // 2)
+        count = _nonnegative_multiple(
+            (relative[0] - offset[0], relative[1] - offset[1]), witness.displacement
+        )
+        if count is not None:
+            candidates.append(count)
     return min(candidates) if candidates else None
 
 
@@ -147,13 +172,23 @@ def future_read_lane_heads(witness: P104Witness) -> tuple[Point, ...]:
     covers the rest of that ray.
     """
 
-    heads: dict[tuple[int, int], Point] = {}
+    heads: list[Point] = []
     for offset, _ in witness.requirements:
-        key = (offset[0] - offset[1], offset[0] % 2)
-        old = heads.get(key)
-        if old is None or offset[0] > old[0]:
-            heads[key] = offset
-    return tuple(sorted(heads.values()))
+        for index, head in enumerate(heads):
+            offset_from_head = _nonnegative_multiple(
+                (offset[0] - head[0], offset[1] - head[1]), witness.displacement
+            )
+            head_from_offset = _nonnegative_multiple(
+                (head[0] - offset[0], head[1] - offset[1]), witness.displacement
+            )
+            if offset_from_head is not None:
+                break
+            if head_from_offset is not None:
+                heads[index] = offset
+                break
+        else:
+            heads.append(offset)
+    return tuple(sorted(heads))
 
 
 def p104_period_successor(state: State, witness: P104Witness) -> State:
@@ -168,10 +203,36 @@ def p104_period_successor(state: State, witness: P104Witness) -> State:
     if successor.black != expected_black:
         raise AssertionError("P104 period has an unexpected toggle mask")
     if successor.position != (
-        state.position[0] + DISPLACEMENT[0],
-        state.position[1] + DISPLACEMENT[1],
+        state.position[0] + witness.displacement[0],
+        state.position[1] + witness.displacement[1],
     ):
         raise AssertionError("P104 period has an unexpected displacement")
     if not _matches(successor, witness):
         raise AssertionError("P104 period does not preserve its boundary")
+    return successor
+
+
+def has_clear_future_corridor(state: State, witness: P104Witness) -> bool:
+    """Check that no black square waits in a P104 footprint after this period."""
+
+    return all(
+        (period := first_future_read_period(point, state.position, witness)) is None or period == 0
+        for point in state.black
+    )
+
+
+def is_p104_terminal(state: State, witness: P104Witness) -> bool:
+    """Recognize an oriented P104 boundary with an unobstructed infinite future."""
+
+    return _matches(state, witness) and has_clear_future_corridor(state, witness)
+
+
+def p104_terminal_successor(state: State, witness: P104Witness) -> State:
+    """Run one macro period while preserving the stronger terminal predicate."""
+
+    if not is_p104_terminal(state, witness):
+        raise ValueError("state does not satisfy the oriented P104 terminal predicate")
+    successor = p104_period_successor(state, witness)
+    if not is_p104_terminal(successor, witness):
+        raise AssertionError("P104 terminal predicate was not preserved")
     return successor

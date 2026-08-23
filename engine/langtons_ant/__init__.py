@@ -6,8 +6,11 @@ from .highway import (
     first_future_read_period,
     future_read_lane_heads,
     is_p104_boundary,
+    is_p104_terminal,
     p104_period_successor,
+    p104_terminal_successor,
     is_standard_p104_boundary,
+    is_standard_p104_terminal,
     rotate_witness,
 )
 from .coupling import blank_entry_prefix_domain, toggle_square, unreached_perturbation_reduces_to_entry, visited_squares
@@ -28,8 +31,11 @@ __all__ = [
     "first_future_read_period",
     "future_read_lane_heads",
     "is_p104_boundary",
+    "is_p104_terminal",
     "p104_period_successor",
+    "p104_terminal_successor",
     "is_standard_p104_boundary",
+    "is_standard_p104_terminal",
     "rotate_point",
     "rotate_state",
     "rotate_witness",
