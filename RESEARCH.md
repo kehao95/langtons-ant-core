@@ -91,10 +91,12 @@ acyclic, but it need not be well-founded.
 The enumeration of `HIGHWAY`, the cutoff/negative-certificate equivalences,
 and the generic-abstraction separation theorem are reconstructed locally in
 `PROOF.md`. The exact finite blank-interaction oracle used by renewal is also
-local. The carrier, next-fresh totality, genealogy, and their two equivalence
-chains remain source-audited until those objects are rebuilt here.
+local. The carrier, finite escape theorem, exact event, divergence genealogy,
+and the per-input/global equivalence chains are now reconstructed locally in
+one implementation and one proof section. No predecessor certificate schema or
+parallel genealogy state was retained.
 
-The predecessor establishes the condition-preserving equivalences
+The local proof establishes the condition-preserving equivalences
 
 ```text
 z in HIGHWAY
@@ -111,9 +113,10 @@ HC
   <=> its connected-old semantic restriction is well-founded.
 ```
 
-The last reduction chooses an existential future tail. It is not an online
-per-input transformation. The underlying untouched-archive lemma is now proved
-locally, but recognizing that an archive will never be read is still not
+All four global arrows are local. The connected-old reduction chooses an
+existential future tail and is deliberately proved only as a truth-value
+equivalence, not an online per-input transformation. The untouched-archive
+lemma is local, but recognizing that an archive will never be read is still not
 computable without an independent finite guard. Renewal is therefore an exact
 presentation, not a simpler algorithm.
 
@@ -169,17 +172,23 @@ finite store and do not decide P104 membership.
 
 - A shared two-phase finite tally model realizes extension at lengths 2 and 4
   and a bounded probe at lengths 3 and 5. This is a mechanism witness only.
-- A locally reconstructed Laurent parity argument rules out a same-axis, exact-restoring,
-  one-black-cell-per-column constructor with bounded finite-phase base/cap
-  residue. It does not rule out multi-track, moving, non-restoring, or
-  unbounded-controller constructions.
-- A single-parent ray-return experiment covers only cycles `k=0..3`; the two
-  stable differences observed are not an all-depth recurrence.
+- A locally reconstructed Laurent parity argument rules out a same-axis,
+  exact-restoring, one-black-cell-per-column constructor with bounded
+  finite-phase base/cap residue. It does not rule out multi-track, moving,
+  non-restoring, or unbounded-controller constructions.
+- A single-parent ray-return experiment covers only cycles `k=0..3`. Between
+  each of `1->2` and `2->3` it observes 104 updates, signed-turn difference 12,
+  and 12 additional target black cells; two equal differences are not an
+  all-depth recurrence.
 - Exact renewal gate, tether, collision, pocket and local-reduction results
   narrow guarded carriers but supply neither a global rank nor well-foundedness.
 - Guarded one/two/three-obstacle, sparse-word, rotating-block, obstacle-chain,
   and phase-32 families are positive leaves. More leaves matter globally only
   when a coverage theorem assembles them.
+- The sparse phase-32 decoding library also has exact reset, selector,
+  singleton-orthant and typed-control facts under their full guards. These are
+  source-audited parsing/dispatch lemmas, not concrete transitions when read
+  without the terminal context contract.
 
 ## Abstractions already ruled out
 

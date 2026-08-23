@@ -196,15 +196,144 @@ returns `None`, the actual orbit follows the certified blank P104 path forever;
 if it returns a time, exact replay reaches the first colour divergence. This is
 the finite interaction oracle needed by both universal one-black and renewal.
 
+## Complete-history renewal
+
+### Finite escape theorem
+
+Every classical Langton trajectory leaves every finite set. Here is the short
+extremal proof, included because renewal totality depends on it. If a trajectory
+were confined to `n` cells, only `4*n*2^n` states of their colours, ant position
+and heading could occur. A repeated state would make the orbit periodic because
+one update is reversible: from the successor, step one edge backward along its
+heading, inspect whether that cell is black after the toggle, restore its
+opposite colour and undo the uniquely determined turn.
+
+Every visited cell would therefore be visited infinitely often. Move axes
+alternate, while the time parity of a visit is fixed by the checkerboard parity
+of its cell; consequently each cell is always entered on the same axis. Choose
+a visited cell `M` in the highest visited row and then furthest right in that
+row. Neither its north nor east neighbour is visited. If `M` is entered
+horizontally, every entry is from the west and every exit must be south. The
+first such exit requires white, which flips to black; the next entry exits
+north, a contradiction. If `M` is entered vertically, every entry is from the
+south and every exit must be west. The first requires black, which flips to
+white; the next exits east, again a contradiction.
+
+This is the Cohen--Kong argument recorded by David Gale, *Mathematical
+Entertainments*, The Mathematical Intelligencer 15(2), 1993, pp. 54--55. The
+proof applies to any initial colouring because it uses only cells actually
+visited.
+
+It also gives an effective exit bound. While the ant remains inside a fixed
+`n`-cell set, the next `4*n*2^n+1` observed states cannot all be distinct.
+Therefore it reaches a cell outside the set within `4*n*2^n` updates.
+
+### The exact event
+
+A renewal carrier is `(X,U,t)`, where `X` is the complete finite physical
+state, `U` is the finite set of every cell read before time `t`,
+`black(X) subset U`, and the current ant cell is outside `U`. The `old` field
+does not affect physical dynamics; it only chooses checkpoints.
+
+At a carrier, first test the decidable terminal predicate. Otherwise launch the
+blank interaction oracle from the same fresh pose against the complete black
+set of `X`. If no black cell is ever read, untouched-set coupling proves that
+the physical orbit follows the blank P104 future and the program halts. If the
+first hit occurs after `h` updates, replay those `h` updates exactly. The hit
+cell is still black, so its next read is the first colour divergence. Perform
+that update, add the complete read footprint to `U`, and use the finite escape
+bound to find the first later state whose current cell lies outside the new
+`U`. This is the next carrier.
+
+Thus `renew` is a total computable function with exactly three outcomes:
+`terminal`, `blank-coupled`, or one `renewed` edge. Every renewed edge satisfies
+
+```text
+target.time > source.time,
+target.old = source.old union event.footprint,
+source.old is a strict subset of target.old.
+```
+
+Strictness holds because the source's fresh launch cell is read by the event.
+The implementation retains the complete physical state and complete old set;
+there is no quotient, cap, sampling budget or nested launch.
+
+### Exact bireduction and genealogy
+
+Starting with a finite seed, `initial_carrier` computes its first fresh launch
+using the same escape bound. Forgetting `old` and `time` maps any legal carrier
+back to its finite physical state. For every legal carrier `C`,
+
+```text
+physical(C) eventually enters standard P104
+  iff the deterministic renewal program from C halts.
+```
+
+The reverse implication is exactly the meaning of the two halting outcomes.
+For the forward implication, suppose P104 begins at physical time `T`. If the
+program did not halt, its finite events would have strictly increasing endpoint
+times, hence eventually a checkpoint at or after `T`. Forward invariance and
+phase-completeness of `standard_terminal` force a terminal halt there. This
+proves computable many-one reductions in both directions between `HIGHWAY` and
+legal-carrier renewal halting. Renewal preserves the original decision
+complexity; it does not lower it.
+
+There is one canonical genealogy and it needs no second runtime structure.
+Label every uninterrupted black lifetime at the first carrier as a root. In a
+renewed event, the divergence blocker is a live black lifetime and dies at the
+divergence read. Make it the parent of every black lifetime born during that
+event that remains alive at the target. Absolute birth update labels are
+unique, and finite replay computes every edge.
+
+The forest has finitely many roots and every vertex has finitely many children.
+A parent can serve at most once because it dies in its divergence event. Hence
+an infinite renewal run creates infinitely many distinct vertices; Koenig's
+lemma gives an infinite branch. Conversely event indices strictly increase
+along parent-child edges, so an infinite branch requires infinitely many
+renewed events. Therefore
+
+```text
+renewal program halts iff its canonical genealogy has finite height.
+```
+
+Globally, HC is equivalent to termination of every seed program, termination
+of every legal finite-old program, and well-foundedness of the renewed
+relation. These are exact reformulations, not proofs of well-foundedness.
+
+The all-legal relation may also be restricted, for this global truth question,
+to carriers whose nonempty `old` set is four-neighbour connected. Along a
+renewed edge, the read footprint is connected and contains its divergence
+blocker in the source old set, so the number of old components never increases.
+Consecutive footprints attach: the next fresh launch is adjacent to the last
+read of the preceding event. If its later divergence blocker belonged to a
+different component, that footprint would merge the two and strictly decrease
+the component count.
+
+An infinite chain therefore has a tail after the last component decrease. On
+that tail one growing active component contains every footprint and divergence;
+all other components inherited from the chosen tail carrier are never read
+again. Delete those inert components from `old` and delete their black cells
+from the physical state. First-difference induction gives the identical future
+orbit and segmentation, now with connected old history. Deletion cannot create
+an earlier terminal or blank-coupled halt: any deleted black cell on either
+certified future would then be read by the original identical orbit,
+contradicting inertness. Thus an infinite all-legal chain exists exactly when
+an infinite connected-old chain exists.
+
+This projection selects the last future component merge. It is an existential
+proof about infinite chains, not an online computable preprocessing step. The
+executable carrier must retain every old component.
+
 ## Terminal scope and trust
 
 Nothing here proves universal two-black termination or the general
 finite-support Highway Conjecture.
 
 The trusted executable base is the Python interpreter, `model.py`, and the
-finite arithmetic in `highway.py` and `one_black.py`. The recurrence,
-separation and symmetry arguments above are human-checked mathematics; there
-is no claim that they have been formalized in a proof assistant.
+finite arithmetic in `highway.py`, `one_black.py` and `renewal.py`. The
+recurrence, separation and symmetry arguments above are human-checked
+mathematics; there is no claim that they have been formalized in a proof
+assistant.
 
 ## Exact structural theorems
 
