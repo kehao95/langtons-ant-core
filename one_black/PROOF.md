@@ -39,8 +39,8 @@ the endpoint. Induction on blocks proves permanent P104. Applying this lemma to
 Before update 9,977 the blank orbit first reads exactly 1,376 cells.
 `verify_prefix_one_black` derives this set from replay. For every such cell `q`
 it starts with only `q` black and finds a checked terminal boundary within
-110,000 exact updates. This is exhaustive, includes the starting cell, and is
-not sampling.
+110,000 exact updates. The enumeration is exhaustive and includes the starting
+cell.
 
 Translation and quarter-turn rotation commute with one update. Induction
 therefore transports these canonical replays to every initial pose. If `q` is
@@ -79,8 +79,7 @@ directly. On each future lane, exact affine integer equations decide whether
 On 21 lanes every possible collision occurs below the induction base. Exact
 replay closes that finite prefix; beyond it, untouched-set coupling reduces the
 actual state to the translated pristine theorem. The sole exceptional lane has
-head `(-2,-8)` and reverse terminal drift, so it is handled separately rather
-than hidden by the ordinary reduction.
+head `(-2,-8)` and reverse terminal drift; it receives its own induction.
 
 ## Exceptional phase 72
 
@@ -109,6 +108,6 @@ finite, permanently untouched, ordinary, or exceptional. The partition is
 exhaustive, so every normalized one-black state reaches permanent P104.
 Translation and quarter-turn symmetry give every initial position and heading.
 
-`check.py` executes every finite premise named above. The only unexecuted steps
-are the explicit mathematical inductions, separation implications, exhaustive
-partition argument, and symmetry transport stated in this document.
+The proof combines the five finite obligations executed by `check.py` with the
+recurrence, separation, induction, exhaustive partition, and symmetry lemmas
+stated in this document.
