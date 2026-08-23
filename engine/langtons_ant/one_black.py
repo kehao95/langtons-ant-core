@@ -8,8 +8,9 @@ ant-to-black offsets.
 
 from __future__ import annotations
 
-from .highway import P104Witness, is_standard_p104_terminal
-from .model import Heading, State, advance
+from .highway import P104Witness
+from .model import Heading, State
+from .traces import terminal_trace_endpoint
 
 CANONICAL_ENTRY_UPDATES = 9_978
 
@@ -23,7 +24,4 @@ def canonical_one_black_initial() -> State:
 def canonical_one_black_entry(witness: P104Witness) -> State:
     """Compute and validate the canonical family's first recorded P104 boundary."""
 
-    entry = advance(canonical_one_black_initial(), CANONICAL_ENTRY_UPDATES)
-    if not is_standard_p104_terminal(entry, witness):
-        raise AssertionError("canonical one-black trace misses its recorded P104 terminal state")
-    return entry
+    return terminal_trace_endpoint(canonical_one_black_initial(), CANONICAL_ENTRY_UPDATES, witness)

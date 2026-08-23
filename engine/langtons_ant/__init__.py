@@ -27,6 +27,7 @@ from .lanes import LaneContact, lane_contact, p104_boundary_after
 from .one_black import CANONICAL_ENTRY_UPDATES, canonical_one_black_entry, canonical_one_black_initial
 from .obstacles import add_unread_obstacle, is_permanently_unread_entry_obstacle
 from .symmetry import rotate_point, rotate_state, translate_point, translate_state
+from .traces import terminal_trace_endpoint
 
 __all__ = [
     "Heading",
@@ -64,4 +65,5 @@ __all__ = [
     "LaneContact",
     "lane_contact",
     "p104_boundary_after",
+    "terminal_trace_endpoint",
 ]

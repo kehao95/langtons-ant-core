@@ -6,3 +6,8 @@ result that does require finite data belongs here with its immutable data, a
 checker, the precise statement it supports, and a record of the checker’s
 trusted assumptions. Search traces stay in [`research/`](../research/) until
 they meet that standard.
+
+The shared verifier for a future finite trace is
+[`terminal_trace_endpoint`](../engine/langtons_ant/traces.py): a claimed step
+count is accepted only if literal replay reaches the clear-corridor terminal
+predicate, not merely a local P104 picture.
