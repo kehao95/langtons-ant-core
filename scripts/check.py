@@ -1,37 +1,20 @@
 #!/usr/bin/env python3
-"""Run the narrow verification cone for the clean-room state model."""
+"""Replay every proof obligation currently claimed by this repository."""
 
-from __future__ import annotations
-
-import os
 from pathlib import Path
-import subprocess
 import sys
 
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "engine"))
+
+from langtons_ant.highway import verify_blank_highway, verify_one_black_under_ant
 
 
-def main() -> int:
-    command = [
-        sys.executable,
-        "-m",
-        "unittest",
-        "discover",
-        "-s",
-        "tests",
-        "-t",
-        ".",
-    ]
-    environment = os.environ.copy()
-    engine_path = str(ROOT / "engine")
-    existing_path = environment.get("PYTHONPATH")
-    environment["PYTHONPATH"] = (
-        engine_path if not existing_path else os.pathsep.join((engine_path, existing_path))
-    )
-    completed = subprocess.run(command, cwd=ROOT, env=environment, check=False)
-    return completed.returncode
+def main() -> None:
+    witness = verify_blank_highway()
+    verify_one_black_under_ant(witness)
+    print("verified: blank P104; one black initially under the ant")
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()

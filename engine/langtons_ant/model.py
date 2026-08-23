@@ -1,10 +1,4 @@
-"""The classical Langton-ant update, with a single before-step convention.
-
-``State`` describes the configuration immediately before the ant reads the
-square at ``position``.  A white square causes a right turn and a black square
-causes a left turn.  The ant then flips that square and advances one edge in
-its new heading.  The plane is the integer lattice; north increases ``y``.
-"""
+"""Exact classical Langton-ant update on the integer lattice."""
 
 from __future__ import annotations
 
@@ -15,26 +9,18 @@ Point = tuple[int, int]
 
 
 class Heading(IntEnum):
-    """The four compass directions, ordered clockwise."""
-
     NORTH = 0
     EAST = 1
     SOUTH = 2
     WEST = 3
 
     def right(self) -> Heading:
-        """Return the heading one quarter turn clockwise from this heading."""
-
-        return Heading((int(self) + 1) % 4)
+        return Heading((self + 1) % 4)
 
     def left(self) -> Heading:
-        """Return the heading one quarter turn counter-clockwise from this heading."""
-
-        return Heading((int(self) - 1) % 4)
+        return Heading((self - 1) % 4)
 
     def advance(self, point: Point) -> Point:
-        """Move one lattice edge from ``point`` in this heading."""
-
         x, y = point
         if self is Heading.NORTH:
             return (x, y + 1)
@@ -44,49 +30,31 @@ class Heading(IntEnum):
             return (x, y - 1)
         return (x - 1, y)
 
-    def rotate_clockwise(self, quarter_turns: int) -> Heading:
-        """Rotate this heading by a multiple of a right angle."""
-
-        return Heading((int(self) + quarter_turns) % 4)
+    def rotate_clockwise(self, turns: int) -> Heading:
+        return Heading((self + turns) % 4)
 
 
 @dataclass(frozen=True, slots=True)
 class State:
-    """A finite black set together with the ant's before-step location and heading."""
+    """Configuration immediately before the ant reads its current square."""
 
     black: frozenset[Point]
     position: Point
     heading: Heading
 
     @classmethod
-    def blank(cls, position: Point = (0, 0), heading: Heading = Heading.NORTH) -> State:
-        """Construct the conventional all-white initial configuration."""
-
-        return cls(frozenset(), position, heading)
+    def blank(cls) -> State:
+        return cls(frozenset(), (0, 0), Heading.NORTH)
 
 
 def step(state: State) -> State:
-    """Apply exactly one classical Langton-ant update to ``state``.
-
-    The returned state follows the same before-step convention as the input.
-    No mutation occurs: callers can retain previous states as evidence.
-    """
-
-    occupied = state.position in state.black
-    heading = state.heading.left() if occupied else state.heading.right()
-    if occupied:
-        black = state.black - {state.position}
-    else:
-        black = state.black | {state.position}
-    return State(frozenset(black), heading.advance(state.position), heading)
+    black = state.position in state.black
+    heading = state.heading.left() if black else state.heading.right()
+    cells = state.black - {state.position} if black else state.black | {state.position}
+    return State(cells, heading.advance(state.position), heading)
 
 
 def advance(state: State, updates: int) -> State:
-    """Return the state obtained after ``updates`` applications of :func:`step`."""
-
-    if updates < 0:
-        raise ValueError("updates must be non-negative")
-    current = state
     for _ in range(updates):
-        current = step(current)
-    return current
+        state = step(state)
+    return state
