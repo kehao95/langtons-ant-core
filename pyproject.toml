@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langtons-ant-hc"
+version = "0.1.0"
+description = "Clean-room research framework for the classical Langton ant highway conjecture"
+requires-python = ">=3.11"
+
+[tool.setuptools]
+package-dir = {"" = "engine"}
+
+[tool.setuptools.packages.find]
+where = ["engine"]

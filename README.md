@@ -11,16 +11,20 @@ and verification boundary are explicit.
 ## Start here
 
 - [`RESEARCH_CHARTER.md`](./RESEARCH_CHARTER.md) defines the research program.
-- [`theory/`](./theory/) will hold the canonical theorem graph and open lemmas.
-- [`engine/`](./engine/) will hold a small exact implementation of the classical
-  rule.
+- [`theory/`](./theory/) contains the problem statement, the terminal-predicate
+  contract, the dependency architecture, and the open global bridge.
+- [`engine/langtons_ant/`](./engine/langtons_ant/) is the exact reference model
+  for one classical update.
+- [`tests/`](./tests/) checks the convention at the smallest useful boundary.
+- [`scripts/check.py`](./scripts/check.py) runs only those focused checks.
 - [`evidence/`](./evidence/) will hold immutable certificates and narrow
-  checkers.
+  checkers when a result is promoted.
 - [`research/`](./research/) will hold exploratory work that has not become a
   theorem.
 - [`history/`](./history/) will hold only material intentionally retained for
   provenance.
 
-No result from a predecessor repository has been imported into this repository
-yet.  Each retained result will be reconstructed here from its statement,
-minimal dependencies, and independent evidence.
+The classical state-transition kernel is the first reconstructed component. No
+one-black certificate, terminal predicate, or global theorem has been imported
+or asserted. Each later result must be rebuilt from its statement, minimal
+dependencies, and independent evidence.

@@ -12,3 +12,6 @@ Before adding a result:
 
 Do not run broad replay suites merely because another result changes.  Verify
 the narrow dependency cone affected by a change.
+
+For the initial state-model cone, run `python3 scripts/check.py`. It invokes
+only the repository's focused standard-library unit tests.
