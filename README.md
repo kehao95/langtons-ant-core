@@ -19,6 +19,8 @@ and verification boundary are explicit.
 - [`scripts/check.py`](./scripts/check.py) runs only those focused checks.
 - [`formal/`](./formal/) holds a separately checked Lean core for the state
   convention; its scope is intentionally listed in its own README.
+- [`theory/trust-boundary.md`](./theory/trust-boundary.md) distinguishes the
+  finite checker, formal Lean core, and still-unformalized arguments.
 - [`evidence/`](./evidence/) defines the boundary for immutable data when a
   result needs data beyond a derivable finite witness.
 - [`research/`](./research/) will hold exploratory work that has not become a

@@ -9,6 +9,9 @@
 | Arbitrary-offset one-black reduction | finite-prefix split | `theory/one-black-reduction.md`, `tests/test_coupling.py` |
 | P104 entry plus one off-ray obstacle | finite footprint-ray theorem | `theory/entry-obstacle.md`, `tests/test_obstacles.py` |
 | Highway Conjecture | open | `theory/global-conjecture.md` |
+
+The trust allocation for every promoted row is in
+[`trust-boundary.md`](./trust-boundary.md).
 | Research-layer dependency map | stated | `theory/architecture.md` |
 | One-black initial family at arbitrary offset | open | `theory/restricted-families.md` |
 | Highway terminal predicate | open | no datum or checker admitted |
