@@ -41,4 +41,11 @@ theorem rotate_step_cw (state : State) :
   · simp [h, read_rotated, rotateBoardCW_flip, rotate_left_cw, rotate_move_cw]
   · simp [h, read_rotated, rotateBoardCW_flip, rotate_right_cw, rotate_move_cw]
 
+theorem rotate_evolve_cw (updates : Nat) (state : State) :
+    rotateStateCW (evolve updates state) = evolve updates (rotateStateCW state) := by
+  induction updates generalizing state with
+  | zero => rfl
+  | succ updates induction_hypothesis =>
+    simp [evolve, induction_hypothesis, rotate_step_cw]
+
 end LangtonsAntHC

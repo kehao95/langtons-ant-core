@@ -3,7 +3,7 @@
 | Item | Status | Evidence boundary |
 | --- | --- | --- |
 | One classical update | implemented and tested | `engine/langtons_ant/`, `tests/test_model.py` |
-| One-step convention and rotation in Lean | formalized | `formal/LangtonsAntHC/Symmetry.lean` |
+| One-step convention and rigid symmetries in Lean | formalized | `formal/LangtonsAntHC/Translation.lean` |
 | Blank oriented P104 boundary | finite witness plus analytic recurrence | `theory/blank-highway.md`, `tests/test_highway.py` |
 | One black, ant initially on it | finite prefix plus symmetry transport | `theory/one-black-under-ant.md`, `tests/test_one_black.py` |
 | Arbitrary-offset one-black reduction | finite-prefix split | `theory/one-black-reduction.md`, `tests/test_coupling.py` |

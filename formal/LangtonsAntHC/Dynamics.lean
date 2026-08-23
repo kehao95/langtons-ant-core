@@ -20,6 +20,10 @@ def step (state : State) : State :=
     heading := nextHeading
   }
 
+def evolve : Nat → State → State
+  | 0, state => state
+  | updates + 1, state => evolve updates (step state)
+
 theorem step_reads_before_flipping (state : State) :
     (step state).board state.position = !(state.board state.position) := by
   simp [step, flip]

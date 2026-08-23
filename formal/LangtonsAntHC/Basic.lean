@@ -32,6 +32,12 @@ def rotatePointCW (point : Point) : Point := (point.2, -point.1)
 
 def rotatePointCCW (point : Point) : Point := (-point.2, point.1)
 
+def translatePoint (displacement point : Point) : Point :=
+  (point.1 + displacement.1, point.2 + displacement.2)
+
+def untranslatePoint (displacement point : Point) : Point :=
+  (point.1 - displacement.1, point.2 - displacement.2)
+
 def Heading.rotateCW : Heading → Heading
   | .north => .east
   | .east => .south
@@ -63,5 +69,23 @@ theorem rotate_left_cw (heading : Heading) :
 theorem rotate_right_cw (heading : Heading) :
     heading.right.rotateCW = heading.rotateCW.right := by
   cases heading <;> rfl
+
+theorem translate_untranslate (displacement point : Point) :
+    translatePoint displacement (untranslatePoint displacement point) = point := by
+  rcases displacement with ⟨dx, dy⟩
+  rcases point with ⟨x, y⟩
+  simp [translatePoint, untranslatePoint]
+
+theorem untranslate_translate (displacement point : Point) :
+    untranslatePoint displacement (translatePoint displacement point) = point := by
+  rcases displacement with ⟨dx, dy⟩
+  rcases point with ⟨x, y⟩
+  simp [translatePoint, untranslatePoint]
+
+theorem translate_move (displacement : Point) (heading : Heading) (point : Point) :
+    translatePoint displacement (move heading point) =
+      move heading (translatePoint displacement point) := by
+  cases heading <;> rcases displacement with ⟨dx, dy⟩ <;> rcases point with ⟨x, y⟩ <;>
+    simp [translatePoint, move] <;> omega
 
 end LangtonsAntHC
