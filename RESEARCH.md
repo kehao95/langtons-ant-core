@@ -42,10 +42,12 @@ constrain the two final branches; none is itself the missing bridge.
 | Result | Status | Exact boundary |
 |---|---|---|
 | Blank plane reaches permanent P104 after 9,977 updates | local | Translation and quarter-turn symmetry |
-| The only black square starts under the ant | local | Every ant position and heading |
-| Every initial state with exactly one black square | source-proven | End-to-end Lean theorem plus independent Python replay |
+| The only black square lies in the 1,376-cell blank-prefix domain | local | Exact replay of every prefix-hit position, all poses by symmetry |
+| Pristine P104 boundary plus one arbitrary black cell | local | 22 affine lanes, 467 finite bases, exact wake/corridor induction |
+| Actual 715-cell blank-entry state plus one obstacle on 21 ordinary lanes | local | 447 finite cases and exact historical-wake separation |
+| Every initial state with exactly one black square | local | Clean-room finite replay plus all-depth affine wake inductions; predecessor Lean is not imported |
 | Guarded obstacle and phase-32 terminal languages | source-audited | Only their complete geometric guards; labels alone are insufficient |
-| Clean 1,398-cell blank envelope | source-audited | Decidable sufficient YES witness, never a negative test |
+| Clean 1,398-cell blank envelope | local | Decidable sufficient YES witness, never a negative test |
 | Prefix-primary two-black family | historical | Transient 914,749-state replay is recoverable; late tables and guard verifier are missing |
 | Universal two-black and arbitrary finite support | open | Neither HC nor a counterexample follows from the historical evidence |
 
@@ -59,10 +61,12 @@ permanent blank P104
 ```
 
 Its finite partition used 22 pristine lanes, 21 ordinary historical lanes, one
-all-depth phase-72 lane, and the 1,376-position blank prefix. These numbers are
-provenance, not new architectural concepts. Reconstructing that theorem here
-requires a smaller local proof of the same four arrows; the old certificates
-are not imported by assertion.
+all-depth phase-72 lane, and the 1,376-position blank prefix. The pristine
+all-depth theorem and final prefix exhaustion are now reconstructed locally
+without importing certificate tables. The 21 ordinary historical lanes are
+also local, and the phase-72 two-way recurrence is rederived from the local
+dynamics. Universal one-black is therefore local; the predecessor's Lean proof
+remains independent provenance rather than a dependency.
 
 ## Exact decision interface
 
@@ -84,6 +88,12 @@ cell, and freshness data. One renewal event is total and computable; on every
 nonterminal edge the finite old set grows strictly. The graph is therefore
 acyclic, but it need not be well-founded.
 
+The enumeration of `HIGHWAY`, the cutoff/negative-certificate equivalences,
+and the generic-abstraction separation theorem are reconstructed locally in
+`PROOF.md`. The exact finite blank-interaction oracle used by renewal is also
+local. The carrier, next-fresh totality, genealogy, and their two equivalence
+chains remain source-audited until those objects are rebuilt here.
+
 The predecessor establishes the condition-preserving equivalences
 
 ```text
@@ -102,9 +112,10 @@ HC
 ```
 
 The last reduction chooses an existential future tail. It is not an online
-per-input transformation. Likewise, deleting an archive known never to be read
-again is semantically sound but not computable without an independent finite
-guard. Renewal is therefore an exact presentation, not a simpler algorithm.
+per-input transformation. The underlying untouched-archive lemma is now proved
+locally, but recognizing that an archive will never be read is still not
+computable without an independent finite guard. Renewal is therefore an exact
+presentation, not a simpler algorithm.
 
 Membership decidability is equivalent to any one uniform object:
 
@@ -119,8 +130,8 @@ finite branching, acyclicity, or strict history growth.
 
 ## Lossless structural knowledge
 
-The following predecessor results retain the literal dynamics and are reusable
-filters:
+The following results have now been reconstructed locally from the literal
+step rule and are reusable filters:
 
 - Finite-support orbits correspond exactly to turn words alternating on each
   revisited cell, with finitely many initial-colour defects; five identical
@@ -158,7 +169,7 @@ finite store and do not decide P104 membership.
 
 - A shared two-phase finite tally model realizes extension at lengths 2 and 4
   and a bounded probe at lengths 3 and 5. This is a mechanism witness only.
-- A Laurent parity argument rules out a same-axis, exact-restoring,
+- A locally reconstructed Laurent parity argument rules out a same-axis, exact-restoring,
   one-black-cell-per-column constructor with bounded finite-phase base/cap
   residue. It does not rule out multi-track, moving, non-restoring, or
   unbounded-controller constructions.
