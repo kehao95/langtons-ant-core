@@ -11,6 +11,7 @@ from langtons_ant import (
     blank_p104_witness,
     is_p104_boundary,
     is_standard_p104_boundary,
+    p104_period_successor,
     rotate_state,
 )
 from langtons_ant.highway import DISPLACEMENT, ENTRY_UPDATES, PERIOD
@@ -24,12 +25,14 @@ class BlankP104WitnessTests(unittest.TestCase):
 
         self.assertEqual(len(witness.requirements), 40)
         self.assertEqual(sum(black for _, black in witness.requirements), 13)
+        self.assertEqual(len(witness.toggles), 32)
         self.assertTrue(is_p104_boundary(entry, witness))
         self.assertTrue(is_p104_boundary(successor, witness))
         self.assertEqual(
             (successor.position[0] - entry.position[0], successor.position[1] - entry.position[1]),
             DISPLACEMENT,
         )
+        self.assertEqual(p104_period_successor(entry, witness), successor)
 
     def test_one_required_colour_change_breaks_recognition(self) -> None:
         witness = blank_p104_witness()
@@ -47,6 +50,7 @@ class BlankP104WitnessTests(unittest.TestCase):
 
         self.assertTrue(is_p104_boundary(decorated, witness))
         self.assertTrue(is_p104_boundary(advance(decorated, PERIOD), witness))
+        self.assertEqual(p104_period_successor(decorated, witness), advance(decorated, PERIOD))
 
     def test_rotated_boundary_is_recognized_in_its_own_orientation(self) -> None:
         witness = blank_p104_witness()

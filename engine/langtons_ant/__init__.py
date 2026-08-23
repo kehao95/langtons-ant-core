@@ -6,6 +6,7 @@ from .highway import (
     first_future_read_period,
     future_read_lane_heads,
     is_p104_boundary,
+    p104_period_successor,
     is_standard_p104_boundary,
     rotate_witness,
 )
@@ -26,6 +27,7 @@ __all__ = [
     "first_future_read_period",
     "future_read_lane_heads",
     "is_p104_boundary",
+    "p104_period_successor",
     "is_standard_p104_boundary",
     "rotate_point",
     "rotate_state",

@@ -24,6 +24,7 @@ class P104Witness:
 
     heading: Heading
     requirements: tuple[tuple[Point, bool], ...]
+    toggles: tuple[Point, ...]
 
 
 def _relative(point: Point, origin: Point) -> Point:
@@ -63,6 +64,10 @@ def _matches(state: State, witness: P104Witness) -> bool:
     return True
 
 
+def _toggle_offsets(before: State, after: State) -> tuple[Point, ...]:
+    return tuple(sorted(_relative(point, before.position) for point in before.black ^ after.black))
+
+
 def blank_p104_witness() -> P104Witness:
     """Derive and validate the P104 local recurrence from the blank orbit.
 
@@ -76,6 +81,8 @@ def blank_p104_witness() -> P104Witness:
     successor = advance(entry, PERIOD)
     requirements = _requirements(entry, PERIOD)
     successor_requirements = _requirements(successor, PERIOD)
+    toggles = _toggle_offsets(entry, successor)
+    next_successor = advance(successor, PERIOD)
     displacement = _relative(successor.position, entry.position)
     if displacement != DISPLACEMENT:
         raise AssertionError(f"unexpected P104 displacement: {displacement}")
@@ -83,7 +90,9 @@ def blank_p104_witness() -> P104Witness:
         raise AssertionError("P104 boundary does not preserve heading")
     if successor_requirements != requirements:
         raise AssertionError("P104 local requirements do not recur")
-    witness = P104Witness(entry.heading, requirements)
+    if _toggle_offsets(successor, next_successor) != toggles:
+        raise AssertionError("P104 toggle mask does not recur")
+    witness = P104Witness(entry.heading, requirements, toggles)
     if not _matches(entry, witness) or not _matches(successor, witness):
         raise AssertionError("derived P104 witness does not recognize its boundaries")
     return witness
@@ -101,6 +110,7 @@ def rotate_witness(witness: P104Witness, quarter_turns: int) -> P104Witness:
     return P104Witness(
         witness.heading.rotate_clockwise(quarter_turns),
         tuple(sorted((rotate_point(point, quarter_turns), black) for point, black in witness.requirements)),
+        tuple(sorted(rotate_point(point, quarter_turns) for point in witness.toggles)),
     )
 
 
@@ -144,3 +154,24 @@ def future_read_lane_heads(witness: P104Witness) -> tuple[Point, ...]:
         if old is None or offset[0] > old[0]:
             heads[key] = offset
     return tuple(sorted(heads.values()))
+
+
+def p104_period_successor(state: State, witness: P104Witness) -> State:
+    """Run one witness period and confirm its exact local macro description."""
+
+    if not _matches(state, witness):
+        raise ValueError("state does not satisfy the oriented P104 boundary")
+    successor = advance(state, PERIOD)
+    expected_black = state.black ^ {
+        (state.position[0] + dx, state.position[1] + dy) for dx, dy in witness.toggles
+    }
+    if successor.black != expected_black:
+        raise AssertionError("P104 period has an unexpected toggle mask")
+    if successor.position != (
+        state.position[0] + DISPLACEMENT[0],
+        state.position[1] + DISPLACEMENT[1],
+    ):
+        raise AssertionError("P104 period has an unexpected displacement")
+    if not _matches(successor, witness):
+        raise AssertionError("P104 period does not preserve its boundary")
+    return successor

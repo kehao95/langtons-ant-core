@@ -14,8 +14,9 @@ reaches an entry boundary after 9,977 updates. Over the next 104 updates it:
 - reads only 40 distinct squares.
 
 For each of those squares the checker reconstructs the colour required at the
-start of the period. Thirteen requirements are black. At the next boundary,
-the complete set of relative requirements is identical. The checker derives
+start of the period. Thirteen requirements are black. The period toggles a
+fixed set of 32 relative squares. At the next boundary, the complete set of
+relative requirements and the toggle set are identical. The checker derives
 these values directly from the dynamics in
 [`engine/langtons_ant/highway.py`](../engine/langtons_ant/highway.py); no
 external table is trusted.
@@ -31,7 +32,8 @@ requirements around the translated ant. Applying the same argument repeatedly
 gives an infinite sequence of period boundaries.
 
 The checker supplies the finite premises of this argument: entry, displacement,
-heading preservation, and equality of the two requirement maps. The induction
+heading preservation, equality of the two requirement maps, and equality of
+the two toggle masks. The induction
 above is the analytic step; it is intentionally stated here rather than hidden
 inside a simulation cutoff.
 
