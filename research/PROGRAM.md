@@ -16,7 +16,8 @@ and must name the previous rung it consumes.
 
 1. **Entry obstacle.** Classify the P104-entry state with one additional black
    square by a finite local description plus a small number of infinite rays.
-   The target is a theorem, not an unbounded simulation.
+   The target is a theorem, not an unbounded simulation. The exact input
+   parameterization is [`lanes.md`](./lanes.md).
 2. **Prefix closure.** For the 1,376 positions reached before blank entry,
    construct proof-producing finite traces or a common invariant; do not store
    opaque pass/fail outcomes.

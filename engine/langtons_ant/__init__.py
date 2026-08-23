@@ -12,6 +12,7 @@ from .highway import (
 )
 from .coupling import blank_entry_prefix_domain, toggle_square, unreached_perturbation_reduces_to_entry, visited_squares
 from .model import Heading, Point, State, advance, step
+from .lanes import LaneContact, lane_contact, p104_boundary_after
 from .one_black import CANONICAL_ENTRY_UPDATES, canonical_one_black_entry, canonical_one_black_initial
 from .obstacles import add_unread_obstacle, is_permanently_unread_entry_obstacle
 from .symmetry import rotate_point, rotate_state, translate_point, translate_state
@@ -43,4 +44,7 @@ __all__ = [
     "toggle_square",
     "unreached_perturbation_reduces_to_entry",
     "visited_squares",
+    "LaneContact",
+    "lane_contact",
+    "p104_boundary_after",
 ]
