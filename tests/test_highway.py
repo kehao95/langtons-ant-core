@@ -15,8 +15,9 @@ from langtons_ant import (
     p104_period_successor,
     p104_terminal_successor,
     rotate_state,
+    rotate_witness,
 )
-from langtons_ant.highway import DISPLACEMENT, ENTRY_UPDATES, PERIOD
+from langtons_ant.highway import DISPLACEMENT, ENTRY_UPDATES, PERIOD, first_future_read_period, future_read_lane_heads
 
 
 class BlankP104WitnessTests(unittest.TestCase):
@@ -79,3 +80,18 @@ class BlankP104WitnessTests(unittest.TestCase):
         self.assertEqual(rotated.heading, Heading.NORTH)
         self.assertFalse(is_p104_boundary(rotated, witness))
         self.assertTrue(is_standard_p104_boundary(rotated, witness))
+
+    def test_rotated_witness_rotates_its_future_ray_direction(self) -> None:
+        witness = blank_p104_witness()
+        entry = rotate_state(advance(State.blank(), ENTRY_UPDATES), 1)
+        rotated_witness = rotate_witness(witness, 1)
+        offset, _ = rotated_witness.requirements[0]
+        current = (entry.position[0] + offset[0], entry.position[1] + offset[1])
+        next_period = (
+            current[0] + rotated_witness.displacement[0],
+            current[1] + rotated_witness.displacement[1],
+        )
+
+        self.assertEqual(len(future_read_lane_heads(rotated_witness)), 22)
+        self.assertEqual(first_future_read_period(current, entry.position, rotated_witness), 0)
+        self.assertEqual(first_future_read_period(next_period, entry.position, rotated_witness), 1)
