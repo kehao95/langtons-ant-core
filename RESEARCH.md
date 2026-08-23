@@ -131,6 +131,27 @@ a decidable, sound and complete finite NO-certificate relation.
 These are characterizations of the missing decider, not consequences of
 finite branching, acyclicity, or strict history growth.
 
+Four logical boundaries remain important even when they are not the active
+proof step:
+
+- A total all-input generation bound `H_HC(z)` proves HC. A positive cutoff
+  `B+(z)` or `G+(z)` need only bound inputs that eventually terminate; a
+  negative run reveals itself by crossing the supplied bound. The latter
+  decides membership without proving that every answer is positive.
+- Reversibility makes the concrete dynamics a computable bijection and makes
+  `HIGHWAY` invariant along complete orbits. It supplies neither a basin
+  decider nor a computable canonical orbit representative; reversible machines
+  can still have undecidable basins of decidable forward-invariant sets.
+- Published Langton universality does not close this finite-support problem.
+  Finite seeds can evaluate supplied finite circuits, while the known
+  unbounded machine simulation uses infinite support. A finite-seed
+  self-extension compiler remains a separate open construction.
+- An effective-compactness proof must preserve reachable literal roots, be
+  uniform and computable from finite data, retain complete history or a proved
+  deletion guard, and be both sound and complete. A WQO, pump syntax or
+  semantic finite basis without these four properties is only a candidate
+  architecture.
+
 ## Lossless structural knowledge
 
 The following results have now been reconstructed locally from the literal
@@ -168,27 +189,181 @@ step rule and are reusable filters:
 These formulations remove false degrees of freedom but do not bound the remote
 finite store and do not decide P104 membership.
 
-## Finite evidence and narrow obstructions
+## Dormant exact deductions
+
+Unless explicitly called local, the statements in this section are
+**source-audited** predecessor results. They are retained because they constrain
+future proofs; their old certificate and test surfaces are not dependencies of
+this repository.
+
+### Event accounting
+
+For a renewed event, the full read footprint is a connected lattice walk. The
+target old set is the source old set union the strict pre-divergence reads;
+post-divergence reads are already old because the first new cell would instead
+be the next carrier. The target black set is the source black set XOR the cells
+read an odd number of times. Consequently old-component change has an exact
+closed-neighbour attachment law, while black components have an exact
+birth/death/split/merge ledger rather than a monotone component count.
+
+If `R,L` are white and black reads, `D` the source-live incarnations killed by
+the event, and `C` the births still live at its endpoint, then
+
+```text
+Theta = R-L = |B_target|-|B_source| = |C|-|D|.
+```
+
+This is conservation, not descent. A concrete event can consume one divergence
+parent and leave six children, so black count, signed turn, component count and
+local branching are not global ranks.
+
+### Genealogy geometry
+
+- Completed parent and child lifetimes satisfy
+  `birth(parent)<birth(child)` and `death(parent)<death(child)`. Canonical
+  ancestry is proper-interval/FIFO-shaped rather than nested/LIFO, but physical
+  query order is not a reliable queue: frame changes, survivors, rebirths and
+  predecessor residue can reorder reads.
+- If descendants remain inside one already bounded component of the old-set
+  complement, their births inject into its finite cells. Along a direct
+  descendant chain the pocket area strictly decreases. New pockets can still
+  be cut from the unbounded complement, so this is conditional capture rather
+  than global well-foundedness.
+- If the parent locations of an infinite lineage are bounded, all but finitely
+  many selected children are old-white rebirths. After fixing parent, child,
+  heading and phase, sources lie on one reverse highway-drift ray with an
+  unbounded cycle parameter; their pre-hit words form a nested suffix family,
+  growing by exactly 104 reads per cycle.
+- In a fixed ray-return class the clean pre-hit state has a fixed active core,
+  twelve finite wake rays with a common length parameter, and one rigidly
+  translated 702-cell entry cloud. The actual state is this semilinear clean
+  part XOR the arbitrary launch black residual; the residual is not deleted.
+- After divergence, every carrier in a sufficiently deep fixed ray class
+  follows one finite canonical escape path to the same gate. Continuing past
+  that gate requires it already belong to source old. History after this gate
+  is still uncompressed and may change the frame.
+- For any infinite marked genealogy whose productive vertices remain in a
+  finite cell set `S`, if `L_n` is the live productive frontier and `r_n` the
+  productive children replacing its next parent, then
+  `L_(n+1)=L_n-1+r_n` and `sum(r_n-1)<=|S|-L_0`. Productive splitting is
+  therefore finite; an infinite bounded remainder eventually transports
+  productivity through one child at a time.
+- The globally fresh source cell of every event has an exact dichotomy. Its
+  first black incarnation either survives as a genealogy child, or a later
+  return absorbs it into an Eulerian incidence cycle containing that unique
+  fresh edge. An infinite run therefore has infinitely many transmitted source
+  marks or infinitely many fresh-edge-rooted cycles. Neither branch yet has an
+  unforgeable ownership order.
+
+### Charge, mass and topology
+
+The local incidence charge from `PROOF.md` implies more under guarded recurrent
+ray hypotheses: sufficiently remote sources require an external current-black
+gate connected to a fixed finite charge token. Infinitely many such gates give
+an infinite productive genealogy spine, but the marked gates may remain on
+side branches. Distinct gates can share a tether tail, a whole shortest tether
+can disappear in one event, and simple birth-time ordering on the tether fails.
+Static tether geometry is therefore not fuel.
+
+Signed row/column cut charges also give a global mass bound. If `R0` is the
+initial support/pose bounding box and `d` the ant's later `L_infinity` distance
+from it, then
+
+```text
+|B_t| >= 2 max(d-1,0).
+```
+
+Thus every spatially unbounded finite-support trajectory has unbounded black
+mass along a subsequence; a bounded black gadget cannot simply translate to
+infinity. This does not distinguish productive structure from inert highway
+wake.
+
+Black/Tait loops are reversible surgery objects: bridges can be deleted,
+cycles split and merge, and previously seen loop identities return. The
+monotone object is complete old history, not current black topology. Any useful
+topological rank must bind a crossing to time-expanded provenance.
+
+### Finite and guarded leaves
 
 - A shared two-phase finite tally model realizes extension at lengths 2 and 4
   and a bounded probe at lengths 3 and 5. This is a mechanism witness only.
-- A locally reconstructed Laurent parity argument rules out a same-axis,
-  exact-restoring, one-black-cell-per-column constructor with bounded
-  finite-phase base/cap residue. It does not rule out multi-track, moving,
-  non-restoring, or unbounded-controller constructions.
-- A single-parent ray-return experiment covers only cycles `k=0..3`. Between
-  each of `1->2` and `2->3` it observes 104 updates, signed-turn difference 12,
-  and 12 additional target black cells; two equal differences are not an
-  all-depth recurrence.
-- Exact renewal gate, tether, collision, pocket and local-reduction results
-  narrow guarded carriers but supply neither a global rank nor well-foundedness.
-- Guarded one/two/three-obstacle, sparse-word, rotating-block, obstacle-chain,
-  and phase-32 families are positive leaves. More leaves matter globally only
-  when a coverage theorem assembles them.
-- The sparse phase-32 decoding library also has exact reset, selector,
-  singleton-orthant and typed-control facts under their full guards. These are
-  source-audited parsing/dispatch lemmas, not concrete transitions when read
-  without the terminal context contract.
+- A local Laurent parity proof rules out a same-axis, exact-restoring,
+  one-black-cell-per-column constructor with bounded finite-phase base/cap
+  residue. Multi-track, moving, non-restoring and unbounded-control designs
+  remain possible.
+- A single-parent ray-return experiment covers only cycles `k=0..3`. The two
+  observed increments are each 104 updates, signed-turn difference 12 and 12
+  target black cells; two equal increments are not an all-depth recurrence.
+- The obstacle-chain language has arbitrarily long concrete renewal paths, so
+  no finite nonterminal abstraction DAG can cover all renewals. That guarded
+  language nevertheless has its own strict fresh-event natural rank; the rank
+  has no proved coverage beyond the language.
+- Guarded one/two/three-obstacle, sparse-word, rotating-block, obstacle-chain
+  and phase-32 families are positive leaves. The sparse phase-32 decoder also
+  has exact reset, selector, singleton-orthant and typed-control facts. All
+  require their complete guards; labels or quotient edges alone are not
+  concrete transitions. More leaves matter globally only with coverage.
+
+## Retained proof interfaces
+
+The predecessor's intermediate work leaves three reusable proof contracts.
+They are designs constrained by the exact deductions above, not proved global
+theorems.
+
+### Guarded rewrite
+
+A sound corridor rewrite must carry the input frame and active pattern, every
+consumed lane slice, all off-lane and backward-history reads with colour and
+old/fresh status, a symbolic untouched suffix plus separation proof, exact
+replay to a terminal or guarded endpoint, an output split into active/residual
+parts, and a separately justified well-founded decrease. A verifier must reject
+at the first unencoded read.
+
+The lane word is exact only before first collision. Collision can leave all 22
+lanes or run backward through arbitrary wake, so a fixed halo is not closed.
+Path-length realizability must accompany quotient states: a Cartesian product
+of locally valid fields can invent impossible history intersections or hide a
+real one. Every frame-changing scatter must recompute visibility; neither input
+order nor incarnation birth order is a global selector.
+
+Even sound local rules need global coverage, suffix preservation, permanent or
+guarded residue separation, capture/return to the rule domain, and strict
+well-foundedness on every contextual edge.
+
+### Three-way lineage capture
+
+Any proposed proof of connected-old well-foundedness should cover every
+hypothetical infinite lineage by the following exhaustive trichotomy:
+
+1. **bounded pocket:** it remains in descendants of an existing bounded pocket
+   and consumes finite area;
+2. **finite scattering:** bounded parents reduce to a ray-return system with a
+   fixed collar, isolated exterior wake, finite normal states and no
+   nonterminal recurrent control cycle;
+3. **outer ownership:** outward productivity repeatedly consumes a new causal
+   gate that cannot be inherited by two infinite descendants or recreated
+   without a well-founded payment.
+
+Only the conditional pocket branch is currently closed. The other two clauses
+state the missing Langton-specific bridge rather than consequences of generic
+finite branching.
+
+### Dynamic ownership
+
+The strongest retained synthesis tracks time-expanded causal ownership, not a
+cell, current component or scalar charge. In a bounded rewrite class it may use
+finite control plus fixed-dimensional semilinear counters, separating active
+counters from inert archive counters. Outside that class it must select a
+productive owner frontier and charge each crossing of a monotone old-set
+separator to a unique incarnation/cut obligation.
+
+VASS/WSTS or Dickson arguments become relevant only after proving a fixed
+counter dimension, exact concrete successor coverage, compatible monotone
+simulation, and explicit exemption of certified highway growth. First-hit
+selection, XOR cancellation and collision reorder can violate all of these.
+An owner record must be computable from a finite renewal/genealogy prefix; it
+may not contain semantic predicates such as "has infinitely many productive
+descendants."
 
 ## Abstractions already ruled out
 
@@ -201,7 +376,14 @@ Do not rebuild any argument that relies only on:
 - parity or Euler balance without temporal ownership of the residual cells;
 - total computable/reversible macros, strict connected history growth,
   acyclicity, finite branching, or a primary/secondary blocker pair;
-- FIFO, LIFO, birth order, or input order as a global query discipline.
+- ancestry interval order as a complete FIFO store, or birth/input order as a
+  global FIFO/LIFO selector;
+- finite conserved charge, current black count, or static tether/loop
+  topology as a non-cloning budget;
+- information depletion, WQO existence or repeated semilinear control without
+  exact forward simulation and reachable concrete coverage;
+- infinite-support universality, finite circuit evaluation, or a nearby
+  one-state-machine theorem as a finite-support P104 classifier.
 
 Explicit decidable and undecidable abstract models satisfy the generic renewal
 properties above. Therefore a classification proof must use additional facts
