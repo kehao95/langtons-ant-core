@@ -1,5 +1,18 @@
 # Langton's Ant: proof and research core
 
+> **[Explore the interactive one-black proof guide](https://kehao95.github.io/langtons-ant-core/)**
+
+## Status
+
+- **Universal one-black theorem: proved and Lean-checked.** Every classical
+  Langton-ant state with exactly one black square reaches the standard P104
+  highway, for every ant position and heading.
+- **Blank-plane theorem: proved.** The blank orbit enters P104 after exactly
+  9,977 updates.
+- **General finite-support Highway Conjecture: open.** The root proof and
+  research documents develop exact reductions and structural consequences
+  without promoting them to a universal finite-support theorem.
+
 This repository proves two terminal families for the classical two-colour
 Langton ant:
 
@@ -11,9 +24,10 @@ Langton ant:
 [`one_black/`](./one_black/README.md) contains the theorem, proof narrative,
 exact dynamics, shared finite certificate, Lean proof, and reproduction entrypoint.
 
-[`docs/`](./docs/) contains the interactive proof guide published with GitHub
-Pages. It visualizes the certified case split and replays the classical rule in
-the browser; it is an explanatory view of `one_black/`, not a separate proof
+[`docs/`](./docs/) contains the source of the
+[interactive proof guide](https://kehao95.github.io/langtons-ant-core/). It
+visualizes the certified case split and replays the classical rule in the
+browser; it is an explanatory view of `one_black/`, not a separate proof
 authority.
 
 The root [`PROOF.md`](./PROOF.md) develops the clean-envelope condition, exact
