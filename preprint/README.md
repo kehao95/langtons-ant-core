@@ -1,8 +1,17 @@
-# Preprint draft
+# Preprint
 
-This directory is the working manuscript area for the universal one-black
-theorem. The current phase fixes the paper's story and its claim--evidence
-boundary before prose or typesetting is expanded.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22086968.svg)](https://doi.org/10.5281/zenodo.22086968)
+
+This directory contains the source and generated PDF for the universal
+one-black theorem preprint:
+
+> Hao Ke, *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway:
+> A Lean-Checked Proof*, Zenodo, 2026.
+> [doi:10.5281/zenodo.22086968](https://doi.org/10.5281/zenodo.22086968)
+
+The published record is available on
+[Zenodo](https://zenodo.org/records/22086968). This directory remains the
+reproducible manuscript source for subsequent revisions.
 
 ## Canonical evidence
 
@@ -18,7 +27,7 @@ candidate references, and useful exposition. No theorem, artifact claim, or
 numerical constant is imported from it without checking against this
 repository's current Lean proof cone.
 
-## Draft files
+## Manuscript files
 
 - [`OUTLINE.md`](./OUTLINE.md): the locked three-part narrative covering the
   proof architecture, literature positioning, and section-by-section preprint
@@ -29,7 +38,8 @@ repository's current Lean proof cone.
 - [`REVIEW.md`](./REVIEW.md): adversarial self-review and submission blockers.
 - [`paper.md`](./paper.md): complete Markdown manuscript source.
 - [`Makefile`](./Makefile): reproducible Pandoc/XeLaTeX build.
-- [`paper.pdf`](./paper.pdf): generated preprint PDF after a successful build.
+- [`Every-One-Black-Cell-Langton-Ant-Reaches-the-Period-104-Highway-A-Lean-Checked-Proof.pdf`](./Every-One-Black-Cell-Langton-Ant-Reaches-the-Period-104-Highway-A-Lean-Checked-Proof.pdf):
+  generated preprint PDF after a successful build.
 - [`figures/scattering/`](./figures/scattering/): 22 terminal canvases exported
   directly from Stage 03 of the interactive proof app.
 - [`figures/exceptional/`](./figures/exceptional/): the phase-72 depth-15
@@ -40,6 +50,5 @@ repository's current Lean proof cone.
   Playwright exporter for regenerating those canvases from a local `docs/`
   server.
 
-Build the PDF from this directory with `make`. The manuscript is a draft:
-mathematical claims track the current Lean proof cone, while venue selection,
-author metadata, and final copy-editing remain pre-submission work.
+Build the PDF from this directory with `make`. Mathematical claims track the
+current Lean proof cone; the Zenodo record preserves the published preprint.
