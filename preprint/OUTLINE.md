@@ -94,7 +94,7 @@ At state `E`, the defect location `q` belongs to exactly one of four classes.
 4. **Frontier channel.** Define
 
    ```text
-   H = {s ∈ S | s - v ∉ S}.
+   H = {h ∈ S | h + v ∉ S}.
    ```
 
    Exact geometry gives `|H|=22`, and every future-read defect has a unique
@@ -239,7 +239,7 @@ Lean-Checked Proof**
 
 - **4.1 Support Geometry at Entry.** Classify `q` as already black,
   active-support white, geometrically separated, or future-interacting.
-- **4.2 The 22 Frontier Heads.** Define `H={s∈S | s-v∉S}`, prove
+- **4.2 The 22 Frontier Heads.** Define `H={h∈S | h+v∉S}`, prove
   `|H|=22`, and establish the bijection between future-interacting untouched
   cells and `(h,d)∈H×ℤ⁺`.
 

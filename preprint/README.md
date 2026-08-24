@@ -23,6 +23,14 @@ repository's current Lean proof cone.
 - [`OUTLINE.md`](./OUTLINE.md): the locked three-part narrative covering the
   proof architecture, literature positioning, and section-by-section preprint
   plan, with only audited claim and trust-boundary corrections.
+- [`LITERATURE.md`](./LITERATURE.md): primary-source claim audit and priority
+  boundary.
+- [`references.bib`](./references.bib): bibliography used by the Pandoc draft.
+- [`REVIEW.md`](./REVIEW.md): adversarial self-review and submission blockers.
+- [`paper.md`](./paper.md): complete Markdown manuscript source.
+- [`Makefile`](./Makefile): reproducible Pandoc/XeLaTeX build.
+- [`paper.pdf`](./paper.pdf): generated preprint PDF after a successful build.
 
-The next drafting milestone is to audit the literature and then turn the
-approved outline into a LaTeX manuscript with a verified bibliography.
+Build the PDF from this directory with `make`. The manuscript is a draft:
+mathematical claims track the current Lean proof cone, while venue selection,
+author metadata, and final copy-editing remain pre-submission work.
