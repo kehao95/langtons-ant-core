@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An interactive guide to the universal one-black-cell theorem for Langton's ant." />
+    <title>One Black Cell · Interactive Proof Guide</title>
+    <link rel="stylesheet" href="./styles.css?v=38" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">ONE BLACK · PROOF GUIDE</p>
+          <h1>One-cell perturbation</h1>
+        </div>
+        <p>Each stage isolates the candidate perturbation cells handled by one proof branch. Colors distinguish finite cases, inductive families, and scattering outcomes.</p>
+      </header>
+
+      <nav class="stage-switch" aria-label="Proof stages">
+        <button type="button" data-proof-stage="outside" aria-current="page"><b>01</b> Untouched</button>
+        <button type="button" data-proof-stage="prefix"><b>02</b> Prefix hit</button>
+        <button type="button" data-proof-stage="pristine"><b>03</b> P104 scattering</button>
+        <button type="button" data-proof-stage="finiteHistory"><b>04</b> Finite history</button>
+        <button type="button" data-proof-stage="reverseHighway"><b>05</b> Reverse highway</button>
+        <button type="button" data-proof-stage="overview"><b>06</b> Global map</button>
+      </nav>
+
+      <section class="map-card" aria-label="Interactive proof grid">
+        <div class="map-toolbar">
+          <strong>Certified case map</strong>
+          <div class="map-actions">
+            <span id="cell-readout">Hover over a cell to inspect its role</span>
+            <button id="return-selection" type="button" disabled aria-hidden="true">Reset view</button>
+          </div>
+        </div>
+
+        <canvas id="proof-map" width="1100" height="760" aria-label="Interactive grid of certified proof cases and Langton's ant evolution"></canvas>
+
+        <div id="legend" class="legend" aria-label="Map legend">
+          <span class="legend-item"><i class="legend-chip legend-gray"></i>Blank-orbit reads</span>
+          <span class="legend-item"><i class="legend-chip legend-blue"></i>Untouched placements</span>
+        </div>
+
+        <div class="map-caption">
+          <span id="map-caption">The P104 tail continues indefinitely toward the lower left.</span>
+          <a href="https://github.com/kehao95/langtons-ant-core/blob/main/one_black/PROOF.md">Read the proof</a>
+        </div>
+      </section>
+
+    </main>
+    <script type="module" src="./app.js?v=38"></script>
+  </body>
+</html>

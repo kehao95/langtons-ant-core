@@ -11,6 +11,11 @@ Langton ant:
 [`one_black/`](./one_black/README.md) contains the theorem, proof narrative,
 exact dynamics, shared finite certificate, Lean proof, and reproduction entrypoint.
 
+[`docs/`](./docs/) contains the interactive proof guide published with GitHub
+Pages. It visualizes the certified case split and replays the classical rule in
+the browser; it is an explanatory view of `one_black/`, not a separate proof
+authority.
+
 The root [`PROOF.md`](./PROOF.md) develops the clean-envelope condition, exact
 interaction index, complete-history renewal, and structural results.
 Complete-history renewal is reconstructed there as a total computable,
