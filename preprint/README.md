@@ -30,6 +30,15 @@ repository's current Lean proof cone.
 - [`paper.md`](./paper.md): complete Markdown manuscript source.
 - [`Makefile`](./Makefile): reproducible Pandoc/XeLaTeX build.
 - [`paper.pdf`](./paper.pdf): generated preprint PDF after a successful build.
+- [`figures/scattering/`](./figures/scattering/): 22 terminal canvases exported
+  directly from Stage 03 of the interactive proof app.
+- [`figures/exceptional/`](./figures/exceptional/): the phase-72 depth-15
+  physical-history replay exported from Stage 05.
+- [`figures/stages/`](./figures/stages/): overview canvases exported from
+  Stages 01, 02, 04, and 06 for the proof narrative.
+- [`scripts/export_scattering_panels.mjs`](./scripts/export_scattering_panels.mjs):
+  Playwright exporter for regenerating those canvases from a local `docs/`
+  server.
 
 Build the PDF from this directory with `make`. The manuscript is a draft:
 mathematical claims track the current Lean proof cone, while venue selection,

@@ -1,6 +1,11 @@
 ---
 title: "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof"
-author: "Hao"
+author: |
+  \begin{tabular}{c}
+  Hao Ke\\
+  \href{mailto:i@kehao.me}{\texttt{i@kehao.me}}
+  \end{tabular}
+author-meta: "Hao Ke"
 date: "Draft, 24 August 2026"
 bibliography: references.bib
 link-citations: true
@@ -19,12 +24,13 @@ header-includes:
     \usepackage{fontspec}
     \setmonofont{DejaVu Sans Mono}
     \usepackage{amsmath,amssymb,amsthm,mathtools}
-    \usepackage{booktabs,array,longtable,microtype,xcolor,tikz}
+    \usepackage{booktabs,array,longtable,microtype,xcolor,tikz,graphicx,pdflscape}
     \usetikzlibrary{arrows.meta,positioning,shapes.geometric,decorations.pathreplacing}
     \definecolor{proofblue}{HTML}{28678D}
     \definecolor{proofgreen}{HTML}{2F855A}
     \definecolor{prooforange}{HTML}{C76B29}
     \definecolor{proofpurple}{HTML}{7355A3}
+    \definecolor{proofred}{HTML}{C94F4F}
     \newtheorem{theorem}{Theorem}[section]
     \newtheorem{lemma}[theorem]{Lemma}
     \newtheorem{proposition}[theorem]{Proposition}
@@ -56,7 +62,9 @@ reports---the blank highway, 1,376 prefix contacts, and the shared scattering
 certificate---are evaluated with \texttt{native\_decide}. We state this trust
 boundary explicitly: native evaluation adds Lean's compiler, runtime, and
 code-generation path to the trusted base. The checked sources, witness tables,
-and reproduction command are available in the accompanying artifact.
+and reproduction command are available in the public
+\href{https://github.com/kehao95/langtons-ant-core}{source-code and Lean-proof
+repository}.
 \end{abstract}
 
 \clearpage
@@ -308,6 +316,31 @@ If $q\notin P$, then
 $$\operatorname{run}(T,\sigma_q)=\operatorname{blacken}(q,E).$$
 \end{corollary}
 
+Figure~\ref{fig:prefix-dichotomy} makes the first-contact split visible. It is
+an exact rendering of the sets used by the app, but the proof obligations are
+the read-set equality and coupling statement above, not the displayed window.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=.70\linewidth]{figures/stages/stage-01-untouched.png}
+
+\smallskip
+{\small\textbf{(a) Untouched placements.}}
+
+\medskip
+\includegraphics[width=.70\linewidth]{figures/stages/stage-02-prefix.png}
+
+\smallskip
+{\small\textbf{(b) Prefix-hit placements.}}
+\caption{The finite-prefix dichotomy, exported from Stages 01 and 02 of the
+interactive app. In (a), gray is the blank-orbit read footprint and blue is
+its complement in the displayed window; the diagonal arrow indicates that the
+gray P104 corridor continues indefinitely. In (b), the 1,376 blue cells are
+exactly the deduplicated prefix set $P$, while gray shows the subsequent P104
+corridor. The red outline marks the canonical time-zero ant position.}
+\label{fig:prefix-dichotomy}
+\end{figure}
+
 # Entry geometry and the 22 frontier channels
 
 The future clean highway reads exactly $S,S+v,S+2v,\ldots$. A defect untouched
@@ -405,6 +438,82 @@ For 21 heads the stable output has the forward standard drift. For the
 remaining head $h_{72}$, the stable output has reverse drift $-v=(2,2)$.
 \end{proposition}
 
+Figure~\ref{fig:scattering-spectrum} displays one common-depth replay for every
+frontier head. These panels are exported directly from Stage 03 of the
+interactive app: the app runs the exact ant rule to the stored terminal witness
+and then continues the resulting P104 orbit for 20 cycles. The figure is
+explanatory rather than an additional proof obligation; completeness and
+all-depth extension are supplied by the checked 22-head list and archive
+induction above.
+
+\begin{landscape}
+\begin{figure}[p]
+\centering
+\setlength{\tabcolsep}{1.5pt}
+\renewcommand{\arraystretch}{0.82}
+\begin{tabular}{@{}cccccc@{}}
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-13-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-14-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-27-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-28-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-60-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-61-straight.png} \\
+{\scriptsize\textcolor{proofblue}{P13 · straight}} &
+{\scriptsize\textcolor{proofblue}{P14 · straight}} &
+{\scriptsize\textcolor{proofblue}{P27 · straight}} &
+{\scriptsize\textcolor{proofblue}{P28 · straight}} &
+{\scriptsize\textcolor{proofblue}{P60 · straight}} &
+{\scriptsize\textcolor{proofblue}{P61 · straight}} \\[2pt]
+
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-70-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-75-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-89-straight.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-29-right.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-32-right.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-38-right.png} \\
+{\scriptsize\textcolor{proofblue}{P70 · straight}} &
+{\scriptsize\textcolor{proofblue}{P75 · straight}} &
+{\scriptsize\textcolor{proofblue}{P89 · straight}} &
+{\scriptsize\textcolor{prooforange}{P29 · right}} &
+{\scriptsize\textcolor{prooforange}{P32 · right}} &
+{\scriptsize\textcolor{prooforange}{P38 · right}} \\[2pt]
+
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-55-right.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-56-right.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-62-right.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-71-right.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-15-left.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-45-left.png} \\
+{\scriptsize\textcolor{prooforange}{P55 · right}} &
+{\scriptsize\textcolor{prooforange}{P56 · right}} &
+{\scriptsize\textcolor{prooforange}{P62 · right}} &
+{\scriptsize\textcolor{prooforange}{P71 · right}} &
+{\scriptsize\textcolor{proofpurple}{P15 · left}} &
+{\scriptsize\textcolor{proofpurple}{P45 · left}} \\[2pt]
+
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-46-left.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-47-left.png} &
+\includegraphics[width=.155\linewidth]{figures/scattering/phase-57-left.png} &
+ & &
+\fcolorbox{proofred}{white}{\includegraphics[width=.147\linewidth]{figures/scattering/phase-72-reverse.png}} \\
+{\scriptsize\textcolor{proofpurple}{P46 · left}} &
+{\scriptsize\textcolor{proofpurple}{P47 · left}} &
+{\scriptsize\textcolor{proofpurple}{P57 · left}} &
+ & &
+{\scriptsize\bfseries\textcolor{proofred}{P72 · reverse (exceptional)}}
+\end{tabular}
+\caption{The complete $21+1$ pristine scattering spectrum, grouped by outgoing
+orientation. Beige cells are the complete disturbed footprint, gray cells are
+the undisturbed P104 reference, green cells show 20 terminal P104 cycles, the
+black cell with a white outline is the selected perturbation $q$, and the
+triangle is the ant. Each app canvas is independently fitted to its complete
+footprint; lattice spacing remains visible in every panel. The boxed phase-72
+panel is the unique reverse response and the exceptional channel in the
+physical-history proof.}
+\label{fig:scattering-spectrum}
+\end{figure}
+\end{landscape}
+
 The subscript records the phase label used by the artifact, not a count. Its
 coordinate relative to the pristine base pose is
 
@@ -448,6 +557,23 @@ farther cannot bring a historical cell into any new trace copy or output ray.
 Untouched-region coupling then turns geometric nonintersection into exact
 equality of observations.
 
+Figure~\ref{fig:ordinary-history-map} shows why a channel-specific cutoff is
+needed: shallow channel points lie among the finite historical cloud, whereas
+each stable lane eventually extends past it in the common drift direction.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.94\linewidth]{figures/stages/stage-04-finite-history.png}
+\caption{The ordinary physical-history map, exported from Stage 04 of the
+interactive app. Gray is the finite time-9,977 history together with the
+active entry support. Orange cells are channel depths discharged by direct
+physical replay; blue cells extend the 21 stable ordinary lanes through depth
+30 to display their affine continuation. Red and cyan outlines mark the
+time-zero ant origin and the time-9,977 P104 entry, respectively. The all-depth
+claim is supplied by Lemma~\ref{lem:history}, not by the displayed cutoff.}
+\label{fig:ordinary-history-map}
+\end{figure}
+
 \begin{proposition}[Ordinary physical channels]\label{prop:ordinary}
 For each of the 21 ordinary heads $h$ and every $d\ge1$,
 $\Sigma_E(h,d)$ reaches P104.
@@ -464,7 +590,7 @@ below.
 For the exceptional head, the pristine stable depth is 11 but the physical
 base depth is
 
-$$P_{h_{72}}=11,qquad A_{h_{72}}=15,qquad A_{h_{72}}-P_{h_{72}}=4.$$
+$$P_{h_{72}}=11,\qquad A_{h_{72}}=15,\qquad A_{h_{72}}-P_{h_{72}}=4.$$
 
 Depths 1 through 14 are direct physical cases. At depth 15, four clean forward
 translations carry the physical state into the affine reverse family.
@@ -524,23 +650,16 @@ archive.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[x=0.78cm,y=0.78cm,
-  arr/.style={-{Latex[length=2mm]},very thick},
-  lab/.style={font=\small,fill=white,inner sep=1.5pt}]
-\draw[step=0.5cm,gray!18,very thin] (-6,-2.5) grid (6,3);
-\draw[arr,proofblue] (-5,-1.6)--(-1.2,2.2)
-  node[midway,lab,sloped]{forward P104, $v$};
-\draw[arr,proofpurple] (-0.9,2.2)--(4.4,-1.6)
-  node[midway,lab,sloped]{reverse P104, $-v$};
-\fill[prooforange] (4.4,-1.6) circle (2.2pt);
-\node[lab,anchor=west] at (4.55,-1.6) {fixed hit $c$};
-\draw[prooforange,densely dotted,thick] (3.8,-2.1)--(5.1,-0.8);
-\node[lab,prooforange] at (4.4,-2.25) {historical wake};
-\draw[<->,proofgreen,thick] (-4.7,-2.15)--(-1.4,1.15)
-  node[midway,lab,sloped,below] {$n$ added blocks};
-\end{tikzpicture}
-\caption{Exceptional mechanism. One added depth contributes one forward and
-one reverse 104-step block before the same historical collision.}
+\includegraphics[width=.92\linewidth]{figures/exceptional/phase-72-depth-15-history.png}
+\caption{The exceptional phase-72 history replay at the inductive base depth
+$15$, exported directly from Stage 05 of the interactive app. Gray cells are
+the finite state present at the time-9,977 entry boundary; beige cells are the
+complete disturbed footprint; the coral diagonal is the reverse P104 segment
+returning toward the history; and the green diagonal is 20 cycles of the final
+forward P104 highway after the fixed historical collision and post-hit
+transient. The black square is the perturbation $q$ and the triangle is the
+terminal ant. Cyan, red, and orange outlines mark the P104 entry, the original
+time-zero ant position, and the fixed historical hit, respectively.}
 \label{fig:exceptional}
 \end{figure}
 
@@ -579,6 +698,24 @@ $h$ is ordinary, apply Proposition~\ref{prop:ordinary}; if
 $h=h_{72}$, apply Proposition~\ref{prop:exceptional}. Every branch reaches
 P104, and equivariance restores the original pose.
 \end{proof}
+
+Figure~\ref{fig:global-map} combines those branches in one visible-domain map.
+It is a spatial index to the preceding propositions, not a replacement for
+their exhaustive and inductive coverage.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.94\linewidth]{figures/stages/stage-06-global-map.png}
+\caption{Global one-black proof map, exported from Stage 06 of the interactive
+app. Every lattice cell in the visible window is assigned to one proof stage:
+untouched (gray-blue), prefix hit (blue), pristine P104 scattering (green),
+finite-history intersection (orange), or exceptional reverse highway
+(purple). A point belonging geometrically to both Stages 03 and 04 is assigned
+to Stage 04 exactly when its replay or terminal corridor meets the finite
+history. The colored rays are displayed finite segments of affine classes that
+the Lean proof extends to every depth.}
+\label{fig:global-map}
+\end{figure}
 
 In Lean, the same assembly is exposed at three levels. The theorem
 \texttt{Scattering.single\_defect\_scattering} constructs the $21+1$
@@ -661,7 +798,10 @@ descriptions.
 
 ## Reproduction
 
-The repository [@hao2026artifact] pins `leanprover/lean4:v4.30.0`. From its
+The source code, checked witness data, and complete Lean proof are available in
+the public repository
+[github.com/kehao95/langtons-ant-core](https://github.com/kehao95/langtons-ant-core)
+[@hao2026artifact]. The repository pins `leanprover/lean4:v4.30.0`. From its
 root, the complete theorem is rebuilt with
 
 ```console
