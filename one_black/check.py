@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
-"""Replay every finite obligation in the universal one-black proof."""
+"""Build the closed Lean proof from any working directory."""
 
-from langtons_ant.highway import verify_blank_highway, verify_prefix_one_black
-from langtons_ant.one_black import (
-    verify_actual_entry_ordinary,
-    verify_phase72,
-    verify_pristine_one_obstacle,
-)
+from pathlib import Path
+import shutil
+import subprocess
+
+
+def lake_executable(lean_dir: Path) -> str:
+    if lake := shutil.which("lake"):
+        return lake
+
+    toolchain = (lean_dir / "lean-toolchain").read_text().strip()
+    encoded = toolchain.replace("/", "--").replace(":", "---")
+    installed = Path.home() / ".elan" / "toolchains" / encoded / "bin" / "lake"
+    if installed.is_file():
+        return str(installed)
+    raise SystemExit("lake is required")
 
 
 def main() -> None:
-    witness = verify_blank_highway()
-    verify_prefix_one_black(witness)
-    verify_pristine_one_obstacle(witness)
-    verify_actual_entry_ordinary(witness)
-    verify_phase72(witness)
-    print("verified: blank P104 and the universal one-black partition")
+    lean_dir = Path(__file__).parent / "lean"
+    subprocess.run([lake_executable(lean_dir), "build"], cwd=lean_dir, check=True)
+    print("verified: ∀ s, ExactlyOneBlack s → ReachesP104 s")
 
 
 if __name__ == "__main__":

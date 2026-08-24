@@ -1,0 +1,6 @@
+name = "one-black"
+version = "0.1.0"
+defaultTargets = ["OneBlack"]
+
+[[lean_lib]]
+name = "OneBlack"

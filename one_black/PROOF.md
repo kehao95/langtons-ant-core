@@ -1,113 +1,268 @@
 # Universal one-black proof
 
-## Dynamics and terminal predicate
+## Theorem and canonical pose
 
-A state is read immediately before an update. White turns the ant right, black
-turns it left; the current cell is then toggled and the ant moves one edge.
-North increases the second coordinate. `langtons_ant/model.py` implements this
-definition with an immutable finite set of black lattice points.
+A state records the black cells, ant position, and heading. Before every move
+the ant reads its cell, turns right on white or left on black, toggles the cell,
+and advances one lattice edge. The formal result is
 
-A terminal boundary records a heading, 40 relative read requirements, and a
-displacement. `standard_terminal` checks those local requirements and proves
-that every initially black cell outside the block misses every future translate
-of its read footprint. Once this predicate holds, literal replay of one block
-and induction give a permanent translating orbit.
+```lean
+theorem OneBlack.universal_one_black :
+    ∀ s, ExactlyOneBlack s → ReachesP104 s
+```
 
-## Blank P104 witness
+Translation and quarter-turn rotation commute with the dynamics and preserve
+P104. It is therefore enough to place the ant at the origin, heading north,
+with a single black cell `q`.
 
-`verify_blank_highway` starts from the blank plane, performs 9,977 updates, and
-calls the result `E`. It replays the next 104 updates and derives the required
-colour of each cell at its first read. Repeated reads must agree. It checks:
+## 1. Blank orbit and permanent P104
 
-1. the endpoint has the same heading and displacement `(-2,-2)`;
-2. the next block has the same relative read requirements;
-3. at `E` and its successor, all other black cells miss every later translated
-   block footprint.
+Exact replay of the blank plane reaches a state `E` after 9,977 updates. Its
+next 104 updates read a 40-cell support `S`, restore the heading, and translate
+the state by
 
-For the third check a future footprint point is `o+n(-2,-2)`, `n>=0`.
-`_multiple` decides this equation exactly over the integers, so only finite
-black support and one finite footprint are inspected.
+```text
+v = (-2, -2).
+```
 
-If a state satisfies the requirements and separation condition, induction over
-104 literal updates reproduces the witness block. Changed cells lie only in
-that block; shifting the translate index by one re-establishes separation at
-the endpoint. Induction on blocks proves permanent P104. Applying this lemma to
-`E` proves the blank-plane result.
+The finite colour difference between one block and its translate lies on
+affine rays disjoint from all later translated supports. The checked block
+therefore repeats forever by induction. `Core`, `Semantics`, `HighwayData`, and
+`Highway` contain the dynamics, symmetries, exact replay, and permanent-block
+theorem.
 
-## One black square in the blank prefix
+## 2. First contact with the black cell
 
-Before update 9,977 the blank orbit first reads exactly 1,376 cells.
-`verify_prefix_one_black` derives this set from replay. For every such cell `q`
-it starts with only `q` black and finds a checked terminal boundary within
-110,000 exact updates. The enumeration is exhaustive and includes the starting
-cell.
+The first 9,977 blank updates read 1,376 distinct cells.
 
-Translation and quarter-turn rotation commute with one update. Induction
-therefore transports these canonical replays to every initial pose. If `q` is
-outside the prefix, untouched-cell coupling reaches the complete blank-entry
-state plus `q`; the remaining sections close those cases.
+If `q` is one of them, `PrefixData.lean` supplies its terminal witness time.
+Exact replay and the sound terminal checker prove P104 for all 1,376 cases.
 
-## Pristine boundary plus one obstacle
+Otherwise the singleton orbit has exactly the blank read trace for 9,977
+updates. At entry it is
 
-At a pristine boundary, let `P` be the 13 black requirements and `S` the
-40-cell read support. Every lattice cell belongs uniquely to one class:
+```text
+blacken q E.
+```
 
-1. `q in P`;
-2. one of the 27 white cells in `S`;
-3. `f+k(-2,-2)`, `k>=1`, for one of 22 last support cells on a lane;
-4. outside the entire future corridor.
+This is the untouched-cell coupling theorem in `Coupling`; `Prefix` packages
+the finite branch.
 
-Integer divisibility checks the partition. Class 1 changes nothing; class 4 is
-never read. `verify_pristine_one_obstacle` replays all 27 class-2 cases and
-depths 1 through 20 on all 22 lanes: 467 finite cases.
+## 3. Geometry at highway entry
 
-For a lane, one clean block translates the active pattern by `v=(-2,-2)` and
-leaves a finite XOR wake `W`. The verifier checks that depth 21 after one clean
-block is translated depth 20 XOR `W`, that `W` misses later clean blocks, and
-that every backward translate of `W` misses both the depth-20 terminal trace
-and its final terminal corridor. Thus depth `20+n` executes `n` clean blocks
-and then the translated depth-20 computation while all accumulated wakes stay
-inert. Induction closes every depth.
+At `E`, the cell `q` belongs to exactly one of the following classes.
 
-## The actual blank-entry wake
+1. It is already black in `E`.
+2. It is a white cell of the active 40-cell support `S`.
+3. It lies outside every future translate of `S`.
+4. It is a future first-read cell of the highway.
 
-At update 9,977 the blank state has 715 black cells: the 13-cell active pattern
-and a 702-cell historical wake `H`. The 27 active-white cases are replayed
-directly. On each future lane, exact affine integer equations decide whether
-`H` can meet the translated pristine depth-20 trace or its terminal corridor.
+The first class is `E` itself. The second is a finite terminal table. In the
+third, the ant never reads `q`, so the permanent blank highway is unchanged.
 
-On 21 lanes every possible collision occurs below the induction base. Exact
-replay closes that finite prefix; beyond it, untouched-set coupling reduces the
-actual state to the translated pristine theorem. The sole exceptional lane has
-head `(-2,-8)` and reverse terminal drift; it receives its own induction.
+For the fourth class, let `H` be the support cells whose predecessor under
+translation by `v` is outside `S`. Exact affine diagonal, parity, and order
+tests prove
 
-## Exceptional phase 72
+```text
+|H| = 22,
+q = h + d v       for a unique h ∈ H and d > 0.
+```
 
-Depths 1 through 19 are direct terminal cases. At depth 20 the pristine
-scattering reaches a boundary drifting opposite to the clean highway. Exact
-corridor intersection with all 702 history cells finds the first hit at
-`(20,-22)`. Three consecutive literal replays anchor that increasing obstacle
-depth by one adds one forward and one reverse P104 block: hit time grows by 104
-while hit pose stays fixed.
+Thus every unbounded post-entry case is a single defect on one of 22 P104
+frontier channels. `Geometry`, `Rays`, and `Entry` prove this decomposition.
 
-Consecutive hit states differ by a finite XOR layer `L`, and the next pair by
-`L+(-2,-2)`. The base hit reaches a terminal boundary after 7,994 updates.
-Exact same-trace replay and affine ray checks prove every accumulated translate
-of `L` misses the post-hit trace and final terminal corridor. Induction gives
-the same terminal computation for every depth at least 20; direct cases close
-the remaining depths.
+## 4. Single-defect scattering spectrum
 
-## Exhaustion and theorem
+For a channel head `h` and depth `d`, define the scattering state
 
-Normalize the initial pose. If the unique black cell is in the blank prefix,
-the 1,376-case theorem applies. Otherwise coupling reaches the complete
-715-cell entry state plus the untouched black cell. There it is already black,
-active white, outside the future corridor, on one of 21 ordinary lanes, or on
-phase 72. The preceding arguments respectively make these cases trivial,
-finite, permanently untouched, ordinary, or exceptional. The partition is
-exhaustive, so every normalized one-black state reaches permanent P104.
-Translation and quarter-turn symmetry give every initial position and heading.
+```text
+Σ(h,d) = blacken (h + d v) E.
+```
 
-The proof combines the five finite obligations executed by `check.py` with the
-recurrence, separation, induction, exhaustive partition, and symmetry lemmas
-stated in this document.
+`Scattering.Classification` is the independent structural theorem for this
+family. It proves that the 22 heads split exhaustively into
+
+```text
+21 ordinary return channels
++
+1 exceptional reverse-highway channel.
+```
+
+Every positive depth in an ordinary channel returns to P104. The exceptional
+channel has head
+
+```text
+h₇₂ = base.pos + (-2, -8),
+```
+
+and its stable scattering block is an exact opposite-drift P104 block. The
+classification also records its affine depth law and proves return to P104 at
+every positive depth. The universal theorem consumes this classification as a
+single lemma; the two responses are proved below.
+
+## 5. Channel-local anchors
+
+Each head `h` has two finite cut points.
+
+- `P_h = stableDepth h` anchors the pristine scattering induction.
+- `A_h = actualCutoff h` ends the direct replay band at the real entry state.
+
+The certificate proves `P_h ≤ A_h` for every ordinary head. These values are
+chosen independently for each channel. The finite leaves are therefore
+
+```text
+pristine:  1 ≤ d < P_h,
+actual:    1 ≤ d < A_h,
+```
+
+followed by one stable pristine replay at `P_h`. At a deep actual depth
+`A_h+n`, the corresponding pristine induction parameter is
+
+```text
+(A_h - P_h) + n.
+```
+
+`EntryData.lean` stores only these channel-local witness bands. The exceptional
+channel uses two distinct local anchors:
+
+```text
+P₇₂ = 11,       A₇₂ = 15,       A₇₂ - P₇₂ = 4.
+```
+
+Depth 11 is the first pristine reverse-block anchor. Four clean translations
+place the actual historical state at depth 15 into the affine collision family.
+For an ordinary channel, `A_h` is the first depth whose complete translated
+footprint and terminal corridor are separated from the historical wake. Thus
+the cutoff is selected by the geometric invariant used in the theorem, rather
+than by an unrelated common search window or a coincident terminal time.
+
+## 6. Ordinary scattering
+
+For a pristine highway, compare one clean P104 block with its translate. Their
+finite XOR difference is a wake `W`. Starting at depth `P_h+n` executes `n`
+clean blocks before the anchored scattering, accumulating
+
+```text
+W ⊕ (W+v) ⊕ ... ⊕ (W+(n-1)v).
+```
+
+Exact ray tests prove that these translated copies miss every later clean
+read, the anchored scattering trace, and its permanent terminal corridor.
+They are inert archives, so the generic induction theorem reduces all depths
+`d ≥ P_h` to the checked anchor. `Induction`, `PristineChecks`, and `Pristine`
+prove this for all 22 pristine channels.
+
+The actual entry state contains 715 black cells. Thirteen form the active P104
+pattern; the remaining 702 form the historical wake `H_E`. For an ordinary
+head, the relevant translation lag is
+
+```text
+L_h = A_h - P_h.
+```
+
+The finite certificate anchors `H_E` at that lag. Affine ray induction proves
+that every later translated scattering footprint and terminal corridor stays
+disjoint from `H_E`. Untouched-region coupling then identifies the actual tail
+at depth `A_h+n` with the pristine tail at depth `P_h+(L_h+n)`. Combined with
+the direct band `d < A_h`, this proves every depth of all 21 ordinary channels.
+
+`ActualGuards`, `ActualHistory`, `OrdinaryCorridor`, `OrdinaryGeometry`, and
+`Ordinary` implement this reduction.
+
+## 7. Exceptional backscattering
+
+For `h₇₂`, the depth-11 pristine scattering enters a P104 block with drift
+
+```text
+-v = (2, 2).
+```
+
+`Phase.reverse_block_exact` proves the entire 104-step reverse block, including
+its finite XOR wake. The recurrence indexes this wake from the next translated
+reverse block. Exact positive-copy ray tests show that every wake cell misses
+every later reverse read, so the block iterates indefinitely. At the actual
+base depth 15, four forward translations are cancelled by four reverse blocks;
+ten further reverse blocks and phase 89 reach the first historical collision
+at `(20,-22)`. The certificate checks every earlier phase against every
+historical cell.
+
+Increasing the obstacle depth by one adds one forward block and one reverse
+block before the same collision, so
+
+```text
+t_hit(n) = t_hit(0) + 208 n.
+```
+
+At that time `Scattering.Classification.exceptionalAffine` gives the exact
+state equation
+
+```text
+run(t_hit(n), Σ(h₇₂,15+n))
+  = actualHit XOR (L ⊕ (L+v) ⊕ ... ⊕ (L+(n-1)v)).
+```
+
+The depth-15 collision reaches a terminal state after 7,994 updates. Exact trace
+and ray guards prove that all accumulated layers miss both this post-hit trace
+and its permanent corridor. XOR archive induction therefore proves every
+depth `15+n`; the channel-local direct band proves depths 1 through 14.
+
+The `Phase*` modules separate the reverse block, first collision, XOR algebra,
+affine hit normal form, and terminal tail.
+
+## 8. Universal assembly
+
+`Scattering.single_defect_scattering` assembles the 21 ordinary theorems and
+the exceptional affine theorem into the complete 22-channel spectrum.
+`Universal.entry_reaches` combines that spectrum with the entry geometry.
+`Universal.canonical_reaches` adds the 1,376 prefix cases, and
+`Universal.pose_decomposition` restores arbitrary position and heading.
+
+The resulting chain is
+
+```text
+blank replay → permanent P104
+             → prefix contact or untouched coupling
+             → entry geometry
+             → 22-channel scattering classification
+             → universal one-black theorem.
+```
+
+## 9. Finite computation
+
+The complete build has three native computation leaves:
+
+1. the blank 9,977/P104 certificate in `HighwayData`;
+2. the 1,376 prefix cases in `PrefixLeaf`;
+3. the shared 22-channel scattering certificate in `ScatteringLeaf`.
+
+After the blank leaf, Lake evaluates prefix and scattering in parallel. The
+scattering leaf contains:
+
+- active-support terminal witnesses;
+- each channel's shallow pristine and actual bands;
+- one stable pristine result per channel;
+- ordinary historical-wake separation;
+- the exceptional reverse block, first hit, and post-hit guards.
+
+Each stable result is produced by one tail-recursive forward pass and stores
+its final state, deduplicated read set, cached read list, terminal orientation,
+and acceptance bit once. The pristine, ordinary-history, and exceptional
+checks share those values. The phase report likewise binds the history list,
+reverse state and wake, post-hit replay, terminal orientations, and layer
+carrier once. Its reverse-wake checker uses precisely the positive-copy ray
+condition required by the reverse block. Known witness times are replayed
+directly; generation-time search is absent from proof checking.
+
+The generated lane tables contain 152 pristine replay witnesses and 179
+actual-entry replay witnesses. Their known times total 1,380,384 and 2,761,211
+updates respectively. The generator computes the exact lane-local geometric
+cutoff first and emits only the direct cases below it; this optimization is
+confined to the finite leaves and does not appear in the scattering theorem.
+
+`PrefixLeaf` and `ScatteringLeaf` turn the checked Boolean reports into typed
+Lean certificates. `Scattering.single_defect_scattering` turns the latter into
+the mathematical spectrum. Finally `OneBlack.universal_one_black` combines
+the prefix certificate, spectrum, and analytic Lean lemmas.
+`python3 one_black/check.py` builds this closed theorem from the checked-in
+sources and witness tables.

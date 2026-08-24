@@ -12,6 +12,6 @@ replay and explicit mathematical induction.
   commit.
 - Imported mathematical evidence carries a precise source; locally promoted
   results carry a reconstructed proof object.
-- `python3 one_black/check.py` replays the universal theorem.
+- `python3 one_black/check.py` builds the closed Lean universal theorem.
 - `python3 research/check.py` replays the executable general consequences.
-- Dependencies flow from `research/` into `one_black/`.
+- Dependencies flow from `one_black/` into `research/`.

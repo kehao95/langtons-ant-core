@@ -9,7 +9,7 @@ Langton ant:
    highway, for every ant position and heading.
 
 [`one_black/`](./one_black/README.md) contains the theorem, proof narrative,
-exact dynamics, finite verifier, and reproduction entrypoint.
+exact dynamics, shared finite certificate, Lean proof, and reproduction entrypoint.
 
 The root [`PROOF.md`](./PROOF.md) develops the clean-envelope condition, exact
 interaction index, complete-history renewal, and structural results.
@@ -22,7 +22,7 @@ canonical divergence genealogy has finite height.
 around exact state representations, causal ownership, effective compactness,
 and finite-seed compilation.
 
-Replay the universal one-black proof with:
+Build the universal one-black proof with:
 
 ```sh
 python3 one_black/check.py

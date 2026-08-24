@@ -1,29 +1,49 @@
-# Universal one-black proof
+# Universal one-black theorem
 
-This directory is the complete local artifact for the theorem:
+This directory is the complete proof artifact for
 
-> For the classical two-colour Langton ant on the integer lattice, every
-> initial state with exactly one black cell reaches the translating P104
-> highway, for every ant position and heading.
+```text
+∀ s, ExactlyOneBlack s → ReachesP104 s.
+```
 
-## Contents
+[`PROOF.md`](./PROOF.md) gives the mathematical argument in the same order as
+the Lean dependency graph. [`lean/`](./lean/) contains the formal proof and
+all finite witness data. [`langtons_ant/`](./langtons_ant/) contains the exact
+Python dynamics used by [`lean/generate.py`](./lean/generate.py) to regenerate
+the two witness-time tables.
 
-- [`PROOF.md`](./PROOF.md) states the theorem and connects every finite check
-  to the recurrence, separation, induction, and symmetry arguments.
-- [`langtons_ant/model.py`](./langtons_ant/model.py) is the literal update rule.
-- [`langtons_ant/highway.py`](./langtons_ant/highway.py) constructs and checks
-  the blank P104 witness, its recurrence predicate, and all prefix cases.
-- [`langtons_ant/one_black.py`](./langtons_ant/one_black.py) checks the pristine,
-  historical-wake, and exceptional phase-72 obligations.
-- [`check.py`](./check.py) replays the finite proof obligations.
-
-From any working directory, run:
+Run the complete check from any directory:
 
 ```sh
 python3 /path/to/langtons-ant-core/one_black/check.py
 ```
 
-`check.py` derives every finite witness and case from exact integer dynamics.
-`PROOF.md` supplies the recurrence, affine separation, induction, exhaustive
-partition, and symmetry arguments that connect those computations to the
-universal theorem.
+The command builds one Lean target. Internally, the blank certificate is a
+shared upstream computation leaf; then Lake checks the prefix leaf and the
+shared-snapshot scattering leaf in parallel. Its final theorem is
+`OneBlack.universal_one_black` in [`lean/OneBlack.lean`](./lean/OneBlack.lean).
+The finite checker gives every frontier channel its own earliest useful replay
+band. It binds each of the 22 stable lane results and terminal orientations
+once, then shares them between the pristine, ordinary-wake, and phase-72
+certificates. Each ordinary cutoff is the first one satisfying the exact
+historical-wake separation guard. The exceptional channel uses pristine depth
+11, four clean translations, and an actual affine-family base at depth 15.
+
+The proof cone has four layers:
+
+```text
+Core, Semantics
+       ↓
+blank P104 and prefix coupling
+       ↓
+entry partition and 22-channel scattering
+       ↓
+21 ordinary returns + 1 phase-72 backscatter
+       ↓
+universal assembly
+```
+
+Generated witness tables live beside the Lean modules that consume them:
+`PrefixData.lean` and `EntryData.lean`. Regenerate them with
+`python3 one_black/lean/generate.py`; verification itself uses the checked-in
+tables and exact Lean replay.
