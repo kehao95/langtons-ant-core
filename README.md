@@ -11,10 +11,17 @@ theorem OneBlack.universal_one_black :
     ∀ s, ExactlyOneBlack s → ReachesP104 s
 ```
 
+[![Global one-black proof map](./preprint/figures/stages/stage-06-global-map.png)](https://kehao95.github.io/langtons-ant-core/)
+
+*Global proof map: every visible black-cell placement is assigned to one of
+the five proof stages. The colored rays represent affine classes that the Lean
+proof extends to every depth. Click the image for the interactive guide.*
+
 - [Read the published preprint](https://doi.org/10.5281/zenodo.22086968)
 - [Read the proof](./one_black/PROOF.md)
 - [Inspect and rebuild the proof artifact](./one_black/README.md)
 - [Explore the interactive proof guide](https://kehao95.github.io/langtons-ant-core/)
+- [Download X-ready proof animations](./media/x/README.md)
 
 > Hao Ke, *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway:
 > A Lean-Checked Proof*, Zenodo, 2026.

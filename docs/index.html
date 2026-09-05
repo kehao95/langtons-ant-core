@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="An interactive guide to the universal one-black-cell theorem for Langton's ant." />
     <title>One Black Cell · Interactive Proof Guide</title>
-    <link rel="stylesheet" href="./styles.css?v=38" />
+    <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
+    <link rel="stylesheet" href="./styles.css?v=39" />
+    <script defer src="./vendor/katex/katex.min.js"></script>
+    <script defer src="./vendor/katex/auto-render.min.js"></script>
   </head>
   <body>
     <main class="shell">
@@ -14,7 +17,15 @@
           <p class="eyebrow">ONE BLACK · PROOF GUIDE</p>
           <h1>One-cell perturbation</h1>
         </div>
-        <p>Each stage isolates the candidate perturbation cells handled by one proof branch. Colors distinguish finite cases, inductive families, and scattering outcomes.</p>
+        <div class="masthead-meta">
+          <p>Each stage isolates the candidate perturbation cells handled by one proof branch. Colors distinguish finite cases, inductive families, and scattering outcomes.</p>
+          <a class="repo-link" href="https://github.com/kehao95/langtons-ant-core" target="_blank" rel="noopener noreferrer" aria-label="View Langton's Ant proof repository on GitHub">
+            <svg class="github-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
       </header>
 
       <nav class="stage-switch" aria-label="Proof stages">
@@ -25,6 +36,22 @@
         <button type="button" data-proof-stage="reverseHighway"><b>05</b> Reverse highway</button>
         <button type="button" data-proof-stage="overview"><b>06</b> Global map</button>
       </nav>
+
+      <section class="stage-guide" id="stage-guide" aria-label="Detailed stage documentation">
+        <div class="guide-header">
+          <div class="guide-title-row">
+            <span class="guide-badge" id="guide-badge">Stage 01</span>
+            <h2 class="guide-heading" id="guide-title">Untouched Placements & Asymptotic Spatial Immunity</h2>
+          </div>
+          <div class="guide-lean-sig" id="guide-lean-sig">
+            <code id="guide-lean-code">theorem separated_reaches : p ∉ support → separatedFromSupport p = true → ReachesP104 (blacken p entry)</code>
+          </div>
+        </div>
+
+        <div class="guide-body">
+          <div class="guide-prose" id="guide-mechanism"></div>
+        </div>
+      </section>
 
       <section class="map-card" aria-label="Interactive proof grid">
         <div class="map-toolbar">
@@ -44,11 +71,15 @@
 
         <div class="map-caption">
           <span id="map-caption">The P104 tail continues indefinitely toward the lower left.</span>
-          <a href="https://github.com/kehao95/langtons-ant-core/blob/main/one_black/PROOF.md">Read the proof</a>
+          <div class="map-links">
+            <a href="https://github.com/kehao95/langtons-ant-core/blob/main/one_black/PROOF.md" target="_blank" rel="noopener noreferrer">Read the proof</a>
+            <span class="link-divider">·</span>
+            <a href="https://github.com/kehao95/langtons-ant-core/tree/main/one_black/lean" target="_blank" rel="noopener noreferrer">Lean Proof</a>
+          </div>
         </div>
       </section>
 
     </main>
-    <script type="module" src="./app.js?v=38"></script>
+    <script type="module" src="./app.js?v=40"></script>
   </body>
 </html>

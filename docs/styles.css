@@ -24,9 +24,32 @@ button, a { font: inherit; }
 
 .shell { max-width: 1320px; margin: 0 auto; padding: 28px 32px 22px; }
 
-.masthead { display: flex; align-items: end; justify-content: space-between; gap: 38px; margin-bottom: 20px; }
+.masthead { display: flex; align-items: flex-start; justify-content: space-between; gap: 38px; margin-bottom: 20px; }
 .masthead h1 { margin: 0; font-size: clamp(2rem, 4vw, 3.7rem); line-height: 1; letter-spacing: -.055em; }
-.masthead p:last-child { max-width: 570px; margin: 0; color: var(--muted); font-size: .9rem; }
+.masthead-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; max-width: 570px; }
+.masthead-meta p { margin: 0; color: var(--muted); font-size: .88rem; text-align: right; }
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #176ca9;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+.repo-link:hover {
+  background: #f0f7fb;
+  border-color: #176ca9;
+  color: #0e4c77;
+  text-decoration: none;
+}
+.github-icon { flex-shrink: 0; }
 .eyebrow { margin: 0 0 8px; color: #176ca9; font-size: .72rem; font-weight: 800; letter-spacing: .14em; }
 
 .stage-switch { display: grid; grid-template-columns: repeat(6, 1fr); height: 42px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
@@ -72,12 +95,116 @@ canvas { display: block; width: 100%; aspect-ratio: 1.445 / 1; background: #1026
 .overview-5 { background: #b798f5; }
 
 .map-caption { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--card-muted); font-size: .73rem; }
-.map-caption a { white-space: nowrap; }
+.map-links { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.map-links a { color: #78c7f4; text-decoration: none; }
+.map-links a:hover { text-decoration: underline; color: #a4dcfa; }
+.link-divider { color: #496675; }
+
+.stage-guide {
+  margin-top: 14px;
+  margin-bottom: 22px;
+  padding: 26px 28px 30px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(17, 33, 45, 0.05);
+}
+
+.guide-header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.guide-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.guide-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #176ca9;
+  border-radius: 3px;
+}
+
+.guide-heading {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 750;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+}
+
+.guide-lean-sig {
+  background: #0e1e28;
+  border-radius: 3px;
+  padding: 8px 14px;
+  overflow-x: auto;
+  border-left: 3px solid #78c7f4;
+}
+
+.guide-lean-sig code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.81rem;
+  color: #79d4fd;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.guide-body {
+  margin-top: 4px;
+}
+
+.guide-prose {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #334450;
+}
+
+.guide-prose p {
+  margin: 0 0 10px;
+}
+
+.guide-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.guide-prose ul {
+  margin: 8px 0 12px 20px;
+  padding: 0;
+}
+
+.guide-prose li {
+  margin-bottom: 6px;
+}
+
+.guide-prose strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.guide-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82em;
+  background: #eef2f5;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #176ca9;
+}
 
 @media (max-width: 760px) {
   .shell { padding: 20px 14px; }
   .masthead { display: block; }
-  .masthead p:last-child { margin-top: 14px; }
+  .masthead-meta { align-items: flex-start; margin-top: 14px; }
+  .masthead-meta p { text-align: left; margin-bottom: 8px; }
   .stage-switch { height: 58px; }
   .stage-switch button { padding: 3px; font-size: .68rem; line-height: 1.2; }
   .stage-switch b { display: block; margin: 0 0 2px; }
@@ -85,4 +212,7 @@ canvas { display: block; width: 100%; aspect-ratio: 1.445 / 1; background: #1026
   .map-actions { width: 100%; }
   #cell-readout { text-align: left; }
   .map-caption { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .stage-guide { padding: 18px 16px 20px; }
+  .guide-title-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .guide-heading { font-size: 1.18rem; }
 }

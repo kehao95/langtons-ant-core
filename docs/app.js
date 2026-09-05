@@ -6,6 +6,11 @@ const elements = {
   legend: document.querySelector("#legend"),
   reset: document.querySelector("#return-selection"),
   stageButtons: [...document.querySelectorAll("[data-proof-stage]")],
+  guideContainer: document.querySelector("#stage-guide"),
+  guideBadge: document.querySelector("#guide-badge"),
+  guideTitle: document.querySelector("#guide-title"),
+  guideLeanCode: document.querySelector("#guide-lean-code"),
+  guideMechanism: document.querySelector("#guide-mechanism"),
 };
 
 const COLORS = {
@@ -1077,6 +1082,101 @@ canvas.addEventListener("pointerleave", () => {
   }
 });
 
+const STAGE_GUIDE_CONTENT = {
+  outside: {
+    badge: "Stage 01 · Untouched",
+    title: "Untouched Placements & Asymptotic Spatial Immunity",
+    leanSig: "theorem separated_reaches (p : Point) : p ∉ support → separatedFromSupport p = true → ReachesP104 (blacken p entry)",
+    mechanismHtml: `
+      <p><strong>Target scope:</strong> Any initial single black cell placed on lattice coordinates that the unperturbed (all-white) ant trajectory and its future highway envelope never visit.</p>
+      <p><strong>Proof mechanism:</strong> From an all-white grid, the ant visits only a bounded set of cells during its initial 9,977 chaotic steps before entering a permanent period-104 (P104) highway moving in diagonal direction $v = (-2, -2)$. This highway sweeps an infinite but spatially bounded corridor toward the lower-left.</p>
+      <p>By the <em>First Difference Lemma</em> of deterministic cellular automata, if a perturbation cell $p$ is never visited by the baseline trajectory up to time $t$, the actual evolution up to time $t$ is strictly identical to the baseline. Since cells in this vast complementary region are never reached by either the prefix or the periodic highway, the ant never reads cell $p$, guaranteeing permanent highway convergence. This geometric immunity argument immediately settles an infinite measure-1 subregion of $\\mathbb{Z}^2$.</p>
+    `,
+  },
+  prefix: {
+    badge: "Stage 02 · Prefix Hit",
+    title: "Blank Prefix Collisions & Deterministic Finite Transients",
+    leanSig: "theorem Prefix.reaches (cert : Prefix.Certificate) : p ∈ Prefix.domain → ReachesP104 (singleton p)",
+    mechanismHtml: `
+      <p><strong>Target scope:</strong> Any initial black cell placed on one of the cells visited by the ant during its first 9,977 steps from an all-white grid.</p>
+      <p><strong>Proof mechanism:</strong> Before reaching the canonical highway entrance at step 9,977, the unperturbed ant visits an explicitly bounded set of exactly <strong>1,376 distinct lattice cells</strong>. When an initial black cell lies within this set, the trajectory collides with it during this chaotic transient phase and diverges from the baseline.</p>
+      <p>Because the state space of this branch is strictly finite (1,376 discrete initial states), the proof proceeds by deterministic finite replay. Lean 4 native execution leaves (<code>PrefixData.lean</code> and <code>PrefixLeaf.lean</code>) formally evaluate each altered trajectory with zero runtime search, certifying that all 1,376 configurations escape the transient and enter a permanent P104 highway within at most 110,000 steps.</p>
+    `,
+  },
+  pristine: {
+    badge: "Stage 03 · P104 Scattering",
+    title: "Pristine Frontier Channels & Affine Ray Induction",
+    leanSig: "theorem Pristine.lane_reaches (member : head ∈ heads) (positive : 0 < depth) : ReachesP104 (blacken (obstacle head depth) pristineEntry)",
+    mechanismHtml: `
+      <p><strong>Target scope:</strong> An isolated black obstacle placed directly in the path of a mature P104 highway advancing into clean empty space (pristine channels).</p>
+      <p><strong>Proof mechanism:</strong> The leading face of a P104 highway comprises exactly <strong>22 channel heads</strong> $H = \\{s \\in S \\mid s - v \\notin S\\}$. Any obstacle ahead is parameterized as an affine ray $q = h + d \\cdot v$ ($d \\ge 1$). Increasing the obstacle depth to $d = P_h + n$ causes the ant to execute $n$ clean P104 blocks before colliding with the obstacle, depositing a sequence of translated XOR difference wakes $W \\oplus (W+v) \\oplus \\dots \\oplus (W+(n-1)v)$.</p>
+      <p>The <em>Affine Ray Induction Theorem</em> proves that these accumulated wake layers are strictly disjoint from all future scattering reads and the terminal highway corridor (acting as inert archives). Consequently, certifying a single finite anchor depth $P_h \\le 23$ per channel mathematically closes highway convergence for all infinite depths $d \\ge P_h$.</p>
+    `,
+  },
+  finiteHistory: {
+    badge: "Stage 04 · Finite History",
+    title: "Historical Wake Decoupling on Ordinary Channels",
+    leanSig: "theorem Ordinary.lane_reaches (head : Point) (ordinary : head ∈ ordinaryHeads) (positive : 0 < depth) : ReachesP104 (blacken (obstacle head depth) entry)",
+    mechanismHtml: `
+      <p><strong>Target scope:</strong> Highway scattering in the physical grid, where the ant's initial 9,977-step chaotic prefix left behind a cloud of <strong>702 pre-existing historical black cells</strong> ($H_E$), evaluated on the 21 ordinary channels.</p>
+      <p><strong>Proof mechanism:</strong> For 21 of the 22 channels (the ordinary channels), post-collision scattering does not reverse deep into the historical cloud. Each ordinary channel is partitioned by a channel-local geometric cutoff depth $A_h$ ($\\ge P_h$):</p>
+      <ul>
+        <li><strong>Direct Replay Band ($1 \\le d < A_h$):</strong> Scattering may interact with the historical cloud. Lean 4 directly verifies 186 explicit witness cases (totaling 2,761,211 steps) via deterministic replay certificates.</li>
+        <li><strong>Inductive Band ($d \\ge A_h$):</strong> The cutoff $A_h$ ensures that the entire post-collision read footprint and subsequent terminal corridor remain strictly disjoint from $H_E$. Using untouched-coupling with lag $L_h = A_h - P_h$, all deep historical cases reduce directly to the pristine induction theorem of Stage 03.</li>
+      </ul>
+    `,
+  },
+  reverseHighway: {
+    badge: "Stage 05 · Reverse Highway",
+    title: "Exceptional Backscattering, Affine Hit Law & History Collision",
+    leanSig: "theorem Phase.lane_reaches (positive : 0 < depth) : ReachesP104 (blacken (obstacle phaseHead depth) entry)",
+    mechanismHtml: `
+      <p><strong>Target scope:</strong> The 22nd frontier channel ($h_{72} = \\text{base.pos} + (-2,-8)$), which exhibits an exceptional reverse highway that turns backward toward the 702-cell historical cloud $H_E$.</p>
+      <p><strong>Proof mechanism:</strong> Striking an obstacle at depth $d \\ge 11$ on channel $h_{72}$ transforms the ant into a <strong>translating reverse P104 highway</strong> with opposite drift $-v = (+2, +2)$, retracing its path back toward the historical cloud $H_E$:</p>
+      <ul>
+        <li><strong>Affine Hit Normal Form:</strong> For depth $15+n$, the ant executes $n$ forward cycles and $n$ reverse cycles, striking $H_E$ at fixed lattice coordinate <strong>$(20, -22)$</strong> at exact step $t_{\\text{hit}}(n) = t_{\\text{hit}}(0) + 208n$.</li>
+        <li><strong>Post-Hit Transient & Forward Highway:</strong> The collision triggers a 7,994-step chaotic transient that consumes part of $H_E$ and resolves into a permanent forward P104 highway.</li>
+        <li><strong>XOR Archive Induction:</strong> Certified ray guards establish that accumulated forward/reverse wake layers miss the 7,994-step trace and terminal corridor for all $d \\ge 15$. Depths 1–14 are verified by explicit certificates.</li>
+      </ul>
+    `,
+  },
+  overview: {
+    badge: "Stage 06 · Global Map",
+    title: "Universal Theorem Assembly & Complete State Space Partition",
+    leanSig: "theorem OneBlack.universal_one_black : ∀ s, ExactlyOneBlack s → ReachesP104 s",
+    mechanismHtml: `
+      <p><strong>Target scope:</strong> The entire discrete plane $\\mathbb{Z}^2$, covering every possible single-black-cell initial configuration for any ant position and heading.</p>
+      <p><strong>Proof mechanism:</strong> Grid translation and quarter-turn rotation commute with Langton's ant dynamics, reducing all possible single-black-cell configurations to a canonical pose (ant at origin, heading north). The proof constructs an exhaustive and mutually disjoint partition of the discrete plane:</p>
+      $$\\mathbb{Z}^2 = \\text{Prefix (1,376)} \\cup \\text{Immune/Untouched} \\cup \\text{Active Support (27)} \\cup \\text{21 Ordinary Channels} \\cup \\text{1 Exceptional Channel}$$
+      <p>Each branch is formally proven to enter the P104 highway. The complete proof is closed in <strong>Lean 4</strong> with <strong>zero unverified axioms</strong> and <strong>zero runtime search</strong>, rigorously establishing the universal one-black theorem.</p>
+    `,
+  }
+};
+
+function renderMathIfAvailable() {
+  if (typeof renderMathInElement === "function" && elements.guideContainer) {
+    renderMathInElement(elements.guideContainer, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+      throwOnError: false,
+    });
+  }
+}
+
+function updateStageGuide(stageKey) {
+  const content = STAGE_GUIDE_CONTENT[stageKey];
+  if (!content) return;
+  if (elements.guideBadge) elements.guideBadge.textContent = content.badge;
+  if (elements.guideTitle) elements.guideTitle.textContent = content.title;
+  if (elements.guideLeanCode) elements.guideLeanCode.textContent = content.leanSig;
+  if (elements.guideMechanism) elements.guideMechanism.innerHTML = content.mechanismHtml;
+  renderMathIfAvailable();
+}
+
+window.addEventListener("load", renderMathIfAvailable);
+
 elements.reset.addEventListener("click", returnToDisplay);
 
 elements.stageButtons.forEach((button) => button.addEventListener("click", () => {
@@ -1086,6 +1186,7 @@ elements.stageButtons.forEach((button) => button.addEventListener("click", () =>
     if (candidate === button) candidate.setAttribute("aria-current", "page");
     else candidate.removeAttribute("aria-current");
   });
+  updateStageGuide(proofStage);
   returnToDisplay();
 }));
 
@@ -1364,6 +1465,7 @@ fetch("./proof-map.json?v=15", { cache: "no-store" })
     proofStage = "outside";
     transform = defaultTransform;
     visibleReferenceSet = defaultVisibleReferenceSet;
+    updateStageGuide(proofStage);
     drawDisplay();
   })
   .catch((error) => {
