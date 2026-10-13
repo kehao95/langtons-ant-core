@@ -12,7 +12,7 @@ artifact; no public GitHub branch update is required to prepare this draft.
 
 Files prepared:
 
-- `Every-One-Black-Cell-Langton-Ant-Reaches-the-Period-104-Highway-A-Lean-Checked-Proof.pdf`
+- `Every-One-Black-Cell-Langton-Ant-v0.2.0-review.pdf`
 - `one-black-0.2.0-review-source.zip`
 - `one-black-0.2.0-review-manifest.json`
 
