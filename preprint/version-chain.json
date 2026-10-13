@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-13T15:01:59.312260+00:00",
+  "original_record_id": 22086968,
+  "original_doi": "10.5281/zenodo.22086968",
+  "new_version_record_id": 23341609,
+  "conceptrecid": "22086967",
+  "conceptdoi": "10.5281/zenodo.22086967",
+  "same_title": true,
+  "original_file_checksums": {
+    "Every-One-Black-Cell-Langton-Ant-Reaches-the-Period-104-Highway-A-Lean-Checked-Proof.pdf": "md5:931cef932a3fefdeebcbadc1c437efb5"
+  },
+  "new_version_state_before_publication": "unsubmitted",
+  "existing_version_chain_confirmed": true
+}

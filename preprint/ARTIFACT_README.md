@@ -1,6 +1,6 @@
-# One-black standard-trace proof artifact, 0.2.0-review
+# One-black standard-trace proof artifact, 0.2.0
 
-Extract this source archive and all accompanying `one-black-0.2.0-review-figures-*.zip`
+Extract this source archive and all accompanying `one-black-0.2.0-figures-*.zip`
 archives into the same directory. Together they contain the sources matching the accompanying revised
 preprint and its clean-build report. It strengthens the original preprint's
 terminal predicate to a fixed standard read word and exports complete future

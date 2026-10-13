@@ -44,26 +44,22 @@ header-includes:
 ---
 
 \begin{abstract}
-Langton's ant is a deterministic walk on the square lattice whose blank-plane
-orbit eventually exhibits a diagonal period-104 highway, but the corresponding
-finite-support Highway Conjecture remains open. We prove a complete unbounded
-subfamily: from every initial state having exactly one black cell, with no
-restriction on that cell's position or on the ant's pose, the classical
-two-colour ant eventually follows the complete standard blank-highway read trace, up to translation and quarter-turn rotation. The proof
-normalizes the pose, couples the perturbed orbit to the first 9,977 steps of the
-blank orbit, and reduces every untouched defect to one of 22 affine frontier
-channels. Twenty-one channels admit an ordinary scattering induction after a
-channel-specific finite cutoff. The remaining channel first creates a reverse
-period-104 highway; in the physical historical state it returns to a fixed old
-cell, with collision time increasing by 208 steps per unit depth, and then
-enters the forward highway after a checked finite transient. The infinite
-reductions, geometric separation arguments, recurrence relations, and
-certificate-soundness theorems are formalized in Lean 4. Three closed finite
-reports---the blank highway, 1,376 prefix contacts, and the shared scattering
-certificate---are evaluated with \texttt{native\_decide}. The baseline sources are available in the public
-\href{https://github.com/kehao95/langtons-ant-core}{source-code and Lean-proof
-repository}; the revised sources, witness tables and reproduction commands
-accompany this version in its supplementary artifact.
+We prove that every classical Langton-ant state with exactly one black cell,
+at any displacement and ant pose, eventually follows the complete standard
+period-104 highway trace up to translation and quarter-turn rotation. The
+proof couples the perturbed orbit to the finite blank-orbit transient and
+reduces the unbounded part of the scattering problem to 22 affine frontier
+channels.
+Moving a defect farther down a channel adds translated XOR wakes, allowing
+finite scattering anchors to extend by induction to every depth. Twenty-one
+channels admit geometric separation from the blank orbit's historical wake.
+The remaining channel creates a reverse highway that returns to a fixed
+historical cell; an affine collision-time law and a second archive induction
+then establish entry into the forward highway. The infinite reductions,
+geometric guards and certificate-soundness theorems are formalized in Lean 4,
+with three finite reports evaluated using \texttt{native\_decide}.
+The accompanying artifact supplies the proof sources, witness tables and
+reproduction commands.
 \end{abstract}
 
 \clearpage
@@ -111,11 +107,11 @@ quarter-turn rotation of drift $(-2,-2)$.
 \end{theorem}
 
 The exact observation-level meaning of ``permanent period-104'' is given in
-Definition~\ref{def:p104}. The proof is a scattering argument around a
+Definition \ref{def:p104}. The proof is a scattering argument around a
 certified blank-orbit boundary. After translation and rotation normalization,
-let $q$ be the single black cell. The blank orbit reaches its highway entry
-state $E$ after 9,977 updates, having read 1,376 distinct cells. If $q$ was
-read, a finite witness settles the case. Otherwise a first-difference coupling
+let $q$ be the single black cell and $E$ the blank highway entry state.
+If the blank transient reads $q$, a finite witness settles the case.
+Otherwise a first-difference coupling
 gives exactly $\operatorname{blacken}(q,E)$. The future P104 read set
 decomposes all remaining $q$ into cells that are inert, finitely many
 active-support cells, and 22 affine channels $q=h+dv$. This turns an unbounded
@@ -124,7 +120,7 @@ plane into 22 one-parameter scattering problems.
 The decisive structure is a $21+1$ channel classification. In 21 ordinary
 channels, translated XOR wakes become inert archives and all sufficiently deep
 collisions reduce inductively to a single pristine anchor; a second geometric
-coupling transfers this result through the 702-cell historical wake of $E$.
+coupling transfers this result through the finite historical wake of $E$.
 The exceptional channel creates an exact reverse highway with drift $(2,2)$,
 travels back through the accumulated history, and hits the same historical
 cell for every depth. Adding one unit of depth inserts one forward and one
@@ -137,11 +133,11 @@ universal assembly. Closed Boolean reports handle three finite leaves and are
 reflected into typed certificates. They are evaluated using
 \texttt{native\_decide}; according to the Lean reference, that mechanism uses
 a dedicated axiom and relies on the native compiler and runtime
-[@leanref2026]. Section~\ref{sec:lean} records the proof components and their dependencies.
+[@leanref2026]. Section \ref{sec:lean} records the proof components and their dependencies.
 
 The contributions are:
 
-1. a proof of Theorem~\ref{thm:main} for every exactly-one-black state,
+1. a proof of Theorem \ref{thm:main} for every exactly-one-black state,
    without coordinate or time bounds;
 2. a geometric reduction of all late defects to 22 unique affine frontier
    channels and an all-depth $21+1$ scattering classification;
@@ -262,7 +258,7 @@ rotation of a state $\sigma_q$ whose ant is at the origin, points north, and
 whose unique black cell is $q\in\Z^2$.
 \end{lemma}
 
-Consequently Theorem~\ref{thm:main} reduces to proving
+Consequently Theorem \ref{thm:main} reduces to proving
 $\operatorname{ReachesP104}(\sigma_q)$ for every $q\in\Z^2$.
 
 ## The certified blank boundary
@@ -282,7 +278,7 @@ Moreover, the 104-step block iterates permanently.
 To prove permanent iteration, a finite XOR comparison between one block and its translate produces a wake
 $W$; affine ray checks prove that all later translated read supports avoid all
 archived copies of $W$. Induction then proves
-Definition~\ref{def:p104} for every future cycle.
+Definition \ref{def:p104} for every future cycle.
 
 # The finite prefix and first-contact coupling
 
@@ -327,7 +323,7 @@ If $q\notin P$, then
 $$\operatorname{run}(T,\sigma_q)=\operatorname{blacken}(q,E).$$
 \end{corollary}
 
-Figure~\ref{fig:prefix-dichotomy} displays the first-contact split established
+Figure \ref{fig:prefix-dichotomy} displays the first-contact split established
 by the read-set equality and coupling statement above.
 
 \begin{figure}[p]
@@ -386,10 +382,15 @@ It remains to prove that every $\Sigma_E(h,d)$ reaches P104.
 
 # Pristine single-defect scattering
 
-The physical state $E$ contains both the active P104 pattern and the entire
-blank-orbit wake. It is useful first to remove the history and study a pristine
-boundary state $B$ containing only the 13-cell active pattern with the same
-pose. Put
+To extend a finite scattering calculation to arbitrary depth, we first
+separate the repeating highway mechanism from the fixed blank-orbit history.
+The physical state $E$ contains both. Its pristine counterpart $B$ retains
+the 13-cell active pattern and the same ant pose, with the remaining plane
+white. In this setting, an extra clean highway block contributes a translated
+XOR wake, which can be tracked uniformly as the defect moves down a channel.
+This gives the archive induction below. The following two sections restore
+the physical history, using geometric separation for the ordinary channels
+and an explicit return-collision analysis for the exceptional channel. Put
 
 $$\Sigma_B(h,d)=\operatorname{blacken}(h+dv,B).$$
 
@@ -398,6 +399,13 @@ $P_h$ and a witness time at depth $P_h$. Depths $1\le d<P_h$ are direct
 replays. The stable case is extended by a generic archive theorem.
 
 ## XOR archives
+
+The coupling principle is local: two states with the same pose generate the
+same observations as long as their common path avoids the cells on which
+their grids differ. We express agreement outside a set by the
+\emph{same-outside} relation and prove avoidance separately using the read
+sets. Thus a growing archive of differences can be carried through an
+induction while the ant continues along the same path.
 
 For Boolean grids, finite changes compose by exclusive-or. Let $W$ be the
 finite difference between one clean 104-step block and its translated target.
@@ -410,9 +418,9 @@ $$
 \tag{1}\label{eq:archive}
 $$
 
-The XOR expression retains cancellation between overlapping wakes. The proof relates this algebra to orbit equality through a
-\emph{same-outside} relation: two grids may differ on an archive, but generate
-identical updates while the common ant path avoids it.
+The XOR expression retains cancellation between overlapping wakes.
+The following lemma combines this algebra with avoidance of the accumulated
+archive during both scattering and the final highway motion.
 
 \begin{lemma}[Archive induction]\label{lem:archive}
 Fix a clean state, drift $v$, obstacle anchor, period, anchored scattering
@@ -438,7 +446,7 @@ translated copies.
 
 For every head, the certificate checks the nonempty direct row, the stable
 replay, its deduplicated read set, terminal orientation, and the ray guards
-required by Lemma~\ref{lem:archive}. There are 152 pristine replay
+required by Lemma \ref{lem:archive}. There are 152 pristine replay
 witnesses in total, including one stable witness per channel.
 
 \begin{proposition}[Pristine scattering]\label{prop:pristine}
@@ -447,7 +455,7 @@ For 21 heads the stable output has the forward standard drift. For the
 remaining head $h_{72}$, the stable output has reverse drift $-v=(2,2)$.
 \end{proposition}
 
-Figure~\ref{fig:scattering-spectrum} displays one common-depth replay for every
+Figure \ref{fig:scattering-spectrum} displays one common-depth replay for every
 frontier head. These panels are exported directly from Stage 03 of the
 interactive app: the app runs the exact ant rule to the stored terminal witness
 and then continues the resulting P104 orbit for 20 cycles. The checked
@@ -532,6 +540,13 @@ eventually travels toward that history rather than away from it.
 
 # Restoring the physical history: 21 ordinary channels
 
+For an ordinary channel, moving the defect sufficiently far down its ray
+separates the translated pristine scattering trace and its final highway
+corridor from the fixed historical wake. This gives a cutoff depth: shallower
+cases are checked directly, while every deeper case transfers from the
+pristine induction by untouched-region coupling. We now specify the cutoff
+and the geometric guards that make this transfer uniform in depth.
+
 Write
 
 $$H_E=\{x:E(x)=1,\ x\notin S\}.$$
@@ -545,11 +560,9 @@ $$1\le d<A_h$$
 is a finite direct band, while $d=A_h+n$ is the inductive region. The offset
 $L_h=A_h-P_h$ aligns physical depth $A_h+n$ with pristine depth $P_h+L_h+n$.
 
-The cutoff is channel-specific. It is chosen so that the translated pristine
-scattering footprint and its eventual terminal corridor are separated from
-every historical cell. The finite report checks the base guards for each
-historical cell and each ordinary stable snapshot; ray lemmas extend those
-guards to all deeper translations.
+Each channel's cutoff is certified by separation guards. The finite report
+checks these guards for every historical cell and the ordinary stable
+snapshot; ray lemmas extend them to all deeper translations.
 
 \begin{lemma}[Historical transfer]\label{lem:history}
 Let $h$ be ordinary and $n\ge0$. Up to the historical region $H_E$, the orbit
@@ -564,7 +577,7 @@ farther cannot bring a historical cell into any new trace copy or output ray.
 Untouched-region coupling then turns geometric nonintersection into exact
 equality of observations.
 
-Figure~\ref{fig:ordinary-history-map} shows why a channel-specific cutoff is
+Figure \ref{fig:ordinary-history-map} shows why a channel-specific cutoff is
 needed: shallow channel points lie among the finite historical cloud, whereas
 each stable lane eventually extends past it in the common drift direction.
 
@@ -587,7 +600,7 @@ $\Sigma_E(h,d)$ reaches P104.
 \end{proposition}
 
 For $d<A_h$ this is the physical replay table. For $d\ge A_h$, write
-$d=A_h+n$, apply Lemma~\ref{lem:history}, and invoke pristine archive
+$d=A_h+n$, apply Lemma \ref{lem:history}, and invoke pristine archive
 induction at parameter $L_h+n$. The generated physical rows contain 179 replay
 witnesses across all 22 channels; the exceptional row is used separately
 below.
@@ -616,7 +629,7 @@ $$
 
 Positive-copy ray guards show that $W_r$ begins affecting the representation
 only at the next translated copy and is never read by any later reverse block.
-Equation~\ref{eq:reverse} therefore iterates indefinitely in the
+Equation \ref{eq:reverse} therefore iterates indefinitely in the
 pristine setting.
 
 ## First historical collision
@@ -648,7 +661,7 @@ $$
 \tag{4}\label{eq:hitnormal}
 $$
 
-Equation~\ref{eq:hitnormal}, formalized as
+Equation \ref{eq:hitnormal}, formalized as
 \texttt{Scattering.Classification.exceptionalAffine}, is the normal form that
 closes the infinite family. It says more than equal collision coordinates:
 the complete state at collision is fixed modulo an explicit translated
@@ -673,7 +686,7 @@ time-zero ant position, and the fixed historical hit, respectively.}
 
 From $C$, exact replay for 7,994 updates reaches a forward P104 terminal state.
 The checked post-hit trace guard proves that every layer in
-Equation~\ref{eq:hitnormal} avoids this finite replay. A second forward
+Equation \ref{eq:hitnormal} avoids this finite replay. A second forward
 ray guard proves that every layer also avoids the infinite terminal corridor.
 Archive induction therefore transfers the depth-15 computation to all
 $15+n$.
@@ -684,7 +697,7 @@ For every $d\ge1$, $\Sigma_E(h_{72},d)$ reaches P104.
 
 The finite band proves $1\le d<15$; the reverse-block, first-hit,
 post-hit, and archive lemmas prove $d=15+n$. Together with
-Proposition~\ref{prop:ordinary}, this is the complete single-defect
+Proposition \ref{prop:ordinary}, this is the complete single-defect
 scattering spectrum.
 
 # Universal assembly
@@ -705,7 +718,7 @@ $h=h_{72}$, apply Proposition~\ref{prop:exceptional}. Every branch reaches
 P104, and equivariance restores the original pose.
 \end{proof}
 
-Figure~\ref{fig:global-map} combines those branches in one visible-domain map.
+Figure \ref{fig:global-map} combines those branches in one visible-domain map.
 It provides a spatial index to the preceding propositions and their
 exhaustive, inductive coverage.
 
@@ -723,6 +736,10 @@ the Lean proof extends to every depth.}
 \label{fig:global-map}
 \end{figure}
 
+# Lean formalization and finite computation \label{sec:lean}
+
+## Proof cone
+
 In Lean, the same assembly is exposed at three levels. The theorem
 \texttt{Scattering.single\_defect\_scattering} constructs the $21+1$
 classification. The entry theorem combines that classification with the
@@ -733,16 +750,11 @@ theorem OneBlack.universal_one_black :
     ∀ s, ExactlyOneBlack s → ReachesP104 s
 ```
 
-# Lean formalization and finite computation \label{sec:lean}
-
-## Proof cone
-
-The artifact is implemented in Lean 4.30.0 and is organized so that the final
-theorem imports two reflected certificate leaves through a small verification
-boundary. The proof cone includes the original dynamics and certificate modules plus
-the explicit \texttt{StandardTrace} bridge; the release manifest records all
-source digests. Table~\ref{tab:modules} maps the mathematical stages to
-their principal modules.
+The Lean 4.30.0 development combines analytic proof terms with three finite
+computation leaves. Its proof cone includes the dynamics, certificate modules
+and explicit \texttt{StandardTrace} bridge; the release manifest records all
+source digests. Table \ref{tab:modules} maps the mathematical stages to their
+principal modules.
 
 | Mathematical obligation | Principal Lean modules |
 |---|---|
@@ -846,7 +858,7 @@ Langton introduced the model in the context of artificial life and reported
 the emergence of organized motion from simple local rules [@langton1986].
 Bunimovich and Troubetzkoy proved recurrence and unboundedness results for the
 associated Lorentz lattice-gas dynamics [@bunimovich1992]. Unboundedness is a
-qualitatively weaker conclusion than Theorem~\ref{thm:main}: it excludes
+qualitatively weaker conclusion than Theorem \ref{thm:main}: it excludes
 finite confinement but neither selects the period-104 orbit nor gives a time
 after which translated phase equality holds. Gale, Propp, Sutherland, and
 Troubetzkoy studied further ant rules and symmetry phenomena [@gale1995].
@@ -882,7 +894,7 @@ depth and suggest a route to studying interactions among several defects.
 
 Every classical Langton-ant state with exactly one black cell reaches the
 standard period-104 highway, in the precise observation-level sense of
-Definition~\ref{def:p104}. The proof has no coordinate cutoff. It reduces
+Definition \ref{def:p104}. The proof has no coordinate cutoff. It reduces
 the 1,376 early-contact cells to finite replay and every later relevant cell to
 one of 22 affine channels. Twenty-one channels become insensitive to the
 blank-orbit history after channel-specific cutoffs. The remaining channel
@@ -906,7 +918,7 @@ likely require a compositional renewal invariant.
 
 # Certificate inventory
 
-Table~\ref{tab:inventory} collects numerical constants used in the proof.
+Table \ref{tab:inventory} collects numerical constants used in the proof.
 Every value is asserted by a checked report or derived from a checked list;
 none is a parameter of the theorem statement.
 
