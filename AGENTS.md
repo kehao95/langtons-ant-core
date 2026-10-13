@@ -1,7 +1,9 @@
 # Repository method
 
-This repository develops exact Langton-ant proofs from literal finite-state
-replay and explicit mathematical induction.
+This repository owns two Langton-ant results: the universal one-black highway
+theorem and rational clocks with exponential square-escape bounds. It contains
+complete Lean proofs for the one-black theorem, analytic proofs and local Lean
+lemmas for the clock results, and exact reproducible checks for both.
 
 - `one_black/` owns the universal one-black theorem, its dynamics, verifier,
   and proof narrative.
