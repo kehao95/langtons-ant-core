@@ -22,5 +22,6 @@ Extract all source and figure ZIPs into the same directory. The source
 manifest binds the proof, manuscript and original image bytes. The delivery
 PDF optimizes images above 350 dpi to 300 dpi with PyMuPDF 1.28.2; all text
 and page counts are compared before and after optimization. The original
-figure assets and the full-resolution master PDF remain available locally.
+figure assets and the full-resolution master PDF are included in this public
+repository under `preprint/`.
 Internal Gemini correspondence is excluded from the scientific artifact.

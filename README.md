@@ -1,5 +1,33 @@
 # Langton's Ant: proof and research core
 
+This repository hosts the proof sources and reproducible artifacts for two
+preprints by Hao Ke:
+
+| Preprint | Published version | Sources and verification |
+|---|---|---|
+| *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof* | [0.2.0 — Zenodo](https://doi.org/10.5281/zenodo.23341609) | [Manuscript](preprint/README.md) · [Lean proof](one_black/README.md) |
+| *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant* | [0.2.0 — Zenodo](https://doi.org/10.5281/zenodo.23341604) | [Manuscript, proof and checks](clock_escape/README.md) |
+
+## Clock and exponential escape
+
+For every square of n cells per side, every colouring and every initial pose,
+the classical ant exits within **8 n 3ⁿ + 1 updates**. A rational clock gives
+the bound and, for complete finite-support states, algorithms for reachability,
+orbit equivalence and canonical orbit representatives.
+
+The [clock directory](clock_escape/README.md) contains the published PDF,
+LaTeX source, Lean local lemmas, exact checkers and numerical certificates.
+Its reproduction workflow is self-contained:
+
+```sh
+python3 clock_escape/reproduce.py
+make -C clock_escape
+```
+
+The full escape theorem has an analytic proof; Lean checks the local algebra
+and telescoping lemmas. [Verification details](clock_escape/VERIFICATION.md)
+connect each claim to its evidence.
+
 ## One-black theorem
 
 This repository contains a complete Lean-checked proof that every classical
@@ -38,13 +66,15 @@ finite-support Highway Conjecture.
 The published revision explicitly binds the standard blank read word and exports
 [`universal_one_black_standard_trace`](one_black/lean/StandardTrace.lean).
 The [revised manuscript](preprint/paper.md), [review report](preprint/JOURNAL_REVIEW.md)
-and [clean-build workflow](preprint/verify.py) own the publication preparation.
+and [clean-build workflow](preprint/verify.py) document the published proof artifact.
 [Zenodo 23341609](https://doi.org/10.5281/zenodo.23341609) is the new version
-of record 22086968, with shared concept ID 22086967 and the original PDF retained. This revision does not change the HC research
-objective or import an external two-black theorem.
+of record 22086968, with shared concept ID 22086967 and the original PDF retained.
+The clock paper has its own [publication record](clock_escape/RELEASE.md).
+[Public-repository verification](PUBLICATION_SYNC.md) records this integration.
 
 ## Open
 
-External mathematical review, final author review, and venue-specific journal
-preparation (Journal of Automated Reasoning candidate). Subsequent editorial
+External mathematical review and venue-specific journal preparation:
+Journal of Automated Reasoning for the one-black paper and Natural Computing
+for the clock paper are candidates. Subsequent editorial
 work should accumulate locally before the next deliberate versioned release.

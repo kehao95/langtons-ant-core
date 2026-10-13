@@ -1,0 +1,112 @@
+{
+  "schema": "clock-escape-independent-audit-v1",
+  "local_increment_cases": 9720,
+  "direct_field_sum_cases": 60,
+  "exponential_bound_parameters": 1000,
+  "exact_square_graphs": [
+    {
+      "n": 1,
+      "states": 8,
+      "evaluated_transitions": 8,
+      "maximum_exit": 1,
+      "witness": {
+        "black": [],
+        "position": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "distance_sum": 8
+    },
+    {
+      "n": 2,
+      "states": 256,
+      "evaluated_transitions": 256,
+      "maximum_exit": 6,
+      "witness": {
+        "black": [
+          [
+            0,
+            0
+          ]
+        ],
+        "position": [
+          0,
+          0
+        ],
+        "heading": 1
+      },
+      "distance_sum": 504
+    },
+    {
+      "n": 3,
+      "states": 18432,
+      "evaluated_transitions": 18432,
+      "maximum_exit": 17,
+      "witness": {
+        "black": [
+          [
+            0,
+            1
+          ]
+        ],
+        "position": [
+          0,
+          2
+        ],
+        "heading": 1
+      },
+      "distance_sum": 59808
+    },
+    {
+      "n": 4,
+      "states": 4194304,
+      "evaluated_transitions": 4194304,
+      "maximum_exit": 46,
+      "witness": {
+        "black": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "position": [
+          3,
+          3
+        ],
+        "heading": 2
+      },
+      "distance_sum": 20197680
+    }
+  ],
+  "endpoint_control": "1x1 exits at update 1",
+  "nonstrict_base_control": "r=3 rejected as a strict clock",
+  "third_party_review": false,
+  "full_ant_theorem_formalized": false,
+  "checker_sha256": "fd647167bd2c01b7eb4f35bd469c17b7755490c6b463ee977ed514e4f44021f3"
+}

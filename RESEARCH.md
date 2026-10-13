@@ -54,6 +54,15 @@ contexts with their recorded geometry and history predicates. It also records
 a 914,749-state prefix-primary two-black transient. These objects provide
 reusable hypotheses, mechanisms, and finite traces for reconstruction.
 
+## Independent clock results
+
+The [clock preprint](clock_escape/README.md) proves the uniform square first-exit
+bound `8*n*3^n+1` for n cells per side. Its rational clock also supplies
+complete-state reachability, orbit equivalence and a computable orbit section.
+These are established analytic results, accompanied by local Lean proofs and
+self-contained exact checks. They complement the P104 kernel while the
+classification of `HIGHWAY` remains the research target below.
+
 ## Decision formulation
 
 For a normalized finite seed `z`, exact replay decides `Entry(z,t)`, permanent

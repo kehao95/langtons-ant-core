@@ -1,0 +1,411 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={An Ant on the Clock: Exponential Escape Bounds for Langton's Ant},pdfauthor={Hao Ke}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small An Ant on the Clock}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}\newcommand{\Q}{\mathbb Q}
+\newcommand{\eps}{\varepsilon}\newcommand{\symdiff}{\mathbin{\triangle}}
+\title{An Ant on the Clock:\\Exponential Escape Bounds for Langton's Ant}
+\author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
+\date{13 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that the classical two-colour Langton ant exits every square of side
+$n$ within $8n3^n+1$ updates, uniformly over all initial internal colourings,
+positions and headings. This improves the asymptotic order of Etse's factorial
+square bound to exponential in the side length. The proof constructs a family
+of rational clocks that increase strictly at every update: a bound on the
+clock's range inside the square then gives a bound on the time spent there.
+On complete finite-support states, a fixed clock increases by at least $2/5$
+per update and yields decidable reachability, two-sided orbit equivalence and
+a computable orbit normal form. Exact finite checks and Lean proofs of the
+local algebra and telescoping lemmas accompany the analytic argument.
+\end{abstract}
+
+\section{Model and results}
+A state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite, $p\in\Z^2$, and
+$h\in\{N,E,S,W\}$. Headings are encoded cyclically by $0,1,2,3$.
+Let $e_h$ be the corresponding unit vector. A state at time $t$ is observed
+\emph{before} update $t$. The literal update is
+\begin{equation}\label{eq:rule}
+ h'=h+1-2\mathbf1_B(p)\pmod4,\qquad
+ B'=B\symdiff\{p\},\qquad p'=p+e_{h'}.
+\end{equation}
+Thus white gives a right turn, black a left turn, and the read cell flips
+before the ant moves.
+
+There are two distinct questions in this note. The first asks how long the ant
+can remain in a specified finite square before its first exit. The second asks,
+for two \emph{specified complete states} $X,Y$, whether $F^tX=Y$ for some
+integer $t\ge0$. ``Complete'' includes every black cell, not just a neighbourhood
+of the ant or a retained active motif.
+
+Etse~\cite{Etse2026} studies first escape from finite connected domains and proves,
+in particular, a square bound $(n+1)!$, alongside bounds for fixed-height
+rectangles. Our main quantitative result is the uniform bound
+$T_{K_n}\le8n3^n+1$ for a square $K_n$ of $n$ cells per side
+(Corollary~\ref{cor:exp}). The estimate includes the exit move and holds for
+every internal colouring and pose, independently of exterior colours.
+The same construction gives algorithms whose inputs are two complete finite
+black sets and ant poses, complementing the circuit-prediction and
+infinite-background questions studied in~\cite{Gajardo2002}.
+
+The common mechanism is a rational clock with a positive minimum increment.
+Inside a square, its finite range limits the number of updates before exit;
+for a specified complete target state, the difference of clock values bounds
+the time at which that target can be reached. We first construct the clock
+and prove its increment identity, then estimate its range on a square and
+choose parameters to obtain the exponential bound. Finally, we fix one clock
+to derive complete-state reachability and a normal form for two-sided orbits.
+
+\section{An explicit strict rational clock}
+Define
+\[
+ \chi(x,y)=(-1)^{x+y},\qquad
+ \sigma(X)=\begin{cases}\chi(p),&h=N,S,\\-\chi(p),&h=E,W,\end{cases}
+\]
+and put $\eps(h)=+1$ for $h=N,E$, and $\eps(h)=-1$ for $h=S,W$.
+Each update changes both the lattice parity and the heading axis, so $\sigma$
+is invariant under $F$.
+
+The construction uses the diagonal coordinate $x+y$, which changes by
+exactly $+1$ or $-1$ on every move. We assign symmetric exponential weights
+to the two directions along this coordinate. A colour flip changes one term
+of the weighted field sum; a heading-dependent pose term compensates for that
+change so that their combined increment is positive in every turn case.
+The invariant $\sigma$ aligns the field signs with the ant's heading axis.
+
+Fix $c\in\Z$ and a rational $r>3$. The parameter $c$ centres the diagonal
+coordinate, while $r$ controls the growth of the weights. Write
+$s(q)=q_x+q_y-c$ and set
+\begin{align}
+ f_r(s)&=r^s+r^{-s},\\
+ g_r(s,+1)&=\frac{2}{r+1}(r^s-r^{1-s}),\\
+ g_r(s,-1)&=\frac{2}{r+1}(r^{-s}-r^{s+1}),\\
+ \Phi_{r,c}(X)&=-\sigma(X)\sum_{q\in B}\chi(q)f_r(s(q))
+                    +g_r(s(p),\eps(h)).\label{eq:clock}
+\end{align}
+Finite support makes \eqref{eq:clock} a computable rational number, including
+when coordinates are negative.
+
+\begin{lemma}[Increment identity]\label{lem:increment}
+Let $U=r^{s(p)}$, $V=r^{-s(p)}$, and
+\[
+ d_r=\frac{r-3}{r+1},\qquad E_r=\frac{5r+1}{r+1}.
+\]
+If $e=\eps(h)$ and $e'=\eps(h')$, then
+\[
+\begin{array}{c|c}
+ (e,e')&\Phi_{r,c}(FX)-\Phi_{r,c}(X)\\\hline
+ (+,+)\text{ or }(-,-)&d_r(U+V)\\
+ (+,-)&d_rU+E_rV\\
+ (-,+)&E_rU+d_rV
+\end{array}
+\]
+In particular $\Phi_{r,c}(FX)-\Phi_{r,c}(X)\ge2d_r>0$.
+\end{lemma}
+\begin{proof}
+Let $\delta=+1$ on a white read and $\delta=-1$ on a black read. From the
+four headings and two colours in \eqref{eq:rule},
+\[
+ \delta\sigma(X)\chi(p)=ee',\qquad s(p')=s(p)+e'.
+\]
+The black-field contribution to the increment is therefore
+$-ee'(U+V)$. Subtracting the old pose term from the new one gives
+\[
+ -ee'(U+V)+g_r(s(p)+e',e')-g_r(s(p),e).
+\]
+Substitution of the two definitions of $g_r$ gives the displayed table.
+For example, for $(e,e')=(+,+)$, the pose increment is
+$2(r-1)(U+V)/(r+1)$, which yields $d_r(U+V)$ after the field increment.
+For completeness, after multiplying by $r+1$, the other three cases are
+\begin{align*}
+(-,-):\quad&-(r+1)(U+V)+2(rV-U)-2(V-rU),\\
+(+,-):\quad& (r+1)(U+V)+2(rV-U)-2(U-rV),\\
+(-,+):\quad& (r+1)(U+V)+2(rU-V)-2(V-rU).
+\end{align*}
+Expansion gives the corresponding polynomial identities. Since $UV=1$, $U+V\ge2$;
+also $E_r\ge d_r>0$. These give the lower bound in every case.
+\end{proof}
+
+The parameter family will let us balance the clock's increment against its
+range on a square. For complete-state orbit algorithms, one fixed member
+suffices: choosing $r=4$ and $c=0$ gives the following uniform time estimate.
+
+\begin{theorem}[Strict clock]\label{thm:clock}
+The function $\Phi=\Phi_{4,0}$ is computable on every complete finite-support
+state and satisfies
+\begin{equation}\label{eq:time}
+ \Phi(F^tX)-\Phi(X)\ge\frac25t\qquad(t\in\N).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:increment} with $r=4$ and sum the increments.
+\end{proof}
+
+\section{Exponential first exit from a square}
+To estimate confinement time, we use the freedom to centre the weights on
+the square and choose their base as a function of its side length. We first
+retain $r>3$ in the range estimate, then specialize to $r=3+3/n$.
+
+Let $K_n=\{0,\ldots,n-1\}^2$, with $n\ge1$. Start with $p_0\in K_n$ and
+any heading. Put
+\[
+ T_{K_n}=\min\{t\ge1:p_t\notin K_n\},
+\]
+when the set is nonempty. The exit move itself is counted. Coordinates of a
+translated square are obtained simply by translating the whole argument.
+
+For this section, exterior colours may even be arbitrary: define the potential
+by summing over $B\cap K_n$ only. Every read up to the exit is inside $K_n$,
+so Lemma~\ref{lem:increment} remains valid for internal-to-internal updates.
+Thus the first-exit estimate depends only on the square's internal colouring.
+
+\begin{theorem}[Parameterized square bound]\label{thm:square}
+For every rational $r>3$,
+\begin{equation}\label{eq:square}
+ T_{K_n}\le1+\left\lfloor\frac{r+1}{r-3}
+ \left[\frac{r^{1-n}(r^n-1)^2}{(r-1)^2}
+             +r^{n-1}-r^{1-n}\right]\right\rfloor.
+\end{equation}
+In particular $T_{K_n}$ always exists.
+\end{theorem}
+\begin{proof}
+Use $c=n-1$ and let $R=n-1$. For all positions in $K_n$ one has $-R\le s\le R$.
+With fixed $\sigma$, the range of the black-field sum over all internal
+colourings is at most
+\begin{align}
+ F_n&=\sum_{q\in K_n}(r^{s(q)}+r^{-s(q)})\\
+ &=2r^{-R}\left(\frac{r^n-1}{r-1}\right)^2.\label{eq:fieldrange}
+\end{align}
+Each coefficient may be either present or absent; the difference between its
+largest and smallest possible contribution is its absolute value. Summing those
+ranges proves the first line. Reflection of the square exchanges the two
+exponential sums and proves the second.
+
+The function $g_r(s,+1)$ increases with $s$, and
+$g_r(s,-1)=g_r(-s,+1)$. Consequently the range of the pose correction is at most
+\begin{align}
+ G_n&=g_r(R,+1)-g_r(-R,+1)\\
+ &=2(r^R-r^{-R}).\label{eq:poserange}
+\end{align}
+Thus all internal values of the potential lie in an interval of length
+$F_n+G_n$. If the ant never exited, its potential would increase by at least
+$2d_r$ at every update while staying in this bounded interval, a contradiction.
+Hence the first exit is finite.
+
+States at times $0,\ldots,T_{K_n}-1$ are internal. The $T_{K_n}-1$ updates
+between these states give
+\[
+ 2d_r(T_{K_n}-1)\le F_n+G_n.
+\]
+Divide, use \eqref{eq:fieldrange}--\eqref{eq:poserange}, and take the integer
+part to obtain \eqref{eq:square}. The additional unit counts the exit update.
+\end{proof}
+
+\begin{corollary}[Exponential bound in side length]\label{cor:exp}
+For every initial colouring and internal pose,
+\[
+ \boxed{T_{K_n}\le8n3^n+1.}
+\]
+\end{corollary}
+\begin{proof}
+Choose $r=3+3/n$. The factor $(r+1)/(r-3)=(4n+3)/3$ is at most $7n/3$.
+Since $r>3$,
+\[
+ \frac{r^{1-n}(r^n-1)^2}{(r-1)^2}
+ \le\frac{r^{n+1}}{(r-1)^2}\le\frac94r^{n-1}.
+\]
+The other two terms in brackets in \eqref{eq:square} have sum at most $r^{n-1}$.
+The binomial theorem gives
+$(1+1/n)^n\le\sum_{k=0}^n1/k!<3$: the terms for $k=0,1$ sum to two,
+and for $k\ge2$, $k!\ge2^{k-1}$ bounds the remaining finite sum by a
+strictly subunit geometric sum. It follows that $r^{n-1}<3^n$. The expression inside the floor
+in \eqref{eq:square} is less than
+\[
+ \frac{7n}{3}\,\frac{13}{4}\,3^n
+ =\frac{91}{12}n3^n<8n3^n.
+\]
+The stated convenient integer bound follows.
+\end{proof}
+
+\begin{remark}[Comparison of square bounds]
+Etse's Theorem~5~\cite{Etse2026} gives $T_{K_n}\le(n+1)!$. Corollary~\ref{cor:exp}
+gives the asymptotically smaller order $O(n3^n)$ in the side length $n$.
+For an individual square, the minimum of Etse's bound and
+\eqref{eq:square} gives a useful combined estimate. The quantity bounded
+throughout is the first exit time, including the move across the boundary.
+\end{remark}
+
+\begin{center}
+\begin{tabular}{r r r}
+\toprule
+Side $n$ & Bound \eqref{eq:square}, $r=3+3/n$ & $(n+1)!$\\
+\midrule
+3 & 218 & 24\\
+6 & 13,982 & 5,040\\
+8 & 175,691 & 362,880\\
+12 & 22,419,218 & 6,227,020,800\\
+16 & 2,484,936,650 & 355,687,428,096,000\\
+\bottomrule
+\end{tabular}
+\end{center}
+The table compares upper bounds at selected side lengths: the factorial bound
+is smaller in the first two rows, and the clock bound is smaller in the last three.
+
+\section{Complete-state orbit algorithms}
+Fix the single clock $\Phi=\Phi_{4,0}$ throughout this section.
+Here the comparison is between complete states, so the same fixed clock is
+used for every input. Its uniform increment converts a target clock value
+into a finite simulation budget.
+
+\begin{theorem}[Forward reachability]\label{thm:reach}
+Given complete finite-support states $X,Y$, it is decidable whether
+$F^tX=Y$ for some $t\ge0$. If such a time exists it is unique and satisfies
+\[
+ t\le N(X,Y):=\left\lfloor\frac52(\Phi(Y)-\Phi(X))\right\rfloor.
+\]
+\end{theorem}
+\begin{proof}
+Different $\sigma$ values or a negative clock difference rule out a match.
+Otherwise compute the displayed integer and simulate through times $0$ to
+$N(X,Y)$, inclusive, comparing the entire black set, position and heading.
+Inequality~\eqref{eq:time} rules out every later match. Strict increase also
+rules out two different matching times. Each state at finite time is finite,
+and all rational arithmetic and full-state comparisons are effective.
+\end{proof}
+
+The inverse update is equally explicit. Given $(B,p,h)$, put $q=p-e_h$.
+If $q\in B$, the preceding update was white-to-black, so the old heading was
+$h-1$. If $q\notin B$, it was black-to-white, so the old heading was $h+1$.
+In either case flip $q$ and put the predecessor at $q$. This defines a computable
+bijection on the set $\mathcal X$ of complete finite-support states.
+
+\begin{corollary}[Orbit equivalence]
+The relation $\exists t\in\Z\;F^tX=Y$ is decidable, with a computable signed
+time offset whenever it holds.
+\end{corollary}
+\begin{proof}
+If the states differ, their time order on an orbit must agree with the strict
+order of their clock values. Apply Theorem~\ref{thm:reach} in that order;
+equal clock values allow a match only for identical states.
+\end{proof}
+
+\begin{theorem}[Computable orbit section]\label{thm:section}
+Define the decidable set
+\[
+ \mathcal S=\{C\in\mathcal X:\Phi(C)\ge0>\Phi(F^{-1}C)\}.
+\]
+Every two-sided orbit meets $\mathcal S$ exactly once. Its representative $C(X)$
+and the unique integer $k(X)$ with $X=F^{k(X)}C(X)$ are computable. The map
+$X\mapsto(C(X),k(X))$ is a computable bijection between $\mathcal X$ and
+$\mathcal S\times\Z$ under which $F$ acts by $(C,k)\mapsto(C,k+1)$.
+\end{theorem}
+\begin{proof}
+Forward values tend to $+\infty$ by \eqref{eq:time}. Applying the same inequality
+to $F^{-t}X$ shows that backward values tend to $-\infty$. Strict increase
+therefore yields exactly one crossing from negative to nonnegative values.
+Search forward when $\Phi(X)<0$ and backward otherwise, counting the signed
+number of moves. A coarse bound for the moves and final predecessor check is
+$\lceil(5/2)|\Phi(X)|\rceil+1$. The inverse of the displayed correspondence
+computes $F^kC$ using forward or inverse updates as appropriate.
+\end{proof}
+
+The normal form separates the position along an orbit from its orbit label
+$C\in\mathcal S$. A row-parity invariant shows that infinitely many distinct
+labels are needed.
+
+\begin{lemma}[Infinitely many orbit representatives]
+The section $\mathcal S$ is infinite.
+\end{lemma}
+\begin{proof}
+For each integer row $j$, the bit
+\[
+ I_j(X)=|B\cap(\Z\times\{j\})|
+        +\mathbf1_{\{p_y=j,\ h\in\{E,W\}\}}\pmod2
+\]
+is invariant. On a vertical-to-horizontal turn the new head stays in the
+read row and its indicator cancels that row's colour flip. On a
+horizontal-to-vertical turn the old head indicator cancels the flip.
+All other rows are unchanged. States with the head at the origin facing north
+and sole black cell $(0,j)$ have distinct invariant vectors $(I_i)_{i\in\Z}$.
+They therefore lie on distinct orbits, each with its own section representative.
+\end{proof}
+
+\paragraph{Computational cost.}
+The clock gives explicit finite simulation budgets for the orbit algorithms.
+With sparse binary coordinates, exact arithmetic may require exponential
+space in the coordinate bit length: the expanded rational representation of
+$4^x$ has length proportional to $|x|$. The algorithms establish decidability
+with this representation-dependent cost.
+
+\section{Verification and reproducibility}
+The main theorem combines exact local identities with a finite geometric-series
+range estimate. The supplementary artifact supplies two independently written
+steppers and exact rational arithmetic. The retained baseline replay checks
+4,704 local cases, 18,696 states in squares through side three, and 100 bound
+parameters. A new integer-vector implementation checks 9,720 local cases,
+including negative coordinates, remote black cells, and bases arbitrarily close
+to three. A separate bit-mask functional graph exhausts all 4,213,000
+colour/pose states of squares of sides one through four. Their maximum exit
+times are $1,6,17,46$. Every graph transition is evaluated once, cycles are
+explicitly rejected, and a maximizing witness for each size is replayed with
+the integer-vector stepper. Direct field sums are compared with the geometric
+formula in 60 cases; the coarse bound is checked at 1,000 side lengths.
+These checks exercise the local identities and small-square dynamics alongside
+the proofs of Lemma~\ref{lem:increment} and Theorem~\ref{thm:square}.
+
+The artifact also includes kernel-checked Lean 4.30.0 proofs of all four
+polynomial increment identities after clearing the positive denominator,
+$U+V\ge2$ when $U>0$ and $UV=1$, the scaled increment lower bound, and the
+finite telescoping/interval argument. Their printed dependencies are only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The formalized components are the local algebra and telescoping lemmas.
+The connection to the literal ant, integer-power identities, finite-field
+range, and $8n3^n+1$ specialization are established by the analytic proofs above.
+
+\section{Conclusion}
+A strict rational clock connects local ant updates to quantitative control of
+complete trajectories. On a square, exponential weights give a finite range
+whose comparison with the minimum increment yields $T_{K_n}\le8n3^n+1$.
+On complete finite-support states, the same increment bounds the time to a
+specified target, while reversibility gives a unique zero-crossing
+representative for each orbit. These two applications use the same local
+identity: bounded clock range gives bounded residence time, and specified
+clock values give bounded search.
+
+\paragraph{Source and software availability.}
+The self-contained supplementary archive includes the retained baseline
+implementation, independent checks, local Lean proofs, source hashes,
+verification logs, this manuscript source, and build instructions. Run \texttt{python3 reproduce.py} to replay the evidence and
+\texttt{make} to typeset the manuscript. The source and release manifests
+record SHA256 digests of the supplied files.
+
+\paragraph{AI assistance.}
+Generative AI was used in the research conversation to propose and critique
+arguments, prepare proof and code drafts, and organize this manuscript.
+
+\begin{thebibliography}{9}
+\bibitem{Etse2026}
+Kossi Roland Etse.
+\newblock How Long Can The Escaping Ant Be Confined?
+\newblock In \emph{51st International Symposium on Mathematical Foundations of
+Computer Science (MFCS 2026)}, LIPIcs 386, 49:1--49:17, 2026.
+\newblock \href{https://doi.org/10.4230/LIPIcs.MFCS.2026.49}{doi:10.4230/LIPIcs.MFCS.2026.49}.
+
+\bibitem{Gajardo2002}
+Anah\'{\i} Gajardo, Andr\'{e}s Moreira and Eric Goles.
+\newblock Complexity of Langton's ant.
+\newblock \emph{Discrete Applied Mathematics} 117:41--50, 2002.
+\newblock \href{https://doi.org/10.1016/S0166-218X(00)00334-6}{doi:10.1016/S0166-218X(00)00334-6}.
+\end{thebibliography}
+\end{document}

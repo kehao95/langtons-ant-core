@@ -26,6 +26,22 @@ target set makes identical updates by first-difference induction. Thus `None`
 proves permanent blank coupling, while a finite answer locates the first colour
 divergence.
 
+## Rational clocks and square escape
+
+The independent [clock paper](clock_escape/README.md) constructs a rational
+function on complete finite-support states increasing by at least `2/5` at
+every update. A localized parameter family, with `r=3+3/n`, bounds first exit
+from an axis-aligned square of **n cells per side** by `8*n*3^n+1`, including
+the move out, for every internal colouring and pose and arbitrary exterior
+colours. This sharpens the finite-state estimate for square domains; below,
+`n` in the general finite-set bound still denotes the number of cells.
+
+The uniform clock also gives total algorithms for complete-state reachability,
+orbit equivalence, and a computable orbit section. The analytic proofs live in
+[`clock_escape/main.tex`](clock_escape/main.tex); local algebra and telescoping
+are checked in Lean, with the exact coverage and finite evidence recorded in
+[`clock_escape/VERIFICATION.md`](clock_escape/VERIFICATION.md).
+
 ## Complete-history renewal
 
 ### Finite escape

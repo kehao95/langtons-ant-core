@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "counts": {
+    "inverse_round_trips": 1200,
+    "signed_reachability_pairs": 120,
+    "normal_forms_checked": 120,
+    "equal_clock_negative_pairs": 12
+  },
+  "blank_normal_form": {
+    "black": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "position": [
+      1,
+      -1
+    ],
+    "heading": 2,
+    "input_offset": -2,
+    "clock": "21/20"
+  },
+  "scope": {
+    "exact_state_reachability_total": true,
+    "biinfinite_orbit_equivalence_total": true,
+    "orbit_normal_form_total": true,
+    "highway_decider": false
+  }
+}

@@ -63,6 +63,8 @@ blank-highway word and proves complete standard-trace equality. See
 [JOURNAL_REVIEW.md](JOURNAL_REVIEW.md), [verify.py](verify.py), and the
 [clean-build evidence](verification/). The existing public record is preserved;
 [RELEASE.md](RELEASE.md) records the published Zenodo version and artifact checksums.
+[Published source manifest](published-source-manifest.json) preserves the exact
+0.2.0 source and figure hashes; later repository documentation is tracked in Git.
 The manuscript presents the theorem, scattering construction and reproducibility
 in contribution-focused prose; internal review tasks remain in the review files.
 
