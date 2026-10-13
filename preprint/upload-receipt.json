@@ -1,48 +1,24 @@
 {
   "schema": "zenodo-draft-verification-v1",
   "draft_id": 23341609,
-  "verified_at": "2026-10-13T12:54:33.585642+00:00",
+  "verified_at": "2026-10-13T14:01:21.965933+00:00",
   "title": "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof",
   "version": "0.2.0-review",
+  "description_sha256": "6de7d7a175976d5e58eb63dced46081f783a270bbccc362c954c6a3811a664da",
   "state": "unsubmitted",
   "submitted": false,
   "preview_url": "https://zenodo.org/records/23341609?preview=1",
   "metadata_valid": true,
-  "source_commit": "c96a1c47254ba1661568a306c5d7efa9753a0e35",
+  "source_commit": "e24ee2ba224de191b22d2eb39904504298318c11",
+  "verification_mode": "All current server MD5 checksums; four fresh SHA256 download checks; prior download evidence retained for unchanged figure archives.",
+  "download_note": "Intermittent Zenodo TLS handshake timeouts interrupted full download replay. The updated PDF and source ZIP were downloaded and SHA256-verified; the release manifest was verified against its current server MD5.",
   "files": [
-    {
-      "filename": "One-Black-Standard-Trace-v0.2.0-review.pdf",
-      "bytes": 3408159,
-      "sha256": "4fa90f69ea49f3285a44cf4e90f9d195345ec7687af994163fa4726b963d378b",
-      "remote_md5": "bbba12f89470aaf9eef30ac930fe7d29",
-      "download_verified": true
-    },
-    {
-      "filename": "one-black-0.2.0-review-source.zip",
-      "bytes": 132916,
-      "sha256": "f5fbd3a28916ccf92c47721cdeffc17ae4536ff1f520a3db50619158b302da88",
-      "remote_md5": "10788878186cbe34dcad67fee28137c7",
-      "download_verified": true
-    },
     {
       "filename": "one-black-0.2.0-review-figures-01.zip",
       "bytes": 2671106,
       "sha256": "f8a2a54f590b8d3966af23a119793d4f69b18c73a96aa5cac2bfcaed7ca13714",
       "remote_md5": "cf3fe0d6be98a0d8b5941542f72c3ab6",
-      "download_verified": true
-    },
-    {
-      "filename": "one-black-0.2.0-review-figures-02.zip",
-      "bytes": 2449344,
-      "sha256": "59fd41853a3d75e151a5bc95befe428ea92a59315ce1d20c3ba903b6fd119e80",
-      "remote_md5": "97dc3e1a48ba208b05d508cdbfb04978",
-      "download_verified": true
-    },
-    {
-      "filename": "one-black-0.2.0-review-figures-03.zip",
-      "bytes": 2749471,
-      "sha256": "8c9c10f8d5ae6c9195b64c6099d7d7fb233e9677f0d957eceb750264177091a8",
-      "remote_md5": "b7729d540091e8f762c86c08396b6c17",
+      "server_md5_verified": true,
       "download_verified": true
     },
     {
@@ -50,26 +26,71 @@
       "bytes": 2429168,
       "sha256": "e061cc141db037cb365d138382f7e321a78532d15bc100cd54725170aa9d123e",
       "remote_md5": "8aaebdab6a1c2c729615f14cb71b7b2c",
+      "server_md5_verified": true,
+      "download_verified": false,
+      "previous_download_verification": {
+        "verified_at": "2026-10-13T12:54:33.585642+00:00",
+        "sha256": "e061cc141db037cb365d138382f7e321a78532d15bc100cd54725170aa9d123e",
+        "remote_md5": "8aaebdab6a1c2c729615f14cb71b7b2c"
+      }
+    },
+    {
+      "filename": "one-black-0.2.0-review-figures-02.zip",
+      "bytes": 2449344,
+      "sha256": "59fd41853a3d75e151a5bc95befe428ea92a59315ce1d20c3ba903b6fd119e80",
+      "remote_md5": "97dc3e1a48ba208b05d508cdbfb04978",
+      "server_md5_verified": true,
       "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-review-figures-03.zip",
+      "bytes": 2749471,
+      "sha256": "8c9c10f8d5ae6c9195b64c6099d7d7fb233e9677f0d957eceb750264177091a8",
+      "remote_md5": "b7729d540091e8f762c86c08396b6c17",
+      "server_md5_verified": true,
+      "download_verified": false,
+      "previous_download_verification": {
+        "verified_at": "2026-10-13T12:54:33.585642+00:00",
+        "sha256": "8c9c10f8d5ae6c9195b64c6099d7d7fb233e9677f0d957eceb750264177091a8",
+        "remote_md5": "b7729d540091e8f762c86c08396b6c17"
+      }
     },
     {
       "filename": "one-black-0.2.0-review-figures-05.zip",
       "bytes": 1687611,
       "sha256": "336227639681a03d597b27bee53eda0223f17c6a92266028c8f10eb39a0f3fbf",
       "remote_md5": "3d67cfdc4d9467d4e1df2431296de489",
+      "server_md5_verified": true,
+      "download_verified": false,
+      "previous_download_verification": {
+        "verified_at": "2026-10-13T12:54:33.585642+00:00",
+        "sha256": "336227639681a03d597b27bee53eda0223f17c6a92266028c8f10eb39a0f3fbf",
+        "remote_md5": "3d67cfdc4d9467d4e1df2431296de489"
+      }
+    },
+    {
+      "filename": "One-Black-Standard-Trace-v0.2.0-review.pdf",
+      "bytes": 3405084,
+      "sha256": "643f7353ffa2e5fe901a85b56d13d0ed7cf72b8d9c1d19ec140ae1035b44283f",
+      "remote_md5": "7fba09725ef018fe857e9a39472940d1",
+      "server_md5_verified": true,
       "download_verified": true
     },
     {
       "filename": "one-black-0.2.0-review-manifest.json",
       "bytes": 1333,
-      "sha256": "cd00f5ab235ad496757f75631161b69523a85b9f6a926387179571d2dfb73a37",
-      "remote_md5": "629c18a77fab73c92dffa2ab8fa9bac8",
+      "sha256": "54dd830cd730b2d7b0b8b8cda1096e65610b45eaa18a7da7471b6af869983cc4",
+      "remote_md5": "39f914ddb91c9c905df1a9d8e3a6e2d8",
+      "server_md5_verified": true,
+      "download_verified": false
+    },
+    {
+      "filename": "one-black-0.2.0-review-source.zip",
+      "bytes": 132053,
+      "sha256": "16837bb6abcf09cce4da39946644063af4f80b92e805a4d9881dc3ed7579d728",
+      "remote_md5": "8ec60165d5a2d98d0e38aed3ead87167",
+      "server_md5_verified": true,
       "download_verified": true
     }
-  ],
-  "previous_published_record": {
-    "id": 22086968,
-    "metadata_file_checksum": "md5:931cef932a3fefdeebcbadc1c437efb5",
-    "metadata_unchanged": true
-  }
+  ]
 }
