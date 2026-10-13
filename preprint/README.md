@@ -60,4 +60,6 @@ The 2026-10-13 local revision strengthens the final predicate to the fixed
 blank-highway word and proves complete standard-trace equality. See
 [JOURNAL_REVIEW.md](JOURNAL_REVIEW.md), [verify.py](verify.py), and the
 [clean-build evidence](verification/). The existing public record is preserved;
-[RELEASE.md](RELEASE.md) records the prepared, unpublished new version.
+[RELEASE.md](RELEASE.md) records the Zenodo draft and artifact checksums.
+The manuscript presents the theorem, scattering construction and reproducibility
+in contribution-focused prose; internal review tasks remain in the review files.

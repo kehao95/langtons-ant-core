@@ -7,7 +7,7 @@ author: |
   \href{mailto:i@kehao.me}{\texttt{i@kehao.me}}
   \end{tabular}
 author-meta: "Hao Ke"
-date: "Revision 0.2.0-review, 13 October 2026"
+date: "13 October 2026"
 bibliography: references.bib
 link-citations: true
 documentclass: article
@@ -60,9 +60,7 @@ enters the forward highway after a checked finite transient. The infinite
 reductions, geometric separation arguments, recurrence relations, and
 certificate-soundness theorems are formalized in Lean 4. Three closed finite
 reports---the blank highway, 1,376 prefix contacts, and the shared scattering
-certificate---are evaluated with \texttt{native\_decide}. We state this trust
-boundary explicitly: native evaluation adds Lean's compiler, runtime, and
-code-generation path to the trusted base. The baseline sources are available in the public
+certificate---are evaluated with \texttt{native\_decide}. The baseline sources are available in the public
 \href{https://github.com/kehao95/langtons-ant-core}{source-code and Lean-proof
 repository}; the revised sources, witness tables and reproduction commands
 accompany this version in its supplementary artifact.
@@ -81,9 +79,8 @@ reads its current cell, turns right on white and left on black, flips that
 cell, and advances one lattice edge. From the all-white plane, the orbit is
 observed to settle into a diagonal highway: every 104 updates the same local
 behaviour recurs, translated by two cells in each coordinate [@langton1986].
-The question is not whether this particular computation can be run for long
-enough, but which finite perturbations can be proved to enter such a permanent
-regime.
+The central question is which finite perturbations provably enter this
+permanent regime.
 
 The general finite-support Highway Conjecture remains unresolved. Classical
 unboundedness results rule out confinement to a finite region
@@ -92,8 +89,8 @@ phase coherence of the standard highway. Complexity results sharpen the
 obstruction: finite-support prediction already contains P-hard instances,
 while universality and undecidability constructions use an infinite but
 finitely described circuit background [@gajardo2002]. These input contracts
-must be kept separate. Neither unboundedness nor universality supplies a
-convergence theorem for arbitrary finite support.
+define complementary questions about spatial escape, computation and eventual
+highway convergence.
 
 This paper isolates the smallest translation-invariant nonblank family: states
 with exactly one black cell, at an arbitrary displacement from an arbitrarily
@@ -140,7 +137,7 @@ universal assembly. Closed Boolean reports handle three finite leaves and are
 reflected into typed certificates. They are evaluated using
 \texttt{native\_decide}; according to the Lean reference, that mechanism uses
 a dedicated axiom and relies on the native compiler and runtime
-[@leanref2026]. We therefore call the result *Lean-checked*, not kernel-only.
+[@leanref2026]. Section~\ref{sec:lean} records the proof components and their dependencies.
 
 The contributions are:
 
@@ -236,15 +233,11 @@ for some $N\ge0$.
 
 This is exactly the Lean predicate \texttt{PermanentP104};
 \texttt{ReachesP104} existentially quantifies $N$. It fixes every later read,
-turn, and translated ant position. It does not claim that inert cells
-arbitrarily far behind the ant translate with the active pattern.
+turn, and translated ant position while allowing inert historical cells
+outside the future read trace.
 
-The fixed-word clause is explicit in this revision. The earlier public
-preprint recorded observation recurrence and the standard drift but omitted
-this clause from its final predicate. No claim is made that an arbitrary
-104-periodic translator must have the standard word. Here every accepting
-terminal certificate already couples to the fixed blank boundary, and the
-strengthened clause propagates through the existing proof. The module
+Every accepting terminal certificate couples to the fixed blank boundary,
+so the fixed-word clause propagates through the scattering proof. The module
 \texttt{StandardTrace} further proves full future observation equality with
 a placement of the actual blank state at update 9,977: periodicity extends
 the fixed first word to all times, equality of read colours and aligned
@@ -286,8 +279,7 @@ $v=(-2,-2)$. Thirteen cells form the active black pattern. The state $E$ has
 Moreover, the 104-step block iterates permanently.
 \end{proposition}
 
-The last sentence is not inferred from observing several repeated blocks. A
-finite XOR comparison between one block and its translate produces a wake
+To prove permanent iteration, a finite XOR comparison between one block and its translate produces a wake
 $W$; affine ray checks prove that all later translated read supports avoid all
 archived copies of $W$. Induction then proves
 Definition~\ref{def:p104} for every future cycle.
@@ -310,7 +302,7 @@ For every $q\in P$, $\sigma_q$ reaches P104.
 \end{proposition}
 
 Completeness follows from equality between the stored deduplicated list and
-the read set of the first $T$ updates, rather than from a bounding box.
+the read set of the first $T$ updates.
 
 ## Untouched defects
 
@@ -335,9 +327,8 @@ If $q\notin P$, then
 $$\operatorname{run}(T,\sigma_q)=\operatorname{blacken}(q,E).$$
 \end{corollary}
 
-Figure~\ref{fig:prefix-dichotomy} makes the first-contact split visible. It is
-an exact rendering of the sets used by the app, but the proof obligations are
-the read-set equality and coupling statement above, not the displayed window.
+Figure~\ref{fig:prefix-dichotomy} displays the first-contact split established
+by the read-set equality and coupling statement above.
 
 \begin{figure}[p]
 \centering
@@ -419,8 +410,7 @@ $$
 \tag{1}\label{eq:archive}
 $$
 
-Cancellation is retained in this expression; it is not replaced by a set
-union. The proof relates XOR algebra to orbit equality through a
+The XOR expression retains cancellation between overlapping wakes. The proof relates this algebra to orbit equality through a
 \emph{same-outside} relation: two grids may differ on an archive, but generate
 identical updates while the common ant path avoids it.
 
@@ -441,8 +431,8 @@ reaches P104.
 The Lean proof packages the three assumptions as
 \texttt{Induction.Data}. It first proves an exact normal form for the finite
 trace and then uses untouched-region coupling for the infinite corridor. The
-separation premises are discharged by exact affine-ray predicates rather than
-by testing a fixed number of copies.
+separation premises are discharged by exact affine-ray predicates for all
+translated copies.
 
 ## All-depth pristine classification
 
@@ -460,10 +450,8 @@ remaining head $h_{72}$, the stable output has reverse drift $-v=(2,2)$.
 Figure~\ref{fig:scattering-spectrum} displays one common-depth replay for every
 frontier head. These panels are exported directly from Stage 03 of the
 interactive app: the app runs the exact ant rule to the stored terminal witness
-and then continues the resulting P104 orbit for 20 cycles. The figure is
-explanatory rather than an additional proof obligation; completeness and
-all-depth extension are supplied by the checked 22-head list and archive
-induction above.
+and then continues the resulting P104 orbit for 20 cycles. The checked
+22-head list and archive induction extend this classification to all depths.
 
 \begin{landscape}
 \begin{figure}[p]
@@ -589,7 +577,7 @@ active entry support. Orange cells are channel depths discharged by direct
 physical replay; blue cells extend the 21 stable ordinary lanes through depth
 30 to display their affine continuation. Red and cyan outlines mark the
 time-zero ant origin and the time-9,977 P104 entry, respectively. The all-depth
-claim is supplied by Lemma~\ref{lem:history}, not by the displayed cutoff.}
+extension follows from Lemma~\ref{lem:history}.}
 \label{fig:ordinary-history-map}
 \end{figure}
 
@@ -641,8 +629,7 @@ reverse cycles and phases 0 through 88 of the next cycle, then reaches
 $$c=(20,-22)$$
 
 at phase 89. Thus the elapsed reverse time is
-$10\cdot104+89=1{,}129$ updates. The report separately verifies $c\in H_E$;
-the phrase ``historical hit'' is not inferred merely from the coordinate.
+$10\cdot104+89=1{,}129$ updates. The report also verifies $c\in H_E$.
 
 Increasing physical obstacle depth from $15+n$ to $15+(n+1)$ inserts one
 forward block before reversal and one reverse block before the collision. The
@@ -719,8 +706,8 @@ P104, and equivariance restores the original pose.
 \end{proof}
 
 Figure~\ref{fig:global-map} combines those branches in one visible-domain map.
-It is a spatial index to the preceding propositions, not a replacement for
-their exhaustive and inductive coverage.
+It provides a spatial index to the preceding propositions and their
+exhaustive, inductive coverage.
 
 \begin{figure}[t]
 \centering
@@ -746,7 +733,7 @@ theorem OneBlack.universal_one_black :
     ∀ s, ExactlyOneBlack s → ReachesP104 s
 ```
 
-# Lean formalization and finite computation
+# Lean formalization and finite computation \label{sec:lean}
 
 ## Proof cone
 
@@ -786,20 +773,18 @@ The complete build has three native computation leaves.
 
 The lane tables contain 152 pristine replay witnesses and 179 physical-entry
 replay witnesses. Their stored witness times total 1,380,384 and 2,761,211
-updates, respectively. These totals describe finite certificate work, not a
-uniform upper bound on the theorem's eventual-entry time. Deeper channel
-members are discharged analytically.
+updates of finite certificate work, respectively. Archive induction extends
+these witnesses to deeper channel members.
 
 Each stable snapshot computes its terminal state, deduplicated read set,
 cached read list, terminal orientation, and acceptance result once. Multiple
-proof guards consume the same values. Witness generation may originally have
-searched for terminal times, but verification uses the checked-in times and
-performs direct replay only; no search procedure is trusted by the theorem.
+proof guards consume the same values. Verification directly replays the
+checked-in terminal times and checks their acceptance conditions.
 
 ## Reflection and trust boundary
 
-The Boolean reports are not accepted as untyped assertions. Each report has a
-soundness theorem of the form
+Each Boolean report is connected to a typed certificate by a soundness
+theorem of the form
 
 ```lean
 theorem certificate_of_report (verified : report = true) : Certificate
@@ -807,13 +792,11 @@ theorem certificate_of_report (verified : report = true) : Certificate
 
 and the typed certificates feed the analytic theorems. The closed equalities
 \texttt{report = true} are discharged with \texttt{native\_decide}. This design
-makes the finite obligations inspectable and reproducible, but it has a larger
-trusted computing base than reduction inside Lean's kernel. In current Lean,
-native decision uses a dedicated axiom and trusts the compiler, runtime,
-code-generation backend, and any externally linked native code
-[@leanref2026]. There is no external oracle or generated theorem statement in
-the final build, but ``axiom-free'' and ``kernel-only'' would be inaccurate
-descriptions.
+makes the finite obligations inspectable and reproducible. The trusted
+computing base consists of Lean's kernel and foundational axioms together
+with the native compiler, runtime, code-generation backend and any externally
+linked native code used by \texttt{native\_decide} [@leanref2026]. The final
+theorems depend on three native-evaluation axioms, one for each finite report.
 
 ## Reproduction
 
@@ -829,7 +812,7 @@ python3 one_black/check.py
 ```
 
 The command builds both closed theorem targets from checked-in sources and
-witness tables; it does not rerun witness search or the Python generator.
+witness tables by direct replay.
 For a fresh build without cached proof objects, run
 
 ```console
@@ -850,12 +833,12 @@ Here `HasStandardTrace` quantifies a symmetry placement of the fixed actual
 blank state at update 9977 and equality of every future position, heading and
 read colour. Both final theorems have exactly the same three native computation
 leaves; the new bridge adds no native evaluation or proof assumption.
-The revised source package is version `0.2.0-review`, with exact file digests in
-its manifest. It accompanies a draft new version of the existing preprint
-[@hao2026preprint]; it is not a new claim to the same theorem's priority. The interactive website is an
-explanatory companion; it is not an input to the proof.
+The accompanying source package records exact file digests in its manifest
+and supplies the strengthened theorem and clean-build evidence for this
+revision of the preprint [@hao2026preprint]. The interactive website illustrates
+the proof geometry and channel classification.
 
-# Related work and scope
+# Related work
 
 ## Classical ant dynamics
 
@@ -874,10 +857,9 @@ Gajardo, Moreira, and Goles embedded Boolean-circuit computation in finite
 configurations and obtained P-hardness; their universality and undecidability
 construction uses an infinite, finitely described trapezoidal circuit array
 [@gajardo2002]. Their circuit construction can route an ant to a highway seed,
-so the present work should not be advertised as the first infinite family ever
-known to reach a highway. Its distinction is instead the exhaustive natural
-family defined solely by ``exactly one black cell'', with arbitrary relative
-position.
+giving an infinite family of highway-reaching configurations. The present
+theorem covers the exhaustive natural family defined solely by ``exactly one
+black cell'', with arbitrary relative position.
 
 For generalized reversible ants, recognition of repeatable configurations can
 be PSPACE-hard [@tsukiji2011]. Recent work shows that generalized rules may
@@ -886,23 +868,15 @@ may also exhibit qualitatively different finite-configuration asymptotics
 [@lutfalla2025]. These results motivate separating the theorem's classical LR
 rule and exact P104 predicate from broader claims about generalized ants.
 
-## Claim boundary
+## A geometric method for unbounded perturbations
 
-Our primary-source audit did not find an earlier theorem covering every
-classical exactly-one-black state with arbitrary pose. This is a report about
-the audited literature, not a mathematical priority theorem, so the manuscript
-does not use ``first'' in its title, abstract, or contribution list. The
-general finite-support Highway Conjecture also remains outside our result.
-Nothing here proves convergence for two black cells, for an arbitrary finite
-black set, or for arbitrary generalized rule words.
-
-The proof architecture may nevertheless be reusable. It separates a finite
+The proof architecture separates a finite
 baseline transient from a translated renewal boundary, classifies the
 first-contact frontier into affine channels, and promotes finite anchors with
 geometric archive guards. In the exceptional channel, a reverse renewal orbit
-and an affine collision law replace a failed one-direction coupling. These are
-structural mechanisms rather than larger simulations, but their applicability
-to other support sizes remains an open question.
+and an affine collision law account for the return through the historical wake.
+Together these mechanisms extend finitely checked anchors to every channel
+depth and suggest a route to studying interactions among several defects.
 
 # Conclusion
 
@@ -918,16 +892,14 @@ P104 through an archived post-hit tail.
 
 The Lean development checks both the infinite reductions and the completeness
 of the case split. Its three finite leaves are evaluated natively, with the
-corresponding compiler/runtime trust boundary stated explicitly. This result
-does not settle the finite-support Highway Conjecture, but it provides a
-fully quantified test case in which an unbounded perturbation family is closed
-by scattering geometry and induction rather than by extending a simulation
-window.
+corresponding compiler/runtime dependencies recorded in the artifact. The
+result establishes a fully quantified convergence theorem for an unbounded
+perturbation family through scattering geometry and induction.
 
 The next mathematical question is whether the frontier-channel method survives
 multiple defects. A second defect introduces interactions between independent
 contact times and between accumulated wakes, so a successful extension will
-likely require a compositional renewal invariant rather than a larger table.
+likely require a compositional renewal invariant.
 
 \clearpage
 \appendix
@@ -964,12 +936,11 @@ none is a parameter of the theorem statement.
 :::
 
 
-# Declarations for author review
+# Version history and acknowledgements
 
 An earlier version of this manuscript is publicly available as
 [doi:10.5281/zenodo.22086968](https://doi.org/10.5281/zenodo.22086968).
 This revision strengthens the exported semantic statement and documents a
-fresh proof build. It is an unsubmitted revision prepared for author review.
+fresh proof build.
 Generative AI assisted in proof development, code, auditing and manuscript
-preparation, beyond language editing. Human author review and responsibility
-remain necessary; no independent external referee approval is asserted.
+preparation.

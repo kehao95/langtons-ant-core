@@ -4,7 +4,7 @@ Extract this source archive and all accompanying `one-black-0.2.0-review-figures
 archives into the same directory. Together they contain the sources matching the accompanying revised
 preprint and its clean-build report. It strengthens the original preprint's
 terminal predicate to a fixed standard read word and exports complete future
-standard-trace equality. No external two-black theorem is imported.
+standard-trace equality.
 
 With Lean 4.30.0 installed:
 
@@ -26,4 +26,4 @@ The browser visualization is not required.
 `artifact-manifest.json` binds the exact source bytes, and the separate release
 manifest binds the supplied PDF and ZIP. See `preprint/JOURNAL_REVIEW.md` for
 the claim/evidence audit and `preprint/verification/` for actual build evidence.
-This is an unpublished revision of DOI 10.5281/zenodo.22086968.
+This artifact accompanies the revision of DOI 10.5281/zenodo.22086968.
