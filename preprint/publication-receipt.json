@@ -1,0 +1,77 @@
+{
+  "published_at": "2026-10-13T15:17:53.517875+00:00",
+  "record_id": 23341609,
+  "doi": "10.5281/zenodo.23341609",
+  "url": "https://zenodo.org/records/23341609",
+  "conceptrecid": "22086967",
+  "conceptdoi": "10.5281/zenodo.22086967",
+  "original_record_id": 22086968,
+  "original_doi": "10.5281/zenodo.22086968",
+  "original_published_files_unchanged": true,
+  "existing_version_chain_confirmed": true,
+  "title": "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof",
+  "version": "0.2.0",
+  "state": "done",
+  "submitted": true,
+  "source_commit": "897e6f11a70054faed1f8a86b4d4e1e2b0071445",
+  "files": [
+    {
+      "filename": "One-Black-Standard-Trace-v0.2.0.pdf",
+      "sha256": "9ecdcd0dd93aac443cab24bd08e3b76a7bf113e0acca5108ff61c871463d1a72",
+      "bytes": 3405100,
+      "remote_md5": "9e1545a5a1de80466ad602d1f7b8582c",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-figures-03.zip",
+      "sha256": "8c9c10f8d5ae6c9195b64c6099d7d7fb233e9677f0d957eceb750264177091a8",
+      "bytes": 2749471,
+      "remote_md5": "b7729d540091e8f762c86c08396b6c17",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-source.zip",
+      "sha256": "8355fb529e92a1f409a7cbc701e7f4e9bcbcc0e2ce458ffcf6a3f79b95260740",
+      "bytes": 134189,
+      "remote_md5": "e1e3b204b669ad246ce476ef4a433d8d",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-figures-01.zip",
+      "sha256": "f8a2a54f590b8d3966af23a119793d4f69b18c73a96aa5cac2bfcaed7ca13714",
+      "bytes": 2671106,
+      "remote_md5": "cf3fe0d6be98a0d8b5941542f72c3ab6",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-figures-05.zip",
+      "sha256": "336227639681a03d597b27bee53eda0223f17c6a92266028c8f10eb39a0f3fbf",
+      "bytes": 1687611,
+      "remote_md5": "3d67cfdc4d9467d4e1df2431296de489",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-figures-02.zip",
+      "sha256": "59fd41853a3d75e151a5bc95befe428ea92a59315ce1d20c3ba903b6fd119e80",
+      "bytes": 2449344,
+      "remote_md5": "97dc3e1a48ba208b05d508cdbfb04978",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-manifest.json",
+      "sha256": "a62f1780524d7bdd1ca25701f32dd803f502f36ca30c33be1eb587a14511dfb3",
+      "bytes": 1255,
+      "remote_md5": "9f5035fbad745f0201f413a6ce74e2f2",
+      "download_verified": true
+    },
+    {
+      "filename": "one-black-0.2.0-figures-04.zip",
+      "sha256": "e061cc141db037cb365d138382f7e321a78532d15bc100cd54725170aa9d123e",
+      "bytes": 2429168,
+      "remote_md5": "8aaebdab6a1c2c729615f14cb71b7b2c",
+      "download_verified": true
+    }
+  ],
+  "public_readback_verified": true,
+  "anonymous_public_file_checksums_verified": true
+}

@@ -1,17 +1,19 @@
 # Preprint
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22086968.svg)](https://doi.org/10.5281/zenodo.22086968)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23341609.svg)](https://doi.org/10.5281/zenodo.23341609)
 
 This directory contains the source and generated PDF for the universal
 one-black theorem preprint:
 
 > Hao Ke, *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway:
 > A Lean-Checked Proof*, Zenodo, 2026.
-> [doi:10.5281/zenodo.22086968](https://doi.org/10.5281/zenodo.22086968)
+> [doi:10.5281/zenodo.23341609](https://doi.org/10.5281/zenodo.23341609)
 
 The published record is available on
-[Zenodo](https://zenodo.org/records/22086968). This directory remains the
-reproducible manuscript source for subsequent revisions.
+[Zenodo](https://zenodo.org/records/23341609). This directory remains the
+reproducible manuscript source for subsequent revisions. The earlier
+[version 22086968](https://doi.org/10.5281/zenodo.22086968) remains available
+in the same version chain (concept ID 22086967).
 
 ## Canonical evidence
 
@@ -54,13 +56,13 @@ Build the PDF from this directory with `make`. Mathematical claims track the
 current Lean proof cone; the Zenodo record preserves the published preprint.
 
 
-## Revision 0.2.0-review
+## Published revision 0.2.0
 
-The 2026-10-13 local revision strengthens the final predicate to the fixed
+The 2026-10-13 published revision strengthens the final predicate to the fixed
 blank-highway word and proves complete standard-trace equality. See
 [JOURNAL_REVIEW.md](JOURNAL_REVIEW.md), [verify.py](verify.py), and the
 [clean-build evidence](verification/). The existing public record is preserved;
-[RELEASE.md](RELEASE.md) records the Zenodo draft and artifact checksums.
+[RELEASE.md](RELEASE.md) records the published Zenodo version and artifact checksums.
 The manuscript presents the theorem, scattering construction and reproducibility
 in contribution-focused prose; internal review tasks remain in the review files.
 
@@ -70,4 +72,4 @@ in contribution-focused prose; internal review tasks remain in the review files.
 通过 agy 进行的通读。作者决定保持原公开标题。建议保留证明章节顺序，
 优先补充纯净态和历史隔离的动机，精简摘要常量并集中 Lean 实现说明。
 这些建议已落实，见 [修改与核验记录](EDITORIAL_REVISION.md)。作者随后明确要求
-发布；单黑使用原记录 22086968 的新版本草稿 23341609，concept ID 同为 22086967。
+发布；已使用原记录 22086968 的新版本 23341609 发布，concept ID 同为 22086967。

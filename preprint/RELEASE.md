@@ -3,13 +3,16 @@
 Title: *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway:
 A Lean-Checked Proof*.
 Author: Hao Ke, Independent, ORCID 0009-0001-2818-4986.
-New-version draft: **23341609**. Original published record: **22086968**.
+Published new version: **23341609**,
+[doi:10.5281/zenodo.23341609](https://doi.org/10.5281/zenodo.23341609).
+Original published record: **22086968**.
 Both records share concept ID **22086967**, verified through the Zenodo API.
-[Preview](https://zenodo.org/records/23341609?preview=1).
+The original published PDF checksum is unchanged.
 
-The owner explicitly requested publication as an update of the existing
-preprint on 2026-10-13. This preparation snapshot precedes the publish action;
-the publication receipt records the actual outcome.
+Published on 2026-10-13 under the owner’s explicit instruction to update the
+existing preprint. All eight files passed SHA256 download verification before
+publication; anonymous public read-back confirmed the record and checksums.
+See [publication-receipt.json](publication-receipt.json) for the actual outcome.
 
 Files: `One-Black-Standard-Trace-v0.2.0.pdf`, `one-black-0.2.0-source.zip`,
 `one-black-0.2.0-figures-01.zip` through `-05.zip`, and

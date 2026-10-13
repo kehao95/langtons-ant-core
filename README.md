@@ -17,7 +17,7 @@ theorem OneBlack.universal_one_black :
 the five proof stages. The colored rays represent affine classes that the Lean
 proof extends to every depth. Click the image for the interactive guide.*
 
-- [Read the published preprint](https://doi.org/10.5281/zenodo.22086968)
+- [Read the published preprint](https://doi.org/10.5281/zenodo.23341609)
 - [Read the proof](./one_black/PROOF.md)
 - [Inspect and rebuild the proof artifact](./one_black/README.md)
 - [Explore the interactive proof guide](https://kehao95.github.io/langtons-ant-core/)
@@ -25,7 +25,7 @@ proof extends to every depth. Click the image for the interactive guide.*
 
 > Hao Ke, *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway:
 > A Lean-Checked Proof*, Zenodo, 2026.
-> [doi:10.5281/zenodo.22086968](https://doi.org/10.5281/zenodo.22086968)
+> [doi:10.5281/zenodo.23341609](https://doi.org/10.5281/zenodo.23341609)
 
 The browser guide is explanatory. The theorem in
 [`one_black/lean/OneBlack.lean`](./one_black/lean/OneBlack.lean) and its closed
@@ -33,18 +33,18 @@ Lean proof cone are authoritative. This result does not prove the general
 finite-support Highway Conjecture.
 
 
-## Journal revision in preparation — 2026-10-13
+## Published revision 0.2.0 — 2026-10-13
 
-The local revision explicitly binds the standard blank read word and exports
+The published revision explicitly binds the standard blank read word and exports
 [`universal_one_black_standard_trace`](one_black/lean/StandardTrace.lean).
 The [revised manuscript](preprint/paper.md), [review report](preprint/JOURNAL_REVIEW.md)
 and [clean-build workflow](preprint/verify.py) own the publication preparation.
-The earlier public Zenodo record remains versioned separately; a new draft is
-prepared without publication. This revision does not change the HC research
+[Zenodo 23341609](https://doi.org/10.5281/zenodo.23341609) is the new version
+of record 22086968, with shared concept ID 22086967 and the original PDF retained. This revision does not change the HC research
 objective or import an external two-black theorem.
 
 ## Open
 
 External mathematical review, final author review, and venue-specific journal
-preparation (Journal of Automated Reasoning candidate). Publication of the
-new preprint version remains pending explicit author instruction.
+preparation (Journal of Automated Reasoning candidate). Subsequent editorial
+work should accumulate locally before the next deliberate versioned release.
