@@ -1,6 +1,7 @@
 # One-black standard-trace proof artifact, 0.2.0-review
 
-This standalone archive contains the sources matching the accompanying revised
+Extract this source archive and all accompanying `one-black-0.2.0-review-figures-*.zip`
+archives into the same directory. Together they contain the sources matching the accompanying revised
 preprint and its clean-build report. It strengthens the original preprint's
 terminal predicate to a fixed standard read word and exports complete future
 standard-trace equality. No external two-black theorem is imported.
@@ -18,7 +19,10 @@ Quot.sound. Native compiler/runtime trust is required. No Mathlib or network
 dependency is needed after the pinned Lean toolchain is installed.
 
 To typeset the manuscript, install Pandoc, XeLaTeX and the listed TeX packages,
-then run `make -C preprint`. The browser visualization is not required.
+then run `make -C preprint`. All original figure bytes are retained.
+The delivery PDF uses `optimize_pdf.py` with PyMuPDF 1.28.2 to reduce embedded
+image resolution to 300 dpi where needed, preserving text and page count.
+The browser visualization is not required.
 `artifact-manifest.json` binds the exact source bytes, and the separate release
 manifest binds the supplied PDF and ZIP. See `preprint/JOURNAL_REVIEW.md` for
 the claim/evidence audit and `preprint/verification/` for actual build evidence.
