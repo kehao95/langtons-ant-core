@@ -63,3 +63,10 @@ blank-highway word and proves complete standard-trace equality. See
 [RELEASE.md](RELEASE.md) records the Zenodo draft and artifact checksums.
 The manuscript presents the theorem, scattering construction and reproducibility
 in contribution-focused prose; internal review tasks remain in the review files.
+
+## Editorial review — 2026-10-13
+
+[Gemini 全文结构反馈与核对](reviews/gemini-2026-10-13/ASSESSMENT.md)记录了
+通过 agy 进行的通读。作者决定保持原公开标题。建议保留证明章节顺序，
+优先补充纯净态和历史隔离的动机，精简摘要常量并集中 Lean 实现说明。
+这些建议尚未应用于正文。后续先在本地修订，准备发布时再集中更新 Zenodo。
