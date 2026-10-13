@@ -36,8 +36,8 @@ typeset preprint.
 - **Pass:** the title page identifies Hao Ke and provides the author's contact
   address; the abstract and reproduction section link the public source-code
   and Lean-proof repository explicitly.
-- **Needs pre-submission revision:** add the final affiliation, freeze a tagged
-  artifact revision or DOI, and cite exact source locations from the final
+- **Needs pre-submission revision:** add the final affiliation, retain the fixed
+  artifact hashes and new-version draft identifier, and cite exact source locations from the final
   released commit.
 
 ## Evidence completeness
@@ -55,8 +55,8 @@ typeset preprint.
 - **Pass:** the manuscript distinguishes analytic all-depth induction from
   finite native evaluation.
 - **Pass:** `native_decide` is not described as kernel-only or axiom-free.
-- **Scope limitation:** the theorem is exactly-one-black and observation-level
-  P104. It does not settle arbitrary finite support, two black cells, or
+- **Scope limitation:** the theorem is exactly-one-black and the fixed standard
+  blank read trace. It does not settle arbitrary finite support, two black cells, or
   generalized ant rules.
 
 ## Submission blockers
@@ -66,3 +66,6 @@ typeset preprint.
 3. Complete a broader citation-chain/database audit before considering any
    explicit priority claim.
 4. Choose the target venue and adapt bibliography/style metadata accordingly.
+
+
+The current revision audit and remaining submission gates are in [JOURNAL_REVIEW.md](JOURNAL_REVIEW.md); the historical checklist above is not a substitute for the actual clean-build report.

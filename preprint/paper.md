@@ -3,10 +3,11 @@ title: "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-
 author: |
   \begin{tabular}{c}
   Hao Ke\\
+  Independent researcher\\
   \href{mailto:i@kehao.me}{\texttt{i@kehao.me}}
   \end{tabular}
 author-meta: "Hao Ke"
-date: "Draft, 24 August 2026"
+date: "Revision 0.2.0-review, 13 October 2026"
 bibliography: references.bib
 link-citations: true
 documentclass: article
@@ -48,7 +49,7 @@ orbit eventually exhibits a diagonal period-104 highway, but the corresponding
 finite-support Highway Conjecture remains open. We prove a complete unbounded
 subfamily: from every initial state having exactly one black cell, with no
 restriction on that cell's position or on the ant's pose, the classical
-two-colour ant eventually reaches permanent period-104 behaviour. The proof
+two-colour ant eventually follows the complete standard blank-highway read trace, up to translation and quarter-turn rotation. The proof
 normalizes the pose, couples the perturbed orbit to the first 9,977 steps of the
 blank orbit, and reduces every untouched defect to one of 22 affine frontier
 channels. Twenty-one channels admit an ordinary scattering induction after a
@@ -61,10 +62,10 @@ certificate-soundness theorems are formalized in Lean 4. Three closed finite
 reports---the blank highway, 1,376 prefix contacts, and the shared scattering
 certificate---are evaluated with \texttt{native\_decide}. We state this trust
 boundary explicitly: native evaluation adds Lean's compiler, runtime, and
-code-generation path to the trusted base. The checked sources, witness tables,
-and reproduction command are available in the public
+code-generation path to the trusted base. The baseline sources are available in the public
 \href{https://github.com/kehao95/langtons-ant-core}{source-code and Lean-proof
-repository}.
+repository}; the revised sources, witness tables and reproduction commands
+accompany this version in its supplementary artifact.
 \end{abstract}
 
 \clearpage
@@ -105,9 +106,11 @@ cutoff by proving an all-depth reduction.
 
 \begin{theorem}[Universal one-black theorem]\label{thm:main}
 For every Langton-ant state $s$ on $\Z^2$, if the black set of $s$ is a
-singleton, then there exists a time $N$ such that the observation sequence
-from $\operatorname{run}(N,s)$ is permanently 104-periodic up to one of the
-four quarter-turn rotations of the standard drift $(-2,-2)$.
+singleton, then there exists a time $N$ such that its entire observation
+sequence from $\operatorname{run}(N,s)$ agrees with a translation and
+quarter-turn rotation of the blank orbit from update 9,977 onward.
+In particular, this is the fixed standard period-104 read trace with a
+quarter-turn rotation of drift $(-2,-2)$.
 \end{theorem}
 
 The exact observation-level meaning of ``permanent period-104'' is given in
@@ -222,6 +225,11 @@ $$
 \operatorname{obs}(\operatorname{run}(104k+r,s))
 =kv+\operatorname{obs}(\operatorname{run}(r,s)).
 $$
+In addition its first 104 read colours must equal the fixed word
+$$
+w_r=b_{\operatorname{run}(9977+r,\mathrm{white})}
+       (p(\operatorname{run}(9977+r,\mathrm{white}))),\qquad 0\le r<104.
+$$
 A state \emph{reaches P104} if $\operatorname{run}(N,s)$ has permanent P104
 for some $N\ge0$.
 \end{definition}
@@ -230,6 +238,17 @@ This is exactly the Lean predicate \texttt{PermanentP104};
 \texttt{ReachesP104} existentially quantifies $N$. It fixes every later read,
 turn, and translated ant position. It does not claim that inert cells
 arbitrarily far behind the ant translate with the active pattern.
+
+The fixed-word clause is explicit in this revision. The earlier public
+preprint recorded observation recurrence and the standard drift but omitted
+this clause from its final predicate. No claim is made that an arbitrary
+104-periodic translator must have the standard word. Here every accepting
+terminal certificate already couples to the fixed blank boundary, and the
+strengthened clause propagates through the existing proof. The module
+\texttt{StandardTrace} further proves full future observation equality with
+a placement of the actual blank state at update 9,977: periodicity extends
+the fixed first word to all times, equality of read colours and aligned
+initial poses determines the same positions and headings inductively.
 
 ## Equivariance and canonical states
 
@@ -733,9 +752,9 @@ theorem OneBlack.universal_one_black :
 
 The artifact is implemented in Lean 4.30.0 and is organized so that the final
 theorem imports two reflected certificate leaves through a small verification
-boundary. The mathematical proof cone contains 42 Lean source files (the root
-module plus 41 modules under \texttt{OneBlack/}), totalling 5,424 lines in the
-current revision. Table~\ref{tab:modules} maps the mathematical stages to
+boundary. The proof cone includes the original dynamics and certificate modules plus
+the explicit \texttt{StandardTrace} bridge; the release manifest records all
+source digests. Table~\ref{tab:modules} maps the mathematical stages to
 their principal modules.
 
 | Mathematical obligation | Principal Lean modules |
@@ -747,7 +766,7 @@ their principal modules.
 | Pristine archive induction | `Induction`, `PristineChecks`, `Pristine` |
 | Physical ordinary channels | `ActualChecks`, `ActualHistory`, `OrdinaryGeometry`, `Ordinary` |
 | Exceptional reverse family | the `Phase*` modules |
-| Spectrum and universal theorem | `Scattering`, `Universal` |
+| Spectrum and universal theorem | `Scattering`, `Universal`, `StandardTrace` |
 
 : Proof-to-module map. \label{tab:modules}
 
@@ -798,18 +817,42 @@ descriptions.
 
 ## Reproduction
 
-The source code, checked witness data, and complete Lean proof are available in
+The baseline source code, checked witness data, and Lean proof are available in
 the public repository
 [github.com/kehao95/langtons-ant-core](https://github.com/kehao95/langtons-ant-core)
-[@hao2026artifact]. The repository pins `leanprover/lean4:v4.30.0`. From its
+[@hao2026artifact]. The accompanying revision archive contains the exact
+strengthened sources audited here. The repository pins `leanprover/lean4:v4.30.0`. From its
 root, the complete theorem is rebuilt with
 
 ```console
 python3 one_black/check.py
 ```
 
-The command validates generated-data consistency and builds the closed theorem
-from checked-in sources and witness tables. The interactive website is an
+The command builds both closed theorem targets from checked-in sources and
+witness tables; it does not rerun witness search or the Python generator.
+For a fresh build without cached proof objects, run
+
+```console
+python3 preprint/verify.py
+```
+
+This copies the Lean sources into a new temporary directory and records build
+output, source SHA256 digests and the axiom dependencies of both final theorems.
+The strengthened conclusion is exposed as
+
+```lean
+theorem OneBlack.universal_one_black_standard_trace
+    (s : State) (one : ExactlyOneBlack s) :
+    ∃ n, HasStandardTrace (run n s)
+```
+
+Here `HasStandardTrace` quantifies a symmetry placement of the fixed actual
+blank state at update 9977 and equality of every future position, heading and
+read colour. Both final theorems have exactly the same three native computation
+leaves; the new bridge adds no native evaluation or proof assumption.
+The revised source package is version `0.2.0-review`, with exact file digests in
+its manifest. It accompanies a draft new version of the existing preprint
+[@hao2026preprint]; it is not a new claim to the same theorem's priority. The interactive website is an
 explanatory companion; it is not an input to the proof.
 
 # Related work and scope
@@ -919,3 +962,14 @@ none is a parameter of the theorem statement.
 
 ::: {#refs}
 :::
+
+
+# Declarations for author review
+
+An earlier version of this manuscript is publicly available as
+[doi:10.5281/zenodo.22086968](https://doi.org/10.5281/zenodo.22086968).
+This revision strengthens the exported semantic statement and documents a
+fresh proof build. It is an unsubmitted revision prepared for author review.
+Generative AI assisted in proof development, code, auditing and manuscript
+preparation, beyond language editing. Human author review and responsibility
+remain necessary; no independent external referee approval is asserted.

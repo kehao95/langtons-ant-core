@@ -21,7 +21,7 @@ def lake_executable(lean_dir: Path) -> str:
 def main() -> None:
     lean_dir = Path(__file__).parent / "lean"
     subprocess.run([lake_executable(lean_dir), "build"], cwd=lean_dir, check=True)
-    print("verified: ∀ s, ExactlyOneBlack s → ReachesP104 s")
+    print("verified: universal_one_black and universal_one_black_standard_trace")
 
 
 if __name__ == "__main__":

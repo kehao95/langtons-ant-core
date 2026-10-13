@@ -28,10 +28,16 @@ def StandardDrift (v : Point) : Prop :=
   v = highwayDrift ∨ v = highwayDrift.rot ∨
   v = highwayDrift.rot.rot ∨ v = highwayDrift.rot.rot.rot
 
+/-- The fixed read word of the actual blank orbit at update 9977.
+Unlike arbitrary period-104 observation recurrence, this pins the LR word. -/
+def HasStandardWord (s : State) : Prop :=
+  ∀ phase, phase < 104 →
+    (observe (run phase s)).black = (observe (run phase (run 9977 white))).black
+
 def PermanentP104 (s : State) : Prop :=
-  ∃ v, StandardDrift v ∧ ∀ cycle phase, phase < 104 →
+  ∃ v, StandardDrift v ∧ (∀ cycle phase, phase < 104 →
     observe (run (cycle * 104 + phase) s) =
-      repeatShift v cycle (observe (run phase s))
+      repeatShift v cycle (observe (run phase s))) ∧ HasStandardWord s
 
 def ReachesP104 (s : State) : Prop := ∃ n, PermanentP104 (run n s)
 
@@ -81,20 +87,24 @@ theorem StandardDrift.rot {v : Point} (h : StandardDrift v) :
 
 theorem PermanentP104.shift (v : Point) {s : State} (h : PermanentP104 s) :
     PermanentP104 (OneBlack.shift v s) := by
-  rcases h with ⟨d, standard, trace⟩
-  refine ⟨d, standard, ?_⟩
-  intro cycle phase bound
-  rw [run_shift, observe_shift, trace cycle phase bound, run_shift, observe_shift]
-  exact Observation.shift_repeat v d cycle _
+  rcases h with ⟨d, standard, trace, word⟩
+  refine ⟨d, standard, ?_, ?_⟩
+  · intro cycle phase bound
+    rw [run_shift, observe_shift, trace cycle phase bound, run_shift, observe_shift]
+    exact Observation.shift_repeat v d cycle _
+  · intro phase bound
+    simpa [run_shift, observe_shift, Observation.shift] using word phase bound
 
 theorem PermanentP104.rot {s : State} (h : PermanentP104 s) :
     PermanentP104 (rotate s) := by
-  rcases h with ⟨d, standard, trace⟩
-  refine ⟨d.rot, standard.rot, ?_⟩
-  intro cycle phase bound
-  rw [run_rotate, observe_rotate, trace cycle phase bound, run_rotate,
-    observe_rotate]
-  exact Observation.rot_repeat d cycle _
+  rcases h with ⟨d, standard, trace, word⟩
+  refine ⟨d.rot, standard.rot, ?_, ?_⟩
+  · intro cycle phase bound
+    rw [run_rotate, observe_rotate, trace cycle phase bound, run_rotate,
+      observe_rotate]
+    exact Observation.rot_repeat d cycle _
+  · intro phase bound
+    simpa [run_rotate, observe_rotate, Observation.rot] using word phase bound
 
 theorem PermanentP104.rotateN (n : Nat) {s : State} (h : PermanentP104 s) :
     PermanentP104 (OneBlack.rotateN n s) := by

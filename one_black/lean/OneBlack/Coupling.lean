@@ -61,11 +61,13 @@ theorem SameReadTrace.tail {a b : State} (same : SameReadTrace a b) (cut : Nat) 
 theorem PermanentP104.of_sameReadTrace {a b : State}
     (same : SameReadTrace a b) (terminal : PermanentP104 b) :
     PermanentP104 a := by
-  rcases terminal with ⟨v, standard, repeats⟩
-  refine ⟨v, standard, ?_⟩
-  intro cycle phase bound
-  exact (same _).trans ((repeats cycle phase bound).trans
-    (congrArg (repeatShift v cycle) (same phase).symm))
+  rcases terminal with ⟨v, standard, repeats, word⟩
+  refine ⟨v, standard, ?_, ?_⟩
+  · intro cycle phase bound
+    exact (same _).trans ((repeats cycle phase bound).trans
+      (congrArg (repeatShift v cycle) (same phase).symm))
+  · intro phase bound
+    exact (congrArg Observation.black (same phase)).trans (word phase bound)
 
 theorem ReachesP104.of_sameReadTrace {a b : State}
     (same : SameReadTrace a b) (reached : ReachesP104 b) : ReachesP104 a := by

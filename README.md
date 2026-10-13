@@ -31,3 +31,20 @@ The browser guide is explanatory. The theorem in
 [`one_black/lean/OneBlack.lean`](./one_black/lean/OneBlack.lean) and its closed
 Lean proof cone are authoritative. This result does not prove the general
 finite-support Highway Conjecture.
+
+
+## Journal revision in preparation — 2026-10-13
+
+The local revision explicitly binds the standard blank read word and exports
+[`universal_one_black_standard_trace`](one_black/lean/StandardTrace.lean).
+The [revised manuscript](preprint/paper.md), [review report](preprint/JOURNAL_REVIEW.md)
+and [clean-build workflow](preprint/verify.py) own the publication preparation.
+The earlier public Zenodo record remains versioned separately; a new draft is
+prepared without publication. This revision does not change the HC research
+objective or import an external two-black theorem.
+
+## Open
+
+External mathematical review, final author review, and venue-specific journal
+preparation (Journal of Automated Reasoning candidate). Publication of the
+new preprint version remains pending explicit author instruction.

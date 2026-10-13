@@ -266,3 +266,21 @@ the mathematical spectrum. Finally `OneBlack.universal_one_black` combines
 the prefix certificate, spectrum, and analytic Lean lemmas.
 `python3 one_black/check.py` builds this closed theorem from the checked-in
 sources and witness tables.
+
+
+## Fixed-standard-word bridge (2026-10-13)
+
+The exported `PermanentP104` predicate now combines observation recurrence
+with equality of its first 104 read colours to `run 9977 white`. At a terminal
+boundary this equality follows from `Boundary.observe` for the current state
+and actual blank entry. Translation, rotation, and same-read-trace transfer
+preserve it; consequently every pre-existing induction and finite certificate
+feeds the stronger predicate without changing witness data.
+
+`StandardTrace.lean` extends first-block read equality using periodicity,
+aligns the initial pose with a translation/rotation of `run 9977 white`, and
+uses induction on the literal update to identify all future observations.
+This proves the full standard trace rather than assuming uniqueness of the
+104-period translator. The native trusted leaves remain exactly the blank,
+prefix, and scattering reports. The old weaker statement remains recoverable
+at baseline commit `3e9fa6229cc5667e2869887d21e07c6ea55697a5`.

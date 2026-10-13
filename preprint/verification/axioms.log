@@ -1,0 +1,12 @@
+'OneBlack.universal_one_black' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Highway.checks_pass._native.native_decide.ax_1_1,
+ PrefixLeaf.verified._native.native_decide.ax_1_1,
+ ScatteringLeaf.verified._native.native_decide.ax_1_1]
+'OneBlack.universal_one_black_standard_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Highway.checks_pass._native.native_decide.ax_1_1,
+ PrefixLeaf.verified._native.native_decide.ax_1_1,
+ ScatteringLeaf.verified._native.native_decide.ax_1_1]

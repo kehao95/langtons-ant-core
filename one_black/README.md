@@ -47,3 +47,14 @@ Generated witness tables live beside the Lean modules that consume them:
 `PrefixData.lean` and `EntryData.lean`. Regenerate them with
 `python3 one_black/lean/generate.py`; verification itself uses the checked-in
 tables and exact Lean replay.
+
+
+## Standard-trace revision (2026-10-13)
+
+`PermanentP104` now also pins the first read word to the actual blank orbit
+at update 9977. [`lean/StandardTrace.lean`](lean/StandardTrace.lean) proves
+`universal_one_black_standard_trace`: every singleton eventually has the
+entire future read trace of a symmetry placement of that fixed blank state.
+Unobserved historical debris remains unrestricted. The proof reuses the same
+three native leaves. Run `python3 preprint/verify.py` from the repository root
+for a fresh temporary-directory build and both final axiom reports.

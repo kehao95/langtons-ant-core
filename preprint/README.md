@@ -52,3 +52,12 @@ repository's current Lean proof cone.
 
 Build the PDF from this directory with `make`. Mathematical claims track the
 current Lean proof cone; the Zenodo record preserves the published preprint.
+
+
+## Revision 0.2.0-review
+
+The 2026-10-13 local revision strengthens the final predicate to the fixed
+blank-highway word and proves complete standard-trace equality. See
+[JOURNAL_REVIEW.md](JOURNAL_REVIEW.md), [verify.py](verify.py), and the
+[clean-build evidence](verification/). The existing public record is preserved;
+[RELEASE.md](RELEASE.md) records the prepared, unpublished new version.

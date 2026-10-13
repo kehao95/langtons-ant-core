@@ -333,14 +333,27 @@ theorem Boundary.observe {cycle phase : Nat} {s : State} (h : Boundary cycle s)
     exact (same.2.2 _ (reads_at cycle phase bound)).symm
 
 theorem tail_permanent {s : State} (h : HasTail s) : PermanentP104 s := by
-  refine ⟨drift, Or.inl rfl, ?_⟩
-  intro cycle phase bound
-  have pbound : phase < period := by simpa [period] using bound
-  rw [OneBlack.run_add]
-  have atCycle := (h cycle).observe pbound
-  have atZero := (h 0).observe pbound
-  exact atCycle.trans ((ref_observe cycle phase).trans
-    (congrArg (repeatShift drift cycle) atZero.symm))
+  refine ⟨drift, Or.inl rfl, ?_, ?_⟩
+  · intro cycle phase bound
+    have pbound : phase < period := by simpa [period] using bound
+    rw [OneBlack.run_add]
+    have atCycle := (h cycle).observe pbound
+    have atZero := (h 0).observe pbound
+    exact atCycle.trans ((ref_observe cycle phase).trans
+      (congrArg (repeatShift drift cycle) atZero.symm))
+  · intro phase bound
+    have pbound : phase < period := by simpa [period] using bound
+    have atZero := (h 0).observe pbound
+    have blank := entry_boundary.observe pbound
+    have eq : observe (OneBlack.run phase s) =
+        observe (OneBlack.run phase entry) := atZero.trans blank.symm
+    have entryEq : entry = OneBlack.run 9977 white := by
+      calc
+        entry = computedEntry.toState := rfl
+        _ = (fwhite.run entryTime).toState := congrArg FState.toState computedEntry_exact
+        _ = OneBlack.run entryTime fwhite.toState := FState.toState_run _ _
+        _ = OneBlack.run 9977 white := congrArg (OneBlack.run entryTime) fwhite_exact
+    simpa [entryEq] using congrArg Observation.black eq
 
 theorem blank_entry_permanent : PermanentP104 entry :=
   tail_permanent entry_boundary.tail

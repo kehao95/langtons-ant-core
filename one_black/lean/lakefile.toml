@@ -1,6 +1,9 @@
 name = "one-black"
 version = "0.1.0"
-defaultTargets = ["OneBlack"]
+defaultTargets = ["OneBlack", "StandardTrace"]
 
 [[lean_lib]]
 name = "OneBlack"
+
+[[lean_lib]]
+name = "StandardTrace"
