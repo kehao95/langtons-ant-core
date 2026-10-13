@@ -1,24 +1,40 @@
 # Repository method
 
-This repository owns two Langton-ant results: the universal one-black highway
-theorem and rational clocks with exponential square-escape bounds. It contains
-complete Lean proofs for the one-black theorem, analytic proofs and local Lean
-lemmas for the clock results, and exact reproducible checks for both.
+This repository owns two independent Langton-ant results: one-black highways
+and rational clocks with exponential square-escape bounds.
 
-- `one_black/` owns the universal one-black theorem, its dynamics, verifier,
-  and proof narrative.
-- `clock_escape/` owns the independent rational-clock and exponential square-escape
-  preprint, analytic proof, local Lean lemmas and self-contained verification.
-- `preprint/` owns the one-black manuscript and its publication evidence.
-- Root `PROOF.md` owns deductions built from the theorem kernels.
-- `RESEARCH.md` owns the current research graph and the next theorem targets.
-- Every executable check names the proof step it witnesses.
-- A changed theorem lands with its proof narrative and finite verifier in one
-  commit.
-- Imported mathematical evidence carries a precise source; locally promoted
-  results carry a reconstructed proof object.
-- `python3 one_black/check.py` builds the closed Lean universal theorem.
-- `python3 research/check.py` replays the executable general consequences.
-- `python3 clock_escape/reproduce.py` replays the clock paper evidence.
-- Dependencies flow from `one_black/` into `research/`; `clock_escape/` is
-  self-contained and does not depend on the one-black theorem.
+## Ownership
+
+- `one_black/` and `clock_escape/` each own their paper, proof, evidence and release.
+- Both use `paper/`, `lean/`, `evidence/`, `release/` and `reproduce.py`.
+- Project-specific code stays with its consumer: one-black dynamics in
+  `one_black/langtons_ant/`, clock checkers in `clock_escape/verification/`.
+- `research/` owns further deductions and the open HC program. Its Python
+  modules depend on `one_black/`; the clock project is self-contained.
+- `docs/` owns the interactive one-black guide and its image/animation exporters.
+
+## Evidence and changes
+
+- A changed theorem lands with its proof narrative and verifier in one commit.
+- Every executable check names the proof step it witnesses. Independent
+  implementations used for cross-checking remain independent.
+- The complete one-black theorem is Lean-checked; the full escape theorem is
+  analytic, with local algebra and telescoping formalized in Lean.
+- Preserve published PDFs and source manifests. Rebuilt PDFs go to ignored
+  `paper/build/` directories; release manifests describe historical snapshots.
+- Keep current navigation in project READMEs. Completed editorial process is
+  recoverable from Git history rather than duplicated in live status documents.
+
+## Verification
+
+```sh
+python3 one_black/reproduce.py
+python3 clock_escape/reproduce.py
+python3 research/check.py
+make -C one_black/paper
+make -C clock_escape/paper
+```
+
+Run the checks affected by the change. The one-black reproduction uses a clean
+Lean 4.30.0 build and audits both theorem axiom lists; the clock reproduction
+runs bundled exact checkers and local Lean lemmas.

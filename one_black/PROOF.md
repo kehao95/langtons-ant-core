@@ -264,7 +264,7 @@ confined to the finite leaves and does not appear in the scattering theorem.
 Lean certificates. `Scattering.single_defect_scattering` turns the latter into
 the mathematical spectrum. Finally `OneBlack.universal_one_black` combines
 the prefix certificate, spectrum, and analytic Lean lemmas.
-`python3 one_black/check.py` builds this closed theorem from the checked-in
+`python3 one_black/reproduce.py` builds this closed theorem from the checked-in
 sources and witness tables.
 
 

@@ -1,71 +1,50 @@
-# An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant
+# Rational clocks and exponential escape
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23341604.svg)](https://doi.org/10.5281/zenodo.23341604)
+For an axis-aligned square of n cells per side, n ≥ 1, first exit takes at most
+**8 n 3ⁿ + 1 updates**, uniformly over all internal colours and ant poses,
+with arbitrary exterior colours. The count includes the move out.
 
-Hao Ke, version **0.2.0**, published 2026-10-13.
-[Read the preprint](An-Ant-on-the-Clock.pdf) ·
-[Zenodo record](https://doi.org/10.5281/zenodo.23341604) ·
-[Manuscript source](main.tex).
+An explicit rational clock increases at every update. Its finite range inside
+the square gives the escape bound. On complete finite-support states, the same
+clock yields decidable reachability, orbit equivalence and a computable orbit section.
 
-## Results
+## Paper
 
-For the classical white-right / black-left ant, first exit from an axis-aligned
-square of **n cells per side**, n >= 1, takes at most `8*n*3^n + 1` updates,
-uniformly over all internal colours and initial poses. The count includes the
-move out of the square, and exterior colouring may be arbitrary.
-
-An explicit rational clock supplies a positive increment at each update. Its
-finite range inside a square gives the escape bound. On complete finite-support
-states, the same construction yields decidable complete-state reachability,
-orbit equivalence, and a computable orbit section. The paper develops these
-results independently of the one-black theorem and the Highway Conjecture.
+Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant*,
+version 0.2.0.
+[Zenodo](https://doi.org/10.5281/zenodo.23341604) ·
+[PDF](paper/paper.pdf) · [Source](paper/main.tex).
 
 ## Reproduce
 
-From this directory, with Python 3.10+, Lean **4.30.0** and a LaTeX installation:
+From the repository root, with Python 3.10+ and Lean 4.30.0:
 
 ```sh
-python3 reproduce.py
-make
+python3 clock_escape/reproduce.py
+make -C clock_escape/paper
 ```
 
-The verification uses the Python standard library and Lean without Mathlib.
-All baseline implementations and certificates are included under
-[`verification/`](verification/); no sibling research repository is required.
-`make` writes a fresh PDF to `build/main.pdf`. The checked-in
-[`An-Ant-on-the-Clock.pdf`](An-Ant-on-the-Clock.pdf) is the exact published PDF.
+The verifier uses only bundled sources, Python’s standard library and Lean
+without Mathlib. It checks the local lemmas, exact rational identities,
+small-square state graphs, complete-state algorithms and integer certificates.
+The paper build uses pdfLaTeX and writes `paper/build/paper.pdf`.
+The checked-in `paper/paper.pdf` is the exact published PDF.
 
-- [`main.tex`](main.tex): analytic proofs of the clock, square bound and orbit results.
-- [`lean/ClockLemmas.lean`](lean/ClockLemmas.lean): formal local algebra,
-  positivity and telescoping lemmas.
-- [`verification/check.py`](verification/check.py): independent rational checks
-  and all 4,213,000 colour/pose states for side lengths 1 through 4.
-- [`evidence/`](evidence/): exact results, certificates and Lean axiom output.
-- [`VERIFICATION.md`](VERIFICATION.md): proof dependencies and the precise
-  coverage of the analytic, Lean and computational evidence.
-- [`LITERATURE.md`](LITERATURE.md): primary-source comparison.
-- [`EDITORIAL_REVISION.md`](EDITORIAL_REVISION.md): incorporated structural edits.
-- [`RELEASE.md`](RELEASE.md): publication record and file verification.
+## Sources
 
-The analytic proof establishes the full escape theorem. Lean formalizes its
-local algebra and interval argument; the finite checks provide additional
-independent evidence.
+| Path | Contents |
+|---|---|
+| [paper/](paper/) | Analytic proof, literature comparison and published PDF |
+| [lean/](lean/) | Local algebra, positivity and telescoping lemmas |
+| [verification/](verification/) | Independent checkers, baseline implementation and certificates |
+| [evidence/](evidence/README.md) | Proof audit, exact results and Lean axiom output |
+| [release/](release/README.md) | Published version, source manifest and publication receipt |
 
-## Published source provenance
-
-The manuscript, proof code, baseline dependencies and historical evidence were
-imported byte for byte from the published 0.2.0 source archive.
-[`published-source-manifest.json`](published-source-manifest.json) preserves
-that archive's original relative paths, source revision and hashes. Repository
-navigation and release notes have since been updated for this public home;
-the manifest describes the published snapshot, not these later documentation
-edits. [`publication-receipt.json`](publication-receipt.json) records the
-published artifact checksums. The original mathematical audit and subsequent
-editorial revision remain separately identified in `evidence/reproduction.json`
-and `EDITORIAL_REVISION.md`.
+The analytic proof establishes the full escape theorem. Lean covers the local
+algebra and interval argument. Independent finite checks cover all 4,213,000
+colour/pose states for square side lengths 1 through 4.
 
 ## Open
 
-Mathematical peer review, broader citation-chain checking, and venue-specific
-journal preparation (Natural Computing candidate). Accumulate subsequent edits
-before preparing a deliberate versioned release.
+Mathematical peer review, broader literature checking and journal preparation
+(Natural Computing candidate).

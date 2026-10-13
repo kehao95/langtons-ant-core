@@ -3,3 +3,6 @@ __pycache__/
 .DS_Store
 .lake/
 lake-manifest.json
+
+# Rebuilt manuscripts; published PDFs live directly in each paper/ directory.
+**/paper/build/

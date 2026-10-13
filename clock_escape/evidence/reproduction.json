@@ -3,7 +3,7 @@
   "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
   "lean": "Lean (version 4.30.0, x86_64-unknown-linux-gnu, commit d024af099ca4bf2c86f649261ebf59565dc8c622, Release)",
   "sha256": {
-    "main.tex": "16415abed70118a51e031e2884ea06d335185e8b7ab75a0907db37d034639384",
+    "main.tex": "6748dc32e072f4d3a6bc5efc18f8867128d52388c3bb393f0059eeadde317a59",
     "ClockLemmas.lean": "879cb3cd6aa53fad4095ffd45164e72c788f8a2fa0f299fa3dad2fb07ba21c15",
     "check.py": "fd647167bd2c01b7eb4f35bd469c17b7755490c6b463ee977ed514e4f44021f3",
     "check_clock_paper.py": "50fe87884e16f7c14de8d5513f289e55f5040a92e33e59bbfdff09f3eceb3acb",
