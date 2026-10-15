@@ -61,10 +61,12 @@ Record exact delivery hashes, publication receipts and download verification.
 The owner subsequently authorized README cleanup and Git commit/push of this
 publication batch. Journal submission remains a separate approval step.
 
-## Current wake revision
+## Current wake release
 
-The owner requested further pruning and preparation of the standard-wake result
-as an update to the existing wake preprint. Version 0.2.0 retains the general
-inverse-synthesis theorem and uses the revised standard-wake uniqueness title.
-Prepare and verify the local PDF/source package; the present task does not
-request a new Zenodo publication. Preserve all versioned published artifacts.
+The owner approved publication of the prepared 0.2.0 update with
+“好的更新一下zenodo吧”, superseding the prior preparation-only boundary.
+Version 0.2.0 is published as record 23405441 in the existing concept 23402421,
+following record 23402422. It retains the general inverse-synthesis theorem and
+uses the revised standard-wake uniqueness title. Preserve all versioned
+published artifacts and the prepublication snapshots; publication receipts
+record the delivered content. Journal submission remains a separate approval step.

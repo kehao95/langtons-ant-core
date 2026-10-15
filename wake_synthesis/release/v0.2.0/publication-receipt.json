@@ -1,0 +1,43 @@
+{
+  "record_id": 23405441,
+  "doi": "10.5281/zenodo.23405441",
+  "url": "https://zenodo.org/records/23405441",
+  "conceptrecid": "23402421",
+  "conceptdoi": "10.5281/zenodo.23402421",
+  "previous_record_id": 23402422,
+  "title": "Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake",
+  "version": "0.2.0",
+  "state": "done",
+  "submitted": true,
+  "published_at": "2026-10-15T21:24:12.944695+00:00",
+  "owner_authorization": "好的更新一下zenodo吧",
+  "public_readback_verified": true,
+  "download_verified": true,
+  "anonymous_public_downloads": true,
+  "previous_version_preserved": true,
+  "latest_version_verified": true,
+  "files": [
+    {
+      "filename": "Standard-Wake-Uniqueness.pdf",
+      "bytes": 338095,
+      "sha256": "8d189dfad1c2fab403686bb442dc5bd28e88e37df3232fa1dc26f53db7263300",
+      "remote_md5": "5c88445fdba0486e16b76464ef447f6b",
+      "download_verified": true
+    },
+    {
+      "filename": "wake_synthesis-0.2.0-source.zip",
+      "bytes": 95486,
+      "sha256": "4bf60589ce35294a44194ba45779af7498538640901050b9f023bf38c014fd7d",
+      "remote_md5": "aa12eea1462f64f80d75c96185bc91e2",
+      "download_verified": true
+    },
+    {
+      "filename": "wake-synthesis-0.2.0-manifest.json",
+      "bytes": 782,
+      "sha256": "852e250f8a17c915a42c291c35e77b63706351dc437f955548a2207bdd0472f1",
+      "remote_md5": "d48b230c96a9600d35eabad87cdf7873",
+      "download_verified": true
+    }
+  ],
+  "source_snapshot_sha256": "59597d07b2a0d647cffd7cb19129ae56fa71d81104749362d3ce577d47758524"
+}

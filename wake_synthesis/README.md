@@ -10,14 +10,16 @@ one exists.
 ## Paper and proof
 
 Hao Ke, *Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake*.
-Version **0.2.0** is being prepared as an update to the existing preprint.
+Version **0.2.0** is published at
+[doi:10.5281/zenodo.23405441](https://doi.org/10.5281/zenodo.23405441),
+updating the existing Zenodo concept **23402421**.
 
-- [Current manuscript](paper/main.tex), [prepared PDF](release/v0.2.0/paper.pdf),
+- [Current manuscript](paper/main.tex), [published PDF](release/v0.2.0/paper.pdf),
   [proof](PROOF.md), and [evidence](evidence/README.md).
 - [Published 0.1.0](https://doi.org/10.5281/zenodo.23402422), titled
   *Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant*;
   [exact published PDF](release/v0.1.0/paper.pdf).
-- [Release records and update package](release/README.md),
+- [Release records](release/README.md),
   [literature](paper/LITERATURE.md).
 
 The theorem fixes every odd translation class, including its longitudinal
@@ -48,6 +50,4 @@ finite calculations use exact integer arithmetic.
 
 ## Open
 
-Review and publish the prepared 0.2.0 update in the existing Zenodo concept
-23402421, then pursue independent mathematical review and journal preparation.
-The currently published version remains 0.1.0.
+Independent mathematical peer review and journal preparation.

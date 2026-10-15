@@ -10,7 +10,7 @@ white-right / black-left Langton ant, by Hao Ke.
 | [One-black highways](one_black/) | Every one-black initial state, at any position and heading, reaches the complete standard period-104 highway trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609) · [PDF](one_black/paper/paper.pdf) |
 | [Clocks and escape](clock_escape/) | Square first exit ≤ **(13·3^(n−1)−2n²−4n−5)/2**; fixed-height rectangle degree **⌊H/2⌋+1**. Also gives complete-state reachability and orbit normal forms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379) · [PDF](clock_escape/release/v0.4.0/paper.pdf) |
 | [Four-cell outgoing ports](four_cell_port/) | Four black cells form a one-sided highway port; at most three force half-plane exit within **918** updates from the inward boundary pose. Four remote cells can complete any finite observed history into a standard highway. | [0.1.0](https://doi.org/10.5281/zenodo.23402414) · [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
-| [Wake synthesis](wake_synthesis/) | The complete standard wake and drift `(2,-2)` uniquely determine P104; general non-axis wakes have terminating inverse synthesis. | [0.1.0](https://doi.org/10.5281/zenodo.23402422) · [PDF](wake_synthesis/release/v0.1.0/paper.pdf) |
+| [Wake synthesis](wake_synthesis/) | The complete standard wake and drift `(2,-2)` uniquely determine P104; general non-axis wakes have terminating inverse synthesis. | [0.2.0](https://doi.org/10.5281/zenodo.23405441) · [PDF](wake_synthesis/release/v0.2.0/paper.pdf) |
 
 The one-black theorem has a complete Lean proof. The clock and wake results have
 analytic proofs with exact checks; standard-wake uniqueness also uses a complete
@@ -49,10 +49,6 @@ python3 clock_escape/reproduce.py
 python3 four_cell_port/reproduce.py
 python3 wake_synthesis/reproduce.py
 ```
-
-The wake project is preparing [version 0.2.0](wake_synthesis/release/README.md),
-with the new uniqueness theorem and a revised title. The table links the
-currently published versions.
 
 All projects use Python 3.10+. The one-black and full clock commands also require
 Lean 4.30.0. The clock's `--integer-only` and `--critical-only` options run scoped

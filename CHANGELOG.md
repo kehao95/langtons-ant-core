@@ -1,5 +1,15 @@
 # Repository changes
 
+## 2026-10-15 — Standard-wake uniqueness version 0.2.0 published
+
+Following the owner's approval, published *Uniqueness of the Classical Langton
+Ant Highway Under Its Standard Wake* as
+[Zenodo 23405441](https://doi.org/10.5281/zenodo.23405441), a new version of
+23402422 in the existing concept 23402421. The release delivers the reviewed
+14-page PDF and standalone source archive. Version 0.1.0 and the preparation
+snapshots remain unchanged. [Release records](wake_synthesis/release/README.md)
+identify the exact artifacts and version chain.
+
 ## 2026-10-15 — Standard-wake uniqueness update prepared
 
 Prepared wake version 0.2.0 under the revised title *Uniqueness of the Classical

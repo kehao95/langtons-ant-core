@@ -1,26 +1,38 @@
-# Release history and prepared update
+# Release history
 
-## Version 0.2.0 — local preparation
+## Version 0.2.0 — published
 
 Hao Ke, *Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake*.
 The revision adds all-period standard-wake uniqueness, reduced exact
 certificates, and complete reproducible enumeration. The general wake-period
 bounds and inverse-synthesis theorem from 0.1.0 are retained.
 
-Build and package with:
+Version **0.2.0**, published 15 October 2026:
+[doi:10.5281/zenodo.23405441](https://doi.org/10.5281/zenodo.23405441).
+It updates record **23402422** within the existing concept
+[10.5281/zenodo.23402421](https://doi.org/10.5281/zenodo.23402421).
+
+- [Exact published PDF](v0.2.0/paper.pdf).
+- [Publication receipt](v0.2.0/publication-receipt.json) and
+  [public API record](v0.2.0/public-record.json).
+- [Reviewed source manifest](v0.2.0/prepared-source-manifest.json),
+  [delivery hashes](v0.2.0/delivery-manifest.json), and
+  [metadata](v0.2.0/metadata.json): preserved preparation snapshots.
+- [Full replay](v0.2.0/review-checks.json) and
+  [standalone archive check](v0.2.0/standalone-reproduction.json): the complete
+  uniqueness search, exact upper certificate, and matching 14-page PDF.
+
+All three published attachments—the PDF, standalone source ZIP and
+[SHA256 manifest](v0.2.0/release-manifest.json)—were downloaded anonymously and
+matched the local delivery hashes. The previous record is unchanged, and the
+concept's latest version resolves to 0.2.0.
+
+Build and package locally with:
 
 ```sh
 make -C wake_synthesis/paper
 python3 tools/prepare_preprints.py --project wake_synthesis
 ```
-
-The [prepared PDF](v0.2.0/paper.pdf) and versioned preparation records
-identify the revision being reviewed. The [full replay](v0.2.0/review-checks.json)
-and [standalone archive check](v0.2.0/standalone-reproduction.json) record actual
-verification. The local [candidate manifest](candidate-manifest.json) identifies source and
-PDF hashes; `candidate/` holds the delivery PDF and standalone source ZIP.
-The intended Zenodo action is a **new version of record 23402422 in concept
-23402421**. No new DOI version has been created or published for this update.
 
 ## Version 0.1.0 — published
 
@@ -38,7 +50,8 @@ The manuscript cites the exact companion clock version 0.4.0, record 23402379.
 - [Metadata](v0.1.0/zenodo-metadata.json) and [public API record](v0.1.0/public-record.json).
 
 Published files and receipts are immutable. Versioned release records identify the actual published contents.
-The top-level candidate manifest describes the current local update.
+The candidate and preparation manifests retain the reviewed prepublication
+snapshot. Publication receipts identify the published records.
 
 The mathematical source originates in research commit `9c50691`, with
 publication allocation reviewed at `c56a76b`. Retained research reports are
