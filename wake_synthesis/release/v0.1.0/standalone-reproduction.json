@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "archive_sha256": "d91683af44858a6851fe1df5bd7cbce87d08c730a05ad6b560cf9c88598ae974",
+  "source_snapshot_sha256": "a0dff636c113f0de1a277c0f5ff210421f0c16f8a98de5337bee1214b39abcac",
+  "all_source_hashes_verified": true,
+  "pdf_text_matches_delivery": true,
+  "isolated_build": true,
+  "pages": 6,
+  "source_changes_since_editorial_review": [
+    "wake_synthesis/README.md",
+    "wake_synthesis/paper/main.tex"
+  ],
+  "mathematical_verification": "Prior checked proof and verifier sources are byte-identical; only README and bibliography changes since editorial review. No new mathematical run needed.",
+  "retained_review_report": "reviewed-review-checks.json",
+  "network_or_publication_action": false
+}

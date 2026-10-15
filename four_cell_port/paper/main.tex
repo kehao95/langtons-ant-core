@@ -10,7 +10,7 @@
 \newcommand{\N}{\mathbb N}
 \newcommand{\HH}{\mathcal H}
 \title{Four Black Cells Force an Outgoing Highway:\\A Sharp Half-Plane Threshold for Langton's Ant}
-\author{Hao Ke}
+\author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
 \date{15 October 2026}
 \begin{document}
 \maketitle
@@ -114,7 +114,8 @@ $X^+=(B\cup A,p,h)$ satisfies
  O_t(X^+)=O_t(X)\qquad(0\le t<T)
 \]
 and eventually has the standard P104 trace. If $Q$ has $n$ cells per side,
-that trace starts by update $8n3^n+183$.
+that trace starts by update
+$E(n)+182$, where $E(n)=(13\cdot3^{n-1}-2n^2-4n-5)/2$.
 \end{theorem}
 
 The proof has three parts. First-contact branching reduces the unrestricted
@@ -190,7 +191,9 @@ Write $q_i$ for the \emph{absolute} pre-update position in phase
 $i\in\{0,\ldots,103\}$ of this proposed block. Its infinite motion plan
 reads $q_i+kd$ at time $104k+i$, and the $x$-coordinates of the $q_i$ range
 from 4 through 9. It therefore suffices to verify the read colour at every
-such position and time.
+such position and time. An earlier visit at phase $j$ in epoch $\ell$ reaches
+the same cell precisely when $q_j-q_i=(k-\ell)d$. The integer $s=k-\ell$
+below records this epoch difference; each earlier visit contributes one flip.
 
 \begin{lemma}[Finite parity test for an infinite trace]\label{lem:parity}
 Let a finite word $w$ restore its heading with nonzero drift $d$, and let
@@ -252,9 +255,10 @@ $q_i+\N d$, and remain as stationary physical history.
 \section{Completing an arbitrary finite history}
 \begin{proof}[Proof of Theorem~\ref{th:extension}]
 Simulate the original state to its first exit from $Q$, at time $\tau$,
-position $e$ and heading $g$. Finite-domain escape ensures termination;
-the rational-clock bound~\cite{clock2026} gives
-$\tau\le8n3^n+1$. Since $Q$ contains the radius-$T$ ball and each step has
+exterior position $e=p_\tau\notin Q$ and heading $g=h_\tau$.
+Finite-domain escape ensures termination;
+the integer-clock bound~\cite{clock2026} gives
+$\tau\le E(n)$. Since $Q$ contains the radius-$T$ ball and each step has
 unit length, $\tau>T$.
 
 The exiting move crosses one side of $Q$, so $g$ is its outward normal.
@@ -283,7 +287,7 @@ Theorem~\ref{th:port}. Induction on updates couples its trajectory to the
 augmented run: every read avoids $B_\tau$, so both runs read the same colour
 and make the same turn, write and move. The inside debris remains present
 and unchanged. The standard trace begins by time $\tau+182$, hence by
-$8n3^n+183$. The earlier observation equality includes the first $T$ updates,
+$E(n)+182$. The earlier observation equality includes the first $T$ updates,
 and adding $A$ preserves every initial colour in $K$.
 \end{proof}
 
@@ -363,7 +367,7 @@ preprint (2026).
 Period-104 Highway: A Lean-Checked Proof,'' Zenodo, version 0.2.0 (2026).
 \href{https://doi.org/10.5281/zenodo.23341609}{doi:10.5281/zenodo.23341609}.
 \bibitem{clock2026} H. Ke, ``An Ant on the Clock: Exponential Escape Bounds
-for Langton's Ant,'' Zenodo, version 0.2.0 (2026).
-\href{https://doi.org/10.5281/zenodo.23341604}{doi:10.5281/zenodo.23341604}.
+for Langton's Ant,'' Zenodo, version 0.4.0 (2026).
+\href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
 \end{thebibliography}
 \end{document}

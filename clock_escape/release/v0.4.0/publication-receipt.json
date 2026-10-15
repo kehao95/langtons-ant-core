@@ -1,0 +1,40 @@
+{
+  "record_id": 23402379,
+  "doi": "10.5281/zenodo.23402379",
+  "url": "https://zenodo.org/records/23402379",
+  "conceptrecid": "23341603",
+  "conceptdoi": "10.5281/zenodo.23341603",
+  "title": "An Ant on the Clock: Exponential Escape Bounds for Langton's Ant",
+  "version": "0.4.0",
+  "state": "done",
+  "submitted": true,
+  "published_at": "2026-10-15T18:04:02.189406+00:00",
+  "owner_authorization": "2026-10-15: 好的帮我提交新zenodo版本吧",
+  "public_readback_verified": true,
+  "download_verified": true,
+  "anonymous_public_downloads": true,
+  "files": [
+    {
+      "filename": "An-Ant-on-the-Clock.pdf",
+      "bytes": 356068,
+      "sha256": "35b4052352fd14581780f531252ab8537db1d1b40a705bf42b860220e2b67c8e",
+      "remote_md5": "md5:b8b9e5fd9abd6c35642e1375e0375a53",
+      "download_verified": true
+    },
+    {
+      "filename": "clock-escape-0.4.0-source.zip",
+      "bytes": 67493,
+      "sha256": "1f6c4ee8f245ccaa61b7ab0d9657af9176f7d1bced28cc3899e341af9a890f10",
+      "remote_md5": "md5:d2a9fbe045dea66be5e2719addf248d2",
+      "download_verified": true
+    },
+    {
+      "filename": "clock-escape-0.4.0-manifest.json",
+      "bytes": 623,
+      "sha256": "e0c8d7b3ea79f19f94d9a4b26bb350725cad897776e7443064fa75f3f6c38ea5",
+      "remote_md5": "md5:d51e8582b6945ecd7d66038e9749824f",
+      "download_verified": true
+    }
+  ],
+  "source_snapshot_sha256": "f020e597f09f5c975ad7b8d6f852ac58f93e3182e8206352fc5ae7766f7c8f54"
+}

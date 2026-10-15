@@ -50,3 +50,13 @@ The current square result removes the extra factor n from our prior
 exponential estimate. This is a revision of the clock paper, retaining its
 complete-state algorithms. No new priority claim is based solely on this
 comparison, and the polynomial square-escape question remains open.
+
+## Integer-clock revision — 15 October 2026
+
+The integer-clock proof strengthens the same square theorem to
+`(13*3^(n-1)-2*n^2-4*n-5)/2`. It improves our 0.3.0 constant without changing
+the exponential order. Complete-state algorithms now use the integer clock
+with unit increment; the anisotropic rectangular argument is retained.
+The separate wake manuscript cites this project for the shared clock identity
+and develops a different inverse-synthesis question. No separate novelty claim
+is made for reusing the clock in the companion paper.

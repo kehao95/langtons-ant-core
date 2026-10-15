@@ -1,0 +1,35 @@
+{
+  "title": "An Ant on the Clock: Exponential Escape Bounds for Langton's Ant",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Ke, Hao",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0001-2818-4986"
+    }
+  ],
+  "description": "<p>An integer clock increasing by at least one per update gives square first exit by (13*3^(n-1)-2*n^2-4*n-5)/2, uniformly over initial colourings and internal poses, with arbitrary exterior colours. Its leading term is (13/6)*3^n. An anisotropic potential gives O_H(N^(floor(H/2)+1)) for fixed-height rectangles. The clock also gives decidable complete-state reachability, orbit equivalence and a computable orbit normal form.</p><p>Version 0.4.0 introduces the integer clock and reduces the leading square coefficient from 13/4 to 13/6. The analytic proofs are accompanied by exact algebraic checks and finite-state audits; the source archive retains Lean proofs of the related supercritical local clock lemmas.</p>",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Langton's ant",
+    "discrete dynamics",
+    "computer-assisted proof"
+  ],
+  "version": "0.4.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/clock_escape",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.4230/LIPIcs.MFCS.2026.49",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ],
+  "language": "eng",
+  "publication_date": "2026-10-15"
+}

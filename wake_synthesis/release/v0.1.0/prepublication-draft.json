@@ -1,0 +1,105 @@
+{
+  "conceptrecid": "23402421",
+  "created": "2026-10-15T17:59:55.698411+00:00",
+  "files": [
+    {
+      "checksum": "04ba654aa2ddc424f5ec2852a5a2b4cb",
+      "filename": "Reading-the-Wake.pdf",
+      "filesize": 333639,
+      "id": "3e9a71ea-a24b-4972-b856-9911499f06eb",
+      "links": {
+        "download": "https://zenodo.org/api/records/23402422/draft/files/Reading-the-Wake.pdf/content",
+        "self": "https://zenodo.org/api/deposit/depositions/23402422/files/3e9a71ea-a24b-4972-b856-9911499f06eb"
+      }
+    },
+    {
+      "checksum": "05f00fac24ef898437e08307cb3a5cad",
+      "filename": "wake-synthesis-0.1.0-source.zip",
+      "filesize": 40139,
+      "id": "699ca2e3-9609-4c7b-8215-0c02ecf2edad",
+      "links": {
+        "download": "https://zenodo.org/api/records/23402422/draft/files/wake-synthesis-0.1.0-source.zip/content",
+        "self": "https://zenodo.org/api/deposit/depositions/23402422/files/699ca2e3-9609-4c7b-8215-0c02ecf2edad"
+      }
+    },
+    {
+      "checksum": "00d32fff324189578108c7d17c05be65",
+      "filename": "wake-synthesis-0.1.0-manifest.json",
+      "filesize": 624,
+      "id": "89968626-5982-4633-ada8-abc4e7ebb4d3",
+      "links": {
+        "download": "https://zenodo.org/api/records/23402422/draft/files/wake-synthesis-0.1.0-manifest.json/content",
+        "self": "https://zenodo.org/api/deposit/depositions/23402422/files/89968626-5982-4633-ada8-abc4e7ebb4d3"
+      }
+    }
+  ],
+  "id": 23402422,
+  "links": {
+    "badge": "https://zenodo.org/badge/doi/.svg",
+    "bucket": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0",
+    "discard": "https://zenodo.org/api/deposit/depositions/23402422/actions/discard",
+    "edit": "https://zenodo.org/api/deposit/depositions/23402422/actions/edit",
+    "files": "https://zenodo.org/api/deposit/depositions/23402422/files",
+    "html": "https://zenodo.org/deposit/23402422",
+    "latest_draft": "https://zenodo.org/api/deposit/depositions/23402422",
+    "latest_draft_html": "https://zenodo.org/deposit/23402422",
+    "newversion": "https://zenodo.org/api/deposit/depositions/23402422/actions/newversion",
+    "publish": "https://zenodo.org/api/deposit/depositions/23402422/actions/publish",
+    "self": "https://zenodo.org/api/deposit/depositions/23402422",
+    "thumb250": "https://zenodo.org/record/23402422/thumb250",
+    "thumbs": {
+      "10": "https://zenodo.org/record/23402422/thumb10",
+      "100": "https://zenodo.org/record/23402422/thumb100",
+      "1200": "https://zenodo.org/record/23402422/thumb1200",
+      "250": "https://zenodo.org/record/23402422/thumb250",
+      "50": "https://zenodo.org/record/23402422/thumb50",
+      "750": "https://zenodo.org/record/23402422/thumb750"
+    }
+  },
+  "metadata": {
+    "access_right": "open",
+    "creators": [
+      {
+        "affiliation": "Independent researcher",
+        "name": "Ke, Hao",
+        "orcid": "0009-0001-2818-4986"
+      }
+    ],
+    "description": "A prescribed finite odd-class wake, non-axis drift and heading determine a computable period cutoff. Integer-clock and crossing-flow bounds cover diagonal drift; reciprocal exponential moments cover general non-axis drift. An exact finite-word realization criterion then yields terminating inverse synthesis with a constructive finite seed.",
+    "imprint_publisher": "Zenodo",
+    "keywords": [
+      "Langton's ant",
+      "discrete dynamics",
+      "computer-assisted proof"
+    ],
+    "language": "eng",
+    "license": "cc-by-4.0",
+    "prereserve_doi": {
+      "doi": "10.5281/zenodo.23402422",
+      "recid": 23402422
+    },
+    "publication_date": "2026-10-15",
+    "publication_type": "preprint",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis",
+        "relation": "isSupplementedBy",
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.23402379",
+        "relation": "references",
+        "scheme": "doi"
+      }
+    ],
+    "title": "Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant",
+    "upload_type": "publication",
+    "version": "0.1.0"
+  },
+  "modified": "2026-10-15T17:59:55.788816+00:00",
+  "owner": 1540529,
+  "record_id": 23402422,
+  "state": "unsubmitted",
+  "submitted": false,
+  "title": "Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant"
+}

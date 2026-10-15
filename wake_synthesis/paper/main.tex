@@ -1,0 +1,383 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks,pdftitle={Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant},pdfauthor={Hao Ke}]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathrm R}
+\newcommand{\Lturn}{\mathrm L}
+\newcommand{\ind}{\mathbf 1}
+\DeclareMathOperator{\sgn}{sgn}
+\title{Reading the Wake:\\Period Bounds and Inverse Synthesis for Langton's Ant}
+\author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
+\date{15 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A translating periodic trajectory of Langton's ant leaves a wake of permanent
+black strands. We show that prescribing this finite set of translation classes,
+a non-axis drift and an initial heading determines a computable upper bound on
+the period. For diagonal drift, an integer clock gives a signed wake budget,
+and a crossing-flow recurrence sharpens it; in particular
+$P\le g(3^{W/2}-1)$ for wake growth $g$ and transverse width $W$.
+For arbitrary non-axis drift, two reciprocal exponential moments bound $P^2$.
+Combining these bounds with the finite-word realization criterion yields a
+terminating inverse-synthesis algorithm, with no period supplied as input;
+a positive answer constructs a finite black seed. The same budgets exclude
+wake-preserving insertions of closed-pose detours. Exact arithmetic checks
+and independently verified infinite-trace certificates accompany the proofs.
+\end{abstract}
+
+\section{From a wake to a periodic trajectory}
+We study the inverse problem of recovering a translating periodic trajectory
+from its permanent black wake. The key is to turn that wake into a bound on
+the unknown period.
+
+A state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite and $h\in\{N,E,S,W\}$.
+At a white cell the ant turns right, at a black cell it turns left, then it flips
+the cell and moves one unit. Write $F$ for this map, and observe states before
+each update. Put $\chi(x,y)=(-1)^{x+y}$ and
+\[
+ \sigma(X)=\begin{cases}\chi(p),&h=N,S,\\-\chi(p),&h=E,W.\end{cases}
+\]
+Both position parity and heading axis change, so $\sigma$ is invariant.
+
+A nonempty turn word $u$ of length $P$, started at $p_0=0$ with specified heading,
+defines phase positions $q_i$, headings $h_i$ and a final displacement $d$.
+We require heading restoration and $d\ne0$. A realization is a finite black set
+whose entire future word is $u^\omega$. The complete black field is \emph{not}
+required to translate: a stationary history and a growing wake are permitted.
+
+Partition phase indices by $q_i-q_j\in\Z d$. A class with an odd number of visits
+is an \emph{odd class}; write $O\subset\Z^2/\Z d$ for their finite set. For a
+realizable word, each odd class contributes one permanent black strand per period.
+The input is a drift $d$ with two nonzero coordinates, the initial heading,
+and $O$, represented by a finite list of distinct classes. We seek a finite
+seed and periodic word realizing exactly these data; \emph{the period is
+not supplied}.
+
+The period bound controls all words with the prescribed data, so an exact
+word test becomes a terminating search. For the
+standard wake with drift $(2,-2)$ the derived cutoff is 856, and the standard
+104-step word gives a positive witness.
+
+Jillhewar~\cite{jillhewar} supplies the exact finite-word realization criterion
+and constructive seed used here. His width-four analysis gives a special
+period--drift bound~\cite{widthfour}. Our contribution is the general
+wake-dependent quantitative cutoff: a diagonal crossing recurrence and a
+reciprocal-moment bound for every non-axis drift. We use the integer clock
+from the companion escape paper~\cite{clock}. After recalling the word test,
+we derive both bounds and then the inverse algorithm and detour corollary.
+
+\begin{lemma}[Known finite-word criterion]\label{lem:criterion}
+In a translation class choose $b$ and write $q_i=b+a_i d$. Order its phase letters
+by increasing $i-Pa_i$. A word is finite-support realizable if and only if every
+such ordered word is $\R,\Lturn,\R,\Lturn,\ldots$ starting with $\R$.
+\end{lemma}
+\begin{proof}
+The cell $b+nd$ is read at phase $i$ of epoch $n-a_i\ge0$, at time
+$nP+(i-Pa_i)$. For sufficiently large $n$ all class phases are present and the
+cell is initially white, since the seed is finite. Its consecutive letters must
+alternate, proving necessity. For sufficiency, if
+$\min a_i\le n<\max a_i$, initially blacken $b+nd$ precisely when the number of
+removed phases, those with $a_i>n$, is odd. All other cells start white.
+The available phase word is a suffix of the stabilized alternating word and
+starts with the prescribed colour. Induction on physical time proves the whole
+infinite trace. Only finitely many boundary cells are blackened.
+\end{proof}
+In particular $\#\R-\#\Lturn=|O|=:g$. Heading restoration implies $g\equiv0$
+modulo four, $P$ even and $d_x+d_y$ even. The quotient is by the \emph{full} drift:
+for $d=(m,-m)$ a class needs both $x+y$ and $x\bmod m$.
+
+\section{An integer clock for diagonal budgets}
+After rotating a diagonal drift parallel to $(1,-1)$, the transverse
+coordinate $x+y$ and heading return after each period. A clock using these
+quantities has a cancelling
+head correction: its period gain comes from the wake. We recall the unit
+increment identity of~\cite{clock} before computing that gain.
+
+Fix an integer $c$, set $s=x+y-c$, and put
+\[
+ f(s)=3^{|s|}-1,\qquad
+ \epsilon(h)=\begin{cases}+1,&h=N,E,\\-1,&h=S,W,\end{cases}\qquad
+ G(s,e)=\begin{cases}\tfrac12 f(s),&es\ge0,\\-\tfrac32 f(s),&es<0.\end{cases}
+\]
+Use the integer clock of~\cite{clock} on the complete finite state
+\begin{equation}\label{eq:integer}
+ \Theta_c(X)=-\sigma(X)\sum_{q\in B}\chi(q)f(q_x+q_y-c)
+             +G(p_x+p_y-c,\epsilon(h)).
+\end{equation}
+Since $f(s)$ is even, $\Theta_c$ is an exactly computable integer.
+
+\begin{lemma}[Integer clock, Ke~\cite{clock}]\label{thm:clock}
+For every finite-support state and integer centre $c$, with $e,e'$ the before
+and after values of $\epsilon$ and $s=p_x+p_y-c$,
+\begin{equation}\label{eq:gain}
+ \Theta_c(FX)-\Theta_c(X)
+   =1+4f(s)\ind_{\{e'\ne e,\ es<0\}}\ \ge1.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $\delta=+1$ on $\R$ and $-1$ on $\Lturn$. Directly checking the two colours
+at four headings gives $\delta\sigma\chi(p)=ee'$, and the outgoing step gives
+$s'=s+e'$. Thus the black-field increment is $-ee'f(s)$. Let $G_\pm(s)=G(s,\pm1)$.
+The elementary recurrences are
+\begin{align*}
+ G_+(s+1)-G_+(s)&=f(s)+1,&G_-(s-1)-G_-(s)&=f(s)+1,\\
+ G_-(s)-G_+(s)&=-2\sgn(s)f(s).
+\end{align*}
+If $e'=e$ the total gain is one. For $+1\to-1$ it is
+$1+2f(s)+G_-(s)-G_+(s)$, equal to one for $s\ge0$ and to $1+4f(s)$ for $s<0$.
+The other reversal gives the reflected cases. This includes $s=0$.
+\end{proof}
+\section{Diagonal wake budgets and crossing refinement}
+Rotate a diagonal drift to $d=(m,-m)$, $m>0$, and use the transformed heading.
+Let $t=x+y$, let $o_t$ count odd classes at level $t$, and define
+\begin{equation}\label{eq:A}
+ A_t=-\sigma(-1)^t o_t,\qquad
+ K_c(O)=\sum_t A_t(3^{|t-c|}-1).
+\end{equation}
+\begin{theorem}[Wake-determined diagonal period]\label{thm:diagonal}
+Every realization of this wake obeys $P\le K_c(O)$ for every integer $c$.
+\end{theorem}
+\begin{proof}
+Over one period the head term of \eqref{eq:integer} cancels, since both $t$ and
+the heading return to their initial values. The signed cell toggles give
+$-\sigma\sum_i\chi(q_i)f(t_i-c)\delta_i$.
+The weight is constant in each full $d$-class. Lemma~\ref{lem:criterion} makes
+its net $\delta$ count one on odd classes and zero on even classes. The exact
+period increment is therefore $K_c(O)$. Summing \eqref{eq:gain} proves the bound.
+The unchanged part of the full field cancels algebraically; it is not deleted.
+\end{proof}
+
+Here is an independent geometric derivation, which also supplies a refinement.
+The finite projected period is a closed walk with increments $\pm1$ in $t$.
+Let $f_t$ count upward crossings of the cut $(t,t+1)$; it also counts downward
+crossings. Let $m_t$ count visits to $t$, and $u_t$ count passages entering and
+leaving in the increasing direction. Flow conservation equates this with the
+number of decreasing-through passages. The fixed arrival axis and the two
+turn choices give
+\begin{equation}\label{eq:flow}
+ m_t=f_{t-1}+f_t=A_t+4u_t,\qquad
+ 0\le u_t\le\min(f_{t-1},f_t).
+\end{equation}
+For example, at vertical-arrival levels, right turns are through passages and
+left turns reverse the projection, giving $\#\R-\#\Lturn=4u_t-m_t$; horizontal
+arrival reverses that sign. Substituting $u_t\le f_{t-1}$ into
+$f_t=A_t+4u_t-f_{t-1}$ gives the first inequality below; $u_t\le f_t$
+gives the second:
+\begin{equation}\label{eq:recurrence}
+ f_t\le3f_{t-1}+A_t,\qquad f_{t-1}\le3f_t+A_t.
+\end{equation}
+Let $\ell,h$ be the extreme wake levels. Outside them $A_t=0$; starting past the
+finite support of the projected walk and applying \eqref{eq:recurrence} inward
+forces $f_{\ell-1}=f_h=0$. Thus the periodic trace lies between the extreme wake levels. An empty wake forces every
+$f_t=0$, impossible for a nonempty period.
+
+Starting from these two zero boundary values, set
+\[
+ L_{\ell-1}=0,\quad L_t=3L_{t-1}+A_t,\qquad
+ R_h=0,\quad R_t=3R_{t+1}+A_{t+1},\quad C_t=\min(L_t,R_t).
+\]
+Then $0\le f_t\le C_t$ for $\ell\le t<h$. If a $C_t$ is negative, the wake is
+impossible; otherwise
+\begin{equation}\label{eq:cuts}
+ P=2\sum_t f_t\le2\sum_t C_t.
+\end{equation}
+Moreover $d_x=\sigma\sum_t(-1)^t f_t$: on a cut with $\sigma(-1)^t=1$, the
+upward horizontal moves contribute $+f_t$ to $x$; on the other cuts the downward
+horizontal moves contribute $-f_t$. If $C_+$ and $C_-$ sum the corresponding
+positive and negative cut bounds, then also
+\begin{equation}\label{eq:direction}
+ P\le4C_+-2d_x,\qquad P\le4C_-+2d_x.
+\end{equation}
+
+\begin{corollary}[Width and growth bound]
+Writing $W=h-\ell$, a diagonal realization has even $W$ and
+\begin{equation}\label{eq:coarse}
+ P\le g(3^{W/2}-1).
+\end{equation}
+\end{corollary}
+\begin{proof}
+At a transverse extreme every passage reverses the projection. The fixed arrival
+axis makes all letters in an extremal class equal. Lemma~\ref{lem:criterion}
+therefore forces exactly one $\R$ per such class. Both extremes have the same
+arrival axis, so $W$ is even; this is the usual extremal rigidity argument.
+Take $c=(\ell+h)/2$ in Theorem~\ref{thm:diagonal}, discard negative coefficients
+and use $\sum_t\max(A_t,0)\le g$ to obtain \eqref{eq:coarse}.
+\end{proof}
+
+For a phase of standard P104 with normalized drift $(2,-2)$ and $\sigma=1$,
+the coefficients $A_t$, for $t=-3,\ldots,7$, and the cut bounds are
+\begin{align*}
+ A&=(2,-1,1,-1,1,-1,1,0,1,-1,2),\\
+ C&=(2,5,16,47,142,145,48,16,5,2).
+\end{align*}
+Their cut sum is $428$, so \eqref{eq:cuts} gives $P\le856$.
+Equation~\eqref{eq:A} with $c=2$ gives the same value. The standard word
+certifies existence within this finite search domain; classifying every
+realization in the domain remains an explicit computational problem.
+
+\section{General non-axis drift by reciprocal moments}
+For a general drift, use a transverse linear coordinate constant along it.
+An exponential weight and its reciprocal give complementary period budgets;
+Cauchy--Schwarz then bounds the number of steps independently of their
+individual weights.
+
+Rotate the drift to $(a_0,-b_0)$, $a_0,b_0>0$. Put
+$k=\gcd(a_0,b_0)$, $\eta=(b_0/k,a_0/k)$, and choose rational $r>1$ such that,
+with $a=r^{\eta_x}$ and $b=r^{\eta_y}$,
+\[
+ \kappa=1-\frac2{a+1}-\frac2{b+1}>0.
+\]
+The choice $r=4$ always works. Define $w(q)=r^{\eta\cdot q}$, and
+\[
+ (\gamma_N,\gamma_E,\gamma_S,\gamma_W)
+ =\left(\frac2{b+1},\frac2{a+1},-\frac{2b}{b+1},-\frac{2a}{a+1}\right).
+\]
+The one-sided potentials are
+\[
+ \Psi_+(X)=-\sigma\sum_{q\in B}\chi(q)w(q)+\gamma_h w(p),\qquad
+ \Psi_-(X)=-\sigma\sum_{q\in B}\frac{\chi(q)}{w(q)}+\frac{\gamma_{h+2}}{w(p)}.
+\]
+Substitution of the current-cell flip gives $\Delta\Psi_+=\kappa w(p)$ in six
+heading/colour cases and $(\kappa+4)w(p)$ in $S/\Lturn$ and $W/\R$.
+The half-turn formula gives $\Delta\Psi_-\ge\kappa/w(p)$. These local identities
+are the one-sided exponential clock construction, included to make the new
+period argument self-contained.
+
+Define the two finite wake moments, using any representatives of $O$,
+\[
+ A_+=-\sigma\sum_{q\in O}\chi(q)r^{\eta\cdot q},\qquad
+ A_-=-\sigma\sum_{q\in O}\chi(q)r^{-\eta\cdot q}.
+\]
+They are independent of the representatives since $\eta\cdot d=0$ and
+$d_x+d_y$ is even. The head terms cancel over a period, and
+Lemma~\ref{lem:criterion} gives exact increments $A_+$ and $A_-$. Thus both are
+positive and $\kappa\sum_i w(q_i)\le A_+$,
+$\kappa\sum_i w(q_i)^{-1}\le A_-$. Cauchy--Schwarz yields:
+\begin{theorem}[Reciprocal wake bound]\label{thm:moment}
+Every realization with the specified non-axis drift and wake satisfies
+\begin{equation}\label{eq:moment}
+ P^2\le \frac{A_+A_-}{\kappa^2}.
+\end{equation}
+\end{theorem}
+All quantities are rational. The integer square root of the floor of the right
+side is a computable cutoff. Changing the transverse centre scales $A_+$ and
+$A_-$ reciprocally, leaving the product unchanged. For axis drift the normal has
+a zero coordinate, so this construction cannot give positive $\kappa$.
+
+\section{All-period synthesis and detour obstruction}
+\begin{theorem}[Period-unknown inverse synthesis]\label{thm:inverse}
+Given a non-axis integer drift, an initial heading and a finite odd-class wake,
+existence of a finite-support periodic realization is decidable. A positive
+answer can produce its word and an explicit finite seed.
+\end{theorem}
+\begin{proof}
+First reject odd $d_x+d_y$, growth $|O|$ not divisible by four, or a
+nonpositive moment $A_+$ or $A_-$. Otherwise compute
+Theorem~\ref{thm:moment}'s cutoff, additionally using
+Theorem~\ref{thm:diagonal} and \eqref{eq:cuts}--\eqref{eq:direction} in the
+diagonal case. A negative crossing bound also rejects the input.
+Enumerate every nonempty word up to the least derived bound.
+Check its heading and drift, apply Lemma~\ref{lem:criterion}, and require the
+exact odd-class set. A passing word constructs a finite seed; complete finite
+exhaustion gives a negative answer. Completeness follows from the period bound.
+\end{proof}
+The implementation checks constructed seeds by a second, all-future formula.
+At phase $i$, epoch $n$, it evaluates
+\[
+ \ind_B(q_i+nd)\ \mathbin{\mathrm{xor}}\
+ \left|\{(j,s):q_j-q_i=sd,\ s>0\text{ or }(s=0,j<i),\ s\le n\}\right|\bmod2.
+\]
+Only finitely many initial black hits and previous-write thresholds can change
+this value. Checking all breakpoints also checks the last infinite interval.
+An optional execution cap reports \texttt{INCONCLUSIVE}, not a negative answer.
+The exhaustive search has up to $2^{B+1}-2$ candidate words for cutoff $B$.
+
+\begin{corollary}[No wake-preserving closed-pose insertion]
+Suppose realizable words $u,v$ have the same non-axis drift, and $v$ is obtained
+by inserting nonempty detours into $u$, each returning to the same position and
+heading while leaving the original steps unchanged. Then
+\[
+ A_+(O_v)>A_+(O_u),\qquad A_-(O_v)>A_-(O_u).
+\]
+Thus their signed transverse wake cannot be identical. For diagonal drift,
+$K_c(O_v)-K_c(O_u)\ge |v|-|u|>0$ for every integer $c$.
+\end{corollary}
+\begin{proof}
+Every retained original step has the same position, heading and letter; hence
+it has the same local clock increment. Every inserted step has strictly positive
+increment in both one-sided clocks, and at least one in the integer clock.
+Sum over the words and use the exact wake-increment equalities.
+\end{proof}
+Thus any such realizable detour requires an additional wake budget.
+
+\section{Exact verification and examples}
+The exact checker tests integer and rational increments, projected flow and
+full-period moment identities. All 104 standard phases, four rotations and
+powers one through three satisfy the $856$-scaled cutoff, giving 1,248 positive
+controls. Separate polynomial audits verify the local identities for arbitrary
+parameters and all integer-clock sign branches. The all-future breakpoint
+test verifies complete seeds, including remote initial black cells.
+
+For a known excluded-width control with drift $(1,-1)$ and heading $N$, take wake
+representatives
+\[ (0,-3),\quad (0,-1),\quad (0,0),\quad (0,1). \]
+The derived cutoff is 14.
+The pruned search exhausts 2,226 nodes and returns a negative answer; a separate
+enumeration of all 32,766 nonempty words through length 14 agrees.
+The standard wake supplies a positive witness; the full search through
+its cutoff 856 remains open.
+
+A supplementary experiment inserts all 14,386 internally alternating
+closed-pose fragments of lengths at most 28 at all 104 standard boundaries.
+The 1,496,144 insertion pairs produce no additional realizable word.
+An independent Python search reproduces the complete smaller domain through
+length 20.
+
+\section{Conclusion}
+A finite wake carries a quantitative budget for the period that produces it.
+The diagonal integer budget and crossing recurrence expose this relation
+combinatorially, while reciprocal exponential moments extend it to every
+non-axis drift. Together with exact finite-word realization, these bounds
+turn the prescribed-wake problem into a finite synthesis procedure.
+Extracting possible wakes from arbitrary initial states, treating axis drift
+and classifying the standard wake are further questions.
+
+\paragraph{Reproducibility.}
+The manuscript, proofs, exact checkers and retained reports are in the
+\href{https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis}{wake synthesis project}.
+From the repository root, \texttt{python3 wake\_synthesis/reproduce.py} runs
+the main checks using Python's standard library. Adding \texttt{--search}
+runs the finite detour experiment and requires a C++17 compiler.
+Build the paper with \texttt{make -C wake\_synthesis/paper}.
+The release manifest records source hashes and verification results.
+
+\paragraph{AI assistance.}
+Generative AI assisted with developing and checking arguments, implementing
+verification programs, and revising the exposition.
+
+\begin{thebibliography}{9}
+\bibitem{jillhewar}
+A. Jillhewar, \emph{Finite-Support Periodic Highways of Langton's Ant:
+Necessary Conditions, Transverse Exclusions, and Exact Search}, preprint, 2026.
+\href{https://doi.org/10.21203/rs.3.rs-10516269/v1}{doi:10.21203/rs.3.rs-10516269/v1}.
+
+\bibitem{widthfour}
+A. Jillhewar, \emph{Width-four research log}, 21 July 2026, accompanying source
+note, \href{https://github.com/Atharva12456/langtons-ant-highway/blob/76a7e234e577d992d086c204c3dea00ae72cf10a/research-notes/width4_research_2026-07-21.md}{revision \texttt{76a7e234e577}}.
+
+\bibitem{clock}
+H. Ke, \emph{An Ant on the Clock: Exponential Escape Bounds for Langton's Ant},
+Zenodo, version 0.4.0, 2026.
+\href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
+
+\end{thebibliography}
+\end{document}

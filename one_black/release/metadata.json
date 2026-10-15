@@ -1,0 +1,28 @@
+{
+  "title": "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Ke, Hao",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0001-2818-4986"
+    }
+  ],
+  "description": "Every classical one-black initial state reaches the complete standard period-104 highway trace, at any displacement and heading. The paper includes a complete Lean proof and reproducible computational certificates.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Langton's ant",
+    "discrete dynamics",
+    "formal verification"
+  ],
+  "version": "0.2.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/one_black",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

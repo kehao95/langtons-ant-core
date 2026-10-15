@@ -1,0 +1,154 @@
+{
+  "conceptdoi": "10.5281/zenodo.23402413",
+  "conceptrecid": "23402413",
+  "created": "2026-10-15T18:04:02.988078+00:00",
+  "doi": "10.5281/zenodo.23402414",
+  "doi_url": "https://doi.org/10.5281/zenodo.23402414",
+  "files": [
+    {
+      "checksum": "md5:1d9f1332ef09792c099e315a2c2942e4",
+      "id": "513ed023-9913-47b1-9a4a-48b16aa1a1d5",
+      "key": "four-cell-port-0.1.0-manifest.json",
+      "links": {
+        "self": "https://zenodo.org/api/records/23402414/files/four-cell-port-0.1.0-manifest.json/content"
+      },
+      "size": 624
+    },
+    {
+      "checksum": "md5:08dc2e5b69b920e7237932ec56b0d648",
+      "id": "eb388758-dbdf-40cf-a633-cd9cb7367c07",
+      "key": "Four-Black-Cells.pdf",
+      "links": {
+        "self": "https://zenodo.org/api/records/23402414/files/Four-Black-Cells.pdf/content"
+      },
+      "size": 228052
+    },
+    {
+      "checksum": "md5:5bc8e4b0d9ffd13a99bbc5e9a78cfb24",
+      "id": "f7e53b57-c97c-4263-8dff-a242df4ccca5",
+      "key": "four-cell-port-0.1.0-source.zip",
+      "links": {
+        "self": "https://zenodo.org/api/records/23402414/files/four-cell-port-0.1.0-source.zip/content"
+      },
+      "size": 39586
+    }
+  ],
+  "id": 23402414,
+  "links": {
+    "access": "https://zenodo.org/api/records/23402414/access",
+    "access_grants": "https://zenodo.org/api/records/23402414/access/grants",
+    "access_links": "https://zenodo.org/api/records/23402414/access/links",
+    "access_request": "https://zenodo.org/api/records/23402414/access/request",
+    "access_users": "https://zenodo.org/api/records/23402414/access/users",
+    "communities": "https://zenodo.org/api/records/23402414/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/23402414/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.23402414",
+    "draft": "https://zenodo.org/api/records/23402414/draft",
+    "file_modification": "https://zenodo.org/api/records/23402414/file-modification",
+    "files": "https://zenodo.org/api/records/23402414/files",
+    "latest": "https://zenodo.org/api/records/23402414/versions/latest",
+    "latest_html": "https://zenodo.org/records/23402414/latest",
+    "media_files": "https://zenodo.org/api/records/23402414/media-files",
+    "parent": "https://zenodo.org/api/records/23402413",
+    "parent_doi": "https://doi.org/10.5281/zenodo.23402413",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23402413",
+    "parent_html": "https://zenodo.org/records/23402413",
+    "preview_html": "https://zenodo.org/records/23402414?preview=1",
+    "quota_increase": "https://zenodo.org/api/records/23402414/quota-increase",
+    "request_deletion": "https://zenodo.org/api/records/23402414/request-deletion",
+    "requests": "https://zenodo.org/api/records/23402414/requests",
+    "reserve_doi": "https://zenodo.org/api/records/23402414/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/23402414",
+    "self_doi": "https://doi.org/10.5281/zenodo.23402414",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23402414",
+    "self_html": "https://zenodo.org/records/23402414",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:23402414/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:23402414/sequence/default",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:23402414:Four-Black-Cells.pdf/full/%5E10,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:23402414:Four-Black-Cells.pdf/full/%5E100,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:23402414:Four-Black-Cells.pdf/full/%5E1200,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:23402414:Four-Black-Cells.pdf/full/%5E250,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:23402414:Four-Black-Cells.pdf/full/%5E50,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:23402414:Four-Black-Cells.pdf/full/%5E750,/0/default.jpg"
+    },
+    "versions": "https://zenodo.org/api/records/23402414/versions"
+  },
+  "metadata": {
+    "access_right": "open",
+    "creators": [
+      {
+        "affiliation": "Independent researcher",
+        "name": "Ke, Hao",
+        "orcid": "0009-0001-2818-4986"
+      }
+    ],
+    "description": "<p>Starting at the boundary and facing inward, every colouring with at most three black cells in a half-plane forces first exit by the sharp bound 918, regardless of the exterior colouring. An explicit four-cell seed remains in that half-plane forever and follows the standard period-104 highway from update 182. Every finite-support initial state admits an extension by four remote black cells preserving any prescribed finite observed trajectory and forcing a standard highway. Exact finite certificates and analytic coverage and coupling proofs accompany the construction.</p>",
+    "doi": "10.5281/zenodo.23402414",
+    "keywords": [
+      "Langton's ant",
+      "discrete dynamics",
+      "computer-assisted proof"
+    ],
+    "language": "eng",
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "publication_date": "2026-10-15",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/four_cell_port",
+        "relation": "isSupplementedBy",
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.23402379",
+        "relation": "references",
+        "scheme": "doi"
+      }
+    ],
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "23402413"
+          }
+        }
+      ]
+    },
+    "resource_type": {
+      "subtype": "preprint",
+      "title": "Preprint",
+      "type": "publication"
+    },
+    "title": "Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton's Ant",
+    "version": "0.1.0"
+  },
+  "modified": "2026-10-15T18:04:03.547924+00:00",
+  "owners": [
+    {
+      "id": "1540529"
+    }
+  ],
+  "recid": "23402414",
+  "revision": 3,
+  "state": "done",
+  "stats": {
+    "downloads": 0,
+    "unique_downloads": 0,
+    "unique_views": 0,
+    "version_downloads": 0,
+    "version_unique_downloads": 0,
+    "version_unique_views": 0,
+    "version_views": 0,
+    "views": 0
+  },
+  "status": "published",
+  "submitted": true,
+  "swh": {},
+  "title": "Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton's Ant",
+  "updated": "2026-10-15T18:04:03.547924+00:00"
+}

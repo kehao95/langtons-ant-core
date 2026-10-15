@@ -33,7 +33,7 @@ positions, headings and read colours agree at every time 0 <= t < T,
 (B union E,p,h) eventually has the standard P104 future.
 ```
 
-If the protected square has n cells per side, the standard trace begins by update `8*n*3^n+183`: the first exit takes at most `8*n*3^n+1`, followed by 182 port updates.
+If the protected square has n cells per side, the standard trace begins by update `E(n)+182`, where `E(n)=(13*3^(n-1)-2*n^2-4*n-5)/2`: the [integer clock](../clock_escape/PROOF.md) bounds first exit by E(n), followed by 182 port updates.
 
 No restriction is placed on the trajectory or the initial shape of `B`. The theorem concerns the **changed initial configuration** `B union E`, not the original one, and does **not** imply HC. Neither does Theorem 1 establish that fewer than four exterior additions could never work by a more complicated non-one-sided mechanism.
 
@@ -111,7 +111,7 @@ Rotate the four-cell gate G so that its initial heading E becomes g, and transla
 
 From the exit, compare to the standalone gate run. All its future reads remain in its outside half-plane, while the original black debris remains strictly inside Q. Since those read regions are disjoint, exact colour first-difference coupling forces the augmented physical trajectory to agree with the standalone gate's future, starting at `(e,g)`, forever. The extra inside-Q black cells are physically present, but never read by this outgoing trajectory. Hence after 182 more updates it has the rotated standard P104 tail. Choosing Q to contain the radius-T ball ensures the augmented and original trajectories have identical first T position/heading/read-colour observations; K is unaffected. No future-live oracle or deletion appears in the construction.
 
-This effectively constructs a standard-P104 certificate for the **four-cell augmented input**, whose standard trace starts by update `8*n*3^n+183` for a protected n-by-n square. The original X may or may not already have a standard future. In particular, `forall X exists E (|E|=4 and H(X+E))` is NOT `forall X H(X)`.
+This effectively constructs a standard-P104 certificate for the **four-cell augmented input**, whose standard trace starts by update `E(n)+182` for a protected n-by-n square. The original X may or may not already have a standard future. In particular, `forall X exists E (|E|=4 and H(X+E))` is NOT `forall X H(X)`.
 
 ## 5. What is new, and limits of publication claims
 

@@ -1,0 +1,19 @@
+{
+  "doi": "10.5281/zenodo.23402414",
+  "files": {
+    "Four-Black-Cells.pdf": {
+      "bytes": 228052,
+      "md5": "08dc2e5b69b920e7237932ec56b0d648",
+      "sha256": "364fd95af548f00e5c755dc64f99e0e9d9cf608cbf6d4245f68bfcba9cccb13b"
+    },
+    "four-cell-port-0.1.0-source.zip": {
+      "bytes": 39586,
+      "md5": "5bc8e4b0d9ffd13a99bbc5e9a78cfb24",
+      "sha256": "753a53d0d57ca4b18e9de9b7cc69000c8a482fbd189ad2ae0e1d2c846f464010"
+    }
+  },
+  "project": "four_cell_port",
+  "record_id": 23402414,
+  "source_snapshot_sha256": "b475bd9b61967c594e8060c249c76f89d354e90719bc46e879713ecd00a6eb8b",
+  "version": "0.1.0"
+}

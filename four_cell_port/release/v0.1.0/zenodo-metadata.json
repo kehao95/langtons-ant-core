@@ -1,0 +1,35 @@
+{
+  "title": "Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton's Ant",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Ke, Hao",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0001-2818-4986"
+    }
+  ],
+  "description": "<p>Starting at the boundary and facing inward, every colouring with at most three black cells in a half-plane forces first exit by the sharp bound 918, regardless of the exterior colouring. An explicit four-cell seed remains in that half-plane forever and follows the standard period-104 highway from update 182. Every finite-support initial state admits an extension by four remote black cells preserving any prescribed finite observed trajectory and forcing a standard highway. Exact finite certificates and analytic coverage and coupling proofs accompany the construction.</p>",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Langton's ant",
+    "discrete dynamics",
+    "computer-assisted proof"
+  ],
+  "version": "0.1.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/four_cell_port",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23402379",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ],
+  "language": "eng",
+  "publication_date": "2026-10-15"
+}

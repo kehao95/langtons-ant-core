@@ -1,0 +1,35 @@
+{
+  "schema": "langtons-ant-detour-search-v1",
+  "status": "completed",
+  "domain": "closed-pose, internally alternating inserted fragments at all 104 standard boundaries",
+  "C++_runs": {
+    "20": {
+      "loops": 490,
+      "tests": 50960,
+      "hits": 0
+    },
+    "28": {
+      "loops": 14386,
+      "tests": 1496144,
+      "hits": 0
+    }
+  },
+  "independent_python_max_length": 20,
+  "independent_python": {
+    "loops": 490,
+    "tests": 50960,
+    "hits": 0
+  },
+  "counts_are_pairs_not_distinct_result_words": true,
+  "all_period_exclusion": false,
+  "longer_attempt": {
+    "max_length": 36,
+    "completed": false,
+    "claimed_counts": null
+  },
+  "sha256": {
+    "detour_search.cpp": "8749b4ab5e245f6304bf739c0788631ab6c5ccb9ad1ba88cd0c0cc17685e4157",
+    "search_replay.py": "dbe9fb6548234339db0dfbe3d33992e829a31c79905dee8db1320e4b7953d59a",
+    "wake.py": "2eda494b723cd7d403b1452aaf6547aa1546eadee2e2625a1a74785f9b85bdc2"
+  }
+}

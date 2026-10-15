@@ -1,0 +1,35 @@
+{
+  "title": "Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Ke, Hao",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0001-2818-4986"
+    }
+  ],
+  "description": "A prescribed finite odd-class wake, non-axis drift and heading determine a computable period cutoff. Integer-clock and crossing-flow bounds cover diagonal drift; reciprocal exponential moments cover general non-axis drift. An exact finite-word realization criterion then yields terminating inverse synthesis with a constructive finite seed.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Langton's ant",
+    "discrete dynamics",
+    "computer-assisted proof"
+  ],
+  "version": "0.1.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23402379",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ],
+  "language": "eng",
+  "publication_date": "2026-10-15"
+}

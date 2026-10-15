@@ -1,60 +1,72 @@
-# Langton’s Ant: Highways, Escape Bounds and Four-Cell Ports
+# Langton’s Ant: Highways, Clocks, Ports and Wakes
 
-Three results for the classical white-right / black-left Langton ant, by Hao Ke.
-Each project contains its paper, proof sources, verification evidence and release record.
+Proofs, preprints and reproducible artifacts for four results about the classical
+white-right / black-left Langton ant, by Hao Ke.
 
-| Project | Result | Proof and preprint |
+## Results and papers
+
+| Project | Main result | Published preprint |
 |---|---|---|
-| [One-black highways](one_black/) | Every one-black initial state reaches the standard period-104 highway, at any ant position and heading. | Complete Lean proof · [Zenodo](https://doi.org/10.5281/zenodo.23341609) |
-| [Clocks and escape](clock_escape/) | Square first exit is **O(3ⁿ)**; fixed-height rectangles have degree **⌊H/2⌋+1**. | Analytic proof with local Lean lemmas · [published v0.3.0](https://doi.org/10.5281/zenodo.23401306) |
-| [Four-cell outgoing ports](four_cell_port/) | Three black cells force half-plane exit by **918** updates; four form a standard highway and complete any finite observed history. | Computer-assisted proof · [review draft](four_cell_port/paper/paper.pdf) |
+| [One-black highways](one_black/) | Every one-black initial state, at any position and heading, reaches the complete standard period-104 highway trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609) · [PDF](one_black/paper/paper.pdf) |
+| [Clocks and escape](clock_escape/) | Square first exit ≤ **(13·3^(n−1)−2n²−4n−5)/2**; fixed-height rectangle degree **⌊H/2⌋+1**. Also gives complete-state reachability and orbit normal forms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379) · [PDF](clock_escape/release/v0.4.0/paper.pdf) |
+| [Four-cell outgoing ports](four_cell_port/) | Four black cells form a one-sided highway port; at most three force half-plane exit within **918** updates from the inward boundary pose. Four remote cells can complete any finite observed history into a standard highway. | [0.1.0](https://doi.org/10.5281/zenodo.23402414) · [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
+| [Wake synthesis](wake_synthesis/) | A prescribed finite odd-class wake, non-axis drift and initial heading determine a period cutoff and a terminating inverse-synthesis algorithm. | [0.1.0](https://doi.org/10.5281/zenodo.23402422) · [PDF](wake_synthesis/release/v0.1.0/paper.pdf) |
 
-## Layout
+The one-black theorem has a complete Lean proof. The clock and wake results have
+analytic proofs with exact algebraic checks; Lean also verifies the clock's
+supercritical local lemmas. The four-cell result combines analytic reductions
+with exact finite certificates and infinite-trace checks.
+
+[Publication portfolio and version history](PREPRINTS.md) ·
+[Claim–evidence map and review](PREPRINT_REVIEW.md) · [Change history](CHANGELOG.md)
+
+## Project layout
 
 ```text
-one_black/       clock_escape/       four_cell_port/
+one_black/       Universal one-black highway theorem
+clock_escape/    Integer clocks, escape bounds and orbit algorithms
+four_cell_port/  Sharp half-plane threshold and exterior completion
+wake_synthesis/  Wake-dependent period bounds and inverse synthesis
 ```
 
-Each project uses `README.md`, `paper/`, `evidence/`, `release/` and
-`reproduce.py`. `paper/` holds the manuscript, PDF and build recipe;
-`evidence/` the certificates and audit results; `release/` the release state
-and source hashes. Formal proofs live in `lean/` where available; exact
-checkers and other project-specific tools stay with their consumer.
+Each project owns its manuscript in `paper/`, proof narrative in `PROOF.md`,
+verification records in `evidence/`, release records in `release/`, and a
+`reproduce.py` entrypoint. Formal proofs live in `lean/`; project-specific exact
+checkers live in `verification/`.
 
-[Research](research/) contains further deductions and the ongoing Highway
-Conjecture program. [The interactive guide](https://kehao95.github.io/langtons-ant-core/)
-explains the one-black proof; its site and exporters live in [`docs/`](docs/).
+The clock paper develops the integer clock; the wake paper applies it to period
+budgets and inverse synthesis. The four-cell completion theorem uses the clock's
+escape bound. Each paper states and attributes these dependencies.
 
 ## Reproduce
 
-With Python 3.10+ and Lean **4.30.0**, from the repository root:
+Run from the repository root:
 
 ```sh
 python3 one_black/reproduce.py
 python3 clock_escape/reproduce.py
-# For only the critical strengthening:
-python3 clock_escape/reproduce.py --critical-only
 python3 four_cell_port/reproduce.py
-make -C one_black/paper
-make -C clock_escape/paper
-make -C four_cell_port/paper
+python3 wake_synthesis/reproduce.py
 ```
 
-The one-black command performs a clean Lean build and checks both final axiom
-reports. The clock command runs the exact checkers and local Lean proofs.
-The four-cell command checks finite certificates, algebraic infinite tails and
-the exterior constructor using only Python. Paper builds require Pandoc/XeLaTeX
-for one-black and pdfLaTeX for the other two projects; outputs go to
-`paper/build/`. Existing published PDFs are preserved in `paper/paper.pdf`.
+All projects use Python 3.10+. The one-black and full clock commands also require
+Lean 4.30.0. The clock's `--integer-only` and `--critical-only` options run scoped
+checks using Python alone. Adding `--search` to the wake command runs the finite
+detour experiment and requires g++ with C++17.
 
-The one-black preprint is version **0.2.0**, and the strengthened clock preprint
-is version **0.3.0**. Each uses its existing Zenodo version chain. Published
-archives and earlier PDFs are preserved; [release history](CHANGELOG.md) records
-the updates. The four-cell paper remains a review draft with no Zenodo record.
+Build a manuscript with `make -C <project>/paper`. One-black uses Pandoc and
+XeLaTeX; the other three use pdfLaTeX. Builds write to ignored `paper/build/`
+directories. Published PDFs, source hashes and download-verification receipts
+remain in the release records linked above. Zenodo also provides self-contained
+source archives for independent reproduction.
+
+## Explore further
+
+[Explore the interactive one-black proof guide](https://kehao95.github.io/langtons-ant-core/),
+maintained under [docs/](docs/). [Research](research/) contains further deductions
+and the separate, ongoing Highway Conjecture program.
 
 ## Open
 
-Mathematical peer review and journal preparation for the two published papers;
-external review and final novelty assessment for the four-cell draft. Current
-project details live in each project README; ongoing HC research lives in
-[`research/README.md`](research/README.md).
+Independent mathematical peer review and journal preparation for the published
+preprints. Project-specific next steps are recorded in each project's README.

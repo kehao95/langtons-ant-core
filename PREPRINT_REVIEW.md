@@ -1,0 +1,132 @@
+# Preprint review — 15 October 2026
+
+This is the internal review record for the [publication portfolio](PREPRINTS.md).
+Administrative status and review questions stay here; the manuscripts present
+the mathematical constructions and their evidence.
+
+## Contribution allocation and manuscript outlines
+
+| Paper | Argument sequence | Main contribution |
+|---|---|---|
+| Clock, published 0.4.0 | model → integer clock → square range → critical rectangle potential → orbit algorithms → verification; rational clock appendix | Unit integer clock and stronger square bound, alongside the retained rectangle and complete-state results |
+| Wake, published 0.1.0 | inverse input → known word test → diagonal budgets → reciprocal moments → finite synthesis → insertion corollary → examples | Explicit period bounds from a prescribed wake and a period-unknown decision procedure |
+| Four-cell port, published 0.1.0 | sharp threshold → infinite port certificate → exterior completion → evidence | Minimal one-sided black-cell count, sharp 918 exit and four-cell completion |
+| One-black, existing 0.2.0 | retained manuscript and formal proof | Existing universal one-black standard-trace theorem |
+
+The clock theorem is stated in the wake manuscript with an explicit companion
+citation and a short derivation for readability. Primary novelty ownership is
+assigned once. The port's completion time is an application of E(n), not a
+separate escape-bound claim. One-black keeps its original published title.
+
+## Claim–evidence map
+
+| Claim | Evidence | Status |
+|---|---|---|
+| Integer clock gain >=1 | Clock Section 2; 24 exact sign/heading/colour polynomial identities | Analytic proof plus exact coefficient audit |
+| Square exit <=E(n) | Localized finite sum, exact geometric range, T−1 internal updates; 100 range sums and 18,696 small-square states | Analytic all-n proof with finite controls |
+| Rectangular degree floor(H/2)+1 | Critical eight-case identity, horizontal pair costs and localized range; retained Laurent audit | Retained analytic proof and exact checks |
+| Complete-state target and orbit algorithms | Integer clock telescoping and explicit inverse update; existing rational-clock algorithm controls retained | Analytic proof; no new broad historical replay claimed |
+| Wake-dependent period cutoff | Whole-period cancellation, crossing-flow recurrences and reciprocal Cauchy–Schwarz bound; 16 universal directional identities | Analytic proof plus exact audit |
+| Period-unknown synthesis is total | Finite cutoff plus attributed exact word criterion; full search below derived bound 14 | Analytic completeness, implementation controls |
+| Standard wake realizes 104 within cutoff 856 | Full-field infinite certificates, all phases/headings, retained power controls | Certified positive witness; uniqueness search remains open |
+| Same-wake closed-pose insertion impossible | Retained-step increments unchanged; inserted steps strictly positive | Analytic all-length corollary |
+| Sharp 918 and four-cell port | First-contact coverage, 284-seed finite certificate, infinite parity and chronological tests | Computer-assisted proof |
+| Four-cell completion by E(n)+182 | Geometric coupling plus clock exit theorem; 96 implementation cases checked against improved budget | Analytic proof plus finite controls |
+| One-black standard trace | Existing clean Lean build and axiom audit; all 43 source hashes match retained report | Published formal proof; no new build required by unchanged sources |
+
+The new integer, critical and wake arguments are not represented as Lean
+formalizations. The old supercritical local Lean lemmas remain in the clock
+appendix with their exact scope.
+
+## Checks performed for this preparation
+
+- `clock_escape/reproduce.py --integer-only`: passed; 24 universal branches,
+  100 range sums, 18,696 complete initial states and 12,416 internal transitions.
+- `clock_escape/reproduce.py --critical-only`: passed; original retained report
+  and independent Laurent audit reproduce exactly.
+- `wake_synthesis/reproduce.py --search`: the imported suite and optional finite
+  experiment reproduced exactly; new algebraic audits passed. The additional
+  full-field audit certifies 416 phase/heading cases, rejects 13 necessary-seed
+  deletions and a blocker 10^100 epochs away, and accepts an off-trace marker.
+- `four_cell_port/reproduce.py`: passed, including stronger-budget checks for
+  all 96 completion cases. Original certificates and audit counts are unchanged.
+- Three manuscripts built twice with pdfLaTeX, with resolved references and no
+  overfull boxes. Review PDFs have 8, 6 and 6 pages respectively. Page images
+  were inspected for layout and equation clipping.
+- `tools/prepare_preprints.py`: checks every source ZIP entry against its SHA256,
+  the retained one-black PDF against its publication receipt and all 43 Lean
+  files against the prior clean-build report. It labels current working-tree
+  snapshots explicitly and performs no network action.
+
+Scoped reproduction from the extracted candidate archives is recorded beside
+each candidate package. Historical full one-black and clock suites are retained
+as prior evidence; they are not rerun merely because the independent wake
+project has been added.
+
+## Five-part manuscript self-review
+
+1. **Contribution:** each paper has its own mathematical question and theorem;
+   the known supplied-word criterion and special width-four bounds are credited.
+2. **Clarity:** abstracts lead with the result and mechanism; headings track the
+   proof dependencies; administrative publication disclaimers are outside the papers.
+3. **Evidence strength:** all-parameter identities and written coverage arguments
+   carry universal claims; finite searches are labeled by their actual domains.
+4. **Evaluation completeness:** complete small negative search, positive infinite
+   witness, all rotations/phases, remote blockers, inert debris and integer-centre
+   branches are covered. The 856 search and global HC remain distinct research questions.
+5. **Method soundness:** full drift classes are used; physical debris is retained;
+   arbitrary exterior colouring is handled by finite localization; exit moves,
+   non-axis hypotheses and resource-cap INCONCLUSIVE responses are explicit.
+
+## Gemini editorial discussion
+
+On 15 October 2026, `agy` model `gemini-3.8-flash-high` read all four complete
+manuscript sources, then discussed the actual three-paper revision diff in a
+second turn. Both calls completed successfully in conversation
+`ef860915-0ae2-4605-b5b7-b46e8b5e150d`. The first turn addressed reverse outlines,
+transitions, repetition and standalone readability; the second challenged
+specific suggestions and reviewed the resulting edits. This was an editorial
+discussion, not an independent mathematical verification.
+
+| Manuscript | Assessment and action |
+|---|---|
+| One-black | Keep its existing proof architecture and published text. The pristine-state paragraph already defines the active pattern and explains the archive induction; the suggested extra definition would repeat it. |
+| Clock | Introduce the time-to-spatial-range mechanism before notation, announce the complete-state orbit results with theorem references, and explain separate coordinate growth rates before the rectangular potential. |
+| Four-cell port | Keep the threshold → infinite port → exterior completion sequence. Explain the epoch difference before the parity formula and identify the first exit position explicitly as outside the square. |
+| Wake | Lead with the inverse question, put period cancellation before the clock formulas, supply the flow-to-recurrence algebraic step, and motivate reciprocal moments. Shorten repeated scope and verification prose; keep the attributed clock proof self-contained. |
+
+The first response called the square bound “sharp”, proposed an unestablished
+formula for the one-black XOR layer, and removed useful proof details in two
+replacement passages. These suggestions were rejected. The revision retains
+the port phase range `4..9` and the wake colour-count derivation. Gemini agreed
+with these corrections in the second round and accepted retaining the short
+clock proof. Its final suggestion—to mention rotation before using `x+y` as
+the transverse coordinate—was adopted. Its broad praise of mathematical
+correctness is not treated as evidence.
+
+The final editorial pass keeps every theorem/lemma/corollary statement and
+displayed equation unchanged. Proof edits only identify the port exit pose;
+the new wake recurrence explanation spells out the existing algebra. Verification
+code, proof artifacts and retained reports match the previously reproduced
+candidate sources. Accordingly the new checks rebuild the three manuscripts
+and source archives, compare extracted-PDF text, and verify source hashes;
+the mathematical runs recorded above remain prior evidence, not new runs.
+The final PDFs remain 8, 6 and 6 pages, with resolved references and no box
+warnings. One-black's source and the two published delivery PDFs remain unchanged.
+
+## Publication outcome
+
+After reviewing these materials, the owner explicitly requested the new Zenodo
+releases on 15 October 2026. Published clock 0.4.0 as record 23402379 within
+concept 23341603, port 0.1.0 as 23402414, and wake 0.1.0 as 23402422.
+The two first releases now cite the exact clock DOI. Final changes after
+editorial review were limited to those bibliography entries, release metadata
+and project README status. Final source ZIPs were extracted and rebuilt, with
+matching PDF text and no box/reference warnings.
+
+All nine published attachments were anonymously downloaded and SHA256-verified.
+The previous clock and one-black PDFs were also downloaded and matched their
+original receipts. Versioned release directories contain exact source manifests,
+build evidence and public-readback receipts. One-black was not republished.
+The owner subsequently authorized README cleanup and Git commit/push of this
+batch. Journal submission remains a separate step.

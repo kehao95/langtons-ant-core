@@ -1,13 +1,21 @@
-# Release state
+# Published first preprint
 
-The manuscript and `../paper/paper.pdf` are a review draft prepared on
-15 October 2026. No Zenodo record or DOI has been created for this third project.
-The two existing projects retain their published version 0.2.0 artifacts.
+Hao Ke, *Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton’s Ant*.
 
-`source-manifest.json` records the imported research commit, the source-repository
-correction commit, and SHA256 hashes of the draft, PDF, proof, verification code
-and evidence. The research certificate bytes are preserved; the manuscript and
-proof wording incorporate the corrections listed in the verification audit.
+Version **0.1.0**, published 15 October 2026:
+[doi:10.5281/zenodo.23402414](https://doi.org/10.5281/zenodo.23402414).
+Concept DOI: [10.5281/zenodo.23402413](https://doi.org/10.5281/zenodo.23402413).
+The manuscript cites the exact companion clock version 0.4.0, record 23402379.
 
-After external review and a final novelty check, prepare one deliberate release
-from a fixed source snapshot. Publishing is a separate step from this integration.
+- [Exact published PDF](v0.1.0/paper.pdf).
+- [Publication receipt](v0.1.0/publication-receipt.json): all public attachments downloaded and SHA256-verified.
+- [Source manifest](v0.1.0/published-source-manifest.json) and [delivery manifest](v0.1.0/release-manifest.json): exact sources, working-tree provenance and attachment hashes.
+- [Standalone archive checks](v0.1.0/standalone-reproduction.json): extracted sources build to matching PDF text; prior mathematical checks apply to unchanged proof/verifier sources.
+- [Metadata](v0.1.0/zenodo-metadata.json) and [public API record](v0.1.0/public-record.json).
+
+Published files and receipts are immutable. The top-level candidate and review
+manifests retain the preparation snapshots; versioned release records identify
+the actual published contents.
+
+The earlier source-manifest.json describes the initial preparation at commit
+135ee4d; its PDF is retained in [initial-review/](initial-review/).

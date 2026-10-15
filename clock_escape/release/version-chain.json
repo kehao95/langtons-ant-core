@@ -11,13 +11,18 @@
       "record_id": 23401306,
       "version": "0.3.0",
       "doi": "10.5281/zenodo.23401306"
+    },
+    {
+      "record_id": 23402379,
+      "version": "0.4.0",
+      "doi": "10.5281/zenodo.23402379"
     }
   ],
   "same_concept_verified": true,
   "latest_public_relations": {
     "version": [
       {
-        "index": 1,
+        "index": 2,
         "is_last": true,
         "parent": {
           "pid_type": "recid",

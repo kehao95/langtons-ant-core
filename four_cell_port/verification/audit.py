@@ -135,7 +135,7 @@ def completion_cases(word):
         ep, eh = certificate['exit_position'], certificate['exit_heading']
         require(len(added) == 4 and not added & (seed | protected), 'invalid edit set')
         require(all(not inside(q, square) for q in added), 'nonexterior edit')
-        require(tau > prefix and tau <= 8 * square[2] * 3**square[2] + 1, 'exit budget')
+        require(tau > prefix and tau <= (13 * 3**(square[2] - 1) - 2*square[2]**2 - 4*square[2] - 5) // 2, 'exit budget')
         original, augmented = set(seed), set(seed) | added
         op, oh, ap, ah = p, h, p, h
         for _ in range(tau):

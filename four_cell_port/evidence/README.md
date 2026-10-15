@@ -72,3 +72,11 @@ The remaining review obligations are external mathematical scrutiny and final
 priority assessment. No full Lean proof, referee endorsement or publication
 priority is inferred from passing these checks. Existing published one-black
 and clock artifacts are preserved without rebuilding unrelated proofs.
+
+## Current completion-bound revision
+
+The independent audit now checks first exit against the stronger integer-clock
+bound E(n) on all 96 completion cases. Its result counts and immutable finite
+certificates are unchanged. Current source hashes are in
+`../release/candidate-manifest.json`; the earlier reproduction and source
+manifest describe their dated preparation snapshot.

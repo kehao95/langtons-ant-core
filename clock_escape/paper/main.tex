@@ -21,22 +21,27 @@
 \maketitle
 \begin{abstract}
 We prove that the classical two-colour Langton ant exits every square of side
-$n$ within $(13/4)3^n+4$ updates, uniformly over all initial colourings and
-internal poses. For a rectangle with $N$ columns and fixed height $H$, we
-obtain an upper bound of order $N^{\lfloor H/2\rfloor+1}$. A family of
-rational potentials on the critical curve $(a-1)(b-1)=4$ has positive monomial
-increments. Four-step costs give the square estimate, while pairing along the
-short direction gives the rectangular bound. A related strict rational clock
-yields decidable complete-state reachability, two-sided orbit equivalence and
-a computable orbit normal form. Exact polynomial checks, finite-state audits
-and Lean proofs of the supercritical local clock lemmas accompany the arguments.
+$n$ within $(13\cdot3^{n-1}-2n^2-4n-5)/2$ updates, uniformly over all initial
+colourings and internal poses. The proof uses an explicit integer-valued clock
+that increases by at least one on every update. Its finite range on a square
+gives an exponential escape bound with leading term $(13/6)3^n$.
+For a rectangle with $N$ columns and fixed height $H$, an anisotropic rational
+potential gives an upper bound of order $N^{\lfloor H/2\rfloor+1}$.
+The integer clock also yields decidable complete-state reachability,
+two-sided orbit equivalence and a computable orbit normal form.
+Exact algebraic checks and finite-state audits accompany the proofs;
+local lemmas for the related supercritical rational clock are formalized in Lean.
 \end{abstract}
 
 \section{Model and results}
+We seek a uniform bound on the time an ant can spend inside a finite region.
+A clock that gains at least one per update turns this temporal question into
+a spatial one: bound the range of its values inside the region.
+
 A state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite, $p\in\Z^2$, and
 $h\in\{N,E,S,W\}$. Headings are encoded cyclically by $0,1,2,3$.
 Let $e_h$ be the corresponding unit vector. A state at time $t$ is observed
-\emph{before} update $t$. The literal update is
+\emph{before} update $t$. The update is
 \begin{equation}\label{eq:rule}
  h'=h+1-2\mathbf1_B(p)\pmod4,\qquad
  B'=B\symdiff\{p\},\qquad p'=p+e_{h'}.
@@ -50,124 +55,131 @@ colourings, positions and headings. The exit move is counted. Exterior colours
 can be arbitrary: no exterior cell is read before the first exit.
 
 \begin{theorem}\label{crit:thm:main}
-For positive integers $n,N,H$, put
-\[
- R_n=3^{1-n}(3^n-1)^2+4(3^{n-1}-3^{1-n}).
-\]
-Then
+For positive integers $n,N,H$,
 \begin{align}
- S(n,n)&\le4\left\lfloor\frac{3R_n}{16}\right\rfloor+4
-       \le\frac{13}{4}3^n+4,\label{crit:eq:square}\\
+ S(n,n)&\le \frac{13\cdot3^{n-1}-2n^2-4n-5}{2},\label{crit:eq:square}\\
  S(N,H)&\le\left\lfloor\frac92(NH+16)(4N+1)^{\lfloor H/2\rfloor}\right\rfloor+3.
  \label{crit:eq:rectangle}
 \end{align}
-In particular, $S(N,H)=O_H(N^{\lfloor H/2\rfloor+1})$.
+In particular, $S(n,n)=O(3^n)$ and $S(N,H)=O_H(N^{\lfloor H/2\rfloor+1})$.
 \end{theorem}
 
 The square estimate improves the factorial upper bound of
 Etse~\cite{Etse2026} to exponential order in the side length. His fixed-height
 rectangle bound has degree $H-1$ for even $H$ and $H-2$ for odd $H$; the degree
 above is smaller for every $H\ge6$. For heights two and three, his linear
-estimates remain sharper.
+estimates remain sharper. The earlier version of this preprint gave the
+square estimate $(13/4)3^n+4$; the integer clock reduces its leading coefficient
+by one third and gives a shorter proof.
 
-The mechanism is a rational potential with positive local increments. Its
-range on a finite domain bounds the time spent there. At critical parameters,
-individual increments can be arbitrarily small, but short blocks have a uniform
-positive cost. Isotropic and anisotropic weights then give the two bounds.
-For a specified complete target state, a supercritical member of the clock
-family gives a finite search budget and a canonical representative of each
-orbit. These complete-state questions complement the circuit-prediction and
+The common mechanism is positive clock growth within a finite range.
+For squares, absolute diagonal weights give an integer clock with unit minimum
+increment. For rectangles, anisotropic weights control the long direction
+while paired updates supply a uniform cost in the short direction.
+On the full finite-support state space, the same unit increment decides
+complete-state forward reachability and two-sided orbit equivalence. It also
+selects a unique, computable zero-crossing representative of each orbit
+(Theorems~\ref{thm:reach} and~\ref{thm:section}).
+These complete-state questions complement the circuit-prediction and
 infinite-background constructions of~\cite{Gajardo2002}.
 
-We first give the strict clock and its elementary increment identity, then
-combine critical components to prove the square and rectangle bounds. Finally,
-we use the fixed strict clock for complete-state orbit algorithms.
+We construct the integer clock, sum its range on a square, and then derive the
+rectangular bound from a critical rational potential. The last part applies
+the same integer clock to complete-state orbit algorithms.
 
-\section{An explicit strict rational clock}
+\section{An integer clock}
 Define
 \[
  \chi(x,y)=(-1)^{x+y},\qquad
  \sigma(X)=\begin{cases}\chi(p),&h=N,S,\\-\chi(p),&h=E,W,\end{cases}
 \]
 and put $\eps(h)=+1$ for $h=N,E$, and $\eps(h)=-1$ for $h=S,W$.
-Each update changes both the lattice parity and the heading axis, so $\sigma$
-is invariant under $F$.
-
-The construction uses the diagonal coordinate $x+y$, which changes by
-exactly $+1$ or $-1$ on every move. We assign symmetric exponential weights
-to the two directions along this coordinate. A colour flip changes one term
-of the weighted field sum; a heading-dependent pose term compensates for that
-change so that their combined increment is positive in every turn case.
-The invariant $\sigma$ aligns the field signs with the ant's heading axis.
-
-Fix $c\in\Z$ and a rational $r>3$. The parameter $c$ centres the diagonal
-coordinate, while $r$ controls the growth of the weights. Write
-$s(q)=q_x+q_y-c$ and set
-\begin{align}
- f_r(s)&=r^s+r^{-s},\\
- g_r(s,+1)&=\frac{2}{r+1}(r^s-r^{1-s}),\\
- g_r(s,-1)&=\frac{2}{r+1}(r^{-s}-r^{s+1}),\\
- \Phi_{r,c}(X)&=-\sigma(X)\sum_{q\in B}\chi(q)f_r(s(q))
-                    +g_r(s(p),\eps(h)).\label{eq:clock}
-\end{align}
-Finite support makes \eqref{eq:clock} a computable rational number, including
-when coordinates are negative.
-
-\begin{lemma}[Increment identity]\label{lem:increment}
-Let $U=r^{s(p)}$, $V=r^{-s(p)}$, and
+Each update changes both lattice parity and heading axis, so $\sigma$ is
+invariant under $F$. Fix an integer centre $c$ and set
 \[
- d_r=\frac{r-3}{r+1},\qquad E_r=\frac{5r+1}{r+1}.
+ s(q)=q_x+q_y-c,\qquad f(s)=3^{|s|}-1,\qquad
+ J(s,e)=\begin{cases}f(s)/2,&es\ge0,\\-3f(s)/2,&es<0.\end{cases}
 \]
-If $e=\eps(h)$ and $e'=\eps(h')$, then
-\[
-\begin{array}{c|c}
- (e,e')&\Phi_{r,c}(FX)-\Phi_{r,c}(X)\\\hline
- (+,+)\text{ or }(-,-)&d_r(U+V)\\
- (+,-)&d_rU+E_rV\\
- (-,+)&E_rU+d_rV
-\end{array}
-\]
-In particular $\Phi_{r,c}(FX)-\Phi_{r,c}(X)\ge2d_r>0$.
-\end{lemma}
-\begin{proof}
-Let $\delta=+1$ on a white read and $\delta=-1$ on a black read. From the
-four headings and two colours in \eqref{eq:rule},
-\[
- \delta\sigma(X)\chi(p)=ee',\qquad s(p')=s(p)+e'.
-\]
-The black-field contribution to the increment is therefore
-$-ee'(U+V)$. Subtracting the old pose term from the new one gives
-\[
- -ee'(U+V)+g_r(s(p)+e',e')-g_r(s(p),e).
-\]
-Substitution of the two definitions of $g_r$ gives the displayed table.
-For example, for $(e,e')=(+,+)$, the pose increment is
-$2(r-1)(U+V)/(r+1)$, which yields $d_r(U+V)$ after the field increment.
-For completeness, after multiplying by $r+1$, the other three cases are
-\begin{align*}
-(-,-):\quad&-(r+1)(U+V)+2(rV-U)-2(V-rU),\\
-(+,-):\quad& (r+1)(U+V)+2(rV-U)-2(U-rV),\\
-(-,+):\quad& (r+1)(U+V)+2(rU-V)-2(V-rU).
-\end{align*}
-Expansion gives the corresponding polynomial identities. Since $UV=1$, $U+V\ge2$;
-also $E_r\ge d_r>0$. These give the lower bound in every case.
-\end{proof}
-
-For complete-state orbit algorithms, one fixed member
-suffices: choosing $r=4$ and $c=0$ gives the following uniform time estimate.
-
-\begin{theorem}[Strict clock]\label{thm:clock}
-The function $\Phi=\Phi_{4,0}$ is computable on every complete finite-support
-state and satisfies
-\begin{equation}\label{eq:time}
- \Phi(F^tX)-\Phi(X)\ge\frac25t\qquad(t\in\N).
+The complete-state clock is
+\begin{equation}\label{eq:integer}
+ \Theta_c(X)=-\sigma(X)\sum_{q\in B}\chi(q)f(s(q))
+                +J(s(p),\eps(h)).
 \end{equation}
+Every $f(s)$ is even, so the finite sum defines a computable integer.
+The heading correction balances the current-cell flip, including at the
+centre where the absolute-value weight changes branch.
+
+\begin{theorem}[Integer increment]\label{thm:integerclock}
+Let $e=\eps(h)$, $e'=\eps(h')$ and $s=s(p)$. Then
+\begin{equation}\label{eq:integergain}
+ \Theta_c(FX)-\Theta_c(X)
+ =1+4f(s)\mathbf1_{\{e'\ne e,\ es<0\}}\ge1.
+\end{equation}
+Consequently $\Theta_c(F^tX)-\Theta_c(X)\ge t$ for every $t\in\N$.
 \end{theorem}
 \begin{proof}
-Apply Lemma~\ref{lem:increment} with $r=4$ and sum the increments.
+Write $\delta=1$ on a white read and $\delta=-1$ on a black read.
+The four headings and two colours in \eqref{eq:rule} give
+$\delta\sigma\chi(p)=ee'$ and $s(p')=s+e'$.
+The field increment is thus $-ee'f(s)$.
+Writing $J_\pm(s)=J(s,\pm1)$, the defining powers give
+\begin{align*}
+ J_+(s+1)-J_+(s)&=f(s)+1,\\
+ J_-(s-1)-J_-(s)&=f(s)+1,\\
+ J_-(s)-J_+(s)&=-2\operatorname{sgn}(s)f(s).
+\end{align*}
+For $e'=e$, the field term cancels $f(s)$, leaving one.
+For $e=1,e'=-1$, the total is
+$1+2f(s)+J_-(s)-J_+(s)$, which is one for $s\ge0$ and
+$1+4f(s)$ for $s<0$. The other reversal follows with signs reversed.
+At $s=0$, $f(s)=0$, so both formulas agree. Summing proves the time estimate.
+\end{proof}
+
+\section{Counting the clock range on a square}
+Fix a translated square
+$Q=\{x_0,\ldots,x_0+n-1\}\times\{y_0,\ldots,y_0+n-1\}$ and take
+$c=x_0+y_0+n-1$. Restrict the field sum in \eqref{eq:integer} to $B\cap Q$.
+This localized clock is finite for arbitrary exterior colouring, and
+\eqref{eq:integergain} still holds between internal states: the only changed
+cell is inside $Q$.
+
+\begin{lemma}[Square range]\label{lem:integerrange}
+For each fixed $\sigma$, the localized clock on internal states has range
+at most
+\[
+ R_n=\frac{13\cdot3^{n-1}-2n^2-4n-7}{2}.
+\]
+\end{lemma}
+\begin{proof}
+There are $n-|s|$ cells on diagonal $s$, for $|s|\le n-1$.
+The range of a binary weighted field sum is the sum of the absolute weights,
+which here is
+\begin{align*}
+ S_n&=\sum_{s=-(n-1)}^{n-1}(n-|s|)(3^{|s|}-1)\\
+ &=2\sum_{j=1}^{n-1}(n-j)3^j+n-n^2
+   =\frac{3^{n+1}-2n^2-4n-3}{2}.
+\end{align*}
+For the last identity, write the weighted sum as
+$\sum_{k=1}^{n-1}\sum_{j=1}^k3^j$ and sum the geometric series.
+Set $M=3^{n-1}-1$. All internal head corrections belong to
+$[-3M/2,M/2]$, an interval of length $2M$. Adding this to $S_n$ gives $R_n$.
+\end{proof}
+
+\begin{proof}[Proof of \eqref{crit:eq:square}]
+An infinite internal trajectory would increase the bounded localized clock
+by at least one at every update, which is impossible. Let $T$ be first exit.
+The states at times $0,\ldots,T-1$ are internal, so precisely $T-1$ updates
+join internal states. Telescoping \eqref{eq:integergain} gives
+$T-1\le R_n$, proving the bound including the exit move.
+For $n=1$ the result is $T\le1$.
 \end{proof}
 
 \section{The critical four-quadrant potential}
+For a long rectangle, the diagonal weights still grow exponentially with the
+long side. We instead assign separate growth rates to the two coordinates,
+keeping horizontal weights bounded as the length grows. The resulting
+potential supplies the rectangular bound through pairs of updates.
+
 Use the same checkerboard invariant $\sigma$ as above. Fix $a,b>1$ and a centre $c=(c_x,c_y)\in\R^2$, and put
 $U(q)=a^{q_x-c_x}$, $V(q)=b^{q_y-c_y}$. Define
 \begin{equation}\label{crit:eq:potential}
@@ -217,105 +229,15 @@ The numerator vanishes on the critical curve.
 The potential combines rotated critical components of the directional
 exponential family. A single component can have zero increment. Their sum does
 not, but its increments need not have a location-independent lower bound.
-The next sections derive such lower bounds for short blocks instead.
-
-\section{A uniform four-step cost and square escape}
-\begin{lemma}\label{crit:lem:four}
-Let $a=b=3$ and let $c_x,c_y$ both be integers or both be half-integers. Then
-\[
- \PhiC(F^4X)-\PhiC(X)\ge16/3
-\]
-for every complete finite-support state $X$.
-\end{lemma}
-\begin{proof}
-Each entry in Table~\ref{crit:tab:increments}, divided by four, is an integer power of~3.
-A nonconstant four-letter turn word contains consecutive opposite turns. For
-such a pair the reward sum is
-$4(3^j+3^{-j-1})$, with $j\in\Z$. For example, an $N$-facing right turn followed
-by a left turn contributes $4U/V+4V/(3U)$. The other pairs are read directly
-from the table. For integer $j$, $3^j+3^{-j-1}\ge1+1/3$: the expression increases
-for $j\ge0$ and is symmetric under $j\mapsto-j-1$. The remaining increments
-are positive.
-
-If all four turns agree, they trace a unit square. For $N$-facing $RRRR$, the
-sum is
-\[
- 4\left(U+\frac1{3U}\right)\left(\frac1V+\frac V3\right)\ge16/3
-\]
-by two applications of AM--GM. For each of the eight constant-turn/heading cases, the product of the four
-positive rewards is $4^4/81$: the $U,V$ exponents cancel. Four-term AM--GM
-therefore gives the same bound for all eight cases.
-\end{proof}
-
-The bound is attained: centre at $(1/2,1/2)$, colour $\{0,1\}^2$ black, and start
-at $(0,0)$ facing south. Four left turns erase the square and increase the
-potential by exactly $16/3$. This is not an optimality assertion for escape.
-
-We next bound the range on $Q_{n,n}$. Set $c_x=c_y=(n-1)/2$, $s=x+y-(n-1)$,
-$t=x-y$, and
-\[
- f(k)=3^k+3^{-k},\qquad
- g(k,+)=\frac{3^k-3^{1-k}}2,\quad
- g(k,-)=\frac{3^{-k}-3^{k+1}}2.
-\]
-With $\epsilon(h)=+$ for $h=N,E$ and $-$ for $h=S,W$, elementary expansion of
-\eqref{crit:eq:potential} gives
-\begin{equation}\label{crit:eq:diagonal}
- \PhiC(X)=\sigma\sum_{q\in B}\chi(q)(f(t(q))-f(s(q)))
-       +g(s(p),\epsilon(h))+g(t(p),\epsilon(h-1)).
-\end{equation}
-Here $h-1$ uses the indexing $N,E,S,W=0,1,2,3$. Since $s,t$ are integers,
-\eqref{crit:eq:diagonal} is rational even when $n$ is even.
-
-\begin{lemma}\label{crit:lem:range}
-With fixed exterior colouring and fixed $\sigma$, the range of $\PhiC$ over
-states whose heads lie in $Q_{n,n}$ is at most $R_n$ from Theorem~\ref{crit:thm:main}.
-\end{lemma}
-\begin{proof}
-For a finite complete field, the exterior contribution is constant. For arbitrary
-exterior colouring, sum only over the square; the same update identity holds
-between internal states because every changed cell lies inside. Thus the
-argument uses a finite sum in either case. For each diagonal,
-\[
- \sum_{q\in Q_{n,n}} f(s(q))
-   =2\,3^{1-n}\left(\frac{3^n-1}{2}\right)^2,
-\]
-and the same identity holds for $t$. The range of a binary weighted sum is
-at most the sum of coefficient magnitudes. Using
-$|f(t)-f(s)|\le f(t)+f(s)$ bounds the field range by
-$3^{1-n}(3^n-1)^2$.
-For $|k|\le n-1$, the combined range of $g(k,+)$ and $g(k,-)$ is at most
-$2(3^{n-1}-3^{1-n})$, by monotonicity of the displayed powers.
-The two head terms have range at most twice this, proving the claim.
-\end{proof}
-
-\begin{proof}[Proof of \eqref{crit:eq:square}]
-If $T$ is the first exit, there are $T-1$ internal-to-internal updates.
-Group them into disjoint four-step blocks. Lemmas~\ref{crit:lem:four}
-and~\ref{crit:lem:range}, and positivity of leftover increments, imply
-\[
- \left\lfloor\frac{T-1}{4}\right\rfloor\le
- \left\lfloor\frac{3R_n}{16}\right\rfloor.
-\]
-An infinite confined orbit is also excluded by applying this estimate to
-arbitrarily long internal prefixes. Finally,
-$R_n=13\,3^{n-1}-6-3^{2-n}<13\,3^{n-1}$ yields the coarser displayed bound.
-\end{proof}
-
-\begin{corollary}
-For any fixed integer centre, the rational function
-$\Theta(X)=\sum_{i=0}^3\Psi_{3,3,c}(F^iX)$ satisfies
-$\Theta(FX)-\Theta(X)\ge16/3$.
-\end{corollary}
-\begin{proof}
-The difference telescopes to the four-step increment. Computing the three
-successors requires no infinite-future information.
-\end{proof}
-Either this finite-lookahead clock or the supercritical clock can support
-complete-state orbit algorithms. We use the simpler fixed clock of
-Theorem~\ref{thm:clock} in Section~\ref{sec:orbit}.
+For rectangles, pairs of updates give the lower bound needed below.
 
 \section{Pairing in the short direction}
+For first exit from $Q_{N,H}$, restrict the field sum in
+\eqref{crit:eq:potential} to $B\cap Q_{N,H}$. The critical increment table
+continues to hold between internal states, since each flipped cell lies
+inside the rectangle. This finite localization covers arbitrary exterior
+colourings, just as for the integer clock on a square.
+
 For $Q_{N,H}$ choose
 \[
  a=1+1/N,\qquad b=1+4N,\qquad
@@ -378,7 +300,7 @@ has polynomial degrees $H-1$ and $H-2$ in the even and odd cases respectively.
 The degree $\lfloor H/2\rfloor+1$ is strictly smaller for $H\ge6$.
 
 \section{Complete-state orbit algorithms}\label{sec:orbit}
-Fix the single clock $\Phi=\Phi_{4,0}$ throughout this section.
+Fix the single integer clock $\Theta=\Theta_0$ throughout this section.
 Here the comparison is between complete states, so the same fixed clock is
 used for every input. Its uniform increment converts a target clock value
 into a finite simulation budget.
@@ -387,16 +309,16 @@ into a finite simulation budget.
 Given complete finite-support states $X,Y$, it is decidable whether
 $F^tX=Y$ for some $t\ge0$. If such a time exists it is unique and satisfies
 \[
- t\le N(X,Y):=\left\lfloor\frac52(\Phi(Y)-\Phi(X))\right\rfloor.
+ t\le N(X,Y):=\Theta(Y)-\Theta(X).
 \]
 \end{theorem}
 \begin{proof}
 Different $\sigma$ values or a negative clock difference rule out a match.
 Otherwise compute the displayed integer and simulate through times $0$ to
 $N(X,Y)$, inclusive, comparing the entire black set, position and heading.
-Inequality~\eqref{eq:time} rules out every later match. Strict increase also
+The time bound in Theorem~\ref{thm:integerclock} rules out every later match. Strict increase also
 rules out two different matching times. Each state at finite time is finite,
-and all rational arithmetic and full-state comparisons are effective.
+and all integer arithmetic and full-state comparisons are effective.
 \end{proof}
 
 The inverse update is equally explicit. Given $(B,p,h)$, put $q=p-e_h$.
@@ -418,7 +340,7 @@ equal clock values allow a match only for identical states.
 \begin{theorem}[Computable orbit section]\label{thm:section}
 Define the decidable set
 \[
- \mathcal S=\{C\in\mathcal X:\Phi(C)\ge0>\Phi(F^{-1}C)\}.
+ \mathcal S=\{C\in\mathcal X:\Theta(C)\ge0>\Theta(F^{-1}C)\}.
 \]
 Every two-sided orbit meets $\mathcal S$ exactly once. Its representative $C(X)$
 and the unique integer $k(X)$ with $X=F^{k(X)}C(X)$ are computable. The map
@@ -426,12 +348,12 @@ $X\mapsto(C(X),k(X))$ is a computable bijection between $\mathcal X$ and
 $\mathcal S\times\Z$ under which $F$ acts by $(C,k)\mapsto(C,k+1)$.
 \end{theorem}
 \begin{proof}
-Forward values tend to $+\infty$ by \eqref{eq:time}. Applying the same inequality
+Forward values tend to $+\infty$ by Theorem~\ref{thm:integerclock}. Applying the same inequality
 to $F^{-t}X$ shows that backward values tend to $-\infty$. Strict increase
 therefore yields exactly one crossing from negative to nonnegative values.
-Search forward when $\Phi(X)<0$ and backward otherwise, counting the signed
+Search forward when $\Theta(X)<0$ and backward otherwise, counting the signed
 number of moves. A coarse bound for the moves and final predecessor check is
-$\lceil(5/2)|\Phi(X)|\rceil+1$. The inverse of the displayed correspondence
+$|\Theta(X)|+1$. The inverse of the displayed correspondence
 computes $F^kC$ using forward or inverse updates as appropriate.
 \end{proof}
 
@@ -459,73 +381,133 @@ They therefore lie on distinct orbits, each with its own section representative.
 \paragraph{Computational cost.}
 The clock gives explicit finite simulation budgets for the orbit algorithms.
 With sparse binary coordinates, exact arithmetic may require exponential
-space in the coordinate bit length: the expanded rational representation of
-$4^x$ has length proportional to $|x|$. The algorithms establish decidability
+space in the coordinate bit length: the expanded integer representation of
+$3^{|x|}$ has length proportional to $|x|$. The algorithms establish decidability
 with this representation-dependent cost.
 
 \section{Verification and reproducibility}
-The escape bounds combine exact local identities, short-block costs and finite
-geometric-series range estimates. The supplementary artifact supplies two independently written
-steppers and exact rational arithmetic. The retained baseline replay checks
-4,704 local cases, 18,696 states in squares through side three, and 100 bound
-parameters. A new integer-vector implementation checks 9,720 local cases,
-including negative coordinates, remote black cells, and bases arbitrarily close
-to three. A separate bit-mask functional graph exhausts all 4,213,000
-colour/pose states of squares of sides one through four. Their maximum exit
-times are $1,6,17,46$. Every graph transition is evaluated once, cycles are
-explicitly rejected, and a maximizing witness for each size is replayed with
-the integer-vector stepper. Direct field sums are compared with the geometric
-formula in 60 cases; the coarse bound is checked at 1,000 side lengths.
-These retained checks support the supercritical clock and small-square dynamics.
+The integer-clock artifact checks every colour/pose state in squares of sides
+one through three: 18,696 initial states, 12,416 internal transitions and
+exact maximum exit times $1,6,17$. It checks the closed-form field range for
+100 sizes. A separate algebraic check verifies all sign branches of the integer
+increment symbolically, including the central diagonal. These finite controls
+support the implementation; the range argument and telescoping proof establish
+the result for every side length and every exterior colouring.
 
-The artifact also includes kernel-checked Lean 4.30.0 proofs of all four
-polynomial increment identities after clearing the positive denominator,
-$U+V\ge2$ when $U>0$ and $UV=1$, the scaled increment lower bound, and the
-finite telescoping/interval argument. Their printed dependencies are only
-\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
-The formalized components are the local algebra and telescoping lemmas.
-The connection to the literal ant and the range estimates are analytic. The
-critical eight-case identity and the short-block arguments are checked by exact
-coefficient arithmetic and the written proofs; the Lean lemmas cover the
-supercritical construction.
-
-For the critical potential, the retained exact checker exercises 3,000 local
-identity cases, 6,400 four-step cases, 10,608 horizontal-arrival pairs and
+For the critical potential, the retained checker exercises 3,000 local
+identities, 6,400 four-step cases, 10,608 horizontal-arrival pairs and
 144 rectangular ranges. Its separate bit simulation exhausts 28,808 initial
 states over eight small rectangles; 80 additional trajectories retain exterior
-debris. A further implementation imports none of that code and checks the eight
-cleared-denominator identities as Laurent polynomials in $a,b,U,V$. It also
-verifies all eight opposite-turn pairs, all eight constant four-turn products,
-the eight rectangular-pair cases and exit-step rounding. These algebraic checks
-cover the local parameters symbolically; the universal range and coverage
-arguments are the proofs in Sections~3--5.
+debris. An independent implementation checks the eight cleared-denominator
+identities as Laurent polynomials in $a,b,U,V$, together with short-block
+identities and exit-step rounding. The written geometric range and pairing
+arguments supply the universal rectangular bound.
+
+The artifact retains the earlier rational clock checks and an independent
+functional-graph audit of all 4,213,000 colour/pose states in squares through
+side four, whose maximum exit times are $1,6,17,46$. Lean 4.30.0 checks the
+local algebra and telescoping lemmas for the supercritical clock in the
+appendix; its printed axioms are \texttt{propext}, \texttt{Classical.choice}
+and \texttt{Quot.sound}. The integer and critical-potential proofs are analytic,
+with exact algebraic checks, and are separate from those Lean lemmas.
 
 \section{Conclusion}
-Rational potentials connect local ant updates to quantitative control of
-trajectories. At critical parameters, short-block costs remove the extra
-factor of $n$ from the earlier square estimate and yield polynomial escape
-bounds whose fixed-height degree is $\lfloor H/2\rfloor+1$. The same clock
-framework also gives finite search budgets for complete-state targets and a
-unique zero-crossing representative for each two-sided orbit. The geometric
-estimates and the orbit algorithms use two forms of the same principle:
-positive clock growth converts a finite range into a finite time budget.
+An absolute-diagonal integer clock converts finite spatial range into a unit
+budget for ant updates. Summing its weights gives an explicit exponential
+square-escape bound, while anisotropic critical weights give polynomial
+bounds for fixed-height rectangles. On complete finite-support states, the
+same integer clock provides a finite target-search budget and a unique
+zero-crossing representative of every two-sided orbit. These results connect
+the local turn-and-flip rule to quantitative escape and effective orbit structure.
 
 \paragraph{Source and software availability.}
-The sources, retained certificates and verification reports are in the
-\href{https://github.com/kehao95/langtons-ant-core/tree/main/clock_escape}{public clock project}.
+Sources, certificates and verification reports are maintained in the
+\href{https://github.com/kehao95/langtons-ant-core/tree/main/clock_escape}{clock project}.
 From the repository root, run:
 \begin{verbatim}
-python3 clock_escape/reproduce.py
+python3 clock_escape/reproduce.py --integer-only
 python3 clock_escape/reproduce.py --critical-only
+python3 clock_escape/reproduce.py
 make -C clock_escape/paper
 \end{verbatim}
-The first command reproduces the complete evidence; the second runs only the
-critical strengthening with Python's standard library. Source manifests record
-SHA256 digests and the exact scope of the formalized components.
+The scoped checks use Python's standard library; full reproduction also uses
+Lean 4.30.0. Release manifests bind manuscript and verification sources by SHA256.
 
 \paragraph{AI assistance.}
-Generative AI was used in the research conversation to propose and critique
-arguments, prepare proof and code drafts, and organize this manuscript.
+Generative AI assisted with developing and checking arguments, implementing
+verification programs, and revising the exposition.
+
+\appendix
+\section{The supercritical rational clock}\label{app:rational}
+The earlier rational construction supplies the local identities formalized in
+Lean and a smooth family of strictly increasing potentials. Use the same
+$\sigma$ and $\eps$ as in Section~2.
+Fix $c\in\Z$ and a rational $r>3$. The parameter $c$ centres the diagonal
+coordinate, while $r$ controls the growth of the weights. Write
+$s(q)=q_x+q_y-c$ and set
+\begin{align}
+ f_r(s)&=r^s+r^{-s},\\
+ g_r(s,+1)&=\frac{2}{r+1}(r^s-r^{1-s}),\\
+ g_r(s,-1)&=\frac{2}{r+1}(r^{-s}-r^{s+1}),\\
+ \Phi_{r,c}(X)&=-\sigma(X)\sum_{q\in B}\chi(q)f_r(s(q))
+                    +g_r(s(p),\eps(h)).\label{eq:clock}
+\end{align}
+Finite support makes \eqref{eq:clock} a computable rational number, including
+when coordinates are negative.
+
+\begin{lemma}[Increment identity]\label{lem:increment}
+Let $U=r^{s(p)}$, $V=r^{-s(p)}$, and
+\[
+ d_r=\frac{r-3}{r+1},\qquad E_r=\frac{5r+1}{r+1}.
+\]
+If $e=\eps(h)$ and $e'=\eps(h')$, then
+\[
+\begin{array}{c|c}
+ (e,e')&\Phi_{r,c}(FX)-\Phi_{r,c}(X)\\\hline
+ (+,+)\text{ or }(-,-)&d_r(U+V)\\
+ (+,-)&d_rU+E_rV\\
+ (-,+)&E_rU+d_rV
+\end{array}
+\]
+In particular $\Phi_{r,c}(FX)-\Phi_{r,c}(X)\ge2d_r>0$.
+\end{lemma}
+\begin{proof}
+Let $\delta=+1$ on a white read and $\delta=-1$ on a black read. From the
+four headings and two colours in \eqref{eq:rule},
+\[
+ \delta\sigma(X)\chi(p)=ee',\qquad s(p')=s(p)+e'.
+\]
+The black-field contribution to the increment is therefore
+$-ee'(U+V)$. Subtracting the old pose term from the new one gives
+\[
+ -ee'(U+V)+g_r(s(p)+e',e')-g_r(s(p),e).
+\]
+Substitution of the two definitions of $g_r$ gives the displayed table.
+For example, for $(e,e')=(+,+)$, the pose increment is
+$2(r-1)(U+V)/(r+1)$, which yields $d_r(U+V)$ after the field increment.
+For completeness, after multiplying by $r+1$, the other three cases are
+\begin{align*}
+(-,-):\quad&-(r+1)(U+V)+2(rV-U)-2(V-rU),\\
+(+,-):\quad& (r+1)(U+V)+2(rV-U)-2(U-rV),\\
+(-,+):\quad& (r+1)(U+V)+2(rU-V)-2(V-rU).
+\end{align*}
+Expansion gives the corresponding polynomial identities. Since $UV=1$, $U+V\ge2$;
+also $E_r\ge d_r>0$. These give the lower bound in every case.
+\end{proof}
+
+Choosing $r=4$ and $c=0$ gives a second uniform time estimate.
+
+\begin{theorem}[Strict clock]\label{thm:clock}
+The function $\Phi=\Phi_{4,0}$ is computable on every complete finite-support
+state and satisfies
+\begin{equation}\label{eq:time}
+ \Phi(F^tX)-\Phi(X)\ge\frac25t\qquad(t\in\N).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:increment} with $r=4$ and sum the increments.
+\end{proof}
+
 
 \begin{thebibliography}{9}
 \bibitem{Etse2026}

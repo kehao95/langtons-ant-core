@@ -1,0 +1,16 @@
+{
+  "checksum": "md5:04ba654aa2ddc424f5ec2852a5a2b4cb",
+  "created": "2026-10-15T18:02:57.401963+00:00",
+  "delete_marker": false,
+  "is_head": true,
+  "key": "Reading-the-Wake.pdf",
+  "links": {
+    "self": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0/Reading-the-Wake.pdf",
+    "uploads": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0/Reading-the-Wake.pdf?uploads=1",
+    "version": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0/Reading-the-Wake.pdf?version_id=f71f64ee-0b25-4713-b723-f9805e711f25"
+  },
+  "mimetype": "application/pdf",
+  "size": 333639,
+  "updated": "2026-10-15T18:02:57.968915+00:00",
+  "version_id": "f71f64ee-0b25-4713-b723-f9805e711f25"
+}

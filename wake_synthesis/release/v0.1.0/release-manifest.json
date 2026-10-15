@@ -1,0 +1,19 @@
+{
+  "doi": "10.5281/zenodo.23402422",
+  "files": {
+    "Reading-the-Wake.pdf": {
+      "bytes": 333639,
+      "md5": "04ba654aa2ddc424f5ec2852a5a2b4cb",
+      "sha256": "ac0701464086fd981a7b2e83e91eb87b39646dfb839d9cf151267260bd5c1b9f"
+    },
+    "wake-synthesis-0.1.0-source.zip": {
+      "bytes": 40139,
+      "md5": "05f00fac24ef898437e08307cb3a5cad",
+      "sha256": "d91683af44858a6851fe1df5bd7cbce87d08c730a05ad6b560cf9c88598ae974"
+    }
+  },
+  "project": "wake_synthesis",
+  "record_id": 23402422,
+  "source_snapshot_sha256": "a0dff636c113f0de1a277c0f5ff210421f0c16f8a98de5337bee1214b39abcac",
+  "version": "0.1.0"
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "langtons-ant-wake-inverse-checks-v1",
+  "status": "passed",
+  "counts": {
+    "integer_clock_full_state_identities": 3200,
+    "full_state_local_clock_identities": 6400,
+    "level_flow_identities": 23650,
+    "abstract_diagonal_word_controls": 2133,
+    "period_moment_equalities": 4992,
+    "standard_phase_rotation_power_controls": 1248,
+    "full_period_debris_controls": 8,
+    "raw_negative_word_controls": 32766,
+    "coset_representative_controls": 64,
+    "rejected_unsupported_inputs": 4,
+    "anisotropic_input_controls": 4
+  },
+  "standard_period": 104,
+  "standard_exact_wake_period_cap": 856,
+  "standard_uniqueness_exhausted": false,
+  "small_inverse_no": {
+    "status": "NO",
+    "bound": {
+      "cap": 14,
+      "moments": [
+        {
+          "r": "4",
+          "kappa": "1/5",
+          "plus": "209/64",
+          "minus": "269/4",
+          "cap": 74
+        },
+        {
+          "r": "7/2",
+          "kappa": "1/9",
+          "plus": "1927/686",
+          "minus": "2557/56",
+          "cap": 101
+        },
+        {
+          "r": "5",
+          "kappa": "1/3",
+          "plus": "526/125",
+          "minus": "646/5",
+          "cap": 69
+        },
+        {
+          "r": "6",
+          "kappa": "3/7",
+          "plus": "1117/216",
+          "minus": "1327/6",
+          "cap": 78
+        }
+      ],
+      "diagonal": {
+        "cap": 14,
+        "cuts": [
+          [
+            -3,
+            1
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "positive_cut_sum": 4,
+        "negative_cut_sum": 3
+      },
+      "integer_clock": {
+        "cap": 14,
+        "centers": [
+          [
+            -3,
+            62
+          ],
+          [
+            -2,
+            22
+          ],
+          [
+            -1,
+            14
+          ],
+          [
+            0,
+            30
+          ],
+          [
+            1,
+            86
+          ]
+        ]
+      }
+    },
+    "nodes": 2226
+  },
+  "scope": {
+    "HC_proved": false,
+    "HC_counterexample": false,
+    "axis_inverse_problem_solved": false,
+    "independent_review": false,
+    "lean_formalization": false
+  },
+  "sha256": {
+    "wake.py": "2eda494b723cd7d403b1452aaf6547aa1546eadee2e2625a1a74785f9b85bdc2",
+    "check.py": "865b5e482fdacb94dd6016bb026603134d87d5664c079f169a1699467e0a3c40"
+  }
+}

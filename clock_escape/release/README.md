@@ -1,8 +1,26 @@
+# Published revision 0.4.0
+
+Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant*.
+
+Published 15 October 2026 as
+[doi:10.5281/zenodo.23402379](https://doi.org/10.5281/zenodo.23402379),
+using `new-version` from 23401306 in the existing concept 23341603.
+The [exact PDF](v0.4.0/paper.pdf) introduces the integer clock and reduces the
+leading square coefficient from 13/4 to 13/6.
+
+- [Publication receipt](v0.4.0/publication-receipt.json) records all public-download SHA256 checks.
+- [Source manifest](v0.4.0/published-source-manifest.json) and [delivery manifest](v0.4.0/release-manifest.json) identify exact working-tree sources and attachments.
+- [Standalone archive checks](v0.4.0/standalone-reproduction.json) verify the final source ZIP and rebuilt PDF; mathematical verification is retained from unchanged proof sources.
+- [Metadata](v0.4.0/zenodo-metadata.json) and [public API record](v0.4.0/public-record.json) preserve the release details.
+
+The earlier candidate and review manifests are prepublication snapshots.
+Published delivery files and receipts are immutable.
+
 # Published clock preprint
 
 Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant*.
 
-**Current version 0.3.0**, published 15 October 2026:
+**Previous version 0.3.0**, published 15 October 2026:
 [doi:10.5281/zenodo.23401306](https://doi.org/10.5281/zenodo.23401306).
 This strengthens the square estimate to O(3ⁿ) and adds fixed-height rectangular
 bounds. [Published PDF](../paper/paper.pdf).
@@ -19,7 +37,7 @@ bounds. [Published PDF](../paper/paper.pdf).
 
 ## Version chain
 
-Both versions share concept DOI
+All versions share concept DOI
 [10.5281/zenodo.23341603](https://doi.org/10.5281/zenodo.23341603).
 The [verified chain](version-chain.json) links the records.
 
@@ -32,3 +50,7 @@ Historical manifests describe their original archive paths, not the current
 repository layout. The published artifacts use CC BY 4.0.
 
 Future substantive updates should use this existing version chain.
+
+[Isolated archive checks](review-checks.json) and [execution log](review-checks.log)
+record source hash verification, scoped reproduction and a PDF rebuild whose
+text matches the delivery copy.

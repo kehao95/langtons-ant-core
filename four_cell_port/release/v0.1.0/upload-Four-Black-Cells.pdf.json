@@ -1,0 +1,16 @@
+{
+  "checksum": "md5:08dc2e5b69b920e7237932ec56b0d648",
+  "created": "2026-10-15T18:02:50.973095+00:00",
+  "delete_marker": false,
+  "is_head": true,
+  "key": "Four-Black-Cells.pdf",
+  "links": {
+    "self": "https://zenodo.org/api/files/567b2bf4-01cc-4f97-8820-7c295b842400/Four-Black-Cells.pdf",
+    "uploads": "https://zenodo.org/api/files/567b2bf4-01cc-4f97-8820-7c295b842400/Four-Black-Cells.pdf?uploads=1",
+    "version": "https://zenodo.org/api/files/567b2bf4-01cc-4f97-8820-7c295b842400/Four-Black-Cells.pdf?version_id=3dfeb248-518d-48ab-8e29-c89a5de038e0"
+  },
+  "mimetype": "application/pdf",
+  "size": 228052,
+  "updated": "2026-10-15T18:02:52.776129+00:00",
+  "version_id": "3dfeb248-518d-48ab-8e29-c89a5de038e0"
+}

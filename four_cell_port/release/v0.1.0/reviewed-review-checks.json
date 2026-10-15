@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "project": "four_cell_port",
+  "archive_sha256": "274ab5d78802fcfb760ab609987a2195081b87c47294a5a4bb211fe764967ebc",
+  "source_snapshot_sha256": "d1ded1e811cf74b506304ad7aac1f282729961871b95603b745f7ac1cab68f9d",
+  "all_source_hashes_verified": true,
+  "commands": [
+    [
+      "make",
+      "-C",
+      "four_cell_port/paper"
+    ]
+  ],
+  "isolated_manuscript_build": true,
+  "pdf_text_matches_delivery": true,
+  "pages": 6,
+  "no_box_or_reference_warnings": true,
+  "editorial_source_comparison": {
+    "changed_sources": [
+      "four_cell_port/paper/main.tex"
+    ],
+    "all_other_sources_match_previous_reproduced_snapshot": true,
+    "theorem_statements_and_displayed_equations_unchanged": true,
+    "previous_source_snapshot_sha256": "f00b0607459dc8945c8b94d518e6aa41b3ef440bb0603b593de1125276f193a3"
+  },
+  "retained_mathematical_verification": {
+    "status": "PASS",
+    "project": "four_cell_port",
+    "archive_sha256": "2b556bafe1915231d8078e0f228ca7b4402df241d2183d84398cb0fa64d18195",
+    "source_snapshot_sha256": "f00b0607459dc8945c8b94d518e6aa41b3ef440bb0603b593de1125276f193a3",
+    "all_source_hashes_verified": true,
+    "commands": [
+      [
+        "/usr/bin/python3",
+        "four_cell_port/reproduce.py"
+      ]
+    ],
+    "isolated_manuscript_build": true,
+    "pdf_text_matches_delivery": true,
+    "pages": 6,
+    "network_or_publication_action": false
+  },
+  "mathematical_checks_rerun_for_editorial_changes": false,
+  "network_or_publication_action": false
+}

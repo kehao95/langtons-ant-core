@@ -9,14 +9,22 @@ Four black cells give a sharp one-sided interface for the classical ant:
 - Any finite initial state can be extended by exactly four remote black cells,
   preserving any prescribed finite position/heading/read-colour prefix and
   forcing a standard highway. For a protected square of side `n`, entry occurs
-  by **8 n 3ⁿ + 183** updates.
+  by **E(n) + 182** updates, where
+  `E(n)=(13*3^(n-1)-2*n^2-4*n-5)/2`.
 
 The matching four-cell minimum concerns one-sided ports from the fixed boundary
 pose. The completion theorem applies to the augmented initial colouring.
 
-Read the [proof](PROOF.md), [manuscript source](paper/main.tex),
-[review PDF](paper/paper.pdf), [verification audit](evidence/README.md),
-[literature assessment](paper/LITERATURE.md), or [release state](release/README.md).
+## Paper and proof
+
+Hao Ke, *Four Black Cells Force an Outgoing Highway:
+A Sharp Half-Plane Threshold for Langton's Ant*.
+
+- [Zenodo 0.1.0](https://doi.org/10.5281/zenodo.23402414),
+  [published PDF](release/v0.1.0/paper.pdf), [source](paper/main.tex), [proof](PROOF.md).
+- [Verification audit](evidence/README.md), [literature](paper/LITERATURE.md),
+  [release records](release/README.md).
+
 The proof combines analytic coverage and coupling with exact finite certificates
 and algebraic infinite-tail verification. This project has no Lean proof.
 
@@ -32,15 +40,14 @@ The runner works in a temporary directory, compares regenerated certificates
 byte for byte, and checks the retained independent audit. The PDF build uses
 pdfLaTeX and writes to `paper/build/`.
 
-`paper/` owns the draft and bibliography; `verification/` owns three checker
+`paper/` owns the manuscript and bibliography; `verification/` owns three checker
 implementations and the constructive completion algorithm; `evidence/` owns
-certificates and audit results; `release/` records provenance and draft hashes.
+certificates and audit results; `release/` records provenance, publication receipts and source hashes.
 The original research package and corrected manuscript are also retained in
 the source research repository, with provenance recorded in the release manifest.
 
 ## Open
 
-External mathematical review of the first-contact and infinite-tail reductions,
-followed by a final literature/priority check and a deliberate preprint release.
-The current PDF is the locally prepared review version; no Zenodo record has
-been created for this project.
+Version 0.1.0 is published as record 23402414, with verified public downloads.
+External mathematical review of the first-contact and infinite-tail reductions
+remains a next step.

@@ -1,0 +1,34 @@
+{
+  "base_commit": "27d12d7cb45a6007db6b623c8f5d567820ab1075",
+  "intended_action": "first-release",
+  "metadata_sha256": "1b448579d9fbe043693a6bb61c4a3499563c20a3b99c3d996f2e8bdec5fbc1ad",
+  "owner_approval_required": true,
+  "pdf": {
+    "path": "four_cell_port/paper/review.pdf",
+    "sha256": "e63b7e3f4508628248ab9f1d6621090947d4a86679bfae5c1690b3e00f40e415"
+  },
+  "project": "four_cell_port",
+  "schema": "local-preprint-candidate-v1",
+  "snapshot_sha256": "d1ded1e811cf74b506304ad7aac1f282729961871b95603b745f7ac1cab68f9d",
+  "source_sha256": {
+    "four_cell_port/PROOF.md": "8accc605b97140de5be2f360861743b84b0006c17dbb74ce73cc7ae2c0543a73",
+    "four_cell_port/README.md": "4af0ae00217ddb41016db9c460df4289c1933b128af2a2ff03a37cd0b60e2f29",
+    "four_cell_port/evidence/README.md": "499681297f8a6e16d689b4092093ef0063ec91b90d31e6f64e9a267cd7f9b398",
+    "four_cell_port/evidence/audit.json": "25d9123163ed0d6f23682eb8b54391a3570d324963566b4a83ee8e66751dfb4b",
+    "four_cell_port/evidence/escapes.json": "c8ada99e13b069da66ccecf8f44c8837ab20b1db64664e16e4c4c6e11b61e064",
+    "four_cell_port/evidence/report.json": "6c3a27f82a43c3ce202c738d3174c12ecfa275d83efa45801d1b7526eb50cba0",
+    "four_cell_port/evidence/reproduction.json": "ca9077aed95a287cec34c3ca89f250468227dc09a7fa0ac0d976e3e6a5244271",
+    "four_cell_port/evidence/witness.json": "440ef4aff3be11f8ecc315fc29fbf3e71ad96148a125c3e76237ede80f9b4556",
+    "four_cell_port/paper/LITERATURE.md": "ab613af26ecacfb55a205cfc0a167a1ced871352d6c67017b8d47d439ea6aa3d",
+    "four_cell_port/paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
+    "four_cell_port/paper/main.tex": "59a9eda07762472457a067bcfcd994431e58fb053c3e2dc740606d9950d5fbb5",
+    "four_cell_port/reproduce.py": "7779ee0210196e233954aef7806eb84416dd5594f76ace100b0e74c4ae8f6b18",
+    "four_cell_port/verification/audit.py": "8b2bc02b302c9b077c93bed1335c4f9db3ca8708f838049cdde3236ba3357642",
+    "four_cell_port/verification/check.py": "89ba09f4482e45eef4da0a3edf288e2af9770e0297e0f3e148d79d3c3b9f29b4",
+    "four_cell_port/verification/completion.py": "4956685dcd5cc60756391f305c1b2cf4345753e8285354e9e0bef8f93e10ba21",
+    "four_cell_port/verification/independent.py": "044291b41ae9a47b6962c7d730d01074cf3a8806961d8b920a8d63eb79b7014a"
+  },
+  "submitted": false,
+  "version": "0.1.0",
+  "working_tree_sources_included": true
+}

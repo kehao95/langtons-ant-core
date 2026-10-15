@@ -1,5 +1,20 @@
 # Repository changes
 
+## 2026-10-15 — Integer clock update and two new preprints published
+
+Added a fourth publication project, `wake_synthesis/`, with a standalone inverse
+problem paper, exact period bounds, original evidence and new symbolic audits.
+The clock review manuscript now uses the integer clock and the stronger square
+bound with leading coefficient 13/6. The four-cell completion budget is updated
+to E(n)+182. Following the owner's approval, published clock 0.4.0 as
+[23402379](https://doi.org/10.5281/zenodo.23402379) in the original concept,
+four-cell port 0.1.0 as [23402414](https://doi.org/10.5281/zenodo.23402414), and
+wake synthesis 0.1.0 as [23402422](https://doi.org/10.5281/zenodo.23402422).
+The two new papers cite the exact clock version. Public attachment downloads
+match local SHA256 hashes. The one-black and previous clock PDFs are unchanged.
+Two-round Gemini editorial discussion informed the final exposition.
+See [the publication portfolio](PREPRINTS.md).
+
 ## 2026-10-15 — Clock preprint version 0.3.0 published
 
 Published the critical square and rectangle strengthening as

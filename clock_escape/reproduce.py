@@ -47,13 +47,34 @@ def run_critical():
     (evidence / 'reproduction.json').write_text(json.dumps(report, indent=2) + '\n')
 
 
+def run_integer():
+    with tempfile.TemporaryDirectory(prefix='integer-clock-') as name:
+        work = Path(name)
+        for source in (HERE / 'verification/integer').glob('*.py'):
+            shutil.copy2(source, work / source.name)
+        for script in ('check.py', 'audit.py'):
+            result = subprocess.run([sys.executable, script], cwd=work,
+                                    capture_output=True, check=True)
+            expected = EVIDENCE / 'integer' / (Path(script).stem + '.json')
+            if result.stdout != expected.read_bytes():
+                raise SystemExit(f'Integer evidence mismatch: {script}')
+            print(f'Integer {script}: PASS')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--critical-only', action='store_true',
+    scope = parser.add_mutually_exclusive_group()
+    scope.add_argument('--integer-only', action='store_true',
+                       help='verify the integer clock and stronger square bound')
+    scope.add_argument('--critical-only', action='store_true',
                         help='verify only the new critical-potential strengthening')
     args = parser.parse_args()
     if sys.flags.optimize:
         raise SystemExit('Do not use -O')
+    if not args.critical_only:
+        run_integer()
+    if args.integer_only:
+        return
     run_critical()
     if args.critical_only:
         return

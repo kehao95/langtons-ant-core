@@ -21,3 +21,11 @@ with shared concept ID **22086967**. The original PDF is unchanged;
 All eight released files passed SHA256 download verification.
 Full-resolution figure sources are retained in `../paper/figures/`; rebuilding
 produces the master PDF. The published delivery PDF uses optimized image resolution.
+
+## Current review portfolio
+
+The publication remains version 0.2.0 with the same title and exact PDF.
+The [portfolio](../../PREPRINTS.md) includes this existing paper for completeness.
+The local preparation tool creates a current-layout source snapshot and checks
+all 43 Lean source hashes against the retained clean-build report; no new
+one-black publication is proposed. Existing release receipts remain authoritative.

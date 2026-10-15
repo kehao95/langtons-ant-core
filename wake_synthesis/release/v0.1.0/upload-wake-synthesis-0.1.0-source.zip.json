@@ -1,0 +1,16 @@
+{
+  "checksum": "md5:05f00fac24ef898437e08307cb3a5cad",
+  "created": "2026-10-15T18:02:59.076371+00:00",
+  "delete_marker": false,
+  "is_head": true,
+  "key": "wake-synthesis-0.1.0-source.zip",
+  "links": {
+    "self": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0/wake-synthesis-0.1.0-source.zip",
+    "uploads": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0/wake-synthesis-0.1.0-source.zip?uploads=1",
+    "version": "https://zenodo.org/api/files/9fd3802f-e0c8-4415-a8ed-153fb0c719e0/wake-synthesis-0.1.0-source.zip?version_id=85948a69-9f6b-4326-b955-67400af3e925"
+  },
+  "mimetype": "application/zip",
+  "size": 40139,
+  "updated": "2026-10-15T18:02:59.359186+00:00",
+  "version_id": "85948a69-9f6b-4326-b955-67400af3e925"
+}

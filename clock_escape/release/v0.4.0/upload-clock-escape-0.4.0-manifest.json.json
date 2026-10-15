@@ -1,0 +1,16 @@
+{
+  "checksum": "md5:d51e8582b6945ecd7d66038e9749824f",
+  "created": "2026-10-15T18:02:48.925123+00:00",
+  "delete_marker": false,
+  "is_head": true,
+  "key": "clock-escape-0.4.0-manifest.json",
+  "links": {
+    "self": "https://zenodo.org/api/files/e41b5d51-b7e4-43b0-b6a1-6b4f7fcf7782/clock-escape-0.4.0-manifest.json",
+    "uploads": "https://zenodo.org/api/files/e41b5d51-b7e4-43b0-b6a1-6b4f7fcf7782/clock-escape-0.4.0-manifest.json?uploads=1",
+    "version": "https://zenodo.org/api/files/e41b5d51-b7e4-43b0-b6a1-6b4f7fcf7782/clock-escape-0.4.0-manifest.json?version_id=1375d0b8-2ec4-4f24-9766-3eec495208ad"
+  },
+  "mimetype": "application/json",
+  "size": 623,
+  "updated": "2026-10-15T18:02:48.976162+00:00",
+  "version_id": "1375d0b8-2ec4-4f24-9766-3eec495208ad"
+}
