@@ -101,4 +101,4 @@ bundled dependencies only and writes results here. The manuscript lives in
 recorded run. [public-integration.json](public-integration.json) preserves the
 original standalone import check. The [release manifest](../release/published-source-manifest.json)
 retains the published source layout and hashes; the released PDF is preserved
-in [`../paper/paper.pdf`](../paper/paper.pdf).
+in [version 0.2.0](../release/v0.2.0/paper.pdf).

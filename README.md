@@ -6,7 +6,7 @@ Each project contains its paper, proof sources, verification evidence and releas
 | Project | Result | Proof and preprint |
 |---|---|---|
 | [One-black highways](one_black/) | Every one-black initial state reaches the standard period-104 highway, at any ant position and heading. | Complete Lean proof · [Zenodo](https://doi.org/10.5281/zenodo.23341609) |
-| [Clocks and escape](clock_escape/) | Square first exit is **O(3ⁿ)**; fixed-height rectangles have degree **⌊H/2⌋+1**. | Analytic proof with local Lean lemmas · [revised draft](clock_escape/paper/review.pdf) · [published v0.2.0](https://doi.org/10.5281/zenodo.23341604) |
+| [Clocks and escape](clock_escape/) | Square first exit is **O(3ⁿ)**; fixed-height rectangles have degree **⌊H/2⌋+1**. | Analytic proof with local Lean lemmas · [published v0.3.0](https://doi.org/10.5281/zenodo.23401306) |
 | [Four-cell outgoing ports](four_cell_port/) | Three black cells force half-plane exit by **918** updates; four form a standard highway and complete any finite observed history. | Computer-assisted proof · [review draft](four_cell_port/paper/paper.pdf) |
 
 ## Layout
@@ -47,11 +47,10 @@ the exterior constructor using only Python. Paper builds require Pandoc/XeLaTeX
 for one-black and pdfLaTeX for the other two projects; outputs go to
 `paper/build/`. Existing published PDFs are preserved in `paper/paper.pdf`.
 
-The one-black and clock preprints are version **0.2.0**. The one-black release updates its existing
-Zenodo version chain. [Layout migration](CHANGELOG.md) records the new paths;
-the published archives retain their original layout. The strengthened clock
-source and review PDF await a versioned update of the existing preprint. The four-cell paper is a
-review draft with no Zenodo record.
+The one-black preprint is version **0.2.0**, and the strengthened clock preprint
+is version **0.3.0**. Each uses its existing Zenodo version chain. Published
+archives and earlier PDFs are preserved; [release history](CHANGELOG.md) records
+the updates. The four-cell paper remains a review draft with no Zenodo record.
 
 ## Open
 

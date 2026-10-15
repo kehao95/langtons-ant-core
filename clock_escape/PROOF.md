@@ -299,5 +299,5 @@ arXiv:2606.26677v1, Theorems 5 and 14.
 The supercritical clock and complete-state orbit proofs are retained in
 [the integrated manuscript](paper/main.tex), with local formal lemmas in
 [lean/ClockLemmas.lean](lean/ClockLemmas.lean). The published version remains
-[available unchanged](paper/paper.pdf); the stronger current proof is also
-provided as a [review PDF](paper/review.pdf).
+[available unchanged](release/v0.2.0/paper.pdf); the stronger proof is now
+published as [version 0.3.0](paper/paper.pdf).

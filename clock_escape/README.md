@@ -20,15 +20,15 @@ reachability, orbit equivalence and a computable orbit section.
 
 Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant*.
 
-- Current strengthened [source](paper/main.tex), [review PDF](paper/review.pdf)
-  and [proof](PROOF.md), revised 15 October 2026.
-- Published version **0.2.0**: [Zenodo](https://doi.org/10.5281/zenodo.23341604)
-  and its unchanged [PDF](paper/paper.pdf). It states the earlier valid bound.
+- Published version **0.3.0**: [Zenodo](https://doi.org/10.5281/zenodo.23401306),
+  [PDF](paper/paper.pdf), [source](paper/main.tex) and [proof](PROOF.md).
+- Previous version **0.2.0**: [Zenodo](https://doi.org/10.5281/zenodo.23341604)
+  and its unchanged [PDF](release/v0.2.0/paper.pdf).
 - [Critical proof audit](evidence/critical/README.md),
-  [literature comparison](paper/LITERATURE.md) and [release state](release/README.md).
+  [literature comparison](paper/LITERATURE.md) and [release records](release/README.md).
 
-This strengthens the existing paper; it is not a fourth publication project.
-The current revision has not been uploaded to Zenodo.
+The stronger result is a new version of the same preprint, sharing concept DOI
+[10.5281/zenodo.23341603](https://doi.org/10.5281/zenodo.23341603).
 
 ## Reproduce
 
@@ -53,4 +53,4 @@ the supercritical local algebra and telescoping, as documented in the
 ## Open
 
 External mathematical review of the stronger square and rectangular estimates,
-then a versioned update of the existing preprint and journal preparation.
+and journal preparation. Accumulate later revisions for deliberate versioned releases.

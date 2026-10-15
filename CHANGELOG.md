@@ -1,5 +1,15 @@
 # Repository changes
 
+## 2026-10-15 — Clock preprint version 0.3.0 published
+
+Published the critical square and rectangle strengthening as
+[Zenodo 23401306](https://doi.org/10.5281/zenodo.23401306), updating the existing
+clock preprint under concept DOI 23341603. The PDF, source archive and manifest
+passed download/hash verification; full reproduction from the uploaded source
+archive passed. Version 0.2.0 and its PDF remain preserved. Release receipts,
+source hashes and the version chain are recorded under `clock_escape/release/`.
+
+
 ## 2026-10-15 — Critical clock strengthening
 
 Imported the new critical-potential proof into `clock_escape/`: square first

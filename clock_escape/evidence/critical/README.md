@@ -71,3 +71,12 @@ External mathematical review and final literature checking before a versioned
 update of the existing clock preprint. The new bounds estimate first exit;
 they do not bound later re-entries or establish the global Highway Conjecture.
 No Zenodo action is part of this integration.
+
+## Publication follow-through
+
+On 15 October 2026 the owner explicitly requested release. Version 0.3.0 was
+published in the existing Zenodo chain. The exact reviewed PDF is now
+`paper/paper.pdf`; version 0.2.0 is retained at `release/v0.2.0/paper.pdf`.
+The uploaded archive passed full isolated reproduction, including the retained
+Lean proofs; see [the release receipt](../../release/v0.3.0/publication-receipt.json).
+The paragraphs above record the proof audit before that publication action.

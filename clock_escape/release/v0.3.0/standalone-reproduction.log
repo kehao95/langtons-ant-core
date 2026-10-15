@@ -1,0 +1,3 @@
+Critical check.py: PASS
+Critical audit.py: PASS
+Clock evidence passed: independent graph, legacy replay, kernel-checked local lemmas.

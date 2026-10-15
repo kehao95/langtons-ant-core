@@ -1,0 +1,29 @@
+{
+  "conceptrecid": "23341603",
+  "conceptdoi": "10.5281/zenodo.23341603",
+  "versions": [
+    {
+      "record_id": 23341604,
+      "version": "0.2.0",
+      "doi": "10.5281/zenodo.23341604"
+    },
+    {
+      "record_id": 23401306,
+      "version": "0.3.0",
+      "doi": "10.5281/zenodo.23401306"
+    }
+  ],
+  "same_concept_verified": true,
+  "latest_public_relations": {
+    "version": [
+      {
+        "index": 1,
+        "is_last": true,
+        "parent": {
+          "pid_type": "recid",
+          "pid_value": "23341603"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "preprint-release-manifest-v1",
+  "version": "0.3.0",
+  "zenodo_draft": 23401306,
+  "source_commit": "3bd30a8ca4343e9cc4bf80166d740a8714436840",
+  "files": {
+    "An-Ant-on-the-Clock.pdf": {
+      "sha256": "7361eeaf76013197e2b1ae639b748aa82844f0f136f1a0fae693810f72c924c7",
+      "bytes": 355855
+    },
+    "clock-escape-0.3.0-source.zip": {
+      "sha256": "99b779bbe24abdbc4a5912498e0d2f3df145efe0946368045de4d4b63bababb9",
+      "bytes": 59010
+    }
+  }
+}
