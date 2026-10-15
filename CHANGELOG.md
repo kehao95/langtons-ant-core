@@ -1,5 +1,21 @@
 # Repository changes
 
+## 2026-10-15 — Standard-wake uniqueness update prepared
+
+Prepared wake version 0.2.0 under the revised title *Uniqueness of the Classical
+Langton Ant Highway Under Its Standard Wake*, updating the existing concept
+23402421. The complete standard wake and drift `(2,-2)` now have a unique
+periodic realization: the standard P104 word. General period bounds and inverse
+synthesis from version 0.1.0 remain with their proofs.
+
+Imported the source-pinned exact enumerator and infinite-trace verifier. Further
+pruning removes transient upper-graph vertices and separates disjoint fixed
+chains in chronological constraints. The source archive reconstructs both the
+integer period certificate and completed classification; previous enumerators
+remain available as controls. The manuscript derives its checker sector from
+the extremal singleton visits. Published 0.1.0 artifacts remain unchanged.
+This entry records preparation, not a new Zenodo publication.
+
 ## 2026-10-15 — Integer clock update and two new preprints published
 
 Added a fourth publication project, `wake_synthesis/`, with a standalone inverse

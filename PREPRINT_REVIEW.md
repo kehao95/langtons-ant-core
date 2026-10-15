@@ -1,5 +1,12 @@
 # Preprint review — 15 October 2026
 
+The current wake revision is reviewed in
+[wake_synthesis/paper/LITERATURE.md](wake_synthesis/paper/LITERATURE.md), with
+[new verification evidence](wake_synthesis/evidence/standard_wake/). It closes
+the standard-wake classification discussed as open in the historical 0.1.0
+review below. The prior Gemini discussion applies to the published 0.1.0 text;
+it is not a review of the newly prepared uniqueness manuscript.
+
 This is the internal review record for the [publication portfolio](PREPRINTS.md).
 Administrative status and review questions stay here; the manuscripts present
 the mathematical constructions and their evidence.

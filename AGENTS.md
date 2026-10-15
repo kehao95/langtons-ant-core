@@ -1,7 +1,7 @@
 # Repository method
 
 This repository owns four publication projects: one-black highways, integer/rational
-clocks and escape, sharp four-cell outgoing ports, and wake-period inverse synthesis.
+clocks and escape, sharp four-cell outgoing ports, and standard-wake uniqueness with general inverse synthesis.
 
 ## Ownership
 
@@ -23,7 +23,8 @@ clocks and escape, sharp four-cell outgoing ports, and wake-period inverse synth
   analytic, with supercritical local algebra and telescoping formalized in Lean.
   The critical O(3^n) square and fixed-height rectangle bounds have analytic
   proofs and exact Laurent-polynomial checks; those new proofs are not in Lean. The integer-clock square bound and wake-period
-  synthesis also have analytic proofs and exact checks. The four-cell
+  synthesis also have analytic proofs and exact checks. Standard-wake uniqueness
+  combines an all-period integer bound with complete ordered-event enumeration. The four-cell
   result combines analytic reductions with exact computational certificates.
 - Preserve published PDFs and source manifests. Rebuilt PDFs go to ignored
   `paper/build/` directories; release manifests describe historical snapshots.
@@ -59,3 +60,11 @@ This authorizes the clock 0.4.0 update in its existing concept and the first
 Record exact delivery hashes, publication receipts and download verification.
 The owner subsequently authorized README cleanup and Git commit/push of this
 publication batch. Journal submission remains a separate approval step.
+
+## Current wake revision
+
+The owner requested further pruning and preparation of the standard-wake result
+as an update to the existing wake preprint. Version 0.2.0 retains the general
+inverse-synthesis theorem and uses the revised standard-wake uniqueness title.
+Prepare and verify the local PDF/source package; the present task does not
+request a new Zenodo publication. Preserve all versioned published artifacts.

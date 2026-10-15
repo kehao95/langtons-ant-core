@@ -1,0 +1,72 @@
+{
+  "imported_sources": [
+    {
+      "source": "experiments/hc_global/standard_wake_minimum/counts.py",
+      "destination": "verification/standard_wake/inputs/counts.py",
+      "sha256": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_minimum/glue_top.cpp",
+      "destination": "verification/standard_wake/inputs/glue_top.cpp",
+      "sha256": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_minimum/verify.py",
+      "destination": "verification/standard_wake/inputs/verify.py",
+      "sha256": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_uniqueness/upper_bound.py",
+      "destination": "verification/standard_wake/inputs/upper_bound.py",
+      "sha256": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning/code/chain_rank.hpp",
+      "destination": "verification/standard_wake/code/chain_rank.hpp",
+      "sha256": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning/code/patch_search.py",
+      "destination": "verification/standard_wake/code/patch_search.py",
+      "sha256": "6204046dde2d364727418d8be19b41537ceb202edf348f521ef7d4934198659f"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning/code/test_rank.cpp",
+      "destination": "verification/standard_wake/code/test_rank.cpp",
+      "sha256": "49225b5bdf3f4253189c0cbe270c260d69ee5004cc9e3b463bbe49e5590cf9a7"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning/reproduce.py",
+      "destination": "verification/standard_wake/reproduce.py",
+      "sha256": "c9a90ca0b6b859dd2aefd6ff35a549d0fef090a93eb105bc0c2bd1d2b7d395f9"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_upper_pruning/check.py",
+      "destination": "verification/standard_wake/upper_pruning.py",
+      "sha256": "f12b92b2d37a845766b47da36c8d9bc310c1fb988930468e8db9e77ed4aeaf34"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning_v2/patch_search.py",
+      "destination": "verification/standard_wake/v2/patch_search.py",
+      "sha256": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning_v2/reproduce.py",
+      "destination": "verification/standard_wake/v2/reproduce.py",
+      "sha256": "464d5960c5f0db0caef50ade496cfa6caa62bdbb95e511a6b504febd08e6670e"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_pruning_v2/test_feasible.cpp",
+      "destination": "verification/standard_wake/v2/test_feasible.cpp",
+      "sha256": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef"
+    },
+    {
+      "source": "experiments/hc_global/standard_wake_independent_review/check.py",
+      "destination": "verification/standard_wake/audit_partial.py",
+      "sha256": "0407c0e8cc36b669ca1043af352c7f58bef82b5fe0470dba28cfb9ec62cd83ef"
+    }
+  ],
+  "baseline_commit": "bf42eebf88560ef767c77cbf582cd08658b0ce6b",
+  "research_commit": "7a8101ee9827d2f060853e70a2804c0fd5c9117e",
+  "refinement_commit": "d54e385"
+}

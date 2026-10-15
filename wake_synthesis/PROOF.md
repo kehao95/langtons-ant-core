@@ -1,11 +1,19 @@
-# Wake-determined period bounds and inverse synthesis
+# Uniqueness of the classical highway under its standard wake
 
-The current [manuscript](paper/main.tex) develops the given-wake inverse problem.
-The [clock companion](../clock_escape/PROOF.md) owns the integer clock and escape
-applications; Section 3 recalls that identity for a self-contained period proof.
-The finite-word criterion is attributed to Jillhewar. The arguments are analytic,
-with exact local algebra and infinite-trace verification in [evidence](evidence/README.md).
-Research source: `9c50691`, publication allocation: `c56a76b`.
+The [current manuscript](paper/main.tex) proves all-period uniqueness for the
+complete standard wake and drift `(2,-2)`. It updates the wake preprint within
+its existing [Zenodo concept](https://doi.org/10.5281/zenodo.23402421).
+The published [v0.1.0](release/v0.1.0/) remains unchanged; its general
+wake-dependent bounds, inverse-synthesis theorem and detour obstruction are
+retained below and in Appendix A of the new manuscript.
+
+The new proof joins an integer period bound `P<=168` to complete enumeration of
+ordered visits. Its conventional coverage and pruning arguments are given here
+and in the paper; exact programs regenerate the finite certificates.
+[Verification code](verification/standard_wake/) and
+[evidence](evidence/standard_wake/) belong to this publication project.
+The [clock companion](../clock_escape/PROOF.md) owns the shared integer clock.
+The supplied-word criterion and constructive seed are attributed to Jillhewar.
 
 ## 1. Literal dynamics and the new inverse question
 
@@ -77,7 +85,223 @@ thresholds, each old hit and one epoch after it. These cover all constant
 intervals including the final infinite one. This second formula does not infer
 permanence from a finite repeated prefix. A remote black blocker is not omitted.
 
-## 3. A global integer clock at the critical base three
+## 3. Exact standard wake and canonical phase
+
+The theorem fixes the full drift `d=(2,-2)` and these twelve odd classes:
+
+```
+Ostd={(-10,0),(-10,1),(-9,1),(-8,1),(-7,0),(-6,0),
+      (-5,0),(-4,1),(-2,0),(-1,1),(0,0),(0,1)}.
+```
+
+A label `(t,r)` means `t=x+y`, `r=x mod 2`, so it specifies a class in
+`Z^2 / Z*d`, including the longitudinal residue.
+
+**Theorem.** Every heading-restoring periodic word of drift `(2,-2)` with this
+complete odd-class wake, realizable from a finite complete black field, is a
+phase of the standard 104-step highway word. There is no period bound in the
+hypothesis. A finite-state orbit with an eventual periodic suffix satisfying
+these data consequently has the standard future read trace.
+
+**Normalization.** At an extreme transverse level the checker-axis invariant
+forces every visit in a class to have the same turn: both neighbouring visits
+are on the inward side. Section 2's alternating criterion forces exactly one R
+in that class. Each visited extreme class is therefore odd, so the trace's
+extremes equal the wake's extremes, -10 and 0. At the even top level a right
+turn with both neighbours below enters east and leaves south; hence sigma=-1.
+Both top residue classes occur once. The unique top event in class `(0,0)` is
+at `(2k,-2k)`. Choosing it as phase zero and translating by `-k*d` preserves all
+class labels and puts the ant at the origin facing east. This derives the
+checker sector and pose from the wake.
+
+## 4. A finite integer certificate bounds every period
+
+### Context graph and coverage
+
+Generate physically consistent first returns of length at most 20, append the
+first turn again, include complements, and independently check each resulting
+factor for a consecutive equal-colour reread. This yields 588 forbidden
+factors of length at most 21. Every valid trajectory avoids each factor.
+
+The proper viable prefix contexts form a longest-suffix automaton with 4,931
+contexts. Place each context geometrically relative to its endpoint, retaining
+only placements in `-10<=t<=0` and headings compatible with sigma=-1. Each edge
+is one literal turn, move and context update. This graph has 54,718 vertices
+and 90,158 edges. After suffix warmup, every periodic realization lifts to a
+closed walk of exactly P edges: level, heading and context all repeat.
+
+Repeatedly delete any vertex with zero incoming or zero outgoing degree in
+the retained graph. Every closed walk survives: its first allegedly deleted
+vertex would still have its predecessor and successor. A separate reverse
+insertion check verifies the proposed deletion order. The retained induced
+graph has 24,424 vertices and 37,330 edges, all inherited edges included.
+The potential inequalities need be checked only on those retained edges.
+
+### Integer potential and telescoping
+
+Use the per-level weights
+
+```
+alpha_t = -2*(-1)^t*(t+5)^2
+alpha   = (-50,32,-18,8,-2,0,-2,8,-18,32,-50).
+```
+
+With epsilon=+1 for R and -1 for L, the regenerated integer potential obeys
+
+```
+y_v-y_w+alpha_t*epsilon <= -1
+```
+
+on every edge `v -> w` starting on level t. Start all y at zero and enforce
+`y_w>=y_v+1+alpha_t*epsilon` by queued integer increases. Cap all values at 180;
+exceeding the cap fails the construction. At most 180 times the number of
+vertices increases can occur. A final independent scan checks every retained inequality. The regenerated
+potential has range 0..129 and maximum edge left-hand side -1; its construction
+uses 89,187 queue removals and 71,847 increases.
+
+The standard wake's level counts are
+`o=(2,1,1,1,1,1,1,0,1,1,2)`. The realization criterion gives signed turn excess
+o_t on level t. Summing the edge inequalities around the closed walk cancels
+the y terms. Direct arithmetic gives `sum alpha_t*o_t=-168`, so `P<=168`.
+The full class residues are used by the exact stage below.
+
+## 5. Exact ordered visits and complete finite classification
+
+### Representation
+
+For each complete class `(t,r)`, rank its events by stable visit order
+`k=0,...,m-1`. Even ranks turn R and odd ranks turn L. If a_k indicates arrival
+from t-1 and d_k departure towards t-1, the literal rule gives
+
+```
+d_k = a_k XOR (k mod 2)          for even t,
+      1-(a_k XOR (k mod 2))      for odd t.
+```
+
+The fixed checker sector orients every directed lattice edge. Occurrences at
+its source and target must match in stable order: physical time advances by
+one, and changing class representatives shifts every lifted time by the same
+constant. Thus first source matches first target, with no free permutation.
+
+Use representative `b_(t,r)=(r,t-r)`. An edge voltage delta is defined by
+`b_source+e_out=b_target+delta*d`. A complete matched graph realizes a word if
+and only if it is one cycle of voltage 1 and its times `j_i-P*v_i` increase in
+rank order within every class. Here j_i is cycle position from the canonical
+top event and v_i is accumulated voltage. Necessity follows from a real trace;
+sufficiency follows by reconstructing the walk and applying Section 2.
+
+### Exact completion costs and phase congruence
+
+When one side of a class has I arrival edges and J departure edges, let o be
+its odd-wake indicator and let a count processed-side arrivals at even ranks.
+With complemented side bits for downward construction, feasible counts obey
+
+```
+m=2*(I+J-2*a)+o       for even t,
+m=2*(J-I+2*a)-o       for odd t,
+0<=a<=ceil(m/2),      0<=I-a<=floor(m/2).
+```
+
+These conditions are necessary and sufficient for count feasibility: choose
+the indicated ones at the even and odd ranks. A boundary carries two incoming
+and two outgoing counts with the horizontal residue swap. A finite dynamic
+program retains the smallest remaining cost for each boundary; this is a sound
+lower-bound oracle because future count transitions depend only on it.
+Both directions find minimum 104. All hypothetical periods below 104 are
+covered because every partial cost is nonnegative.
+
+The class counts modulo four are, bottom to top,
+
+```
+(1,1),(0,3),(2,3),(1,2),(1,0),(3,0),
+(2,3),(2,2),(3,2),(0,3),(1,1).
+```
+
+The normalized walk has `i mod 4=2*(x_i mod 2)+(x_i+y_i mod 2)`.
+Its even x displacement gives `4|P`, and each phase group has P/4 events.
+The residue sums in the four groups are all 2 modulo 4, hence `P=8 mod 16`.
+Combined with 104<=P<=168, only 104,120,136,152,168 need remain.
+
+### Safe chronological rejection
+
+The search builds class arrival strings and immediately makes every forced
+edge match. A closed component before the final level cannot join the mandatory
+future events, so it is rejected. Every remaining component is an open chain.
+On a chain, lifted event times have the form `z_chain+p_i-P*v_i`.
+Consecutive ranks within one class differ by at least four, yielding
+
+```
+z_chain(v) >= z_chain(u)+4+p_u-p_v+(v_v-v_u)*P.
+```
+
+A positive cycle is impossible. Let n be the constructed event count and L the
+search cap. On a simple cycle of q chain variables, its weight is C+K*P with
+integer K and `5*q-n<=C<=n+3*q`: each chain contributes one index difference,
+and their total ranges are at most n-q. If K>=1 the weight is positive for all
+P>=n. For K=0 it is constant; for K<=-1 it decreases with P. A positive cycle
+at P=L therefore rules out every n<=P<=L. This justifies the cap-based check.
+
+### Consecutive-visit rank pruning
+
+Lift a fixed open chain to actual lattice coordinates by accumulating voltages.
+Two consecutive occurrences of the same physical cell on this chain must have
+ranks k and k+1. Indeed, a sufficiently late occurrence is a contiguous segment
+of the real periodic trajectory with every involved cell in its stable visit
+regime; no other visit to that cell lies between the two occurrences. This
+rules out omitted ranks even when the two turn bits happen to alternate.
+
+The implementation scans each chain separately, using lifted coordinate
+`(r+2*v,t-r-2*v)` and remembering the previous rank at each cell.
+Independent chains are given separate coordinate frames.
+
+### Separation of fixed chains
+
+Distinct fixed chains contain disjoint phase events. In every completed
+periodic trajectory, all their period copies occupy disjoint contiguous time
+intervals. Suppose adjacent class ranks occur at u in chain A and v in chain B,
+with A!=B. Let ell_A count the events of A. Align their translated copies so
+both events refer to the same physical cell. Their root times are
+`z_A-P*v_u` and `z_B-P*v_v`, up to a common epoch. Stable order puts u before v;
+disjointness forces the whole A interval to end before B begins. Therefore
+
+```
+z_B >= z_A + max(4+p_u-p_v, ell_A) + (v_v-v_u)*P.
+```
+
+Every interchain constant is now at least ell_A>=1. A cycle of those
+constraints has weight C+K*P with C>0. For K>=0 it is positive at every positive
+P; for K<0 it increases when P decreases. Consequently a positive cycle at the
+cap excludes every smaller candidate period. The earlier within-chain tests
+remain justified by the preceding cap argument.
+
+The refinement adds an integer maximum on each existing constraint edge;
+no new enumeration dimension or physical-state merging is introduced.
+
+### Completed output and theorem composition
+
+The retained original cap-168 traversal visits 40,227,976 class-string prefixes;
+the consecutive-rank version visits 12,193,595; and adding chain separation
+visits 8,580,751. All three complete and accept only
+
+```
+RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR
+```
+
+The upper certificate puts every realization in the enumerated domain.
+Normalization is lossless, the representation is exact, and each rejection
+above is necessary. Complete enumeration therefore proves uniqueness.
+The explicit nineteen-cell seed in the paper realizes the accepted word by
+the independent all-future formula of Section 2, proving existence.
+
+## 6. General wake theory retained from version 0.1.0
+
+The classification is a concrete application of the broader wake-dependent
+inverse problem. The following analytic results and their exact algebraic
+checks are preserved from the first release. The general diagonal cutoff for
+the standard wake is 856; Section 4's chronological certificate strengthens
+that cutoff to 168 and Section 5 completes the classification.
+
+## 7. A global integer clock at the critical base three
 
 Fix an INTEGER center c for the entire computation. Write s=x+y-c,
 epsilon(h)=+1 on N,E and -1 on S,W, and
@@ -112,12 +336,10 @@ f(s)+g_-(s-1)-g_+(s)=1+2f(s)+g_-(s)-g_+(s).
 It is 1 at s>=0 and 1+4f(s) at s<0. The - to + case is the same with signs
 reversed. This proves (2), including s=0. QED.
 
-This result is global: no strip, periodicity or future-live deletion is assumed.
-It differs from the earlier rational noncritical clock and the four-direction
-critical clock. No arbitrary-half-integer extension is asserted. It can grow
-without bound on the plane, so monotonicity alone does not imply HC.
+The clock is defined on every complete finite state and every integer centre.
+Its diagonal periodic application follows by cancelling the head term.
 
-## 4. A diagonal wake pays for every update
+## 8. A diagonal wake pays for every update
 
 Rotate a diagonal drift to d=(m,-m), m>0, preserving the transformed initial
 heading. Let t=x+y. For each level t let o_t be the number of representatives of
@@ -139,8 +361,7 @@ unchanged debris cancels; it has not been deleted. QED.
 
 Any nonpositive K_c rejects the candidate wake. Minimizing over a finite chosen
 set of centers strengthens the bound; centers between min(O's t) and max(O's t)
-suffice for the implementation. No assertion that this is the globally optimal
-choice among all possible proof methods is needed.
+suffice for the implementation.
 
 ### Independent crossing-flow derivation and sharper directional bounds
 
@@ -201,7 +422,7 @@ where sum A_t^+<=g. No period or retreat bound was supplied. Special-width perio
 bounds and extremal rigidity are already in the literature; (4)--(10) provide
 an explicit all-width wake-dependent quantitative bound.
 
-## 5. Arbitrary non-axis drift: two reciprocal moments
+## 9. Arbitrary non-axis drift: two reciprocal moments
 
 Rotate to d=(a_0,-b_0) with a_0,b_0>0. Let k=gcd(a_0,b_0) and
 eta=(b_0/k,a_0/k), a positive integer normal. Choose rational r>1 and put
@@ -250,7 +471,7 @@ product does not change. Independent representative shifts by Z*d also leave
 every quantity unchanged. Axis drift is OUTSIDE this argument: it would give a
 zero coordinate in eta and no positive kappa of this form.
 
-## 6. A total inverse-synthesis algorithm
+## 10. A total inverse-synthesis algorithm
 
 **Theorem 3.** For the inverse inputs of Section 1, existence of a finite-support
 periodic realization is decidable uniformly, without a supplied period cutoff.
@@ -273,12 +494,11 @@ is only a shortcut and is still fully checked. An optional node resource cap
 returns INCONCLUSIVE, never NO. Unsupported axis inputs raise an explicit error.
 No practical polynomial bound is claimed; the search tree can be enormous.
 
-A known finite-width visit bound can also imply finiteness in some fixed
-geometries. We do not claim the first conceivable decidability proof of every
-related inverse problem. The central new quantitative objects are the explicit
-wake budgets, particularly the integer-clock bound and crossing recurrence.
+The explicit integer-clock budget and crossing recurrence supply quantitative
+cutoffs for arbitrary diagonal width; reciprocal moments handle every non-axis
+drift.
 
-## 7. A direct obstruction to wake-preserving detour insertion
+## 11. A direct obstruction to wake-preserving detour insertion
 
 Suppose a realizable word v is obtained from another realizable word u by
 inserting nonempty words that return to the same physical position AND heading.
@@ -299,68 +519,31 @@ This holds for arbitrarily long inserted detours, not merely the finite search
 reported below. It does NOT exclude detours changing wake budgets, replacements
 that remove other steps, or arbitrary nonstandard periodic trajectories.
 
-## 8. Standard positive control and complete small inverse NO
+## 12. Verification and publication evidence
 
-The canonical 104-letter word is reproduced by literal simulation of the
-repository's thirteen-cell standard template, not identified only by its period.
-After rotation to d=(2,-2), sigma=+1, its A_t at t=-3,...,7 is
+`python3 wake_synthesis/reproduce.py` runs the complete standard-wake certificate
+and classification replay, together with the general algebraic checks.
+`--baseline` additionally repeats the original unpruned cap-168 traversal;
+`--search` retains the supplementary finite detour search from version 0.1.0.
+The [standard-wake evidence](evidence/standard_wake/) records exact inputs,
+completed outputs and scoped controls. Python 3.10+ and C++17 suffice.
 
-    2,-1,1,-1,1,-1,1,0,1,-1,2.
+The general suite checks integer-clock updates, rational one-sided identities,
+projected-flow identities and full-period moments. Its 1,248 positive controls
+cover all 104 standard phases, four rotations and powers 1 through 3 with the
+corresponding full drifts and wakes. A separate raw enumeration of all 32,766
+nonempty words through length 14 cross-checks the known negative example.
+The optional detour experiment examines 1,496,144 insertion pairs; the analytic
+wake-budget obstruction is proved for arbitrary closed-pose insertions in
+Section 11.
 
-Equation (7) gives C_t, t=-3,...,6,
+## 13. Attribution and version continuity
 
-    2,5,16,47,142,145,48,16,5,2.
-
-Their sum is 428, so P<=856. Equation (4) at c=2 also gives 856. All 104 phases,
-four rotations and powers 1,2,3 pass: with drift/wake scaled for the power, the
-bound is 856 times the power. The given standard witness is accepted by both
-realization formulas. We did NOT exhaust the 856-depth search or prove that this
-wake uniquely determines P104.
-
-For d=(1,-1), h_0=N and O represented by (0,-3),(0,-1),(0,0),(0,1), the derived
-bound is 14. The pruned complete search (2226 nodes) returns NO; an independent
-raw enumeration of all 32766 nonempty words of length at most 14 agrees. This
-small width case is already excluded by known results; it is an implementation
-control, not a newly claimed exclusion or an HC negative seed.
-
-## 9. Actual finite checks, experiment and remaining HC gap
-
-The dedicated suite checks 3200 integer-clock complete updates; 6400 rational
-one-sided identities; 23650 level identities across 2133 finite geometric words;
-4992 full-period moment identities; 1248 standard phase/rotation/power cases;
-eight full-period retained-debris controls; the complete small inverse NO;
-64 independent representative changes; and malformed/unsupported inputs.
-The geometric-word controls may be physically unrealizable and validate only
-geometric algebra. Finite tests supplement the analytic universal arguments.
-
-The separate detour search completed 14386 closed-pose, internally alternating
-fragments of lengths at most 28, inserted at 104 standard phase boundaries:
-1496144 pairs, no passing nonstandard word. These pairs need not be distinct
-resulting words. The search does not exhaust all words of any resulting period.
-A longer length-36 attempt was stopped before completion and is not a certificate.
-
-The all-period decision is for EACH supplied finite wake with non-axis drift.
-There are infinitely many wakes, some possible drifts are axis-parallel, and a
-finite seed could hypothetically be nonperiodic. No theorem extracts a bounded
-wake from every finite initial state, forces entrance into periodicity, or
-identifies all possible periods as standard. A positive nonstandard output would
-refute HC; none is supplied here. Taking an infinite union of individually
-decidable wake problems is not a total HIGHWAY classifier.
-
-## 10. Attribution and publication positioning
-
-The finite-word criterion and explicit seed are credited to Atharva Jillhewar,
-*Finite-Support Periodic Highways of Langton's Ant: Necessary Conditions,
-Transverse Exclusions, and Exact Search*, 2026 preprint, DOI
-10.21203/rs.3.rs-10516269/v1. The public source and special width-four period
-bound N<=14m were inspected at repository revision
-`76a7e234e577d992d086c204c3dea00ae72cf10a`. Its other computational exclusions are
-not premises of our code or proofs. The earlier own one-sided clock identities
-remain credited to `proof/results/cone.md`; general finite-support model and
-standard-word data retain their prior evidence boundaries.
-
-The accompanying manuscript presents the wake budgets, (12)--(13), and the
-exact cutoff algorithm together, recalling the integer clock from the clock paper. This is a publication candidate, not confirmed priority,
-independent peer review or acceptance. It does not manufacture a new paper from
-merely reimplementing the existing supplied-word criterion. All quantitative
-claims are separated from the much stronger unproved HC conclusion.
+Jillhewar's finite-word realization criterion, constructive seed, extremal
+rigidity and special-width period bounds are explicitly attributed; see the
+[primary-source comparison](paper/LITERATURE.md). The integer clock belongs to
+[An Ant on the Clock](https://doi.org/10.5281/zenodo.23402379).
+The new classification and its exact computations extend the own
+[Reading the Wake, version 0.1.0](https://doi.org/10.5281/zenodo.23402422).
+The renamed manuscript is prepared as version 0.2.0 of that same preprint.
+Published version-0.1.0 delivery files and hashes remain historical records.

@@ -1,45 +1,363 @@
 {
-  "status": "PASS",
-  "project": "wake_synthesis",
-  "archive_sha256": "d588a12b4cd983f82daf60cc3290f05a16fb8b5f92ca88069d5780ae4282291d",
-  "source_snapshot_sha256": "33355aa72369b59299243f208729ed8100b0d1ae1bebc5e96f4f7253029e38d2",
-  "all_source_hashes_verified": true,
-  "commands": [
-    [
-      "make",
-      "-C",
-      "wake_synthesis/paper"
-    ]
+  "status": "passed",
+  "general_checks": [
+    "check.py",
+    "audit.py",
+    "audit_integer.py",
+    "audit_trace.py"
   ],
-  "isolated_manuscript_build": true,
-  "pdf_text_matches_delivery": true,
-  "pages": 6,
-  "no_box_or_reference_warnings": true,
-  "editorial_source_comparison": {
-    "changed_sources": [
-      "wake_synthesis/paper/main.tex"
-    ],
-    "all_other_sources_match_previous_reproduced_snapshot": true,
-    "theorem_statements_and_displayed_equations_unchanged": true,
-    "previous_source_snapshot_sha256": "2c131a8113c4d7cf8f143d064f4ae2d19e72d2845d453334b31df665b96a8988"
-  },
-  "retained_mathematical_verification": {
-    "status": "PASS",
-    "project": "wake_synthesis",
-    "archive_sha256": "de9266323e29874499dcd5e27c71bc20f63bafb392ed2d6aa9f53bb96bd8e2a5",
-    "source_snapshot_sha256": "2c131a8113c4d7cf8f143d064f4ae2d19e72d2845d453334b31df665b96a8988",
-    "all_source_hashes_verified": true,
-    "commands": [
+  "count_audit": {
+    "status": "passed",
+    "local_binary_words": 4094,
+    "local_count_cases": 257,
+    "class_residues": [
       [
-        "/usr/bin/python3",
-        "wake_synthesis/reproduce.py"
+        1,
+        1
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        1
       ]
     ],
-    "isolated_manuscript_build": true,
-    "pdf_text_matches_delivery": true,
-    "pages": 6,
-    "network_or_publication_action": false
+    "phase_group_residue_sums": [
+      10,
+      6,
+      10,
+      10
+    ],
+    "period_congruence": "8 mod 16",
+    "minimum_period": 104,
+    "minimum_count_profiles": 12,
+    "both_count_orientations_agree": true
   },
-  "mathematical_checks_rerun_for_editorial_changes": false,
-  "network_or_publication_action": false
+  "partial_cycle_audit": {
+    "status": "passed",
+    "partial_periodic_embeddings": 4000,
+    "random_seed": 19062026,
+    "period_range": [
+      8,
+      168
+    ],
+    "cap_range": [
+      8,
+      184
+    ],
+    "strictly_omitted_event_phases_in_every_case": true,
+    "cases_with_period_strictly_below_cap": 3140,
+    "all_declared_completions_accepted": true,
+    "undefined_behavior_sanitizer_passed": true,
+    "generated_source_sha256": "9b976fad95ba1cda1be368cbe8a768aa6c49af0eb8d380e1a78033b83bf05506",
+    "control_input_sha256": "96ac995067a0c48c8d9764f5789dd2b48f846310d308959108e1aa90c7b3a1e8",
+    "source_sha256": {
+      "inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+      "rank/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+      "rank/patch_search.py": "6204046dde2d364727418d8be19b41537ceb202edf348f521ef7d4934198659f",
+      "review/check.py": "0407c0e8cc36b669ca1043af352c7f58bef82b5fe0470dba28cfb9ec62cd83ef",
+      "search/patch_search.py": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e",
+      "search/test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef"
+    },
+    "scope": "Independent positive controls for the chain lemma; abstract periodic embeddings, not new ant realizations or exclusions."
+  },
+  "standard_wake": {
+    "status": "passed",
+    "full_period_range_replayed": true,
+    "upper": {
+      "verified": true,
+      "period_bound": 168,
+      "forbidden_factors": 588,
+      "max_factor_length": 21,
+      "contexts": 4931,
+      "original_vertices": 54718,
+      "original_edges": 90158,
+      "retained_vertices": 24424,
+      "retained_edges": 37330,
+      "deleted_vertices": 30294,
+      "alpha": [
+        -50,
+        32,
+        -18,
+        8,
+        -2,
+        0,
+        -2,
+        8,
+        -18,
+        32,
+        -50
+      ],
+      "scale": 1,
+      "maximum_edge_lhs": -1,
+      "potential_range": [
+        0,
+        129
+      ],
+      "queue_pops": 89187,
+      "potential_updates": 71847,
+      "graph_recipe_sha256": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2",
+      "patterns_sha256": "b90a1fb95b8e59470750c42da62351cbdd696e6fb8469b7547656b0813d74d57",
+      "original_states_sha256": "db360cf4934ca775161802fadd4e9ea41fd19e9c4bf1f774faeeabb65eb461dd",
+      "original_edges_sha256": "8996563f6f25a8232f72aecf8b8929f6d8170861d3abc80f81bb421ddb5590eb",
+      "retained_vertices_sha256": "82524058ab2373520dd9819fe164fef10b5937ab350394bc81b77f847b04d1f9",
+      "deletion_order_sha256": "1c68274be19a307e11d768eb88dda473095782885767c4c9e362e8985cb1ae91",
+      "retained_edges_sha256": "bd734758464f88daca0a12c9e90d9825cb3f4fdca9f0ddeadea006dc5621dafd",
+      "potential_sha256": "3f06ab2fee5a1d09d57e704ac4e5b7c12057b6919d016ffca44657eb2efa951f",
+      "controls": {
+        "disconnected_cycles_and_self_loop_preserved": true,
+        "deletion_of_self_loop_rejected": true,
+        "deletion_of_actual_core_vertex_rejected": true,
+        "violated_edge_inequality_rejected": true
+      },
+      "no_optimizer_or_float_used": true
+    },
+    "chain_separation_controls": {
+      "standard_one_or_two_cut_embeddings_at_two_caps": 10920,
+      "independent_abstract_cycle_embeddings": 2000,
+      "literal_circle_packing_controls": 2,
+      "total_cases": 12922,
+      "rank_baseline_accepts_crossing_control": true,
+      "chain_separation_rejects_crossing_control": true
+    },
+    "rank_predicate_controls": {
+      "standard_cyclic_chain_cases": 10816,
+      "random_path_graphs": 2000,
+      "rank_gap_controls": 2,
+      "accepted": 12016,
+      "rejected": 802,
+      "total_cases": 12818
+    },
+    "optimized_runs": [
+      {
+        "status": "complete",
+        "cap": 104,
+        "prefixes": 1376,
+        "order_rejections": 211,
+        "cycle_rejections": 85,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1808,
+        "rank_rejections": 323,
+        "solutions": 1,
+        "seconds": 0.00165213,
+        "layers": [
+          1,
+          1,
+          1,
+          5,
+          8,
+          24,
+          1,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": [
+          "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+        ],
+        "cost_table_sha256": "93cfade356d34357d4349377937246ced78c07944ae3c6fd59f8e8000e3cabd6"
+      },
+      {
+        "status": "complete",
+        "cap": 120,
+        "prefixes": 17566,
+        "order_rejections": 3038,
+        "cycle_rejections": 939,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 24534,
+        "rank_rejections": 4736,
+        "solutions": 1,
+        "seconds": 0.0248649,
+        "layers": [
+          1,
+          1,
+          13,
+          35,
+          184,
+          170,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": [
+          "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+        ],
+        "cost_table_sha256": "7797698fe2ebbf8093ba2c16e4802b701d050610d3d42f23fdcdea40aec83e79"
+      },
+      {
+        "status": "complete",
+        "cap": 136,
+        "prefixes": 270080,
+        "order_rejections": 48603,
+        "cycle_rejections": 14767,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 400398,
+        "rank_rejections": 88910,
+        "solutions": 1,
+        "seconds": 0.483426,
+        "layers": [
+          1,
+          1,
+          209,
+          1133,
+          2285,
+          178,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": [
+          "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+        ],
+        "cost_table_sha256": "124a788e80db390663ce9b57b6b5ff9a1fb2ed0c6f02a1721e068bbed70f09d1"
+      },
+      {
+        "status": "complete",
+        "cap": 152,
+        "prefixes": 1739460,
+        "order_rejections": 344091,
+        "cycle_rejections": 97645,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2664933,
+        "rank_rejections": 617471,
+        "solutions": 1,
+        "seconds": 3.66278,
+        "layers": [
+          1,
+          1,
+          4294,
+          6164,
+          11810,
+          178,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": [
+          "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+        ],
+        "cost_table_sha256": "a0c3fbe8c8ea115f1525e1bf26f7b402297ad8a4f5d9828f8e6920a4ca4d59a6"
+      },
+      {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 8580751,
+        "order_rejections": 1727626,
+        "cycle_rejections": 437863,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 13291792,
+        "rank_rejections": 3156466,
+        "solutions": 1,
+        "seconds": 19.7463,
+        "layers": [
+          1,
+          1,
+          4667,
+          48149,
+          63829,
+          178,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": [
+          "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+        ],
+        "cost_table_sha256": "82c5c92c67d56425506e2b2a5cdc2d4a08716baaae740a51ffa318cc2bcdd033"
+      }
+    ],
+    "baselines": {},
+    "generated_source_sha256": "9b976fad95ba1cda1be368cbe8a768aa6c49af0eb8d380e1a78033b83bf05506",
+    "prerequisite_sha256": {
+      "counts.py": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc",
+      "glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+      "verify.py": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973"
+    },
+    "source_sha256": {
+      "patch_search.py": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e",
+      "reproduce.py": "464d5960c5f0db0caef50ade496cfa6caa62bdbb95e511a6b504febd08e6670e",
+      "test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef"
+    },
+    "accepted_word": "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR",
+    "controls": {
+      "rotations": 4,
+      "active_seed_deletions": 19,
+      "far_blocker": true,
+      "node_limit": true
+    },
+    "scope": "Only the specified full standard wake and drift; no entrance theorem."
+  },
+  "retained_evidence_matches": true,
+  "source_sha256": {
+    "verification/audit.py": "554fe941c9a697a427583674b8d76fb8027b4e74e246cc613c7beac38970ea17",
+    "verification/audit_integer.py": "a88650696e9b14dcc8e002a1b08bd27a368bc807302d65b9c63ebb8034860fb4",
+    "verification/audit_trace.py": "45366f44ff1e81802e25da66f78ffb61948d9006c68904c5647b15d2ea2013f5",
+    "verification/check.py": "865b5e482fdacb94dd6016bb026603134d87d5664c079f169a1699467e0a3c40",
+    "verification/detour_search.cpp": "8749b4ab5e245f6304bf739c0788631ab6c5ccb9ad1ba88cd0c0cc17685e4157",
+    "verification/search_replay.py": "dbe9fb6548234339db0dfbe3d33992e829a31c79905dee8db1320e4b7953d59a",
+    "verification/standard_wake/README.md": "b741fd60c11652e7a90f6f5da01c58b9ae6c6a7c890f0af51d758097a4e56d52",
+    "verification/standard_wake/audit_counts.py": "8cfb0ff686ab16ae1206425444c07d4be1e076a7c05835f7a491f7a6f174450e",
+    "verification/standard_wake/audit_partial.py": "0407c0e8cc36b669ca1043af352c7f58bef82b5fe0470dba28cfb9ec62cd83ef",
+    "verification/standard_wake/code/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+    "verification/standard_wake/code/patch_search.py": "6204046dde2d364727418d8be19b41537ceb202edf348f521ef7d4934198659f",
+    "verification/standard_wake/code/test_rank.cpp": "49225b5bdf3f4253189c0cbe270c260d69ee5004cc9e3b463bbe49e5590cf9a7",
+    "verification/standard_wake/inputs/counts.py": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc",
+    "verification/standard_wake/inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+    "verification/standard_wake/inputs/upper_bound.py": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2",
+    "verification/standard_wake/inputs/verify.py": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973",
+    "verification/standard_wake/reproduce.py": "c9a90ca0b6b859dd2aefd6ff35a549d0fef090a93eb105bc0c2bd1d2b7d395f9",
+    "verification/standard_wake/upper_pruning.py": "f12b92b2d37a845766b47da36c8d9bc310c1fb988930468e8db9e77ed4aeaf34",
+    "verification/standard_wake/v2/patch_search.py": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e",
+    "verification/standard_wake/v2/reproduce.py": "464d5960c5f0db0caef50ade496cfa6caa62bdbb95e511a6b504febd08e6670e",
+    "verification/standard_wake/v2/test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef",
+    "verification/wake.py": "2eda494b723cd7d403b1452aaf6547aa1546eadee2e2625a1a74785f9b85bdc2"
+  }
 }

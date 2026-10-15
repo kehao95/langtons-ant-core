@@ -1,5 +1,5 @@
 {
-  "title": "Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant",
+  "title": "Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake",
   "upload_type": "publication",
   "publication_type": "preprint",
   "creators": [
@@ -9,15 +9,18 @@
       "orcid": "0009-0001-2818-4986"
     }
   ],
-  "description": "A prescribed finite odd-class wake, non-axis drift and heading determine a computable period cutoff. Integer-clock and crossing-flow bounds cover diagonal drift; reciprocal exponential moments cover general non-axis drift. An exact finite-word realization criterion then yields terminating inverse synthesis with a constructive finite seed.",
+  "description": "The complete twelve-class standard wake and full drift (2,-2) determine the classical Langton ant highway uniquely. An exact integer potential bounds all candidate periods, and exhaustive ordered-event reconstruction leaves the standard period-104 read word as the sole normalized realization. The revision also retains general wake-dependent period bounds and terminating inverse synthesis for non-axis drift. Self-contained source code reconstructs and checks the certificates with exact integer arithmetic.",
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
     "Langton's ant",
     "discrete dynamics",
-    "computer-assisted proof"
+    "computer-assisted proof",
+    "standard highway",
+    "inverse synthesis",
+    "exhaustive enumeration"
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "related_identifiers": [
     {
       "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis",

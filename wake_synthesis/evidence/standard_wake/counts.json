@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "local_binary_words": 4094,
+  "local_count_cases": 257,
+  "class_residues": [
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "phase_group_residue_sums": [
+    10,
+    6,
+    10,
+    10
+  ],
+  "period_congruence": "8 mod 16",
+  "minimum_period": 104,
+  "minimum_count_profiles": 12,
+  "both_count_orientations_agree": true
+}

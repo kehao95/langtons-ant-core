@@ -1,4 +1,4 @@
-# Published preprints
+# Preprints and prepared updates
 
 The owner approved Zenodo publication on 15 October 2026 after review of the
 prepared manuscripts and the Gemini editorial discussion. Three releases are
@@ -16,6 +16,15 @@ The clock owns the integer clock, the square bound
 algorithms. The wake paper owns period budgets and period-unknown inverse
 synthesis. The four-cell completion time is `E(n)+182`. Both new preprints
 cite the exact clock 0.4.0 DOI.
+
+## Wake 0.2.0 update in preparation
+
+The revised title is *Uniqueness of the Classical Langton Ant Highway Under Its
+Standard Wake*. Its main theorem closes the standard-wake classification left
+open in 0.1.0; the general period bounds and inverse-synthesis theorem remain.
+The update belongs to existing concept **23402421**, whose current published
+record is **23402422**. [Current manuscript and proof](wake_synthesis/) ·
+[Local update package](wake_synthesis/release/README.md).
 
 ## Published artifacts and verification
 

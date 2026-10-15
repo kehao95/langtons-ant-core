@@ -10,10 +10,11 @@ white-right / black-left Langton ant, by Hao Ke.
 | [One-black highways](one_black/) | Every one-black initial state, at any position and heading, reaches the complete standard period-104 highway trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609) · [PDF](one_black/paper/paper.pdf) |
 | [Clocks and escape](clock_escape/) | Square first exit ≤ **(13·3^(n−1)−2n²−4n−5)/2**; fixed-height rectangle degree **⌊H/2⌋+1**. Also gives complete-state reachability and orbit normal forms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379) · [PDF](clock_escape/release/v0.4.0/paper.pdf) |
 | [Four-cell outgoing ports](four_cell_port/) | Four black cells form a one-sided highway port; at most three force half-plane exit within **918** updates from the inward boundary pose. Four remote cells can complete any finite observed history into a standard highway. | [0.1.0](https://doi.org/10.5281/zenodo.23402414) · [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
-| [Wake synthesis](wake_synthesis/) | A prescribed finite odd-class wake, non-axis drift and initial heading determine a period cutoff and a terminating inverse-synthesis algorithm. | [0.1.0](https://doi.org/10.5281/zenodo.23402422) · [PDF](wake_synthesis/release/v0.1.0/paper.pdf) |
+| [Wake synthesis](wake_synthesis/) | The complete standard wake and drift `(2,-2)` uniquely determine P104; general non-axis wakes have terminating inverse synthesis. | [0.1.0](https://doi.org/10.5281/zenodo.23402422) · [PDF](wake_synthesis/release/v0.1.0/paper.pdf) |
 
 The one-black theorem has a complete Lean proof. The clock and wake results have
-analytic proofs with exact algebraic checks; Lean also verifies the clock's
+analytic proofs with exact checks; standard-wake uniqueness also uses a complete
+ordered-event enumeration. Lean verifies the clock's
 supercritical local lemmas. The four-cell result combines analytic reductions
 with exact finite certificates and infinite-trace checks.
 
@@ -26,7 +27,7 @@ with exact finite certificates and infinite-trace checks.
 one_black/       Universal one-black highway theorem
 clock_escape/    Integer clocks, escape bounds and orbit algorithms
 four_cell_port/  Sharp half-plane threshold and exterior completion
-wake_synthesis/  Wake-dependent period bounds and inverse synthesis
+wake_synthesis/  Standard-wake uniqueness and general inverse synthesis
 ```
 
 Each project owns its manuscript in `paper/`, proof narrative in `PROOF.md`,
@@ -49,10 +50,15 @@ python3 four_cell_port/reproduce.py
 python3 wake_synthesis/reproduce.py
 ```
 
+The wake project is preparing [version 0.2.0](wake_synthesis/release/README.md),
+with the new uniqueness theorem and a revised title. The table links the
+currently published versions.
+
 All projects use Python 3.10+. The one-black and full clock commands also require
 Lean 4.30.0. The clock's `--integer-only` and `--critical-only` options run scoped
-checks using Python alone. Adding `--search` to the wake command runs the finite
-detour experiment and requires g++ with C++17.
+checks using Python alone. The wake reproduction requires g++ with C++17 for exact enumeration.
+Its `--baseline` option repeats the original search, and `--search` adds the
+finite detour experiment.
 
 Build a manuscript with `make -C <project>/paper`. One-black uses Pandoc and
 XeLaTeX; the other three use pdfLaTeX. Builds write to ignored `paper/build/`

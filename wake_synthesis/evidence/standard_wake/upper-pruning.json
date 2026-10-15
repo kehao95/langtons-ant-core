@@ -1,0 +1,48 @@
+{
+  "verified": true,
+  "period_bound": 168,
+  "forbidden_factors": 588,
+  "max_factor_length": 21,
+  "contexts": 4931,
+  "original_vertices": 54718,
+  "original_edges": 90158,
+  "retained_vertices": 24424,
+  "retained_edges": 37330,
+  "deleted_vertices": 30294,
+  "alpha": [
+    -50,
+    32,
+    -18,
+    8,
+    -2,
+    0,
+    -2,
+    8,
+    -18,
+    32,
+    -50
+  ],
+  "scale": 1,
+  "maximum_edge_lhs": -1,
+  "potential_range": [
+    0,
+    129
+  ],
+  "queue_pops": 89187,
+  "potential_updates": 71847,
+  "graph_recipe_sha256": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2",
+  "patterns_sha256": "b90a1fb95b8e59470750c42da62351cbdd696e6fb8469b7547656b0813d74d57",
+  "original_states_sha256": "db360cf4934ca775161802fadd4e9ea41fd19e9c4bf1f774faeeabb65eb461dd",
+  "original_edges_sha256": "8996563f6f25a8232f72aecf8b8929f6d8170861d3abc80f81bb421ddb5590eb",
+  "retained_vertices_sha256": "82524058ab2373520dd9819fe164fef10b5937ab350394bc81b77f847b04d1f9",
+  "deletion_order_sha256": "1c68274be19a307e11d768eb88dda473095782885767c4c9e362e8985cb1ae91",
+  "retained_edges_sha256": "bd734758464f88daca0a12c9e90d9825cb3f4fdca9f0ddeadea006dc5621dafd",
+  "potential_sha256": "3f06ab2fee5a1d09d57e704ac4e5b7c12057b6919d016ffca44657eb2efa951f",
+  "controls": {
+    "disconnected_cycles_and_self_loop_preserved": true,
+    "deletion_of_self_loop_rejected": true,
+    "deletion_of_actual_core_vertex_rejected": true,
+    "violated_edge_inequality_rejected": true
+  },
+  "no_optimizer_or_float_used": true
+}

@@ -1,101 +1,674 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array}
 \usepackage[margin=1in]{geometry}
-\usepackage[hidelinks,pdftitle={Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant},pdfauthor={Hao Ke}]{hyperref}
-\newtheorem{theorem}{Theorem}
+\usepackage{enumitem}
+\usepackage[hidelinks,pdftitle={Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake},pdfauthor={Hao Ke}]{hyperref}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
 \newcommand{\R}{\mathrm R}
 \newcommand{\Lturn}{\mathrm L}
+\newcommand{\HH}{\mathsf H}
+\newcommand{\Ostd}{O_{\mathrm{std}}}
 \newcommand{\ind}{\mathbf 1}
+\newcommand{\diff}{\mathbin{\triangle}}
+\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\sgn}{sgn}
-\title{Reading the Wake:\\Period Bounds and Inverse Synthesis for Langton's Ant}
-\author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
-\date{15 October 2026}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Uniqueness under the standard wake}
+\fancyhead[R]{\small H. Ke}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible,
+ showstringspaces=false,frame=single}
+\title{\bfseries Uniqueness of the Classical Langton Ant Highway\\
+Under Its Standard Wake}
+\author{Hao Ke\\ \small\texttt{i@kehao.me}}
+\date{15 October 2026\\ \small Version 0.2.0}
 \begin{document}
 \maketitle
 \begin{abstract}
-A translating periodic trajectory of Langton's ant leaves a wake of permanent
-black strands. We show that prescribing this finite set of translation classes,
-a non-axis drift and an initial heading determines a computable upper bound on
-the period. For diagonal drift, an integer clock gives a signed wake budget,
-and a crossing-flow recurrence sharpens it; in particular
-$P\le g(3^{W/2}-1)$ for wake growth $g$ and transverse width $W$.
-For arbitrary non-axis drift, two reciprocal exponential moments bound $P^2$.
-Combining these bounds with the finite-word realization criterion yields a
-terminating inverse-synthesis algorithm, with no period supplied as input;
-a positive answer constructs a finite black seed. The same budgets exclude
-wake-preserving insertions of closed-pose detours. Exact arithmetic checks
-and independently verified infinite-trace certificates accompany the proofs.
+The permanent wake of a periodic Langton ant can determine its motion
+uniquely. We prove that with drift $(2,-2)$ and the twelve complete odd
+translation classes of the classical highway,
+every finite-support periodic realization is the standard $104$-step highway,
+up to phase and pose. The period is determined by the wake rather than
+supplied as a hypothesis. The proof combines a finite graph of necessary
+short-factor constraints with an exact ordered-event representation.
+An integer potential on the first graph bounds every candidate period by
+$168$; exhaustive chronological matching on the second leaves one normalized
+word. Consecutive-visit ranks and separation of fixed trajectory chains reduce
+the verified enumeration from $40{,}227{,}976$ to $8{,}580{,}751$ prefixes. More generally, we retain
+wake-dependent period bounds for every non-axis drift, giving a terminating
+inverse-synthesis algorithm and an obstruction to wake-preserving detours.
+All finite certificates can be regenerated, and the accepted word is checked
+on an explicit finite seed for its entire future.
 \end{abstract}
+\noindent\textbf{Keywords.} Langton's ant; periodic highway; finite support;
+symbolic dynamics; computer-assisted proof; inverse synthesis.
 
-\section{From a wake to a periodic trajectory}
-We study the inverse problem of recovering a translating periodic trajectory
-from its permanent black wake. The key is to turn that wake into a bound on
-the unknown period.
+\section{Introduction}
+A periodic Langton ant leaves a geometric record of its motion: the permanent
+black strands in its wake. The classical highway repeats after $104$ updates,
+translating by $(2,-2)$ in a suitable orientation. Its wake records which
+translation classes have been visited an odd number of times, while the
+motion also specifies the order of those visits. This paper proves that the
+complete standard wake determines that order uniquely among finite-support
+periodic realizations with the same drift.
 
-A state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite and $h\in\{N,E,S,W\}$.
-At a white cell the ant turns right, at a black cell it turns left, then it flips
-the cell and moves one unit. Write $F$ for this map, and observe states before
-each update. Put $\chi(x,y)=(-1)^{x+y}$ and
+The inverse problem starts with the wake and seeks the periodic motion that
+produces it. Its first difficulty is that the period is unknown. Its second
+is chronological: each visit flips a cell, so visits to the same physical
+cell must alternate right and left turns. Counts of visits give useful
+necessary conditions, but the order links different phases and different
+periods. Recovering the highway requires both a period budget and exact
+control of these links.
+
+\paragraph{Main result.}
+For the twelve standard classes $\Ostd$ specified in
+Section~\ref{sec:model}, every heading-restoring periodic realization from a
+finite black set, with drift $(2,-2)$ and wake $\Ostd$, is the standard
+$104$-step highway. A periodic suffix satisfying these hypotheses therefore
+has the standard future trace, with any stationary unread cells retained.
+The theorem classifies motion under its complete wake; its hypotheses are
+stated directly in terms of the drift and translation classes.
+
+Two complementary reductions make the classification finite.
+Short factors that contradict the literal colour-update rule define a finite
+context graph. Every candidate trajectory projects to a closed walk in this
+graph. An integer potential bounds its period by $168$.
+We then enumerate ordered visits within the complete translation classes,
+retaining longitudinal residues and the chronological order across periods.
+This second representation is exact, and its completed enumeration leaves a
+single word. Consecutive-rank and chain-separation lemmas strengthen the search while
+preserving its exact coverage.
+
+The uniqueness theorem completes the standard-wake problem posed in the
+first version of this preprint, \emph{Reading the Wake}~\cite{previous}.
+The general period bounds and inverse-synthesis theorem from that version
+remain in Appendix~\ref{app:general}. For every prescribed finite wake,
+non-axis drift and initial heading, a computable cutoff makes the inverse
+problem decidable and constructs a finite seed whenever one exists.
+The present theorem carries that programme through for the standard wake.
+
+\paragraph{Related work.}
+Gajardo studies Langton's ant through symbolic dynamics and forbidden
+factors~\cite{Gajardo2003}. Jillhewar gives an exact realization criterion
+for a supplied periodic word, a constructive finite seed, and structural
+restrictions on finite-support highways~\cite{Jillhewar2026}. His
+width-four analysis also gives a special period--drift bound~\cite{widthfour}.
+We recall the realization criterion with its proof, then develop the
+integer upper certificate and complete chronological classification for
+$\Ostd$. The general wake budgets use the integer clock from the companion
+escape paper~\cite{clock}. These dependencies separate the supplied-word
+test, the quantitative period bounds, and the standard-wake uniqueness
+proved here.
+
+Section~\ref{sec:criterion} establishes the normalization and realization
+criterion. Sections~\ref{sec:upper}--\ref{sec:search} give the upper bound,
+exact event representation, and completed classification.
+Section~\ref{sec:verification} describes the independent all-future checks.
+The appendices retain the general synthesis theory, the explicit witness,
+and the reconstruction specifications.
+
+\section{Model, normalization, and the standard wake}\label{sec:model}
+A complete state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite,
+$p\in\Z^2$, and $h\in\{\mathrm N,\mathrm E,\mathrm S,\mathrm W\}$.
+All cells outside $B$ are white. With headings encoded by $0,1,2,3$ in that
+order, the update $F$ is
 \[
- \sigma(X)=\begin{cases}\chi(p),&h=N,S,\\-\chi(p),&h=E,W.\end{cases}
+ h'=h+1-2\ind_B(p)\pmod4,\qquad
+ B'=B\diff\{p\},\qquad p'=p+e_{h'}.
 \]
-Both position parity and heading axis change, so $\sigma$ is invariant.
+Time $i$ denotes the state before update $i$. Write $\R$ for reading white
+and turning right, and $\Lturn$ for reading black and turning left.
+Every assertion below uses this convention.
 
-A nonempty turn word $u$ of length $P$, started at $p_0=0$ with specified heading,
-defines phase positions $q_i$, headings $h_i$ and a final displacement $d$.
-We require heading restoration and $d\ne0$. A realization is a finite black set
-whose entire future word is $u^\omega$. The complete black field is \emph{not}
-required to translate: a stationary history and a growing wake are permitted.
+A word $w=w_0\cdots w_{P-1}$ gives a prescribed walk, with pre-update positions
+$q_i$ and headings $h_i$. A \emph{periodic realization} is a complete finite
+state whose entire future turn stream is $w^\omega$. We require $h_P=h_0$
+and nonzero drift $d=q_P-q_0$. The full black field includes the growing wake and any stationary unread cells.
 
-Partition phase indices by $q_i-q_j\in\Z d$. A class with an odd number of visits
-is an \emph{odd class}; write $O\subset\Z^2/\Z d$ for their finite set. For a
-realizable word, each odd class contributes one permanent black strand per period.
-The input is a drift $d$ with two nonzero coordinates, the initial heading,
-and $O$, represented by a finite list of distinct classes. We seek a finite
-seed and periodic word realizing exactly these data; \emph{the period is
-not supplied}.
+Put $\chi(x,y)=(-1)^{x+y}$. The quantity
+\[
+ \sigma(X)=
+ \begin{cases}
+ \chi(p),&h\text{ is vertical},\\
+ -\chi(p),&h\text{ is horizontal}
+ \end{cases}
+\]
+is invariant, since location parity and heading axis both change on each
+update. We fix $d=(2,-2)$. Lemma~\ref{lem:extreme} will derive $\sigma=-1$
+and a canonical start at the origin facing east from the prescribed wake.
 
-The period bound controls all words with the prescribed data, so an exact
-word test becomes a terminating search. For the
-standard wake with drift $(2,-2)$ the derived cutoff is 856, and the standard
-104-step word gives a positive witness.
+\begin{definition}[Complete odd-class wake]
+Two positions belong to the same drift class if their difference lies in
+$\Z d$. For $d=(2,-2)$ the complete class label is
+\[
+ (t,r)=(x+y,\ x\bmod2).
+\]
+The wake of a word is the set of classes containing an odd number of its
+phase positions. The prescribed standard wake is
+\begin{align}
+ \Ostd=\{&
+ (-10,0),(-10,1),(-9,1),(-8,1),(-7,0),(-6,0), \notag\\
+ &(-5,0),(-4,1),(-2,0),(-1,1),(0,0),(0,1)\}. \label{eq:wake}
+\end{align}
+\end{definition}
+The quotient uses the full drift. Repeating a word twice, for example,
+doubles its drift and changes the quotient in which its wake is specified.
 
-Jillhewar~\cite{jillhewar} supplies the exact finite-word realization criterion
-and constructive seed used here. His width-four analysis gives a special
-period--drift bound~\cite{widthfour}. Our contribution is the general
-wake-dependent quantitative cutoff: a diagonal crossing recurrence and a
-reciprocal-moment bound for every non-axis drift. We use the integer clock
-from the companion escape paper~\cite{clock}. After recalling the word test,
-we derive both bounds and then the inverse algorithm and detour corollary.
+\begin{theorem}[Uniqueness under the standard wake]\label{thm:main}
+Every finite-support-realizable, heading-restoring periodic word with drift
+$(2,-2)$ and wake \eqref{eq:wake} is the standard $P104$ word.
+In the normalized phase at the top class $(0,0)$ its period is $104$ and
+its word is exactly $w_*$ displayed in Appendix~\ref{app:witness}.
+The corresponding translations, quarter turns, and phase changes give the
+equivalent geometric statement.
+\end{theorem}
 
-\begin{lemma}[Known finite-word criterion]\label{lem:criterion}
-In a translation class choose $b$ and write $q_i=b+a_i d$. Order its phase letters
-by increasing $i-Pa_i$. A word is finite-support realizable if and only if every
-such ordered word is $\R,\Lturn,\R,\Lturn,\ldots$ starting with $\R$.
+\begin{corollary}\label{cor:entrance}
+If a finite initial state has an eventual periodic suffix with the above
+drift and complete wake, up to the stated normalization, then its future is
+eventually the standard highway.
+\end{corollary}
+\begin{proof}
+The black field at any finite suffix boundary is still a complete finite set.
+Apply Theorem~\ref{thm:main} at that boundary.
+\end{proof}
+
+The conclusion identifies the read trace. Complete initial fields may differ
+on cells that the future trace never reads. The twelve class labels in
+\eqref{eq:wake} specify both transverse levels and longitudinal residues.
+
+\section{Finite-support realization and extreme classes}\label{sec:criterion}
+We recall the chronological criterion of~\cite[Theorem 3.1 and Remark 3.2]{Jillhewar2026}.
+The proof identifies exactly where finite support is used.
+
+Fix a class and write its phase positions as $q_i=b+a_i d$.
+The visit to the physical cell $b+n d$ at phase $i$ occurs at time
+\[
+ (n-a_i)P+i=nP+(i-Pa_i),\qquad n\ge a_i.
+\]
+Thus stable visit order is increasing $i-Pa_i$, or equivalently decreasing
+$a_i$, with increasing $i$ to break ties.
+
+\begin{lemma}[Supplied-word criterion]\label{lem:criterion}
+A heading-restoring word of nonzero drift has a finite-support periodic
+realization if and only if the stable word in every class is
+$\R,\Lturn,\R,\Lturn,\ldots$, starting with $\R$.
+A finite seed can be constructed from the word.
 \end{lemma}
 \begin{proof}
-The cell $b+nd$ is read at phase $i$ of epoch $n-a_i\ge0$, at time
-$nP+(i-Pa_i)$. For sufficiently large $n$ all class phases are present and the
-cell is initially white, since the seed is finite. Its consecutive letters must
-alternate, proving necessity. For sufficiency, if
-$\min a_i\le n<\max a_i$, initially blacken $b+nd$ precisely when the number of
-removed phases, those with $a_i>n$, is odd. All other cells start white.
-The available phase word is a suffix of the stabilized alternating word and
-starts with the prescribed colour. Induction on physical time proves the whole
-infinite trace. Only finitely many boundary cells are blackened.
-\end{proof}
-In particular $\#\R-\#\Lturn=|O|=:g$. Heading restoration implies $g\equiv0$
-modulo four, $P$ even and $d_x+d_y$ even. The quotient is by the \emph{full} drift:
-for $d=(m,-m)$ a class needs both $x+y$ and $x\bmod m$.
+For all sufficiently large $n$, every phase in the class occurs at $b+n d$.
+All but finitely many such cells are initially white. Their first turn is
+therefore $\R$, and each successive reading flips the colour.
 
-\section{An integer clock for diagonal budgets}
+Conversely, at $b+n d$ the available phases are obtained from the stable
+order by deleting all groups with $a_i>n$. This deletes a prefix and leaves
+an alternating suffix. For $\min_i a_i\le n<\max_i a_i$, place a black cell
+precisely when the number of deleted phases is odd. Put no other black cells
+in this class. The suffix then starts with the required colour.
+There are only finitely many boundary cells and classes. Induction over
+literal time proves execution of every prescribed update.
+\end{proof}
+
+Consequently each class has signed excess $\#\R-\#\Lturn$ equal to its
+indicator in the odd wake. This supplies the exact balances used below.
+
+\begin{lemma}[Extremal singleton classes]\label{lem:extreme}
+For a realization with wake \eqref{eq:wake}, $\sigma=-1$ and every phase
+position satisfies $-10\le t\le0$. Every class visited on either extreme level has exactly one
+event, a right turn. Top events arrive heading east; bottom events arrive west.
+There is a unique event of the top class $(0,0)$.
+\end{lemma}
+\begin{proof}
+At the highest visited level there is no predecessor or successor at a
+higher level. Arrival and departure directions are therefore forced by
+the axis invariant. Every event of an extreme class has the same turn.
+Lemma~\ref{lem:criterion} permits only a singleton right turn in that class,
+so the extreme class must be odd. The same argument applies at the lowest
+level. Since the extreme levels of the given odd wake are $-10$ and $0$,
+they are also the trace extremes. At the top level $t=0$, a right turn
+that both arrives from and returns to the lower level must enter eastward
+and leave southward. Hence $\sigma=-1$. The bottom right turn enters
+westward and leaves northward. Both residue classes at each extreme
+belong to \eqref{eq:wake}, and hence occur exactly once.
+\end{proof}
+A top event in class $(0,0)$ has position $(2k,-2k)$. Changing the phase to
+that event and translating by $-k d$ preserves every class label in
+\eqref{eq:wake}. This gives the canonical phase in Theorem~\ref{thm:main}. Choosing the other
+top event as origin gives the equivalent description with both residues swapped.
+
+\section{A finite certificate for an all-period bound}\label{sec:upper}
+The upper bound uses a finite graph that retains transverse position,
+heading and a short turn context. Every actual periodic trace lifts to a
+closed walk in this graph. Its integer edge inequalities will then bound
+the length of every such trace.
+
+\subsection{Forbidden factors and geometric context}
+If a proposed finite factor reads one physical cell twice consecutively
+with the same turn, the factor cannot occur on any initial colouring.
+Generate physically consistent first-return words of at most $20$ updates,
+append the initial turn again, and include complemented words.
+The resulting $588$ forbidden factors have length at most $21$.
+Each is separately checked by geometric reconstruction; completeness of this
+list is unnecessary.
+
+The contexts are the empty word and the proper viable prefix contexts of
+these factors. After a new letter, retain the longest suffix that is again a
+context, rejecting a forbidden suffix. There are $4{,}931$ contexts.
+A vertex is $(t,h,a)$: level, heading, and context. Retain only headings
+compatible with $\sigma=-1$ and contexts whose entire geometric placement
+lies in $-10\le t\le0$. The latter placement is recovered by reversing the
+net displacement of the context and rotating to its current heading.
+A graph edge is one literal turn and unit move with the corresponding
+context update.
+
+The regenerated graph has $54{,}718$ vertices and $90{,}158$ edges.
+After context warmup, a periodic trajectory lifts to a length-$P$ closed
+walk: its transverse position, heading and suffix context repeat after
+one period. Vertices and edges may be revisited.
+
+\begin{lemma}[Degree peeling preserves every closed walk]\label{lem:peeling}
+Repeatedly delete a vertex with zero incoming or zero outgoing degree in the
+currently retained graph, together with its incident edges. Every closed
+walk in the original graph remains in the final graph.
+\end{lemma}
+\begin{proof}
+If a vertex of a closed walk were deleted, consider the first deleted vertex
+on that walk. Its predecessor and successor would still be present, so it
+would still have an incoming and an outgoing edge, a contradiction.
+\end{proof}
+This reduction retains $24{,}424$ vertices and $37{,}330$ edges.
+A separate reverse-insertion check verifies the deletion order. We verify
+the upper potential on this smaller graph; Lemma~\ref{lem:peeling} preserves
+the coverage needed for the period bound.
+
+\subsection{An exact integer potential}
+For levels $t=-10,\ldots,0$ define
+\[
+ \alpha_t=-2(-1)^t(t+5)^2,
+\]
+that is,
+\[
+ \alpha=(-50,32,-18,8,-2,0,-2,8,-18,32,-50).
+\]
+For an edge $v\to w$ with source level $t$, put
+$\varepsilon=1$ for $\R$ and $-1$ for $\Lturn$.
+
+\begin{lemma}[Finite upper certificate]\label{lem:uppercert}
+The regenerated graph admits integers $0\le y_v\le180$ such that on every edge
+\begin{equation}
+ y_v-y_w+\alpha_t\varepsilon\le-1. \label{eq:dual}
+\end{equation}
+\end{lemma}
+\begin{proof}[Computer-assisted proof]
+Initialize all $y_v$ to zero and repeatedly enforce
+$y_w\ge y_v+1+\alpha_t\varepsilon$ along queued outgoing edges.
+Abort, rather than accept, if any value exceeds $180$.
+With this cap the construction terminates: every change raises an integer,
+and there are at most $180|V|$ changes. Once the queue is empty, a separate
+scan verifies \eqref{eq:dual} on every edge, without relying on the
+construction algorithm. The supplement regenerates the reduced graph and its potential, records
+the construction statistics, and checks each retained inequality using
+integer arithmetic. The reconstructed potential ranges from $0$ to $129$,
+and the maximum left-hand side is $-1$.
+\end{proof}
+
+\begin{proposition}[All-period upper bound]\label{prop:upper}
+Every realization in Theorem~\ref{thm:main} has $P\le168$.
+\end{proposition}
+\begin{proof}
+The per-level odd counts are
+\[
+ o=(2,1,1,1,1,1,1,0,1,1,2).
+\]
+Summing \eqref{eq:dual} on the lifted closed walk cancels the vertex terms.
+Lemma~\ref{lem:criterion} identifies the signed turn excess on layer $t$ with
+$o_t$. Direct integer arithmetic gives $\sum_t\alpha_t o_t=-168$.
+Thus $-168\le-P$.
+\end{proof}
+The upper graph depends only on the per-level counts. The next stage uses
+the full class labels in \eqref{eq:wake} to determine which bounded walks
+are realizable.
+
+\section{An exact ordered-event representation}\label{sec:events}
+In each complete class $(t,r)$ let $m$ be its number of events and index
+them by stable rank $k=0,\ldots,m-1$. The turn is right at even rank and
+left at odd rank. Let $a_k=1$ indicate arrival from $t-1$, and $d_k=1$
+indicate departure to $t-1$. The literal rule is
+\[
+ d_k=
+ \begin{cases}
+ a_k\mathbin{\mathrm{xor}}(k\bmod2),&t\text{ even},\\
+ 1-(a_k\mathbin{\mathrm{xor}}(k\bmod2)),&t\text{ odd}.
+ \end{cases}
+\]
+At even levels arrival is east or west according as $a_k=1$ or $0$;
+at odd levels it is north or south.
+
+Every directed lattice edge has one direction of use in the fixed checker
+sector. Its source occurrences and target occurrences match in stable
+order, first to first and so on: physical time increases by one on that edge,
+and passage to the target representative changes lifted time by a constant.
+There is no free matching permutation.
+
+Use representatives $b_{t,r}=(r,t-r)$.
+An edge has integer voltage $\delta$ determined by
+\[
+ b_{\rm source}+e_{\rm outgoing}=b_{\rm target}+\delta d.
+\]
+A vertical edge has voltage zero. East moves from residue $1$ to $0$ have
+voltage $1$; west moves from $0$ to $1$ have voltage $-1$.
+Other horizontal edges have voltage zero.
+
+\begin{proposition}[Exact event-graph test]\label{prop:eventtest}
+A complete matched graph represents a normalized realization if and only if
+it forms one directed cycle of total voltage $1$, and the lifted times
+$j_i-Pv_i$, read along that cycle from the top event $(0,0)$, strictly
+increase with rank in every class. Here $j_i$ is cycle index and $v_i$
+is accumulated voltage.
+\end{proposition}
+\begin{proof}
+A real trajectory gives these matches and times, so necessity follows.
+Conversely, following the proposed cycle reconstructs a literal walk with
+the correct headings and drift $d$. The lifted-time test makes its stable
+class order exactly the rank order. The turn assigned to every rank
+therefore satisfies Lemma~\ref{lem:criterion}, which constructs the finite
+seed. The explicit seed is then checked independently as described in
+Section~\ref{sec:verification}.
+\end{proof}
+In the normalized gauge each word determines its event graph. Enumerating
+all such graphs therefore enumerates words, not merely a selection of seeds.
+
+\section{Exhaustion without enumerating all binary words}\label{sec:search}
+The search builds complete classes one transverse layer at a time.
+It enumerates ordered arrival strings, joins forced edge occurrences
+immediately, and rejects partial graphs by necessary conditions.
+A completed traversal supplies the finite classification.
+
+\subsection{Exact count completion and safe merging of count histories}
+Suppose a new class has $I$ arrivals and $J$ departures on the already
+processed side. Let $o=\ind_{\Ostd}(t,r)$ and let $a$ count processed-side
+arrivals at even ranks. Complement both side bits when the construction
+runs downward. The possible class lengths are exactly
+\begin{equation}
+ m=
+ \begin{cases}
+ 2(I+J-2a)+o,&t\text{ even},\\
+ 2(J-I+2a)-o,&t\text{ odd},
+ \end{cases}\qquad
+ 0\le a\le\lceil m/2\rceil,\quad
+ 0\le I-a\le\lfloor m/2\rfloor. \label{eq:counts}
+\end{equation}
+These formulas follow by counting the outgoing bits in the local rule.
+Conversely, the inequalities choose the required number of ones at even
+and odd ranks, so they are an exact count feasibility test.
+
+A boundary stores its two outgoing and two incoming counts. Transitions
+between boundaries retain the residue swap on horizontal edges.
+A dynamic program merges count histories with the same boundary, keeping
+the smallest completion cost. Every future count transition depends only
+on that boundary, so the minimum gives a lower bound on the remaining
+number of events. The event search separately retains all forced matches
+and chronological constraints.
+
+Both directions of this count program show a minimum total cost $104$.
+At cutoff $104$ the top-down boundary-state counts are
+\[
+ 1,1,6,81,174,92,65,19,8,1.
+\]
+The required boundary just above the bottom has minimum cost $102$;
+the two bottom singletons add $2$. Any putative period below $104$ has
+all partial nonnegative costs below $104$ and is therefore covered by this
+finite calculation. Twelve minimum count profiles remain for the exact chronological search.
+
+\subsection{Phase congruence}
+Induction in \eqref{eq:counts} fixes the class-length residues modulo four.
+From bottom to top they are
+\[
+ (1,1),(0,3),(2,3),(1,2),(1,0),(3,0),
+ (2,3),(2,2),(3,2),(0,3),(1,1).
+\]
+For the normalized physical walk,
+\[
+ i\bmod4=2(x_i\bmod2)+(x_i+y_i\bmod2).
+\]
+This follows directly by checking the four update phases starting east
+at the origin. A heading-restoring period with horizontal displacement $2$
+has an even number $P/2$ of horizontal moves, so $4\mid P$.
+Each of the four phase groups contains $P/4$ events.
+Their displayed residue sums are $(10,6,10,10)$, all $2\bmod4$. Hence
+\begin{equation}
+ P\equiv8\pmod{16}. \label{eq:congruence}
+\end{equation}
+Together with the upper bound and the count minimum, the only candidate
+lengths are $104,120,136,152,168$.
+
+\subsection{Chronological difference constraints}
+A partial graph that closes a directed component before the final layer
+cannot be completed into one cycle: required future events could no longer
+join that fixed component. All other components are directed open chains.
+
+On one chain write
+\[
+ \tau_u=z_{\mathrm{chain}(u)}+p_u-Pv_u,
+\]
+where $p_u$ is its position in the chain and $v_u$ its accumulated voltage.
+Consecutive ranks in a class have the same phase modulo four.
+Their strict stable order therefore requires a gap at least four:
+\begin{equation}
+ z_{\mathrm{chain}(v)}
+ \ge z_{\mathrm{chain}(u)}
+       +4+p_u-p_v+(v_v-v_u)P. \label{eq:difference}
+\end{equation}
+A positive cycle of these difference constraints is impossible.
+
+The final period is not yet known. Let $n$ be the number of constructed
+events and $L$ the search cap. It is safe to test \eqref{eq:difference}
+at $P=L$, as the following argument shows.
+For a simple cycle on $q$ chain variables, its total weight is $C+KP$,
+where $K\in\Z$. Each distinct chain contributes one difference of two
+indices. Its index range is its length minus one, and the $q$ chains
+together contain at most $n$ vertices. Thus
+\[
+ 5q-n\le C\le n+3q.
+\]
+If $K\ge1$, the cycle is positive for every $P\ge n$.
+If $K=0$, its sign is independent of $P$.
+If $K\le-1$, its weight decreases with $P$.
+A positive cycle at $L$ consequently rules out every $n\le P\le L$.
+This proves that evaluating the constraints at the search cap is a sound
+pruning rule. All checks use exact signed integers.
+
+\subsection{A local refinement: consecutive ranks on a fixed chain}\label{sec:rank}
+A fixed chain of matched edges is already a contiguous piece of physical
+motion. Its repeated visits to a cell must therefore occupy consecutive
+positions in that cell's ordered visit list.
+
+\begin{lemma}[Consecutive-visit rank pruning]\label{lem:rank}
+Let an open chain of fixed edges be part of a realizable event graph.
+Lift it to the lattice by accumulating edge voltages.
+If two consecutive occurrences of one physical lattice cell in this chain
+have stable class ranks $k$ and $\ell$, then $\ell=k+1$.
+\end{lemma}
+\begin{proof}
+Translate a sufficiently late occurrence of the chain along the periodic
+trajectory. Every class involved is then in the stable finite-support
+regime. The chain is a contiguous sequence of actual updates; its length
+does not exceed the final period. Between the stated occurrences there is
+no intervening visit to that physical cell. They are therefore consecutive
+in the cell's stable visit list. Its list is indexed by consecutive ranks
+$0,\ldots,m-1$, proving the assertion.
+\end{proof}
+In particular, equal turn bits are forbidden, but mere bit alternation is
+weaker: a proposed jump from rank $0$ to rank $3$ would alternate turns
+while omitting required visits.
+
+For implementation, a node of label $(t,r)$ at accumulated voltage $v$
+has lifted coordinate $(r+2v,t-r-2v)$. A stamped array records the previous
+rank at each cell while traversing one open chain. Separate chains receive
+separate stamps; they are not assumed to share an absolute placement.
+This check is inserted after premature closed cycles are rejected and
+before the more expensive difference-constraint solver.
+
+
+\subsection{Separation of fixed trajectory chains}\label{sec:separation}
+Open chains also constrain each other's possible placement in time.
+Each is a contiguous block of updates, and distinct chains contain disjoint
+phase events. Their copies in a completed periodic trajectory therefore
+occupy disjoint time intervals.
+
+\begin{lemma}[Chain separation]\label{lem:separation}
+Suppose consecutive ranks of a class lie at events $u$ and $v$ in distinct
+open chains $A$ and $B$. Let $\ell_A$ be the number of events in $A$.
+Their chronological constraint strengthens to
+\begin{equation}
+ z_B\ge z_A+
+ \max\{4+p_u-p_v,\ell_A\}+(v_v-v_u)P. \label{eq:separation}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Shift sufficiently late copies of the two chains by whole periods so that
+$u$ and $v$ refer to the same physical cell. Their respective root times
+are $z_A-Pv_u$ and $z_B-Pv_v$, up to a common epoch offset.
+Stable rank order places $u$ before $v$. Since the two contiguous chain
+intervals are disjoint, the whole interval for $A$ precedes that for $B$.
+Thus $z_B-Pv_v\ge z_A-Pv_u+\ell_A$.
+Combining this inequality with \eqref{eq:difference} proves the claim.
+\end{proof}
+The stronger constraint is especially convenient at an unknown period.
+Each interchain edge has weight $C_e+K_eP$ with
+$C_e\ge\ell_A\ge1$. A cycle has weight $C+KP$ with $C>0$.
+If $K\ge0$, it is positive for every positive $P$; if $K<0$, it increases
+as $P$ decreases. A positive cycle at the search cap therefore excludes
+all smaller candidate periods. This strengthening uses the existing
+constraint graph and introduces no additional enumeration dimension.
+
+\subsection{Completed finite classification}
+The original, rank-pruned and chain-separated searches all complete the
+cap $168$, returning exactly the word $w_*$ of Appendix~\ref{app:witness}.
+Their internal prefix counts are:
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+cap & original & consecutive ranks & chain separation\\
+\midrule
+104 & 1,692 & 1,443 & 1,376\\
+120 & 26,874 & 18,644 & 17,566\\
+136 & 562,700 & 313,711 & 270,080\\
+152 & 5,781,232 & 2,164,812 & 1,739,460\\
+168 & 40,227,976 & 12,193,595 & 8,580,751\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each row completely searches every period not exceeding the cap.
+Every run accepts the same single normalized $104$-letter word.
+At cap $168$, chain separation reduces the rank-pruned prefix count by
+$29.63\%$, and the two rules together reduce the original count by
+$78.67\%$. A prefix is an internal enumeration state: it records a partial
+choice of class arrival strings and their forced matches.
+
+The supplement retains all three enumerators as a fixed source and small
+source-pinned overlays. Complete runs compare their accepted word lists.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+By Proposition~\ref{prop:upper}, every candidate has period at most $168$.
+Lemma~\ref{lem:extreme} places it in the normalized event domain.
+Proposition~\ref{prop:eventtest} and the complete enumeration cover every
+candidate in that domain. The count, cycle, and chronology rejections above
+cannot remove a realization. The complete output contains only $w_*$.
+The independently checked finite seed realizes $w_*^\omega$ and identifies
+it with a phase of the standard word. Thus existence and uniqueness both
+hold. The two pruning refinements supply further completed traversals of the
+same domain with the same unique output.
+\end{proof}
+
+\section{Exact verification and reproducibility}\label{sec:verification}
+The proof combines written coverage arguments with exact finite computations.
+The upper-bound checker regenerates the context graph and verifies every
+integer edge inequality. The classification checker regenerates the count
+completion tables, enumerates the ordered-event graphs and requires a
+completed traversal. Source hashes and deterministic reports identify the
+inputs and outputs of both stages.
+
+For a supplied seed $B$ and period word, an independent all-future verifier
+computes the read bit at phase $i$, epoch $k$ as
+\[
+ \ind_B(q_i+kd)\ \mathbin{\mathrm{xor}}\
+ \left(\#\{(j,s):q_j-q_i=sd,\ s>0\text{ or }(s=0,j<i),\
+                    s\le k\}\bmod2\right).
+\]
+The seed term has finitely many hits, and the historical-write term changes
+at finitely many thresholds. Checking zero, every threshold, every hit,
+and one epoch after each hit checks every constant interval, including the
+final infinite interval. This formula checks the full seed, including any
+black cells placed far along the future path.
+
+Controls include all rotations of the accepted seed, deletion of its active
+cells, a far-ahead blocker, and a deliberately interrupted search that must
+report a resource limit. Independent geometric controls test the rank and chain-separation rules,
+including decompositions of the genuine period into open chains and an
+explicit pair of chains whose rank orders would force overlapping intervals. The general budget checks cover exact local
+identities, all $104$ phases and four rotations of the standard word, and
+its first three powers with their corresponding drifts and wakes. A complete
+small inverse problem is cross-checked against all $32{,}766$ nonempty words
+through length $14$.
+
+The self-contained source and retained reports are in the
+\href{https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis}
+{wake synthesis project}. From the repository root,
+\begin{lstlisting}
+python3 wake_synthesis/reproduce.py
+\end{lstlisting}
+runs the complete uniqueness replay and the general algebraic checks.
+Adding \verb|--baseline| also repeats the original cap-$168$ enumeration;
+\verb|--search| runs the supplementary finite detour experiment.
+Python 3.10 or later and a C++17 compiler suffice. The computational
+acceptance conditions use exact integer or rational arithmetic.
+Build the manuscript with \texttt{make -C wake\_synthesis/paper}.
+
+\section{Conclusion}
+The complete standard wake is rigid: together with its full drift, it
+uniquely determines the classical $104$-step highway among finite-support
+periodic realizations. Local forbidden factors supply a universal period
+budget, and ordered class visits recover the only possible motion inside
+that budget. The general wake bounds extend the inverse-synthesis question
+to every non-axis drift. Further work can apply these methods to other
+complete wakes, compress the finite certificates, and connect wake
+constraints with the evolution from arbitrary finite initial states.
+
+\paragraph{AI assistance.}
+Generative AI assisted with developing and checking arguments, implementing
+verification programs, and revising the exposition.
+
+\appendix
+\section{Wake-dependent period bounds and inverse synthesis}\label{app:general}
+The standard-wake classification is one instance of a general inverse
+problem. Prescribe a non-axis drift $d$, an initial heading, and a finite
+set $O\subset\Z^2/\Z d$ of odd classes. We seek a periodic word and finite
+seed with exactly these data. The following bounds, developed in the first
+version~\cite{previous}, determine a finite search range directly from the
+input wake.
+
+Lemma~\ref{lem:criterion} gives $\#\R-\#\Lturn=|O|=:g$.
+Heading restoration implies $g\equiv0\pmod4$, $P$ even and $d_x+d_y$ even.
+For $d=(m,-m)$, the complete class label is $(x+y,x\bmod m)$.
+The checker-sector invariant $\sigma$ is determined by the supplied pose.
+
+\subsection{An integer clock for diagonal budgets}
 After rotating a diagonal drift parallel to $(1,-1)$, the transverse
 coordinate $x+y$ and heading return after each period. A clock using these
 quantities has a cancelling
@@ -136,7 +709,7 @@ If $e'=e$ the total gain is one. For $+1\to-1$ it is
 $1+2f(s)+G_-(s)-G_+(s)$, equal to one for $s\ge0$ and to $1+4f(s)$ for $s<0$.
 The other reversal gives the reflected cases. This includes $s=0$.
 \end{proof}
-\section{Diagonal wake budgets and crossing refinement}
+\subsection{Diagonal wake budgets and crossing refinement}
 Rotate a diagonal drift to $d=(m,-m)$, $m>0$, and use the transformed heading.
 Let $t=x+y$, let $o_t$ count odd classes at level $t$, and define
 \begin{equation}\label{eq:A}
@@ -213,18 +786,18 @@ Take $c=(\ell+h)/2$ in Theorem~\ref{thm:diagonal}, discard negative coefficients
 and use $\sum_t\max(A_t,0)\le g$ to obtain \eqref{eq:coarse}.
 \end{proof}
 
-For a phase of standard P104 with normalized drift $(2,-2)$ and $\sigma=1$,
-the coefficients $A_t$, for $t=-3,\ldots,7$, and the cut bounds are
-\begin{align*}
- A&=(2,-1,1,-1,1,-1,1,0,1,-1,2),\\
- C&=(2,5,16,47,142,145,48,16,5,2).
-\end{align*}
-Their cut sum is $428$, so \eqref{eq:cuts} gives $P\le856$.
-Equation~\eqref{eq:A} with $c=2$ gives the same value. The standard word
-certifies existence within this finite search domain; classifying every
-realization in the domain remains an explicit computational problem.
+For the normalized standard wake, $\sigma=-1$ and the coefficients at
+$t=-10,\ldots,0$ are
+\[
+ A=(2,-1,1,-1,1,-1,1,0,1,-1,2).
+\]
+The cut bounds are
+$C=(2,5,16,47,142,145,48,16,5,2)$, with sum $428$.
+Thus \eqref{eq:cuts} gives $P\le856$, as does \eqref{eq:A} with centre $c=-5$.
+The chronological constraints in Section~\ref{sec:upper} strengthen this
+budget to the cutoff used in the complete classification.
 
-\section{General non-axis drift by reciprocal moments}
+\subsection{General non-axis drift by reciprocal moments}
 For a general drift, use a transverse linear coordinate constant along it.
 An exponential weight and its reciprocal give complementary period budgets;
 Cauchy--Schwarz then bounds the number of steps independently of their
@@ -273,7 +846,7 @@ side is a computable cutoff. Changing the transverse centre scales $A_+$ and
 $A_-$ reciprocally, leaving the product unchanged. For axis drift the normal has
 a zero coordinate, so this construction cannot give positive $\kappa$.
 
-\section{All-period synthesis and detour obstruction}
+\subsection{All-period synthesis and detour obstruction}
 \begin{theorem}[Period-unknown inverse synthesis]\label{thm:inverse}
 Given a non-axis integer drift, an initial heading and a finite odd-class wake,
 existence of a finite-support periodic realization is decidable. A positive
@@ -290,16 +863,9 @@ Check its heading and drift, apply Lemma~\ref{lem:criterion}, and require the
 exact odd-class set. A passing word constructs a finite seed; complete finite
 exhaustion gives a negative answer. Completeness follows from the period bound.
 \end{proof}
-The implementation checks constructed seeds by a second, all-future formula.
-At phase $i$, epoch $n$, it evaluates
-\[
- \ind_B(q_i+nd)\ \mathbin{\mathrm{xor}}\
- \left|\{(j,s):q_j-q_i=sd,\ s>0\text{ or }(s=0,j<i),\ s\le n\}\right|\bmod2.
-\]
-Only finitely many initial black hits and previous-write thresholds can change
-this value. Checking all breakpoints also checks the last infinite interval.
-An optional execution cap reports \texttt{INCONCLUSIVE}, not a negative answer.
-The exhaustive search has up to $2^{B+1}-2$ candidate words for cutoff $B$.
+The all-future verifier of Section~\ref{sec:verification} independently
+checks the constructed finite seed. For cutoff $B$, enumeration visits at
+most $2^{B+1}-2$ nonempty binary words; the period bound guarantees termination.
 
 \begin{corollary}[No wake-preserving closed-pose insertion]
 Suppose realizable words $u,v$ have the same non-axis drift, and $v$ is obtained
@@ -319,65 +885,89 @@ Sum over the words and use the exact wake-increment equalities.
 \end{proof}
 Thus any such realizable detour requires an additional wake budget.
 
-\section{Exact verification and examples}
-The exact checker tests integer and rational increments, projected flow and
-full-period moment identities. All 104 standard phases, four rotations and
-powers one through three satisfy the $856$-scaled cutoff, giving 1,248 positive
-controls. Separate polynomial audits verify the local identities for arbitrary
-parameters and all integer-clock sign branches. The all-future breakpoint
-test verifies complete seeds, including remote initial black cells.
 
-For a known excluded-width control with drift $(1,-1)$ and heading $N$, take wake
-representatives
-\[ (0,-3),\quad (0,-1),\quad (0,0),\quad (0,1). \]
-The derived cutoff is 14.
-The pruned search exhausts 2,226 nodes and returns a negative answer; a separate
-enumeration of all 32,766 nonempty words through length 14 agrees.
-The standard wake supplies a positive witness; the full search through
-its cutoff 856 remains open.
+\section{The normalized word and a full finite witness}\label{app:witness}
+The unique word is the concatenation of the following four strings:
+\begin{center}\ttfamily\small
+RRRLRLLRRLLLLRRLLRRRRLLRRL\\RLLRLLRLRLLRRRRLLRLLRRRRLL\\RRRRLLRLRRRRLRLLLLRRRRLRRL\\RRRRLLLLRLRRRRLRRRRLLLLRLR
+\end{center}
+The four strings are concatenated without spaces and are checked against
+the machine-readable witness. Its period is $104$,
+with $58$ right turns, $46$ left turns, and drift $(2,-2)$.
+A complete finite seed, at the origin facing east, is
+\[
+\begin{split}
+ B_*=\{&(-7,0),(-7,1),(-6,-3),(-6,-2),(-6,-1),(-6,2),\\
+       &(-5,-2),(-5,0),(-5,1),(-5,2),(-4,-2),(-4,1),\\
+       &(-3,-3),(-3,1),(-2,-3),(-2,-1),(-2,1),(-1,-2),(-1,0)\}.
+\end{split}
+\]
+The exact per-class counts, bottom to top, are
+\[
+ (1,1),(4,3),(6,3),(5,6),(5,8),(7,8),
+ (10,7),(6,6),(3,6),(4,3),(1,1).
+\]
+The seed realizes the displayed trace from time zero, as certified by the
+all-future breakpoint check.
 
-A supplementary experiment inserts all 14,386 internally alternating
-closed-pose fragments of lengths at most 28 at all 104 standard boundaries.
-The 1,496,144 insertion pairs produce no additional realizable word.
-An independent Python search reproduces the complete smaller domain through
-length 20.
+\section{Certificate reconstruction specification}\label{app:certificate}
+To make the finite upper lemma reproducible independently of a numerical
+optimizer, the supplement specifies the following deterministic procedure.
+Use bits $0$ and $1$ for right and left. Branch on the first read of a new
+cell, and otherwise follow the colour left by its previous read. Explore
+first returns to the starting cell of length at most $20$, pruning only
+when the remaining unit moves cannot reach the start.
+Append the original starting bit at the return, include complements, and
+sort and deduplicate the resulting factors. Every proposed factor is then
+rechecked for an equal-bit consecutive reread.
 
-\section{Conclusion}
-A finite wake carries a quantitative budget for the period that produces it.
-The diagonal integer budget and crossing recurrence expose this relation
-combinatorially, while reciprocal exponential moments extend it to every
-non-axis drift. Together with exact finite-word realization, these bounds
-turn the prescribed-wake problem into a finite synthesis procedure.
-Extracting possible wakes from arbitrary initial states, treating axis drift
-and classifying the standard wake are further questions.
+Insert all factor prefixes into a trie, remove forbidden contexts, and
+use longest-suffix transitions. Place each retained context geometrically
+relative to its endpoint for each heading. Intersect these placements with
+the derived transverse interval and checker-sector constraint.
+This produces the full graph of Section~\ref{sec:upper}.
+Perform the degree-peeling reduction, regenerate the capped integer
+potential, and rescan every retained edge.
 
-\paragraph{Reproducibility.}
-The manuscript, proofs, exact checkers and retained reports are in the
-\href{https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis}{wake synthesis project}.
-From the repository root, \texttt{python3 wake\_synthesis/reproduce.py} runs
-the main checks using Python's standard library. Adding \texttt{--search}
-runs the finite detour experiment and requires a C++17 compiler.
-Build the paper with \texttt{make -C wake\_synthesis/paper}.
-The release manifest records source hashes and verification results.
+For the exact stage, regenerate the opposite-direction minimum-cost tables
+from \eqref{eq:counts}. Enumerate all arrival strings compatible with the row margins, perform the
+fixed stable edge match, and apply the exact rejection rules in
+Section~\ref{sec:search}. At the bottom, add the two singleton events before
+testing for one final cycle; a legitimate final cycle must not be confused
+with a prematurely closed component.
 
-\paragraph{AI assistance.}
-Generative AI assisted with developing and checking arguments, implementing
-verification programs, and revising the exposition.
+The supplementary manifest records every required source hash, accepted
+word, node count, and finite check result. The original, rank-pruned and chain-separated complete enumerations are
+reproducible.
 
 \begin{thebibliography}{9}
-\bibitem{jillhewar}
-A. Jillhewar, \emph{Finite-Support Periodic Highways of Langton's Ant:
+\bibitem{Gajardo2003}
+A.~Gajardo. A symbolic projection of Langton's ant.
+\emph{Discrete Mathematics \& Theoretical Computer Science Proceedings},
+AB, Discrete Models for Complex Systems (DMCS'03), 2003.
+\href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
+
+\bibitem{Jillhewar2026}
+A.~Jillhewar. \emph{Finite-Support Periodic Highways of Langton's Ant:
 Necessary Conditions, Transverse Exclusions, and Exact Search}, preprint, 2026.
 \href{https://doi.org/10.21203/rs.3.rs-10516269/v1}{doi:10.21203/rs.3.rs-10516269/v1}.
+Updated source inspected at
+\href{https://github.com/Atharva12456/langtons-ant-highway/blob/76a7e234e577d992d086c204c3dea00ae72cf10a/paper/main.tex}
+{revision \texttt{76a7e234e577}}.
 
 \bibitem{widthfour}
-A. Jillhewar, \emph{Width-four research log}, 21 July 2026, accompanying source
-note, \href{https://github.com/Atharva12456/langtons-ant-highway/blob/76a7e234e577d992d086c204c3dea00ae72cf10a/research-notes/width4_research_2026-07-21.md}{revision \texttt{76a7e234e577}}.
+A.~Jillhewar. \emph{Width-four research log}, 21 July 2026,
+\href{https://github.com/Atharva12456/langtons-ant-highway/blob/76a7e234e577d992d086c204c3dea00ae72cf10a/research-notes/width4_research_2026-07-21.md}
+{revision \texttt{76a7e234e577}}.
 
 \bibitem{clock}
-H. Ke, \emph{An Ant on the Clock: Exponential Escape Bounds for Langton's Ant},
+H.~Ke. \emph{An Ant on the Clock: Exponential Escape Bounds for Langton's Ant},
 Zenodo, version 0.4.0, 2026.
 \href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
 
+\bibitem{previous}
+H.~Ke. \emph{Reading the Wake: Period Bounds and Inverse Synthesis for
+Langton's Ant}, Zenodo, version 0.1.0, 2026. Previous version of this preprint.
+\href{https://doi.org/10.5281/zenodo.23402422}{doi:10.5281/zenodo.23402422}.
 \end{thebibliography}
 \end{document}

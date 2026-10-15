@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-15",
+  "base_commit": "0bcaad6ce318b79479f03e9c9d89cb3fcd4d4489",
+  "scope": "Same fixed standard wake and drift (2,-2); no HC entrance claim.",
+  "status": "passed",
+  "all_period_replayed": true,
+  "upper": {
+    "period_bound": 168,
+    "vertices": 54718,
+    "edges": 90158,
+    "maximum_edge_lhs": -1,
+    "potential_sha256": "bbacd2edc362df81f8a4e060bc89effe2b187c860d2073697420016d65ed060b"
+  },
+  "baseline": {
+    "status": "complete",
+    "cap": 168,
+    "prefixes": 40227976,
+    "order_rejections": 22123480,
+    "cycle_rejections": 2115882,
+    "solutions": 1
+  },
+  "optimized": [
+    {
+      "cap": 104,
+      "status": "complete",
+      "prefixes": 1443,
+      "order_rejections": 217,
+      "cycle_rejections": 92,
+      "rank_checks": 1896,
+      "rank_rejections": 343,
+      "solutions": 1,
+      "cost_table_sha256": "93cfade356d34357d4349377937246ced78c07944ae3c6fd59f8e8000e3cabd6"
+    },
+    {
+      "cap": 120,
+      "status": "complete",
+      "prefixes": 18644,
+      "order_rejections": 3147,
+      "cycle_rejections": 1006,
+      "rank_checks": 25933,
+      "rank_rejections": 5021,
+      "solutions": 1,
+      "cost_table_sha256": "7797698fe2ebbf8093ba2c16e4802b701d050610d3d42f23fdcdea40aec83e79"
+    },
+    {
+      "cap": 136,
+      "status": "complete",
+      "prefixes": 313711,
+      "order_rejections": 55056,
+      "cycle_rejections": 18101,
+      "rank_checks": 463090,
+      "rank_rejections": 102671,
+      "solutions": 1,
+      "cost_table_sha256": "124a788e80db390663ce9b57b6b5ff9a1fb2ed0c6f02a1721e068bbed70f09d1"
+    },
+    {
+      "cap": 152,
+      "status": "complete",
+      "prefixes": 2164812,
+      "order_rejections": 415360,
+      "cycle_rejections": 127727,
+      "rank_checks": 3295774,
+      "rank_rejections": 761427,
+      "solutions": 1,
+      "cost_table_sha256": "a0c3fbe8c8ea115f1525e1bf26f7b402297ad8a4f5d9828f8e6920a4ca4d59a6"
+    },
+    {
+      "cap": 168,
+      "status": "complete",
+      "prefixes": 12193595,
+      "order_rejections": 2454844,
+      "cycle_rejections": 663790,
+      "rank_checks": 18833783,
+      "rank_rejections": 4426304,
+      "solutions": 1,
+      "cost_table_sha256": "82c5c92c67d56425506e2b2a5cdc2d4a08716baaae740a51ffa318cc2bcdd033"
+    }
+  ],
+  "rank_predicate_tests": {
+    "standard_cyclic_chain_cases": 10816,
+    "random_path_graphs": 2000,
+    "rank_gap_controls": 2,
+    "accepted": 12016,
+    "rejected": 802,
+    "total_cases": 12818
+  },
+  "cache_trial": {
+    "status": "complete",
+    "cap": 168,
+    "prefixes": 12193595,
+    "memo_queries": 156458,
+    "memo_hits": 0,
+    "memo_saved": 156449,
+    "solutions": 1
+  },
+  "phase_count_trial": "No additional count rejection on the tested cap-152 search; cap-168 phase-only trial was incomplete.",
+  "controls": {
+    "rotations": 4,
+    "active_seed_deletions": 19,
+    "far_blocker": true,
+    "node_limit": true
+  },
+  "generated_source_sha256": "166337b30aa38ab2a46535a7d12ddcf9c0c6cb5d756b597a14bc60e108c962af",
+  "prerequisite_sha256": {
+    "counts.py": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc",
+    "glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+    "verify.py": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973"
+  },
+  "accepted_word": "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR",
+  "source_sha256": {
+    "chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+    "test_rank.cpp": "49225b5bdf3f4253189c0cbe270c260d69ee5004cc9e3b463bbe49e5590cf9a7",
+    "patch_search.py": "6204046dde2d364727418d8be19b41537ceb202edf348f521ef7d4934198659f"
+  },
+  "evidence_boundary": "Analytic soundness with native exact replay. No Lean or external peer review."
+}

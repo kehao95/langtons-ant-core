@@ -1,0 +1,297 @@
+{
+  "status": "passed",
+  "full_period_range_replayed": true,
+  "upper": {
+    "verified": true,
+    "period_bound": 168,
+    "forbidden_factors": 588,
+    "max_factor_length": 21,
+    "contexts": 4931,
+    "original_vertices": 54718,
+    "original_edges": 90158,
+    "retained_vertices": 24424,
+    "retained_edges": 37330,
+    "deleted_vertices": 30294,
+    "alpha": [
+      -50,
+      32,
+      -18,
+      8,
+      -2,
+      0,
+      -2,
+      8,
+      -18,
+      32,
+      -50
+    ],
+    "scale": 1,
+    "maximum_edge_lhs": -1,
+    "potential_range": [
+      0,
+      129
+    ],
+    "queue_pops": 89187,
+    "potential_updates": 71847,
+    "graph_recipe_sha256": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2",
+    "patterns_sha256": "b90a1fb95b8e59470750c42da62351cbdd696e6fb8469b7547656b0813d74d57",
+    "original_states_sha256": "db360cf4934ca775161802fadd4e9ea41fd19e9c4bf1f774faeeabb65eb461dd",
+    "original_edges_sha256": "8996563f6f25a8232f72aecf8b8929f6d8170861d3abc80f81bb421ddb5590eb",
+    "retained_vertices_sha256": "82524058ab2373520dd9819fe164fef10b5937ab350394bc81b77f847b04d1f9",
+    "deletion_order_sha256": "1c68274be19a307e11d768eb88dda473095782885767c4c9e362e8985cb1ae91",
+    "retained_edges_sha256": "bd734758464f88daca0a12c9e90d9825cb3f4fdca9f0ddeadea006dc5621dafd",
+    "potential_sha256": "3f06ab2fee5a1d09d57e704ac4e5b7c12057b6919d016ffca44657eb2efa951f",
+    "controls": {
+      "disconnected_cycles_and_self_loop_preserved": true,
+      "deletion_of_self_loop_rejected": true,
+      "deletion_of_actual_core_vertex_rejected": true,
+      "violated_edge_inequality_rejected": true
+    },
+    "no_optimizer_or_float_used": true
+  },
+  "chain_separation_controls": {
+    "standard_one_or_two_cut_embeddings_at_two_caps": 10920,
+    "independent_abstract_cycle_embeddings": 2000,
+    "literal_circle_packing_controls": 2,
+    "total_cases": 12922,
+    "rank_baseline_accepts_crossing_control": true,
+    "chain_separation_rejects_crossing_control": true
+  },
+  "rank_predicate_controls": {
+    "standard_cyclic_chain_cases": 10816,
+    "random_path_graphs": 2000,
+    "rank_gap_controls": 2,
+    "accepted": 12016,
+    "rejected": 802,
+    "total_cases": 12818
+  },
+  "optimized_runs": [
+    {
+      "status": "complete",
+      "cap": 104,
+      "prefixes": 1376,
+      "order_rejections": 211,
+      "cycle_rejections": 85,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "rank_checks": 1808,
+      "rank_rejections": 323,
+      "solutions": 1,
+      "seconds": 0.00168468,
+      "layers": [
+        1,
+        1,
+        1,
+        5,
+        8,
+        24,
+        1,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ],
+      "cost_table_sha256": "93cfade356d34357d4349377937246ced78c07944ae3c6fd59f8e8000e3cabd6"
+    },
+    {
+      "status": "complete",
+      "cap": 120,
+      "prefixes": 17566,
+      "order_rejections": 3038,
+      "cycle_rejections": 939,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "rank_checks": 24534,
+      "rank_rejections": 4736,
+      "solutions": 1,
+      "seconds": 0.0256276,
+      "layers": [
+        1,
+        1,
+        13,
+        35,
+        184,
+        170,
+        4,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ],
+      "cost_table_sha256": "7797698fe2ebbf8093ba2c16e4802b701d050610d3d42f23fdcdea40aec83e79"
+    },
+    {
+      "status": "complete",
+      "cap": 136,
+      "prefixes": 270080,
+      "order_rejections": 48603,
+      "cycle_rejections": 14767,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "rank_checks": 400398,
+      "rank_rejections": 88910,
+      "solutions": 1,
+      "seconds": 0.491046,
+      "layers": [
+        1,
+        1,
+        209,
+        1133,
+        2285,
+        178,
+        4,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ],
+      "cost_table_sha256": "124a788e80db390663ce9b57b6b5ff9a1fb2ed0c6f02a1721e068bbed70f09d1"
+    },
+    {
+      "status": "complete",
+      "cap": 152,
+      "prefixes": 1739460,
+      "order_rejections": 344091,
+      "cycle_rejections": 97645,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "rank_checks": 2664933,
+      "rank_rejections": 617471,
+      "solutions": 1,
+      "seconds": 3.67085,
+      "layers": [
+        1,
+        1,
+        4294,
+        6164,
+        11810,
+        178,
+        4,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ],
+      "cost_table_sha256": "a0c3fbe8c8ea115f1525e1bf26f7b402297ad8a4f5d9828f8e6920a4ca4d59a6"
+    },
+    {
+      "status": "complete",
+      "cap": 168,
+      "prefixes": 8580751,
+      "order_rejections": 1727626,
+      "cycle_rejections": 437863,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "rank_checks": 13291792,
+      "rank_rejections": 3156466,
+      "solutions": 1,
+      "seconds": 19.7871,
+      "layers": [
+        1,
+        1,
+        4667,
+        48149,
+        63829,
+        178,
+        4,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ],
+      "cost_table_sha256": "82c5c92c67d56425506e2b2a5cdc2d4a08716baaae740a51ffa318cc2bcdd033"
+    }
+  ],
+  "baselines": {
+    "rank": {
+      "status": "complete",
+      "cap": 168,
+      "prefixes": 12193595,
+      "order_rejections": 2454844,
+      "cycle_rejections": 663790,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "rank_checks": 18833783,
+      "rank_rejections": 4426304,
+      "solutions": 1,
+      "seconds": 23.4812,
+      "layers": [
+        1,
+        1,
+        7249,
+        55134,
+        93882,
+        178,
+        4,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ]
+    },
+    "original": {
+      "status": "complete",
+      "cap": 168,
+      "prefixes": 40227976,
+      "order_rejections": 22123480,
+      "cycle_rejections": 2115882,
+      "budget_rejections": 0,
+      "top_rejections": 0,
+      "solutions": 1,
+      "seconds": 74.208,
+      "layers": [
+        1,
+        1,
+        36557,
+        140297,
+        347513,
+        15437,
+        80,
+        6,
+        3,
+        1,
+        0
+      ],
+      "words": [
+        "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+      ]
+    }
+  },
+  "generated_source_sha256": "9b976fad95ba1cda1be368cbe8a768aa6c49af0eb8d380e1a78033b83bf05506",
+  "prerequisite_sha256": {
+    "counts.py": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc",
+    "glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+    "verify.py": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973"
+  },
+  "source_sha256": {
+    "patch_search.py": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e",
+    "reproduce.py": "464d5960c5f0db0caef50ade496cfa6caa62bdbb95e511a6b504febd08e6670e",
+    "test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef"
+  },
+  "accepted_word": "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR",
+  "controls": {
+    "rotations": 4,
+    "active_seed_deletions": 19,
+    "far_blocker": true,
+    "node_limit": true
+  },
+  "scope": "Only the specified full standard wake and drift; no entrance theorem."
+}

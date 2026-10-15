@@ -1,45 +1,53 @@
-# Wake-determined periods and inverse synthesis
+# Standard-wake uniqueness and inverse synthesis
 
-Given a non-axis drift, an initial heading and a finite set of odd translation
-classes, one can decide whether any periodic finite-support realization exists,
-without specifying its period. A positive answer constructs a word and finite seed.
-
-For diagonal drift, the integer clock gives `P<=K_c(O)` and a crossing recurrence
-sharpens the cutoff. With wake growth g and width W, `P<=g(3^(W/2)-1)`.
-For general non-axis drift, reciprocal wake moments give
-`P^2<=A_+ A_-/kappa^2`. The standard wake has cutoff 856 and a certified
-104-step witness; enumeration of the full 856 domain remains open.
+The complete twelve-class standard wake and full drift `(2,-2)` determine the
+standard period-104 read trace uniquely. An integer period bound reduces the
+all-period statement to a complete ordered-event enumeration. The project also
+retains the general decision procedure for prescribed finite wakes and non-axis
+drift: it computes a period cutoff and constructs a word and finite seed whenever
+one exists.
 
 ## Paper and proof
 
-Hao Ke, *Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant*.
+Hao Ke, *Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake*.
+Version **0.2.0** is being prepared as an update to the existing preprint.
 
-- [Zenodo 0.1.0](https://doi.org/10.5281/zenodo.23402422),
-  [published PDF](release/v0.1.0/paper.pdf), [LaTeX source](paper/main.tex), [proof](PROOF.md).
-- [Evidence and exact audit](evidence/README.md), [literature](paper/LITERATURE.md).
-- [Release records](release/README.md): published first preprint, version 0.1.0.
+- [Current manuscript](paper/main.tex), [prepared PDF](release/v0.2.0/paper.pdf),
+  [proof](PROOF.md), and [evidence](evidence/README.md).
+- [Published 0.1.0](https://doi.org/10.5281/zenodo.23402422), titled
+  *Reading the Wake: Period Bounds and Inverse Synthesis for Langton's Ant*;
+  [exact published PDF](release/v0.1.0/paper.pdf).
+- [Release records and update package](release/README.md),
+  [literature](paper/LITERATURE.md).
 
-The integer clock's primary treatment belongs to [clock and escape](../clock_escape/).
-This paper develops its wake budgets, general non-axis moments, inverse algorithm
-and closed-pose insertion corollary. The finite-word realization criterion is
-credited to Jillhewar. The proofs are analytic, with exact implementation and
-coefficient checks; this project has no Lean formalization.
+The theorem fixes every odd translation class, including its longitudinal
+residue, and the full drift. The classification concerns periodic read traces;
+complete finite initial fields may also contain unread cells. General period
+budgets and inverse synthesis from version 0.1.0 remain in the revised paper.
+The integer clock is developed in [the clock companion](../clock_escape/),
+and the supplied-word realization criterion is attributed to Jillhewar.
 
 ## Reproduce
 
 ```sh
 python3 wake_synthesis/reproduce.py
+python3 wake_synthesis/reproduce.py --baseline
 python3 wake_synthesis/reproduce.py --search
 make -C wake_synthesis/paper
+python3 tools/prepare_preprints.py --project wake_synthesis
 ```
 
-Python 3.10+ and the standard library suffice for the main checks. The optional
-finite detour experiment also needs g++ with C++17. Reproduction works in a
-disposable directory and compares retained reports. The project is self-contained.
+Python 3.10+ and g++ with C++17 and undefined-behavior sanitizer support are
+required. The default command verifies the
+algebraic evidence, reconstructs the upper certificate, and completes the
+standard-wake uniqueness search. `--baseline` additionally repeats the original
+unpruned enumeration; `--search` adds the earlier finite detour experiment.
+Checks work in a disposable directory and preserve retained evidence. The source
+archive is self-contained. Mathematical coverage is established in the proof;
+finite calculations use exact integer arithmetic.
 
 ## Open
 
-Version 0.1.0 is published as record 23402422, with verified public downloads.
-External mathematical review of the cutoff and completeness arguments remains
-a next step. Classifying every realization of the standard wake remains an
-open computational problem.
+Review and publish the prepared 0.2.0 update in the existing Zenodo concept
+23402421, then pursue independent mathematical review and journal preparation.
+The currently published version remains 0.1.0.

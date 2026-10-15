@@ -1,0 +1,8 @@
+check.py: PASS
+audit.py: PASS
+audit_integer.py: PASS
+audit_trace.py: PASS
+standard wake counts and congruence: PASS
+4,000 partial-cycle controls with UBSan: PASS
+standard wake uniqueness: PASS; cap=168, prefixes=8,580,751, one P104 word
+WAKE SYNTHESIS AND STANDARD-WAKE UNIQUENESS: PASS

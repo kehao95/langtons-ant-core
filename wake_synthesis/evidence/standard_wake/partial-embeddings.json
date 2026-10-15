@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "partial_periodic_embeddings": 4000,
+  "random_seed": 19062026,
+  "period_range": [
+    8,
+    168
+  ],
+  "cap_range": [
+    8,
+    184
+  ],
+  "strictly_omitted_event_phases_in_every_case": true,
+  "cases_with_period_strictly_below_cap": 3140,
+  "all_declared_completions_accepted": true,
+  "undefined_behavior_sanitizer_passed": true,
+  "generated_source_sha256": "9b976fad95ba1cda1be368cbe8a768aa6c49af0eb8d380e1a78033b83bf05506",
+  "control_input_sha256": "96ac995067a0c48c8d9764f5789dd2b48f846310d308959108e1aa90c7b3a1e8",
+  "source_sha256": {
+    "inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+    "rank/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+    "rank/patch_search.py": "6204046dde2d364727418d8be19b41537ceb202edf348f521ef7d4934198659f",
+    "review/check.py": "0407c0e8cc36b669ca1043af352c7f58bef82b5fe0470dba28cfb9ec62cd83ef",
+    "search/patch_search.py": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e",
+    "search/test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef"
+  },
+  "scope": "Independent positive controls for the chain lemma; abstract periodic embeddings, not new ant realizations or exclusions."
+}

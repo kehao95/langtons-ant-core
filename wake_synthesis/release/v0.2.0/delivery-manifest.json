@@ -1,0 +1,15 @@
+{
+  "files": {
+    "Standard-Wake-Uniqueness.pdf": {
+      "bytes": 338095,
+      "sha256": "8d189dfad1c2fab403686bb442dc5bd28e88e37df3232fa1dc26f53db7263300"
+    },
+    "wake_synthesis-0.2.0-source.zip": {
+      "bytes": 95486,
+      "sha256": "4bf60589ce35294a44194ba45779af7498538640901050b9f023bf38c014fd7d"
+    }
+  },
+  "project": "wake_synthesis",
+  "submitted": false,
+  "version": "0.2.0"
+}
