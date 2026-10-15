@@ -1,6 +1,9 @@
 # Proof and verification audit — 2026-10-13
 
-The manuscript and scientific sources are identified by the
+This records the **published 0.2.0 proof** and its original validation. The
+current critical strengthening is documented in [its audit](critical/README.md).
+
+The published manuscript and scientific sources are identified by the
 [published source manifest](../release/published-source-manifest.json). This is an agent-led internal audit with separately implemented code,
 not independent third-party peer review. No mathematical counterexample or
 failure of the claimed constant was found in this audit.

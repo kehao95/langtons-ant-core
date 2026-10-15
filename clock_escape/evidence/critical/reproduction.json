@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "scope": "critical strengthening only",
+  "source_commit": "c8e280096572b39fd4db4ba91a2fc49bf86d80ff",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "sha256": {
+    "verification/critical/audit.py": "a7ed9f95b91fd2e7da24313c3f2bfed15f62760bb442af6cfcbc0124a213b2f0",
+    "verification/critical/check.py": "a3230d08f1e0d395662b595a4d6c6337036332eba4c8abbb3e0163e8b39cb4f8",
+    "verification/critical/critical.py": "945f4b818738abc40e7919054b64dabe22476b5fcfc31aacf608db76a979a65d",
+    "verification/critical/symbolic_check.py": "65642f5fa0ab7ec5e9b22a53f71864275d23865c6b8c91725438cfed34874120",
+    "PROOF.md": "b4661c74f194ba1a45c27fb3181f5cd39377725ee173b3d7e769d6331da3901a",
+    "paper/main.tex": "2acf0c699c06541b2b28238dcefed05432b3b923248253d7b8722cc7821c4544",
+    "reproduce.py": "0b543d86db0b5fc9af6306fa4cc8863f8887708a707ee3fecb0c1a3dcb43cda3",
+    "evidence/critical/check_results.json": "26abf29a51343b1bf9ca677def3a4b7557f8d46ae41a979c781df870cb1c03ac",
+    "evidence/critical/audit.json": "aab9e0df22252ddb6dc69ffa9e51d2199dc5ca2023b56e4fff99e603e5bcec55"
+  },
+  "original_report_reproduced_byte_for_byte": true,
+  "independent_laurent_audit_reproduced_byte_for_byte": true,
+  "new_lean_formalization": false
+}

@@ -1,50 +1,56 @@
 # Rational clocks and exponential escape
 
-For an axis-aligned square of n cells per side, n ≥ 1, first exit takes at most
-**8 n 3ⁿ + 1 updates**, uniformly over all internal colours and ant poses,
-with arbitrary exterior colours. The count includes the move out.
+For an axis-aligned square of n cells per side, first exit satisfies
 
-An explicit rational clock increases at every update. Its finite range inside
-the square gives the escape bound. On complete finite-support states, the same
-clock yields decidable reachability, orbit equivalence and a computable orbit section.
+`T <= 4 floor(3 R_n / 16) + 4 <= (13/4) 3^n + 4`,
 
-## Paper
+where `R_n = 13*3^(n-1) - 6 - 3^(2-n)`. This improves the previous
+`8*n*3^n+1` estimate to **O(3ⁿ)**. For N columns and fixed height H,
 
-Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant*,
-version 0.2.0.
-[Zenodo](https://doi.org/10.5281/zenodo.23341604) ·
-[PDF](paper/paper.pdf) · [Source](paper/main.tex).
+`T <= floor((9/2)(NH+16)(4N+1)^floor(H/2)) + 3`,
+
+giving **O_H(N^(floor(H/2)+1))**. Both bounds include the exit move and
+cover every internal colouring and pose, with arbitrary exterior colours.
+
+The critical potential has positive local increments and uniformly positive
+short-block costs. A related rational clock also gives decidable complete-state
+reachability, orbit equivalence and a computable orbit section.
+
+## Paper and proof
+
+Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton’s Ant*.
+
+- Current strengthened [source](paper/main.tex), [review PDF](paper/review.pdf)
+  and [proof](PROOF.md), revised 15 October 2026.
+- Published version **0.2.0**: [Zenodo](https://doi.org/10.5281/zenodo.23341604)
+  and its unchanged [PDF](paper/paper.pdf). It states the earlier valid bound.
+- [Critical proof audit](evidence/critical/README.md),
+  [literature comparison](paper/LITERATURE.md) and [release state](release/README.md).
+
+This strengthens the existing paper; it is not a fourth publication project.
+The current revision has not been uploaded to Zenodo.
 
 ## Reproduce
 
-From the repository root, with Python 3.10+ and Lean 4.30.0:
+From the repository root:
 
 ```sh
+python3 clock_escape/reproduce.py --critical-only
 python3 clock_escape/reproduce.py
 make -C clock_escape/paper
 ```
 
-The verifier uses only bundled sources, Python’s standard library and Lean
-without Mathlib. It checks the local lemmas, exact rational identities,
-small-square state graphs, complete-state algorithms and integer certificates.
-The paper build uses pdfLaTeX and writes `paper/build/paper.pdf`.
-The checked-in `paper/paper.pdf` is the exact published PDF.
+The first command checks the new critical proof with Python 3.10+ and the
+standard library. It reproduces retained reports in a disposable copy and
+checks all eight identities by independent exact polynomial arithmetic.
+The full command additionally reproduces the established clock evidence and
+Lean 4.30.0 local lemmas. The PDF build uses pdfLaTeX and writes `paper/build/`.
 
-## Sources
-
-| Path | Contents |
-|---|---|
-| [paper/](paper/) | Analytic proof, literature comparison and published PDF |
-| [lean/](lean/) | Local algebra, positivity and telescoping lemmas |
-| [verification/](verification/) | Independent checkers, baseline implementation and certificates |
-| [evidence/](evidence/README.md) | Proof audit, exact results and Lean axiom output |
-| [release/](release/README.md) | Published version, source manifest and publication receipt |
-
-The analytic proof establishes the full escape theorem. Lean covers the local
-algebra and interval argument. Independent finite checks cover all 4,213,000
-colour/pose states for square side lengths 1 through 4.
+The new global range and block arguments are analytic. Lean continues to cover
+the supercritical local algebra and telescoping, as documented in the
+[earlier audit](evidence/README.md); it does not formalize the new bounds.
 
 ## Open
 
-Mathematical peer review, broader literature checking and journal preparation
-(Natural Computing candidate).
+External mathematical review of the stronger square and rectangular estimates,
+then a versioned update of the existing preprint and journal preparation.

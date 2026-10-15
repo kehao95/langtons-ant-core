@@ -292,3 +292,11 @@ threshold and four-cell completion theorem. Completion preserves any prescribed
 finite observed history by adding four remote initially black cells. Its
 quantifiers concern the augmented input; the original finite-support HC remains
 the independent research target described here.
+
+## Critical clocks
+
+The [updated clock proof](../clock_escape/PROOF.md) removes the factor n from
+the square escape bound and improves the fixed-height rectangle degree for
+H>=6. This strengthens finite-domain timing; the global entrance question
+remains the open HC obligation. The new work belongs to the existing clock
+paper and is reproducible with `python3 clock_escape/reproduce.py --critical-only`.

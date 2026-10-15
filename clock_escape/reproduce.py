@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Replay precisely the clock paper evidence, without unrelated HC checks."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import shutil
@@ -22,9 +23,40 @@ def run(args, logfile=None, cwd=HERE):
         raise SystemExit(p.returncode)
 
 
+def run_critical():
+    source = HERE / 'verification/critical'
+    evidence = EVIDENCE / 'critical'
+    with tempfile.TemporaryDirectory(prefix='critical-clock-') as name:
+        work = Path(name)
+        shutil.copytree(source, work / 'module', ignore=shutil.ignore_patterns('__pycache__'))
+        for script, output in [('check.py', 'check_results.json'), ('audit.py', 'audit.json')]:
+            result = subprocess.run([sys.executable, script], cwd=work / 'module',
+                                    capture_output=True, check=True)
+            if result.stdout != (evidence / output).read_bytes():
+                raise SystemExit(f'Critical evidence mismatch: {output}')
+            print(f'Critical {script}: PASS')
+    sources = [*sorted(source.glob('*.py')), HERE / 'PROOF.md', HERE / 'paper/main.tex',
+               HERE / 'reproduce.py', evidence / 'check_results.json', evidence / 'audit.json']
+    report = {'status': 'passed', 'scope': 'critical strengthening only',
+              'source_commit': 'c8e280096572b39fd4db4ba91a2fc49bf86d80ff', 'python': sys.version,
+              'sha256': {str(p.relative_to(HERE)): hashlib.sha256(p.read_bytes()).hexdigest()
+                         for p in sources},
+              'original_report_reproduced_byte_for_byte': True,
+              'independent_laurent_audit_reproduced_byte_for_byte': True,
+              'new_lean_formalization': False}
+    (evidence / 'reproduction.json').write_text(json.dumps(report, indent=2) + '\n')
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--critical-only', action='store_true',
+                        help='verify only the new critical-potential strengthening')
+    args = parser.parse_args()
     if sys.flags.optimize:
         raise SystemExit('Do not use -O')
+    run_critical()
+    if args.critical_only:
+        return
     run([sys.executable,str(HERE/'verification/check.py')])
     baseline=HERE/'verification/baseline/diagonal_clock.py'
     checker=HERE/'verification/check_clock_paper.py'

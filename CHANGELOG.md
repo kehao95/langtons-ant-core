@@ -1,5 +1,16 @@
 # Repository changes
 
+## 2026-10-15 — Critical clock strengthening
+
+Imported the new critical-potential proof into `clock_escape/`: square first
+exit is O(3^n), and fixed-height rectangles have degree floor(H/2)+1.
+Added independent exact Laurent-polynomial checks, an isolated reproduction
+option, an integrated eight-page review manuscript and current source hashes.
+The source repository receives the localized-potential clarification and
+independent audit. The original published PDFs, DOI records and Lean proofs
+are unchanged; no additional publication project is introduced.
+
+
 ## 2026-10-15 — Sharp four-cell outgoing ports
 
 Added `four_cell_port/` as a third independent project: sharp three-black

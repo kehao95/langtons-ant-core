@@ -18,3 +18,12 @@ preserves the old paths and commands. Current reproduction commands are in
 All three released files passed SHA256 download verification. The published
 archive includes the full baseline implementation, numerical certificates and
 verification evidence. Its declared license is CC BY 4.0.
+
+## Current source revision — 15 October 2026
+
+The working manuscript now proves the critical square and fixed-height
+rectangle bounds. [Review PDF](../paper/review.pdf) and
+[current source manifest](current-source-manifest.json) identify this revision.
+The published `paper.pdf`, original manifests and DOI above remain unchanged.
+No Zenodo call was made for this integration; a future release should update
+this existing preprint's version chain.

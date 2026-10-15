@@ -20,7 +20,9 @@ with exponential square-escape bounds, and sharp four-cell outgoing ports.
 - Every executable check names the proof step it witnesses. Independent
   implementations used for cross-checking remain independent.
 - The complete one-black theorem is Lean-checked; the full escape theorem is
-  analytic, with local algebra and telescoping formalized in Lean. The four-cell
+  analytic, with supercritical local algebra and telescoping formalized in Lean.
+  The critical O(3^n) square and fixed-height rectangle bounds have analytic
+  proofs and exact Laurent-polynomial checks; those new proofs are not in Lean. The four-cell
   result combines analytic reductions with exact computational certificates.
 - Preserve published PDFs and source manifests. Rebuilt PDFs go to ignored
   `paper/build/` directories; release manifests describe historical snapshots.
@@ -32,6 +34,7 @@ with exponential square-escape bounds, and sharp four-cell outgoing ports.
 ```sh
 python3 one_black/reproduce.py
 python3 clock_escape/reproduce.py
+python3 clock_escape/reproduce.py --critical-only
 python3 four_cell_port/reproduce.py
 python3 research/check.py
 make -C one_black/paper

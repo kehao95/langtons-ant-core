@@ -1,0 +1,253 @@
+{
+  "schema": "langtons-ant-critical-clock-check-v1",
+  "status": "passed",
+  "arithmetic": "exact integers and rational fractions",
+  "counts": {
+    "local_identity_cases": 3000,
+    "four_update_cases": 6400,
+    "vertical_pair_cases": 10608,
+    "rectangle_range_cases": 144,
+    "square_range_cases": 12,
+    "small_rectangle_literal_updates": 86584,
+    "small_rectangle_complete_states": 28808,
+    "external_archive_update_cases": 575,
+    "external_archive_trajectories": 80,
+    "rejected_invalid_inputs": 8
+  },
+  "four_step_sharp_witness": {
+    "n": 2,
+    "pos": [
+      0,
+      0
+    ],
+    "heading": 2,
+    "word": "LLLL",
+    "black": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "increase": "16/3"
+  },
+  "small_rectangles": [
+    {
+      "n": 1,
+      "h": 1,
+      "all_initial_states": 8,
+      "exact_max_exit": 1,
+      "witness": {
+        "initial_mask": 0,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "bound_used": 3
+    },
+    {
+      "n": 2,
+      "h": 1,
+      "all_initial_states": 32,
+      "exact_max_exit": 2,
+      "witness": {
+        "initial_mask": 0,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "bound_used": 5
+    },
+    {
+      "n": 3,
+      "h": 1,
+      "all_initial_states": 96,
+      "exact_max_exit": 2,
+      "witness": {
+        "initial_mask": 0,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "bound_used": 7
+    },
+    {
+      "n": 4,
+      "h": 1,
+      "all_initial_states": 256,
+      "exact_max_exit": 2,
+      "witness": {
+        "initial_mask": 0,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "bound_used": 9
+    },
+    {
+      "n": 2,
+      "h": 2,
+      "all_initial_states": 256,
+      "exact_max_exit": 6,
+      "witness": {
+        "initial_mask": 1,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 1
+      },
+      "bound_used": 28
+    },
+    {
+      "n": 3,
+      "h": 2,
+      "all_initial_states": 1536,
+      "exact_max_exit": 12,
+      "witness": {
+        "initial_mask": 10,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "bound_used": 78
+    },
+    {
+      "n": 4,
+      "h": 2,
+      "all_initial_states": 8192,
+      "exact_max_exit": 18,
+      "witness": {
+        "initial_mask": 22,
+        "pos": [
+          0,
+          1
+        ],
+        "heading": 2
+      },
+      "bound_used": 138
+    },
+    {
+      "n": 3,
+      "h": 3,
+      "all_initial_states": 18432,
+      "exact_max_exit": 17,
+      "witness": {
+        "initial_mask": 2,
+        "pos": [
+          0,
+          0
+        ],
+        "heading": 0
+      },
+      "bound_used": 84
+    }
+  ],
+  "square_bounds": [
+    {
+      "n": 1,
+      "certified_square_exit_bound": 4,
+      "square_range_upper": "4",
+      "exact_range_upper": "0"
+    },
+    {
+      "n": 2,
+      "certified_square_exit_bound": 28,
+      "square_range_upper": "32",
+      "exact_range_upper": "32/3"
+    },
+    {
+      "n": 3,
+      "certified_square_exit_bound": 84,
+      "square_range_upper": "332/3",
+      "exact_range_upper": "416/9"
+    },
+    {
+      "n": 4,
+      "certified_square_exit_bound": 260,
+      "square_range_upper": "3104/9",
+      "exact_range_upper": "5552/27"
+    },
+    {
+      "n": 5,
+      "certified_square_exit_bound": 788,
+      "square_range_upper": "28268/27",
+      "exact_range_upper": "56384/81"
+    },
+    {
+      "n": 6,
+      "certified_square_exit_bound": 2368,
+      "square_range_upper": "255392/81",
+      "exact_range_upper": "575072/243"
+    },
+    {
+      "n": 7,
+      "certified_square_exit_bound": 7104,
+      "square_range_upper": "2301452/243",
+      "exact_range_upper": "5389280/729"
+    },
+    {
+      "n": 8,
+      "certified_square_exit_bound": 21320,
+      "square_range_upper": "20721824/729",
+      "exact_range_upper": "50525936/2187"
+    },
+    {
+      "n": 9,
+      "certified_square_exit_bound": 63968,
+      "square_range_upper": "186522668/2187",
+      "exact_range_upper": "460903040/6561"
+    },
+    {
+      "n": 10,
+      "certified_square_exit_bound": 191908,
+      "square_range_upper": "1678782752/6561",
+      "exact_range_upper": "4204583072/19683"
+    },
+    {
+      "n": 11,
+      "certified_square_exit_bound": 575724,
+      "square_range_upper": "15109280972/19683",
+      "exact_range_upper": "38011551776/59049"
+    },
+    {
+      "n": 12,
+      "certified_square_exit_bound": 1727180,
+      "square_range_upper": "135984237344/59049",
+      "exact_range_upper": "343645159472/177147"
+    }
+  ],
+  "source_sha256": {
+    "critical.py": "945f4b818738abc40e7919054b64dabe22476b5fcfc31aacf608db76a979a65d",
+    "check.py": "a3230d08f1e0d395662b595a4d6c6337036332eba4c8abbb3e0163e8b39cb4f8"
+  },
+  "not_claimed": [
+    "HC",
+    "finite HC counterexample",
+    "optimal rectangular escape",
+    "Lean formalization",
+    "external independent review",
+    "priority completeness"
+  ]
+}

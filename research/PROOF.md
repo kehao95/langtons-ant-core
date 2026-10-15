@@ -205,3 +205,13 @@ Bounded residues make both sides vanish for unbounded `n`, so
 no uniform tally. A successful constructor changes at least one of its
 finite-phase, one-cell-per-column, fixed-axis, bounded-residue, or exact-
 restoration hypotheses.
+
+
+## Critical escape strengthening — 15 October 2026
+
+The [clock proof](../clock_escape/PROOF.md) now gives square first exit by
+`4 floor(3 R_n/16)+4 <= (13/4)3^n+4`, with
+`R_n=13*3^(n-1)-6-3^(2-n)`, and fixed-height rectangular degree
+`floor(H/2)+1`. These bounds concern first exit from a finite observation region.
+They do not bound re-entry count or supply a bound on standard-highway entry.
+[Verification and integration](../clock_escape/evidence/critical/README.md).

@@ -36,3 +36,17 @@ not establish worldwide priority; no “first” or “best-known” language is
 includes theoretical natural computing, and the journal published the highway
 paper above. This supports topic fit only. Submission is not performed and no
 fee, timing, acceptance probability or venue-specific compliance claim is made.
+
+## Critical revision — 15 October 2026
+
+The [official proceedings PDF](https://drops.dagstuhl.de/storage/00lipics/lipics-vol386-mfcs2026/LIPIcs.MFCS.2026.49/LIPIcs.MFCS.2026.49.pdf)
+was checked again, including Theorem 12 on page 49:15. For width N at least
+height H, it gives polynomial degrees H−1 for even H and H−2 for odd H.
+The [extended preprint, Theorem 14](https://arxiv.org/html/2606.26677v1#S4.SS4)
+contains the same parity-dependent estimate. The new degree floor(H/2)+1 is
+strictly smaller for H>=6; the known linear H=2,3 estimates remain stronger.
+
+The current square result removes the extra factor n from our prior
+exponential estimate. This is a revision of the clock paper, retaining its
+complete-state algorithms. No new priority claim is based solely on this
+comparison, and the polynomial square-escape question remains open.

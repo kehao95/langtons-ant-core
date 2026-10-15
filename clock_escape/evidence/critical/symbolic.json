@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "identities": [
+    {
+      "heading": 0,
+      "black": false,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 0,
+      "black": true,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 1,
+      "black": false,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 1,
+      "black": true,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 2,
+      "black": false,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 2,
+      "black": true,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 3,
+      "black": false,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    },
+    {
+      "heading": 3,
+      "black": true,
+      "residual_before_critical_substitution": "(U**2 + 1)*(V**2 + 1)*(a*b - a - b - 3)/(U*V*(a + 1)*(b + 1))",
+      "critical_residual": "0"
+    }
+  ]
+}

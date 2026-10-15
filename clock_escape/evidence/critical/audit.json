@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "method": "exact Laurent polynomial coefficients; no source imports or CAS",
+  "universal_local_identities": 8,
+  "universal_square_decompositions": 5,
+  "block_cases": {
+    "opposite_pairs": 8,
+    "constant_four_blocks": 8,
+    "four_turn_words": 16,
+    "horizontal_pairs": 8
+  },
+  "square_formula_sizes": 100,
+  "exit_pair_count_cases": 200,
+  "square_bounds": [
+    {
+      "n": 1,
+      "square_bound": 4
+    },
+    {
+      "n": 2,
+      "square_bound": 28
+    },
+    {
+      "n": 3,
+      "square_bound": 84
+    },
+    {
+      "n": 4,
+      "square_bound": 260
+    },
+    {
+      "n": 6,
+      "square_bound": 2368
+    },
+    {
+      "n": 8,
+      "square_bound": 21320
+    },
+    {
+      "n": 12,
+      "square_bound": 1727180
+    },
+    {
+      "n": 16,
+      "square_bound": 139901840
+    }
+  ]
+}
