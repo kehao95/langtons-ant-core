@@ -1,0 +1,352 @@
+{
+  "base_commit": "7a8101ee9827d2f060853e70a2804c0fd5c9117e",
+  "claim": "all-parameter positive family and a failed event-count-only age closure; not HC",
+  "endpoints": {
+    "universal_affine_endpoint_equalities": 20
+  },
+  "factor_counts": {
+    "J10_from_update_9_onwards": 532,
+    "J10_strictly_between_birth_and_return": 264,
+    "allowed_factors": 84,
+    "basis": "remove only full standard cycles; no use of factor-rigidity theorem",
+    "factor_length": 10,
+    "last_J10_relative_to_return": 782
+  },
+  "finite_family": {
+    "literal_updates": 303568,
+    "parameters": [
+      {
+        "S128_strictly_between": 31,
+        "age": 10904,
+        "birth": 60,
+        "complete_standard_state_cells": 1424,
+        "consumption": 10964,
+        "exact_standard_entry": 11738,
+        "full_collision_cells": 1352,
+        "full_collision_sha256": "48e6eae88426a164564e09fa867e9f0463e38bcd3b143a97969fb1d66fb2b25d",
+        "input_cells": 20,
+        "n": 20
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 12152,
+        "birth": 60,
+        "complete_standard_state_cells": 1568,
+        "consumption": 12212,
+        "exact_standard_entry": 12986,
+        "full_collision_cells": 1496,
+        "full_collision_sha256": "f11f188fb271ca9b3e19d6f2d145b50cd48515bdccc80495d46a56cafeefc514",
+        "input_cells": 20,
+        "n": 22
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 13400,
+        "birth": 60,
+        "complete_standard_state_cells": 1712,
+        "consumption": 13460,
+        "exact_standard_entry": 14234,
+        "full_collision_cells": 1640,
+        "full_collision_sha256": "3d35cf99f800002c2aa172adcfbbd23109772fd2b7d4481ac88d9ace157ff6f3",
+        "input_cells": 20,
+        "n": 24
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 17144,
+        "birth": 60,
+        "complete_standard_state_cells": 2144,
+        "consumption": 17204,
+        "exact_standard_entry": 17978,
+        "full_collision_cells": 2072,
+        "full_collision_sha256": "6e586b79576aee30170747bb0ccb39c4934b4e79755b41af90ffee86f4749b04",
+        "input_cells": 20,
+        "n": 30
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 23384,
+        "birth": 60,
+        "complete_standard_state_cells": 2864,
+        "consumption": 23444,
+        "exact_standard_entry": 24218,
+        "full_collision_cells": 2792,
+        "full_collision_sha256": "b618c020d8fe95bf0d62c3496fa374a5910247a1fda412d1a124c19236da326c",
+        "input_cells": 20,
+        "n": 40
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 35864,
+        "birth": 60,
+        "complete_standard_state_cells": 4304,
+        "consumption": 35924,
+        "exact_standard_entry": 36698,
+        "full_collision_cells": 4232,
+        "full_collision_sha256": "eb1632830625bd061364622b18f632ffd842b6efcb1f1106022229ab343e8288",
+        "input_cells": 20,
+        "n": 60
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 60824,
+        "birth": 60,
+        "complete_standard_state_cells": 7184,
+        "consumption": 60884,
+        "exact_standard_entry": 61658,
+        "full_collision_cells": 7112,
+        "full_collision_sha256": "4b35b0b2a0030468894b271bec063e1bc3da9b0fa13f0c5d06b80b5168103c73",
+        "input_cells": 20,
+        "n": 100
+      },
+      {
+        "S128_strictly_between": 31,
+        "age": 123224,
+        "birth": 60,
+        "complete_standard_state_cells": 14384,
+        "consumption": 123284,
+        "exact_standard_entry": 124058,
+        "full_collision_cells": 14312,
+        "full_collision_sha256": "fbc18c020f4eb3f2a5e3242c37171c88b9ae127bb4e7e7d06e5862f7272a3622",
+        "input_cells": 20,
+        "n": 200
+      }
+    ]
+  },
+  "huge_parameter": {
+    "consumption": "1247999999999999999999999999999999999999999999999999999999998484",
+    "exact_standard_entry": "1247999999999999999999999999999999999999999999999999999999999258",
+    "mode": "all-parameter certificate; no huge literal replay",
+    "n": "2000000000000000000000000000000000000000000000000000000000000",
+    "source_cells": 20
+  },
+  "no_intervening_event": {
+    "claim_boundary": "finite controls supplement the analytic lasso argument",
+    "finite_no_intervening_event_returns": 14584,
+    "literal_updates": 21600
+  },
+  "protected_region": {
+    "affine_inequalities": 1247,
+    "constant_tail_inequalities": 208,
+    "core_cells": 90
+  },
+  "recovery": {
+    "core_cells": 90,
+    "core_sha256": "6b7affc3e927f81331f36605eff8e9ef131f4fc1901cbe87dc8e93bd92b06b7e",
+    "far_blocker_rejected": true,
+    "last_incompatible_turn_offset": 773,
+    "off_trace_marker_retained": true,
+    "ordered_classes": {
+      "classes": 22,
+      "required_black": 13,
+      "valid": true
+    },
+    "period_parity": {
+      "breakpoints": 171,
+      "drift": [
+        2,
+        -2
+      ],
+      "first_bad": null,
+      "period": 104,
+      "valid": true
+    },
+    "previous_128_reads_protected": true,
+    "protected_region": [
+      -16,
+      -14,
+      12
+    ],
+    "recovery_updates": 774,
+    "standard_phase_in_reference": 103,
+    "target_cells": 162,
+    "target_pose": [
+      [
+        5,
+        -3
+      ],
+      1
+    ]
+  },
+  "reference": {
+    "all_black_phases_have_128_recent_predecessor_by_epoch": 1,
+    "complete_endpoint_cells": 36,
+    "first_visit_and_old_read_offsets": [
+      1,
+      22,
+      32,
+      58,
+      157,
+      280,
+      281
+    ],
+    "ordered_classes": {
+      "classes": 22,
+      "required_black": 13,
+      "valid": true
+    },
+    "period_parity": {
+      "breakpoints": 170,
+      "drift": [
+        2,
+        2
+      ],
+      "first_bad": null,
+      "period": 104,
+      "valid": true
+    },
+    "stationary_max_black_gap": 116
+  },
+  "schema": "langtons-ant-scalable-feedback-circuit-v1",
+  "separation": {
+    "minimum_slack": 0,
+    "separators": [
+      {
+        "boundary": [
+          2,
+          0
+        ],
+        "inequalities": 704,
+        "lower_stage": 0,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          0,
+          1
+        ],
+        "upper_stage": 1
+      },
+      {
+        "boundary": [
+          0,
+          0
+        ],
+        "inequalities": 694,
+        "lower_stage": 2,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          1,
+          0
+        ],
+        "upper_stage": 0
+      },
+      {
+        "boundary": [
+          0,
+          -2
+        ],
+        "inequalities": 704,
+        "lower_stage": 3,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          0,
+          1
+        ],
+        "upper_stage": 0
+      },
+      {
+        "boundary": [
+          0,
+          0
+        ],
+        "inequalities": 647,
+        "lower_stage": 4,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          1,
+          0
+        ],
+        "upper_stage": 0
+      },
+      {
+        "boundary": [
+          -2,
+          1
+        ],
+        "inequalities": 704,
+        "lower_stage": 2,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          1,
+          0
+        ],
+        "upper_stage": 1
+      },
+      {
+        "boundary": [
+          2,
+          0
+        ],
+        "inequalities": 714,
+        "lower_stage": 3,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          0,
+          1
+        ],
+        "upper_stage": 1
+      },
+      {
+        "boundary": [
+          2,
+          0
+        ],
+        "inequalities": 657,
+        "lower_stage": 4,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          0,
+          1
+        ],
+        "upper_stage": 1
+      },
+      {
+        "boundary": [
+          -2,
+          1
+        ],
+        "inequalities": 704,
+        "lower_stage": 3,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          0,
+          1
+        ],
+        "upper_stage": 2
+      },
+      {
+        "boundary": [
+          0,
+          -11
+        ],
+        "inequalities": 647,
+        "lower_stage": 2,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          1,
+          -1
+        ],
+        "upper_stage": 4
+      },
+      {
+        "boundary": [
+          -6,
+          0
+        ],
+        "inequalities": 657,
+        "lower_stage": 3,
+        "minimum_slack_at_k10": 0,
+        "normal": [
+          1,
+          0
+        ],
+        "upper_stage": 4
+      }
+    ],
+    "universal_linear_inequalities": 6832
+  },
+  "sources_sha256": {
+    "check.py": "486aa4290dc41cdb1ed9a7c8632c53ced1fbb3470a6125b7a38d5309841fefe9",
+    "circuit.py": "71d003d419995ea742e9a71f309f32df9329f886d186e6951b04b80b2ab0feca"
+  },
+  "validation_rejections": 6
+}

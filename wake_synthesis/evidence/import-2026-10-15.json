@@ -1,0 +1,542 @@
+{
+  "source_repository": "https://github.com/kehao95/langtons-ant",
+  "source_commit": "0ef3f0e149044c64f5a4b2b2ea9e192300fbe4f6",
+  "thin_archive_sha256": "3e0986d574d419aff9c514a41e0027919e39d457a24dac48ad8aa8038e372e4d",
+  "files": [
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/code/check.py",
+      "destination": "verification/thin_wake/code/check.py",
+      "sha256": "105175102e1b9a3f0591ae2363ba40d60fa0c6e03602d68127ffc566a7209dca"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/code/derive.py",
+      "destination": "verification/thin_wake/code/derive.py",
+      "sha256": "79786c5ad48e8d8f833b4586f7c334adbd2ab85f3c131f527c7fb2714b403dc0"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/MANIFEST.json",
+      "destination": "verification/thin_wake/native/MANIFEST.json",
+      "sha256": "20041adc1cd18bfc699c54bf6429957b185805cc678a3e65462ec8ba75410ae5"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/chain_rank.hpp",
+      "destination": "verification/thin_wake/native/chain_rank.hpp",
+      "sha256": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/profile_bottom.cpp",
+      "destination": "verification/thin_wake/native/profile_bottom.cpp",
+      "sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/profile_search.cpp",
+      "destination": "verification/thin_wake/native/profile_search.cpp",
+      "sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/sharded_top.cpp",
+      "destination": "verification/thin_wake/native/sharded_top.cpp",
+      "sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/thin_bottom.cpp",
+      "destination": "verification/thin_wake/native/thin_bottom.cpp",
+      "sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/native/thin_top.cpp",
+      "destination": "verification/thin_wake/native/thin_top.cpp",
+      "sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/MANIFEST.json",
+      "destination": "verification/thin_wake/inputs/MANIFEST.json",
+      "sha256": "8a84b855ad59c2bf6c71b5e7e914d5126222d5a9a18b954be6676ae6cd54e21c"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/README.md",
+      "destination": "verification/thin_wake/inputs/README.md",
+      "sha256": "a4421975c9a2ae7688eb2a7bcb62cd51fe9f5721e3ab434008fe5751a15618aa"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/chain_rank.hpp",
+      "destination": "verification/thin_wake/inputs/chain_rank.hpp",
+      "sha256": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/counts.py",
+      "destination": "verification/thin_wake/inputs/counts.py",
+      "sha256": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/glue_bottom.cpp",
+      "destination": "verification/thin_wake/inputs/glue_bottom.cpp",
+      "sha256": "cdb94ae057055256742ba4223470e7a05c47175ef6ca534795a6a0f617be9832"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/glue_top.cpp",
+      "destination": "verification/thin_wake/inputs/glue_top.cpp",
+      "sha256": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/upper_bound.py",
+      "destination": "verification/thin_wake/inputs/upper_bound.py",
+      "sha256": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/inputs/verify.py",
+      "destination": "verification/thin_wake/inputs/verify.py",
+      "sha256": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/cases.json",
+      "destination": "verification/thin_wake/evidence/cases.json",
+      "sha256": "5edb708d70fdfbd0e5901ba53a9c763e179121801de5630bea54f96bda28c585"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/full_replay.json",
+      "destination": "verification/thin_wake/evidence/full_replay.json",
+      "sha256": "f09cd07e02e6a19df1a3ffd5d80dde4d8c96d97bb5a7476b8fe684c86ee68e1a"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m130_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m130_thin_bottom_s0.log",
+      "sha256": "8c53f75eb1c7e6350e434dba60479c679c21921304cb9ff617d6d3bd223102d2"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m136_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m136_thin_bottom_s0.log",
+      "sha256": "85bfa669d2c53d09dd07f645a4df37635d8517e8df6219fce61315b017fe9a2a"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m160_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m160_thin_bottom_s0.log",
+      "sha256": "6d6665dd624573fce71e71f426648d11d20cb23914824afca4c96a383622d9c4"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m175_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m175_thin_bottom_s0.log",
+      "sha256": "19ea8fc69c902c6ee7335998ea0ba2a64dedefe7b87c6a74b0d1da3cd7a2d64c"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s0.log",
+      "sha256": "ef4c348a2724c14f0649bfbd4cea48a8a039b7b021fe71c66be8e70382efbdf5"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s1.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s1.log",
+      "sha256": "058417b17f7509e1d00cd9a75bf0487b283f38a7e4b1de966e7fd133c99d7d5e"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s2.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s2.log",
+      "sha256": "912882f49f74219a4647d429589bdbeca5b5102a182b54f9d0cc36c02ce42979"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s3.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s3.log",
+      "sha256": "e245ab96f8edbabf1d10b0bd187c6dc28e71edc9638d38c3e0d93df08ee0050d"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s4.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s4.log",
+      "sha256": "9e258a6ef85e17cb11036126fb582457f6f5a877844bd72379ea7a581509927f"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s5.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s5.log",
+      "sha256": "7e312435777f82f2c32e4161c19c77fa795b5dd0ea82a2eb7ac846d232f07480"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s6.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s6.log",
+      "sha256": "68533b5153647fb2a50068ea784a6872bd8c923825d8988008808a4aef0be5da"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m187_sharded_top_s7.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s7.log",
+      "sha256": "eea7e3968f5ca8c3f8e2ab5c4eb3521c524ad18a92c39d431c09d66b7d09009a"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m190_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m190_thin_bottom_s0.log",
+      "sha256": "615c8e29f895edeb5f33f5d66ce5eea065aafaef4182ecde7ffdf52514b87d32"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m215_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m215_thin_bottom_s0.log",
+      "sha256": "ad74f2c40676ba09501fb3aeb7cbe904c3d499db8f16d02953ed863185873eee"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m221_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m221_thin_bottom_s0.log",
+      "sha256": "5525169f5ff00ed1cea3e103088be3e7a0817c61d0e513a8abe46e743223e5bc"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m235_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m235_thin_bottom_s0.log",
+      "sha256": "577d9ebdeb4415a1219026669a3e22c1a48e43afb227a128cee36f50cb734de0"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m238_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m238_thin_bottom_s0.log",
+      "sha256": "52a7190d44e01d3bb3b54d43d2fa2525dc1e4f5bdd6321463305abc3eff18609"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m245_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m245_thin_bottom_s0.log",
+      "sha256": "d5bd9ae07db1cb8d81dd768916feb9d2062c9a8a66178ee884e6cfe1fe280505"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-1_m250_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-1_m250_thin_bottom_s0.log",
+      "sha256": "f093a37b742c50edcec598594a729fde4a4ccb9ac1f8e796e08696f3c68d13bd"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m139_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m139_profile_bottom_s0.log",
+      "sha256": "f13bf2a09111cee3524fa1bcf913253bfd7b348f73527a56b26538539743e8e2"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m142_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m142_profile_bottom_s0.log",
+      "sha256": "ac0604ff3f275c51ff87ffac3dc5f6ca5e4302178efa3763c729818bfaf8bbe5"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m149_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m149_profile_bottom_s0.log",
+      "sha256": "91323fc278b90d22eb46968cac42f9760dda279164fb77e91e910daaa3ba3985"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m154_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m154_profile_bottom_s0.log",
+      "sha256": "0ce64edaf3cd4eeeb634ce96d77ba73e6a0e8560b355bd0c4c92dba34550c706"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m163_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m163_profile_search_s0.log",
+      "sha256": "5fd8d1471aa0b17109047e48a8c38e3cd5346d04e7974b8f3e91e02639732fe1"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m166_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m166_profile_bottom_s0.log",
+      "sha256": "485e19a120311c511c47b5a66f1ac514ef6d63eff582f40c6d9b4893678af541"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m169_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m169_profile_bottom_s0.log",
+      "sha256": "3d867b7433e445f0f2a6b30f2436f687070ddc2bd6735bb581101c51cb36aa00"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m172_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m172_profile_bottom_s0.log",
+      "sha256": "43fbfe5fc7f74023b88467bb42bb0776014b563a60cb4d4912c55664a41d3722"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m178_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m178_profile_bottom_s0.log",
+      "sha256": "372022cbdc7ae0d9652ab83bd317f61e5cb3fcb5d1b25ca54d04d132401d57d1"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m184_profile_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m184_profile_bottom_s0.log",
+      "sha256": "28bd289122e761f238e52074fa46097085931721edb717e1cb500f26509265bd"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m195_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m195_profile_search_s0.log",
+      "sha256": "cc536052076f6febf92d11afcdade1b68426db74149971d0c5909d74bdc3849f"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m198_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m198_profile_search_s0.log",
+      "sha256": "9d221139e95d02379d96f59ab245e6d92c81f808cf1e72797251aaf57adca94a"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m201_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m201_profile_search_s0.log",
+      "sha256": "cfae760f58afcc14c91350e2109eec0385bce70bed04843c5170f045ed427d87"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m204_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m204_profile_search_s0.log",
+      "sha256": "1dc4f83537a41dc7e15cdf82ea2c8383534fe59f335656f36849963261640144"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m210_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m210_profile_search_s0.log",
+      "sha256": "b0d47070dc4317747acc68bf3874da51e10458bb8ea52530653e1eb8f8a5f7b9"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m216_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m216_profile_search_s0.log",
+      "sha256": "3875f6a80bdff74ccd119f937c6f4117b2379e7ea3750630576349faa606cfb8"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m225_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m225_profile_search_s0.log",
+      "sha256": "0c5e90f7771fef6beb11757573c6caa537ee1b956891deea6555b9c00b4af93d"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m228_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m228_profile_search_s0.log",
+      "sha256": "5bf066aea2cfe63f3f5c4558ec60d67ff6d469e200f3822a45c30f775f2468a6"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m240_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m240_profile_search_s0.log",
+      "sha256": "baa40cb45570e20e9e643770b5e422a8a720e5ee19617b9faf31e7dde199c7e1"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-3_m255_profile_search_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-3_m255_profile_search_s0.log",
+      "sha256": "c4cbe274ea4499878ff9dca8d0c920f7697595dafd34d650ca12185b83060504"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m129_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m129_thin_bottom_s0.log",
+      "sha256": "626b89be35aab8e6eb430596e88df7e38a0225a266ce9dbed4416109b341cd81"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m132_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m132_thin_bottom_s0.log",
+      "sha256": "fb0e9b9456f08cf36bf7687cb3e7fe1a7809c5dfbc1c336e06fd33bb8d64edc0"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m160_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m160_thin_bottom_s0.log",
+      "sha256": "3185a34a70143b216f988c435391a5a70439a6ce1d6b21f165c07dd8b9db445d"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m175_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m175_thin_bottom_s0.log",
+      "sha256": "83c1eeb65d514f611a90c6bf2851fe6c8d56632d5c00a240e7ead00be153667b"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m183_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m183_thin_bottom_s0.log",
+      "sha256": "2dbb897e46d6d566440ad88d52342a4aac98e635ed3a2a9c872829a799644340"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m189_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m189_thin_bottom_s0.log",
+      "sha256": "7e166d177e0eb2f52bb5880da472db3e5001fdfc2f7f9cd842d2ae0e4a5ef5ef"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m219_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m219_thin_top_s0.log",
+      "sha256": "b5c96806d0d8816dd2a675889675569b212d85606187e57d9eb8bde99b1d8017"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m222_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m222_thin_top_s0.log",
+      "sha256": "d3e8a0da77ee3c9319d75be88367c666f096640efd59ad4233914af0083aa96b"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m231_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m231_thin_top_s0.log",
+      "sha256": "ed908e40ab2d1140fbb28feca87834261c93419df85020dce4517b0e7ff3c931"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m237_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m237_thin_top_s0.log",
+      "sha256": "c941d3d49776161394f5e5d9d8966acec7967a3fd891afe131876568b66c3b60"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m245_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m245_thin_top_s0.log",
+      "sha256": "0c98b244b233c32db6dfa4420cc65425cc19e55fd30599e134460bf068ded521"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-5_m250_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-5_m250_thin_top_s0.log",
+      "sha256": "73f03731f5ca65fc69c70fb5bcff7ede9e59f7bb866bd032490fc907dad7d270"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m135_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m135_thin_top_s0.log",
+      "sha256": "f590258f7ede040e23a936d75625420c24c2a1a082cf658c744ca0279ba507e5"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m142_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m142_thin_bottom_s0.log",
+      "sha256": "ec5020d99e70233634cecc3296a804fac29db2ea8197e06d8170f28e47e8f116"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m147_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m147_thin_top_s0.log",
+      "sha256": "8b0024ccac42b500c1933aa43a566bd4885d4146b2d28d0c9215dc729082b06e"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m149_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m149_thin_bottom_s0.log",
+      "sha256": "31b926132e0a833eeb6c7f51fa25a8d9a5024dcdefa1baee47d91455fe6e7427"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m154_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m154_thin_bottom_s0.log",
+      "sha256": "f1f5ed0ce3c258689e287d3ac947e3ce5ed1c1779a0ff8a0ed5847d2090dcd91"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m156_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m156_thin_top_s0.log",
+      "sha256": "3a1c2cef6df7d3957985ed8ed3927b4999096036a157cfadb06fe5041572d718"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m166_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m166_thin_bottom_s0.log",
+      "sha256": "7f3599681a4c0b296b74abfab1efe93769118e78463658b4ca85e32c272b73a1"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m169_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m169_thin_bottom_s0.log",
+      "sha256": "473663ed60f3744e1163ba9fa877918b0c5b783d8f8ac3cab711c7f21c7325c5"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m178_thin_bottom_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m178_thin_bottom_s0.log",
+      "sha256": "e1f6e454c0329f1b42a30fc082e5d0a54aceb57008d3e82935bfeaa8b66f3ee1"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m180_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m180_thin_top_s0.log",
+      "sha256": "37dd9eff4717abdcff1a2283826ad988735aee806df68d804a34bbd091e25356"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m195_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m195_thin_top_s0.log",
+      "sha256": "58734de139c60eddcc242c9f510b034aef42487ec50e621398c19bc069abd16d"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m197_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m197_thin_top_s0.log",
+      "sha256": "6b0581f08990eee4d49d56819b25910c5c652ce9caa3142a02a887a04e0cac82"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m202_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m202_thin_top_s0.log",
+      "sha256": "b3d098a287a32afc4c8b864079e547ef9b8828ccaab10dd4c1f86dfd592e8d7a"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m204_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m204_thin_top_s0.log",
+      "sha256": "74f551ef26c9aa2aaaf808468b3cba78abba68a924bb64564722ecc98d932191"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m209_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m209_thin_top_s0.log",
+      "sha256": "d9142b50dee826551122e4eea228b330d78960b800d537762b12faea14c85948"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m216_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m216_thin_top_s0.log",
+      "sha256": "1146a5ec5e1bcae6966f3b796febf46dad0f60b007b888772cf1ec81342162da"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m226_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m226_thin_top_s0.log",
+      "sha256": "3effca9e623846ee5ed5a13231275a076bdddf4da785873ac6281ffbf9f4f3d4"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m228_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m228_thin_top_s0.log",
+      "sha256": "5b2c5c65f6b90634e5f5b139c4a4358b0f74f7cbc32be84cbda0835e535fdad4"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m240_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m240_thin_top_s0.log",
+      "sha256": "6edca2222c481c3c6d0c997e313be9d22442a81fc7bf35b3d9d92677295fc97b"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-7_m255_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-7_m255_thin_top_s0.log",
+      "sha256": "190c1c430f1549af6b789dfcc4aa71066ccedd14ba5f5c5c309c9e3baffb0058"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m130_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m130_thin_top_s0.log",
+      "sha256": "ad4ea551e7044ec9787ec4acb8ba083381696b99651ec9bf76acc7e39cf8281e"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m136_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m136_thin_top_s0.log",
+      "sha256": "b501a10b118a857477c152ed5a2ef872484cc8ac5d72dfd5cba2894ab5763228"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m160_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m160_thin_top_s0.log",
+      "sha256": "d7a2235cea08a2aa161fb16c7c096daaafb0f00b0be1e7053e266235e2e1939f"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m175_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m175_thin_top_s0.log",
+      "sha256": "2674de8a836f802d259ae5884bfa1af32e33afd141b22e335296c35d559730f4"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m187_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m187_thin_top_s0.log",
+      "sha256": "ad10f80b759e682967d5e61c76d54fdd3729f63936489fca88cdebf921516a27"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m190_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m190_thin_top_s0.log",
+      "sha256": "6458bb61e9b9f9a91e5098ebd749ae1f6e1f7f3a9654267cc2afca9f08577047"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m215_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m215_thin_top_s0.log",
+      "sha256": "f3cb1fa45d814ef844ab16b8ca816acc8d774760ba4d313d51b9aaef4d503bbe"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m221_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m221_thin_top_s0.log",
+      "sha256": "e4028978696f045f28fbefa22f23a44555bd8a6c8617f5b1a40ec17b44df4cd0"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m235_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m235_thin_top_s0.log",
+      "sha256": "7c5d0b5444d362a68b53b9fc1269d19d061e033ce575ec44c9a66bdf48e02427"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m238_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m238_thin_top_s0.log",
+      "sha256": "dec5cc75eeb912c22a745f7f4278d1188b79090f4026b563316a2cba57ffd97b"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m245_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m245_thin_top_s0.log",
+      "sha256": "b93205047c8e6c3b9c875871c16cb7841fc43cef23f032f0dfd8c34b7925d539"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/logs/h-9_m250_thin_top_s0.log",
+      "destination": "verification/thin_wake/evidence/logs/h-9_m250_thin_top_s0.log",
+      "sha256": "e943fa9630e63e7ed8685b35f4e1186ddedd50dd257d8a9497f2ff48314365dc"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/evidence/parameterization_recipe.py",
+      "destination": "verification/thin_wake/evidence/parameterization_recipe.py",
+      "sha256": "76fb28153dd61d04e03cb3ccd0184d34718bad7ec6d561182ff4e64edc1bf3c8"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/reproduce.py",
+      "destination": "verification/thin_wake/reproduce.py",
+      "sha256": "4f26ce236c6930060ec87863e5afe9a73d84da9ccad8fa1f8f3c4e8e810be066"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/PROOF.md",
+      "destination": "verification/thin_wake/PROOF.md",
+      "sha256": "c4066430ac92a525e2c386c5d220c63581d92758d91d28e141e0f64e03cfd390"
+    },
+    {
+      "source": "proof/results/standard-layer-profile-uniqueness.md",
+      "destination": "proof/layer-profile.md",
+      "sha256": "a337ffe6d58d301bd1d6ba32f7b83a8db9b47231b3522f60f6e2e9dd90479cd0"
+    },
+    {
+      "source": "restored-thin/experiments/hc_global/thin_wake_rigidity/PROOF.md",
+      "destination": "proof/thin-wake.md",
+      "sha256": "c4066430ac92a525e2c386c5d220c63581d92758d91d28e141e0f64e03cfd390"
+    }
+  ]
+}

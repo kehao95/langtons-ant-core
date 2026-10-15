@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "counts": {
+    "ray_epoch_comparisons": 240000,
+    "parallel_epoch_comparisons": 108800,
+    "inverse_controls": 256,
+    "period_xor_controls": 1024,
+    "full_macro_small_controls": 2048,
+    "composed_macros": 640,
+    "permanent_tail_controls": 1,
+    "huge_endpoint_point_controls": 1396,
+    "huge_successor_reused": 1,
+    "serialization_roundtrips": 1,
+    "event_prefix_driver_checks": 1,
+    "expansion_cap_controls": 1
+  },
+  "huge": {
+    "event_time": 104000000000000,
+    "explicit_updates": 104,
+    "source_terms": 953,
+    "target_terms": 1068,
+    "next_kind": "stale_read",
+    "next_duration": 65,
+    "max_segment_length": 999999999999
+  },
+  "scope": {
+    "exact_complete_state_composition": true,
+    "finite_support_only": true,
+    "global_nonuniversality": false,
+    "global_HIGHWAY_decider": false,
+    "infinite_composition_termination_proved": false,
+    "third_party_review": false
+  }
+}

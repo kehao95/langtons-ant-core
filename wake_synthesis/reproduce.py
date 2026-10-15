@@ -14,10 +14,14 @@ ROOT = Path(__file__).resolve().parent
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--quick', action='store_true', help='skip the 76-case thin-wake exhaustion; still check its upper graph, count tables and controls')
+    parser.add_argument('--jobs', type=int, default=4, help='parallel thin-wake native jobs, 1..16')
     parser.add_argument('--search', action='store_true', help='also replay the bounded detour experiment')
     parser.add_argument('--baseline', action='store_true', help='also replay both preceding exact enumerators')
     parser.add_argument('--output-report', type=Path, help='write a fresh verification record')
     args = parser.parse_args()
+    if not 1 <= args.jobs <= 16:
+        parser.error('--jobs must be 1..16')
     if sys.flags.optimize:
         parser.error('Run without Python -O')
     tasks = [('check.py', ('check_results.json', 'standard_wake.json')),
@@ -90,9 +94,17 @@ def main():
                   'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                                     for path in sorted((ROOT / 'verification').rglob('*'))
                                     if path.is_file() and '__pycache__' not in path.parts}}
+        thin_output = work / 'thin-wake-replay.json'
+        thin_command = [sys.executable, str(ROOT/'verification/thin_wake/reproduce.py'),
+                        '--quick' if args.quick else '--full', '--jobs', str(args.jobs),
+                        '--output', str(thin_output)]
+        subprocess.run(thin_command, check=True)
+        report['thin_wake'] = json.loads(thin_output.read_text())
+        report['full_current_classification_replayed'] = not args.quick
+        report['source_commit'] = json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())['source_commit']
         if args.output_report:
             args.output_report.write_text(json.dumps(report, indent=2) + '\n')
-    print('WAKE SYNTHESIS AND STANDARD-WAKE UNIQUENESS: PASS')
+    print('WAKE SYNTHESIS AND THIN-WAKE RIGIDITY: PASS')
 
 
 if __name__ == '__main__':

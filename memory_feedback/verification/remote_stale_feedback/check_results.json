@@ -1,0 +1,68 @@
+{
+  "arithmetic_controls": {
+    "burst_strings": 25616,
+    "deadline_inverse_boundaries": 2800,
+    "empty_region_control": true,
+    "external_deadline_inverse_boundaries": 2160,
+    "resource_and_validation_controls": 6
+  },
+  "base_commit": "0bcaad6ce318b79479f03e9c9d89cb3fcd4d4489",
+  "blank_filtered_no": {
+    "D": 128,
+    "full_endpoint_black_count": 727,
+    "inside_events": 1421,
+    "kind": "NO_EXTERNAL_EVENT",
+    "literal_updates": 10077
+  },
+  "finite_controls": {
+    "complete_field_external_macros": 384,
+    "endpoint_intervals": 32107,
+    "filtered_first_events": 96,
+    "inverse_round_trips": 512,
+    "seeds": 16,
+    "segment_memberships": 146940,
+    "updates_per_seed": 1200
+  },
+  "geometric_plans": {
+    "claim": "motion-plan geometry only; these random words need not be realizable",
+    "epoch_scale": "10^50",
+    "nonzero_translators": 606,
+    "phase_segment_extremes": 25640
+  },
+  "remote_controls": {
+    "blocker": [
+      -2000000000000000000000000000000000000000000000000000000000056,
+      -2000000000000000000000000000000000000000000000000000000000032
+    ],
+    "first_event_time": "104000000000000000000000000000000000000000000000000000000000000",
+    "literal_inside_replay_updates": 0,
+    "off_trace_marker_retained": true
+  },
+  "retained_protocol_replay": {
+    "L_values": 32,
+    "conclusion": "finite protocols only; no renewable interface or infinite seed",
+    "verified_created_consumed_lifetimes": 1056
+  },
+  "schema": "langtons-ant-remote-stale-feedback-v1",
+  "scope": "new analytic proofs and isolated deterministic controls; no HC decision",
+  "scope_countercontrols": {
+    "NO_means": "no external stale event, never a negative HIGHWAY answer",
+    "event_free_tail": "certified P104 with D=128 escapes the fixed source halo",
+    "moving_region": "K_t={p_t}; every S_1 of certified P104 is inside, infinitely often"
+  },
+  "sources_sha256": {
+    "check.py": "6eb250829a8a71f850b1cbc497b3d593f9a6d359eefe0c28cf0f68ce40fa2abf",
+    "feedback.py": "1d67aa142f76f341d95f5eca5a678a7d7ded2599bd8a59093ddd874eda9e93b8"
+  },
+  "standard_control": {
+    "black_reads_per_period": 46,
+    "clean_black_count": 17,
+    "drift": [
+      -2,
+      -2
+    ],
+    "full_black_count": 952,
+    "parity_checks": 167,
+    "period": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR"
+  }
+}

@@ -1,0 +1,3 @@
+TABLE 3095
+SOLUTION 104 RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR
+{"status":"complete","cap":168,"prefixes":12193595,"order_rejections":2454844,"cycle_rejections":663790,"budget_rejections":0,"top_rejections":0,"rank_checks":18833783,"rank_rejections":4426304,"solutions":1,"seconds":23.4653,"layers":[1,1,7249,55134,93882,178,4,6,3,1,0]}

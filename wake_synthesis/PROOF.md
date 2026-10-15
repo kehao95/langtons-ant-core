@@ -1,4 +1,27 @@
-# Uniqueness of the classical highway under its standard wake
+# Layer-profile uniqueness and inverse synthesis
+
+The current main theorem fixes full drift `(2,-2)`, growth `12`, transverse
+width `10`, and at most one odd translation class on each interior level.
+It derives the standard period-104 word and the complete standard wake.
+
+The proof chain is:
+
+1. [Thin-wake proof](proof/thin-wake.md): extreme classes, five possible empty layers,
+   complementary phases and 76 modular survivors.
+2. [Upper certificate and exhaustive checker](verification/thin_wake/code/check.py):
+   90,158 integer inequalities give caps 192/168/160/168/192; all 83 jobs finish.
+3. [Standard-profile corollary](proof/layer-profile.md): the fixed count profile
+   allows unspecified longitudinal residues. This intermediate theorem is
+   subsumed by the current classification.
+4. The retained proof below establishes the complete-wake special case,
+   ordered-event coverage, general budgets and terminating inverse synthesis.
+
+[Fresh full evidence](evidence/review-2026-10-15.json) records both the new
+classification and the retained standard-wake/general checks. The proof notes
+are preserved research snapshots; their statements about earlier replay dates
+are historical. Current execution status is owned by the evidence report.
+
+# Retained complete-wake and general-synthesis proof
 
 The [current manuscript](paper/main.tex) proves all-period uniqueness for the
 complete standard wake and drift `(2,-2)`. It updates the wake preprint within

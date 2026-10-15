@@ -1,0 +1,2 @@
+TABLE 5400
+{"status":"complete","cap":192,"prefixes":1538,"order_rejections":279,"cycle_rejections":49,"budget_rejections":0,"top_rejections":0,"rank_checks":2248,"rank_rejections":487,"solutions":0,"seconds":0.000995149,"layers":[0,1,3,7,1,0,0,0,0,0,0]}

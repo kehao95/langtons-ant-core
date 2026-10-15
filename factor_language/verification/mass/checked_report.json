@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "audit.py": "5b94db2fa728991bcd2cc8a58aeda246877c521854b6276bbc81fd0b92a263a2",
+    "independent.cpp": "cfcc299326691f4adc33c18b1e764495510a36560dd8cd486dbfb600a09702f2",
+    "test_orbits.py": "5a0d7458c0ebb4351f23a05184e4d4e62148a84806b1462815e60918866648ee",
+    "witness.json": "ab37edef510102b8a0f939e1607b45814d991c58f0cc208ccd56f6f8ec3a65c3"
+  },
+  "cpp": {
+    "status": "passed",
+    "vertices": 29334,
+    "edges": 29559,
+    "short_maximum": 322,
+    "long_maximum": 284,
+    "short_witness": "LLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLL",
+    "dfs_calls": 2816005,
+    "potential_queue_removals": 153572,
+    "HC_proved": false
+  },
+  "orbits": {
+    "status": "passed",
+    "complete_finite_seeds": 128,
+    "prefixes": 192128,
+    "arbitrary_intervals": 16384,
+    "remote_cells_retained": 16,
+    "sharp_word_length": 90,
+    "sharp_initial_mass": 28,
+    "sharp_final_mass": 26,
+    "sharp_deficit": 322,
+    "scope": "finite controls, not all-input extrapolation",
+    "HC_proved": false
+  },
+  "independent_edges_and_potentials_match": true,
+  "native_bad_potential_rejected": true,
+  "damaged_file_unchanged": true,
+  "witness_unchanged": true,
+  "elapsed_seconds": 20.38,
+  "HC_proved": false,
+  "external_review": false,
+  "python": {
+    "status": "passed",
+    "kernel": {
+      "depth": 300,
+      "vertices": 29334,
+      "edges": 29559,
+      "short_maximum": 322,
+      "short_witness": "LLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLL",
+      "short_seed": [
+        [-5,1],[-5,2],[-4,-1],[-4,0],[-4,3],[-3,-3],[-3,-1],[-3,1],[-3,2],[-3,3],[-2,-3],[-2,-1],[-2,2],[-1,-3],[-1,-1],[-1,0],[-1,2],[0,-4],[0,-3],[0,-2],[0,-1],[0,0],[0,2],[1,-4],[1,-1],[1,0],[2,-3],[2,-2]
+      ],
+      "long_maximum": 284,
+      "potential_maximum": 251,
+      "edge_words_sha256": "e935203b28d1e73cebb853a7d7a96c349f26c3c4f66b13ceabe3b8124919808c",
+      "potential_sha256": "f9237bef39462114273c87b585028c028b2b126a4270a2aa8bbe9e22eb1211a3",
+      "standard_word": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+      "global_constant": 322,
+      "defect_penalty": 351
+    },
+    "all_integer_inequalities_checked": 29559,
+    "short_lengths_checked": [0,299],
+    "damaged_potential_rejected": true,
+    "queue_removals": 145216
+  }
+}

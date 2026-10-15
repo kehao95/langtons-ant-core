@@ -1,0 +1,37 @@
+{
+  "title": "Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Ke, Hao",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0001-2818-4986"
+    }
+  ],
+  "description": "Ten-factor eventual modes; finite-mass entry at most 12m+212 with sharp slope; polynomial bit-time exact first-J10 macros with complete compressed endpoints and quadratic finite-event deadlines; and the all-input inequality 3(t-s)-26(|B_t|-|B_s|) <= 351 N10(s,t)+322 with sharp additive constant.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Langton's ant",
+    "symbolic dynamics",
+    "factor language",
+    "mass growth",
+    "computer-assisted proof"
+  ],
+  "version": "0.1.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/factor_language",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23402379",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ],
+  "language": "eng",
+  "publication_date": "2026-10-15"
+}

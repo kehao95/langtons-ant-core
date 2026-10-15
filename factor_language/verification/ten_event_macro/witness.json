@@ -1,0 +1,18 @@
+{
+  "vertices": 7595,
+  "edges": 7763,
+  "cyclic_lengths": [
+    24,
+    28,
+    28,
+    28,
+    104
+  ],
+  "max_periodic_plans": 5,
+  "max_noncyclic_updates": 956,
+  "max_period_sum": 212,
+  "ordinary_update_bound": 1111,
+  "term_increment_bound": 1530,
+  "edges_sha256": "1fe5c8d29ca8a3c4fda593242c875b9bcc00772df1f9bfbad21973f0169836bb",
+  "rank_sha256": "d7413c48613c78f693a96362bb0ece77ed764a1c9ab9653a6591719a27a26803"
+}

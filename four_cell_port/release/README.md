@@ -1,5 +1,12 @@
 # Published first preprint
 
+## Version 0.2.0 — review package
+
+[Review PDF](v0.2.0/paper.pdf) · [Source snapshot](v0.2.0/prepared-source-manifest.json) · [Standalone check](v0.2.0/standalone-check.json)
+
+*Four-Cell Ports and Composable Highway Scattering for Langton’s Ant*. The PDF and standalone source archive are prepared locally; no Zenodo mutation is part of this revision. The intended action is a new version of record 23402414 in concept 23402413. [Candidate hashes](candidate-manifest.json) identify the exact review snapshot.
+
+
 Hao Ke, *Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton’s Ant*.
 
 Version **0.1.0**, published 15 October 2026:

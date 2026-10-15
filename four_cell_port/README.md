@@ -1,53 +1,28 @@
-# Four-cell outgoing highways
+# Four-Cell Ports and Composable Highway Scattering for Langton’s Ant
 
-Four black cells give a sharp one-sided interface for the classical ant:
+Sharp four-cell ports and exterior completion, arbitrary finite guarded scattering trains, and composable unbounded return packets with genuine old-wake consumption.
 
-- Every colouring with at most three black cells in `x >= 0`, started at the
-  origin facing east, exits that half-plane within **918** updates, sharply.
-- The seed `{(0,-1), (1,1), (1,3), (2,2)}` stays in the half-plane forever and
-  follows the standard period-104 highway from update **182**.
-- Any finite initial state can be extended by exactly four remote black cells,
-  preserving any prescribed finite position/heading/read-colour prefix and
-  forcing a standard highway. For a protected square of side `n`, entry occurs
-  by **E(n) + 182** updates, where
-  `E(n)=(13*3^(n-1)-2*n^2-4*n-5)/2`.
+## Manuscript and status
 
-The matching four-cell minimum concerns one-sided ports from the fixed boundary
-pose. The completion theorem applies to the augmented initial colouring.
+Version **0.2.0** is prepared for review. [Manuscript](paper/main.tex) ·
+[Proof dependencies](PROOF.md) · [Fresh verification](evidence/review-2026-10-15.json) ·
+[Release preparation](release/README.md).
 
-## Paper and proof
+The current public record is [23402414](https://doi.org/10.5281/zenodo.23402414); its published files are preserved. The revision belongs to the same concept **23402413**.
 
-Hao Ke, *Four Black Cells Force an Outgoing Highway:
-A Sharp Half-Plane Threshold for Langton's Ant*.
+## Exact scope
 
-- [Zenodo 0.1.0](https://doi.org/10.5281/zenodo.23402414),
-  [published PDF](release/v0.1.0/paper.pdf), [source](paper/main.tex), [proof](PROOF.md).
-- [Verification audit](evidence/README.md), [literature](paper/LITERATURE.md),
-  [release records](release/README.md).
-
-The proof combines analytic coverage and coupling with exact finite certificates
-and algebraic infinite-tail verification. This project has no Lean proof.
+The four-cell minimum concerns the fixed inward boundary pose. Both train theorems cover specified, arbitrarily long finite descriptions with preinstalled markers and full history. Their output times are certificate boundaries, whereas the separate twenty-cell paper proves a first-entry time.
 
 ## Reproduce
 
 ```sh
-python3 four_cell_port/reproduce.py
+python3 four_cell_port/reproduce.py --output-report /tmp/four_cell_port-review.json
 make -C four_cell_port/paper
 ```
 
-Run from the repository root with Python 3.10+ (standard library, without `-O`).
-The runner works in a temporary directory, compares regenerated certificates
-byte for byte, and checks the retained independent audit. The PDF build uses
-pdfLaTeX and writes to `paper/build/`.
-
-`paper/` owns the manuscript and bibliography; `verification/` owns three checker
-implementations and the constructive completion algorithm; `evidence/` owns
-certificates and audit results; `release/` records provenance, publication receipts and source hashes.
-The original research package and corrected manuscript are also retained in
-the source research repository, with provenance recorded in the release manifest.
+Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
 
 ## Open
 
-Version 0.1.0 is published as record 23402414, with verified public downloads.
-External mathematical review of the first-contact and infinite-tail reductions
-remains a next step.
+Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.

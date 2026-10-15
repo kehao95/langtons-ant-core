@@ -1,0 +1,15 @@
+{
+  "files": {
+    "Finite-Memory-and-Remote-Feedback.pdf": {
+      "bytes": 144216,
+      "sha256": "18717a396d27f894189ef48e2701c41d55af15bb093a3a70633e05cb84010ea8"
+    },
+    "memory_feedback-0.1.0-source.zip": {
+      "bytes": 176569,
+      "sha256": "3097812c3496aa2aac2fb1a136a6cc9b2e3cd110ec9006dae5604cca1dfeb33b"
+    }
+  },
+  "project": "memory_feedback",
+  "submitted": false,
+  "version": "0.1.0"
+}

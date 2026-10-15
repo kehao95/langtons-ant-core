@@ -1,0 +1,1025 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{DejaVu Serif}
+  \setmonofont[]{DejaVu Sans Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{amsmath,amssymb,booktabs}
+\setlength{\emergencystretch}{3em}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Local Factor Rigidity and Mass--Defect Bounds for Langton's Ant},
+  pdfauthor={Hao Ke},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Local Factor Rigidity and Mass--Defect Bounds for Langton's Ant}
+\author{Hao Ke}
+\date{15 October 2026 · Version 0.1.0}
+
+\usepackage{fvextra}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
+\begin{document}
+\maketitle
+\begin{abstract}
+The cyclic ten-letter factors of the standard Langton highway impose
+both asymptotic rigidity and a finite-time mass constraint. We prove
+that every physical ten-legal infinite stream eventually has period 104,
+28 or 24. For finite initial black mass \(m\), only the standard highway
+remains and its first entry time is at most \(12m+212\), with optimal
+linear coefficient 12. A bounded-fold graph also computes exact first
+violation times and complete compressed endpoints in polynomial bit time,
+with quadratic finite-event deadlines. Independently, a finite-word potential certificate
+proves \(3(t-s)-26(|B_t|-|B_s|)\le351N_{10}(s,t)+322\) on every
+trajectory interval. The additive constant and the standard mass-growth
+slope are sharp. Exact finite kernels accompany the all-parameter
+physical arguments.
+\end{abstract}
+
+\section{Introduction}\label{introduction}
+
+The standard Langton highway has a long period but a short local
+signature. Its cyclic ten-letter factors already constrain every
+physically realizable infinite turn stream to three eventual modes.
+Finite black support selects one of them, the standard period-104
+highway. The same local signature also controls finite pieces of
+arbitrary trajectories through a quantitative balance between black-cell
+growth and forbidden windows.
+
+This paper develops these two consequences together. The first is an
+attraction theorem under a future-language hypothesis, with a sharp
+linear dependence on initial black mass. It yields a polynomial-time
+decision procedure for the existence of a particular local violation
+event. The second is an unconditional inequality on every finite orbit
+interval. Its proof uses a separate graph of finite legal words, so it
+does not assume that a finite fragment can continue legally forever.
+
+Gajardo's symbolic projection and forbidden-word framework {[}1{]}
+provide the finite-word viewpoint. Gajardo, Lutfalla and Rao {[}2{]}
+discuss highway certification; Jillhewar's full-drift chronology {[}3{]}
+supplies the periodic realization test used here. Our contributions are
+the concrete ten-factor classification, the all-parameter exclusion in
+its nonsimple recurrent component, the sharp transient coefficient, the
+local-target algorithm, and the mass--defect inequality.
+
+\section{Model and principal results}\label{model-and-principal-results}
+
+A state consists of the complete black set \(B\), a position in
+\(\mathbb Z^2\), and a cardinal heading. White turns right (R), black
+turns left (L); the cell then flips and the ant moves. Time denotes the
+state before the update. Let \(W\) be the standard 104-letter turn word
+in the appendix and let \(\mathcal L_k\) contain all its cyclic factors
+of length \(k\). A stream is \(k\)-legal if every future length-\(k\)
+window belongs to \(\mathcal L_k\).
+
+\textbf{Theorem A (eventual modes).} Every physical ten-legal stream on
+an arbitrary initial colouring eventually has least period 104, 28 or
+24, with the respective words \(W,U,T\) given below.
+
+\textbf{Theorem B (finite-mass attraction).} For a complete finite
+initial black set of cardinality \(m\), a ten-legal future reaches the
+standard trace by \[\tau(X)\le 12m+212.\] The coefficient 12 is optimal:
+a family with \(m_n=2n+13\) has \(\tau_n=24n-3\) for every \(n\ge1\).
+The intercept 212 is a proved upper bound.
+
+\textbf{Theorem C (arbitrary-colouring threshold).} An explicit
+computable infinite colouring has a nine-legal stream that is not
+eventually periodic. Thus ten is the least factor length forcing
+eventual periodicity on arbitrary colourings. This sharpness statement
+uses infinite support.
+
+\textbf{Theorem D (local event).} Let \(J_{10}\) test the true preceding
+nine turns and the current turn for membership outside
+\(\mathcal L_{10}\), recovering the past by inverse dynamics. On every
+finite input, existence of a future \(J_{10}\) is decidable in
+polynomial bit time for sparse binary coordinates.
+
+\textbf{Theorem E (mass--defect balance).} On every interval \([s,t)\)
+of every finite-support trajectory,
+\[3(t-s)-26\bigl(|B_t|-|B_s|\bigr)\le351N_{10}(s,t)+322,\] where
+\(N_{10}\) counts forbidden ten-letter windows wholly contained in the
+interval. The constant 322 is attained by a 90-step witness; the mass
+slope \(3/26\) is asymptotically sharp. The penalty 351 is not asserted
+optimal.
+
+Theorems A--D concern infinite legal futures or a decision using their
+contrapositive. Theorem E instead rests on a complete finite-word
+potential certificate. This separates their logical dependencies while
+using the same local language.
+
+\section{From local language to eventual
+attraction}\label{from-local-language-to-eventual-attraction}
+
+\subsection{Finite-word feasibility and graph coverage}\label{ten-2}
+
+For any finite prescribed turn word, the geometric path is fixed after
+choosing an initial pose. It is physically realizable if and only if
+consecutive reads of each same physical cell have alternating letters.
+Necessity is the flip rule. For sufficiency, make a visited cell
+initially black exactly when its first requested letter is L; leave
+every unvisited cell white. Induction over the finite word proves
+execution. This is established methodology, not a new criterion; see
+Gajardo (2003), Subsection ef\{ten-3\}.
+
+Let \(E\) contain EVERY physically feasible 150-letter word whose
+10-factors lie in \(\mathcal L_{10}\). Construct a graph \(G\) with edge
+\(v_0\cdots v_{148}\to v_1\cdots v_{149}\) for each \(v\in E\). No word
+is removed because it looks unlikely or because its seed is large.
+Complete enumeration follows all whitelist-compatible extensions and
+rejects exactly the same-cell alternation conflicts. Induction on word
+length proves completeness of that enumeration.
+
+Any actual infinite 10-legal stream gives an infinite path in \(G\),
+since each of its length-150 windows is feasible under its own actual
+execution. The graph can admit paths that fail longer physical
+consistency. It is an OVERAPPROXIMATION; this does not invalidate
+exclusion, but prevents interpreting every graph path as a physical
+orbit.
+
+The immutable certificate
+\texttt{verification/ten/certificates/windows10.txt} contains 6,605 edge
+words. Both verifiers regenerate the entire set and require exact
+equality, including cardinality and absence of duplicates. Their
+complete graph has 6,501 vertices and precisely three cyclic strongly
+connected components:
+
+\begin{longtable}[]{@{}lrrl@{}}
+\toprule\noalign{}
+Component & Vertices & Internal edges & Structure \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\mathcal W\) & 104 & 104 & exact standard simple cycle \\
+\(\mathcal T\) & 24 & 24 & exact \(T\) simple cycle \\
+\(\mathcal H\) & 366 & 370 & not a simple cycle \\
+\end{longtable}
+
+There are no other cyclic components, including self-loops. The first
+two component edge sets equal all cyclic length-150 factors of \(W\) and
+\(T\). Strongly connected components and reachability are checked on the
+full graph, not only on a pruned experimental sample.
+
+The non-simple component is crucial: ordinary finite-state periodicity
+reasoning cannot dispose of it. It is dealt with next by an all-length
+physical conflict, rather than by assuming its paths are periodic.
+
+\subsection{Exact two-loop description of the non-simple
+component}\label{ten-3}
+
+The certificate \texttt{quotient.tsv} assigns each of the 366 vertices
+of \(\mathcal H\) a state in \(\{0,\ldots,101\}\). It is a
+label-preserving homomorphism onto this explicit graph:
+
+\begin{itemize}
+\tightlist
+\item
+  for each \(0\le i<102\), the edge labelled \(B_i\) leads from \(i\) to
+  \(i+1\) modulo 102;
+\item
+  one additional edge, labelled L, leads from 0 to 75.
+\end{itemize}
+
+Here \(B\) is the 102-letter word in the appendix, \(B_0=\mathrm R\),
+and the alternative short loop is \(A=\mathrm L B_{75}\cdots B_{101}\),
+of length 28. Every one of the 370 internal edges is checked against
+this formula. The homomorphism is used only in the forward direction:
+every infinite internal path projects to a word that, after at most 101
+letters, is an arbitrary concatenation of \(A\) and \(B\).
+
+The edge label is the letter APPENDED to the 149-letter history. It is
+shifted 149 places from the original stream. This finite shift is
+harmless for eventual-mode classification. Subsection ef\{ten-5\}
+instead uses the CURRENT letter \(v_0\) of a future-window vertex, and
+does not confuse these conventions.
+
+The exact geometric data, starting north at the origin, are
+
+\[A:(0,-4),\ h=0;\qquad B:(1,11),\ h=2.\]
+
+Thus \(A\) translates and \(B\) reverses the heading. The \(A\) word is
+a cyclic phase of \(U\).
+
+\subsection{Three foldbacks are impossible, at every pair of
+lengths}\label{ten-4}
+
+\textbf{Lemma 1.} For every pair of integers \(n,m\ge0\), the finite
+word \(B A^n B A^m B\) is physically infeasible, independently of its
+initial colouring.
+
+In each case below there are two consecutive visits to a cell \(q\) both
+requesting R:
+
+\begin{longtable}[]{@{}llrr@{}}
+\toprule\noalign{}
+Parameter range & \(q\) & Earlier time & Later time \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(n=0\) & \((0,2)\) & 32 & 184 \\
+\(n\ge1,\ m\ge n\) & \((0,2)\) & 32 & \(184+56n\) \\
+\(n\ge1,\ 0\le m<n\), \(r=n-m\) & \((1,4r)\) & \(25+28r\) &
+\(205+28(n+m)\) \\
+\end{longtable}
+
+All times are pre-update indices in the displayed finite word. It
+suffices to verify their consecutiveness, not that the rest of the
+candidate word is feasible.
+
+\textbf{Proof.} Let the five block boundaries start at times 0, 102,
+\(102+28n\), \(204+28n\), and \(204+28(n+m)\). Their respective poses
+are \((0,0),N\); \((1,11),S\); \((1,11+4n),S\); \((0,4n),N\); and
+\((0,4(n-m)),N\).
+
+The following finite coordinate facts are computed directly from the two
+displayed words and checked independently: \(A\) has \(-3\le x\le0\); on
+its column \(x=0\) the pairs (index, height, letter) are
+
+\[ (0,0,L),(7,-1,R),(8,-2,R),(15,-3,L),(16,-2,L),(27,-5,L).\]
+
+In \(B\), the only visit to \((0,2)\) is index 32, R. All \(B\) visits
+at \(x=0\) have \(y\le2\). Visits to \((1,9)\) are indices 82,R and
+90,L; visits to \((1,4)\) are 45,L and 53,R; visits to \((1,8)\) are
+73,L and 81,R. On \(x=1\) its maximum height is 12.
+
+If \(n=0\), the reflected second \(B\) reads \((0,2)\) at its local
+\((1,9)\), index 82. The previous visit is the first \(B\)'s index 32.
+This gives the first row.
+
+If \(n\ge1\), the first \(A\) run lies at \(x\ge1\), so cannot revisit
+\((0,2)\). In the second \(B\), a visit there would require local
+\((1,9+4n)\), above every \(x=1\) visit. In the second \(A\) run, the
+first matching copy is number \(n-1\) (zero-based), at local index 8,
+with letter R. All earlier copies miss: on \(x=0\) their required local
+height is below -5. The visit time is \(204+28n+28(n-1)+8=184+56n\).
+This copy exists when \(m\ge n\).
+
+Finally let \(r=n-m>0\). For \(r=1\) or 2, the last earlier visit to
+\((1,4r)\) is the first \(B\)'s index 53 or 81, both R. The first \(A\)
+run lies at heights at least 11 and cannot reach those two cells. For
+\(r\ge3\), the last visit in the first \(A\) run is copy \(r-3\), local
+index 7, R, at time \(102+28(r-3)+7=25+28r\). The column-\(x=0\) list
+for \(A\) shows no later visit to that cell in the run; any visit in the
+first \(B\) precedes it. A visit by the second \(B\) would require local
+\((0,11+4m)\), impossible since its column-\(x=0\) maximum is 2. The
+second \(A\) run lies at \(x\le0\). The third \(B\), based at
+\((0,4r)\), first reaches \((1,4r)\) at index 1, R. This proves the
+third row and the lemma. \(\square\)
+
+An infinite concatenation of \(A\) and \(B\) with infinitely many
+\(B\)'s contains a forbidden three-\(B\) subword. Hence it has only
+finitely many \(B\)'s and is ultimately \(A^\omega\). This argument
+disposes of arbitrary interleavings and unbounded run lengths, not only
+tested values of \(n,m\).
+
+An infinite path in a finite graph eventually remains in one cyclic
+strongly connected component. In \(\mathcal W\) and \(\mathcal T\) it is
+forced periodic by the simple cycles. In \(\mathcal H\) the preceding
+homomorphism and Lemma 1 force an \(A\)-periodic suffix. This proves
+Theorem A.
+
+\subsection{Finite support and the transient bound}\label{ten-5}
+
+For a heading-resetting periodic word of length \(P\) with nonzero drift
+\(d\), partition its phase positions by differences in \(\mathbb Z d\).
+For a class write \(q_i=b+a_i d\). Visits to \(b+nd\) are eligible when
+\(a_i\le n\), and their chronological order is decreasing \(a_i\), then
+increasing \(i\). A cell's required initial colour is the first letter
+of that ordered eligible list. This is the full-drift chronology method
+of Jillhewar (2026), Theorem 3.1 and Remark 3.2.
+
+The words \(U\) and \(T\) pass all per-cell alternation tests but have
+respectively five and two stabilized classes starting L. Each such class
+demands infinitely many DISTINCT initially black cells. Neither word can
+be executed forever from finite support. Any finite prelude preserves
+finite support, so these modes also cannot occur as eventual tails of a
+finite-support orbit. Consequently every finite-support infinite
+10-legal path eventually enters \(\mathcal W\).
+
+The complete graph gives 925 vertices that can reach \(\mathcal W\).
+They exclude \(\mathcal H\) entirely and include \(\mathcal T\). Apart
+from \(\mathcal W\) and \(\mathcal T\), they are acyclic. A path cannot
+leave a strongly connected component and later return to it. The current
+letters of a run of \(L\) successive vertices in \(\mathcal T\) form a
+length-\(L\) prefix of a phase of \(T^\omega\).
+
+Let \(b_j(L)\) count distinct cells whose FIRST read is L in this prefix
+starting at phase \(j\). If the complete black mass at the run's start
+is \(m_T\), physical execution requires \(b_j(L)\le m_T\). The count
+includes only first reads relative to that run; cells written during the
+run cannot pay for them.
+
+\textbf{Lemma 2.} For all phases \(j\) and all integers \(L\ge0\),
+
+\[L-12b_j(L)\le5.\]
+
+\textbf{Proof.} Chronological classes give the first-L read times as a
+finite set \(F_j\) and two arithmetic rays \(r_{j,1}+24\mathbb N\),
+\(r_{j,2}+24\mathbb N\). Their exact table is in the appendix. The sets
+count distinct physical cells, not repeated L reads. Put
+\(D_j=\max(\{0\}\cup\{f+1:f\in F_j\}\cup\{r_{j,1},r_{j,2}\})\). For
+every \(L\ge D_j\), directly from these rays,
+
+\[b_j(L+24)=b_j(L)+2.\]
+
+Thus \(L-12b_j(L)\) is 24-periodic for all \(L\ge D_j\). Checking the
+finite interval \(0\le L<D_j+24\) covers all lengths. Both
+implementations derive the class table independently and verify that the
+maximum across all phases is 5. This is an exact finite reduction with
+its all-length periodicity proof, not a finite-prefix extrapolation.
+\(\square\)
+
+Before its first \(\mathcal T\) vertex a path uses only the 54 acyclic
+strict ancestors of \(\mathcal T\). Give such a vertex \(v\) weight
+
+\[c(v)=1+12\delta(v_0),\qquad \delta(R)=1,\ \delta(L)=-1.\]
+
+Complete acyclic dynamic programming gives maximum total weight 70 for a
+path ending at \(\mathcal T\). Therefore if \(t_{pre}\) updates precede
+that run and their net black change is \(\Delta\), then
+\(t_{pre}+12\Delta\le70\) and \(m_T=m+\Delta\). After departure from
+\(\mathcal T\), the maximum acyclic path length before \(\mathcal W\) is
+137. The exit-producing update from a \(\mathcal T\) vertex is included
+in its \(T\)-prefix, not omitted. By Lemma 2,
+
+\[\tau\le t_{pre}+(12m_T+5)+137\le12m+70+5+137=12m+212.\]
+
+Paths avoiding \(\mathcal T\) altogether have length at most 167 before
+\(\mathcal W\), also below this bound. A path whose initial vertex is
+already in \(\mathcal W\) has zero such entrance time. Once the path
+first reaches \(\mathcal W\), leaving it would preclude a later return;
+because its eventual component must be \(\mathcal W\), it never leaves.
+Its future is standard from that time.
+
+These are future-window vertices at times starting at zero, so the transient bound needs no additional
+window warm-up. Every
+complete initial black cell remains in the physical state; only its
+count is used in this inequality. Theorem B's upper bound follows.
+
+\subsection{An explicit family attaining coefficient
+twelve}\label{ten-6}
+
+Define
+
+\[E=\{(-2,-1),(-1,0)\},\]
+
+\[\begin{split}D=\{&(-1,-4),(-1,-3),(0,-5),(0,-3),(0,-2),(1,-6),\\
+ &(1,-5),(1,-4),(1,-3),(2,-3),(2,-2)\}.\end{split}\]
+
+\[R=\{(-2,0),(-1,-1),(-1,0),(0,-1),(1,-1),(1,0)\}.\]
+
+For \(n\ge0\), put
+
+\[B_n=E\ \cup\ \{(-2,-2j),(0,-2j-1):1\le j\le n\}\ \cup\ (D+(0,-2n)).\]
+
+These sets are disjoint. Start north at the origin with exactly \(B_n\)
+black and all other cells white. Then \(|B_n|=2n+13\).
+
+The word \(T\) has read footprint within \([-2,1]\times[-3,0]\), net
+displacement \((0,-2)\), and resets heading. For every \(n\ge1\) its
+required initial black cells in that footprint are precisely
+\(E\cup\{(-2,-2),(0,-3)\}\). All later rail cells and all cap cells are
+outside the footprint. The complete 24-step parity of visits, followed
+by set cancellation, gives the identity
+
+\[F^{24}(B_n,0,N)=\big((B_{n-1}+(0,-2))\mathbin{\dot\cup}R,\ (0,-2),N\big).\]
+
+This is an identity of FULL states, not a core-only recurrence. A direct
+all-parameter derivation is: translate the rail terms with
+\(j=1,\ldots,n-1\) by -2; they become the original terms
+\(j=2,\ldots,n\). The cap becomes \(D+(0,-2n)\). Only the fixed finite
+set \(E\), the first rail pair, and the translated \(E\) remain to
+compare, and their difference with \(R\) equals the exact net toggle set
+of \(T\). This finite equality is checked. It also covers \(n=1\) where
+the shorter rail is empty.
+
+The residual \(R\) is at heights -1 and 0. Every future repeated \(T\)
+segment based at height -2 or less remains strictly below it. The
+\(n=0\) complete state is the clean seed of the standard phase \(Z\) in
+the appendix; its full infinite execution is verified by chronology and
+an independent epoch-breakpoint formula. Its phase footprint has maximum
+height zero and drift \((-2,-2)\), so its continuation from height -2
+also stays below \(R\). Induction therefore retains and guards ALL
+successive residuals and proves the exact infinite word
+
+\[T^n Z^\omega.\]
+
+The factors of \(T^2Z^2\) verify every possible length-10 junction;
+\(T^\omega\) and \(Z^\omega\) are themselves 10-legal. The last three
+letters of \(T\) and \(Z\) agree, but the last four do not. Since \(Z\)
+has least period 104, any earlier standard future agreeing with
+\(Z^\omega\) must be its unique phase-aligned left extension. Hence the
+first standard time is
+
+\[\tau_n=\max(0,24n-3).\]
+
+For \(n\ge1\), \(\tau_n=12|B_n|-159\). An affine upper bound with slope
+less than 12 and fixed intercept fails for large \(n\). This proves the
+sharp coefficient, without claiming 212 is sharp. Every member of this
+family is H-positive.
+
+\subsection{Nine factors admit an aperiodic infinite-background
+spiral}\label{ten-7}
+
+Let \(U\) and \(C\) be the 28- and 89-letter words in the appendix and
+let \(n_i=5\cdot2^i\). Consider
+
+\[a=\prod_{i=0}^{\infty} U^{n_i}C.\]
+
+The prescribed geometry is explicitly computable, starting at the origin
+heading north. Its all-future physical feasibility follows from the next
+separation proof; it is not assumed.
+
+A \(U\) block restores heading, moves \((0,-4)\), and has footprint in
+\([0,3]\times[-5,0]\). A \(C\) block rotates the heading
+counterclockwise, moves \((13,-4)\), and has footprint in
+\([0,14]\times[-4,0]\). The finite word \(UCU\) is feasible. Every
+length-9 factor of \(U^2CU^2\) is in \(\mathcal L_9\).
+
+The start heading of macro \(i\) is \(-i\) modulo four. For \(S=16^k\),
+the four consecutive start positions are
+
+\[p_{4k}=(-8S+8,4S-4),\quad p_{4k+1}=(-8S+21,-16S-8),\]
+\[p_{4k+2}=(32S+25,-16S+5),\quad p_{4k+3}=(32S+12,64S+9).\]
+
+These follow by the two block displacements; one group of four returns
+the heading and replaces \(S\) by \(16S\). Entire macro read footprints
+lie in the respective rectangles
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Index & x interval & y interval \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(4k\) & \([-8S+8,-8S+22]\) & \([-16S-8,4S-4]\) \\
+\(4k+1\) & \([-8S+21,32S+25]\) & \([-16S-8,-16S+6]\) \\
+\(4k+2\) & \([32S+11,32S+25]\) & \([-16S+5,64S+9]\) \\
+\(4k+3\) & \([-128S+8,32S+12]\) & \([64S-5,64S+9]\) \\
+\end{longtable}
+
+Each rectangle is disjoint from all nonadjacent earlier rectangles. For
+the first row, \(k\ge1\), earlier rectangles through \(4k-2\) have
+\(x\ge-S/2+8\), while the new maximum is \(-8S+22\); use \(15S>28\). For
+the second row, earlier rectangles through \(4k-1\) have \(y\ge-S-8\),
+while the new maximum is \(-16S+6\); use \(15S>14\). For the third row,
+earlier rectangles through \(4k\) have \(x\le2S+25\), while the new
+minimum is \(32S+11\); use \(30S>14\). For the fourth row, earlier
+rectangles through \(4k+1\) have \(y\le4S+9\), while the new minimum is
+\(64S-5\); use \(60S>14\). The first two empty-earlier-set base cases
+are automatic. These inequalities hold for every \(S=16^k\) in the
+stated ranges.
+
+It remains to control adjacent macros, which are not claimed disjoint.
+In local coordinates of the earlier macro, the next macro begins at
+\((13,-4n_i-4)\) heading west. Its first \(U\) block can overlap the
+earlier \(C\), but every later \(U\) block has \(x\ge17\) while \(C\)
+has \(x\le14\); the next \(C\) is still farther right. The preceding
+\(U\) rail has \(x\le3\), so is disjoint from the next macro. Within one
+macro, \(C\) can meet only the LAST \(U\) block: every earlier \(U\)
+block has minimum height at least \(-4n_i+3\), above \(C\)'s maximum
+\(-4n_i\). Thus all interactions with \(C\) are contained in the
+verified word \(UCU\). Other repetitions are portions of the physically
+feasible \(U^\omega\) trace. This proves alternating letters at every
+consecutive same-cell pair in the entire infinite word.
+
+Colour a cell initially black precisely when its first prescribed read
+has letter L; leave unvisited cells white. The proved consistency makes
+this a genuine infinite classical-ant execution by induction over time.
+This colouring is computable: for a queried cell of infinity-norm \(M\),
+choose \(k\) with \(16^k>M+100\). Every rectangle from macro \(4k\)
+onward lies outside \([-M,M]^2\) in at least one coordinate, so only the
+first \(4k\) finite macros need be searched. It has infinite black
+support, since interior portions of arbitrarily long \(U\) rails demand
+fresh initial black cells.
+
+The word \(D_{bad}=\mathtt{RLRRRRLRRL}\) is absent from
+\(\mathcal L_{10}\) and occurs exactly once in each connector \(C\), at
+offset 11. The finite check of \(U^2CU^2\) excludes other occurrences at
+either junction, and \(U^\omega\) has none. Successive occurrences are
+separated by \(89+28n_{i+1}\), which grows without bound. An eventually
+periodic sequence with infinitely many occurrences of a fixed finite
+factor has bounded gaps between them. Hence \(a\) is not eventually
+periodic. This proves Theorem C, including its explicitly
+infinite-background boundary.
+
+\subsection{A radius-nine target decidable without waiting for a remote
+collision}\label{ten-8}
+
+The inverse of a literal step is unique: from post-pose \((p,h)\) set
+\(q=p-\mathrm{dir}(h)\), undo the flip at \(q\), and undo the turn
+dictated by that recovered colour. Nine inverse steps read only cells
+within distance nine of the current head. Therefore the
+preceding-nine-turn test \(J_{10}\) is an intrinsic finite-local
+predicate, including at input time zero.
+
+Let \(M=12|B_0|+212\). The following total algorithm acts on an
+arbitrary finite input, with no legality promise:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Recover the true nine-turn past. Simulate up to time \(M\), checking
+  \(J_{10}\) before each update. Return YES with its first time if
+  encountered.
+\item
+  At time \(M\), test the complete-state predicate \(P_{now}\) for
+  permanent standard P104. If it fails, return YES (a future event is
+  forced by Theorem B). This is not an assertion that the event was
+  observed or that its first time has been computed.
+\item
+  If \(P_{now}\) holds, simulate nine additional updates to check all
+  windows crossing this boundary. Return YES if one is bad; otherwise
+  return NO. All subsequent windows are inside the certified standard
+  future.
+\end{enumerate}
+
+Why is the second step sound? Absence of every future \(J_{10}\) implies
+legality of every forward length-10 window from time zero. Theorem B
+would force \(P_{now}\) by time \(M\), contradicting the failed test. A
+far-away blocker cannot be omitted from that test.
+
+The exact \(P_{now}\) test first simulates 104 turns on a copy. If they
+do not equal any phase of \(W\), it returns false. Otherwise let \(K\)
+be the unique clean finite seed for that placed phase, computed by the
+chronological class formula. Let \(q_i+\mathbb N d\) be its 104 future
+phase rays. The actual complete field realizes that future if and only
+if
+
+\[(B\triangle K)\cap\bigcup_{i=0}^{103}(q_i+\mathbb N d)=\varnothing.\]
+
+Sufficiency follows by first-difference induction; necessity follows at
+the first read of an initial differing cell. Testing finitely many
+complete-field points against 104 integer rays is exact, including
+arbitrarily distant markers. No repeated-prefix heuristic is used.
+
+During the \(O(m)\) ordinary updates the complete field has \(O(m)\)
+cells, and coordinate bit lengths grow by only \(O(\log(m+1))\) beyond
+their input sizes. Exact finite-set operations and integer ray tests
+therefore give a deterministic polynomial bit-time implementation (a
+balanced search tree can be used instead of hashing). The implementation
+uses Python integers and finite sets; even worst-case linear set lookups
+remain polynomial. There is no claim of a polynomial bound for the
+numerical first-event time or of a bound polynomial in the bit length of
+a COMPRESSED black count.
+
+\subsubsection{A fixed-mass late-event
+control}\label{a-fixed-mass-late-event-control}
+
+\texttt{verification/ten/certificates/far\_marker.json} gives a complete
+27-black standard state at a mature phase. Add one black marker at
+\((2n,2n)\) for any \(n\ge20\). The new complete mass is always 28. The
+first contact is exactly at update \(104n-92\), and it changes a
+prescribed R into L, forming the forbidden ten-factor
+\texttt{RRRLLLLRLL}.
+
+The all-parameter first-contact calculation is: for the supplied phase
+positions \(q_i\), write \(q_i=s_i(2,2)\) whenever possible. The first
+visit to the marker has time \(104n+\min_i(i-104s_i)\). The minimum is
+-92, attained at phase 12, and all relevant epochs are nonnegative for
+\(n\ge20\). The marker is outside the finite true nine-step inverse
+history and the seed. Until contact, first-difference coupling preserves
+the entire standard path. The standard cyclic preceding nine letters and
+the changed L give exactly the stated bad factor.
+
+For \(n=10^{12}\) the first event is at \(103999999999908\), but the new
+decision algorithm returns a forced-future YES after only 548
+main-trajectory updates. The extra operations are nine inverse updates
+and the constant lookahead and ray tests, not simulation to the event.
+This family illustrates the distinction between reachability decision
+and event-time observation. Its coordinates encode the long waiting time.
+
+\subsection{Finitely many violations and standard
+convergence}\label{finitely-many-violations-and-standard-convergence}
+
+For finite inputs, a standard future has no intrinsic violations after
+its first nine updates. Conversely, after the last violation every
+forward window is legal; Theorem B applied to that complete state gives
+a standard future. Hence \[H(X)\iff \#\{t\ge0:J_{10}(F^tX)\}<\infty.\]
+Theorem D decides each future-event query. This equivalence identifies
+the additional global assertion needed for convergence: finiteness of
+the event chain, rather than decidability of an individual query.
+
+\input{event-macros}
+
+\section{Mass and defects on arbitrary
+intervals}\label{mass-and-defects-on-arbitrary-intervals}
+
+For a finite word \(v\), put \(g(v)=\#R-\#L\) and \(D(v)=3|v|-26g(v)\).
+\textbf{Theorem 1 (finite-word deficit).} Every physically feasible,
+ten-legal finite word satisfies \(D(v)\le322\), with no
+infinite-extension premise. The all-input inequality of Theorem E is
+denoted (MASS1) in this section.
+
+\subsection{Exact finite-word feasibility and enumeration
+coverage}\label{mass-2}
+
+A prescribed turn word fixes its geometric path from (0,0),N. It is
+physically feasible exactly when successive reads of each physical cell
+request opposite turns. Necessity is the flip rule. For sufficiency, put
+an initial black cell precisely at each visited position whose first
+request is L, and leave all other positions white. Induction realizes
+the entire word. The required seed is finite. Arbitrary poses follow by
+translation and quarter turns.
+
+This elementary criterion is prior methodology, as in Gajardo's symbolic
+forbidden-word treatment; it is not claimed as new. It implies in
+particular that finite-word feasibility is the same whether initial
+colourings are required to be finite or are arbitrary.
+
+Starting at the empty word, branch on BOTH turns. Reject an extension
+exactly if its new ten-factor is forbidden, or its current cell was
+previously read with the same letter. Induction on length proves
+complete enumeration of physically feasible ten-legal words through
+depth 300. Words of lengths below ten are NOT initially restricted to
+the standard factor table.
+
+The Python implementation uses breadth-first cloned last-read maps. The
+C++ implementation instead uses depth-first reversible current-colour
+assignments. No seed-size or spatial cutoff is used. Their complete
+sorted depth-300 edge sets and their integer potentials have identical
+hashes.
+
+\subsection{The finite graph certificate covers arbitrarily long finite
+words}\label{mass-3}
+
+Form a graph from EVERY accepted word of length 300: its 299-prefix is
+the source, its 299-suffix the target, and the appended letter labels
+the edge. There are exactly 29,334 vertices and 29,559 edges. Assign the
+weight
+
+\begin{verbatim}
+w(R)=-23, w(L)=29,
+\end{verbatim}
+
+so that D(v) is the sum of its letter weights.
+
+The certificate assigns a nonnegative integer h(u) to each vertex, with
+maximum 251, and verifies EVERY edge inequality
+
+\begin{verbatim}
+h(u) >= w(c)+h(v),               u --c--> v,             (MASS2)
+\end{verbatim}
+
+and EVERY initial-vertex inequality
+
+\begin{verbatim}
+D(u)+h(u) <= 284.                                       (MASS3)
+\end{verbatim}
+
+These are direct integer comparisons; an optimizer's output is not
+trusted. The potential generators are only proposal generators. Their
+resource caps raise an error with no mathematical conclusion. An
+independently supplied damaged potential is rejected without repair.
+
+For any physically feasible ten-legal finite word z of length
+n\textgreater=300, all its 300-windows belong to this graph. They define
+a path starting with its first 299 letters u0. Summing (MASS2) over the
+appended letters gives
+
+\begin{verbatim}
+D(z) <= D(u0)+h(u0)-h(u_final) <= 284,
+\end{verbatim}
+
+using (MASS3) and h\textgreater=0. This is an overapproximation
+argument: not every graph path need be physically realizable, but every
+physical word is covered. No extension to an infinite ten-legal path is
+assumed. There is no misuse of eventual-cycle classification for a
+finite segment.
+
+For all lengths 0 through 299, exhaustive enumeration gives maximum 322.
+Combining the two finite kernels proves Theorem 1 for all finite
+lengths.
+
+The source witness fixes SHA256 hashes for the sorted depth-300 words
+and the potentials in lexicographic vertex order.
+
+The complete finite sets are reconstructed deterministically and checked
+against those hashes and the local inequalities. They need not be stored
+as a nine-megabyte enumeration dump. verification/mass/witness.json
+contains the immutable numerical claim, exact short witness and its
+complete minimal seed.
+
+\subsection{Sharpness}\label{mass-4}
+
+The word
+
+\begin{verbatim}
+LLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLL
+\end{verbatim}
+
+has length 90, 44 right turns and 46 left turns. It is physically
+feasible and all of its 81 ten-factors are allowed. Its unique minimal
+first-read seed has 28 black cells and is listed in
+verification/mass/witness.json. Literal execution leaves 26 black cells.
+Thus
+
+\begin{verbatim}
+3*90-26*(26-28)=322,
+\end{verbatim}
+
+proving the additive constant in Theorem 1 and in (MASS1), with wholly
+contained windows, cannot be decreased.
+
+The standard word has 104 updates and 12 more R than L. Its certified
+finite-support realization supplies physically feasible words W\^{}k for
+every k\textgreater=1. Thus any uniform lower estimate
+g\textgreater=rho*n-C with rho\textgreater12/104=3/26 fails as k tends
+to infinity. The standard tail is an existing certified input here; this
+work uses that standard growth as its sharpness witness. The supplementary literal W\^{}4 check is a control, not the
+justification of the universal k quantifier.
+
+\subsection{Derivation of the unrestricted inequality}\label{mass-5}
+
+In any actual finite orbit segment, every right turn increases complete
+black mass by one and every left turn decreases it by one. Hence
+
+\begin{verbatim}
+g(a_s...a_(t-1))=|B_t|-|B_s|.                            (MASS4)
+\end{verbatim}
+
+Remove each letter that ends a forbidden ten-window wholly contained in
+the segment. These N=N10(s,t) single-letter positions separate at most
+N+1 consecutive remaining runs. Every ten-window wholly inside a
+remaining run was wholly inside the original segment and cannot be
+forbidden: otherwise its last position would have been removed. Each run
+is a genuine physical subword and is therefore covered by Theorem 1. An
+empty run has deficit zero and may harmlessly be charged the same upper
+bound.
+
+Each removed letter has deficit at most 29. Additivity of D, Theorem 1
+and (MASS4) yield
+
+\begin{verbatim}
+D(total) <= 322(N+1)+29N = 351N+322,
+\end{verbatim}
+
+proving (MASS1). This does not require disjoint forbidden windows.
+Removing their ending letters handles overlaps exactly.
+
+\subsection{Density consequences}\label{density-consequences}
+
+Taking \(s=0\) and dividing by \(t\) gives two immediate consequences:
+if \(|B_t|=o(t)\), then \(\liminf N_{10}(0,t)/t\ge1/117\); if
+\(N_{10}(0,t)=o(t)\), then \(\liminf |B_t|/t\ge3/26\). These quantify
+the cost of maintaining low mass or a nearly legal stream.
+
+\section{Reproducibility and
+conclusion}\label{reproducibility-and-conclusion}
+
+The source package provides two complete finite kernels. The attraction
+kernel regenerates the 6,605 physical length-150 words, the quotient of
+the nonsimple component, and the exact path and supply bounds. The mass
+kernel regenerates all 29,559 length-300 edges, checks every integer
+potential inequality, and replays the equality witness. Python and C++
+implementations are compared, and damaged certificates are rejected. The
+event lift additionally checks all 7763 edges and component-rank maxima
+5, 956 and 212. The all-parameter foldback exclusion, seed induction and spiral separation
+are proved in the text; finite geometric checks verify their stated
+numerical premises.
+
+Run \texttt{python3\ factor\_language/reproduce.py} from the source
+root. Retained source hashes and a fresh per-stage report distinguish
+the imported evidence from the checks performed for this manuscript.
+These are analytic proofs with exact computation. The older
+immediate-standardness thresholds concern a different conclusion and are
+not premises of this paper.
+
+The two proof routes expose complementary structure: a legal infinite
+future has rigid eventual motion, while an arbitrary finite interval
+must pay for its mass deficit with local violations. Their combination
+connects a local signature of P104 with both a decidable event and a
+quantitative all-input law.
+
+\appendix
+
+\section{Exact words}\label{exact-words}
+
+The machine-readable words are in
+\texttt{verification/ten/certificates/witness.json}; line breaks below
+are not letters. All geometric statements use north at the origin unless
+a phase placement is explicit.
+
+\subsubsection{W (length 104)}\label{w-length-104}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRL}
+\NormalTok{LRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{U (length 28)}\label{u-length-28}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RRLRLLLLRRRRLRRLRRRRLLLLRLRR}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{T (length 24)}\label{t-length-24}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RRRRLLRLLRRRRLLRRRRLLRLL}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{A (length 28)}\label{a-length-28}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{LLRRRRLRRLRRRRLLLLRLRRRRLRLL}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{B (length 102)}\label{b-length-102}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLLLRRRR}
+\NormalTok{LRRLRRRRLLLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRLL}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{C (length 89)}\label{c-length-89}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RRLRRRRLLLLRLRRRRLRRLRRRRLLLLRLRRRRLRLLLLRRRRLRRLRRR}
+\NormalTok{RLLLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRR}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Z (length 104)}\label{z-length-104}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR}
+\NormalTok{RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLL}
+\end{Highlighting}
+\end{Shaded}
+
+\section{First-black supply table for the
+24-mode}\label{first-black-supply-table-for-the-24-mode}
+
+The two rays are each advanced by 24. The finite times and the rays are
+disjoint as read events and correspond to distinct first-read cells.
+
+\begin{longtable}[]{@{}rllr@{}}
+\toprule\noalign{}
+Phase & Finite first-L times & Ray starts & Maximum \(L-12b_j(L)\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 5,7 & 8,23 & 5 \\
+1 & 3,4,6 & 7,22 & 3 \\
+2 & 2,3,5 & 6,21 & 2 \\
+3 & 1,2,4 & 5,20 & 1 \\
+4 & 0,1,3 & 4,19 & 0 \\
+5 & 0,2 & 3,18 & 0 \\
+6 & 1 & 2,17 & 1 \\
+7 & 0,7 & 1,16 & 0 \\
+8 & 6 & 0,15 & 0 \\
+9 & 5 & 14,23 & 5 \\
+10 & 3,4 & 13,22 & 3 \\
+11 & 2,3,11 & 12,21 & 2 \\
+12 & 1,2,10,19 & 11,20 & 1 \\
+13 & 0,1,7,9,18 & 10,19 & 0 \\
+14 & 0,6,8,17 & 9,18 & 0 \\
+15 & 5,7,16 & 8,17 & 5 \\
+16 & 3,4,6,15 & 7,16 & 3 \\
+17 & 2,3,5,14 & 6,15 & 2 \\
+18 & 1,2,4,13 & 5,14 & 1 \\
+19 & 0,1,3,12 & 4,13 & 0 \\
+20 & 0,2,11 & 3,12 & 0 \\
+21 & 1,10 & 2,11 & 1 \\
+22 & 0,7,9 & 1,10 & 0 \\
+23 & 6,8 & 0,9 & 0 \\
+\end{longtable}
+
+\section{References}\label{references}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Anahí Gajardo. \emph{A symbolic projection of Langton's Ant (Extended
+  Abstract)}. DMTCS Proceedings AB, 57--68 (2003).
+  \href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
+\item
+  Anahí Gajardo, Victor Lutfalla and Michaël Rao. \emph{Ants on the
+  highway} (2024).
+  \href{https://arxiv.org/abs/2409.10124v1}{arXiv:2409.10124v1}.
+\item
+  Atharva Jillhewar. \emph{Finite-Support Periodic Highways of Langton's
+  Ant: Necessary Conditions, Transverse Exclusions, and Exact Search}
+  (2026).
+  \href{https://doi.org/10.21203/rs.3.rs-10516269/v1}{doi:10.21203/rs.3.rs-10516269/v1}.
+  Theorem 3.1 and Remark 3.2 supply full-drift visit chronology and seed
+  reconstruction.
+\item
+  Hao Ke. \emph{An Ant on the Clock: Exponential Escape Bounds for
+  Langton's Ant}, version 0.4.0 (2026).
+  \href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
+\end{enumerate}
+
+\end{document}

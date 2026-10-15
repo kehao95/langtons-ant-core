@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "basic": {
+    "counts": {
+      "inverse_roundtrip": 2048,
+      "local_predicate_checks": 8192,
+      "small_seed_classifications": 8192,
+      "white_old_return_controls": 371
+    },
+    "blank_first_events": [
+      {
+        "D": 4,
+        "event_time": 15,
+        "point": [
+          0,
+          -1
+        ],
+        "updates_executed": 15
+      },
+      {
+        "D": 16,
+        "event_time": 50,
+        "point": [
+          1,
+          -1
+        ],
+        "updates_executed": 50
+      },
+      {
+        "D": 64,
+        "event_time": 94,
+        "point": [
+          -1,
+          1
+        ],
+        "updates_executed": 94
+      },
+      {
+        "D": 128,
+        "event_time": 197,
+        "point": [
+          -3,
+          -2
+        ],
+        "updates_executed": 197
+      },
+      {
+        "D": 256,
+        "event_time": 398,
+        "point": [
+          3,
+          1
+        ],
+        "updates_executed": 398
+      }
+    ],
+    "caller_cap_checks": 1,
+    "invalid_inputs_rejected": 4
+  },
+  "periodic": {
+    "phase_rotation_controls": 107,
+    "far_blockers": [
+      {
+        "epoch": 10,
+        "point": [
+          -76,
+          -52
+        ],
+        "expected_first_hit": 1040,
+        "returned_event_time": 1040,
+        "updates_executed": 104,
+        "witness_mode": "exact_periodic_ray_mismatch"
+      },
+      {
+        "epoch": 1000000,
+        "point": [
+          -2000056,
+          -2000032
+        ],
+        "expected_first_hit": 104000000,
+        "returned_event_time": 104000000,
+        "updates_executed": 104,
+        "witness_mode": "exact_periodic_ray_mismatch"
+      }
+    ],
+    "irrelevant_archive_controls": 1,
+    "mutated_words_rejected": 8,
+    "positive_example": {
+      "schema": "langtons-ant-stale-memory-v1",
+      "D": 128,
+      "input_sha256": "2c8e5a739afd3e17b7586f9245a82324b3f0502add1179396ed73e6594a95c50",
+      "initial_suffix": "LLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+      "radius": 85,
+      "strict_waiting_bound": 231584178474632390847141970017375815738866794188770282107935755721844239368192,
+      "kind": "permanent_no_stale",
+      "prefix": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+      "cycle": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+      "entry": 104,
+      "certificate": {
+        "valid": true,
+        "period": 104,
+        "drift": [
+          -2,
+          -2
+        ],
+        "breakpoint_checks": 167
+      },
+      "updates_executed": 104,
+      "suffix_states": 104
+    },
+    "scope": {
+      "arbitrary_HALTING_decided": false,
+      "global_nonuniversality": false,
+      "HC_proved": false,
+      "independent_mathematical_review": false
+    }
+  },
+  "source_sha256": {
+    "stale_memory.py": "1ca1bcd162c36b26c07982522ab4d03e22f1ada281ef46040be83272f6b3f49a",
+    "check.py": "9893045126d40ab32942b97225623e2a01e851b7e5283165ae1acca33312057d",
+    "baseline/memory_delay.py": "eda59036a875e4e601b14235b262cbea699efe33a455fcfcba623ddb892df2bc"
+  },
+  "blank_created_memory_witness": {
+    "creation_time": 21,
+    "read_and_erase_time": 197,
+    "position": [
+      -3,
+      -2
+    ],
+    "black_lifetime": 176,
+    "D": 128
+  }
+}

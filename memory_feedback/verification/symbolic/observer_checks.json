@@ -1,0 +1,70 @@
+{
+  "schema": "langtons-ant-observer-macro-checks-v1",
+  "date": "2026-10-12",
+  "status": "passed",
+  "counts": {
+    "literal_trigger_controls": 2048,
+    "prescribed_observation_controls": 320,
+    "repeated_word_controls": 320,
+    "event_budget_controls": 128,
+    "invalid_or_cap_controls": 6
+  },
+  "passive_marker": {
+    "phase_word": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+    "period": 104,
+    "drift": [
+      -2,
+      -2
+    ],
+    "offset": [
+      200,
+      -200
+    ],
+    "marker": [
+      -1999999999856,
+      -2000000000232
+    ],
+    "epoch_parameter": 1000000000000,
+    "first_halt": 104000000000000,
+    "physical_stale_result": "permanent_no_stale",
+    "observer_result": "halt",
+    "explicit_updates": 104,
+    "stats": {
+      "explicit_updates": 104,
+      "symbols_built": 208,
+      "transition_evaluations": 209,
+      "epoch_intervals": 2,
+      "blocks_skipped": 999999999998
+    },
+    "halt_state_sha256": "b2946d9a8bd9a40fb7b0992d903314e93fd7f7811f1d937db201a380225acc03"
+  },
+  "simultaneous_halt_and_stale": {
+    "time": 104000000000000,
+    "result": "halt",
+    "pre_update_black_preserved": true
+  },
+  "long_residue_observation": {
+    "count": 104000000000000000037,
+    "final_observer_state": 1,
+    "stats": {
+      "explicit_updates": 0,
+      "symbols_built": 3016,
+      "transition_evaluations": 23437,
+      "epoch_intervals": 9,
+      "blocks_skipped": 995599999999999415
+    }
+  },
+  "scope": {
+    "global_nonuniversality": false,
+    "arbitrary_global_halt_decider": false,
+    "old_one_black_rerun": false,
+    "lean": false,
+    "independent_mathematical_review": false
+  },
+  "source_sha256": {
+    "observed_stale.py": "5d326bbb943809568ce40eb1db5d614366c600a5e225834ba7797d9f57b204ec",
+    "check_observer.py": "8f29974e729c8db3e352e922f129f6b798ee880a6146aead2cf196b0a155e55d",
+    "symbolic_stale.py": "e2d9f6e15a688c6ec65f01548e4e00a6869644869ce20f6ab5a95c35a042e3e7",
+    "memory_delay.py": "eda59036a875e4e601b14235b262cbea699efe33a455fcfcba623ddb892df2bc"
+  }
+}

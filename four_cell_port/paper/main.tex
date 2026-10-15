@@ -1,34 +1,39 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
+\usepackage{fontspec,longtable,array,calc,listings}
+\setmainfont{DejaVu Serif}\setmonofont{DejaVu Sans Mono}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible}
+\providecommand{\passthrough}[1]{#1}
+\setlength{\emergencystretch}{3em}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,tikz,microtype,xcolor}
 \hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black,
- pdftitle={Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton's Ant},pdfauthor={Hao Ke}}
+ pdftitle={Four-Cell Ports and Composable Highway Scattering for Langton's Ant},pdfauthor={Hao Ke}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
 \newcommand{\HH}{\mathcal H}
-\title{Four Black Cells Force an Outgoing Highway:\\A Sharp Half-Plane Threshold for Langton's Ant}
+\title{Four-Cell Ports and Composable Highway Scattering\\for Langton's Ant}
 \author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
-\date{15 October 2026}
+\date{15 October 2026\\Version 0.2.0}
 \begin{document}
 \maketitle
 \begin{abstract}
-Four initially black cells suffice to keep the classical Langton ant forever
-in a prescribed half-plane and launch its standard period-104 highway. Four
-is optimal: starting at the boundary and facing inward, every colouring with
-at most three black cells in that half-plane exits within 918 updates, and
-this time bound is sharp. The lower bound covers arbitrary cell coordinates
-through a finite first-contact enumeration. An explicit four-cell seed has a
-certified standard highway from update 182; exact colour-parity identities
-establish its entire infinite tail. We then show that every finite-support
-initial state admits an effective extension by exactly four remote black
-cells that preserves any prescribed finite observed trajectory and forces
-standard-highway behaviour. The construction joins the original trajectory
-at its first exit from a protected square, while retaining its complete
-physical history. Analytic coverage and coupling arguments are accompanied
-by reproducible finite certificates and separately implemented checks.
+Four black cells form a sharp one-sided interface for the classical Langton
+ant: they launch a permanent period-104 highway in a half-plane, whereas
+at most three force first exit within the sharp bound of 918 updates.
+The interface also completes any prescribed finite observed history using
+four remote cells. We extend this construction to composable highway
+scattering. A library of thirty protected rules closes under every compatible
+finite sequence with gaps of at least one hundred periods. A second interface
+permits arbitrarily long return excursions that read black memory written by
+the same ant and then restore the incoming highway orientation. Any finite
+number of these return packets can be installed in one finite input.
+Nested guard regions and exact XOR identities preserve the complete field
+through every encounter. Analytic composition proofs are accompanied by
+reconstructed finite kernels, affine inequalities and all-future tail checks.
 \end{abstract}
 
 \section{A sharp outgoing interface}
@@ -38,6 +43,13 @@ using four black cells in a half-plane. The supporting line separates its
 entire future from any configuration on the other side, making the pattern
 an outgoing interface for arbitrary finite histories. A matching lower bound
 shows that four cells are necessary for this one-sided interface.
+
+We next compose this interface with protected scattering rules. The central
+closure condition is equality of the entire field in the next protected
+region. Increasing guards establish this condition for arbitrarily many
+encounters. A further return packet deliberately revisits old wake, then
+recovers a closed outgoing interface using a second exact comparison region.
+These two constructions give complementary finite-train theorems.
 
 A colouring is a set $B\subseteq\Z^2$ of black cells; $p$ and $h$ denote the
 ant's position and cardinal heading. On an update, the ant turns left on
@@ -297,6 +309,9 @@ concerns the augmented input $X^+$. The matching lower bound characterizes
 one-sided ports from a boundary pose. It does not assert minimality among
 all possible exterior modifications of an individual input.
 
+\input{scattering}
+\input{returns}
+
 \section{Verification and relation to earlier work}
 The verification package separates the finite data from the coverage proof.
 The original integer checker reconstructs the 284-seed table, the complete
@@ -327,13 +342,19 @@ periodic-realisability criterion~\cite{jillhewar2026} is used as a verification
 method; the new threshold is established by first-contact coverage.
 
 \section{Conclusion}
-A four-cell seed provides an outgoing standard-highway interface with a
-matching three-cell exclusion. The first-contact proof makes its lower bound
-uniform over unbounded coordinates, and finite parity identities certify
-the infinite outgoing path. Placing this interface beyond a first exit
-preserves any finite observed history and then directs the modified ant
-into the standard highway. The result connects a sharp local resource
-threshold to an effective construction for arbitrary finite states.
+The sharp four-cell port connects a local resource threshold with effective
+completion of finite histories. Guarded scattering then turns the outgoing
+trace into a composable interface. Its proof requires agreement on a complete
+protected region and a strictly advancing guard; matching endpoint poses alone
+would not suffice. The return construction extends that interface to
+unbounded excursions and actual readback of old self-written memory, while
+retaining the full field at every stage.
+
+Each finite train has its markers fixed at input time. The number of packets
+is supplied by that finite input, while every gap and excursion parameter may
+be arbitrarily large. The separate feedback manuscript studies a twenty-black
+family with fixed intermediate event count; its lifetime obstruction belongs
+to that paper rather than being a second main claim here.
 
 \paragraph{Reproducibility.}
 The source, finite certificates and checkers are in

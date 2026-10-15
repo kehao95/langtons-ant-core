@@ -1,0 +1,2 @@
+TABLE 4564
+{"status":"complete","cap":184,"prefixes":47232346,"order_rejections":9444628,"cycle_rejections":2392773,"budget_rejections":0,"top_rejections":0,"rank_checks":71339327,"rank_rejections":15801620,"shard":6,"shards":8,"cuts":673,"selected_cuts":84,"cut_hash":4066067946359262014,"solutions":0,"seconds":199.55,"layers":[0,0,0,16343,721337,84,73,35,3,1,0]}

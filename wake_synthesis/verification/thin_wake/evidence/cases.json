@@ -1,0 +1,4072 @@
+{
+  "status": "complete",
+  "baseline": "bf42eebf88560ef767c77cbf582cd08658b0ce6b",
+  "cases": [
+    {
+      "hole": -9,
+      "mask": 130,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-9_m130_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 136,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-9_m136_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 160,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-9_m160_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 175,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-9_m175_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 187,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-9_m187_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 190,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-9_m190_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 215,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-9_m215_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 221,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-9_m221_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 235,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-9_m235_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 238,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-9_m238_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 245,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-9_m245_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -9,
+      "mask": 250,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-9_m250_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 135,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m135_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 142,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m142_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 147,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m147_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 149,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m149_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 154,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m154_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 156,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m156_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 166,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m166_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 169,
+      "mod16": 0,
+      "upper": 168,
+      "jobs": [
+        "h-7_m169_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 178,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m178_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 180,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m180_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 195,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m195_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 197,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m197_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 202,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m202_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 204,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m204_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 209,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m209_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 216,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m216_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 226,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m226_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 228,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m228_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 240,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-7_m240_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -7,
+      "mask": 255,
+      "mod16": 0,
+      "upper": 168,
+      "jobs": [
+        "h-7_m255_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 129,
+      "mod16": 8,
+      "upper": 160,
+      "jobs": [
+        "h-5_m129_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 132,
+      "mod16": 8,
+      "upper": 160,
+      "jobs": [
+        "h-5_m132_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 160,
+      "mod16": 8,
+      "upper": 160,
+      "jobs": [
+        "h-5_m160_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 175,
+      "mod16": 0,
+      "upper": 160,
+      "jobs": [
+        "h-5_m175_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 183,
+      "mod16": 0,
+      "upper": 160,
+      "jobs": [
+        "h-5_m183_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 189,
+      "mod16": 0,
+      "upper": 160,
+      "jobs": [
+        "h-5_m189_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 219,
+      "mod16": 8,
+      "upper": 160,
+      "jobs": [
+        "h-5_m219_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 222,
+      "mod16": 8,
+      "upper": 160,
+      "jobs": [
+        "h-5_m222_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 231,
+      "mod16": 0,
+      "upper": 160,
+      "jobs": [
+        "h-5_m231_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 237,
+      "mod16": 0,
+      "upper": 160,
+      "jobs": [
+        "h-5_m237_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 245,
+      "mod16": 0,
+      "upper": 160,
+      "jobs": [
+        "h-5_m245_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -5,
+      "mask": 250,
+      "mod16": 8,
+      "upper": 160,
+      "jobs": [
+        "h-5_m250_thin_top_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 139,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m139_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 142,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m142_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 149,
+      "mod16": 0,
+      "upper": 168,
+      "jobs": [
+        "h-3_m149_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 154,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m154_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 163,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m163_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 166,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m166_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 169,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m169_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 172,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m172_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 178,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m178_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 184,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m184_profile_bottom_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 195,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m195_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 198,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m198_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 201,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m201_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 204,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m204_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 210,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m210_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 216,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m216_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 225,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m225_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 228,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m228_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 240,
+      "mod16": 8,
+      "upper": 168,
+      "jobs": [
+        "h-3_m240_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -3,
+      "mask": 255,
+      "mod16": 0,
+      "upper": 168,
+      "jobs": [
+        "h-3_m255_profile_search_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 130,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-1_m130_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 136,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-1_m136_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 160,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-1_m160_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 175,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-1_m175_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 187,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-1_m187_sharded_top_s0",
+        "h-1_m187_sharded_top_s1",
+        "h-1_m187_sharded_top_s2",
+        "h-1_m187_sharded_top_s3",
+        "h-1_m187_sharded_top_s4",
+        "h-1_m187_sharded_top_s5",
+        "h-1_m187_sharded_top_s6",
+        "h-1_m187_sharded_top_s7"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 190,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-1_m190_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 215,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-1_m215_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 221,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-1_m221_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 235,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-1_m235_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 238,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-1_m238_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 245,
+      "mod16": 0,
+      "upper": 192,
+      "jobs": [
+        "h-1_m245_thin_bottom_s0"
+      ]
+    },
+    {
+      "hole": -1,
+      "mask": 250,
+      "mod16": 8,
+      "upper": 192,
+      "jobs": [
+        "h-1_m250_thin_bottom_s0"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "h-9_m130_thin_top_s0",
+      "hole": -9,
+      "mask": 130,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "bd74da2103b9829acd0c3b3c812b3213434c13e0fd7a5b74bb8a1b914f69fa46",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 3926048,
+        "order_rejections": 912541,
+        "cycle_rejections": 169438,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 6420222,
+        "rank_rejections": 1621127,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          3613,
+          6656,
+          18,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 8.8084,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "ad4ea551e7044ec9787ec4acb8ba083381696b99651ec9bf76acc7e39cf8281e"
+    },
+    {
+      "id": "h-9_m136_thin_top_s0",
+      "hole": -9,
+      "mask": 136,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "be9ea5053517ad32e1ada711dccd335a8e14e4c1fd6f74d864e40df1f10ff97c",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 11921251,
+        "order_rejections": 2666687,
+        "cycle_rejections": 639609,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 19270633,
+        "rank_rejections": 4824574,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          144,
+          30942,
+          8122,
+          18,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 27.5369,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "b501a10b118a857477c152ed5a2ef872484cc8ac5d72dfd5cba2894ab5763228"
+    },
+    {
+      "id": "h-9_m160_thin_top_s0",
+      "hole": -9,
+      "mask": 160,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "f100fc005b9720016d113cb9be6c829bdc5f41a2fc5ff6a69c783f8b8ed38cb6",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 20114868,
+        "order_rejections": 4366726,
+        "cycle_rejections": 1072533,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 32274924,
+        "rank_rejections": 8036961,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          6280,
+          57468,
+          16057,
+          33,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 48.9822,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "d7a2235cea08a2aa161fb16c7c096daaafb0f00b0be1e7053e266235e2e1939f"
+    },
+    {
+      "id": "h-9_m175_thin_top_s0",
+      "hole": -9,
+      "mask": 175,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "cf4f338b4d36dad08811ad8de3cfa22d1c57ee225dda5544b8fd9b2926c3bd89",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 16518961,
+        "order_rejections": 3785819,
+        "cycle_rejections": 756745,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 27138095,
+        "rank_rejections": 6950990,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          207,
+          16520,
+          6964,
+          33,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 42.2244,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "2674de8a836f802d259ae5884bfa1af32e33afd141b22e335296c35d559730f4"
+    },
+    {
+      "id": "h-9_m187_thin_top_s0",
+      "hole": -9,
+      "mask": 187,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "49a5fd86d4a9ada5a96f619315cc732488cdcbbd57137e81e7f19b7f017e57e1",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 2659933,
+        "order_rejections": 643876,
+        "cycle_rejections": 112169,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4368647,
+        "rank_rejections": 1091589,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          21,
+          8848,
+          1156,
+          9,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 6.57851,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "ad10f80b759e682967d5e61c76d54fdd3729f63936489fca88cdebf921516a27"
+    },
+    {
+      "id": "h-9_m190_thin_top_s0",
+      "hole": -9,
+      "mask": 190,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "1aff7b591ba2beb1f5eeb7bc230d9a2a1244cca7c7ae98948bdffba302c24a37",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 1242514,
+        "order_rejections": 284150,
+        "cycle_rejections": 52551,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2056279,
+        "rank_rejections": 536170,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          1156,
+          9,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 2.72501,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "6458bb61e9b9f9a91e5098ebd749ae1f6e1f7f3a9654267cc2afca9f08577047"
+    },
+    {
+      "id": "h-9_m215_thin_top_s0",
+      "hole": -9,
+      "mask": 215,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "8c19c05e469fed8372d8a53ba04786426dd00c5ca151748f797920f8fd025f2a",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000485102,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "f3cb1fa45d814ef844ab16b8ca816acc8d774760ba4d313d51b9aaef4d503bbe"
+    },
+    {
+      "id": "h-9_m221_thin_top_s0",
+      "hole": -9,
+      "mask": 221,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "dbe7986bf9601a1335854693c65a34e40f788953839108f430a4a8cfed53d451",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000578101,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "e4028978696f045f28fbefa22f23a44555bd8a6c8617f5b1a40ec17b44df4cd0"
+    },
+    {
+      "id": "h-9_m235_thin_top_s0",
+      "hole": -9,
+      "mask": 235,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "fa362e1020647aa706846f1143ce3f205d6fd01dda507a0545c0095f239c2e7e",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000497209,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "7c5d0b5444d362a68b53b9fc1269d19d061e033ce575ec44c9a66bdf48e02427"
+    },
+    {
+      "id": "h-9_m238_thin_top_s0",
+      "hole": -9,
+      "mask": 238,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "60fe8deec6ad0580b19101bd73bf942e34246562b611004a8614df93e896274b",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000492883,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "dec5cc75eeb912c22a745f7f4278d1188b79090f4026b563316a2cba57ffd97b"
+    },
+    {
+      "id": "h-9_m245_thin_top_s0",
+      "hole": -9,
+      "mask": 245,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "c4458c3aa2b684bd49c052d48d8957d8a4ecc14078604154d79dec9556c9404e",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00047108,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "b93205047c8e6c3b9c875871c16cb7841fc43cef23f032f0dfd8c34b7925d539"
+    },
+    {
+      "id": "h-9_m250_thin_top_s0",
+      "hole": -9,
+      "mask": 250,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "af3a1da6ff8e920ab5e0272ca4958c4fddce7b0104fd9060987753ec4207fb10",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000527495,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "e943fa9630e63e7ed8685b35f4e1186ddedd50dd257d8a9497f2ff48314365dc"
+    },
+    {
+      "id": "h-7_m135_thin_top_s0",
+      "hole": -7,
+      "mask": 135,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "68afc261864e9229f7cf363bd6bf7b38ca1e269d0c3bab1d4d685b80f51c4a19",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 1256299,
+        "order_rejections": 265957,
+        "cycle_rejections": 57462,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1972356,
+        "rank_rejections": 469874,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          8,
+          2700,
+          6549,
+          18,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 2.5478,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "f590258f7ede040e23a936d75625420c24c2a1a082cf658c744ca0279ba507e5"
+    },
+    {
+      "id": "h-7_m142_thin_bottom_s0",
+      "hole": -7,
+      "mask": 142,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "15523870e698cae6373cad0693b494c67dfce06e024541d9e9c5709e1873c229",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2442,
+        "order_rejections": 522,
+        "cycle_rejections": 79,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3670,
+        "rank_rejections": 797,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00202322,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "ec5020d99e70233634cecc3296a804fac29db2ea8197e06d8170f28e47e8f116"
+    },
+    {
+      "id": "h-7_m147_thin_top_s0",
+      "hole": -7,
+      "mask": 147,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "8d20a8691efc54530c76c1a4bbc40fb49b68844189072d084384fc60e1fb7411",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2870654,
+        "order_rejections": 616669,
+        "cycle_rejections": 138899,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4541783,
+        "rank_rejections": 1108947,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          13,
+          13992,
+          15301,
+          24,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 5.69644,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "8b0024ccac42b500c1933aa43a566bd4885d4146b2d28d0c9215dc729082b06e"
+    },
+    {
+      "id": "h-7_m149_thin_bottom_s0",
+      "hole": -7,
+      "mask": 149,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "70105feac4d9fdafdeb9d7f77b1e811841aece0181c02616510d1c038cfc6763",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 3221,
+        "order_rejections": 617,
+        "cycle_rejections": 122,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4754,
+        "rank_rejections": 1024,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00330247,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "31b926132e0a833eeb6c7f51fa25a8d9a5024dcdefa1baee47d91455fe6e7427"
+    },
+    {
+      "id": "h-7_m154_thin_bottom_s0",
+      "hole": -7,
+      "mask": 154,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "36938e2a6bfee48bfc35cce29416ef46eb38507f401093ebe1759eb556916782",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2480,
+        "order_rejections": 528,
+        "cycle_rejections": 82,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3734,
+        "rank_rejections": 817,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.0019016,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "f1f5ed0ce3c258689e287d3ac947e3ce5ed1c1779a0ff8a0ed5847d2090dcd91"
+    },
+    {
+      "id": "h-7_m156_thin_top_s0",
+      "hole": -7,
+      "mask": 156,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "39c6e846f507bd1a70dfde9eb2398688b23d5e7d2202e980faa30fa8d85a56ab",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 5340389,
+        "order_rejections": 1159054,
+        "cycle_rejections": 254695,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 8527632,
+        "rank_rejections": 2116030,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          51,
+          14843,
+          22013,
+          24,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 10.8485,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "3a1c2cef6df7d3957985ed8ed3927b4999096036a157cfadb06fe5041572d718"
+    },
+    {
+      "id": "h-7_m166_thin_bottom_s0",
+      "hole": -7,
+      "mask": 166,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "e9660dc62dd356d18448ce7ccdbe43d2747912288edd07d6c8400178e4a35aae",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2442,
+        "order_rejections": 522,
+        "cycle_rejections": 79,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3670,
+        "rank_rejections": 797,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00173392,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "7f3599681a4c0b296b74abfab1efe93769118e78463658b4ca85e32c272b73a1"
+    },
+    {
+      "id": "h-7_m169_thin_bottom_s0",
+      "hole": -7,
+      "mask": 169,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "912dd08cdca64356d724380a9eac21786909acdaad838f3d48d8ff8e1124d220",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 3149,
+        "order_rejections": 608,
+        "cycle_rejections": 122,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4667,
+        "rank_rejections": 1018,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00234757,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "473663ed60f3744e1163ba9fa877918b0c5b783d8f8ac3cab711c7f21c7325c5"
+    },
+    {
+      "id": "h-7_m178_thin_bottom_s0",
+      "hole": -7,
+      "mask": 178,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "3bb56f66373d41b621b1a7c59c13f045be3d00f04069879e8a0953f87ba65ef6",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2480,
+        "order_rejections": 528,
+        "cycle_rejections": 82,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3734,
+        "rank_rejections": 817,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00184585,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "e1f6e454c0329f1b42a30fc082e5d0a54aceb57008d3e82935bfeaa8b66f3ee1"
+    },
+    {
+      "id": "h-7_m180_thin_top_s0",
+      "hole": -7,
+      "mask": 180,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "11f5ddc9b2b9d0230be168a190e35575e327c5b3248603da506fc57f328fbed5",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 539513,
+        "order_rejections": 113262,
+        "cycle_rejections": 21451,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 883045,
+        "rank_rejections": 234177,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          1156,
+          9,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.945706,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "37dd9eff4717abdcff1a2283826ad988735aee806df68d804a34bbd091e25356"
+    },
+    {
+      "id": "h-7_m195_thin_top_s0",
+      "hole": -7,
+      "mask": 195,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "494e0ecfb48f6e1b02bd0b3837e272f17efbc8afe7ce66ee68b0ca50f25210f5",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000528246,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "58734de139c60eddcc242c9f510b034aef42487ec50e621398c19bc069abd16d"
+    },
+    {
+      "id": "h-7_m197_thin_top_s0",
+      "hole": -7,
+      "mask": 197,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "0fde4d7bea7955649c89a052d753571a2a82be3b6ba06c7485eb09ae6e5414c3",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000478971,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "6b0581f08990eee4d49d56819b25910c5c652ce9caa3142a02a887a04e0cac82"
+    },
+    {
+      "id": "h-7_m202_thin_top_s0",
+      "hole": -7,
+      "mask": 202,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "a3d477c74a85e573237965a43ccfee2acff63a832802529261898a1a14232227",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000450649,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "b3d098a287a32afc4c8b864079e547ef9b8828ccaab10dd4c1f86dfd592e8d7a"
+    },
+    {
+      "id": "h-7_m204_thin_top_s0",
+      "hole": -7,
+      "mask": 204,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "180fe466ab3a2910045dfa901a2ed1b2bf7957318f28255b1e6cda6ed2ef1efe",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000494255,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "74f551ef26c9aa2aaaf808468b3cba78abba68a924bb64564722ecc98d932191"
+    },
+    {
+      "id": "h-7_m209_thin_top_s0",
+      "hole": -7,
+      "mask": 209,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "31e8fbf97ad96059ed5d09d8ae2cab5179f9eea7a351323f43d63a2d33f30fd8",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000436508,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "d9142b50dee826551122e4eea228b330d78960b800d537762b12faea14c85948"
+    },
+    {
+      "id": "h-7_m216_thin_top_s0",
+      "hole": -7,
+      "mask": 216,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "8a17800f8b6a577d0592ba04a7d17ad70309fb3af37ca2ff37df93146de48266",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000441795,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "1146a5ec5e1bcae6966f3b796febf46dad0f60b007b888772cf1ec81342162da"
+    },
+    {
+      "id": "h-7_m226_thin_top_s0",
+      "hole": -7,
+      "mask": 226,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "325974867e3489ef2e34ad8afcc7d03e940d6ebe7e09951babfeaf6027e69395",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00069663,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "3effca9e623846ee5ed5a13231275a076bdddf4da785873ac6281ffbf9f4f3d4"
+    },
+    {
+      "id": "h-7_m228_thin_top_s0",
+      "hole": -7,
+      "mask": 228,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "89f39568e93974e913b3fc56cdb38e24fc6794034a364cc894a46824d494f3de",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000463699,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "5b2c5c65f6b90634e5f5b139c4a4358b0f74f7cbc32be84cbda0835e535fdad4"
+    },
+    {
+      "id": "h-7_m240_thin_top_s0",
+      "hole": -7,
+      "mask": 240,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "57fd589b9ae9ae0834c7f8f99746defb7f6245e6dc24c4561fa12608a92aa121",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000534696,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "6edca2222c481c3c6d0c997e313be9d22442a81fc7bf35b3d9d92677295fc97b"
+    },
+    {
+      "id": "h-7_m255_thin_top_s0",
+      "hole": -7,
+      "mask": 255,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "f4f8ed8395f9a87b673cae137be70320857300b05a61699fde81da94267f386c",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000454165,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "190c1c430f1549af6b789dfcc4aa71066ccedd14ba5f5c5c309c9e3baffb0058"
+    },
+    {
+      "id": "h-5_m129_thin_bottom_s0",
+      "hole": -5,
+      "mask": 129,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "17a3e723183707038ba293e1b2b1e00b9be292935e855db01834612c77aadf53",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 2831,
+        "order_rejections": 538,
+        "cycle_rejections": 108,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4164,
+        "rank_rejections": 897,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00195193,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "626b89be35aab8e6eb430596e88df7e38a0225a266ce9dbed4416109b341cd81"
+    },
+    {
+      "id": "h-5_m132_thin_bottom_s0",
+      "hole": -5,
+      "mask": 132,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "7da7b040a47add047b131d3b3c50d54fcedd208075da08ec5e207ea484758516",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 1327151,
+        "order_rejections": 383818,
+        "cycle_rejections": 56338,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2008670,
+        "rank_rejections": 320159,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          26,
+          4744,
+          8418,
+          1,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 2.595,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "fb0e9b9456f08cf36bf7687cb3e7fe1a7809c5dfbc1c336e06fd33bb8d64edc0"
+    },
+    {
+      "id": "h-5_m160_thin_bottom_s0",
+      "hole": -5,
+      "mask": 160,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "b5469c6281e2f03007d5c7a62a7f8c24804ad0d02750612ab706163da43387e6",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 51920,
+        "order_rejections": 9333,
+        "cycle_rejections": 2676,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 78120,
+        "rank_rejections": 18520,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          7,
+          535,
+          277,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.0928106,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "3185a34a70143b216f988c435391a5a70439a6ce1d6b21f165c07dd8b9db445d"
+    },
+    {
+      "id": "h-5_m175_thin_bottom_s0",
+      "hole": -5,
+      "mask": 175,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "0030ed9b207fdbf034a3c49f193279b781a2f2f2f38ff7902ef4165d69ee9408",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 421950,
+        "order_rejections": 68781,
+        "cycle_rejections": 26094,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 654801,
+        "rank_rejections": 169577,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          7,
+          765,
+          1611,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.693485,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "83c1eeb65d514f611a90c6bf2851fe6c8d56632d5c00a240e7ead00be153667b"
+    },
+    {
+      "id": "h-5_m183_thin_bottom_s0",
+      "hole": -5,
+      "mask": 183,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "dd24eda8c588ee47c0d85b9c74cad5bc9b70493194cb7ded56ac2f4cc6691310",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 542523,
+        "order_rejections": 104266,
+        "cycle_rejections": 29698,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 849203,
+        "rank_rejections": 208882,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          6,
+          2236,
+          310,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 1.12694,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "2dbb897e46d6d566440ad88d52342a4aac98e635ed3a2a9c872829a799644340"
+    },
+    {
+      "id": "h-5_m189_thin_bottom_s0",
+      "hole": -5,
+      "mask": 189,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "a2efcf21264d2c973848c52bc72f9cbdd2fdab0e4b6a97562ff1e51bf9064133",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 2702,
+        "order_rejections": 514,
+        "cycle_rejections": 91,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3959,
+        "rank_rejections": 830,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00209856,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "7e166d177e0eb2f52bb5880da472db3e5001fdfc2f7f9cd842d2ae0e4a5ef5ef"
+    },
+    {
+      "id": "h-5_m219_thin_top_s0",
+      "hole": -5,
+      "mask": 219,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "95fa58c92167a19701bcf085a1fda7d411c1f55b3aafd3fdc4bccb41a5ab98a0",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000464089,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "b5c96806d0d8816dd2a675889675569b212d85606187e57d9eb8bde99b1d8017"
+    },
+    {
+      "id": "h-5_m222_thin_top_s0",
+      "hole": -5,
+      "mask": 222,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "5cbf429f9ff2c1790c3652104583143cee9e56a768e5822cad1c1ca0cabf4ccf",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 754,
+        "order_rejections": 109,
+        "cycle_rejections": 24,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1056,
+        "rank_rejections": 231,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000448626,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "d3e8a0da77ee3c9319d75be88367c666f096640efd59ad4233914af0083aa96b"
+    },
+    {
+      "id": "h-5_m231_thin_top_s0",
+      "hole": -5,
+      "mask": 231,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "935bbbbf88fbd660db70b7ec02e03d4adedeaa8efce6a6034544c7c409f112b5",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000489036,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "ed908e40ab2d1140fbb28feca87834261c93419df85020dce4517b0e7ff3c931"
+    },
+    {
+      "id": "h-5_m237_thin_top_s0",
+      "hole": -5,
+      "mask": 237,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "30b6e08d0848ac3ccbd3530b360c4cec858ae91bf6487830fd6f7d3ffadc1583",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000478811,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "c941d3d49776161394f5e5d9d8966acec7967a3fd891afe131876568b66c3b60"
+    },
+    {
+      "id": "h-5_m245_thin_top_s0",
+      "hole": -5,
+      "mask": 245,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "c19f4b81f8fbd563b894a4a687e49338f376eaf18b0b79c7fd7f6407cd46cadf",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000513134,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "0c98b244b233c32db6dfa4420cc65425cc19e55fd30599e134460bf068ded521"
+    },
+    {
+      "id": "h-5_m250_thin_top_s0",
+      "hole": -5,
+      "mask": 250,
+      "engine": "thin_top",
+      "side": "top",
+      "cap": 160,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "e0ba5ee38187272e79602669adc50a4cda07e7c1eac3fe7040beac5e8e80720a",
+      "expected": {
+        "status": "complete",
+        "cap": 160,
+        "prefixes": 772,
+        "order_rejections": 112,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1076,
+        "rank_rejections": 228,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000468936,
+      "source_sha256": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "stdout_sha256": "73f03731f5ca65fc69c70fb5bcff7ede9e59f7bb866bd032490fc907dad7d270"
+    },
+    {
+      "id": "h-3_m139_profile_bottom_s0",
+      "hole": -3,
+      "mask": 139,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "24597e8ab03afd34466309fa8dac78298315549545ba0f5af1ed8a80d8109525",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 3167565,
+        "order_rejections": 726730,
+        "cycle_rejections": 153668,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4934714,
+        "rank_rejections": 1075899,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          26,
+          5108,
+          12067,
+          2,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 6.48062,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "f13bf2a09111cee3524fa1bcf913253bfd7b348f73527a56b26538539743e8e2"
+    },
+    {
+      "id": "h-3_m142_profile_bottom_s0",
+      "hole": -3,
+      "mask": 142,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "536756476b30e3b83b3aa06f97ee54a4b4a0cf4c4aff5d5317bee88fd1f6267e",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2305,
+        "order_rejections": 482,
+        "cycle_rejections": 76,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3428,
+        "rank_rejections": 732,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00168472,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "ac0604ff3f275c51ff87ffac3dc5f6ca5e4302178efa3763c729818bfaf8bbe5"
+    },
+    {
+      "id": "h-3_m149_profile_bottom_s0",
+      "hole": -3,
+      "mask": 149,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "21dd18be64525f7cad65db5e3c6f834f3ff2abc015f57593f358c7ff8b8493db",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2712,
+        "order_rejections": 516,
+        "cycle_rejections": 91,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3976,
+        "rank_rejections": 835,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00201235,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "91323fc278b90d22eb46968cac42f9760dda279164fb77e91e910daaa3ba3985"
+    },
+    {
+      "id": "h-3_m154_profile_bottom_s0",
+      "hole": -3,
+      "mask": 154,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "30a690366fbaa83b206bdc63f690895db22fabe874c428e6c895c4b8ccf901bb",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 1502,
+        "order_rejections": 274,
+        "cycle_rejections": 49,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2197,
+        "rank_rejections": 476,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000993097,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "0ce64edaf3cd4eeeb634ce96d77ba73e6a0e8560b355bd0c4c92dba34550c706"
+    },
+    {
+      "id": "h-3_m163_profile_search_s0",
+      "hole": -3,
+      "mask": 163,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "82c5c92c67d56425506e2b2a5cdc2d4a08716baaae740a51ffa318cc2bcdd033",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 12193595,
+        "order_rejections": 2454844,
+        "cycle_rejections": 663790,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 18833783,
+        "rank_rejections": 4426304,
+        "solutions": 1,
+        "layers": [
+          1,
+          1,
+          7249,
+          55134,
+          93882,
+          178,
+          4,
+          6,
+          3,
+          1,
+          0
+        ],
+        "words": [
+          "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+        ]
+      },
+      "recorded_seconds": 23.4653,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "5fd8d1471aa0b17109047e48a8c38e3cd5346d04e7974b8f3e91e02639732fe1"
+    },
+    {
+      "id": "h-3_m166_profile_bottom_s0",
+      "hole": -3,
+      "mask": 166,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "ab113d78c8161198d0e8fdd16cc1deba5f5e40abd4970800f0a58a89680f6770",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2342,
+        "order_rejections": 491,
+        "cycle_rejections": 79,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3496,
+        "rank_rejections": 754,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00182885,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "485e19a120311c511c47b5a66f1ac514ef6d63eff582f40c6d9b4893678af541"
+    },
+    {
+      "id": "h-3_m169_profile_bottom_s0",
+      "hole": -3,
+      "mask": 169,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "db790c4a1bdd364fecc68b7023f666d8c1da2a6d24501e6c759553b756294833",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 2897,
+        "order_rejections": 548,
+        "cycle_rejections": 106,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4250,
+        "rank_rejections": 910,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.0029006,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "3d867b7433e445f0f2a6b30f2436f687070ddc2bd6735bb581101c51cb36aa00"
+    },
+    {
+      "id": "h-3_m172_profile_bottom_s0",
+      "hole": -3,
+      "mask": 172,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "71acb712e11abe5235ab5c6fe12393f9023287f9ce2ab63523267e6fd158299a",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 6382673,
+        "order_rejections": 1509021,
+        "cycle_rejections": 252739,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 10071932,
+        "rank_rejections": 2244543,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          31,
+          10261,
+          10800,
+          518,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 13.6888,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "43fbfe5fc7f74023b88467bb42bb0776014b563a60cb4d4912c55664a41d3722"
+    },
+    {
+      "id": "h-3_m178_profile_bottom_s0",
+      "hole": -3,
+      "mask": 178,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "9c37bbda0375c70e8a297741685f1f98ea3201271a8d823bec6571bf7fd75c4c",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 1512,
+        "order_rejections": 275,
+        "cycle_rejections": 50,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2215,
+        "rank_rejections": 483,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000964774,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "372022cbdc7ae0d9652ab83bd317f61e5cb3fcb5d1b25ca54d04d132401d57d1"
+    },
+    {
+      "id": "h-3_m184_profile_bottom_s0",
+      "hole": -3,
+      "mask": 184,
+      "engine": "profile_bottom",
+      "side": "bottom",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "247d7e63d2b4b6a8549277a559b4dab70eab0e348a2872b8778b727c6955de36",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 1294904,
+        "order_rejections": 298474,
+        "cycle_rejections": 40799,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1861830,
+        "rank_rejections": 313570,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          6,
+          2236,
+          35919,
+          12,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 2.50289,
+      "source_sha256": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "stdout_sha256": "28bd289122e761f238e52074fa46097085931721edb717e1cb500f26509265bd"
+    },
+    {
+      "id": "h-3_m195_profile_search_s0",
+      "hole": -3,
+      "mask": 195,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "3dd593be4c00b781ef45b44d475617645d8e9db5feb9728708d9c7299c64be2a",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000476958,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "cc536052076f6febf92d11afcdade1b68426db74149971d0c5909d74bdc3849f"
+    },
+    {
+      "id": "h-3_m198_profile_search_s0",
+      "hole": -3,
+      "mask": 198,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "44f2412a6f379278d56728228e1407a3af3e04cf53d1810c6571f0f8778293d8",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000475767,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "9d221139e95d02379d96f59ab245e6d92c81f808cf1e72797251aaf57adca94a"
+    },
+    {
+      "id": "h-3_m201_profile_search_s0",
+      "hole": -3,
+      "mask": 201,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "45cd5b81c389e9c701287a27f5e2bd291480442fafe4d1bcd3b4df7533d9705f",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000508977,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "cfae760f58afcc14c91350e2109eec0385bce70bed04843c5170f045ed427d87"
+    },
+    {
+      "id": "h-3_m204_profile_search_s0",
+      "hole": -3,
+      "mask": 204,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "279ef91902b0859041ae2a84351067ec2949725e9c104e3b467250515b5a7dc0",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000500525,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "1dc4f83537a41dc7e15cdf82ea2c8383534fe59f335656f36849963261640144"
+    },
+    {
+      "id": "h-3_m210_profile_search_s0",
+      "hole": -3,
+      "mask": 210,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "fa1114d769dc2b932afd3e3e973f1d5d66e684540cc2d2a6c741951642f56106",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.0005509,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "b0d47070dc4317747acc68bf3874da51e10458bb8ea52530653e1eb8f8a5f7b9"
+    },
+    {
+      "id": "h-3_m216_profile_search_s0",
+      "hole": -3,
+      "mask": 216,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "86f98d11f7377582f3e00113b675fefef615ae4f94fe7420c2fc7f4967890aed",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000513814,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "3875f6a80bdff74ccd119f937c6f4117b2379e7ea3750630576349faa606cfb8"
+    },
+    {
+      "id": "h-3_m225_profile_search_s0",
+      "hole": -3,
+      "mask": 225,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "f2d13a3bf894371051121b10500699289aff8819a03f116ce2162e5dc41c743e",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000574315,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "0c5e90f7771fef6beb11757573c6caa537ee1b956891deea6555b9c00b4af93d"
+    },
+    {
+      "id": "h-3_m228_profile_search_s0",
+      "hole": -3,
+      "mask": 228,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "73220f667724057c8c124bd186436ff468479cc685aac567ed2671adf8c189c4",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000494295,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "5bf066aea2cfe63f3f5c4558ec60d67ff6d469e200f3822a45c30f775f2468a6"
+    },
+    {
+      "id": "h-3_m240_profile_search_s0",
+      "hole": -3,
+      "mask": 240,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "f94a8f413cb2125e8a068aab3458c645f2320a44772c06af9cf1c76282bf85da",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000471431,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "baa40cb45570e20e9e643770b5e422a8a720e5ee19617b9faf31e7dde199c7e1"
+    },
+    {
+      "id": "h-3_m255_profile_search_s0",
+      "hole": -3,
+      "mask": 255,
+      "engine": "profile_search",
+      "side": "top",
+      "cap": 168,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "eb78221c74236e24a4190e2f22ae1d58b16c3346fb4bd712feb24d27264b2f54",
+      "expected": {
+        "status": "complete",
+        "cap": 168,
+        "prefixes": 789,
+        "order_rejections": 114,
+        "cycle_rejections": 28,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1106,
+        "rank_rejections": 241,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000562648,
+      "source_sha256": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "stdout_sha256": "c4cbe274ea4499878ff9dca8d0c920f7697595dafd34d650ca12185b83060504"
+    },
+    {
+      "id": "h-1_m130_thin_bottom_s0",
+      "hole": -1,
+      "mask": 130,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "b95ea37719ee99e1ba0d326711f409c6e9556289521e304637a3565a0fe72b10",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 1548,
+        "order_rejections": 280,
+        "cycle_rejections": 50,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2266,
+        "rank_rejections": 494,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00100062,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "8c53f75eb1c7e6350e434dba60479c679c21921304cb9ff617d6d3bd223102d2"
+    },
+    {
+      "id": "h-1_m136_thin_bottom_s0",
+      "hole": -1,
+      "mask": 136,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "35d0ca4c19eb628aeb7b2946eff27b5635b73af799dd584bed0ca3ef2a05360f",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 317641,
+        "order_rejections": 69380,
+        "cycle_rejections": 12468,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 530285,
+        "rank_rejections": 145817,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          6,
+          379,
+          126,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.651709,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "85bfa669d2c53d09dd07f645a4df37635d8517e8df6219fce61315b017fe9a2a"
+    },
+    {
+      "id": "h-1_m160_thin_bottom_s0",
+      "hole": -1,
+      "mask": 160,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "82f9f3d986680bfc753c2b5bee6dd2e0b9b197224a656d08b2e4d516e5573f53",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 2225879,
+        "order_rejections": 559585,
+        "cycle_rejections": 98158,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3680284,
+        "rank_rejections": 917740,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          7,
+          765,
+          4868,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 6.05273,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "6d6665dd624573fce71e71f426648d11d20cb23914824afca4c96a383622d9c4"
+    },
+    {
+      "id": "h-1_m175_thin_bottom_s0",
+      "hole": -1,
+      "mask": 175,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "4c98589b6eac05be6b05b09c8347b8304be71c82834b0ea5e609ddd420f56da8",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 1145486,
+        "order_rejections": 233802,
+        "cycle_rejections": 51450,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 1852085,
+        "rank_rejections": 484471,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          7,
+          633,
+          3915,
+          8,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 2.32712,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "19ea8fc69c902c6ee7335998ea0ba2a64dedefe7b87c6a74b0d1da3cd7a2d64c"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s0",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 0,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 28713538,
+        "order_rejections": 6875535,
+        "cycle_rejections": 1391506,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 44143340,
+        "rank_rejections": 9075420,
+        "shard": 0,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 85,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          265,
+          121231,
+          253111,
+          85,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 159.369,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "ef4c348a2724c14f0649bfbd4cea48a8a039b7b021fe71c66be8e70382efbdf5"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s1",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 1,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 35026384,
+        "order_rejections": 7940784,
+        "cycle_rejections": 1798686,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 54168679,
+        "rank_rejections": 11853704,
+        "shard": 1,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          19499,
+          353082,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 148.75,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "058417b17f7509e1d00cd9a75bf0487b283f38a7e4b1de966e7fd133c99d7d5e"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s2",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 2,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 18306578,
+        "order_rejections": 3757942,
+        "cycle_rejections": 838963,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 27720283,
+        "rank_rejections": 6132815,
+        "shard": 2,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          6329,
+          327884,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 109.606,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "912882f49f74219a4647d429589bdbeca5b5102a182b54f9d0cc36c02ce42979"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s3",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 3,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 20226326,
+        "order_rejections": 4058025,
+        "cycle_rejections": 950192,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 30381138,
+        "rank_rejections": 6632044,
+        "shard": 3,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          2,
+          32988,
+          369732,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 101.414,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "e245ab96f8edbabf1d10b0bd187c6dc28e71edc9638d38c3e0d93df08ee0050d"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s4",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 4,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 53435631,
+        "order_rejections": 10998709,
+        "cycle_rejections": 2578240,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 81910580,
+        "rank_rejections": 18867184,
+        "shard": 4,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          1121,
+          144748,
+          697660,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 176.165,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "9e258a6ef85e17cb11036126fb582457f6f5a877844bd72379ea7a581509927f"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s5",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 5,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 25798270,
+        "order_rejections": 5034469,
+        "cycle_rejections": 1305872,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 38472264,
+        "rank_rejections": 8346781,
+        "shard": 5,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          35,
+          21595,
+          512341,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 135.03,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "7e312435777f82f2c32e4161c19c77fa795b5dd0ea82a2eb7ac846d232f07480"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s6",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 6,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 47232346,
+        "order_rejections": 9444628,
+        "cycle_rejections": 2392773,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 71339327,
+        "rank_rejections": 15801620,
+        "shard": 6,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          16343,
+          721337,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 199.55,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "68533b5153647fb2a50068ea784a6872bd8c923825d8988008808a4aef0be5da"
+    },
+    {
+      "id": "h-1_m187_sharded_top_s7",
+      "hole": -1,
+      "mask": 187,
+      "engine": "sharded_top",
+      "side": "top",
+      "cap": 184,
+      "shard": 7,
+      "shards": 8,
+      "table_sha256": "daf7b5ddb01572cf7a51295292655f50004fdc24e7420b25119e88370014afef",
+      "expected": {
+        "status": "complete",
+        "cap": 184,
+        "prefixes": 47959712,
+        "order_rejections": 10353485,
+        "cycle_rejections": 2315402,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 73484150,
+        "rank_rejections": 16361080,
+        "shard": 7,
+        "shards": 8,
+        "cuts": 673,
+        "selected_cuts": 84,
+        "cut_hash": 4066067946359262014,
+        "solutions": 0,
+        "layers": [
+          0,
+          0,
+          0,
+          14887,
+          762680,
+          84,
+          73,
+          35,
+          3,
+          1,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 195.343,
+      "source_sha256": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "stdout_sha256": "eea7e3968f5ca8c3f8e2ab5c4eb3521c524ad18a92c39d431c09d66b7d09009a"
+    },
+    {
+      "id": "h-1_m190_thin_bottom_s0",
+      "hole": -1,
+      "mask": 190,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "5ada70fa35a2c504c05ba6a83ec4114106906fd482ebbfc59e8babcc64dbe31f",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 2419,
+        "order_rejections": 500,
+        "cycle_rejections": 76,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3590,
+        "rank_rejections": 765,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00172688,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "615c8e29f895edeb5f33f5d66ce5eea065aafaef4182ecde7ffdf52514b87d32"
+    },
+    {
+      "id": "h-1_m215_thin_bottom_s0",
+      "hole": -1,
+      "mask": 215,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "804a3adedb0273adf0d5472f0d8a091ac7470a098c6e3f9756a89b0dfdbfa94c",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 572401,
+        "order_rejections": 149499,
+        "cycle_rejections": 20972,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 954613,
+        "rank_rejections": 237450,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          6,
+          379,
+          126,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 1.28814,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "ad74f2c40676ba09501fb3aeb7cbe904c3d499db8f16d02953ed863185873eee"
+    },
+    {
+      "id": "h-1_m221_thin_bottom_s0",
+      "hole": -1,
+      "mask": 221,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "2e57268e001fa4920467693c564067f8a50089c351228e64e580a9f3ab6d7d3b",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 2891,
+        "order_rejections": 546,
+        "cycle_rejections": 91,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4220,
+        "rank_rejections": 873,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.0020263,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "5525169f5ff00ed1cea3e103088be3e7a0817c61d0e513a8abe46e743223e5bc"
+    },
+    {
+      "id": "h-1_m235_thin_bottom_s0",
+      "hole": -1,
+      "mask": 235,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "eeb2d660b2f9f80a33711240b555a5c0a164812f04f2a495ab32a70fd3d89608",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 18259542,
+        "order_rejections": 4318059,
+        "cycle_rejections": 902788,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 29115723,
+        "rank_rejections": 6690173,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          8,
+          5,
+          26,
+          5170,
+          79554,
+          1045,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 54.5985,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "577d9ebdeb4415a1219026669a3e22c1a48e43afb227a128cee36f50cb734de0"
+    },
+    {
+      "id": "h-1_m238_thin_bottom_s0",
+      "hole": -1,
+      "mask": 238,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "2c5427489d7e7e0d4f980e365daf26530b55a0ff194242776b30026a4826afe3",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 2419,
+        "order_rejections": 500,
+        "cycle_rejections": 76,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 3590,
+        "rank_rejections": 765,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00193132,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "52a7190d44e01d3bb3b54d43d2fa2525dc1e4f5bdd6321463305abc3eff18609"
+    },
+    {
+      "id": "h-1_m245_thin_bottom_s0",
+      "hole": -1,
+      "mask": 245,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "5e31eb706be361a8e4fe943783b973a014f46d6048f2b85269948fa157bcdb12",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 2901,
+        "order_rejections": 548,
+        "cycle_rejections": 91,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 4237,
+        "rank_rejections": 878,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.00203831,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "d5bd9ae07db1cb8d81dd768916feb9d2062c9a8a66178ee884e6cfe1fe280505"
+    },
+    {
+      "id": "h-1_m250_thin_bottom_s0",
+      "hole": -1,
+      "mask": 250,
+      "engine": "thin_bottom",
+      "side": "bottom",
+      "cap": 192,
+      "shard": 0,
+      "shards": 1,
+      "table_sha256": "5836055efacfc19bbef19246baaa373c2d18aad7d1f3a3058c3a114bb5c63f03",
+      "expected": {
+        "status": "complete",
+        "cap": 192,
+        "prefixes": 1538,
+        "order_rejections": 279,
+        "cycle_rejections": 49,
+        "budget_rejections": 0,
+        "top_rejections": 0,
+        "rank_checks": 2248,
+        "rank_rejections": 487,
+        "solutions": 0,
+        "layers": [
+          0,
+          1,
+          3,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "words": []
+      },
+      "recorded_seconds": 0.000995149,
+      "source_sha256": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "stdout_sha256": "f093a37b742c50edcec598594a729fde4a4ccb9ac1f8e796e08696f3c68d13bd"
+    }
+  ],
+  "word": "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR",
+  "count_by_hole": {
+    "-9": 12,
+    "-7": 20,
+    "-5": 12,
+    "-3": 20,
+    "-1": 12
+  },
+  "native_jobs": 83,
+  "accumulated_prefixes": 391065872,
+  "note": "The accumulated prefix count includes repeated upstream prefixes in shards; it is not a number of distinct words or a minimal unsplit-tree count."
+}

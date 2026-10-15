@@ -1,3 +1,53 @@
+# Six-paper review — 15 October 2026
+
+Current allocation is in [PREPRINTS.md](PREPRINTS.md). Research source commit
+`0ef3f0e` strengthens the proposed `4a762c3` baseline with thin-wake rigidity
+and composable old-wake returns. The later factor import `0a41fba` adds exact first-event macros and quadratic
+deadlines. Published artifacts remain untouched.
+
+## Current claim–evidence map
+
+| Manuscript | Main proof obligations | Fresh evidence | Review status |
+|---|---|---|---|
+| Wake 0.3.0 | Extremal classes → five profiles → 76 masks → all-period caps → exact chronology and complete shard coverage | [Full replay](wake_synthesis/evidence/review-2026-10-15.json): 90,158 edge inequalities, 83 completed jobs, 391,065,872 prefix visits; retained general theory replayed | Internal coverage/source audit and exact replay passed |
+| Factor 0.1.0 | 150-window graph plus all-parameter foldback exclusion; independent 300-window potential and bad-endpoint deletion | [Replay](factor_language/evidence/review-2026-10-15.json): Python/C++ kernels, 7,763 lifted edges, sharp witnesses and damaged-certificate controls | Infinite and finite proof routes separated; old 21/14/13 excluded |
+| Memory 0.1.0 | Predictor → ray mismatch → full XOR endpoint → convex and endpoint tubes → burst termination → parametric circuit | [Replay](memory_feedback/evidence/review-2026-10-15.json): all five modules, full-field and affine controls | Old exponential event count bounds subordinate to quadratic budgets |
+| Port 0.2.0 | First-contact coverage → protected tail → nested-guard induction → exact return-field equality | [Replay](four_cell_port/evidence/review-2026-10-15.json): base port, 30 rules/448 pairs, return packets | All-parameter arguments retained; output times distinguished from first entry |
+
+The wake full report joins two actual invocations (retained standard/general
+runner and new thin-wake runner); the integrated entrypoint was also exercised
+in quick mode. Quick success is not counted as a second full enumeration.
+All new proofs remain analytic with exact native/integer checks. Two implementations
+are internal cross-checks, not external independent mathematical review.
+
+## Manuscript structure and self-review
+
+- Contribution: each main result has one owner. Shared clocks and full-drift
+  chronology are attributed. The profile theorem is a corollary of thin-wake
+  rigidity; it is not another publication.
+- Clarity: wake moves from geometric data to complete classification; factor
+  moves from legal infinite streams to event decision and then the independent
+  finite-word inequality; memory moves from prediction to full continuation,
+  geometry and the scale obstruction; port moves from a sharp interface to composition.
+- Evidence: finite sets are regenerated and potentials checked, rather than
+  accepting hashes as coverage. Universal foldback, affine-family and nested-guard
+  arguments remain explicit in the manuscripts and source proofs.
+- Completeness: source archives must replay without the private research checkout.
+  The older threshold package and unimplemented general PG cover constructor
+  are excluded from the claimed closure.
+- Soundness: retain full drift, full black fields, true inverse history, strict
+  event endpoints, fixed observation regions and every completed search shard.
+  Event existence does not assert finiteness of its chain.
+
+Primary sources for symbolic forbidden words, periodic-word chronology and
+highway background were reread. This is a targeted attribution check; broader
+literature comparison and external mathematical review remain open.
+
+## Historical review: initial publication batch
+
+The following is the preserved review of the earlier 0.1.0 wake and port batch.
+Its version labels and Gemini discussion apply only to those historical texts.
+
 # Preprint review — 15 October 2026
 
 The current wake revision is reviewed in

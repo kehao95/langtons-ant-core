@@ -2,6 +2,8 @@
 """Reproduce the four-cell certificates without changing retained evidence."""
 from __future__ import annotations
 
+import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -15,6 +17,10 @@ CERTIFICATES = ('escapes.json', 'witness.json', 'report.json')
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-report', type=Path)
+    args = parser.parse_args()
+    stages = []
     if sys.flags.optimize:
         raise SystemExit('Run without Python optimization (-O).')
     with tempfile.TemporaryDirectory(prefix='four-cell-port-') as directory:
@@ -40,7 +46,23 @@ def main():
             raise SystemExit('Independent audit differs from retained results.')
         print('audit.py: 284 finite seeds, infinite cell certificates, mutation controls, '
               '96 exterior completions PASS')
-    print('FOUR-CELL OUTGOING PORT: PASS')
+    with tempfile.TemporaryDirectory(prefix='scattering-') as directory:
+        work = Path(directory)
+        imported = json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())
+        for entry in imported['files']:
+            assert hashlib.sha256((ROOT/entry['destination']).read_bytes()).hexdigest() == entry['sha256']
+        for module, retained in [('guarded_scattering', 'check_results.json'), ('return_scattering', 'report.json')]:
+            shutil.copytree(ROOT/'verification'/module, work/module, ignore=shutil.ignore_patterns('__pycache__'))
+            result = subprocess.run([sys.executable, 'check.py', '--compare', retained],
+                                    cwd=work/module, capture_output=True, text=True)
+            if result.returncode: raise RuntimeError(result.stdout+'\n'+result.stderr)
+            stages.append({'module':module, 'status':'passed',
+                           'retained_report':json.loads((work/module/retained).read_text())})
+            print(module+': full exact replay PASS', flush=True)
+    if args.output_report:
+        args.output_report.write_text(json.dumps({'status':'passed','base_port_replayed':True,
+            'stages':stages,'completed_utc':datetime.now(timezone.utc).isoformat()},indent=2)+'\n')
+    print('FOUR-CELL PORTS AND COMPOSABLE SCATTERING: PASS')
 
 
 if __name__ == '__main__':

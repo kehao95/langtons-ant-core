@@ -1,0 +1,58 @@
+{
+  "phase_rotation_controls": 107,
+  "far_blockers": [
+    {
+      "epoch": 10,
+      "point": [
+        -76,
+        -52
+      ],
+      "expected_first_hit": 1040,
+      "returned_event_time": 1040,
+      "updates_executed": 104,
+      "witness_mode": "exact_periodic_ray_mismatch"
+    },
+    {
+      "epoch": 1000000,
+      "point": [
+        -2000056,
+        -2000032
+      ],
+      "expected_first_hit": 104000000,
+      "returned_event_time": 104000000,
+      "updates_executed": 104,
+      "witness_mode": "exact_periodic_ray_mismatch"
+    }
+  ],
+  "irrelevant_archive_controls": 1,
+  "mutated_words_rejected": 8,
+  "positive_example": {
+    "schema": "langtons-ant-stale-memory-v1",
+    "D": 128,
+    "input_sha256": "2c8e5a739afd3e17b7586f9245a82324b3f0502add1179396ed73e6594a95c50",
+    "initial_suffix": "LLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+    "radius": 85,
+    "strict_waiting_bound": 231584178474632390847141970017375815738866794188770282107935755721844239368192,
+    "kind": "permanent_no_stale",
+    "prefix": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+    "cycle": "RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR",
+    "entry": 104,
+    "certificate": {
+      "valid": true,
+      "period": 104,
+      "drift": [
+        -2,
+        -2
+      ],
+      "breakpoint_checks": 167
+    },
+    "updates_executed": 104,
+    "suffix_states": 104
+  },
+  "scope": {
+    "arbitrary_HALTING_decided": false,
+    "global_nonuniversality": false,
+    "HC_proved": false,
+    "independent_mathematical_review": false
+  }
+}

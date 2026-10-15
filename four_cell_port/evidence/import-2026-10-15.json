@@ -1,0 +1,47 @@
+{
+  "source_repository": "https://github.com/kehao95/langtons-ant",
+  "source_commit": "0ef3f0e149044c64f5a4b2b2ea9e192300fbe4f6",
+  "thin_archive_sha256": null,
+  "files": [
+    {
+      "source": "experiments/hc_global/guarded_scattering/README.md",
+      "destination": "verification/guarded_scattering/README.md",
+      "sha256": "88318019c547acb3963ecd37a3c6734bf128373eaee144c3de899c1d3049c368"
+    },
+    {
+      "source": "experiments/hc_global/guarded_scattering/check.py",
+      "destination": "verification/guarded_scattering/check.py",
+      "sha256": "7b199ee5d2f291eb5450c3f232d2bbf91e469de2bd9eb416a753393886d3da14"
+    },
+    {
+      "source": "experiments/hc_global/guarded_scattering/check_results.json",
+      "destination": "verification/guarded_scattering/check_results.json",
+      "sha256": "fdafb73f01e8201823723e9461b0dbe9823fb55a60fa74fe9b42339637b300ad"
+    },
+    {
+      "source": "experiments/hc_global/return_scattering/README.md",
+      "destination": "verification/return_scattering/README.md",
+      "sha256": "4f2fbbd00294c260d0e24f5890be354521544f09ae090e489c2185adaca376e9"
+    },
+    {
+      "source": "experiments/hc_global/return_scattering/check.py",
+      "destination": "verification/return_scattering/check.py",
+      "sha256": "ff02d62860d76bb5f68e9f3a9cbcd72b520c32ac08943593cfa92b39f9152d93"
+    },
+    {
+      "source": "experiments/hc_global/return_scattering/report.json",
+      "destination": "verification/return_scattering/report.json",
+      "sha256": "466ad85b09d996ab2d5f55416fba9a7afa87f46f8870a282377e1667d433217c"
+    },
+    {
+      "source": "proof/results/guarded-scattering-renewal.md",
+      "destination": "proof/guarded-scattering-renewal.md",
+      "sha256": "0d333b54a1b571895edfc5b2a0f72391febfa6a3d9049b4c989cadda764e4605"
+    },
+    {
+      "source": "proof/results/return-scattering-closure.md",
+      "destination": "proof/return-scattering-closure.md",
+      "sha256": "68ae90fd36d3615bd1dd761b5380281b839530038b61d353aa87ff722d6f877b"
+    }
+  ]
+}

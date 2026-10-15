@@ -1,3 +1,20 @@
+# Layer-profile revision: contribution and attribution
+
+Version 0.3.0 strengthens the existing version chain using thin-wake rigidity.
+The complete standard wake and its layer profile are now derived from full
+drift (2,-2), growth twelve, transverse width ten and interior odd-class thinness.
+The current proof covers all 76 normalized cases and all five analytically
+possible empty layers. Earlier prescribed-profile and complete-label theorems
+are corollaries. General non-axis inverse synthesis remains in Appendix A.
+
+The supplied-word criterion, short-factor framework and clock retain the
+attributions below. The thin-wake reduction and completed classification are
+recorded against research 0ef3f0e. Primary symbolic and chronology sources were
+reread for this integration; external mathematical and broader priority review
+remain separate work.
+
+## Historical attribution and structure review for version 0.2.0
+
 # Contribution, literature and claim audit — 15 October 2026
 
 The revised paper is **Uniqueness of the Classical Langton Ant Highway Under Its

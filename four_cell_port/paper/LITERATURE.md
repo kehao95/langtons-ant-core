@@ -1,3 +1,14 @@
+# Ports and scattering: contribution allocation
+
+Version 0.2.0 retains the sharp one-sided port and finite-history completion,
+and adds protected finite composition and composable unbounded return packets.
+The new contribution is full-field interface closure under arbitrary finite
+sequences, including genuine old-wake consumption. The local clock remains an
+application of clock 0.4.0; the twenty-cell fixed-event-count lifetime obstruction
+belongs to the companion memory paper. The finite marker lists are preinstalled.
+
+## Historical literature review for version 0.1.0
+
 # Literature and contribution assessment — 15 October 2026
 
 The candidate contribution is the sharp one-sided initial-black threshold

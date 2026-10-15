@@ -1,0 +1,57 @@
+{
+  "counts": {
+    "inverse_roundtrip": 2048,
+    "local_predicate_checks": 8192,
+    "small_seed_classifications": 8192,
+    "white_old_return_controls": 371
+  },
+  "blank_first_events": [
+    {
+      "D": 4,
+      "event_time": 15,
+      "point": [
+        0,
+        -1
+      ],
+      "updates_executed": 15
+    },
+    {
+      "D": 16,
+      "event_time": 50,
+      "point": [
+        1,
+        -1
+      ],
+      "updates_executed": 50
+    },
+    {
+      "D": 64,
+      "event_time": 94,
+      "point": [
+        -1,
+        1
+      ],
+      "updates_executed": 94
+    },
+    {
+      "D": 128,
+      "event_time": 197,
+      "point": [
+        -3,
+        -2
+      ],
+      "updates_executed": 197
+    },
+    {
+      "D": 256,
+      "event_time": 398,
+      "point": [
+        3,
+        1
+      ],
+      "updates_executed": 398
+    }
+  ],
+  "caller_cap_checks": 1,
+  "invalid_inputs_rejected": 4
+}

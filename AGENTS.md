@@ -1,11 +1,13 @@
 # Repository method
 
-This repository owns four publication projects: one-black highways, integer/rational
-clocks and escape, sharp four-cell outgoing ports, and standard-wake uniqueness with general inverse synthesis.
+This repository owns six publication projects: one-black highways, clocks and escape,
+ports and composable scattering, wake rigidity and inverse synthesis, factor
+language and mass defects, and finite-memory prediction and remote feedback.
 
 ## Ownership
 
-- `one_black/`, `clock_escape/`, `four_cell_port/` and `wake_synthesis/` each own their paper, proof, evidence and release.
+- `one_black/`, `clock_escape/`, `four_cell_port/`, `wake_synthesis/`,
+  `factor_language/` and `memory_feedback/` each own their paper, proof, evidence and release.
 - Each uses `paper/`, `evidence/`, `release/` and `reproduce.py`. Formalized
   projects also have `lean/`; do not imply a Lean proof for the four-cell result.
 - Project-specific code stays with its consumer: one-black dynamics in
@@ -70,3 +72,21 @@ following record 23402422. It retains the general inverse-synthesis theorem and
 uses the revised standard-wake uniqueness title. Preserve all versioned
 published artifacts and the prepublication snapshots; publication receipts
 record the delivered content. Journal submission remains a separate approval step.
+
+## Six-paper preparation (2026-10-15)
+
+The owner requested this portfolio consolidation after wake 0.2.0 publication.
+Prepare wake 0.3.0 and port 0.2.0 in their existing concepts, plus first factor
+and memory preprints. Retain one-black 0.2.0 and clock 0.4.0. This request
+prepares reviewable local manuscripts and archives; it does not authorize
+publishing these four new candidates. The earlier Zenodo approval was exercised
+for the already published wake 0.2.0 package. Record fresh full/quick scope
+separately and preserve every published versioned artifact.
+
+For wake, thin-wake rigidity subsumes standard-layer-profile and complete-wake
+uniqueness; use the strongest proved theorem while retaining its exact drift,
+growth, width and thinness assumptions. Factor's finite-word mass proof is
+independent of its infinite attraction proof. Memory owns the twenty-cell
+lifetime obstruction; port owns finite scattering composition, including returns.
+Older immediate 21/14/13 thresholds and PG-budget/rank-obstruction notes remain
+research material until their required proof closure is assembled.

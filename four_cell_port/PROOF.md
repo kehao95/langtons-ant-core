@@ -1,3 +1,19 @@
+# Ports and composable highway scattering
+
+The manuscript joins the retained sharp port proof below with two constructive
+composition theorems:
+
+- [Guarded scattering](proof/guarded-scattering-renewal.md): 30 rules, 448 compatible
+  pairs, every finite rule sequence and all gaps at least 100 periods.
+- [Return scattering](proof/return-scattering-closure.md): unbounded excursions,
+  exact old-wake readback, full return-field equality and arbitrary finite packet trains.
+
+The complete field is retained throughout. The clock supplies local countdowns;
+protected-region equalities and nested guards supply compositional closure.
+The twenty-cell lifetime obstruction is owned by `memory_feedback/`.
+[Fresh verification](evidence/review-2026-10-15.json) replays the base port and both
+scattering modules. The source proof notes retain their historical execution wording.
+
 # Four-cell one-sided highway forcing: a sharp half-plane threshold
 
 **15 October 2026. Classical Langton ant, white -> right, black -> left, flip then move.**

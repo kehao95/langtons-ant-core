@@ -1,74 +1,73 @@
-# Langton’s Ant: Highways, Clocks, Ports and Wakes
+# Langton’s Ant: Proofs and Preprints
 
-Proofs, preprints and reproducible artifacts for four results about the classical
-white-right / black-left Langton ant, by Hao Ke.
+Six publication projects about the classical white-right / black-left Langton
+ant, by Hao Ke. Four preprints are public; four new or revised manuscripts are
+prepared locally for review.
 
-## Results and papers
+## Results and manuscripts
 
-| Project | Main result | Published preprint |
+| Project | Current manuscript result | Publication status |
 |---|---|---|
-| [One-black highways](one_black/) | Every one-black initial state, at any position and heading, reaches the complete standard period-104 highway trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609) · [PDF](one_black/paper/paper.pdf) |
-| [Clocks and escape](clock_escape/) | Square first exit ≤ **(13·3^(n−1)−2n²−4n−5)/2**; fixed-height rectangle degree **⌊H/2⌋+1**. Also gives complete-state reachability and orbit normal forms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379) · [PDF](clock_escape/release/v0.4.0/paper.pdf) |
-| [Four-cell outgoing ports](four_cell_port/) | Four black cells form a one-sided highway port; at most three force half-plane exit within **918** updates from the inward boundary pose. Four remote cells can complete any finite observed history into a standard highway. | [0.1.0](https://doi.org/10.5281/zenodo.23402414) · [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
-| [Wake synthesis](wake_synthesis/) | The complete standard wake and drift `(2,-2)` uniquely determine P104; general non-axis wakes have terminating inverse synthesis. | [0.2.0](https://doi.org/10.5281/zenodo.23405441) · [PDF](wake_synthesis/release/v0.2.0/paper.pdf) |
+| [One-black](one_black/) | Every one-black finite state, at every position and heading, reaches the complete standard P104 trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609), retained |
+| [Clock and escape](clock_escape/) | Square exit ≤ `(13·3^(n−1)−2n²−4n−5)/2`; fixed-height rectangle degree `⌊H/2⌋+1`; complete-state orbit algorithms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379), retained |
+| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. General inverse synthesis remains. | 0.3.0 prepared; [public 0.2.0](https://doi.org/10.5281/zenodo.23405441) |
+| [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequality. | First 0.1.0 prepared |
+| [Memory and feedback](memory_feedback/) | Exact finite-memory event prediction and full-history continuation; remote feedback necessity and a fixed-mass lifetime obstruction. | First 0.1.0 prepared |
+| [Ports and scattering](four_cell_port/) | Sharp four-cell ports; arbitrary finite protected scattering trains, including unbounded return excursions and old-wake readback. | 0.2.0 prepared; [public 0.1.0](https://doi.org/10.5281/zenodo.23402414) |
 
-The one-black theorem has a complete Lean proof. The clock and wake results have
-analytic proofs with exact checks; standard-wake uniqueness also uses a complete
-ordered-event enumeration. Lean verifies the clock's
-supercritical local lemmas. The four-cell result combines analytic reductions
-with exact finite certificates and infinite-trace checks.
-
-[Publication portfolio and version history](PREPRINTS.md) ·
-[Claim–evidence map and review](PREPRINT_REVIEW.md) · [Change history](CHANGELOG.md)
+[Publication versions and packages](PREPRINTS.md) ·
+[Claim–evidence map and review](PREPRINT_REVIEW.md) · [Changes](CHANGELOG.md)
 
 ## Project layout
 
-```text
-one_black/       Universal one-black highway theorem
-clock_escape/    Integer clocks, escape bounds and orbit algorithms
-four_cell_port/  Sharp half-plane threshold and exterior completion
-wake_synthesis/  Standard-wake uniqueness and general inverse synthesis
-```
+Each project owns `paper/`, `PROOF.md`, `evidence/`, `release/`
+and `reproduce.py`; exact checkers live in `verification/` and formalized
+projects also own `lean/`. One-black retains
+its established dynamics package. Published PDFs and release receipts are
+immutable; current manuscript builds go to `paper/build/`.
 
-Each project owns its manuscript in `paper/`, proof narrative in `PROOF.md`,
-verification records in `evidence/`, release records in `release/`, and a
-`reproduce.py` entrypoint. Formal proofs live in `lean/`; project-specific exact
-checkers live in `verification/`.
+The clock paper owns clocks and escape. Wake uses them for period budgets;
+memory uses escape to bound events in a fixed region; port uses a local clock
+inside certified recovery stages. Factor's finite-word mass proof is independent
+of its infinite-future attraction proof. Memory owns the twenty-black lifetime
+obstruction; port owns the arbitrary finite scattering composition theorems.
 
-The clock paper develops the integer clock; the wake paper applies it to period
-budgets and inverse synthesis. The four-cell completion theorem uses the clock's
-escape bound. Each paper states and attributes these dependencies.
+One-black has a complete Lean proof. The other new results combine analytic
+coverage arguments with exact finite checks. The clock also contains Lean
+proofs of its supercritical local identities. Fresh checks, inherited evidence
+and external review are distinguished in each project's evidence records.
 
-## Reproduce
+## Reproduce and build
 
-Run from the repository root:
+Run a project's scoped checks from the repository root:
 
 ```sh
-python3 one_black/reproduce.py
-python3 clock_escape/reproduce.py
+python3 wake_synthesis/reproduce.py --jobs 4
+python3 factor_language/reproduce.py
+python3 memory_feedback/reproduce.py
 python3 four_cell_port/reproduce.py
-python3 wake_synthesis/reproduce.py
 ```
 
-All projects use Python 3.10+. The one-black and full clock commands also require
-Lean 4.30.0. The clock's `--integer-only` and `--critical-only` options run scoped
-checks using Python alone. The wake reproduction requires g++ with C++17 for exact enumeration.
-Its `--baseline` option repeats the original search, and `--search` adds the
-finite detour experiment.
+Wake defaults to the full 76-case, 83-job exhaustion. Its `--quick` mode checks
+the upper graph, count tables and controls but skips those large exclusions.
+Factor and wake require a C++17 compiler. All use Python 3.10+ without `-O`.
+One-black and full clock reproduction additionally require Lean 4.30.0; their
+unchanged commands remain in their project READMEs.
 
-Build a manuscript with `make -C <project>/paper`. One-black uses Pandoc and
-XeLaTeX; the other three use pdfLaTeX. Builds write to ignored `paper/build/`
-directories. Published PDFs, source hashes and download-verification receipts
-remain in the release records linked above. Zenodo also provides self-contained
-source archives for independent reproduction.
+Build with `make -C <project>/paper`. Wake and clock use pdfLaTeX; factor,
+memory and the expanded port manuscript use XeLaTeX. One-black retains its
+Pandoc/XeLaTeX workflow. Prepare a local archive with
+`python3 tools/prepare_preprints.py --project <project>`.
 
-## Explore further
+## Further research
 
-[Explore the interactive one-black proof guide](https://kehao95.github.io/langtons-ant-core/),
-maintained under [docs/](docs/). [Research](research/) contains further deductions
-and the separate, ongoing Highway Conjecture program.
+The [interactive one-black guide](https://kehao95.github.io/langtons-ant-core/)
+is maintained in [docs/](docs/). [Research](research/) retains the independent
+Highway Conjecture programme. The six papers have distinct input classes and
+conclusions; their combination does not supply an all-input convergence theorem.
 
 ## Open
 
-Independent mathematical peer review and journal preparation for the published
-preprints. Project-specific next steps are recorded in each project's README.
+Review the four candidate packages in [PREPRINTS.md](PREPRINTS.md) before a
+new Zenodo release. Independent mathematical review and journal preparation
+remain open. Current published records are unchanged by this preparation.

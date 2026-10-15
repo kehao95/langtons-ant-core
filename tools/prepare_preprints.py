@@ -15,8 +15,10 @@ ROOT = Path(__file__).resolve().parents[1]
 PROJECTS = {
     'one_black': ('0.2.0', 'paper.pdf', 'One-Black-Standard-Trace.pdf', 'retain-published'),
     'clock_escape': ('0.4.0', 'review.pdf', 'An-Ant-on-the-Clock.pdf', 'new-version'),
-    'four_cell_port': ('0.1.0', 'review.pdf', 'Four-Black-Cells.pdf', 'first-release'),
-    'wake_synthesis': ('0.2.0', 'build/paper.pdf', 'Standard-Wake-Uniqueness.pdf', 'new-version'),
+    'four_cell_port': ('0.2.0', 'build/paper.pdf', 'Four-Cell-Ports-and-Scattering.pdf', 'new-version'),
+    'wake_synthesis': ('0.3.0', 'build/paper.pdf', 'Layer-Profile-Uniqueness.pdf', 'new-version'),
+    'factor_language': ('0.1.0', 'build/paper.pdf', 'Local-Factor-Rigidity.pdf', 'first-release'),
+    'memory_feedback': ('0.1.0', 'build/paper.pdf', 'Finite-Memory-and-Remote-Feedback.pdf', 'first-release'),
 }
 
 

@@ -1,5 +1,20 @@
 # Repository changes
 
+## 2026-10-15 — Six-paper review portfolio prepared
+
+Imported research `0ef3f0e` by proof dependency. Wake 0.3.0 now derives the
+standard layer profile from interior thinness, drift (2,-2), growth 12 and
+width 10, retaining general inverse synthesis. Factor and memory receive
+independent 0.1.0 manuscripts. Port 0.2.0 adds protected finite composition
+and unbounded old-wake return packets. Full scoped checks passed; fresh
+reports distinguish imported evidence, completed native runs and quick mode.
+A subsequent factor-only import from `0a41fba` adds exact first-J10 macros,
+complete compressed endpoints and quadratic finite-event deadlines.
+README and publication navigation distinguish current candidates from public
+versions. Clock and one-black mathematical sources and all published artifacts
+are retained. No Zenodo mutation or journal submission was performed.
+
+
 ## 2026-10-15 — Standard-wake uniqueness version 0.2.0 published
 
 Following the owner's approval, published *Uniqueness of the Classical Langton

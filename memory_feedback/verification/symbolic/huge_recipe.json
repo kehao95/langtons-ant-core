@@ -1,0 +1,16 @@
+{
+  "schema": "langtons-ant-symbolic-huge-recipe-v1",
+  "blank_updates": 12000,
+  "blank_initial_heading": 0,
+  "D": 128,
+  "remote_period_offset": 1000000000000,
+  "remote_cell": [
+    -2000000000056,
+    -2000000000032
+  ],
+  "event_time": 104000000000000,
+  "endpoint_encoding_sha256": "68a1685eb2c7181129bff723333337e1aab3e7369ca5a66f0ac3fc2efdd2f064",
+  "endpoint_encoding": "state_data(after), JSON sort_keys=True separators=(comma,colon)",
+  "next_event_duration": 65,
+  "scope": "Finite exact symbolic prefix and its successor, not an infinite-run result."
+}

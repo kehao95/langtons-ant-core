@@ -1,5 +1,12 @@
 # Release history
 
+## Version 0.3.0 — review package
+
+[Review PDF](v0.3.0/paper.pdf) · [Source snapshot](v0.3.0/prepared-source-manifest.json) · [Standalone check](v0.3.0/standalone-check.json)
+
+*Uniqueness of the Classical Langton Ant Highway from Its Layer Profile*. The PDF and standalone source archive are prepared locally; no Zenodo mutation is part of this revision. The intended action is a new version of record 23405441 in concept 23402421. [Candidate hashes](candidate-manifest.json) identify the exact review snapshot.
+
+
 ## Version 0.2.0 — published
 
 Hao Ke, *Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake*.

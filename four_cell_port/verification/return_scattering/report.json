@@ -1,0 +1,272 @@
+{
+  "affine_certificate_sha256": "c494c530443ea66e2e70606ce61f43d402e5c42ab8465044f05bd0174c02a9c6",
+  "affine_inequalities": 5685,
+  "blocks": {
+    "A_first_turn": {
+      "clock_final_fuel_bits": 40,
+      "clock_initial_fuel_bits": 40,
+      "endpoint": [
+        -12,
+        12
+      ],
+      "final_black": 580,
+      "final_field_sha256": "33490ba77ba2ce3ccdfee81cb77f2a36f948a6cf70ad55a1d64870c12328a1ba",
+      "heading": 2,
+      "initial_black": 484,
+      "initial_field_sha256": "c5b80052628bea0b9c6db6b47a0d13aba692e514fc3bdee8132971f5dd93bb3a",
+      "max_r": 8,
+      "max_s": 9,
+      "min_r": -26,
+      "min_s": -10,
+      "steps_per_simulator": 832,
+      "word_sha256": "a0c58d1f9ba5ce0e8ee1729e9d3eaa98176c1645acd1d99bdb78070214fc0ae5"
+    },
+    "C_reverse_turn": {
+      "clock_final_fuel_bits": 164,
+      "clock_initial_fuel_bits": 164,
+      "endpoint": [
+        -24,
+        -44
+      ],
+      "final_black": 2569,
+      "final_field_sha256": "0dd28d89bad328d02704331d3fe87eb219b4dc99742ede09ce35830206850737",
+      "heading": 0,
+      "initial_black": 485,
+      "initial_field_sha256": "c4db2c6a3aa99c575498a06473a56b76898924e17796858b8cc4dbb25664580e",
+      "max_r": 54,
+      "max_s": 63,
+      "min_r": -76,
+      "min_s": -75,
+      "steps_per_simulator": 51272,
+      "word_sha256": "c8ef4372ede3ff67b2b76310f71b0e7ec837f885c6c04810e7ed01189344d976"
+    },
+    "E0_two_marker_return_without_reset": {
+      "clock_final_fuel_bits": 102,
+      "clock_initial_fuel_bits": 102,
+      "endpoint": [
+        -22,
+        -60
+      ],
+      "final_black": 1925,
+      "final_field_sha256": "e483b391dd215ed43223da01b45694aab84282d72133c9363b48ba080bd0c03e",
+      "heading": 2,
+      "initial_black": 1445,
+      "initial_field_sha256": "d5d4f52659b2cc83a1b360363a971fed22edb1b73d9c9c0b976cfd075f03e896",
+      "max_r": 40,
+      "max_s": -35,
+      "min_r": -48,
+      "min_s": -109,
+      "steps_per_simulator": 9308,
+      "word_sha256": "7638cc3e9a14d1bdfbb6ed291ee4de2e92380278a30f04c1eb6c8402820beafd"
+    },
+    "E_old_wake_recovery_and_reset": {
+      "clock_final_fuel_bits": 540,
+      "clock_initial_fuel_bits": 540,
+      "endpoint": [
+        203,
+        -244
+      ],
+      "final_black": 3453,
+      "final_field_sha256": "4191ce21befca404739ba176fc32d0daa61b952b39b97fae0a5d33c2a2b06bd4",
+      "heading": 1,
+      "initial_black": 1446,
+      "initial_field_sha256": "5718bd7afecf7431803e540b471e44b791a4770c5376b85c489d8aabd8d7bdb0",
+      "max_r": 458,
+      "max_s": -35,
+      "min_r": -48,
+      "min_s": -109,
+      "steps_per_simulator": 23661,
+      "word_sha256": "aa8fd30de0c383dbc302d71ddeaa7c3d9d2a1b104829c89bcc43bfe0adb449e4"
+    }
+  },
+  "clock_step_checks": 85073,
+  "complete_train_cases": 8,
+  "connectors": {
+    "arbitrary_initial_debris_guard": "x+y<0",
+    "incoming_read_overshoot": 1,
+    "minimum_guard_slack": 147,
+    "minimum_initial_guard_slack": 243,
+    "minimum_primary_sum_increment": 366,
+    "primary_spacing_domain": "every integer m>=100"
+  },
+  "dependency_sha256": "7b199ee5d2f291eb5450c3f232d2bbf91e469de2bd9eb416a753393886d3da14",
+  "huge_parameter": "1000000000000000000000000000000000000000000000000000000000000",
+  "huge_train_updates": "312000000000000000000000000000000000000000000000000000000182542",
+  "negative_controls": {
+    "remote_tail_blocker": 1,
+    "unsupported_parameters": 4,
+    "wrong_tail_colour": 1
+  },
+  "packet": {
+    "first_D_contact_candidates": 158,
+    "first_marker_phase": 57,
+    "old_birth_relative_to_primary": -1736,
+    "old_lifetime_age": "208*n+53684",
+    "old_read_position": [
+      -38,
+      -32
+    ],
+    "old_read_updates": "208*n+51948",
+    "old_return_field_black": 1446,
+    "old_return_field_sha256": "5718bd7afecf7431803e540b471e44b791a4770c5376b85c489d8aabd8d7bdb0",
+    "output_phase": 94,
+    "output_position": [
+      203,
+      -244
+    ],
+    "packet_read_s_range": [
+      -109,
+      59
+    ],
+    "packet_updates": "208*n+75609",
+    "parameter_domain": "every integer n>=100",
+    "reset_marker_first_read_after_two_marker_boundary": 10401,
+    "reset_marker_relative": [
+      177,
+      -260
+    ],
+    "reverse_marker_phase": 72,
+    "stable_B_xor_terms": 3618,
+    "stable_D_xor_terms": 3893,
+    "two_marker_output_phase": 14,
+    "two_marker_output_position": [
+      -22,
+      -60
+    ],
+    "two_marker_updates": "208*n+61256",
+    "western_reversal_endpoint": "(-2*n-39, 2*n-33)"
+  },
+  "schema": 1,
+  "source_sha256": "ff02d62860d76bb5f68e9f3a9cbcd72b520c32ac08943593cfa92b39f9152d93",
+  "status": "restricted analytic closure with exact certificates; not HC",
+  "train_packets": 15,
+  "train_updates_per_simulator": 1752102,
+  "trains": [
+    {
+      "final_black": 13,
+      "final_field_sha256": "903726d185e5b582bbda71107659e18c9b5de420e82e242bb5ef65baa7bf7494",
+      "final_heading": 1,
+      "final_position": [
+        0,
+        0
+      ],
+      "initial_black": 13,
+      "old_lifetime_ages": [],
+      "packets": 0,
+      "updates": 0
+    },
+    {
+      "final_black": 7796,
+      "final_field_sha256": "a12a9639354f51d5ab471b33820529cc154c8a246d716fb1d3c0bd454b395840",
+      "final_heading": 1,
+      "final_position": [
+        407,
+        -39
+      ],
+      "initial_black": 16,
+      "old_lifetime_ages": [
+        74484
+      ],
+      "packets": 1,
+      "updates": 106866
+    },
+    {
+      "final_black": 7820,
+      "final_field_sha256": "7a9336a8da222afca4c7ac7db1ebb595e1ace2afe6151edaf23b771ba0c8a1bc",
+      "final_heading": 1,
+      "final_position": [
+        407,
+        -39
+      ],
+      "initial_black": 16,
+      "old_lifetime_ages": [
+        74692
+      ],
+      "packets": 1,
+      "updates": 107074
+    },
+    {
+      "final_black": 8698,
+      "final_field_sha256": "1c3b909cee25af91d1a0efb55890ce5c50ac7713b260151e3e8e6920481f0199",
+      "final_heading": 1,
+      "final_position": [
+        409,
+        -37
+      ],
+      "initial_black": 18,
+      "old_lifetime_ages": [
+        82180
+      ],
+      "packets": 1,
+      "updates": 114666
+    },
+    {
+      "final_black": 17396,
+      "final_field_sha256": "ec8958438df26d7684e07ba3cf2a03e2f69c7c21f10f5ca7822308b85d361a40",
+      "final_heading": 1,
+      "final_position": [
+        407,
+        -39
+      ],
+      "initial_black": 16,
+      "old_lifetime_ages": [
+        157684
+      ],
+      "packets": 1,
+      "updates": 190066
+    },
+    {
+      "final_black": 17332,
+      "final_field_sha256": "14e37dabdacce32ecc0aef840ca2a5869cd56c082874b9092c31b57038580e09",
+      "final_heading": 1,
+      "final_position": [
+        815,
+        -81
+      ],
+      "initial_black": 20,
+      "old_lifetime_ages": [
+        74484,
+        89668
+      ],
+      "packets": 2,
+      "updates": 228926
+    },
+    {
+      "final_black": 24323,
+      "final_field_sha256": "1cdb8fa33c487dc01b96fb4e277e75e7e793fc3663b414b7f250b3013176be15",
+      "final_heading": 1,
+      "final_position": [
+        1231,
+        -115
+      ],
+      "initial_black": 23,
+      "old_lifetime_ages": [
+        74484,
+        76772,
+        80100
+      ],
+      "packets": 3,
+      "updates": 328938
+    },
+    {
+      "final_black": 50671,
+      "final_field_sha256": "22c7d03741b2ae898d20b458f9d66ec373a7814ab9e0534aad76821c23900fee",
+      "final_heading": 1,
+      "final_position": [
+        2447,
+        -249
+      ],
+      "initial_black": 31,
+      "old_lifetime_ages": [
+        74484,
+        74692,
+        84884,
+        75108,
+        97572,
+        74484
+      ],
+      "packets": 6,
+      "updates": 675566
+    }
+  ]
+}

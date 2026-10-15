@@ -1,0 +1,48 @@
+{
+  "schema": "langtons-ant-event-geometry-checks-v1",
+  "date": "2026-10-12",
+  "status": "passed",
+  "counts": {
+    "first_event_cases": 8192,
+    "reference_updates": 27496,
+    "finite_footprint_points": 30192,
+    "consecutive_macros": 1024,
+    "chain_footprint_points": 4586,
+    "generic_translating_plan_mismatches": 1980,
+    "arbitrary_length_rail_controls": 6,
+    "closed_geometry_controls": 360,
+    "positive_local_halt_controls": 2048,
+    "finite_halt_reference_caps": 0,
+    "simultaneous_halt_stale_controls": 592,
+    "exact_deadline_algebra_cases": 80,
+    "invalid_input_controls": 8
+  },
+  "scope": {
+    "analytic_unformalized": true,
+    "global_event_budget": false,
+    "nonuniversality_proved": false,
+    "third_party_review": false,
+    "old_repository_suite_rerun": false
+  },
+  "huge_plan_control": {
+    "period": 104,
+    "first_bad_offset": 104000000000000,
+    "marker": [
+      -2000000000056,
+      -2000000000032
+    ],
+    "cutoff_epoch": 1000000000002,
+    "geometry_extreme_points_checked": 209,
+    "halo_radius": 312,
+    "literal_simulation_to_collision": false,
+    "event_free_tail_is_not_confined": true
+  },
+  "baseline_git_blobs": {
+    "memory_delay.py": "16b3228cb556b81e643b456c671b4da52690e65a",
+    "symbolic_stale.py": "fd764593e40d41ba2bcfbd26b74c6e293e38fa7a"
+  },
+  "source_sha256": {
+    "event_geometry.py": "d2b7f5d12cadfa25a90ad1bcd86dc20e462514cafc7578a970890a4219a74492",
+    "check.py": "2aec2a33296564cc42bc3800da256a542cd58ba67fdd7a2265295d8966d56d69"
+  }
+}

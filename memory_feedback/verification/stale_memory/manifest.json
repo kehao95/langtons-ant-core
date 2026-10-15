@@ -1,0 +1,24 @@
+{
+  "schema": "langtons-ant-stale-memory-v1",
+  "date": "2026-10-11",
+  "input_package_sha256": "04691dbbc76a55603809c6e152794648efebb93c794a5718ba23295c1b87321e",
+  "files_sha256": {
+    "PROOF.md": "5db0c3fb75fecdd7273297e96c3c33509818ce96537357ef7b23c260a56756cb",
+    "README.md": "935ff4e22d392c4100faeda9de14a37e2037e20d2e8f622786c7a4dc11b8a961",
+    "baseline/memory_delay.py": "eda59036a875e4e601b14235b262cbea699efe33a455fcfcba623ddb892df2bc",
+    "basic_results.json": "829b88cd1fd4dfaf472fdd4b3035ecca2ab9d8f15a1d5da63302e5b47816cca8",
+    "blank_created_memory_witness.json": "6f69c4fccf32dd9d4ae795477b7c496b410486fa0c7e141d8bfe1c0729930296",
+    "check.py": "9893045126d40ab32942b97225623e2a01e851b7e5283165ae1acca33312057d",
+    "check_results.json": "28901f1cff8edf900bd26eb96f1237a6565981c77dd1674f3bddb1bed7dab285",
+    "periodic_results.json": "bf53e9a7e151feafa067f17424bf671b768d921c93c16cc03484a863b28e7ad0",
+    "stale_memory.py": "1ca1bcd162c36b26c07982522ab4d03e22f1ada281ef46040be83272f6b3f49a"
+  },
+  "verification": "python check.py completed; additional blank-created-memory witness checked",
+  "scope": {
+    "local_stale_target_decided": true,
+    "arbitrary_local_HALT_decided": false,
+    "full_nonuniversality_proved": false,
+    "HC_proved": false,
+    "remote_repo_changed": false
+  }
+}

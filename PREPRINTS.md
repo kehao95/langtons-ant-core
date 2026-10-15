@@ -1,66 +1,57 @@
-# Published preprints
+# Publication portfolio
 
-Four preprints are published. The latest release is the owner-approved wake
-0.2.0 update, which adds standard-wake uniqueness within its existing Zenodo
-version chain.
+The portfolio has six distinct mathematical questions. One-black 0.2.0 and
+clock 0.4.0 remain unchanged. The following four candidates are prepared locally;
+no new Zenodo version or draft has been created in this integration.
 
-| Project | Current publication | Exact delivery PDF |
+| Candidate | Title | Intended version chain |
 |---|---|---|
-| One-black highways | [0.2.0 · 23341609](https://doi.org/10.5281/zenodo.23341609) — retained | [PDF](one_black/paper/paper.pdf) |
-| An Ant on the Clock | [0.4.0 · 23402379](https://doi.org/10.5281/zenodo.23402379) — existing concept 23341603 | [PDF](clock_escape/release/v0.4.0/paper.pdf) |
-| Four Black Cells Force an Outgoing Highway | [0.1.0 · 23402414](https://doi.org/10.5281/zenodo.23402414) — first release | [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
-| Uniqueness of the Classical Langton Ant Highway Under Its Standard Wake | [0.2.0 · 23405441](https://doi.org/10.5281/zenodo.23405441) — existing concept 23402421 | [PDF](wake_synthesis/release/v0.2.0/paper.pdf) |
+| [Wake 0.3.0](wake_synthesis/release/README.md) | Uniqueness of the Classical Langton Ant Highway from Its Layer Profile | Update [23405441](https://doi.org/10.5281/zenodo.23405441), concept 23402421 |
+| [Factor 0.1.0](factor_language/release/README.md) | Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant | First release |
+| [Memory 0.1.0](memory_feedback/release/README.md) | Finite-Memory Prediction and Remote Feedback in Langton’s Ant | First release |
+| [Port 0.2.0](four_cell_port/release/README.md) | Four-Cell Ports and Composable Highway Scattering for Langton’s Ant | Update [23402414](https://doi.org/10.5281/zenodo.23402414), concept 23402413 |
 
-The clock owns the integer clock, the square bound
-`E(n)=(13*3^(n-1)-2*n^2-4*n-5)/2`, rectangular escape and complete-state
-algorithms. The wake paper owns standard-wake uniqueness, period budgets and
-period-unknown inverse synthesis. The four-cell completion time is `E(n)+182`.
-The wake and port papers cite the exact clock 0.4.0 DOI.
+Each candidate has a buildable English manuscript, a self-contained source ZIP,
+metadata and per-file SHA256 hashes. Candidate manifests identify the working-tree
+snapshot, including its base commit; they do not assert a later commit hash.
+Versioned published PDFs, source manifests and download receipts are preserved.
 
-## Wake version history
+## Contribution allocation
 
-Version 0.2.0, *Uniqueness of the Classical Langton Ant Highway Under Its Standard
-Wake*, closes the standard-wake classification left open in 0.1.0; the general
-period bounds and inverse-synthesis theorem remain. Record **23405441** updates
-**23402422** in concept **23402421**. The original 0.1.0 title was *Reading the
-Wake: Period Bounds and Inverse Synthesis for Langton's Ant*.
-[Current manuscript and proof](wake_synthesis/) ·
-[Release records](wake_synthesis/release/README.md).
+Wake derives the standard layer profile from interior thinness and three numerical
+invariants; prescribed-profile and complete-wake uniqueness become corollaries.
+General non-axis inverse synthesis stays in the same paper. The stronger thin-wake
+and return-scattering modules arrived after the proposed 4a762c3 comparison and
+were included from research commit 0ef3f0e.
 
-## Published artifacts and verification
+Factor combines ten-factor attraction and exact local-event macros with the independent
+finite-word mass proof. The additional research commit `0a41fba` supplies exact
+first-J10 times, complete compressed endpoints and quadratic finite-event deadlines;
+its new lifted graph is independently regenerated and checked. Memory combines prediction, full-state XOR continuation,
+quadratic event geometry, remote feedback and the twenty-cell scale obstruction.
+Port combines its retained sharp threshold and exterior completion with closed
+finite scattering trains and genuine old-wake return packets.
 
-Each release provides a PDF and a self-contained source archive, with delivery
-hashes and verification recorded in its versioned release directory. Wake 0.2.0
-ships the reviewed 14-page PDF and source ZIP; its standalone replay and PDF text
-comparison passed before publication.
+The older immediate 21/14/13 thresholds await their complete original package.
+PG boundary budgets and the scalar cycle-rank obstruction remain research notes;
+they are not additional preprints or hidden premises of the new manuscripts.
 
-The wake 0.2.0 PDF, source ZIP and SHA256 manifest were downloaded anonymously
-after publication and matched the local delivery hashes. The previous version
-was preserved and the concept's latest version resolves to 0.2.0; see the
-[publication receipt](wake_synthesis/release/v0.2.0/publication-receipt.json).
+## Existing public records
 
-The earlier clock 0.4.0, port 0.1.0 and wake 0.1.0 batch also included SHA256
-manifests. All nine attachments in that batch were downloaded anonymously and
-matched local SHA256 hashes. Their source ZIPs were independently extracted and
-rebuilt, with PDF text matching the delivery PDFs (8, 6 and 6 pages).
+| Project | Public version | Exact published PDF |
+|---|---|---|
+| One-black | [0.2.0 · 23341609](https://doi.org/10.5281/zenodo.23341609) | [PDF](one_black/paper/paper.pdf) |
+| Clock and escape | [0.4.0 · 23402379](https://doi.org/10.5281/zenodo.23402379) | [PDF](clock_escape/release/v0.4.0/paper.pdf) |
+| Four-cell port | [0.1.0 · 23402414](https://doi.org/10.5281/zenodo.23402414) | [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
+| Wake | [0.2.0 · 23405441](https://doi.org/10.5281/zenodo.23405441) | [PDF](wake_synthesis/release/v0.2.0/paper.pdf) |
 
-Each project's versioned `release/` directory owns the publication receipt,
-public record, metadata, exact PDF, source manifest, delivery manifest and
-standalone archive checks. Source snapshots identify working-tree content by
-per-file hashes and record their base commit; they do not claim an unmade commit.
-
-The existing one-black PDF and clock 0.3.0 PDF were also downloaded and verified
-against their earlier publication receipts. No one-black record was created or
-modified. Clock 0.4.0 was created with `new-version` from 23401306 and remains
-in concept 23341603. Port and wake concepts are 23402413 and 23402421.
-
-[Verification and editorial review](PREPRINT_REVIEW.md) records proof ownership,
-checks and the two-round Gemini discussion. `candidate-manifest.json` and
-`review-checks.json` retain prepublication snapshots; the versioned release
-records are authoritative for published content. The local preparation command
-`python3 tools/prepare_preprints.py` performs no network or publication action.
+The published wake version has full download verification in its
+[receipt](wake_synthesis/release/v0.2.0/publication-receipt.json). Earlier releases
+retain their own receipts. These remain publication authorities until another
+version is explicitly approved and published.
 
 ## Open
 
-External mathematical peer review and journal preparation.
-No journal submission has been made.
+Owner review of the four candidates, followed by any authorized Zenodo publication.
+External mathematical peer review, fuller literature comparison and journal
+selection remain subsequent work; no journal submission has been made.

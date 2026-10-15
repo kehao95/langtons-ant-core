@@ -57,7 +57,8 @@ reusable hypotheses, mechanisms, and finite traces for reconstruction.
 ## Independent clock results
 
 The [clock preprint](../clock_escape/README.md) proves the uniform square first-exit
-bound `8*n*3^n+1` for n cells per side. Its rational clock also supplies
+bound `(13*3^(n-1)-2*n^2-4*n-5)/2` for n cells per side (version 0.4.0).
+The earlier `8*n*3^n+1` estimate remains a valid conservative bound. Its clock also supplies
 complete-state reachability, orbit equivalence and a computable orbit section.
 These are established analytic results, accompanied by local Lean proofs and
 self-contained exact checks. They complement the P104 kernel while the

@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "research_date": "2026-10-15",
+  "scope": "New lifted graph, exact first-J10 macros, complete endpoint controls; not old suites or HC",
+  "python": {
+    "status": "passed",
+    "graph": {
+      "vertices": 7595,
+      "edges": 7763,
+      "cyclic_lengths": [
+        24,
+        28,
+        28,
+        28,
+        104
+      ],
+      "max_periodic_plans": 5,
+      "max_noncyclic_updates": 956,
+      "max_period_sum": 212,
+      "ordinary_update_bound": 1111,
+      "term_increment_bound": 1530,
+      "edges_sha256": "1fe5c8d29ca8a3c4fda593242c875b9bcc00772df1f9bfbad21973f0169836bb",
+      "rank_sha256": "d7413c48613c78f693a96362bb0ece77ed764a1c9ab9653a6591719a27a26803"
+    },
+    "counts": {
+      "ray_segment_controls": 5000,
+      "exact_field_equalities": 160,
+      "literal_updates": 11598,
+      "deadline_and_halo_endpoints": 415,
+      "arbitrary_finite_inputs": 160,
+      "mature_standard_poses": 208,
+      "finite_24_caps": 5,
+      "finite_28_rails": 5,
+      "folded_prefixes": 8,
+      "restarts": 240,
+      "failed_116_bridge_checked": 1
+    },
+    "huge_cases": [
+      {
+        "kind": "remote_marker",
+        "n": "20",
+        "time": "1988",
+        "plans": 1,
+        "ordinary": 34,
+        "post_terms": 249
+      },
+      {
+        "kind": "remote_marker",
+        "n": "30",
+        "time": "3028",
+        "plans": 1,
+        "ordinary": 34,
+        "post_terms": 249
+      },
+      {
+        "kind": "remote_marker",
+        "n": "1000000000000",
+        "time": "103999999999908",
+        "plans": 1,
+        "ordinary": 34,
+        "post_terms": 249
+      },
+      {
+        "kind": "remote_marker",
+        "n": "1000000000000000000000000000000000000000000000000000000000000",
+        "time": "103999999999999999999999999999999999999999999999999999999999908",
+        "plans": 1,
+        "ordinary": 34,
+        "post_terms": 249
+      },
+      {
+        "kind": "huge_finite_24_cap",
+        "n": "1000000000000",
+        "no_future_event": true,
+        "tail_offset": "23999999999996",
+        "plans": 2,
+        "ordinary": 138,
+        "input_terms": 45
+      },
+      {
+        "kind": "huge_finite_28_rail",
+        "n": "1000000000000",
+        "time": "27999999999895",
+        "plans": 1,
+        "ordinary": 42,
+        "post_terms": 136
+      },
+      {
+        "kind": "huge_finite_24_cap",
+        "n": "1000000000000000000000000000000000000000000000000000000000000",
+        "no_future_event": true,
+        "tail_offset": "23999999999999999999999999999999999999999999999999999999999996",
+        "plans": 2,
+        "ordinary": 138,
+        "input_terms": 45
+      },
+      {
+        "kind": "huge_finite_28_rail",
+        "n": "1000000000000000000000000000000000000000000000000000000000000",
+        "time": "27999999999999999999999999999999999999999999999999999999999895",
+        "plans": 1,
+        "ordinary": 42,
+        "post_terms": 136
+      }
+    ],
+    "max_observed_ordinary": 218,
+    "max_observed_plans": 2,
+    "HC_proved": false,
+    "unbounded_restart_termination_proved": false,
+    "seconds": 4.782
+  },
+  "cpp": {
+    "status": "passed",
+    "vertices": 7595,
+    "edges": 7763,
+    "all_edge_rank_checks": 7763,
+    "periodic_plan_bound": 5,
+    "noncyclic_update_bound": 956,
+    "period_sum_bound": 212,
+    "HC_proved": false
+  },
+  "negative_controls": {
+    "corrupt_rank_rejected_unchanged": true,
+    "missing_base_word_rejected": true
+  },
+  "witnesses_unchanged": true,
+  "source_sha256": {
+    "reproduce.py": "526363e9c2db11c177587bc634a82a8c8948627abada9a49410db37db7fbac0d",
+    "independent.cpp": "81f82e8b59c10186b7da7fb116015fc8ea3fc4a6f34465d3470febeed07fafe0",
+    "check.py": "2886828aac1c552f9d0a59df7095aca65392f781cf87651f56bde9d758ba796c",
+    "macro.py": "194845539c6b94a7edfcfbc5ef76c3076ece58e23857e7b3b0ef8b10c231514c"
+  },
+  "seconds": 7.679,
+  "external_mathematical_review": false,
+  "Lean_formalized": false
+}

@@ -1,0 +1,60 @@
+{
+  "clock_step_checks": 185224,
+  "composition": {
+    "initial_cases": 16,
+    "min_guard_slack": 122,
+    "min_initial_slack": 160,
+    "min_marker_dx": 184,
+    "pairs": 448
+  },
+  "fresh_phases": [
+    13,
+    14,
+    15,
+    27,
+    28,
+    29,
+    32,
+    38,
+    45,
+    46,
+    47,
+    55,
+    56,
+    57,
+    60,
+    61,
+    62,
+    70,
+    71,
+    72,
+    75,
+    89
+  ],
+  "huge_gap": "1000000000000000000000000000000000000000000000000000000000000",
+  "huge_gap_pairs": 448,
+  "kernel_certificate_sha256": "5fc1707a45cdf33b53fd6fdd38a5c7bc35b2b98d5b0e25887955ef07149429f7",
+  "kernel_count": 30,
+  "largest_kernel_output_black": 1797,
+  "literal_kernel_updates_per_simulator": 185224,
+  "negative_controls": {
+    "insufficient_gap": 1,
+    "remote_tail_blocker": 1,
+    "unsupported_phase": 1,
+    "wrong_tail_current_colour": 30
+  },
+  "schema": 1,
+  "source_sha256": "7b199ee5d2f291eb5450c3f232d2bbf91e469de2bd9eb416a753393886d3da14",
+  "status": "restricted analytic theorem with exact certificates; not HC",
+  "train_cases": 27,
+  "train_certificate_sha256": "225a12b83e88c3b5882f18ab4aa15557eca460376fa35cdb8743973c7303a551",
+  "train_markers": 186,
+  "train_updates": 3141218,
+  "zigzag_24": {
+    "contacts": 24,
+    "final_black": 43669,
+    "final_field_sha256": "921f6be514348757679991698cc10fed6316f88332b126e006f2fe04cd2711a8",
+    "markers": 24,
+    "updates": 451214
+  }
+}
