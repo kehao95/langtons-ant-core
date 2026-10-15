@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "finite_seed_rows": 284,
+  "blank_cell_certificate": {
+    "classes": 22,
+    "cell_interval_tests": 40,
+    "drift": [
+      -2,
+      -2
+    ]
+  },
+  "gate_cell_certificate": {
+    "classes": 22,
+    "cell_interval_tests": 40,
+    "drift": [
+      2,
+      2
+    ]
+  },
+  "certificate_mutations_rejected": 2,
+  "active_cell_mutations_rejected": 13,
+  "remote_blocker_epoch": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "dormant_marker_accepted": true,
+  "gate_deletion_exit_times": [
+    2,
+    66,
+    86,
+    170
+  ],
+  "completion": {
+    "cases": 96,
+    "exit_sides": 4,
+    "max_sample_exit": 7759,
+    "huge_coordinate_cases": 16,
+    "full_field_xor_checked": true
+  },
+  "scope": "exact finite certificates + analytic all-future reduction; completion samples test implementation"
+}

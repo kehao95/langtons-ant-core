@@ -284,3 +284,11 @@ Two exact constructions classify `HIGHWAY`:
 The renewal route advances by proving finite scattering and outer causal
 ownership. The compiler route advances by implementing one finite-support
 state transition with exact restoration of its reusable control interface.
+
+## Four-cell exterior completion
+
+The [four-cell project](../four_cell_port/) now owns the sharp half-plane
+threshold and four-cell completion theorem. Completion preserves any prescribed
+finite observed history by adding four remote initially black cells. Its
+quantifiers concern the augmented input; the original finite-support HC remains
+the independent research target described here.

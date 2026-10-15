@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "layers": [
+    1,
+    2,
+    20,
+    261
+  ],
+  "max_first_exit": [
+    2,
+    38,
+    106,
+    918
+  ],
+  "blank_tail_checks": {
+    "drift": [
+      -2,
+      -2
+    ],
+    "breakpoint_tests": 170,
+    "phase_min_x": -19,
+    "phase_max_x": -14
+  },
+  "gate_tail_checks": {
+    "drift": [
+      2,
+      2
+    ],
+    "breakpoint_tests": 170,
+    "phase_min_x": 4,
+    "phase_max_x": 9
+  },
+  "gate_certified_updates": 182,
+  "gate_black_after_182": 36,
+  "gate_dormant_residue": 23,
+  "far_future_blocker_rejected": true,
+  "rotations_checked": 4,
+  "source_sha256": "89ba09f4482e45eef4da0a3edf288e2af9770e0297e0f3e148d79d3c3b9f29b4",
+  "escape_sha256": "c8ada99e13b069da66ccecf8f44c8837ab20b1db64664e16e4c4c6e11b61e064",
+  "witness_sha256": "440ef4aff3be11f8ecc315fc29fbf3e71ad96148a125c3e76237ede80f9b4556"
+}

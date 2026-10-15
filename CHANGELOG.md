@@ -1,5 +1,21 @@
 # Repository changes
 
+## 2026-10-15 — Sharp four-cell outgoing ports
+
+Added `four_cell_port/` as a third independent project: sharp three-black
+half-plane escape by 918, a four-black standard P104 port from update 182,
+and effective four-cell exterior completion of arbitrary finite observed histories.
+The project includes a six-page review manuscript, exact certificates, three
+checker implementations, a completion constructor and a reproducible audit.
+
+Imported original evidence from research commit
+`f8f593ae5d87929bbcd7dd2ddbd2593afe60c28a`; source-proof corrections clarify
+observed-prefix equality versus complete-field difference, absolute phase
+coordinates, and uniform first-contact coverage. The original repository receives
+the same corrections and new audit. Provenance is pinned in the project manifest.
+Existing published PDFs, Lean sources and Zenodo releases are unchanged.
+
+
 ## Symmetric project layout — 2026-10-13
 
 Both results now own `paper/`, `lean/`, `evidence/`, `release/` and one

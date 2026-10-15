@@ -1,0 +1,31 @@
+{
+  "schema": "langtons-ant-source-manifest-v1",
+  "project": "four_cell_port",
+  "state": "review-draft",
+  "date": "2026-10-15",
+  "title": "Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton's Ant",
+  "research_source_commit": "f8f593ae5d87929bbcd7dd2ddbd2593afe60c28a",
+  "corrected_research_commit": "8626215c193b28db7d45e84ef5260bf28c343db1",
+  "public_base_commit": "79cf28ca4dd2eda73a3da92d489753984711b72e",
+  "zenodo_record": null,
+  "files_sha256": {
+    "PROOF.md": "3f9e6eb9b4b6d0be8a07175e45b8f38b69261c3960ceee5d06c5d29e2fcb1bbf",
+    "README.md": "ebda72e7512013f4b2fe67bfc41b47bb57dac8d1e491b984221333778714e43b",
+    "evidence/README.md": "89983e1da31735ef46a470856fe7ef6e613f1271962bbc922d5b73a6072763c4",
+    "evidence/audit.json": "25d9123163ed0d6f23682eb8b54391a3570d324963566b4a83ee8e66751dfb4b",
+    "evidence/escapes.json": "c8ada99e13b069da66ccecf8f44c8837ab20b1db64664e16e4c4c6e11b61e064",
+    "evidence/report.json": "6c3a27f82a43c3ce202c738d3174c12ecfa275d83efa45801d1b7526eb50cba0",
+    "evidence/reproduction.json": "ca9077aed95a287cec34c3ca89f250468227dc09a7fa0ac0d976e3e6a5244271",
+    "evidence/witness.json": "440ef4aff3be11f8ecc315fc29fbf3e71ad96148a125c3e76237ede80f9b4556",
+    "paper/LITERATURE.md": "3bb6ec521585e9887aa571446835a5f8d225351b8875363fab49a9b27fd3cb83",
+    "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
+    "paper/main.tex": "d3283b7294b52fe79321abddd572b8f4b44a0d8218457d5b36c1c91eeee91235",
+    "paper/paper.pdf": "70b6d5f4e8d3d09df3b0dbd5959fe6fe2dac1f4982e176af20f2b962e8f99b18",
+    "release/README.md": "e80b67c3016f7fab71fa668523e24ce444c4a08439569d89b0b4e9631aecaf7d",
+    "reproduce.py": "7779ee0210196e233954aef7806eb84416dd5594f76ace100b0e74c4ae8f6b18",
+    "verification/audit.py": "ceb2b4f0f5be71317a0a3fb8446e4c7c9e613ba4be1b485bceb8f65b345891fa",
+    "verification/check.py": "89ba09f4482e45eef4da0a3edf288e2af9770e0297e0f3e148d79d3c3b9f29b4",
+    "verification/completion.py": "4956685dcd5cc60756391f305c1b2cf4345753e8285354e9e0bef8f93e10ba21",
+    "verification/independent.py": "044291b41ae9a47b6962c7d730d01074cf3a8806961d8b920a8d63eb79b7014a"
+  }
+}

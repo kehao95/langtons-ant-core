@@ -1,0 +1,287 @@
+{
+  "schema": "langtons-ant-4cell-port-v1",
+  "seed": [
+    [
+      0,
+      -1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "reference": {
+    "blank_entry": 9977,
+    "period": 104,
+    "word": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR",
+    "verified": {
+      "drift": [
+        -2,
+        -2
+      ],
+      "breakpoint_tests": 170,
+      "phase_min_x": -19,
+      "phase_max_x": -14
+    },
+    "classes": 22
+  },
+  "gate": {
+    "updates_before_tail": 182,
+    "head": [
+      5,
+      1
+    ],
+    "heading": "E",
+    "black_after_182": [
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        -2
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        -2
+      ],
+      [
+        4,
+        -1
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        -2
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        -1
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        4
+      ],
+      [
+        7,
+        5
+      ]
+    ],
+    "future": {
+      "drift": [
+        2,
+        2
+      ],
+      "breakpoint_tests": 170,
+      "phase_min_x": 4,
+      "phase_max_x": 9
+    },
+    "canonical_tail": {
+      "canonical_black": 13,
+      "dormant_difference": 23,
+      "classes": 22,
+      "minimal_seed": [
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ]
+      ]
+    }
+  },
+  "halfplane_exit": {
+    "layers": [
+      1,
+      2,
+      20,
+      261
+    ],
+    "max_first_exit": [
+      2,
+      38,
+      106,
+      918
+    ],
+    "sharp_seed": [
+      [
+        0,
+        -1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "sharp_time": 918
+  }
+}
