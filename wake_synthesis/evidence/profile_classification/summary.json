@@ -1,0 +1,22 @@
+{
+  "accepted_masks": [
+    92,
+    163
+  ],
+  "boundary_parity_exclusions": 128,
+  "classification": "standard_P104_only",
+  "full_search_prefixes": 215709876,
+  "fully_enumerated_masks": 40,
+  "generated_search_sha256": "8be9c56502db5ef0e0b54f50ba5104fbdfe21271a3c07c14c8e2f377229e5252",
+  "geometric_classes_up_to_translation": 1,
+  "period_upper_bound": 168,
+  "phase_mod4_exclusions": 88,
+  "prerequisite_sha256": {
+    "code/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+    "inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+    "inputs/upper_bound.py": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2"
+  },
+  "status": "complete",
+  "trust_boundary": "analytic coverage plus exact enumeration; not a Lean theorem or independent peer review",
+  "wake_assignments": 256
+}

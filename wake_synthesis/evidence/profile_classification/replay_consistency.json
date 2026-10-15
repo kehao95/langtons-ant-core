@@ -1,0 +1,6 @@
+{
+  "full_classification_runs": 2,
+  "all_deterministic_search_fields_identical": true,
+  "all_other_check_reports_identical": true,
+  "execution_time_fields_excluded_from_comparison": true
+}

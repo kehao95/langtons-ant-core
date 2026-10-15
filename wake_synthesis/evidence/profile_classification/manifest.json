@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-15",
+  "evidence_sha256": {
+    "README.md": "b368018eb7f92b16eebc25fb137638c1fe89c74cc1eec0d8264df2b7eb010631",
+    "accepted_words.json": "e2fe412b1fc90fff325133fbcf23d98a70f9b93dd718d976847e88a94eb4a9cc",
+    "audits.json": "f874a9c1ef480dd7a3e9f3d9ba3fd4b85690e2e61d64cf987ed2dbc2ad66f5fa",
+    "count_relaxations.json": "5e6ef7f7b611252005eede671aa9fd7cfa5ea55527269634aa99082677a05b84",
+    "differential.json": "4b7b81e6a37d8c87144c29d1dd4d37562a6a747b5b4d0a2b9ff67e87114dd3f0",
+    "full_search_output.log": "aeb024218abeb14319ab6e00f6a4e088f50f68ba3cf6bcd24268de0c6bbb7923",
+    "replay_consistency.json": "336ed8b4dd139f455fed55ab5ab1b2eaacc01595db99a91e5ddbf333cfed723d",
+    "resource_limit_test.json": "f2ddadd57742d58d0962eae7e5599c153031d70c02b5c13061edc64752e09a2d",
+    "searches.json": "ad634b94214783d6056a0c2fc3fb06a5c9fe261196dfadeb90897a81dc935511",
+    "summary.json": "5ff20e62d58fd393b53719b8ba9a0bb018db5e6e92bf4e45199c9bb2e334b107",
+    "upper_certificate.json": "d7d80da0c77f12722c3be43f4304014336884512f2a27d1e1599691ec639bbf4"
+  },
+  "generated_search_sha256": "8be9c56502db5ef0e0b54f50ba5104fbdfe21271a3c07c14c8e2f377229e5252",
+  "prerequisite_sha256": {
+    "code/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+    "inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+    "inputs/upper_bound.py": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2"
+  },
+  "read_main_revision": "6aa3728a6da3c9edb122b4bc2b79ff9253d1b70f",
+  "remote_modified": false,
+  "repository": "kehao95/langtons-ant-core",
+  "source_sha256": {
+    "wake_synthesis/PROFILE_CLASSIFICATION.md": "ab104363676e27b0210bbe77466d75e9031cc7dc366643a18be98634d813eac7",
+    "wake_synthesis/README.md": "246e1f04c60476cc359f9f0dd82b9285491f58d2af7ffd09344e99f182300f76",
+    "wake_synthesis/verification/profile_classification/audit_profile.py": "bb784f573c381af6042a989324dcedcfbafd603985c9bb4c5b4b9bf3b8c22318",
+    "wake_synthesis/verification/profile_classification/counts_profile.py": "4b177b9edbf29405b3f836a2231cb813463070816060dd48d649d54fb706c320",
+    "wake_synthesis/verification/profile_classification/generate.py": "83e856a0a6477d6047a85530c2ae7004a75b29bbe5da6e44f40e452cf8cb030e",
+    "wake_synthesis/verification/profile_classification/reproduce.py": "a74afcd8794e348c8d4407a2646bfedbebdf172e82f31994d49d592360bd9ef9",
+    "wake_synthesis/verification/profile_classification/verify_word.py": "33d24681feac88c5fa2143b544e31f3a7704b33f74564bf64f50e7ae430b2b1c"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "alpha": [
+    -50,
+    32,
+    -18,
+    8,
+    -2,
+    0,
+    -2,
+    8,
+    -18,
+    32,
+    -50
+  ],
+  "contexts": 4931,
+  "edges": 90158,
+  "edges_sha256": "8996563f6f25a8232f72aecf8b8929f6d8170861d3abc80f81bb421ddb5590eb",
+  "forbidden_factors": 588,
+  "max_factor_length": 21,
+  "maximum_edge_lhs": -1,
+  "no_optimizer_or_float_used": true,
+  "patterns_sha256": "b90a1fb95b8e59470750c42da62351cbdd696e6fb8469b7547656b0813d74d57",
+  "period_bound": 168,
+  "potential_range": [
+    0,
+    180
+  ],
+  "potential_sha256": "bbacd2edc362df81f8a4e060bc89effe2b187c860d2073697420016d65ed060b",
+  "potential_updates": 147594,
+  "queue_pops": 186594,
+  "scale": 1,
+  "states_sha256": "db360cf4934ca775161802fadd4e9ea41fd19e9c4bf1f774faeeabb65eb461dd",
+  "verified": true,
+  "vertices": 54718
+}
