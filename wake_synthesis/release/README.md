@@ -63,3 +63,15 @@ snapshot. Publication receipts identify the published records.
 The mathematical source originates in research commit `9c50691`, with
 publication allocation reviewed at `c56a76b`. Retained research reports are
 byte-identical; the new coefficient and complete-seed audits accompany them.
+
+## Review revision — 16 October 2026
+
+The candidate version number is retained until publication. The current PDF,
+metadata and exact source hashes include the new results from research
+`2f6010a`. The previous 15 October review files are retained under the version's
+`revisions/2026-10-15/` directory. No Zenodo draft or publication was changed.
+
+The current standalone report separates a fresh new-module replay and PDF
+rebuild from hash-matched inheritance of the previous full classification.
+The complete default replay remains available; the independent profile replay
+has its own command in `PROFILE_REPLAY.md`.

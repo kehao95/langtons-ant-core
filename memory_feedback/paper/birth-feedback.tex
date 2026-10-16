@@ -1,0 +1,168 @@
+\section{Exact detection of newly generated remote feedback}
+\label{sec:birth-feedback}
+Spatial filtering can be refined to distinguish newly generated memory from
+black lifetimes already present in the input. This refinement returns the
+first qualifying lifetime, its provenance, and a complete state from which
+the query can be repeated. It also makes the dependence of remote feedback
+on the observation scale quantitative.
+
+\subsection{The first birth-filtered query}
+Fix a complete source state \(X=(B,p,h)\), \(D\ge1\), and a finite set
+\(K\). A qualifying lifetime consists of consecutive reads of a cell
+\(q\notin K\) at times \(b,e\), with
+\[
+ 0\le b<e,\qquad e-b>D,
+\]
+where update \(b\) turns right and update \(e\) turns left. The question
+asks for the least consumption time \(e\), its birth \(b\), the cell
+\(q\), and the complete state \(F^{e+1}X\). An initially black coordinate
+can qualify after its initial lifetime has been consumed and the site has
+been written black again.
+
+Put \(M=|B|\), \(Q=2^D\), and
+\(W=\operatorname{diam}_\infty(B\cup\{p\}\cup K)\). To keep one explicit
+bound throughout this section, use the conservative square escape estimate
+\[
+ \ell=\operatorname{diam}_\infty K+2(3Q+2)+1,
+ \qquad b_K=8\ell3^\ell+1
+\]
+for nonempty \(K\), and \(b_K=0\) for empty \(K\). The stronger escape
+bound used earlier can decrease this budget. The exterior-event estimate is
+\[
+ U(n,W)=n(2QW+20Q^2+b_K)+18Q^2n(n-1).
+\]
+
+\textbf{Theorem (first newly generated exterior lifetime).}
+The birth-filtered query is total on every finite input. It uses at most
+\((M+1)(b_K+1)\) ordinary next-\(S_D\) calls. A positive answer satisfies
+\(e+1\le U(M+1,W)\). A negative answer certifies eventual nonzero translating
+periodicity.
+
+\textit{Proof.}
+Process the exact successive \(S_D\) events in chronological order. Ignore
+those in \(K\). For an exterior black read, find the last read of the same
+cell at a nonnegative time strictly before the event. If one exists, it is
+a white read and hence the birth of the consumed lifetime; return it.
+If none exists, the event consumes one of the \(M\) source lifetimes.
+Each source lifetime can be skipped only once. In particular, consuming a
+source lifetime does not permanently exclude its coordinate.
+
+There are at most \(M\) skipped exterior events. Each intervening run of
+internal events has length at most \(b_K\), by the fixed-region burst bound.
+Either a qualifying exterior event or a permanently event-free suffix is
+therefore reached within the stated number of calls. The successful event
+is no later than exterior event \(M+1\), which proves the deadline. In the
+negative case only finitely many \(S_D\) occur, so the finite-suffix theorem
+gives eventual translating periodicity. The ordered search returns the first
+qualifying consumption. \(\square\)
+
+The negative certificate concerns translating periodicity; its translating
+word is not presumed standard. Optional implementation limits return an
+inconclusive status. The unlimited algorithm terminates by the proof above,
+without expanding the possibly enormous integer \(3^\ell\).
+
+\subsection{Complete endpoints and exact birth provenance}
+Alongside the XOR field, store each actual read sequence as a finite
+arithmetic segment with its time progression:
+\[
+ (a,v,L,t_0,\delta_t,c),\qquad
+ \text{read }a+jv\text{ at }t_0+j\delta_t,quad 0\le j<L.
+\]
+A repeated heading-restoring word contributes one such segment per phase;
+literal updates contribute singleton records. These records partition all
+executed updates, including those skipped by arithmetic acceleration.
+Intersecting a queried cell with every segment and selecting the largest
+recorded time below \(e\) recovers its exact last writer. The same records
+retain every field toggle, giving the complete reusable post-state.
+
+The arithmetic applies to nonprimitive strides as well. For parallel
+segments write \(d=gu\), \(v=hu\), \(a-q=cu\), with \(u\) primitive.
+The intersection equation is \(gk=c+hj\); its congruence and finite index
+bounds give a finite arithmetic progression of epochs \(k\). Nonparallel
+segments use an exact determinant solve. Splitting epochs modulo the least
+common multiple of progression steps reduces the colour parity to finite
+interval sweeps, including the final infinite interval. Thus neither a
+remote initial marker nor a remote write is lost during acceleration.
+
+For fixed \(D\) and fixed \(K\) in the translated source-pose frame, the
+query has polynomial bit complexity on explicitly listed sparse input.
+There are \(O_{D,K}(M+1)\) calls, each adding \(O_D(1)\) segments. Generated
+strides and the required residue modulus are bounded in terms of \(D\);
+the existing finite-macro bounds control coordinate and time bit lengths.
+For arbitrary compressed initial fields, totality still holds, while the
+call bound uses actual black cardinality rather than the number of XOR terms.
+
+\subsection{Adaptive checkpoints}
+On a trajectory that is never eventually translating periodic, the query
+is positive from every actual checkpoint \(s\). One may choose \(D\) and a
+finite \(K\) using the known history, then obtain a lifetime born at or after
+\(s\), consumed outside \(K\), with age greater than \(D\). Restarting after
+its consumption produces temporally nonoverlapping lifetimes. Including
+previously selected cells in the next \(K\) makes their sites distinct.
+The region is fixed during each call and may change between calls. Each
+round has its own complete-source mass and deadline.
+
+\subsection{A simultaneous growing-scale lower bound}
+Normalize \(p_0=0\), and put \(M_0=|B_0|\) and
+\(W_0=\operatorname{diam}_\infty(B_0\cup\{0\})\). For a large integer
+horizon \(H\), define
+\[
+\begin{gathered}
+ L=\lfloor\log_3 H\rfloor\ge64,\qquad
+ D_H=\lfloor\log_2 L\rfloor-5,\quad Q_H=2^{D_H},\\
+ R_H=\lfloor L/16\rfloor,\quad
+ K_H=[-R_H,R_H]^2\cap\mathbb Z^2,\quad
+ s_H=\lfloor H^{1/4}\rfloor.
+\end{gathered}
+\]
+Use \(\ell_H=2R_H+6Q_H+5\) and the preceding definition of \(b_K\).
+Let \(n_H\) be the largest nonnegative integer satisfying
+\[
+ U_{D_H,K_H}(n_H,W_0+2R_H)\le H.
+\]
+
+\textbf{Theorem (growing-scale feedback).}
+On every non-eventually-translating finite-support orbit, the number
+\(F(H)\) of black lifetimes satisfying simultaneously
+\[
+ s_H\le b<e<H,\qquad e-b>D_H,\qquad \|q\|_\infty>R_H
+\]
+is at least \(\max(0,n_H-M_0-2s_H)\). Moreover,
+\[
+ \liminf_{H\to\infty}
+ \frac{F(H)\lfloor\log_3H\rfloor}{\sqrt H}
+ \ge \frac{32}{\sqrt{18}}.
+\]
+
+\textit{Proof.}
+For each horizon the orbit has infinitely many \(S_{D_H}\), so the uniform
+exterior deadline supplies at least \(n_H\) exterior consumptions before
+\(H\). At most \(s_H\) precede the cutoff \(s_H\). At that cutoff there
+are at most \(M_0+s_H\) black lifetimes, so at most that many later
+consumptions can have earlier births. Subtracting these supplies proves
+the finite bound. The counted objects are distinct lifetimes, and may occur
+at the same coordinate at different times.
+
+For the asymptotic estimate,
+\[
+ L/64<Q_H\le L/32,\quad
+ \ell_H\le5L/16+5,\quad b_{K_H}=O(LH^{5/16}).
+\]
+The linear coefficient of \(U\) is
+\(O_X(L^2+LH^{5/16})\), negligible at its positive quadratic root. Hence
+\(n_H=(1+o(1))\sqrt H/(\sqrt{18}Q_H)\). Finally,
+\(M_0+2s_H=o(\sqrt H/L)\), giving the displayed lower limit.
+\(\square\)
+
+Thus one uniform estimate forces late births, a growing excluded radius, and
+a growing memory age on the same collection of lifetimes. The conclusion is
+a necessary condition on non-eventually-translating motion. It supplies
+\(\Omega_X(\sqrt H/\log H)\) lifetimes, while radius, age and birth cutoff
+scale respectively as \(\log H\), \(\log\log H\) and \(H^{1/4}\).
+
+The dedicated controls compare complete endpoints and exact birth times
+against literal dynamics on 120 inputs, include source-coordinate rebirth,
+and exercise arithmetic at epoch \(10^{60}\). On the blank orbit, repeated
+queries with \(D=128\), \(K=\varnothing\) return 31 positive rounds before
+a periodic negative answer at checkpoint 9990. This illustrates how exact
+renewal detection fits an orbit that eventually reaches the standard highway.

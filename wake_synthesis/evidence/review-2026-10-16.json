@@ -1,0 +1,740 @@
+{
+  "status": "passed",
+  "scope": "extensions-only",
+  "extensions": {
+    "status": "passed",
+    "source_commit": "2f6010a6bbccf5d342648f1c730a8bd2ea628961",
+    "periodic_growth": {
+      "status": "passed",
+      "unit_certificate_sha256": "ffa016bb1f6458dfa1c963097b022f409b99e7baa629834e869bea65e5f2d838",
+      "unit_verification": {
+        "status": "verified",
+        "branches": 12884,
+        "counts": {
+          "-1": {
+            "expand": 2,
+            "order": 2
+          },
+          "-2": {
+            "order": 96,
+            "closed": 26,
+            "expand": 2
+          },
+          "-3": {
+            "closed": 3198,
+            "order": 9534,
+            "read": 24
+          }
+        },
+        "max_built_events": 38,
+        "terminal_read_conflicts": 24,
+        "forbidden_words": [
+          "RLRRRRLLR"
+        ],
+        "certificate_sha256": "ffa016bb1f6458dfa1c963097b022f409b99e7baa629834e869bea65e5f2d838"
+      },
+      "unit_controls": {
+        "status": "passed",
+        "abstract_valid_partial_cycles": 5000,
+        "period_2_mod_4_controls": 2518,
+        "actual_standard_partial_cycles": 2080,
+        "corrupt_certificates_rejected": 7,
+        "standard_literal_steps": 10400,
+        "standard_infinite_phases": 104,
+        "standard_rotations": 4,
+        "far_blocker_epoch": 100000000000000000000,
+        "forbidden_factor_assignments": 64,
+        "forbidden_factor_positions": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "upstream_axis": "schema=langton-axis-rank-parity-audit-v1\nperiod=4 endpoint_words=1 failures=0\nperiod=8 endpoint_words=12 failures=0\nperiod=12 endpoint_words=150 failures=0\nperiod=16 endpoint_words=1960 failures=0\nrewrite_deltas={'cancel': {0, 1}, 'commute': {0, 1}}\nstatus=bounded_evidence_not_proof\n",
+      "upstream_diagonal": {
+        "all_checks_passed": true,
+        "chain_length": 6,
+        "finite_chain_checks": 8192,
+        "gadget_checks": 38,
+        "local_correction_checks": 8,
+        "schema": "langton-even-diagonal-rank-parity-audit-v1",
+        "status": "bounded_evidence_not_proof"
+      },
+      "independent": {
+        "status": "passed",
+        "local_mod4_identities": 4096,
+        "monodromy_instances": 130560,
+        "literal_full_field_steps": 6144,
+        "standard_phases_rotations_powers": 1664,
+        "independent_axis_words": {
+          "4": 1,
+          "8": 12,
+          "12": 150,
+          "16": 1960
+        },
+        "ladder": {
+          "pair_table": [
+            [
+              0,
+              0,
+              -6,
+              0
+            ],
+            [
+              0,
+              0,
+              -4,
+              0
+            ],
+            [
+              0,
+              0,
+              -2,
+              1
+            ],
+            [
+              0,
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              1,
+              -6,
+              0
+            ],
+            [
+              0,
+              1,
+              -4,
+              0
+            ],
+            [
+              0,
+              1,
+              -2,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              1,
+              4,
+              0
+            ],
+            [
+              0,
+              1,
+              6,
+              0
+            ],
+            [
+              1,
+              0,
+              -6,
+              0
+            ],
+            [
+              1,
+              0,
+              -4,
+              0
+            ],
+            [
+              1,
+              0,
+              -2,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              1,
+              0,
+              6,
+              0
+            ],
+            [
+              1,
+              1,
+              -6,
+              0
+            ],
+            [
+              1,
+              1,
+              -4,
+              0
+            ],
+            [
+              1,
+              1,
+              -2,
+              1
+            ],
+            [
+              1,
+              1,
+              2,
+              1
+            ],
+            [
+              1,
+              1,
+              4,
+              0
+            ],
+            [
+              1,
+              1,
+              6,
+              0
+            ]
+          ],
+          "finite_binary_chains": 4096
+        },
+        "arithmetic": {
+          "axis_residue_pairs": 496,
+          "pure_lane_pairs": 1024,
+          "g4_drift_partition": {
+            "diagonal2": 4,
+            "axis2": 4,
+            "unit": 4
+          },
+          "residue_matrices": {
+            "4": [
+              {
+                "matrix": [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    2,
+                    0
+                  ]
+                ],
+                "checker_pure": true
+              },
+              {
+                "matrix": [
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    0,
+                    2
+                  ]
+                ],
+                "checker_pure": true
+              }
+            ],
+            "8": [
+              {
+                "matrix": [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    2,
+                    4
+                  ]
+                ],
+                "checker_pure": false
+              },
+              {
+                "matrix": [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    6,
+                    0
+                  ]
+                ],
+                "checker_pure": true
+              },
+              {
+                "matrix": [
+                  [
+                    0,
+                    6
+                  ],
+                  [
+                    2,
+                    0
+                  ]
+                ],
+                "checker_pure": true
+              },
+              {
+                "matrix": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "checker_pure": false
+              },
+              {
+                "matrix": [
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    0,
+                    6
+                  ]
+                ],
+                "checker_pure": true
+              },
+              {
+                "matrix": [
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    4,
+                    2
+                  ]
+                ],
+                "checker_pure": false
+              },
+              {
+                "matrix": [
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    0,
+                    2
+                  ]
+                ],
+                "checker_pure": false
+              },
+              {
+                "matrix": [
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ]
+                ],
+                "checker_pure": false
+              },
+              {
+                "matrix": [
+                  [
+                    4,
+                    2
+                  ],
+                  [
+                    2,
+                    0
+                  ]
+                ],
+                "checker_pure": false
+              },
+              {
+                "matrix": [
+                  [
+                    6,
+                    0
+                  ],
+                  [
+                    0,
+                    2
+                  ]
+                ],
+                "checker_pure": true
+              }
+            ]
+          }
+        },
+        "boundary": "Finite exact checks plus complete written algebra; not an all-seed HC proof or Lean formalization."
+      },
+      "attribution": "A. Jillhewar, 2026, signed residues and axis/two-lane rank arguments; explicit formulas, all-growth corollaries and unit-diagonal combination in this integration.",
+      "scope": "All-period necessary restrictions and g>=8. Not HC, not g>=12, not an existence claim at g=8, not Lean or peer review."
+    },
+    "mixed_wake": {
+      "schema": "langton-mixed-wake-parity-v1",
+      "status": "passed",
+      "kernel": {
+        "truth_cases": 512,
+        "symbolic_variables": 9,
+        "symbolic_residual_monomials": 0
+      },
+      "raw_event_order": {
+        "geometric_words_by_length": {
+          "8": 4,
+          "12": 75,
+          "16": 1176,
+          "20": 17640
+        },
+        "total": 18895,
+        "class_checks": 187572,
+        "scope": "arbitrary geometric words, not asserted dynamically realizable"
+      },
+      "layer_controls": {
+        "enumerated_wakes": 65536,
+        "closed_mod2_wakes": 8192,
+        "signed_residue_wakes": 800
+      },
+      "standard": {
+        "standard_phases": 104,
+        "full_rank_factorizations": 25,
+        "class_turns_checked": 10816
+      },
+      "shapes": {
+        "interior_order_types": [
+          {
+            "sequence": "CCQQ",
+            "lane_choices": 4,
+            "result": "NOT_EXCLUDED"
+          },
+          {
+            "sequence": "CQCQ",
+            "lane_choices": 4,
+            "result": "EXCLUDED"
+          },
+          {
+            "sequence": "CQQC",
+            "lane_choices": 4,
+            "result": "NOT_EXCLUDED"
+          },
+          {
+            "sequence": "QCCQ",
+            "lane_choices": 4,
+            "result": "NOT_EXCLUDED"
+          },
+          {
+            "sequence": "QCQC",
+            "lane_choices": 4,
+            "result": "EXCLUDED"
+          },
+          {
+            "sequence": "QQCC",
+            "lane_choices": 4,
+            "result": "NOT_EXCLUDED"
+          }
+        ],
+        "huge_gap_cases": 256,
+        "saturated_extrema_cases": 30
+      },
+      "example": {
+        "excluded": {
+          "wake": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              11,
+              1
+            ]
+          ],
+          "test": {
+            "status": "EXCLUDED",
+            "reason": "mixed_wake_rank_parity",
+            "growth": 8,
+            "vertical_odd_classes": 2,
+            "horizontal_odd_classes": 6,
+            "ordered_vertical_horizontal_pairs": 7,
+            "required_parity": 1,
+            "actual_parity": 0,
+            "normalized_residue_counts_Q0_Q1_C0_C1": [
+              1,
+              1,
+              3,
+              3
+            ]
+          }
+        },
+        "not_excluded": {
+          "wake": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              11,
+              1
+            ]
+          ],
+          "test": {
+            "status": "NOT_EXCLUDED",
+            "reason": "mixed_wake_rank_parity",
+            "growth": 8,
+            "vertical_odd_classes": 2,
+            "horizontal_odd_classes": 6,
+            "ordered_vertical_horizontal_pairs": 6,
+            "required_parity": 1,
+            "actual_parity": 1,
+            "normalized_residue_counts_Q0_Q1_C0_C1": [
+              1,
+              1,
+              3,
+              3
+            ]
+          }
+        }
+      },
+      "bounded_growth8_screen": [
+        {
+          "width": 10,
+          "raw_wakes": 111588,
+          "pass_prior_residues_and_mixing": 7410,
+          "excluded_by_new_parity": 3058,
+          "not_excluded": 4352,
+          "by_residue_matrix": {
+            "(0, 2, 2, 4)": {
+              "excluded": 149,
+              "not_excluded": 156
+            },
+            "(1, 3, 3, 1)": {
+              "excluded": 2136,
+              "not_excluded": 3264
+            },
+            "(2, 0, 4, 2)": {
+              "excluded": 312,
+              "not_excluded": 288
+            },
+            "(2, 4, 0, 2)": {
+              "excluded": 312,
+              "not_excluded": 288
+            },
+            "(3, 1, 1, 3)": {
+              "excluded": 0,
+              "not_excluded": 200
+            },
+            "(4, 2, 2, 0)": {
+              "excluded": 149,
+              "not_excluded": 156
+            }
+          },
+          "stream_sha256": "b06b09c5465d31328e0ab951a413d51097250bb9386c840aaad3c8cc65b621a0",
+          "scope": "complete wake arithmetic screen at this width; no accepted realization claim"
+        },
+        {
+          "width": 12,
+          "raw_wakes": 411103,
+          "pass_prior_residues_and_mixing": 26930,
+          "excluded_by_new_parity": 11374,
+          "not_excluded": 15556,
+          "by_residue_matrix": {
+            "(0, 2, 2, 4)": {
+              "excluded": 693,
+              "not_excluded": 672
+            },
+            "(1, 3, 3, 1)": {
+              "excluded": 7616,
+              "not_excluded": 11284
+            },
+            "(2, 0, 4, 2)": {
+              "excluded": 1186,
+              "not_excluded": 1064
+            },
+            "(2, 4, 0, 2)": {
+              "excluded": 1186,
+              "not_excluded": 1064
+            },
+            "(3, 1, 1, 3)": {
+              "excluded": 0,
+              "not_excluded": 800
+            },
+            "(4, 2, 2, 0)": {
+              "excluded": 693,
+              "not_excluded": 672
+            }
+          },
+          "stream_sha256": "3ba4d07bba9dc212e0c08514d0a34b64c1f9bec8cc1cd30394a195312bc73469",
+          "scope": "complete wake arithmetic screen at this width; no accepted realization claim"
+        },
+        {
+          "width": 14,
+          "raw_wakes": 1198990,
+          "pass_prior_residues_and_mixing": 77784,
+          "excluded_by_new_parity": 33320,
+          "not_excluded": 44464,
+          "by_residue_matrix": {
+            "(0, 2, 2, 4)": {
+              "excluded": 2317,
+              "not_excluded": 2128
+            },
+            "(1, 3, 3, 1)": {
+              "excluded": 21616,
+              "not_excluded": 31598
+            },
+            "(2, 0, 4, 2)": {
+              "excluded": 3535,
+              "not_excluded": 3080
+            },
+            "(2, 4, 0, 2)": {
+              "excluded": 3535,
+              "not_excluded": 3080
+            },
+            "(3, 1, 1, 3)": {
+              "excluded": 0,
+              "not_excluded": 2450
+            },
+            "(4, 2, 2, 0)": {
+              "excluded": 2317,
+              "not_excluded": 2128
+            }
+          },
+          "stream_sha256": "dc0c108ebf8994a4b2e3c81d9573f42da1cb0ef8544276a9372ab7da70331ae9",
+          "scope": "complete wake arithmetic screen at this width; no accepted realization claim"
+        }
+      ],
+      "unsupported_drift_rejections": 3,
+      "source_sha256": {
+        "mixed_wake.py": "b9a429b209726011ec8c3021636a533e187ebf2a07d147316db25fb72d5e9800",
+        "check.py": "3bd4e0a7742e0f647b6b3e5dc0ebfefd41e98fd68a8008eac867714ae90b6a9c"
+      },
+      "scope": {
+        "all_growth8_excluded": false,
+        "finite_nonstandard_seed_found": false,
+        "HC_proved": false,
+        "Lean_formalized": false,
+        "externally_reviewed": false,
+        "pass_means_realizable": false
+      }
+    }
+  },
+  "full_current_classification_replayed": false,
+  "source_commit": "2f6010a6bbccf5d342648f1c730a8bd2ea628961"
+}

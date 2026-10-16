@@ -9,7 +9,7 @@
       "orcid": "0009-0001-2818-4986"
     }
   ],
-  "description": "Thin-wake rigidity derives the standard layer profile and all longitudinal residues from full drift (2,-2), growth twelve, width ten and at most one odd class on each interior level. General non-axis wake budgets and inverse synthesis remain.",
+  "description": "Thin-wake rigidity derives the standard layer profile and all longitudinal residues from full drift (2,-2), growth twelve, width ten and at most one odd class on each interior level. General non-axis wake budgets and inverse synthesis remain. A mixed-wake interleaving parity identity gives an arbitrary-width necessary screen at full drift (2,-2); attributed periodic-growth dependencies and the separate profile-classification replay are retained.",
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
@@ -34,5 +34,5 @@
     }
   ],
   "language": "eng",
-  "publication_date": "2026-10-15"
+  "publication_date": "2026-10-16"
 }

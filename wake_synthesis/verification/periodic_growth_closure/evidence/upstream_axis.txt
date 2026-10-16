@@ -1,0 +1,7 @@
+schema=langton-axis-rank-parity-audit-v1
+period=4 endpoint_words=1 failures=0
+period=8 endpoint_words=12 failures=0
+period=12 endpoint_words=150 failures=0
+period=16 endpoint_words=1960 failures=0
+rewrite_deltas={'cancel': {0, 1}, 'commute': {0, 1}}
+status=bounded_evidence_not_proof

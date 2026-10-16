@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "certificate_sha256": "ffa016bb1f6458dfa1c963097b022f409b99e7baa629834e869bea65e5f2d838",
+  "certificate_byte_match": true,
+  "verification": {
+    "status": "verified",
+    "branches": 12884,
+    "counts": {
+      "-1": {
+        "expand": 2,
+        "order": 2
+      },
+      "-2": {
+        "order": 96,
+        "closed": 26,
+        "expand": 2
+      },
+      "-3": {
+        "closed": 3198,
+        "order": 9534,
+        "read": 24
+      }
+    },
+    "max_built_events": 38,
+    "terminal_read_conflicts": 24,
+    "forbidden_words": [
+      "RLRRRRLLR"
+    ],
+    "certificate_sha256": "ffa016bb1f6458dfa1c963097b022f409b99e7baa629834e869bea65e5f2d838"
+  },
+  "controls": {
+    "status": "passed",
+    "abstract_valid_partial_cycles": 5000,
+    "period_2_mod_4_controls": 2518,
+    "actual_standard_partial_cycles": 2080,
+    "corrupt_certificates_rejected": 7,
+    "standard_literal_steps": 10400,
+    "standard_infinite_phases": 104,
+    "standard_rotations": 4,
+    "far_blocker_epoch": 100000000000000000000,
+    "forbidden_factor_assignments": 64,
+    "forbidden_factor_positions": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  "scope": "Full local certificate; no global period/width/growth cutoff. Not HC."
+}

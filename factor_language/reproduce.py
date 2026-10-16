@@ -8,13 +8,18 @@ ROOT=Path(__file__).resolve().parent
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-report',type=Path)
+    parser.add_argument('--extensions-only',action='store_true',help='replay only the 16 October additions')
     args=parser.parse_args()
     if not __debug__: parser.error('Run without Python -O')
     imported=json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())
     for row in imported['files']:
         if row['destination'].startswith('verification/'):
             assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
-    report={'status':'passed','source_commit':imported['source_commit'],
+    extension=json.loads((ROOT/'evidence/import-2026-10-16.json').read_text())
+    for row in extension['files']:
+        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
+    report={'status':'passed','source_commit':extension['source_commit'],
+            'base_source_commit':imported['source_commit'],'scope':'extensions-only' if args.extensions_only else 'full',
             'completed_utc':None,'stages':[], 'external_review':False,'lean_build':False}
     with tempfile.TemporaryDirectory(prefix=ROOT.name+'-replay-') as td:
         work=Path(td)/'verification'
@@ -31,10 +36,13 @@ def main():
                 row[name]=json.loads(actual)
             report['stages'].append(row)
             print(module+': '+command[0]+' PASS',flush=True)
-        run('ten',['restore_certificates.py'])
-        run('ten',['reproduce.py'],('reports/reproduction.json',),False)
-        run('ten_event_macro',['reproduce.py'],('reproduction.json',),False)
-        run('mass',['reproduce.py'],('reproduction.json',),False)
+        if not args.extensions_only:
+            run('ten',['restore_certificates.py'])
+            run('ten',['reproduce.py'],('reports/reproduction.json',),False)
+            run('ten_event_macro',['reproduce.py'],('reproduction.json',),False)
+            run('mass',['reproduce.py'],('reproduction.json',),False)
+        run('silent_fold_reset',['check.py','--compare','report.json'],('derived_masks.json','report.json'))
+        run('silent_archive_amplification',['check.py','--compare','checked_report.json'],('checked_report.json',))
     report['completed_utc']=datetime.now(timezone.utc).isoformat()
     report['source_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in sorted((ROOT/'verification').rglob('*'))

@@ -1,0 +1,199 @@
+{
+  "base_commit": "11894a516e40fef9be730e266936071c7750142c",
+  "complete_literal_controls": {
+    "inputs": 10,
+    "parameters": [
+      {
+        "complete_final_sha256": "c2d2b88f49d0ab67c9a42ee81b2dcc01c5caf271670c51992daa23a93b583628",
+        "exact_first_standard_time": 2527,
+        "first_J10_from_time9": 388,
+        "initial_black": 76,
+        "intrinsic_J10_total": 926,
+        "n": 0,
+        "post_first_J10_black": 128
+      },
+      {
+        "complete_final_sha256": "6d02bf9315bf08b786ae984264bc4ae308fa6baeb508f51bbf4b5198728def53",
+        "exact_first_standard_time": 2679,
+        "first_J10_from_time9": 444,
+        "initial_black": 86,
+        "intrinsic_J10_total": 982,
+        "n": 1,
+        "post_first_J10_black": 146
+      },
+      {
+        "complete_final_sha256": "e82bf4b96e70120555cdc260ae0bee2292a1c5ecb1ae1c63b4bd83e8dfd044ff",
+        "exact_first_standard_time": 2831,
+        "first_J10_from_time9": 500,
+        "initial_black": 96,
+        "intrinsic_J10_total": 1038,
+        "n": 2,
+        "post_first_J10_black": 164
+      },
+      {
+        "complete_final_sha256": "b4c264df6d11c18b3efa6187b5296991e35a3ab031cc59df4af2746a68262cb3",
+        "exact_first_standard_time": 2983,
+        "first_J10_from_time9": 556,
+        "initial_black": 106,
+        "intrinsic_J10_total": 1094,
+        "n": 3,
+        "post_first_J10_black": 182
+      },
+      {
+        "complete_final_sha256": "028906f7feee1ee10b3f899c81b16b07024066634cc0a6abe2867cd1377167ea",
+        "exact_first_standard_time": 3135,
+        "first_J10_from_time9": 612,
+        "initial_black": 116,
+        "intrinsic_J10_total": 1150,
+        "n": 4,
+        "post_first_J10_black": 200
+      },
+      {
+        "complete_final_sha256": "dd5058340a977a7820d2d75ebb3eccf68f50a4304edd49bf54e55fec904d2d24",
+        "exact_first_standard_time": 3591,
+        "first_J10_from_time9": 780,
+        "initial_black": 146,
+        "intrinsic_J10_total": 1318,
+        "n": 7,
+        "post_first_J10_black": 254
+      },
+      {
+        "complete_final_sha256": "fc5afc56291d0458c3f6d8d4fc47719d8e969b7d7f334e9494fdb034a6488cfa",
+        "exact_first_standard_time": 3743,
+        "first_J10_from_time9": 836,
+        "initial_black": 156,
+        "intrinsic_J10_total": 1374,
+        "n": 8,
+        "post_first_J10_black": 272
+      },
+      {
+        "complete_final_sha256": "e708d0719e694d6f415dd57eb9ff54c94a66fed10226c45d4a2ad8e167769036",
+        "exact_first_standard_time": 4959,
+        "first_J10_from_time9": 1284,
+        "initial_black": 236,
+        "intrinsic_J10_total": 1822,
+        "n": 16,
+        "post_first_J10_black": 416
+      },
+      {
+        "complete_final_sha256": "c65bc3c9ad1ba9fe42acb874cff9441ee6d352cfafaeead3ae58f838fcd3bedd",
+        "exact_first_standard_time": 7391,
+        "first_J10_from_time9": 2180,
+        "initial_black": 396,
+        "intrinsic_J10_total": 2718,
+        "n": 32,
+        "post_first_J10_black": 704
+      },
+      {
+        "complete_final_sha256": "47682b796549f18fbf2b005630e86c55a4691b788ca4ca5c60a9ac846819e82d",
+        "exact_first_standard_time": 12255,
+        "first_J10_from_time9": 3972,
+        "initial_black": 716,
+        "intrinsic_J10_total": 4510,
+        "n": 64,
+        "post_first_J10_black": 1280
+      }
+    ],
+    "updates": 59826
+  },
+  "cyclic_factor_increments": [
+    [
+      1,
+      28,
+      6,
+      0
+    ],
+    [
+      3,
+      28,
+      2,
+      0
+    ],
+    [
+      6,
+      8,
+      5,
+      8
+    ],
+    [
+      8,
+      8,
+      5,
+      8
+    ],
+    [
+      10,
+      16,
+      4,
+      9
+    ],
+    [
+      12,
+      16,
+      4,
+      9
+    ],
+    [
+      14,
+      24,
+      3,
+      11
+    ],
+    [
+      16,
+      24,
+      4,
+      11
+    ]
+  ],
+  "formulae": {
+    "J10_macro_from_time9": "first event at offset 56*n+388; source (-1,2),W; read (-1,0),W; post (-1,1),N",
+    "first_standard": "152*n+2527",
+    "fold_length": "56*n+397",
+    "intrinsic_J10_count": "56*n+926",
+    "origin_black_age": "56*n+396",
+    "repair_lower_bound": "max(0,4*m-136) literal toggles to enable any pose of w_m from Y_n"
+  },
+  "negative_controls": {
+    "damaged_recovery_rejected": true,
+    "off_trace_marker_retained": true,
+    "remote_blocker_rejected": true
+  },
+  "proof_boundary": "Affine endpoint ordering with slopes 0/1 proves completeness of representatives n=0,1,2. Universal geometric and reset arguments are written analytic proofs, not kernel-checked.",
+  "reset_certificate": {
+    "bulk_post_black": 18,
+    "bulk_target_black": 10,
+    "bulk_target_read_cells": 28,
+    "clean_reset_algebra_controls": 10000,
+    "initial_cap_black": 76,
+    "parallel_comparisons": 5600,
+    "parallel_minima": [
+      4,
+      4
+    ],
+    "post_cap_black": 128
+  },
+  "schema": "silent-fold-reset-audit-v1",
+  "scope": "one all-parameter complete-input family and its reset obstruction; no HC solution",
+  "sha256": {
+    "check.py": "cb2bfdde234f20b2006d533db744799191c7e3786f5744912fca404b9a260601",
+    "derived_masks.json": "e13dc3137ef881ace56f8d9659d7bf6e9dc3e0c1c06e5f9858483c166dd0c353",
+    "engine.py": "e81b95f75c5ca168227ff451c2a55b5398e79a0fb4e620424e0db618794c4c0b",
+    "grammar.json": "ab56f0e04473cc247c56d4c51e53290322a95eb153e71dc43aa4517a2c75be0a"
+  },
+  "universal_certificate": {
+    "affine_breakpoint_functions": 874,
+    "cross_slope_pairs": 1772,
+    "endpoint_x_range": [
+      -14,
+      10
+    ],
+    "fixed_tail_ray_queries": 29,
+    "ordered_read_checks": 7491,
+    "read_records": 2287,
+    "representatives": 3,
+    "spatial_residue_groups": 98,
+    "stable_order_from_n": 2,
+    "tail_parity_checks": 510
+  }
+}

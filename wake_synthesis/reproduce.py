@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--extensions-only',action='store_true',help='replay only new periodic arithmetic; inherit unchanged classification evidence')
     parser.add_argument('--quick', action='store_true', help='skip the 76-case thin-wake exhaustion; still check its upper graph, count tables and controls')
     parser.add_argument('--jobs', type=int, default=4, help='parallel thin-wake native jobs, 1..16')
     parser.add_argument('--search', action='store_true', help='also replay the bounded detour experiment')
@@ -24,6 +25,13 @@ def main():
         parser.error('--jobs must be 1..16')
     if sys.flags.optimize:
         parser.error('Run without Python -O')
+    from verification.check_extensions import check_extensions
+    extensions=check_extensions()
+    if args.extensions_only:
+        report={'status':'passed','scope':'extensions-only','extensions':extensions,
+                'full_current_classification_replayed':False,'source_commit':extensions['source_commit']}
+        if args.output_report: args.output_report.write_text(json.dumps(report,indent=2)+'\n')
+        return
     tasks = [('check.py', ('check_results.json', 'standard_wake.json')),
              ('audit.py', ()), ('audit_integer.py', ()), ('audit_trace.py', ())]
     if args.search:
@@ -88,7 +96,7 @@ def main():
         print(f"standard wake uniqueness: PASS; cap={cap['cap']}, prefixes={cap['prefixes']:,}, one P104 word")
         if args.baseline:
             print('original and rank-pruned complete enumeration: PASS')
-        report = {'status': 'passed', 'general_checks': [name for name, _ in tasks],
+        report = {'status': 'passed', 'scope':'quick' if args.quick else 'full', 'extensions':extensions, 'general_checks': [name for name, _ in tasks],
                   'count_audit': counts, 'partial_cycle_audit': partial, 'standard_wake': actual,
                   'retained_evidence_matches': True,
                   'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
@@ -101,7 +109,8 @@ def main():
         subprocess.run(thin_command, check=True)
         report['thin_wake'] = json.loads(thin_output.read_text())
         report['full_current_classification_replayed'] = not args.quick
-        report['source_commit'] = json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())['source_commit']
+        report['base_source_commit'] = json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())['source_commit']
+        report['source_commit'] = extensions['source_commit']
         if args.output_report:
             args.output_report.write_text(json.dumps(report, indent=2) + '\n')
     print('WAKE SYNTHESIS AND THIN-WAKE RIGIDITY: PASS')

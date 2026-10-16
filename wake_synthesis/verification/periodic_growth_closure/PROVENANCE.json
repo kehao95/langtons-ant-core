@@ -1,0 +1,9 @@
+{
+  "unit_original_zip": "langtons-ant-unit-diagonal-obstruction-2026-10-15.zip",
+  "unit_original_zip_sha256": "0398988fd9707bd5466442a9710b023b982904d966cc8150b7a1cb1c13b43ff3",
+  "unit_original_proof_sha256": "8f07ad35bc65992e90e3247cd9e1f01f63b10c96417d1d39fc40b19212089b24",
+  "unit_proof_edit": "Original Sections 1-6 retained; replaced historical Sections 7-9 by current integration note. All three Python source files are unchanged.",
+  "external_commit": "76a7e234e577d992d086c204c3dea00ae72cf10a",
+  "research_base": "11894a516e40fef9be730e266936071c7750142c",
+  "external_proof_attribution": "A. Jillhewar, 2026. Rewritten and strengthened with attribution; MIT scripts retained unchanged."
+}

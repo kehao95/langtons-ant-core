@@ -90,3 +90,13 @@ independent of its infinite attraction proof. Memory owns the twenty-cell
 lifetime obstruction; port owns finite scattering composition, including returns.
 Older immediate 21/14/13 thresholds and PG-budget/rank-obstruction notes remain
 research material until their required proof closure is assembled.
+
+## Review revision (2026-10-16)
+
+Continue the six-paper preparation from research `2f6010a`: wake owns mixed-wake
+parity and its attributed periodic-growth dependencies; factor owns silent
+legal-memory production and folded recovery/reset costs; memory owns the exact
+birth-filtered query and growing-scale necessity. Port, clock and one-black
+are unchanged. Retain pending version numbers and preserve earlier draft
+snapshots. No new Zenodo authorization is implied. New-module replay and
+hash-matched inheritance of an earlier full replay must be distinguished.

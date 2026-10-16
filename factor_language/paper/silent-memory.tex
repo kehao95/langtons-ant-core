@@ -1,0 +1,240 @@
+\section{Memory produced during legal intervals}
+\label{sec:silent-memory}
+A finite ten-legal interval can perform substantial computation on its
+complete input field. We give an explicit family that manufactures black
+lifetimes later consumed at violations, followed by a related family with
+an exact autonomous recovery and a quantitative reset cost. These
+constructions identify the spatial information used by the event macro.
+
+\subsection{A legal producer and a finite consumer}
+Use the words \(A,B\) of the two-loop component and set
+\[
+ V_n=B[9:]A^nBA^{n-1},\qquad
+ P=\mathrm{RLRRRRLRRRRLLLLRLRRL},\qquad n\ge1.
+\]
+Here \(B[9:]\) removes its first nine letters. For finite templates
+\(L_0,M_0,H_0\), define
+\[
+ B_n=L_0\cup\bigcup_{j=0}^{n-1}(M_0+(0,4j))
+              \cup(H_0+(0,4n)).
+\]
+The complete templates are
+\begin{verbatim}
+L0 = {(-1,0),(-1,3),(-1,6),(-1,7),(0,-1),(0,3),(0,5),(0,7),
+      (1,-1),(1,2),(1,3),(1,4),(1,6),(1,7),(2,-2),(2,2),
+      (2,4),(2,5),(3,-2),(3,1),(3,2),(4,-1),(4,0)}
+M0 = {(-1,10),(-1,11),(0,8),(0,9),(0,11),
+      (1,8),(1,10),(1,11),(2,8),(2,9)}
+H0 = {(-3,11),(-3,12),(-2,9),(-2,10),(-2,13),
+      (-1,9),(-1,11),(-1,12),(-1,13),(0,8),(0,9),(0,12),
+      (1,8),(1,10),(1,12),(2,8),(2,9),(2,12)}
+\end{verbatim}
+Their vertical ranges are disjoint. Start the ant at \((-1,0)\), heading
+west, with precisely \(B_n\) black; its mass is \(10n+41\).
+
+\textbf{Theorem (silent production and later consumption).}
+The trajectory begins with \(V_nP^{n+1}\mathrm{RLL}\). Put
+\(T_n=56n+167\). There is no intrinsic \(J_{10}\) at
+\(0\le t\le T_n\); the first occurs at \(T_n+1\), at \((1,4)\), heading
+east, and leaves the head at \((1,5)\), heading north. The largest visited
+height before that event is \(4n+13\). Every initial black lifetime has
+already been consumed before \(T_n\).
+
+For \(0\le j\le n\), the following are consecutive white/black reads:
+\[
+\begin{array}{c|c|c|c}
+\text{site}&\text{birth}&\text{consumption}&\text{age}\\\hline
+(1,4+4j)&44+28j&56n+168+20j&56n+124-8j\\
+(0,7+4j)&56n+146-28j&56n+186+20j&40+48j
+\end{array}
+\]
+Every birth is in the \(J_{10}\)-free interval and every displayed
+consumption is a \(J_{10}\). There are exactly \(9n+6\) violations during
+\(P^{n+1}\). The first mismatch with the continuation \(P^\omega\) is at
+relative time \(20n+22\) after \(T_n\).
+
+\textit{Proof by a complete affine arrangement.}
+Every phase of a variable block has a fixed horizontal coordinate, vertical
+coordinate \(4an+b+4\epsilon k\), and repetition index
+\(0\le k<cn+d\), where \(\epsilon=\pm1\). In a physical cell class
+\((x,4r+s)\), its visits therefore occupy a half-open interval
+\[
+ \alpha n+\beta\le r<\gamma n+\delta.
+\]
+Their times are affine in \(n,r\). Within a repeated block the coefficients
+are the same for every phase, so the constant term fixes chronological
+order; distinct blocks retain their script order. Literal phases and input
+points give singleton intervals. All 274 phase records are represented.
+
+Collect the affine endpoints of source cells, visits, target cells and the
+selected lifetimes. Their order changes only at pairwise rational crossings.
+Splitting at the floor and successor of every crossing produces the complete
+parameter partition \(n=1,2,3\) and \(n\ge4\). Within each slab, an affine
+inequality is checked at its endpoints; the unbounded slab additionally
+requires the appropriate slope sign. Between consecutive spatial endpoints,
+the source bit and entire ordered read list are constant. Starting at the
+source bit and toggling after each read checks physical feasibility for every
+cell and every parameter in that slab. Including all target intervals also
+checks the complete endpoint field, including sites not read by a block.
+
+The declarative witness records complete low/bulk/high endpoint profiles.
+The verified endpoint data are
+\[
+\begin{array}{c|c|c|c}
+\text{prefix}&\text{time}&\text{pose}&\text{black mass}\\\hline
+V_n&56n+167&(0,4),\mathrm N&18n+58\\
+V_nP^{n+1}&76n+187&(0,4n+8),\mathrm N&22n+62\\
+V_nP^{n+1}\mathrm{RLL}&76n+190&(0,4n+9),\mathrm W&22n+61
+\end{array}
+\]
+For every initially black band, the arrangement also verifies a read in
+\(V_n\), proving exhaustion of source lifetimes. On each selected lifetime
+band, the last producer read is R and the first consumer read is L; their
+affine times give the table above. Endpoint-and-slope identities cover the
+entire band, including all intervening integer cells. There are 607 nonempty
+affine bands and 27 selected lifetime bands in the exact certificate.
+
+Nine inverse updates stay below height eight and recover the true prefix
+\(B[:9]\). All ten-factors of \(A,B\) and their possible junctions occur
+in \(BAABAA\); its 307 windows are legal. The final nine letters of \(A\)
+and \(B\) agree, so the producer's outgoing context is independent of
+\(n\). With that context, violations in the first \(P\) occur at indices
+\(1,2,3,4,5,19\), and in later copies at
+\(0,1,2,3,4,5,6,7,19\). This proves the first event and \(6+9n\) count.
+The affine path endpoints give the exact maximum height. Finally the
+following RLL differs from \(P\) at its third letter, giving the exact
+mismatch time. \(\square\)
+
+The construction supplies \(2(n+1)\) distinct black lifetimes produced
+without a violation and later consumed at violations. At least \(n+1\)
+have age at least \(48n+124\). The cell \((1,4)\) is born at the fixed
+time 44 and survives until the first violation, with age \(56n+124\).
+For any fixed \(D\), those sufficiently old consumptions are simultaneously
+\(J_{10}\) and \(S_D\) events. Here \(S_D\) denotes a black read
+whose cell was not visited in the actual preceding \(D\) updates; this
+is a different predicate from a forbidden ten-letter factor.
+
+The fixed source and event poses accompany an unbounded excursion. Thus a
+first-\(J_{10}\) macro requires information about its complete source
+geometry; its two endpoint poses alone do not bound its path or duration.
+The earlier complete-source convex-hull bound provides exactly that geometry.
+The black mass of this family grows with \(n\).
+
+\subsection{The consumer's finite fuel budget}
+Each copy of \(P\) restores the heading and moves by \((0,4)\). Its entire
+read footprint has local heights zero through three, so consecutive copies
+have disjoint read footprints. The first-L cells are \((1,0)\) and
+\((0,3)\), and both must already be black at the beginning of the train.
+Consequently a complete field of mass \(m\) supports at most
+\(\lfloor m/2\rfloor\) consecutive whole copies of \(P\).
+
+One copy leaves four net new black cells, but these lie behind the next
+copy's required first reads. The exact distinction between total mass and
+remaining fuel explains how the constructed finite consumer can increase
+black mass while exhausting the input it needs to continue.
+
+\subsection{Autonomous recovery of a folded ribbon}
+A second family gives a full infinite continuation, complementing the
+finite producer--consumer construction. Define
+\[
+\begin{split}
+ C&=\mathrm{RLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLL},\\
+ D_0&=\mathrm{LLRRRRLRRLRRRRLLLLRLRRRRLRL},\\
+ w_n&=CA^{n+6}BA^{n+2}D_0,\qquad |w_n|=56n+397,
+ \quad n\ge0.
+\end{split}
+\]
+Run the geometric plan from the origin facing north, and place initial
+black cells precisely at sites whose first requested letter is L. All
+other cells are white. This specifies a complete seed \(X_n\) with
+\(10n+76\) black cells.
+
+\textbf{Theorem (recovery and reset cost).}
+The prescribed prefix is physically feasible. It writes the origin black
+at time zero and next reads it at time \(56n+396\). Its intrinsic
+\(J_{10}\) events occur at times zero through eight, followed by none
+until time \(56n+397\). Its first permanent standard time and complete
+future violation count are
+\[
+ \tau(X_n)=152n+2527,\qquad
+ \#\{t\ge0:J_{10}(F^tX_n)\}=56n+926.
+\]
+Let \(Y_n=F^{56n+398}X_n\). Any literal repair of length \(\ell\) from
+\(Y_n\) enabling the prefix \(w_m\), at any translated and quarter-turned
+pose and with arbitrary unread debris, satisfies
+\[
+ \ell\ge\max(0,4m-136).
+\]
+
+\textit{Proof.}
+The exact recovery is six alternating scans,
+\[
+ E_0 V_1^{n+5}E_1V_1^{n+5}E_2
+ V_2^{n+4}E_3V_2^{n+4}E_4V_3^{n+3}E_5V_3^{n+4}E_6,
+\]
+where
+\[
+\begin{gathered}
+ V_1=\mathrm{RLRLLRLR},\quad
+ V_2=\mathrm{RLRLLRLLLLRRRRLR},
+\\
+ V_3=\mathrm{RLRLRLLLLRLRRRRLLLLRLRRR}.
+\end{gathered}
+\]
+The seven fixed words \(E_i\), of lengths
+\(3,258,2,142,449,566,542\), are the literal finite data in the supplied
+\texttt{silent\_fold\_reset/grammar.json}. Their geometric phases and all
+variable scans are checked from their letters. This recovery has length
+\(96n+2338\), ends at \((8,7)\), east, with mass \(18n+301\), and preserves
+every historical cell.
+
+For these words, writing a cell as \((x,r-4k)\) gives affine visit intervals
+whose endpoint slopes are zero or one. All pairwise endpoint crossings
+occur by parameter one. Consequently the complete order cases \(n=0,1,2\)
+cover every \(n\ge0\); equality types persist beyond the final crossing.
+The 2,287 derived phase records check all requested colours in chronological
+order and give exact complete fields. The full reduction and recovered
+cap coordinates are included in the supplemental proof and mask certificate.
+
+The final 208 letters are two copies of one standard phase, preceded by a
+letter disagreeing with its backward extension. At that endpoint, all
+black cells have horizontal coordinates between \(-14\) and 10. Each
+future standard ray of drift \((2,2)\) therefore has only finitely many
+possible source hits. Checking the source hits, self-write overlap thresholds,
+and final infinite interval certifies the entire tail. The order-case
+argument covers all their colours for every \(n\). Subtracting 208 from
+the endpoint time gives the stated first entry. Each added pair of scans
+contributes \(2(8+9+11)=56\) intrinsic violations; the exact zero-parameter
+count is 926, including the initial inverse-history windows. The last
+violation is at \(\tau(X_n)+7\).
+
+For the reset bound, the source requirements \(I\) and output bulk \(O\)
+on a four-row tile are
+\[
+\begin{array}{c|c|c}
+x&I&O\\\hline
+-5&00..&1100\\-4&0000&1111\\-3&0011&1100\\-2&1101&0001\\
+-1&1011&1000\\0&1100&0011\\1&0000&1111\\2&..00&0011
+\end{array}
+\]
+A dot imposes no requirement. The exact overlap table checks every vertical
+residue, horizontal shift and parallel orientation, giving at least four
+mismatches per complete target tile. Two boundary tiles can lose at most
+eight from this lower bound; the 128 output cap cells can repair at most
+128 further mismatches. This gives \(4m-136\). At perpendicular orientations,
+the width-eight source meets at most three target tiles; the remaining
+tiles each require ten black cells against white, giving
+\(10\max(0,m-3)\ge4m-136\). Every repair update toggles one site, so it
+needs at least as many updates as distinct necessary corrections.
+\(\square\)
+
+For a clean reset to exactly the complete seed of size \(10m+76\), the
+output mass change from \(Y_n\) is \(10m-18n-52\). The mass--defect
+inequality proved next consequently gives
+\[
+ 351N_{10}\ge3\ell+468n-260m+1030.
+\]
+For \(m=n\ge34\), the flip lower bound yields
+\(N_{10}\ge\lceil(220n+622)/351\rceil\). This last event bound concerns
+a clean reset; the flip bound itself permits arbitrary unread debris.
+Neither statement assumes that such a reset exists.

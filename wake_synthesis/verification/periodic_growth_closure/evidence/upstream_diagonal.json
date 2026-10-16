@@ -1,0 +1,1 @@
+{"all_checks_passed": true, "chain_length": 6, "finite_chain_checks": 8192, "gadget_checks": 38, "local_correction_checks": 8, "schema": "langton-even-diagonal-rank-parity-audit-v1", "status": "bounded_evidence_not_proof"}

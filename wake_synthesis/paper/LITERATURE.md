@@ -87,3 +87,15 @@ event assignment; its count is not a count of distinct complete words.
 - **Method soundness:** the finite graph is justified by one-way trace coverage;
   the ordered-event representation has both directions. The paper states these
   distinct roles before using them to prove uniqueness.
+
+## Mixed-wake extension — 16 October 2026
+
+The signed residue potential and stable-rank port factorization in Appendix B
+are attributed to Jillhewar's pinned source
+`Atharva12456/langtons-ant-highway@76a7e234e577d992d086c204c3dea00ae72cf10a`.
+The reconstructed prose retains the CC BY attribution; the two byte-identical
+MIT audit scripts retain their license in `verification/periodic_growth_closure/third_party/`.
+The extension evaluates the general mixed-wake edge sign using an explicit
+nine-variable Boolean coboundary, yielding the arbitrary-width interleaving
+condition. The growth-eight screen is necessary, not a realization claim.
+This integration is not a fresh comprehensive literature or priority audit.

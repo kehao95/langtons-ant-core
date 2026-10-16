@@ -1,5 +1,21 @@
 # Layer-profile uniqueness and inverse synthesis
 
+## Additions integrated on 16 October 2026
+
+The revision adds [mixed-wake interleaving](proof/mixed-wake-interleaving.md):
+for full drift `(2,-2)`, `J(O)+V/2 = 1 (mod 2)` at arbitrary growth and width.
+The [attributed periodic-growth closure](proof/periodic-growth-closure.md)
+retains signed residues, small-drift restrictions and the unit-diagonal certificate.
+These are a separate necessary screen, not premises replacing the complete
+thin-wake enumeration. The incoming [profile replay](PROFILE_REPLAY.md) is
+also bundled as additional evidence for the subsumed profile theorem.
+
+[New scoped replay](evidence/review-2026-10-16.json) pins research commit
+`2f6010a`. Original imported proof notes retain their historical execution
+statements; the dated evidence records own current replay status.
+
+## Previously integrated proof chain
+
 The current main theorem fixes full drift `(2,-2)`, growth `12`, transverse
 width `10`, and at most one odd translation class on each interior level.
 It derives the standard period-104 word and the complete standard wake.

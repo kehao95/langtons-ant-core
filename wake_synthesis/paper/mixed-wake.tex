@@ -1,0 +1,186 @@
+\section{Mixed-wake interleaving at arbitrary width}
+\label{app:mixed}
+The thin-wake classification uses a particular growth and width. A separate
+parity identity constrains arbitrary finite odd-class wakes at the same full
+drift \((2,-2)\), without a period or width cutoff. It tests the transverse
+order of the classes, in addition to their signed residue counts.
+
+Translate a vertical-arrival phase to the origin. Then even levels
+\(t=x+y\) have vertical arrivals, denoted \(Q\), and odd levels have
+horizontal arrivals, denoted \(C\). Lanes are \(r=x\bmod2\). Let \(O\)
+be the odd classes, \(g=|O|\), and define
+\[
+ V=|O\cap Q|,\qquad
+ J(O)=\#\{(q,c)\in(O\cap Q)\times(O\cap C):t(q)<t(c)\}.
+\]
+Distinct classes on the same layer are counted separately.
+
+\begin{theorem}[Mixed-wake interleaving]\label{thm:mixed}
+Every finite-support periodic realization of full drift \((2,-2)\) satisfies
+\[
+ V\equiv0\pmod2,\qquad J(O)+V/2\equiv1\pmod2.
+\]
+The condition can be evaluated in \(O(g\log g)\) integer operations by sorting
+only the occupied odd classes, irrespective of transverse gap sizes.
+\end{theorem}
+
+\subsection{Signed residues and the rank factorization}
+We use the stable-class and signed-residue arguments of
+Jillhewar~\cite{Jillhewar2026}. The supplemental
+\texttt{proof/periodic-growth-closure.md} supplies an attributed derivation,
+including an explicit mod-four potential. For a function
+\(f:\Z\to\Z/4\Z\), choose \(S(0)=0\) and
+\(S(x+1)-S(x)=f(x)+f(x+1)\). With \(\chi=(-1)^{x+y}\), put
+\[
+\begin{aligned}
+ F_N&=-\chi S(x),&F_E&=\chi(S(x)-f(x)),\\
+ F_S&=-\chi(S(x)+2f(x)),&F_W&=\chi(S(x)+f(x)).
+\end{aligned}
+\]
+The complete-state quantity
+\(\sum_{(x,y)\in B}\chi(x,y)f(x)+F_h(p)\) is conserved modulo four,
+as direct substitution in the eight heading/colour cases verifies.
+For a residue indicator modulo a nonzero horizontal displacement \(a\),
+its monodromy gives
+\[
+ \sum_{q\in O,\ q_x=r\bmod|a|}\chi(q)\equiv2\pmod4.
+\]
+Quarter-turning gives the vertical counterpart. In particular, with
+\(q_r=|O\cap Q\text{ in lane }r|\) and
+\(c_r=|O\cap C\text{ in lane }r|\),
+\[
+ q_0-c_0\equiv q_1-c_1\equiv q_0-c_1\equiv q_1-c_0\equiv2\pmod4.
+\]
+Thus \(V\) is even and \(V/2\equiv q_0\pmod2\).
+
+For completeness we state the port argument used in the new identity.
+At each class, order visits by stabilized rank \(k\), and record positive
+incoming and outgoing port bits \(\alpha_k,\beta_k\): the positive ports
+are N/E at \(Q\), E/N at \(C\). For a binary string with \(m\) positions
+and \(A\) ones,
+\[
+ \operatorname{inv}(\alpha)
+ \equiv A(m-1)+\sum_k k\alpha_k+\binom A2\pmod2.
+\]
+Apply this to both port strings. Directed-edge binomial terms cancel between
+source and target. If \(D_v\) is the odd-class bit and
+\(p_v=\sum_k(\alpha_k+\beta_k)\bmod2\), the remaining local correction is
+\(p_v(D_v+1)\) at \(Q\), and \(D_v(p_v+1)\) at \(C\).
+Denote its sum by \(\mathcal C\), and the edge-block permutation sign by
+\(\mathcal E\). Stable order within each directed edge block is preserved,
+since its successor time changes by the fixed amount \(1-P\,\mathrm{voltage}\).
+The phase successor is one even-length cycle. Its factorization consequently
+gives
+\[
+ K:=\sum_{\text{L events}}\mathrm{rank}
+ \equiv1+\mathcal E+\mathcal C\pmod2.
+\]
+For an actual stable class, L has odd rank. Also \(4\mid P\) and
+\(4\mid g\), so \(K\equiv(P-g)/2\equiv0\pmod2\). Hence
+\(\mathcal E+\mathcal C=1\). This factorization is inherited; the following
+evaluation for general mixed wakes is the extension.
+
+\subsection{A Boolean identity with a telescoping boundary term}
+All arithmetic in this subsection is over \(\mathbb F_2\). Write
+\(Q_{j,r}=D_{(2j,r)}\), \(C_{j,r}=D_{(2j+1,r)}\). Let \(e,w\) count
+E/W outgoing edges at \(Q\) modulo two, and \(n,s\) count N/S outgoing
+edges at \(C\). Local balance gives, as two-vector identities,
+\[
+ w_j=e_j+Q_j,\quad s_j=n_j+C_j,\quad
+ n_j=n_{j-1}+Q_j+C_j,\quad
+ e_j=e_{j-1}+Q_j+\operatorname{swap}(C_{j-1}).
+\]
+All counts vanish below and above the finite range of one period.
+We prove the closed identity
+\[
+ \mathcal E+\mathcal C=J(O)+\binom g2+q_0.                 \tag{*}
+\]
+
+Encode a layer's outgoing parities in the order negative lane zero,
+positive lane zero, negative lane one, positive lane one. Its internal
+inversion contributions are
+\[
+ S_Q(b)=b_0b_2+b_1b_2+b_1b_3,\qquad S_C(b)=b_1b_2.
+\]
+The adjacent-layer term is \(A(a,b)=(a_1+a_3)(b_0+b_2)\). At separation
+two the terms are
+\[
+ B_Q(a,b)=a_1(b_0+b_2)+a_3b_2,\qquad
+ B_C(a,b)=a_1b_0+a_3(b_0+b_2).
+\]
+Larger separations give no inversions. These expressions follow by ordering
+the directed targets: Q edges swap lane and C edges preserve it.
+
+Before a new pair of layers, use state \((e_0,e_1,c_0,c_1,z)\), where
+\(z\) is the accumulated Q population parity. The previous N parities are
+\(n_0=e_1+z+c_0\), \(n_1=e_0+z+c_1\). For new bits
+\((Q_0,Q_1,C_0,C_1)\), the next state is
+\((e'_0,e'_1,C_0,C_1,z')\), where
+\[
+ e'_0=e_0+Q_0+c_1,\quad e'_1=e_1+Q_1+c_0,\quad
+ n'_r=n_r+Q_r+C_r,\quad z'=z+Q_0+Q_1.
+\]
+Set
+\[
+\begin{aligned}
+ a&=(0,e_0,0,e_1),& b&=(n_0+c_0,n_0,n_1+c_1,n_1),\\
+ u&=(e'_0+Q_0,e'_0,e'_1+Q_1,e'_1),&
+ v&=(n'_0+C_0,n'_0,n'_1+C_1,n'_1).
+\end{aligned}
+\]
+Then
+\[
+\begin{aligned}
+ \Delta\mathcal E&=S_Q(u)+S_C(v)+A(b,u)+B_Q(a,u)+A(u,v)+B_C(b,v),\\
+ \Delta\mathcal C&=(n_0+e'_0)(1+Q_0)+(n_1+e'_1)(1+Q_1)\\
+ &\quad+C_0(1+e'_1+n'_0)+C_1(1+e'_0+n'_1),\\
+ \Delta J&=z'(C_0+C_1).
+\end{aligned}
+\]
+For \(d=(Q_0,Q_1,C_0,C_1)\), the population correction is
+\[
+ \Delta\binom g2=(n_0+n_1)\sum_i d_i+\sum_{i<j}d_id_j.
+\]
+The explicit boundary polynomial
+\[
+ H=e_0+e_1+z+e_0c_1+e_1c_0+e_1c_1+e_1z+c_0c_1+c_0z
+\]
+satisfies
+\[
+ H(\mathrm{old})+H(\mathrm{new})=
+ \Delta\mathcal E+\Delta\mathcal C+\Delta J+
+ \Delta\binom g2+Q_0.
+\]
+Substitution with \(x^2=x\) proves the identity in nine Boolean variables;
+the checker both expands the polynomial and tests all 512 assignments.
+Summing over any finite number of layer pairs telescopes \(H\). Empty
+boundary padding makes it zero at both ends, giving (*). Since \(4\mid g\)
+and \(q_0\equiv V/2\), comparison with
+\(\mathcal E+\mathcal C=1\) proves Theorem~\ref{thm:mixed}.
+
+\subsection{Growth-eight wakes with two full extreme layers}
+Suppose \(g=8\) and both residue classes at each transverse extreme are odd.
+Extreme visits are singleton right turns, hence on C layers. They supply four
+C classes. Thus \(V\) is even and at most four. If \(V=0\), the new parity
+is zero. If \(V=4\), all C classes are at the extremes; each Q lies below
+exactly two of them, so \(J=8\) and \(J+V/2\) is again even. Therefore
+\(V=2\), with lane populations \((q_0,q_1)=(1,1)\),
+\((c_0,c_1)=(3,3)\). The x/y residue matrix is
+\(\left[\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\right]\).
+
+If the four internal odd classes have distinct levels, their increasing
+Q/C sequence must have an even number of Q-before-C pairs. The alternating
+orders QCQC and CQCQ are excluded for arbitrary gaps and lane choices.
+QQCC, QCCQ, CQQC and CCQQ pass this particular test; they are candidates
+requiring the full realization criterion. This consequence does not require
+a transverse-width bound.
+
+The exact controls include 18,895 geometric heading-restoring words,
+65,536 finite layer subsets, all 104 standard phases, and an independent
+edge-permutation computation. A separate bounded screen at widths 10,12,14
+excludes respectively 3,058, 11,374 and 33,320 assignments passing the signed
+residues and checker-mixing filters. Those finite tables illustrate the
+screen; the telescoping identity proves it at every width. The complete
+periodic-growth supplement also retains attributed small-drift exclusions
+and the regenerated unit-diagonal certificate, keeping their ownership and
+logical dependencies explicit.

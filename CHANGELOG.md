@@ -1,5 +1,16 @@
 # Repository changes
 
+## 2026-10-16 — Integrate renewed feedback, silent memory and mixed wakes
+
+Research `2f6010a` strengthens the existing wake, factor and memory candidates.
+New exact modules and complete proof notes accompany the revised English drafts.
+The additional 256-lift profile package from core `7ed1162` is retained and
+bundled. Default project entrypoints include the new proof checks; scoped
+`--extensions-only` replay is explicit. Prior draft snapshots are retained,
+with current manifests and isolated archive checks distinguishing fresh execution
+from inherited exhaustive evidence. One-black, clock, port and all published
+Zenodo artifacts remain unchanged. No release was submitted.
+
 ## 2026-10-15 — Six-paper review portfolio prepared
 
 Imported research `0ef3f0e` by proof dependency. Wake 0.3.0 now derives the

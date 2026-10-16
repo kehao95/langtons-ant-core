@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "ray_segment_intersections": 5000,
+  "epoch_parity_sweeps": 800,
+  "forward_inverse_pairs": 400,
+  "birth_filtered_finite_controls": 120,
+  "independent_literal_updates_before_targets": 8874,
+  "standard_independent_infinite_check": true,
+  "standard_literal_steps": 2600,
+  "blank_positive_renewal_rounds": 31,
+  "blank_terminal_checkpoint": 9990,
+  "source_sha256": {
+    "renewal.py": "5a10ede90fc96322d3fdffb100bc0d72bbec75e59c62706853df0def858abeb9",
+    "check.py": "f21cbf714fb8813ec983085bc0dbdb703b39959956c3fc5c3a35ff972099e88a"
+  },
+  "deterministic_report_sha256": "8018767717395264913aabc3fd5bbfd432635b3101bf3d4127a3e60d1e4b205a",
+  "rounds_sha256": "ebe637a6f062f98aeec726b5dab0706dd20f03f5da3cc7de4cde311ebc6e0050",
+  "huge_example": {
+    "N": "10^60",
+    "birth": "104*N-102",
+    "death": "104*N+46",
+    "age": 148,
+    "complete_post_terms": 379,
+    "scope": "exact numerical example, not a new general N-family theorem"
+  },
+  "negative_status": "NO_FRESH_EXTERNAL certifies ETC, not NO_HIGHWAY"
+}

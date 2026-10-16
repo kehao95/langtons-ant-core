@@ -27,7 +27,7 @@
 \title{\bfseries Uniqueness of the Classical Langton Ant Highway\\
 from Its Layer Profile}
 \author{Hao Ke\\\small\texttt{i@kehao.me}}
-\date{15 October 2026\\\small Version 0.3.0}
+\date{16 October 2026\\\small Version 0.3.0}
 \begin{document}\maketitle
 \begin{abstract}
 We prove a computer-assisted rigidity theorem for finite-support periodic
@@ -44,7 +44,9 @@ choices to $76$ normalized wake assignments. Complete ordered-event searches
 leave only the standard trace. The classification derives the standard layer profile and its longitudinal
 residues from these sparse geometric data. General wake-dependent period
 bounds and a terminating inverse-synthesis algorithm for every non-axis drift
-are retained as a second part of the theory.
+are retained as a second part of the theory. A separate mixed-wake parity
+identity constrains the transverse interleaving of odd classes for the same
+full drift at every growth and width.
 \end{abstract}
 \noindent\textbf{Keywords.} Langton's ant; finite support; periodic highway;
 computer-assisted proof; wake rigidity; exact enumeration.
@@ -117,7 +119,9 @@ The specific upper certificate and ordered-event engine are retained from the
 standard-wake project~\cite{KeStandard}. The contribution here is the removal
 of the complete-wake and missing-level hypotheses, together with the complete
 classification of the resulting finite family. No lower-width exclusion is
-used as a premise.
+used as a premise. Appendix~\ref{app:mixed} develops a separate
+necessary parity test for arbitrary-width mixed wakes, extending the attributed
+port-permutation factorization.
 
 \section{Finite support and stabilized visit order}
 A complete state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite and
@@ -495,7 +499,11 @@ python3 wake_synthesis/reproduce.py --quick
 \end{lstlisting}
 The second command explicitly skips the 76-case exclusion replay, while checking
 its upper certificate, count tables and controls. The default
-is full replay. Python's standard library and a C++17 compiler are sufficient;
+is full replay, including the added periodic-growth and mixed-wake checks.
+The option \texttt{--extensions-only} replays those new modules alone.
+An additional retained 256-lift profile classification has its own full
+entrypoint in \texttt{PROFILE\_REPLAY.md}; it is not needed by the stronger
+thin-wake theorem. Python's standard library and a C++17 compiler are sufficient;
 no linear optimizer, SAT solver or network access is required. Resource-limited
 exploratory runs are retained as such and are not used as negative evidence.
 
@@ -737,6 +745,8 @@ Sum over the words and use the exact wake-increment equalities.
 \end{proof}
 Thus any such realizable detour requires an additional wake budget.
 
+
+\input{mixed-wake}
 
 \begin{thebibliography}{9}
 \bibitem{Gajardo2003}

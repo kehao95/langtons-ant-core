@@ -8,13 +8,18 @@ ROOT=Path(__file__).resolve().parent
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-report',type=Path)
+    parser.add_argument('--extensions-only',action='store_true',help='replay only the 16 October additions')
     args=parser.parse_args()
     if not __debug__: parser.error('Run without Python -O')
     imported=json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())
     for row in imported['files']:
         if row['destination'].startswith('verification/'):
             assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
-    report={'status':'passed','source_commit':imported['source_commit'],
+    extension=json.loads((ROOT/'evidence/import-2026-10-16.json').read_text())
+    for row in extension['files']:
+        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
+    report={'status':'passed','source_commit':extension['source_commit'],
+            'base_source_commit':imported['source_commit'],'scope':'extensions-only' if args.extensions_only else 'full',
             'completed_utc':None,'stages':[], 'external_review':False,'lean_build':False}
     with tempfile.TemporaryDirectory(prefix=ROOT.name+'-replay-') as td:
         work=Path(td)/'verification'
@@ -36,11 +41,13 @@ def main():
                 row[name]=json.loads(actual)
             report['stages'].append(row)
             print(module+': '+command[0]+' PASS',flush=True)
-        run('stale_memory',['check.py'],('check_results.json',))
-        run('symbolic',['check_symbolic.py'],('check_results.json','huge_recipe.json'))
-        run('event_geometry',['check.py'],('check_results.json',))
-        run('remote_stale_feedback',['check.py'],('check_results.json',))
-        run('scalable_feedback_circuit',['check.py'],('report.json',))
+        if not args.extensions_only:
+            run('stale_memory',['check.py'],('check_results.json',))
+            run('symbolic',['check_symbolic.py'],('check_results.json','huge_recipe.json'))
+            run('event_geometry',['check.py'],('check_results.json',))
+            run('remote_stale_feedback',['check.py'],('check_results.json',))
+            run('scalable_feedback_circuit',['check.py'],('report.json',))
+        run('birth_filtered_feedback',['reproduce.py','--output','fresh'],('fresh/replay.json','fresh/rounds.json'),False)
     report['completed_utc']=datetime.now(timezone.utc).isoformat()
     report['source_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in sorted((ROOT/'verification').rglob('*'))

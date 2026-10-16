@@ -71,7 +71,7 @@
 
 \title{Finite-Memory Prediction and Remote Feedback in Langton's Ant}
 \author{Hao Ke}
-\date{15 October 2026 · Version 0.1.0}
+\date{16 October 2026 · Version 0.1.0}
 
 \usepackage{fvextra}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
@@ -87,7 +87,12 @@ interface exactly iterable. We prove quadratic finite-event time budgets
 and an endpoint-tube theorem. These imply decidability of spatially
 filtered events and force every non-eventually-translating orbit to
 consume newly created, arbitrarily old black memory outside every fixed
-finite region. An explicit twenty-black family has unbounded feedback
+finite region. A birth-filtered total query returns the first such lifetime
+created since its source checkpoint, together with exact birth, consumption
+and complete endpoint. Uniform deadlines yield
+\(\Omega(\sqrt H/\log H)\) late-born lifetimes at simultaneously growing
+radius and age on every non-eventually-translating orbit.
+An explicit twenty-black family has unbounded feedback
 lifetime with exactly 31 intervening \(S_{128}\) events, showing why
 spatial scale cannot be removed from a uniform lifetime bound.
 \end{abstract}
@@ -107,7 +112,10 @@ segment joining its endpoints. A fixed finite region can consequently
 host only a bounded consecutive run of failures. Spatially filtered
 event queries are decidable, and every non-eventually-translating orbit
 must repeatedly consume long-lived black memory outside every fixed
-region. A twenty-black construction shows why a spatial parameter is
+region. Tracking last writers strengthens this to an exact first-lifetime query:
+initial inventory can be distinguished from newly generated memory even
+when the same coordinate is reused. Uniform event budgets then provide a
+simultaneous growing-scale lower bound. A twenty-black construction shows why a spatial parameter is
 essential even when initial mass and the number of intervening events
 are fixed.
 
@@ -115,7 +123,8 @@ Reversibility, unboundedness and highway geometry are classical features
 of the ant {[}1,2{]}. The periodic read test uses full-drift chronology
 {[}3{]}, and the finite-region argument uses the square escape theorem
 {[}4{]}. The contributions here are the quantitative event interface,
-exact continuation with full history, geometric event budgets, and the
+exact continuation with full history, geometric event budgets, exact birth-filtered
+feedback and its growing-scale consequence, and the
 construction separating those budgets from bounds based only on mass and
 event count.
 
@@ -153,6 +162,14 @@ eventually a nonzero translator, then for every \(D,K,T\) there are
 infinitely many black lifetimes born after \(T\), lasting more than
 \(D\), and consumed outside \(K\). The properties hold simultaneously
 for the same lifetimes.
+
+\textbf{Newly generated feedback.} The first exterior old lifetime born
+since the input checkpoint is totally computable, including its exact birth,
+consumption and complete post-state. On a non-eventually-translating orbit,
+Section~\ref{sec:birth-feedback} gives
+\(\Omega(\sqrt H/\log H)\) lifetimes with birth after \(H^{1/4}\) up to
+integer rounding, radius of order \(\log H\), and age of order
+\(\log\log H\).
 
 \textbf{Spatial-scale obstruction.} For every even \(n\ge20\), a
 complete 20-black initial state writes a cell at time 60 and next reads
@@ -533,7 +550,7 @@ otherwise the complete state would recur and the ant would be
 permanently confined. Literal no-bounded-orbit excludes that. Replaying
 at most 8P steps handles this case.
 
-For nonzero translation apply Subsection ef\{xor-3\}. A valid infinite
+For nonzero translation apply Subsection \ref{xor-3}. A valid infinite
 word gives a certified permanent event-free tail. Otherwise (XOR2) and
 one real black update give the next full post-event state. Every input
 is finite and every arithmetic search here is finite, so this single
@@ -728,7 +745,7 @@ An immediate event and its outgoing move have the claimed bound
 trivially. At a repeated suffix the plan cycle has length P\textless=Q.
 
 If the heading is restored and drift is nonzero, apply Subsection
-ef\{geo-3\} from the full state X\_j. A finite next event is exactly its
+\ref{geo-3} from the full state X\_j. A finite next event is exactly its
 first mismatch. By (GEO6),(GEO7) and the real final update, the entire
 macro stays within halo
 
@@ -1209,6 +1226,8 @@ theorem that the same long-lived cells are PG primary/secondary
 blockers: some S\_D events can occur inside one PG macro, and no
 transfer theorem is proved here.
 
+\input{birth-feedback}
+
 \section{A twenty-black construction and the role of
 distance}\label{a-twenty-black-construction-and-the-role-of-distance}
 
@@ -1257,7 +1276,7 @@ i & p\_i & h\_i \\
 4 & (-3n,-3n+8) & E \\
 \end{longtable}
 
-Start the one physical ant at (0,0),E. Subsection ef\{circuit-3\} proves
+Start the one physical ant at (0,0),E. Subsection \ref{circuit-3} proves
 that these five four-cell sets are pairwise disjoint, so the input has
 EXACTLY twenty black sites.
 
@@ -1581,9 +1600,9 @@ evidence remain unchanged.
 \section{Reproduction and
 perspective}\label{reproduction-and-perspective}
 
-Run \texttt{python3\ memory\_feedback/reproduce.py} to replay the five
+Run \texttt{python3\ memory\_feedback/reproduce.py} to replay the six
 scoped modules: first-event prediction, exact XOR continuation, event
-geometry, remote filtering, and the twenty-cell circuit. The checks
+geometry, remote filtering, birth-filtered feedback, and the twenty-cell circuit. The checks
 compare full finite fields, reconstruct integer and rational
 inequalities, and verify permanent periodic tails at all parity
 breakpoints. Parameter families are covered by the affine and geometric

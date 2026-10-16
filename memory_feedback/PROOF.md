@@ -1,5 +1,22 @@
 # Prediction, complete history and remote feedback
 
+## Additions integrated on 16 October 2026
+
+The revision adds [birth-filtered feedback](proof/birth-filtered-feedback.md):
+the first remote old lifetime created since the source checkpoint is totally
+computable, with exact birth, consumption and complete XOR endpoint. Initially
+black coordinates remain eligible after erasure and rebirth. On non-eventually-
+translating orbits, uniform deadlines yield `Omega(sqrt(H)/log(H))` late-born
+lifetimes at simultaneously growing radius and age. Complexity is polynomial
+for fixed D and fixed K on explicit sparse input; the theorem is not uniform
+polynomial in binary D or K's diameter.
+
+[New scoped replay](evidence/review-2026-10-16.json) pins research commit
+`2f6010a`. Original imported proof notes retain their historical execution
+statements; the dated evidence records own current replay status.
+
+## Previously integrated proof chain
+
 The proof follows five dependencies in order:
 
 1. [Stale-memory prediction](proof/stale-memory.md): the intrinsic S_D identity,

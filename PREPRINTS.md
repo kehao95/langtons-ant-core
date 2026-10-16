@@ -36,6 +36,32 @@ The older immediate 21/14/13 thresholds await their complete original package.
 PG boundary budgets and the scalar cycle-rank obstruction remain research notes;
 they are not additional preprints or hidden premises of the new manuscripts.
 
+## Revision of 16 October 2026
+
+Research `2f6010a` is integrated into the existing candidates, with no seventh
+paper and no change to their pending version numbers:
+
+- Wake: arbitrary-width mixed-wake interleaving, with attributed periodic-growth
+  dependencies; the independently retained profile-classification package from
+  core `7ed1162` is now included in the source archive.
+- Factor: J10-free memory production, exact later consumption, autonomous folded
+  recovery and linear reset costs. The producer and recovery families are distinct.
+- Memory: exact first birth-filtered exterior feedback, reusable complete endpoints
+  and a simultaneous growing-scale necessary lower bound.
+
+One-black, clock and port are unchanged. The aggregate/finite-observer rank
+obstruction and the global all-coordinate budget proposal stay in the research
+repository; they neither create another preprint nor supply a global budget.
+The source pin is fixed for this batch. Prior candidate files remain in each
+changed version's `revisions/2026-10-15/` directory.
+
+The three revised archives are checked in isolation. Factor and memory replay
+their full paper chains. Wake replays the new modules and compares unchanged
+mathematical sources with the prior fully replayed archive; its old large
+classification is inherited, not represented as freshly rerun. The separate
+profile-classification evidence is hash-checked and retained with its own full
+replay command. [Review details](PREPRINT_REVIEW.md).
+
 ## Existing public records
 
 | Project | Public version | Exact published PDF |

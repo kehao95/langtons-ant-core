@@ -1,0 +1,27 @@
+# Silent archive / J10 bridge audit
+
+[Full proof and quantifiers](../../../proof/results/silent-archive-amplification.md).
+"Silent" means no J10, not no old-memory reads. The complete finite field is
+retained at every checkpoint.
+
+For every n>=1, the explicit (10n+41)-black input first reaches J10 at 56n+168,
+with fixed input/event poses but a 4n+13-high excursion. Before then every initial
+black lifetime is consumed. A legal prelude creates 2(n+1) distinct black
+lifetimes later consumed at J10 events, including n+1 of age at least 48n+124.
+The twenty-step pulse executes n+1 times and fails at relative offset 20n+22;
+it is not infinitely self-renewing.
+
+```sh
+python experiments/hc_global/silent_archive_amplification/check.py --compare experiments/hc_global/silent_archive_amplification/checked_report.json
+```
+
+The witness is declarative. `affine.py` covers every integer n>=1 by the complete
+arrangement of affine visit intervals. Its infinite slab is checked by exact
+endpoint/slope conditions. `independent.cpp` and a separate Python vector
+simulator provide finite implementation controls, not the universal bridge.
+`check.py --write <file>` explicitly writes a new report; normal checking never
+repairs or overwrites a witness.
+
+No HC result, infinite controller, global rank, external review, Lean theorem,
+or post-prefix standardness for the entire family is claimed. Source chronology
+and provenance are in the [research record](../../../proof/research-silent-archive-2026-10-15.md).

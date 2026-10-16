@@ -1,3 +1,51 @@
+# Six-paper review — 16 October 2026
+
+Research source: `2f6010a` (following `11894a5`); core baseline: `7ed1162`.
+The six-paper allocation remains unchanged. New source imports are byte-pinned;
+the original external attribution and licenses are retained. No Zenodo action.
+
+| Current addition | Proof obligation | Evidence and scope |
+|---|---|---|
+| Wake mixed parity | Signed residues and stable-rank factorization; nine-variable identity telescopes at every width | [New replay](wake_synthesis/evidence/review-2026-10-16.json): reconstructed growth dependencies/unit certificate, 512 Boolean assignments plus symbolic expansion, independent geometric and finite-screen controls |
+| Factor legal memory producer | Complete affine arrangement over n=1,2,3 and n>=4; chronological colours and consecutive lifetime identities | [New replay](factor_language/evidence/review-2026-10-16.json): exact immutable witness, Python/C++ controls and eight damaged witnesses |
+| Factor folded recovery/reset | Affine endpoint order stabilizes at n=2; complete-field infinite-tail test; all alignments of required read bits | Same report: regenerated masks, full recovery and reset comparisons; clean-reset event cost uses the existing mass inequality |
+| Memory birth-filtered query | Each source lifetime can be skipped once; bounded fixed-region bursts; exact last-writer records and complete endpoints | [New replay](memory_feedback/evidence/review-2026-10-16.json): source-coordinate rebirth, literal full-field controls, huge epochs and capped-query controls |
+| Memory growing scales | Uniform exterior deadline; subtract pre-cutoff consumptions and the complete lifetime supply at cutoff | Analytic proof in the manuscript; exact integer-log/deadline controls in the dedicated module |
+
+## Internal review
+
+- Contribution: the newly generated lifetime query and mixed-wake order identity
+  extend existing interfaces. The folded constructions answer how legal segments
+  produce memory and what resetting one interface costs. Prior periodic residue
+  and port-sign arguments remain attributed to Jillhewar, with licensed sources.
+- Clarity: factor proceeds through attraction, exact events, legal memory production,
+  and an independently proved mass bound. Memory proceeds through prediction,
+  continuation, geometry, birth filtering, growing scales, and the fixed-mass
+  spatial obstruction. Wake retains thin-wake rigidity as its main theorem and
+  places the arbitrary-width necessary test in a separate appendix.
+- Evidence: finite coverage and all-parameter bridges appear in the papers and
+  supplemental proofs. Two implementations are implementation cross-checks,
+  not external independent mathematical review. No new Lean claim is made.
+- Completeness: immutable old mathematical sources are hash-matched; new modules
+  run from copied archives without the research checkout. Wake's earlier large
+  classification is inherited. The separate 256-lift profile package is retained
+  and hash-checked rather than newly enumerated. Published artifacts are unchanged.
+- Soundness: births identify lifetimes, not permanently excluded coordinates;
+  K stays fixed within a query; growing-scale counts concern lifetimes, not
+  distinct cells. The finite archive family has no all-future claim, whereas
+  the second ribbon has a certified standard tail. Clean-reset event cost
+  and arbitrary-debris flip cost retain different hypotheses.
+
+The research rank-obstruction module was also replayed to assess its scope.
+It remains research material; the all-coordinate budget proposal remains an
+open strategy rather than an imported theorem. No new journal or external
+review is represented as complete.
+
+## Historical preparation review — 15 October 2026
+
+The following records the preceding candidate snapshot and its actual full
+replays. Its page structure and source pins predate the present additions.
+
 # Six-paper review — 15 October 2026
 
 Current allocation is in [PREPRINTS.md](PREPRINTS.md). Research source commit

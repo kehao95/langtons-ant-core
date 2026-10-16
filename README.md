@@ -10,13 +10,17 @@ prepared locally for review.
 |---|---|---|
 | [One-black](one_black/) | Every one-black finite state, at every position and heading, reaches the complete standard P104 trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609), retained |
 | [Clock and escape](clock_escape/) | Square exit ≤ `(13·3^(n−1)−2n²−4n−5)/2`; fixed-height rectangle degree `⌊H/2⌋+1`; complete-state orbit algorithms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379), retained |
-| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. General inverse synthesis remains. | 0.3.0 prepared; [public 0.2.0](https://doi.org/10.5281/zenodo.23405441) |
-| [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequality. | First 0.1.0 prepared |
-| [Memory and feedback](memory_feedback/) | Exact finite-memory event prediction and full-history continuation; remote feedback necessity and a fixed-mass lifetime obstruction. | First 0.1.0 prepared |
+| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. General inverse synthesis and arbitrary-width mixed-wake parity. | 0.3.0 prepared; [public 0.2.0](https://doi.org/10.5281/zenodo.23405441) |
+| [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequality; legal memory manufacture and linear reset costs. | First 0.1.0 prepared |
+| [Memory and feedback](memory_feedback/) | Exact finite-memory event prediction and full-history continuation; exact newly generated remote feedback, growing-scale necessity and a fixed-mass lifetime obstruction. | First 0.1.0 prepared |
 | [Ports and scattering](four_cell_port/) | Sharp four-cell ports; arbitrary finite protected scattering trains, including unbounded return excursions and old-wake readback. | 0.2.0 prepared; [public 0.1.0](https://doi.org/10.5281/zenodo.23402414) |
 
 [Publication versions and packages](PREPRINTS.md) ·
 [Claim–evidence map and review](PREPRINT_REVIEW.md) · [Changes](CHANGELOG.md)
+
+The 16 October revision incorporates research `2f6010a` into wake, factor and
+memory. Port, clock and one-black remain unchanged. See the dated
+[claim–evidence map](PREPRINT_REVIEW.md) for new checks and inherited replays.
 
 ## Project layout
 

@@ -9,7 +9,7 @@
       "orcid": "0009-0001-2818-4986"
     }
   ],
-  "description": "Ten-factor eventual modes; finite-mass entry at most 12m+212 with sharp slope; polynomial bit-time exact first-J10 macros with complete compressed endpoints and quadratic finite-event deadlines; and the all-input inequality 3(t-s)-26(|B_t|-|B_s|) <= 351 N10(s,t)+322 with sharp additive constant.",
+  "description": "Ten-factor eventual modes; finite-mass entry at most 12m+212 with sharp slope; polynomial bit-time exact first-J10 macros with complete compressed endpoints and quadratic finite-event deadlines; and the all-input inequality 3(t-s)-26(|B_t|-|B_s|) <= 351 N10(s,t)+322 with sharp additive constant. Explicit legal producers create black lifetimes later consumed at violations; a folded finite ribbon has exact autonomous P104 recovery and linear reset cost.",
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
@@ -33,5 +33,5 @@
     }
   ],
   "language": "eng",
-  "publication_date": "2026-10-15"
+  "publication_date": "2026-10-16"
 }

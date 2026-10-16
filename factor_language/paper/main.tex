@@ -109,7 +109,7 @@
 
 \title{Local Factor Rigidity and Mass--Defect Bounds for Langton's Ant}
 \author{Hao Ke}
-\date{15 October 2026 · Version 0.1.0}
+\date{16 October 2026 · Version 0.1.0}
 
 \usepackage{fvextra}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
@@ -123,7 +123,10 @@ that every physical ten-legal infinite stream eventually has period 104,
 remains and its first entry time is at most \(12m+212\), with optimal
 linear coefficient 12. A bounded-fold graph also computes exact first
 violation times and complete compressed endpoints in polynomial bit time,
-with quadratic finite-event deadlines. Independently, a finite-word potential certificate
+with quadratic finite-event deadlines. Explicit finite families show how
+legal intervals manufacture long-lived memory consumed at later violations;
+a related folded ribbon has exact autonomous highway recovery and a linear
+reset cost. Independently, a finite-word potential certificate
 proves \(3(t-s)-26(|B_t|-|B_s|)\le351N_{10}(s,t)+322\) on every
 trajectory interval. The additive constant and the standard mass-growth
 slope are sharp. Exact finite kernels accompany the all-parameter
@@ -140,11 +143,14 @@ highway. The same local signature also controls finite pieces of
 arbitrary trajectories through a quantitative balance between black-cell
 growth and forbidden windows.
 
-This paper develops these two consequences together. The first is an
+This paper develops these consequences together with exact event computation and finite memory constructions. The first is an
 attraction theorem under a future-language hypothesis, with a sharp
 linear dependence on initial black mass. It yields a polynomial-time
 decision procedure for the existence of a particular local violation
-event. The second is an unconditional inequality on every finite orbit
+event, strengthened below to exact first-event time and complete output.
+Two finite families then describe the memory created inside legal intervals
+and the physical cost of reusing a folded interface.
+The second main bound is an unconditional inequality on every finite orbit
 interval. Its proof uses a separate graph of finite legal words, so it
 does not assume that a finite fragment can continue legally forever.
 
@@ -213,7 +219,7 @@ Necessity is the flip rule. For sufficiency, make a visited cell
 initially black exactly when its first requested letter is L; leave
 every unvisited cell white. Induction over the finite word proves
 execution. This is established methodology, not a new criterion; see
-Gajardo (2003), Subsection ef\{ten-3\}.
+Gajardo (2003), Subsection \ref{ten-3}.
 
 Let \(E\) contain EVERY physically feasible 150-letter word whose
 10-factors lie in \(\mathcal L_{10}\). Construct a graph \(G\) with edge
@@ -283,7 +289,7 @@ letters, is an arbitrary concatenation of \(A\) and \(B\).
 
 The edge label is the letter APPENDED to the 149-letter history. It is
 shifted 149 places from the original stream. This finite shift is
-harmless for eventual-mode classification. Subsection ef\{ten-5\}
+harmless for eventual-mode classification. Subsection \ref{ten-5}
 instead uses the CURRENT letter \(v_0\) of a future-window vertex, and
 does not confuse these conventions.
 
@@ -699,6 +705,8 @@ the event chain, rather than decidability of an individual query.
 
 \input{event-macros}
 
+\input{silent-memory}
+
 \section{Mass and defects on arbitrary
 intervals}\label{mass-and-defects-on-arbitrary-intervals}
 
@@ -874,6 +882,12 @@ event lift additionally checks all 7763 edges and component-rank maxima
 5, 956 and 212. The all-parameter foldback exclusion, seed induction and spiral separation
 are proved in the text; finite geometric checks verify their stated
 numerical premises.
+
+The memory constructions additionally reconstruct every affine read interval,
+compare complete endpoint fields, verify the all-future standard recovery,
+and check every alignment in the reset lower bound. Their universal parameter
+coverage comes from the finite arrangement proof, with separate literal
+simulations and damaged-witness controls.
 
 Run \texttt{python3\ factor\_language/reproduce.py} from the source
 root. Retained source hashes and a fresh per-stage report distinguish
