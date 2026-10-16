@@ -1,0 +1,44 @@
+{
+  "complete_toy_descriptors": 557,
+  "controls": {
+    "full_endpoints": 94,
+    "literal_plan_updates": 37897,
+    "parameter_instances": 273
+  },
+  "full_nonzero_budget_cover_executed": false,
+  "huge_marker": {
+    "epoch": "10^60",
+    "event_time": "104*10^60",
+    "literal_replay": false,
+    "post_time": "104*10^60+1"
+  },
+  "imported_coverage": {
+    "max_cycles_per_silent_run": 5,
+    "noncyclic_vertices": 956,
+    "period_sum": 212,
+    "warmup": 149
+  },
+  "native_version": "isl-0.27-GMP",
+  "negative_controls": 5,
+  "relations": {
+    "all_coordinate_first_marker_event": "[k, px, py] -> { [] -> [out_t = 1 + 104k, out_x = -1 - 2k, out_y = -2k, out_h = 3] : px = -2k and py = -2k and k > 0 }",
+    "closed_square": "[n] -> {  : 0 <= n <= 1 }",
+    "one_marker_permanent_standard_domain": "[px, py] -> {  : px >= 5 or py >= 4 or (5 + px <= py <= -2) or (px <= -2 and py <= -7 + px) or (px >= 4 and py <= 1 and py <= -4 + px) or (px >= 3 and py >= 2 and py >= 7 - px) or (px <= -2 and py >= 5 + px and py >= -1) or (px >= -1 and py <= -3 and py <= -7 + px) or (px <= 2 and py >= 2 + px and py >= 3) }",
+    "rail_all_coordinates_mass_0": "[k] -> {  : k = 0 }",
+    "rail_all_coordinates_mass_1": "[k] -> {  : k = 0 }",
+    "rail_all_coordinates_mass_2": "[k] -> {  : 0 <= k <= 1 }",
+    "rail_exact_exhaustion": "[n, k] -> {  : 0 <= k <= n }",
+    "rail_full_endpoint_identity": "[n, k] -> {  : 0 <= k <= n }",
+    "silent_first_event_post": "[n] -> { [] -> [out_t = 398 + 56n, out_x = -1, out_y = 1, out_h = 0] : n >= 0 }",
+    "three_folds": "[n, m] -> {  : false }",
+    "two_depth_fold": "[n, m] -> {  : 0 <= m <= n }"
+  },
+  "schema": "presburger-defect-compiler-v1",
+  "scope": "supplied-schema exact arithmetic and analytic global coverage; no HC proof",
+  "source_sha256": {
+    "check.py": "52849255d55937ea13b534548f440fc8bf24b61dfea6a3c15b1fae9b5af9abe8",
+    "compiler.py": "45cbc6bf8d053eb1b4a93f2fd454aa227b26410193ab909bbcb0bafa00c671cc",
+    "cover.py": "f8b137034638b8fde5b613ec802b0bf72c243070ea00ea2358c15fb45a8d0e88",
+    "isl_exact.py": "0d9aae7a1d02d3b84dfce1fa9d58f8bdf956725f3dcf226600a090ba458b7a21"
+  }
+}

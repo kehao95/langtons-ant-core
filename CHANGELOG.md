@@ -1,5 +1,17 @@
 # Repository changes
 
+## 2026-10-16 — Consolidate research 9223766d
+
+- Strengthen the existing wake candidate with general quadratic wake arithmetic,
+  analytic unit-diagonal exclusion and a three-profile parity reduction.
+- Strengthen factor with all-length endpoint-strip geometry and exact complete
+  recovery of the original silent-archive family.
+- Prepare Counting Defects as one new preprint covering semilinear synthesis,
+  resource spectra, sharp supply bounds and small positive witnesses.
+- Prepare One Bit Off the Highway as a certificate-conditional review draft;
+  retain its missing original archive as an explicit release blocker.
+- Preserve earlier candidate snapshots and every published version; no Zenodo mutation.
+
 ## 2026-10-16 — Six interactive proof laboratories
 
 Replaced the single-guide landing page with a common overview and six proof

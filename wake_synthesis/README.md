@@ -4,18 +4,19 @@ Thin-wake rigidity derives the standard layer profile and all longitudinal resid
 
 ## Integrated results — 16 October 2026
 
-The revision adds [mixed-wake interleaving](proof/mixed-wake-interleaving.md):
-for full drift `(2,-2)`, `J(O)+V/2 = 1 (mod 2)` at arbitrary growth and width.
-The [attributed periodic-growth closure](proof/periodic-growth-closure.md)
-retains signed residues, small-drift restrictions and the unit-diagonal certificate.
-These are a separate necessary screen, not premises replacing the complete
-thin-wake enumeration. The incoming [profile replay](PROFILE_REPLAY.md) is
-also bundled as additional evidence for the subsumed profile theorem.
+The current candidate absorbs the general non-axis quadratic wake character,
+its polynomial-bit-time evaluator and all-scale growth-eight exclusion family.
+The unit-diagonal exclusion now has a purely analytic layer-forcing proof.
+The special `(2,-2)` mixed-wake identity analytically removes three of the five
+thin-profile cases; the original complete classification remains available.
+These results are integrated into the paper and its `--extensions-only` replay.
+The [profile replay](PROFILE_REPLAY.md) remains bundled for the alternate
+shortened classification route. [Current proof map](PROOF.md).
 
 ## Manuscript and status
 
 Version **0.3.0** is prepared for review. [Manuscript](paper/main.tex) ·
-[Proof dependencies](PROOF.md) · [New-module verification](evidence/review-2026-10-16.json) ·
+[Proof dependencies](PROOF.md) · [New-module verification](evidence/consolidation-replay.json) ·
 [Release preparation](release/README.md).
 
 The current public record is [23405441](https://doi.org/10.5281/zenodo.23405441); its published files are preserved. The revision belongs to the same concept **23402421**.
@@ -41,30 +42,3 @@ continues to cover the complete main-paper dependency chain.
 ## Open
 
 Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.
-
-## Analytic unit-diagonal proof
-
-The [standalone analytic note](verification/unit_diagonal_analytic/PROOF.md)
-replaces the unit-diagonal finite certificate by forced layer words and a binary
-interleaving contradiction. The exclusion and its `g>=8` consequence were already
-integrated above; this is a new proof, not a duplicate theorem claim.
-[Manuscript source](verification/unit_diagonal_analytic/paper.tex) and
-[independent regressions](verification/unit_diagonal_analytic/README.md) are
-provided separately; finite checks are no longer premises of this exclusion.
-No published or previously prepared release artifact is changed.
-
-## General non-axis quadratic wake obstruction
-
-The [independent research note](verification/general_wake_parity/PROOF.md)
-extends the attributed rank/port method to every non-axis full drift. The wake
-uniquely determines odd-used edges, giving a quadratic necessary character and
-a polynomial-bit-time evaluator that does not expand transverse gaps. An exact
-all-parameter certificate excludes a growth-eight `(3,1)` family of unbounded
-span, beyond the stated signed-residue, density and winding screens.
-[Manuscript](verification/general_wake_parity/paper.tex) and
-[isolated replay](verification/general_wake_parity/README.md) accompany the proof.
-This module has its own `reproduce.py`; it is not silently included in the
-existing main-paper replay. Passing the screen is NOT a realization certificate.
-No eventual-periodicity, all-growth-eight exclusion, HC solution, independent
-peer-review or external publication claim is made. Published/prepared artifacts
-and the existing theorem dependencies are unchanged.

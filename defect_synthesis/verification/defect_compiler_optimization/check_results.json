@@ -1,0 +1,106 @@
+{
+  "additional_whitelist_equivalences": 20,
+  "backend": "isl-0.27-GMP",
+  "base_commit": "6afea97c2a8a26d03b2bf89de9d23a87d64a31e0",
+  "baseline_sha256": {
+    "isl_bridge.py": "7b58e0a9b97c6cdc3277bc9053e3c905b3fe242b970573bb31d7f7851503d949",
+    "trace_arithmetic.py": "7b53fa550bbc60b167610eeb5955dc2812c37f193a1b9804b8078d7761eaf356"
+  },
+  "complete_remote_history_preserved": true,
+  "dag_truth_table": {
+    "accepted": 84,
+    "nonterminal_nodes": 117,
+    "words": 1024
+  },
+  "finite_baseline_count_equalities": 96,
+  "finite_count_checks": 224,
+  "full_global_template_enumeration": false,
+  "huge_threshold": {
+    "bound": "1000000000000000000000000000000000000000000000000000000000000",
+    "cached_followup": {
+      "cached_powers": 200,
+      "explicit_time_dimensions": 2,
+      "new_compositions": 61,
+      "threshold_bits": 200
+    },
+    "first": {
+      "cached_powers": 200,
+      "explicit_time_dimensions": 2,
+      "new_compositions": 259,
+      "threshold_bits": 200
+    },
+    "result": "[n, a] -> {  : 0 <= n <= 500000000000000000000000000000000000000000000000000000000000 }"
+  },
+  "independent_fixed_fibre_counts": 360,
+  "independent_schema_controls": {
+    "assignments": 96,
+    "feasible": 63,
+    "requested_letters": 892,
+    "schemas": 24
+  },
+  "negative_controls": {
+    "rejected": 10,
+    "resource_failure_is_not_NO": true
+  },
+  "schema": "defect-compiler-optimization-check-v1",
+  "schema_factor_equivalences": [
+    {
+      "baseline_mask_intersections": 840,
+      "baseline_mask_unions": 84,
+      "dag_nodes": 117,
+      "mask_intersections": 183,
+      "mask_unions": 66,
+      "name": "standard",
+      "shifts": 20,
+      "validation": "exact algebraic expected set; no baseline completion claim"
+    },
+    {
+      "baseline_mask_intersections": 840,
+      "baseline_mask_unions": 84,
+      "dag_nodes": 117,
+      "mask_intersections": 183,
+      "mask_unions": 66,
+      "name": "rail",
+      "shifts": 20,
+      "validation": "exact baseline set equality"
+    },
+    {
+      "baseline_mask_intersections": 840,
+      "baseline_mask_unions": 84,
+      "dag_nodes": 117,
+      "mask_intersections": 183,
+      "mask_unions": 66,
+      "name": "fold",
+      "shifts": 20,
+      "validation": "exact algebraic expected set; no baseline completion claim"
+    },
+    {
+      "baseline_mask_intersections": 840,
+      "baseline_mask_unions": 84,
+      "dag_nodes": 117,
+      "mask_intersections": 183,
+      "mask_unions": 66,
+      "name": "marker",
+      "shifts": 20,
+      "validation": "exact algebraic expected set; no baseline completion claim"
+    },
+    {
+      "baseline_mask_intersections": 840,
+      "baseline_mask_unions": 84,
+      "dag_nodes": 117,
+      "mask_intersections": 183,
+      "mask_unions": 66,
+      "name": "sweeps",
+      "shifts": 20,
+      "validation": "exact baseline set equality"
+    }
+  ],
+  "scope": "exact supplied-schema query optimization, not HC or a global budget search",
+  "sources_sha256": {
+    "check.py": "a057dcf5ea05b0df8f50e22dda6e55e4ee8e471b38ab49e7b696df342f26db0b",
+    "fast.py": "eb402baf085a71a469dfafb6a75303229431b43bc9d9431135883d294f5181ad",
+    "fixtures.py": "5ef76a0bb854728aa1e8e83747d389a574edde4b83ee594b1a18ca5b1b8f1398"
+  },
+  "status": "passed",
+  "symbolic_count_equalities": 60
+}

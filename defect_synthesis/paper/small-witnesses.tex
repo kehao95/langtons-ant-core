@@ -1,0 +1,112 @@
+\section{Small positive witnesses and unary NP membership}\label{sec:small}
+Semilinearity provides a decision procedure. The fixed geometry of the cycle
+library also gives a quantitative size bound on a positive certificate.
+Let $E(m,N)$ mean that some complete seed of at most $m$ black cells produces
+at least $N$ contained defects, with all coordinates unrestricted. Put
+\[
+ s=5(N+1),\quad K=2570(N+1),\quad d=s+2m,\quad
+ H=2^{24}(K+d+1),\quad R=64\bigl((d+1)!H^d+1\bigr).
+\]
+\begin{theorem}[Small witnesses]\label{thm:small}
+If $E(m,N)$ holds, it has a witness whose initial coordinates and schema
+exponents have absolute value at most $R$. Its $N$th defect occurs within
+$K(R+1)$ updates. In particular,
+$\log R=O((m+N+1)\log(m+N+2))$.
+With $m,N$ in unary, $E(m,N)$ belongs to NP.
+\end{theorem}
+The radius is existential: it produces a possibly different input with the
+same budgets. A specified input may put its next obstacle arbitrarily far away.
+
+\subsection{A polynomial verifier for a compressed physical run}
+The canonical cover has at most $s$ powers and $2048(N+1)+N$ literal letters.
+There are at most $K$ phase types. A powered type has position
+$A_i(k)+jD_i$ and affine time, with $0\le j<k_i$. The nonzero strides,
+after rotations, are
+\[
+ (\pm2,\pm2),\quad(\pm2,0),\quad(0,\pm2),\quad
+ (\pm4,0),\quad(0,\pm4).
+\]
+For a proposed phase occurrence, its read colour is initial membership XOR
+the parity of every earlier type visiting the same cell. Each nonzero-stride
+type visits a given cell at most once. Solve
+$A+jD=B+\ell E$ for each pair of types. Nonparallel strides give at most
+one integral pair, with determinant dividing 16. Parallel strides yield a
+bounded interval in one residue class of $j$, of modulus at most two.
+A source point or literal type gives at most one hit.
+
+Different blocks have their fixed chronological order. Within one powered
+block, intersecting phases have $\ell=j+c$ for a constant $c$; the sign of
+$|u|c+\text{old phase}-\text{current phase}$ decides precedence. Thus all
+previous flips are included. Split the current index by its hit moduli,
+sort interval starts and one-past-ends, and check the parity on each nonempty
+interval against the requested bit. Induction on ordinary update time proves
+that these checks are necessary and sufficient for execution on the complete
+supplied field.
+
+There are $O(K(K+m))$ pair and point queries and
+$O(K(K+m)\log(K+m)+m^2)$ comparisons, including source distinctness.
+All operate on binary integers of polynomial length. A word summary stores
+length, first and last nine symbols, and contained-defect count; concatenation
+checks only crossing windows and binary powering is logarithmic. In this
+library all powered words are cyclically ten-legal and have length at least
+24, so the count is fixed once every exponent is classified as zero or positive.
+
+\subsection{Linear chambers through successful certificates}
+Let $\theta$ list the independent exponents and the coordinates of $m'\le m$
+distinct initial black cells; its dimension is at most $d$. At one successful
+witness fix $\theta\bmod64=\rho$ and write $\theta=64z+\rho$. Follow the verifier
+and record every comparison with its witnessed outcome, including endpoint
+ordering, equalities, source distinctness, and exponent zero/positive cases.
+Strict integer inequalities become non-strict inequalities by a unit shift.
+For a failed equality record its strict sign.
+
+All modular tests are now constant. Determinant denominators divide 16,
+point-membership denominators divide four, and the parallel-index and parity
+splits each divide by at most two; the accumulated divisors divide 32.
+Floors and ceilings are affine in $z$, with only the constant term rounded.
+Every integer solution to the resulting chamber follows the same comparison
+path, hence preserves physical feasibility and exact defect count.
+
+For completeness, the coefficient envelope can be followed explicitly. Set
+$H_0=2^8(K+d+1)$. After the substitution, origin variable coefficients are at
+most 256 and their constants at most $K+252s$. Origin differences fit
+$2H_0$. Determinant numerators fit $16H_0$ and their quotients fit
+$16H_0+1$. Parallel-hit endpoints fit $4H_0+16$; after parity splitting and
+successors all endpoints fit $16H_0+32$. Minima and maxima select one existing
+form. Endpoint comparisons and collinearity guards fit $128H_0+128$.
+Within-body origin differences cancel all parameters. Thus every integer
+coefficient and right-hand side is bounded by $256H_0\le H$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:small}]
+The integer small-solution theorem gives a solution to every nonempty
+$n$-variable chamber of coefficient height $a\ge1$ with coordinates at most
+$(n+1)!a^n$ in absolute value~\cite{small}. Apply it with $n\le d,a\le H$,
+then substitute $\theta=64z+\rho$. This proves the stated $R$.
+The source still has distinct cells, the powers remain nonnegative, and its
+word still ends at the $N$th defect. Summing at most $K$ phase types gives the
+duration bound. Taking logarithms yields the bit bound.
+
+For unary budgets guess the schema, source coordinates and exponents inside
+these bounds. They use $O((m+N+1)^2\log(m+N+2))$ bits. Check the conservative
+schema-size limits, library membership, exact physical execution and defect
+count using the preceding algorithm. Every accepted certificate is a genuine
+run, and the finite cover plus small-solution argument supplies one for every
+positive instance. This proves NP membership.
+\end{proof}
+The chamber argument applies to the canonical library with free initial
+coordinates. A supplied affine input family with larger coefficients requires
+its own coefficient-height bound.
+
+\begin{corollary}\label{cor:mu}
+The minimum initial mass $\mu(N)$ needed for at least $N$ contained defects
+can be computed in deterministic time $2^{O(N^2\log(N+2))}$.
+\end{corollary}
+\begin{proof}
+The word $(\Ll\Rr\Rr\Ll)^q$ has minimum supply $2q$ and
+$\max(0,4q-9)$ defects, so $\mu(N)\le2\lceil(N+9)/4\rceil=O(N)$.
+Enumerate the bounded positive certificates for successive masses through
+this upper bound. The preceding bit-size estimate gives the claimed time.
+\end{proof}
+Short schemas and small integer solutions are established tools for flat
+counter systems~\cite{demri}. Here the mutable-field interval verifier supplies
+the additional ant-specific execution argument.

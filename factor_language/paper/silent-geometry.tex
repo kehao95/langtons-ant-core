@@ -1,0 +1,75 @@
+\section{Geometry of finite legal intervals}\label{sec:silent-geometry}
+The local language controls the geometry of an entire legal interval, even
+when its duration is unbounded. The coordinate selected in the next theorem
+is fixed for the whole interval.
+
+\textbf{Theorem (endpoint strip).}
+Let $p_0,\ldots,p_L$ be the head positions of a physically feasible finite
+word whose contained ten-factors are standard. There is an $i\in\{x,y\}$ such that
+\[
+ \min(p_{0,i},p_{L,i})-43\le p_{t,i}\le
+ \max(p_{0,i},p_{L,i})+43\qquad(0\le t\le L).
+\]
+More precisely, after translating $p_0$ to zero, one of the four coordinate
+normals $n$ satisfies $-43\le n\cdot p_t\le n\cdot p_L+43$ throughout.
+
+\textit{Proof.}
+Use the bounded-fold lift established for the event macros. Adjoining the
+incoming heading gives a directed graph $G$ with 30,380 vertices and 31,052
+edges. A vertex records the length-149 history, the fold count and the actual
+heading; an edge appends its literal turn and carries its unit displacement.
+Every feasible continuation after the first 149 turns lifts to this graph.
+The all-parameter exclusion of $BA^nBA^mB$ supplies coverage of the fold count.
+
+For a cyclic strongly connected component $C$, let
+$M(C)=\{n:n\cdot d(C)\ge0\}$, where $n$ ranges over the four coordinate
+normals and $d(C)$ is the displacement of its simple cycle. Give an acyclic
+component all four normals. The finite certificate starts a mask at every
+component and propagates every possible intersection along every condensation
+edge. All 88,024 resulting component/mask states have nonempty masks.
+Closure under propagation proves by induction that every finite path has a
+common allowed normal. An independent work-list calculation on the original
+graph agrees at all 90,256 vertex/mask states.
+
+For each normal delete the cyclic components that omit it. On the resulting
+$G_n$, the certificate gives an integer potential $H_n$ with
+\[
+ 0\le H_n\le33,\qquad
+ n\cdot\Delta(v,u)\ge H_n(u)-H_n(v)
+ \quad\text{for every edge }v\longrightarrow u.
+\]
+There are 30,714 inequalities for each normal. Telescoping bounds every
+subpath's retreat by 33. These inequalities and the nonempty-mask closure,
+rather than the method used to find the potentials, are the finite premises.
+
+Short words of length at most 149 have coordinate radius at most 24 by
+complete feasible-word enumeration. For a longer word put $q=p_{149}$,
+$v$ equal to its startup lift state, and $z_t=n\cdot p_t$. The startup
+certificate checks, for every such state and every allowed normal,
+\[
+ \min_{t\le149}z_t\ge-43,\quad z_{149}-H_n(v)\ge-43,\quad
+ \max_{t\le149}(z_t-z_{149}+H_n(v))\le43.
+\]
+For $t\ge149$, telescoping gives $z_t\ge z_{149}-H_n(v)\ge-43$
+and $z_t\le z_L+33$. For $t\le149$, use the first startup inequality
+and $z_L\ge z_{149}-H_n(v)$ in the third. Short words use the sign
+with $n\cdot p_L\ge0$. This proves the oriented assertion and the strip.
+\hfill$\square$
+
+\textbf{Corollary (localized events).}
+Let $K$ be a nonempty finite set with bounding rectangle
+$[x_-,x_+]\times[y_-,y_+]$. Between any consecutive chain of intrinsic
+$J_{10}$ events with read positions in $K$, all head positions lie in
+\[
+ \{x_- -44\le x\le x_+ +44\}\ \cup\
+ \{y_- -44\le y\le y_+ +44\}.
+\]
+The conclusion includes the outgoing move of the last event and is independent
+of the number of events in the chain. Indeed, each intervening silent word
+starts one step from $K$ and ends in $K$; apply the theorem to that contiguous
+word and include the event moves. If infinitely many events are eventually
+localized in $K$, the entire late head trajectory lies in this same cross.
+
+This geometry complements the complete-source bounds used by event prediction.
+A legal interval occupies one endpoint strip while it may travel arbitrarily
+far along it. The folded ribbon below realizes precisely this distinction.

@@ -1,0 +1,250 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}
+\newcommand{\xor}{\mathbin{\triangle}}
+\title{One Bit Off the Highway:\\Uniform Recovery for Langton's Ant}
+\author{Hao Ke}
+\date{16 October 2026 --- Review draft}
+\begin{document}\maketitle
+\begin{abstract}
+We study a single colour perturbation applied at an arbitrary time and site
+along a canonical Langton highway, retaining its entire accumulated wake.
+An all-age coupling reduction expresses recovery through 104 guarded
+reference phases and finitely many younger exceptions. The resulting
+certificate specification has 739 cases, with a reported uniform bound of
+64,584 updates and radius 78 after first impact. The same reduction yields
+an exact first-impact query and a compressed complete endpoint, with
+polynomial bit complexity in the time and perturbation coordinates.
+This manuscript develops the analytic reduction and specifies the finite
+certificate needed to establish the numerical recovery claims.
+\end{abstract}
+
+\section{A growing highway and a single perturbation}
+The ant turns right on white and left on black, toggles the read cell, and
+moves one unit. Let $F$ be this reversible update on a complete finite black
+field, position and heading. Start from the thirteen-black seed
+\[
+\begin{split}
+ P=\{&(0,-2),(0,-1),(0,0),(1,-1),(2,-1),(2,1),(3,-2),\\
+     &(3,1),(4,-2),(4,0),(5,-1),(5,0),(6,0)\},
+ \qquad X_0=(P,(0,0),\mathrm S).
+\end{split}
+\]
+Its standard word $W$ and drift $d=(2,-2)$ give $X_t=F^tX_0=(B_t,p_t,h_t)$.
+We perturb one bit at an arbitrary site $q$:
+\[
+ Y(t,q)=(B_t\xor\{q\},p_t,h_t),\qquad t\ge0,\ q\in\Z^2.
+\]
+Thus an existing black cell can be removed as well as a white cell added.
+All other cells of the growing canonical history remain present.
+
+The mathematical question is uniform recovery after the first physical
+encounter with the perturbation. Its waiting time can depend on an arbitrarily
+distant $q$. The reduction below separates this exact waiting-time query from
+the finite scattering problem and the all-age extension guard.
+
+The following certificate target records the numerical statement of the
+research proof. The analytic implications are proved here; the release
+record tracks the corresponding finite data separately.
+
+\begin{theorem}[Certificate implication]\label{thm:recovery}
+Assume the finite records and guards specified in Section~\ref{sec:certificate}
+pass their complete checks. Then every $Y(t,q)$ eventually follows standard
+P104. If $s\ge t$ is the first update at which the unperturbed orbit reads
+$q$, recovery is certified by time $s+64584$. From impact to that boundary
+the perturbed head stays within Chebyshev distance 78 of $q$. If there is
+no such $s$, its entire future read trace agrees with the unperturbed one.
+
+Current-cell perturbations have at most 33,586 future intrinsic $J_{10}$
+events, attained at $t=800$. Arbitrary-site perturbations have at most 33,595.
+At each fixed phase, all canonical ages of at least 25 periods have the same
+normalized infinite response to a current-cell flip.
+\end{theorem}
+An intrinsic $J_{10}$ event tests the actual nine inverse turns and the current
+turn against the cyclic ten-factors of $W$. This definition retains the history
+across a perturbation, which may differ from the original canonical past.
+
+\section{The complete finite wake at arbitrary age}
+Let $q_i$ be the pre-update positions of the 104 phases and $T_r$ the XOR set
+of the first $r$ read positions. The period write set is $T=T_{104}$. The
+finite period identity has deposited set
+\[
+\begin{split}
+ D=\{&(0,-3),(0,0),(1,-4),(1,-3),(1,-2),(2,-1),\\
+     &(2,0),(3,0),(6,-1),(7,-1),(7,0),(8,-1)\}.
+\end{split}
+\]
+Specifically, $F^{104}X_0$ has field $(P+d)\mathbin{\dot\cup}D$ and pose
+$(d,\mathrm S)$, equivalently $D=P\xor(P+d)\xor T$. Distinct points of $D$
+lie in distinct full classes modulo $\Z d$, and $D-kd$ is disjoint from $P$
+for every $k\ge1$. These are finite word and integer-ray checks.
+
+Translate the state at time $104n$ by $-nd$. Its complete field is
+\begin{equation}\label{eq:source}
+ C_n=P\mathbin{\dot\cup}\bigcup_{k=1}^n(D-kd),\qquad |C_n|=13+12n.
+\end{equation}
+Telescoping the period write identity proves this formula by induction.
+At phase $r$ the field is $C_n\xor T_r$ and the pose is $(q_r,h_r)$.
+For $n\ge N$, two such sources, with or without their current cell toggled,
+differ exactly on the finite set $\bigcup_{k=N+1}^n(D-kd)$.
+
+\section{Extending one recovery to every older source}
+\begin{lemma}[First-difference coupling]\label{lem:coupling}
+If two complete fields at the same pose differ on $E$, and one trajectory
+never reads $E$, their entire read and pose traces agree; their field
+difference remains $E$ throughout.
+\end{lemma}
+\begin{proof}
+Before a first differing read, both current colours agree. They turn together
+and toggle the same site, preserving the difference. Induction rules out such
+a first read.
+\end{proof}
+For an age $N$ define the exclusion set $A_N=\bigcup_{k\ge N+1}(D-kd)$.
+It is a guard region; every physical source in~\eqref{eq:source} is finite.
+
+\begin{lemma}[Guarded age extension]\label{lem:age}
+Suppose the current-cell perturbation at age $N$, phase $r$, reaches a
+certified standard suffix. If its finite recovery footprint and all reads
+of that suffix avoid $A_N$, the same normalized infinite trace occurs at
+every age $n\ge N$. If its nine inverse reads also avoid $A_N$, all intrinsic
+event counts agree.
+\end{lemma}
+\begin{proof}
+The actual finite difference of the sources is contained in $A_N$.
+Apply Lemma~\ref{lem:coupling} forwards and, for the history assertion,
+to the reversible rule for nine steps backwards.
+\end{proof}
+The infinite guard has a finite exact test. For a finite read $p$, solve
+$e-p=kd$ for each $e\in D$, with $k\ge N+1$. For a suffix phase ray
+$v_i+je_{\rm out}$, solve
+\begin{equation}\label{eq:guard}
+ v_i+je_{\rm out}=e-kd,\qquad j\ge0,\quad k\ge N+1.
+\end{equation}
+Nonparallel drifts give a unique rational solution by determinants, checked
+for integrality and the two inequalities. For equal parallel drifts and
+$v_i-e=ad$, a solution exists exactly when $-a\ge N+1$. For opposite drifts,
+equal full classes yield an eventual intersection. Distinct full classes
+never intersect. Thus every infinite ray and every old-wake epoch is covered.
+
+\section{The finite certificate specification}\label{sec:certificate}
+For each phase $r$, use the following age threshold $N_r$, in phase order:
+\begin{quote}\small\ttfamily
+8,7,9,2,1,5,1,3,5,15,7,2,2,1,2,6,1,2,5,2,3,11,21,3,4,3,\par
+2,1,13,17,1,17,3,7,1,3,18,10,7,0,14,8,3,5,9,9,4,4,9,4,\par
+5,25,9,13,2,12,7,2,0,16,9,14,12,14,0,3,2,4,14,3,4,8,11,\par
+6,12,5,12,4,4,15,14,0,0,15,1,15,0,8,0,1,0,3,1,4,2,5,8,\par
+1,3,0,3,2,1,1.
+\end{quote}
+The certificate must contain exactly the pairs $(n,r)$ with $0\le n\le N_r$:
+635 younger exceptions and 104 guarded bases. Each record specifies recovery
+length, endpoint pose, outgoing standard phase, exact intrinsic defect count
+and last defect time. Its checker must perform these steps:
+\begin{enumerate}
+\item Reconstruct the complete source~\eqref{eq:source}, its phase writes and
+the current-cell flip; recover the actual nine inverse turns.
+\item Replay every recovery update and compare the complete endpoint, pose,
+read word, event count and maximum distance from the impact cell.
+\item Verify the entire proposed standard future by the parity test below,
+including its nine-letter incoming history.
+\item At $n=N_r$, verify the finite, inverse and infinite footprints against
+$A_{N_r}$ using~\eqref{eq:guard}.
+\end{enumerate}
+
+At suffix phase $i$ and epoch $k$, the necessary actual colour is
+\begin{equation}\label{eq:tail}
+ 1_B(v_i+ke_{\rm out})\ \mathbin{\oplus}\
+ \#\{(j,z):v_j-v_i=ze_{\rm out},\ 0\le z\le k,
+                 \ z>0\text{ or }(z=0,j<i)\}\pmod2.
+\end{equation}
+Here $B$ is the entire endpoint field. A black cell hits a phase ray at most
+once, while each same-ray earlier phase supplies one threshold. Epoch zero,
+every hit and its successor, every self-write threshold, and the final
+infinite interval therefore form a finite complete check of~\eqref{eq:tail}.
+Induction over suffix time proves permanence.
+
+The recorded aggregate targets are maximum recovery length 64,584 at
+$(n,r)=(22,51)$, maximum radius 78 at $(25,51)$, and maximum event count
+33,586 at $(7,72)$. The last corresponds to $t=104\cdot7+72=800$.
+These are bounds at the certificate's recovery boundaries; the time bound
+is not a claim about the latest first permanent entry.
+
+\begin{proof}[Current-cell part of Theorem~\ref{thm:recovery}]
+The explicit records cover $n<N_r$. Each guarded base covers all $n\ge N_r$
+by Lemma~\ref{lem:age}. Taking the record maxima proves the bounds and the
+attained event count. Since $N_r\le25$, responses stabilize by age 25 at
+every phase.
+\end{proof}
+
+\section{Arbitrary perturbation sites and exact endpoints}
+For arbitrary $t,q$, its first future canonical read is the minimum of
+\[
+ \{104n+i\ge t:q=q_i+nd,\ n\ge0,\ 0\le i<104\}.
+\]
+Each phase supplies at most one $n$. Thus 104 exact collinearity and
+divisibility checks decide whether impact occurs and give its exact time.
+If there is none, coupling proves agreement forever. Otherwise the two
+orbits agree up to impact $s$, when the perturbed state is precisely $X_s$
+with its current cell toggled. The current-cell result now applies.
+Before impact all forward letters are canonical; only the first nine tests
+can see altered inverse history. Adding those nine to the post-impact bound
+gives 33,595 and completes Theorem~\ref{thm:recovery}.
+
+Write $s=104n+r$, choose $m=\min(n,N_r)$, and replay the bounded reference
+record at $(m,r)$. If its normalized write set is $Z$ and endpoint pose is
+$(p_{\rm end},h_{\rm end})$, the true complete endpoint is
+\[
+ B_s\xor\{q\}\xor(Z+nd),\qquad
+ (p_{\rm end}+nd,h_{\rm end}).
+\]
+Formula~\eqref{eq:source} represents $B_s$ by twelve finite arithmetic
+segments, the fixed seed and phase writes. Its binary size is polynomial in
+the input time and coordinates. The number of reference updates is bounded
+by an absolute constant. This proves the exact polynomial-bit-time endpoint
+algorithm, conditional on the same finite certificate.
+
+\section{Relation to existing results}
+The one-black theorem classifies complete inputs with one initially black
+cell. The present family instead contains $13+12n$ canonical historical
+cells before its phase writes, with one arbitrary colour toggle. The
+all-age guard is what extends a finite scattering check to those unbounded
+histories. The factor paper supplies the intrinsic event language; its
+local predicate is used here to count the recovery rather than to predict
+all possible initial fields.
+
+A recovered standard trace can leave a finite scattering scar. Repeated
+perturbations therefore require an additional closure theorem for the
+complete repaired fields. The single-toggle family developed here supplies
+a concrete interface for that further problem.
+
+The stable-read and symbolic-word viewpoints are prior methods
+\cite{gajardo,jillhewar}. This manuscript's specific content is the full
+canonical-age quantifier, guarded recovery reduction and finite certificate
+specification. The repository review record identifies which data have been
+replayed and which must still be restored before numerical certification.
+
+\appendix
+\section{Canonical word}
+The following concatenated lines specify the 104-letter word:
+\begin{quote}\ttfamily\small
+LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLL\par
+RLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR.
+\end{quote}
+The period and deposition identities can be checked from these letters and
+$P$ directly. The required finite certificate and source manifest are
+identified in the accompanying evidence record.
+
+\begin{thebibliography}{9}
+\bibitem{gajardo} A.~Gajardo. A symbolic projection of Langton's Ant.
+\emph{Discrete Mathematics \& Theoretical Computer Science}, 2003.
+\href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
+\bibitem{jillhewar} A.~Jillhewar. \emph{Finite-Support Periodic Highways of
+Langton's Ant: Necessary Conditions, Transverse Exclusions, and Exact Search},
+2026. Repository revision \texttt{76a7e234e577d992d086c204c3dea00ae72cf10a},
+\url{https://github.com/Atharva12456/langtons-ant-highway}.
+\end{thebibliography}
+\end{document}

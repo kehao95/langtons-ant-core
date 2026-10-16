@@ -1,0 +1,375 @@
+{
+  "schema": "silent-axis-geometry-v1",
+  "base_commit": "53f98d2e93614a8eea5424b0bb967c7311bb97f7",
+  "status": "passed",
+  "word_count": 6605,
+  "word_sha256": "6b76e51621e15d2304f1c0baa28790cc267cabafca3fc03250dea8721b2b4794",
+  "short_word_counts_sha256": "e1c3eb14d9e6f7eeccf35a265047f99f25a00a0a950e112b1c90087dc1defdaf",
+  "short_word_max_radius": 24,
+  "independent_cpp_words_and_all_levels_equal": true,
+  "oriented_vertices": 30380,
+  "oriented_edges": 31052,
+  "oriented_cyclic_components": [
+    [
+      24,
+      [
+        -2,
+        0
+      ],
+      14
+    ],
+    [
+      24,
+      [
+        0,
+        -2
+      ],
+      13
+    ],
+    [
+      24,
+      [
+        0,
+        2
+      ],
+      7
+    ],
+    [
+      24,
+      [
+        2,
+        0
+      ],
+      11
+    ],
+    [
+      28,
+      [
+        -4,
+        0
+      ],
+      14
+    ],
+    [
+      28,
+      [
+        -4,
+        0
+      ],
+      14
+    ],
+    [
+      28,
+      [
+        -4,
+        0
+      ],
+      14
+    ],
+    [
+      28,
+      [
+        0,
+        -4
+      ],
+      13
+    ],
+    [
+      28,
+      [
+        0,
+        -4
+      ],
+      13
+    ],
+    [
+      28,
+      [
+        0,
+        -4
+      ],
+      13
+    ],
+    [
+      28,
+      [
+        0,
+        4
+      ],
+      7
+    ],
+    [
+      28,
+      [
+        0,
+        4
+      ],
+      7
+    ],
+    [
+      28,
+      [
+        0,
+        4
+      ],
+      7
+    ],
+    [
+      28,
+      [
+        4,
+        0
+      ],
+      11
+    ],
+    [
+      28,
+      [
+        4,
+        0
+      ],
+      11
+    ],
+    [
+      28,
+      [
+        4,
+        0
+      ],
+      11
+    ],
+    [
+      104,
+      [
+        -2,
+        -2
+      ],
+      12
+    ],
+    [
+      104,
+      [
+        -2,
+        2
+      ],
+      6
+    ],
+    [
+      104,
+      [
+        2,
+        -2
+      ],
+      9
+    ],
+    [
+      104,
+      [
+        2,
+        2
+      ],
+      3
+    ]
+  ],
+  "mask_certificate": {
+    "condensation_mask_states": 88024,
+    "node_mask_states": 90256,
+    "zero_mask_reachable": false,
+    "independent_fixed_point_equal": true
+  },
+  "potentials": [
+    {
+      "normal": [
+        1,
+        0
+      ],
+      "vertices": 30064,
+      "edges": 30714,
+      "max_potential": 33,
+      "potential_sha256": "92d36a97d1643a35c4dff8302893c4225c164d08c831439f968c1e1829f43b79",
+      "prelude_states": 6436,
+      "lower_allowance": 43,
+      "upper_allowance": 43
+    },
+    {
+      "normal": [
+        0,
+        1
+      ],
+      "vertices": 30064,
+      "edges": 30714,
+      "max_potential": 33,
+      "potential_sha256": "1d10f6fe1d4388dae2a6e925b65a0558f995bb6130df9d9040290e5678c1e13d",
+      "prelude_states": 6441,
+      "lower_allowance": 43,
+      "upper_allowance": 43
+    },
+    {
+      "normal": [
+        -1,
+        0
+      ],
+      "vertices": 30064,
+      "edges": 30714,
+      "max_potential": 33,
+      "potential_sha256": "4646466b22e5edc8c192ecf84a84a83ea4327cbf2f2d941c873ae733f83725b4",
+      "prelude_states": 6436,
+      "lower_allowance": 42,
+      "upper_allowance": 43
+    },
+    {
+      "normal": [
+        0,
+        -1
+      ],
+      "vertices": 30064,
+      "edges": 30714,
+      "max_potential": 33,
+      "potential_sha256": "53c33ef74a6e8f3cbc384b9d91ca3b976c468a845545612eb7f78c7765b3bcfd",
+      "prelude_states": 6431,
+      "lower_allowance": 42,
+      "upper_allowance": 43
+    }
+  ],
+  "damaged_zero_potential_rejected": true,
+  "return_tube_radius": 43,
+  "event_cross_padding": 44,
+  "controls": {
+    "silent_fold_family": [
+      {
+        "n": 0,
+        "length": 397,
+        "black": 76,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -26,
+          3
+        ]
+      },
+      {
+        "n": 1,
+        "length": 453,
+        "black": 86,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -30,
+          3
+        ]
+      },
+      {
+        "n": 2,
+        "length": 509,
+        "black": 96,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -34,
+          3
+        ]
+      },
+      {
+        "n": 5,
+        "length": 677,
+        "black": 126,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -46,
+          3
+        ]
+      },
+      {
+        "n": 20,
+        "length": 1517,
+        "black": 276,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -106,
+          3
+        ]
+      },
+      {
+        "n": 100,
+        "length": 5997,
+        "black": 1076,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -426,
+          3
+        ]
+      },
+      {
+        "n": 1000,
+        "length": 56397,
+        "black": 10076,
+        "end": [
+          -1,
+          0
+        ],
+        "x_range": [
+          -5,
+          2
+        ],
+        "y_range": [
+          -4026,
+          3
+        ]
+      }
+    ],
+    "silent_fold_literal_updates": 65947,
+    "defect_required_control": {
+      "initial_black": 20,
+      "length": 23444,
+      "defects": 270,
+      "violates_both_tubes": true
+    },
+    "random_complete_inputs": 48,
+    "random_literal_updates": 86400,
+    "silent_subwords_checked": 26530
+  },
+  "scope": "Analytic all-length coverage plus exact finite certificates; no HC proof, no global J10 budget, no bounded-J10 termination.",
+  "sources_sha256": {
+    "check.py": "ad7e09b33ad7b31f4b5f5e800cb62d2b5c995030ff509da9d61b9231d0165a1c",
+    "independent.cpp": "1b9eb0905090de56af4d9043a0b5400ccdf7c79f98fede16e51f3e90a68cf780"
+  }
+}

@@ -8,16 +8,27 @@ def check_extensions():
     imported=json.loads((ROOT/'evidence/import-2026-10-16.json').read_text())
     for row in imported['files']:
         assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
+    latest=json.loads((ROOT/'evidence/import-consolidation-2026-10-16.json').read_text())
+    for row in latest['files']:
+        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
     with tempfile.TemporaryDirectory(prefix='wake-extensions-') as td:
         work=Path(td)
-        for name in ('periodic_growth_closure','mixed_wake_parity'):
+        for name in ('periodic_growth_closure','mixed_wake_parity','general_wake_parity','unit_diagonal_analytic','thin_parity_bridge'):
             shutil.copytree(ROOT/'verification'/name,work/name,ignore=shutil.ignore_patterns('__pycache__'))
         subprocess.run([sys.executable,'reproduce.py','--output',str(work/'growth.json')],cwd=work/'periodic_growth_closure',check=True,stdout=subprocess.DEVNULL)
         subprocess.run([sys.executable,'check.py','--enumerate'],cwd=work/'mixed_wake_parity',check=True,stdout=subprocess.DEVNULL)
         mixed=json.loads((work/'mixed_wake_parity/check_results_full.json').read_text())
         assert mixed==json.loads((ROOT/'verification/mixed_wake_parity/check_results_full.json').read_text())
-        result={'status':'passed','source_commit':imported['source_commit'],
+        extra={}
+        for name in ('general_wake_parity','unit_diagonal_analytic'):
+            output=work/(name+'.json')
+            subprocess.run([sys.executable,'reproduce.py','--output',str(output)],cwd=work/name,check=True,stdout=subprocess.DEVNULL)
+            extra[name]=json.loads(output.read_text())
+        bridge=subprocess.run([sys.executable,'check.py'],cwd=work/'thin_parity_bridge',check=True,capture_output=True,text=True)
+        assert json.loads(bridge.stdout)==json.loads((ROOT/'verification/thin_parity_bridge/check_results.json').read_text())
+        extra['thin_parity_bridge']=json.loads((work/'thin_parity_bridge/check_results.json').read_text())
+        result={'status':'passed','source_commit':latest['source_commit'],'new_arithmetic':extra,
                 'periodic_growth':json.loads((work/'growth.json').read_text()),'mixed_wake':mixed}
-    print('periodic growth dependencies and mixed-wake parity: PASS',flush=True)
+    print('periodic arithmetic and analytic regressions: PASS',flush=True)
     return result
 if __name__=='__main__': print(json.dumps(check_extensions(),indent=2))

@@ -18,7 +18,10 @@ def main():
     extension=json.loads((ROOT/'evidence/import-2026-10-16.json').read_text())
     for row in extension['files']:
         assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
-    report={'status':'passed','source_commit':extension['source_commit'],
+    latest=json.loads((ROOT/'evidence/import-consolidation-2026-10-16.json').read_text())
+    for row in latest['files']:
+        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
+    report={'status':'passed','source_commit':latest['source_commit'],
             'base_source_commit':imported['source_commit'],'scope':'extensions-only' if args.extensions_only else 'full',
             'completed_utc':None,'stages':[], 'external_review':False,'lean_build':False}
     with tempfile.TemporaryDirectory(prefix=ROOT.name+'-replay-') as td:
@@ -43,6 +46,8 @@ def main():
             run('mass',['reproduce.py'],('reproduction.json',),False)
         run('silent_fold_reset',['check.py','--compare','report.json'],('derived_masks.json','report.json'))
         run('silent_archive_amplification',['check.py','--compare','checked_report.json'],('checked_report.json',))
+        run('silent_archive_recovery',['reproduce.py'])
+        run('silent_axis_geometry',['check.py','--report','report.json'],('report.json',))
     report['completed_utc']=datetime.now(timezone.utc).isoformat()
     report['source_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in sorted((ROOT/'verification').rglob('*'))
@@ -50,6 +55,6 @@ def main():
     if args.output_report:
         args.output_report.parent.mkdir(parents=True,exist_ok=True)
         args.output_report.write_text(json.dumps(report,indent=2)+'\n')
-    print(ROOT.name+': ALL PAPER CHECKS PASSED')
+    print(ROOT.name+': SELECTED CHECKS PASSED ('+report['scope']+')')
 
 if __name__=='__main__': main()

@@ -75,3 +75,10 @@ The current standalone report separates a fresh new-module replay and PDF
 rebuild from hash-matched inheritance of the previous full classification.
 The complete default replay remains available; the independent profile replay
 has its own command in `PROFILE_REPLAY.md`.
+
+## Consolidated revision — 16 October 2026
+
+Research `9223766d` is integrated, retaining the pending version number. The
+previous same-day candidate is preserved in
+`revisions/2026-10-16-before-consolidation/`. See the current claim–evidence map
+in the repository review record. No Zenodo action was performed.

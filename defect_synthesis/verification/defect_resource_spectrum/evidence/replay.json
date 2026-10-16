@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "scope": "Exact supplied-schema arithmetic, with inherited complete bounded-defect coverage; no unrestricted HC decider.",
+  "backend": "isl-0.27-GMP\n",
+  "short": {
+    "words": 255,
+    "valid": 197,
+    "requested_updates": 1538
+  },
+  "powered": {
+    "schemas": 48,
+    "assignments": 768,
+    "feasible_assignments": 377,
+    "literal_updates": 11552
+  },
+  "parametric": {
+    "three_sweep": {
+      "domain": "[n] -> {  : n > 0 }",
+      "endpoint_field": "[n] -> { [x, y = 3] : 0 <= x < 2n; [x, y = 1] : 0 <= x < 2n; [x = 2n, y] : n > 0 and 0 < y <= 2; [x = -1, y] : n > 0 and 0 < y <= 2 }",
+      "all_lengths": true
+    },
+    "unrestricted_marker": {
+      "domain": "[n, aa, bb] -> {  : ((aa) mod 2 = 0 and n >= 0 and bb < 0) or ((aa) mod 2 = 0 and n >= 0 and bb > 0) or ((1 + aa) mod 2 = 0 and (bb) mod 2 = 1 and n >= 0) or (bb = 0 and (aa) mod 2 = 0 and n >= 0 and aa <= -2) or (bb = 0 and (aa) mod 2 = 0 and n >= 0 and aa >= 2n) or ((1 + aa) mod 2 = 0 and (bb) mod 2 = 0 and n >= 0 and aa > 2n) or ((1 + aa) mod 2 = 0 and (bb) mod 2 = 0 and n >= 0 and aa < 0) or ((1 + aa) mod 2 = 0 and (bb) mod 2 = 0 and 0 < aa < 2n and bb <= -2) or ((1 + aa) mod 2 = 0 and (bb) mod 2 = 0 and 0 < aa < 2n and bb >= 2) }",
+      "huge_count": "1000000000000000000000000000000000000000000000000000000000000",
+      "complete_endpoint_checked": true
+    },
+    "two_fold": {
+      "domain": "[n, m] -> {  : 0 <= m < n }",
+      "root_cost": "5*n+5*m+47",
+      "fixed_first_L": [
+        [
+          2,
+          3,
+          4,
+          9,
+          20,
+          21,
+          23,
+          24,
+          26,
+          28,
+          29,
+          37,
+          44,
+          45,
+          46,
+          55,
+          61,
+          72,
+          73,
+          74,
+          83,
+          89,
+          100,
+          101
+        ],
+        [
+          2,
+          3,
+          4,
+          20,
+          21,
+          23,
+          24,
+          26,
+          28,
+          29,
+          37,
+          44,
+          45,
+          46,
+          55,
+          61,
+          72,
+          73,
+          74,
+          83,
+          89,
+          100,
+          101
+        ]
+      ],
+      "power_first_L_phases": [
+        0,
+        9,
+        15,
+        26,
+        27
+      ],
+      "all_parameter_identity_checked": true
+    },
+    "three_fold": {
+      "domain": "[n, m] -> {  : false }",
+      "two_successor_formulations_agree": true
+    },
+    "thresholds": {
+      "root_cost": "2*n",
+      "defect_count": "max(0,4*n-9)",
+      "exact_threshold_checks": 26
+    },
+    "infinite_scope_control": {
+      "empty_finite_seed_rejected": true,
+      "infinite_black_ray_accepted_only_when_explicitly_supplied": true
+    }
+  },
+  "flat_cover": {
+    "base_vertices": 6501,
+    "base_edges": 6605,
+    "lifted_vertices": 7595,
+    "lifted_edges": 7763,
+    "simple_cycles": [
+      24,
+      28,
+      28,
+      28,
+      104
+    ],
+    "maxima": [
+      5,
+      956,
+      212
+    ],
+    "quotient_states": 366,
+    "window_sha256": "6b76e51621e15d2304f1c0baa28790cc267cabafca3fc03250dea8721b2b4794",
+    "finite_literal_bound": 1317,
+    "power_bound": 5,
+    "origin": "Inherited ten-factor/macro structure, reconstructed independently; triple-fold arithmetic checked separately."
+  },
+  "negative_controls": {
+    "input_and_resource_rejections": 4,
+    "resource_error_is_not_NO": true,
+    "global_generator_cap": "INCONCLUSIVE"
+  },
+  "source_sha256": {
+    "budget_schema.py": "1b032603ba5d893e509d010846c692affb8822ed3591ef2d11464104b0e8b0c4",
+    "check.py": "a02b9d71f86fc21013f9724a6b20a8182b1c4085b01c063ee0268f509ebc23d5",
+    "examples.py": "b0a860bbd0ab67d21233742d6251be4d73d1283300d4a2dcd7f3fcca660ac5ed",
+    "flat_cover.py": "792789ed13af6f02f5e4e41cf82a2efa956b958d203ac48a22cafff23f9defdd",
+    "isl_bridge.py": "7b58e0a9b97c6cdc3277bc9053e3c905b3fe242b970573bb31d7f7851503d949",
+    "trace_arithmetic.py": "7b53fa550bbc60b167610eeb5955dc2812c37f193a1b9804b8078d7761eaf356"
+  },
+  "wall_seconds_informational": 70.64477207500022
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "langton-semilinear-source-v1",
+  "base_commit": "2f6010a6bbccf5d342648f1c730a8bd2ea628961",
+  "integration_preserves": "efe22a9f551b1c1670bf5741013beec11d3c8041",
+  "sha256": {
+    "README.md": "e8196b6fbf7a15e2b811f8789c993ac8a82d479c0942a1a774d26a37cfe4b477",
+    "PROOF.md": "a1fb40ab1a94866ff6ce1ee3490e25156b8844c65248fd8d0f07db88d2945c7c",
+    "INTEGRATION.md": "0573703ab1c0c7f669c43ef109e9a0eae20f806988ad7478d4e3ec0f722ed607",
+    "reproduce.py": "20baef3057a1256d9e493e1dc5ba3f61123708fd130a98613791f8edff01f579",
+    "paper/main.tex": "a79bc222e5e4d6bd07ef3b6e6f2d8957f61776d9460cae5c2a2b4188601457c5",
+    "evidence/replay.json": "63c82ace56de64fffdfd5099c8afabcf71f9b68262ed790c926022a20d6e0376",
+    "evidence/attempts.json": "c943801041082e1e1c34cbec80b5de1113a68ed5f3e4813acd6ea9ec672102bc",
+    "code/budget_schema.py": "1b032603ba5d893e509d010846c692affb8822ed3591ef2d11464104b0e8b0c4",
+    "code/check.py": "a02b9d71f86fc21013f9724a6b20a8182b1c4085b01c063ee0268f509ebc23d5",
+    "code/examples.py": "b0a860bbd0ab67d21233742d6251be4d73d1283300d4a2dcd7f3fcca660ac5ed",
+    "code/flat_cover.py": "792789ed13af6f02f5e4e41cf82a2efa956b958d203ac48a22cafff23f9defdd",
+    "code/isl_bridge.py": "7b58e0a9b97c6cdc3277bc9053e3c905b3fe242b970573bb31d7f7851503d949",
+    "code/trace_arithmetic.py": "7b53fa550bbc60b167610eeb5955dc2812c37f193a1b9804b8078d7761eaf356"
+  }
+}

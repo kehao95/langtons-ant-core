@@ -1,0 +1,14 @@
+{
+  "schema": "schema-supply-source-manifest-v1",
+  "sha256": {
+    "README.md": "e196d475d7f82d9390aeacf2a79dcc65ba2a1f7953c50e7994468871d24ac861",
+    "check.py": "eb8e40aab3b97eb7faa40c17f5ecab6bde48895b565afee4f1d40db72063293f",
+    "dichotomy.py": "3a48cb6a763e98cc88b599b13bfc4e9e8296d0221dd90dbf3acbeac939debacf",
+    "independent.cpp": "e0a0d5c93b405a3da0abcc7dc9ddfcb1a8d73f35db7ff76ff91881c89a7f263f",
+    "isl_core.py": "59e14c335c1923e59bf16d35d0656e5f372aa011119e0d7ff32e1bbdec0eaec6",
+    "report.json": "04aaf77e9dc1bb4a244a78347b05f0cde1281acbc8c5ec1ed1521731c6fb60e6",
+    "reproduce.py": "e1728ac66785bb320d6afb7124238819e11e02a329e8921412d67f1108b6c772",
+    "supply.py": "2f8f1f04d967fde7101504fcffe75fcc64076aa9d45fd1965f8015ef7790476a",
+    "witness.json": "5792fad3124ba6293edfdce5fedc1850e42d5304927edd7f56e4c8853b895b0a"
+  }
+}

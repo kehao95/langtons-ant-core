@@ -1,0 +1,80 @@
+\subsection{Complete recovery of the producer family}
+The same $10n+41$-black field $B_n$ admits an exact infinite continuation.
+Thus the producer, its later consumer and the eventual highway can be studied
+on one complete autonomous trajectory.
+
+\textbf{Theorem (complete archive recovery).}
+Every $B_n$, $n\ge1$, eventually enters standard P104. Let $\tau_n$ be its
+first permanent entry and $E_n$ its total number of future intrinsic $J_{10}$
+events, including the nine windows across entry. Then
+\begingroup\renewcommand{\arraystretch}{1.3}
+\[
+\begin{array}{c|c|c|c}
+ n&\tau_n&E_n&|B_{\tau_n}|\\\hline
+ n\ge10\text{ even}&550n+6714&507n/2+3154&50n+337\\
+ n\ge17\text{ odd}&712n+11087&(743n+10351)/2&46n+622
+\end{array}
+\]
+The corresponding entry poses are $(-10,-3),\mathrm W$ and
+$(16,8),\mathrm N$, with drifts $(-2,-2)$ and $(2,2)$. In both infinite
+classes the last intrinsic event is at $\tau_n+8$. The remaining cases are
+\[
+\begin{array}{c|rrrrrr}
+n&1&2&3&4&5&6\\\hline
+\tau_n&7936&6564&24214&5244&16825&15026\\\hline
+n&7&8&9&11&13&15\\\hline
+\tau_n&11134&12786&18441&17125&21371&21603
+\end{array}
+\]
+\endgroup
+\textit{Proof.}
+At $s_n=76n+190$ the verified producer--consumer prefix ends at
+$(0,4n+9),\mathrm W$ with complete mass $22n+61$. The supplied grammar
+continues this exact state with 21 variable loops and 22 fixed words in the
+even regime, or 27 variable loops and 28 fixed words in the odd regime.
+The loop drifts are vertical, of magnitude four or eight; their lengths and
+affine repeat counts are derived from their stored letters. Summing them
+gives additional durations $474n+6524$ and $636n+10897$.
+The grammar is exposed by the supplement's decompressor, together with word
+lengths and hashes.
+
+For execution, write $n=2k+10$ or $2k+17$. Split displacement-four loop
+indices by parity and represent physical sites as $(x,\rho+8r)$,
+$0\le\rho<8$. Each phase becomes a record with an affine integer interval
+$L(k)\le r<U(k)$ and an affine time $ak+br+c$. Input cells have the same
+representation. All source cells and all reads are included. Endpoint
+crossings split the even domain into $k=0$ and $k\ge1$, and the odd domain
+into $k=0$, $k=1$ and $k\ge2$. These partitions are derived by comparing
+all affine endpoints. Endpoint tests, together with the slope on an unbounded
+slab, establish every order inequality over its entire domain.
+
+Within each spatial band the source colour and the ordered list of reads
+are fixed. The checker verifies strict chronology and alternates the actual
+colour at each read. This covers 11,371 spatial bands, 91,849 read checks
+and 80,982 chronological inequalities. Induction over time proves the whole
+script for every parameter. Source XOR prefix reads gives its complete
+terminal field, including unread cells.
+
+All pre-tail black cells have $x$ coordinates in $[-24,15]$ or $[-24,20]$.
+For standard phase positions $q_i$ and drift $d$, the colour at $q_i+ed$
+is the terminal membership bit XOR the parity of all earlier tail visits.
+Since $d_x=\pm2$, only finitely many epochs can meet the pre-tail support.
+Checking their membership-change thresholds, every self-visit threshold and
+the final infinite interval reduces the entire tail to 1,255 all-parameter
+parity checks. Induction then proves permanent standard motion. The last
+pre-entry letter differs from the backward extension of the uniquely aligned
+standard phase, proving that this entry is first.
+
+Nine inverse updates supply the true initial context. For each variable loop,
+after two repetitions its outgoing nine-letter context is fixed, so further
+copies add a fixed number of violations. Counting the exceptional first
+copies and the nine entry windows gives $E_n$ and the last-event time.
+Mass follows independently by summing right minus left turns. Finally, the
+twelve excluded values of $n$ have literal scripts, complete endpoint checks
+and the same infinite-ray verification. They exhaust the complement of the
+two infinite regimes.\hfill$\square$
+
+The certificate also gives exact first-read queries: minimize the affine
+read times in the finitely many records and the 104 terminal rays. The number
+of records is fixed independently of $n$, so distant queries preserve the
+complete field without expanding the intervening trajectory.

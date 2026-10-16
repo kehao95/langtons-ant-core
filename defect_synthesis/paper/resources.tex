@@ -1,0 +1,92 @@
+\section{Supply budgets for a finite schema collection}\label{sec:supply}
+A supplied finite collection fixes its word descriptions while their exponents
+remain free. Its resource spectrum distinguishes two possible behaviours.
+
+\begin{theorem}[Supply dichotomy]
+For every finite collection of bounded-power schemas, exactly one of the
+following alternatives holds, and the alternative is effectively decidable:
+\begin{enumerate}
+\item Some fixed initial cost $c_0$ supports arbitrarily many contained defects.
+One can extract a schema and an affine ray of exponents
+$k(n)=k_0+nv$ with $c(k(n))=c_0$ and $d(k(n))=d_0+n\delta$, $\delta>0$.
+\item There are computable rational $\alpha\ge0,\beta$ such that
+$d(w)\le\alpha c(w)+\beta$ for every feasible instance in the collection.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Project the semilinear resource graph to $(c,d)\in\N^2$ and compute a finite
+union of linear sets $b+\sum_j\N g_j$. A generator with zero cost coordinate
+and positive defect coordinate gives the first alternative. Conversely, if
+cost stays bounded while defects grow, positive-cost generators have bounded
+multiplicities in some component, so a positive vertical generator is necessary.
+When there is none, set
+\[
+ \alpha=\max\bigl(\{0\}\cup\{g_{j,d}/g_{j,c}:g_{j,c}>0\}\bigr),\qquad
+ \beta=\max_b(b_d-\alpha b_c).
+\]
+The inequality holds at each base and is preserved by every generator.
+Use zero constants for the empty spectrum. To extract the first alternative's
+exponents, fix its $c_0$ in the full $(k,c,d)$ graph. An unbounded component
+has a generator with positive $d$ coordinate, giving the asserted affine ray.
+The minimal seeds are computed by first-left reads for each parameter.
+\end{proof}
+The ray describes a family of finite inputs. The constants in the other
+alternative belong to the specified collection. When a collection has
+unbounded defects and no vertical ray, its least supply for at least $N$
+defects is $\Theta(N)$: the affine budget gives the lower bound, and any
+positive-defect generator gives the upper bound.
+
+\subsection{Three independent fold and consumer parameters}
+Use the inherited 28-letter word $A$, 102-letter connector $B$, and
+\[P=\mathrm{RLRRRRLRRRRLLLLRLRRL}.\]
+From $(-1,0)$ facing west consider
+\[
+ w(a,b,r)=B[9:]A^aBA^bP^r,\qquad a,b,r\ge0.
+\]
+Here $B[9:]$ deletes nine initial letters. The input field is synthesized
+from first reads, so the three exponents are independently quantified.
+
+\begin{theorem}[Exact fold--consumer spectrum]\label{thm:supply}
+The word is feasible exactly when
+\[
+ a\ge1,\qquad 0\le b<a,\qquad 0\le r\le b+2.
+\]
+On this domain, its minimum initial-black cost and contained-defect count are
+\[
+ C=46+5a+5b,\qquad
+ D=\begin{cases}0&r=0,\\9r-3&r\ge1.\end{cases}
+\]
+Its resource image is exactly
+\begin{align*}
+ &(51,0)+\N(5,0),\\
+ &(51,6)+\N(5,0),\\
+ &(51,15)+\N(10,9)+\N(5,0).
+\end{align*}
+Consequently $10D\le9C-309$, with sharp slope and intercept. For a complete
+input of mass $m\ge51$, the largest possible count within this family is
+\[
+ D_{\max}(m)=15+9\left\lfloor\frac{m-51}{10}\right\rfloor.
+\]
+\end{theorem}
+\begin{proof}
+Compile every phase of the five blocks into its exact position--time relation.
+Same-cell successor alternation gives a Presburger feasible set; the supplement
+checks its equality with the displayed region, with no bound on $a,b,r$.
+First-left times are partitioned into disjoint residue intervals. Each proposed
+interval is accepted only after exact set equality with the corresponding
+fibre, so its integer length counts all first-left reads. Their sum is
+$46+5a+5b$. The shifted ten-letter matcher includes all junction windows and
+zero powers, and its time-set count gives the stated $D$. These are exact
+symbolic identities in the supplied finite certificate.
+
+For $r=0,1$, put $b=0,a=1+s$ to obtain the first two components. For $r\ge2$,
+put $r=q+2$; its least feasible $b,a$ are $q,q+1$. Increasing $a$ supplies
+all extra multiples of five, yielding precisely the third component.
+The inequality holds on all three components and is equality at
+$a=b+1,r=b+2$ for every $b\ge0$, proving both sharpness claims.
+For the mass optimum take $b=\lfloor(m-51)/10\rfloor$, $a=b+1,r=b+2$;
+place any remaining black cells outside the finite read footprint.
+\end{proof}
+This extends the symmetric producer family used in the factor paper to all
+independently sized folds and finite consumer trains. Its terminal black mass
+is $67+9(a+b)+4r$, so initial supply and final mass measure different resources.

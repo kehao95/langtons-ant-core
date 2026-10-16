@@ -1,3 +1,74 @@
+# Current consolidation review — 16 October 2026
+
+Research source: `9223766d`; public-core base: `733a5115`. This revision prepares
+five release candidates in seven publication projects and one additional
+certificate-conditional recovery draft. No Zenodo write or publication occurred.
+
+| Manuscript change | Universal proof obligation | This revision's evidence |
+|---|---|---|
+| Wake: general quadratic character | Reconstruct parity edges from finite boundary; cancel port terms; compress run-pair inversion counts | [Arithmetic replay](wake_synthesis/evidence/consolidation-replay.json): original module hashes, exact affine excluded family, Python/C++ and UBSan controls |
+| Wake: analytic unit diagonal and thin pruning | Forced layers and binary interleaving; convention-correct parity splice | Same replay: analytic-structure regressions and all 1,280 thin masks. The large h=-7/profile exclusions are inherited |
+| Factor: all-length endpoint strip | Every oriented lift path has a common normal; four bounded potentials telescope, with all startup states covered | [Replay](factor_language/evidence/consolidation-replay.json): rebuilt 30,380-vertex graph, independent 6,605-word enumeration, 122,856 edge inequalities |
+| Factor: original producer's complete recovery | Two affine parity regimes plus twelve exceptions; complete chronological colours; all-parameter infinite-tail parity | Same replay: original 12-file package restored at its hashes, complete module replay, Python/C++ endpoint controls |
+| New Counting Defects paper | Bounded-fold coverage → exact mutable-field relation → unary time counting → finite-portfolio spectra | [Replay](defect_synthesis/evidence/consolidation-replay.json): four included modules, complete finite-cover reconstruction and exact symbolic resource identities |
+| Counting Defects: small witnesses | Polynomial interval verifier → residue-64 affine chamber → integer small solutions | Analytic proof checked against the cited NFM 2020 bound `(d+1)!H^d`. The original optional executable archive is absent; none of its reported checks is counted as freshly replayed |
+| One Bit Off the Highway draft | First-impact coupling and infinite-age guards reduce to 739 exact finite recoveries | [Partial controls](highway_stability/evidence/analytic-controls.json) verify the canonical infinite tail, wake recurrence and case index only. The numerical theorem remains conditional on the missing archive |
+
+## Structure and contribution review
+
+- **Contribution:** pass for allocation. The general wake screens strengthen the
+  existing inverse/classification question; archive recovery completes an existing
+  factor construction. Semilinear synthesis answers a separate input/complexity
+  question and receives one paper, merging overlapping research implementations.
+  The one-bit family has distinct complete-input quantifiers and a separate draft.
+- **Clarity:** revised abstracts and transitions lead with the resulting mathematics.
+  Factor runs from attraction through event macros, geometry, memory/recovery to
+  the independent mass proof. Wake keeps classification first and develops its
+  general arithmetic and analytic exclusions in integrated appendices. Counting
+  Defects moves from physical semantics to finite coverage, resource budgets and
+  small witnesses. Operational status stays in repository evidence, except the
+  recovery draft's necessary certificate hypothesis.
+- **Evidence:** analytic all-parameter bridges are stated explicitly. Computed
+  identities use exact integer relations and complete fields. Hashes identify
+  sources; they do not replace coverage. Internal implementation cross-checks are
+  not described as external mathematical review or new Lean formalization.
+- **Completeness:** wake/factor unchanged base mathematics is compared to previously
+  fully replayed archives; the new modules are replayed from isolated packages.
+  Defect synthesis replays every bundled module without the research checkout.
+  Full universal nonzero-budget enumeration is not an executed result. The missing
+  one-bit archive is a release blocker; the small-witness software is optional
+  support for the written analytic proof.
+- **Design/soundness:** keep full drift, true inverse history and complete endpoint
+  fields. Contained forward defects and intrinsic J10 differ at the first nine
+  tests. Strip confinement chooses one coordinate per interval, not a bounded ball.
+  Fixed-budget synthesis, finite-portfolio budgets and single-input termination
+  retain their respective quantifiers. The supply theorem has an explicit sharp
+  equality family; the strip constant and recovery time are sufficient bounds.
+
+## Packaging and layout checks
+
+The wake, factor and defect PDFs build without undefined references, missing
+citations or overfull boxes. Representative title, theorem, recovery-table,
+integer-bound and certificate pages were visually inspected. The new recovery
+draft also builds cleanly. The versioned standalone records bind each candidate
+ZIP, all source hashes and the rebuilt PDF text. Published releases are retained;
+prior same-day wake/factor candidates are archived separately.
+
+## Remaining work
+
+Author review and external mathematical review remain distinct from this internal
+verification. Restore the one-bit package identified in its owner README and replay
+its finite certificate before promoting its numerical claims. The optional original
+small-witness code can add implementation controls without changing the analytic
+proof. Future journal choice and any Zenodo publication need their own next step.
+
+---
+
+## Historical review — earlier 16 October revision (research 2f6010a)
+
+The following is the previous snapshot; its open producer future and six-paper
+allocation have been superseded by the current sections above.
+
 # Six-paper review — 16 October 2026
 
 Research source: `2f6010a` (following `11894a5`); core baseline: `7ed1162`.

@@ -1,0 +1,213 @@
+\section{Analytic exclusion of the unit diagonal}\label{app:unit}
+The classical rule is: read white/right or black/left, turn, toggle the current
+cell, and move one edge on the entire square lattice. The initial black set is
+finite. Suppose a nonempty word $u$ repeats forever, restores the heading, and
+has nonzero full displacement $d$. Set $P=|u|$ and $g=\#R-\#L$. The period
+need not be least; arbitrary unread finite debris is allowed.
+
+\begin{theorem}\label{ud:thm:unit}
+No such periodic highway has full displacement $(1,-1)$ or any quarter-turn
+rotation of this vector, regardless of period, width, growth, or finite seed.
+\end{theorem}
+The full vector is essential: standard P104 has displacement $(2,-2)$ and is
+not excluded because its primitive direction is $(1,-1)$.
+
+We prove the exclusion by forced layer words and a binary interleaving
+contradiction. This supplies an analytic alternative to the retained finite
+certificate.
+
+\subsection{Stable ranks and the singleton extreme}
+Write the phase positions as $q_i$, $0\le i<P$. For $d=(1,-1)$, exactly one
+full translation class lies on each level $t=x+y$. Choose $b_t=(0,t)$ and write
+$q_i=b_t+a_i d$. At a sufficiently far cell $b_t+nd$, every phase is present,
+the initial colour was white, and the visit times are
+\[
+ nP+\tau_i,\qquad \tau_i=i-Pa_i.
+\]
+Consequently each class, in increasing \emph{stable rank} $k$, turns
+$R,L,R,L,\ldots$. This is the necessary part of the finite-support criterion
+of~\cite{Jillhewar2026}. A fixed path of $\ell$ moves and displacement $\delta d$ changes
+these stable times by $\ell-P\delta$.
+
+The invariant $\sigma$ is $(-1)^{x+y}$ for vertical incoming headings and its
+negative for horizontal incoming headings. Every step changes both factors.
+At a transverse extreme, the incoming axis and the inward-neighbor condition
+fix both directions of a visit. All turns of that class are identical, so
+stable alternation forces one singleton $R$ event. Choose the top event $T$
+as a sufficiently late phase origin and translate it to $(0,0)$. It arrives
+east, leaves south, and gives $\sigma=-1$. The bottom arrives west and leaves
+north and must also have even transverse level. The width $W$ is therefore
+positive and even. The new phase's complete field remains finite.
+
+We will repeatedly use two direct consequences of chronology.
+
+\paragraph{Forced matching.}
+If a directed edge satisfies $b_s+e=b_t+\delta d$, it changes stable time by
+$1-P\delta$. All source occurrences and all target occurrences have the same
+order and equal cardinality. They match first to first, not by an arbitrary
+permutation. At the period seam, the additional epoch cancels in $i-Pa_i$.
+
+\paragraph{Consecutive-return rule.}
+A fixed contiguous path's first return to its starting physical cell must
+increase that cell's stable rank by exactly one. Translate the path far enough
+along $d$ for all its reads to be stable. Any intervening read would be another
+node of the same contiguous path; if none occurs, no stable rank can be skipped.
+If the endpoints were the same phase event, the path would instead form a
+closed component. Such a component cannot occur while obligatory deeper events
+remain: the successor on the $P$ phase indices is one cycle, including when
+the word is a power of a shorter word.
+
+\subsection{The first two interior layers are forced}\label{ud:sec:forced}
+Build downwards. Let $a_k=1$ indicate arrival from the already constructed
+upper side and $b_k=1$ departure to that side. At even $t$ the incoming headings
+for bits $1,0$ are W,E, and at odd $t$ they are S,N. Literal turning gives
+\begin{equation}\label{ud:eq:port}
+ b_k=a_k\xor(k\bmod2)\xor(t\bmod2).
+\end{equation}
+If the word has length $n$, write $I=\sum a_k$, $J=\sum b_k$, $o=n\bmod2$,
+and let $e$ count arrival-ones at even ranks. Counting departures gives
+\begin{equation}\label{ud:eq:count}
+ n=\begin{cases}2(I+J-2e)+o,&t\text{ even},\\
+                 2(J-I+2e)-o,&t\text{ odd}.
+    \end{cases}
+\end{equation}
+The remaining lower cut counts are $n-J$ and $n-I$. They agree, starting
+with $I=J=1$ from the top singleton.
+
+Width zero is impossible because a move changes $t$. For $W=2$, the extreme
+singletons force two middle visits, whereas~\eqref{ud:eq:count} gives $2=4e-o$;
+since $n=2$ implies $o=0$, this is impossible. Thus $W\ge4$, and layers
+$-1,-2,-3$ are strictly interior, with a deeper visited layer still required.
+
+\subsubsection{First layer}
+Denote rank $k$ at level $-1$ by $A_k$. Here $I=J=1$, so the only feasible
+arrival words are
+\[
+ 100,\quad1000,\quad001,\quad0010.
+\]
+Indeed~\eqref{ud:eq:count} gives $n=4e-o$, and its single arrival-one lies at
+even rank zero or two. In either last case, forced matching gives
+$A_0\to T\to A_2$, with directions E,S. This travels by $d$ in two updates,
+so $\tau(A_2)-\tau(A_0)=2-P<0$, contrary to increasing rank. There are at
+least four distinct phase events, so $P\ge4$. Only $100$ and $1000$ remain.
+Both have the fixed top path $A_2\to T\to A_0$.
+
+\subsubsection{Second layer}
+Let $B_k$ denote rank $k$ at level $-2$. Let $p_0<p_1<\cdots$ list its
+arrival-one ranks and $q_0<q_1<\cdots$ its departure-one ranks. Each list has
+size $c=2$ or $3$, according as A has length three or four. Matching forces
+\[
+ B_{q_1}\ \xrightarrow{\mathrm N}\ A_2
+ \ \xrightarrow{\mathrm E}\ T
+ \ \xrightarrow{\mathrm S}\ A_0
+ \ \xrightarrow{\mathrm W}\ B_{p_0}.
+\]
+This is a first physical return, so the consecutive-return rule gives
+\begin{equation}\label{ud:eq:first}
+ p_0=q_1+1.
+\end{equation}
+At this even layer, every even rank belongs to both lists or neither, and
+every odd rank belongs to exactly one. Before $p_0$ there is no arrival-one.
+Thus every even rank there is in neither list, and every odd rank is a
+departure-one. Equation~\eqref{ud:eq:first} forces
+\[
+ q_0=1,\qquad q_1=3,\qquad p_0=4.
+\]
+The even rank four belongs to both lists, giving $q_2=4$. Therefore $c=3$:
+A has word $1000$. The departure list is exhausted; all later even ranks
+have arrival bit zero and all later odd ranks arrival bit one. The remaining
+arrivals must be at five and seven, and rank nine cannot occur. Hence B is
+exactly one of
+\begin{equation}\label{ud:eq:B}
+ 00001101,\qquad000011010.
+\end{equation}
+No case enumeration is used in this forcing argument.
+
+The fixed upper paths now include
+\begin{align*}
+ &B_1\to A_1\to B_5,\\
+ &B_3\to A_2\to T\to A_0\to B_4\to A_3\to B_7.
+\end{align*}
+The B ranks departing downwards are $0,2,5,6,7$ and optionally eight; those
+arriving from below are $0,1,2,3,6$ and optionally eight. Only the first five
+of each list will be used, so the optional last event creates no further case.
+
+\subsection{A third-layer interleaving contradiction}\label{ud:sec:interleaving}
+Let $C_k$ denote rank $k$ at level $-3$ and reuse $p_j,q_j$ for its arrival-one
+and departure-one ranks. There are at least five of each. Ordered matching
+forces the following paths:
+\begin{align*}
+ C_{q_1}&\to B_1\to A_1\to B_5\to C_{p_2},\\
+ C_{q_3}&\to B_3\to A_2\to T\to A_0\to B_4\to A_3\to B_7\to C_{p_4}.
+\end{align*}
+Their compass words are respectively E,N,W,S and E,N,E,S,W,N,W,S. Both are
+first returns to the starting physical cell, with no other third-layer read
+between. Thus
+\begin{equation}\label{ud:eq:returns}
+ p_2=q_1+1,\qquad p_4=q_3+1.
+\end{equation}
+Two bridges, however, are forbidden. If $p_1=q_1$, then
+\[
+ B_2\to C_{p_1=q_1}\to B_1\to A_1\to B_5
+\]
+has compass word S,E,N,W: its first physical return skips from rank two to
+five on B. If $p_4=q_4$, then
+\[
+ B_4\to A_3\to B_7\to C_{p_4=q_4}\to B_6
+\]
+has compass word N,W,S,E: its first return skips from rank four to six.
+Both violate consecutivity, so
+\begin{equation}\label{ud:eq:bridges}
+ p_1\ne q_1,\qquad p_4\ne q_4.
+\end{equation}
+
+\begin{lemma}[Binary interleaving]\label{ud:lem:binary}
+Let $p$ and $q$ be increasing lists of indices in $\{0,\ldots,n-1\}$.
+Suppose every even index in this interval belongs to exactly one list, and
+every odd index to both or neither. If $p_2=q_1+1$ and $p_4=q_3+1$,
+then $p_1=q_1$ or $p_4=q_4$.
+\end{lemma}
+\begin{proof}
+If $q_1$ is odd, it also lies in $p$, and the next index is $p_2$, so
+$q_1=p_1$. Otherwise $q_1$ is even and $p_2$ is odd, giving $p_2=q_2$.
+If $q_3$ is even, $p_4$ is odd and gives $p_4=q_4$. Otherwise $q_3$ is odd
+and is $p_3$. Avoiding both asserted equalities therefore gives
+$p_2=q_2$ and $p_3=q_3$, two distinct odd indices that are consecutive in
+both lists. No list member can lie strictly between them. But an even
+integer lies between distinct odd integers, and it must belong to exactly
+one list, a contradiction.
+\end{proof}
+At odd layer $-3$, equation~\eqref{ud:eq:port} is precisely the list condition
+of Lemma~\ref{ud:lem:binary}. Thus~\eqref{ud:eq:returns} contradicts~\eqref{ud:eq:bridges}.
+
+\begin{proof}[Proof of Theorem~\ref{ud:thm:unit}]
+Widths zero, odd widths, and width two were excluded directly. At every
+other width the first two interior words are forced by Section~\ref{ud:sec:forced}, and their
+third-layer continuation is impossible by Section~\ref{ud:sec:interleaving}. Quarter-turn rotation
+preserves the rule and finite support. No finite enumeration is a premise.
+\end{proof}
+
+\subsection{Growth consequence and attribution}
+Jillhewar's results~\cite{Jillhewar2026} give $g\in4\Z_{>0}$ and
+$g\ge2\max(|d_x|,|d_y|)$. For $g=4$, both coordinates have absolute value at
+most two. Since heading restoration makes $P$ even, $d_x+d_y$ is even.
+Up to quarter-turns, the only nonzero drift types are $(1,-1)$, $(2,0)$ and
+$(2,-2)$. Theorem~\ref{ud:thm:unit} excludes the first; the cited all-period
+axis and even-diagonal growth-four theorems exclude the others. This recovers
+$g\ge8$. The supplemental periodic-growth proof provides an attributed reconstruction
+of those external dependencies. Neither these earlier algebraic results nor
+the growth corollary is claimed as new here. The analytic unit-diagonal proof
+uses only the preceding stable-rank and interleaving arguments and does not rely on those other exclusions.
+
+\subsection{Independent regressions}
+The supplement's \texttt{reproduce.py} reruns a complete-row Python enumerator,
+an independently written C++ vector-geometry enumerator, and witness audits.
+They agree on $4/124/12\,756$ local candidates and $2/2/0$ survivors. A separate
+implementation validates all $12\,880$ rejected branches, $32\,766$ short binary
+words, $32$ small count domains, eight compass port cases, two corrupt-witness
+negative controls, and $936$ genuine P104 prefix controls retaining the full
+$(2,-2)$ quotient. An additional analytic audit verifies the displayed first
+return paths, the forced words~\eqref{ud:eq:B}, and the interleaving implication
+on all candidates of the old finite certificate. These computations are
+\emph{regressions only}. The proof is the symbolic forcing and contradiction
+above, not their output table.

@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
 \usepackage[margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Uniqueness of the Classical Langton Ant Highway from Its Layer Profile},pdfauthor={Hao Ke},pdfsubject={Computer-assisted conditional highway classification},pdfkeywords={Langton ant, finite support, wake rigidity}}
@@ -11,6 +11,12 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F_2}
+\newcommand{\qd}{\mathfrak q_d}
+\newcommand{\Od}{\Omega_d}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\clip}{\operatorname{clip}}
+\newcommand{\xor}{\mathbin{\oplus}}
 \newcommand{\N}{\mathbb N}
 \newcommand{\R}{\mathrm R}
 \newcommand{\Lturn}{\mathrm L}
@@ -44,9 +50,10 @@ choices to $76$ normalized wake assignments. Complete ordered-event searches
 leave only the standard trace. The classification derives the standard layer profile and its longitudinal
 residues from these sparse geometric data. General wake-dependent period
 bounds and a terminating inverse-synthesis algorithm for every non-axis drift
-are retained as a second part of the theory. A separate mixed-wake parity
-identity constrains the transverse interleaving of odd classes for the same
-full drift at every growth and width.
+are retained as a second part of the theory. A quadratic wake character extends this parity method to every non-axis
+full drift, is computable in polynomial bit time, and excludes an explicit
+growth-eight family of unbounded span. A forced-layer argument also gives
+a purely analytic exclusion of unit-diagonal full drift.
 \end{abstract}
 \noindent\textbf{Keywords.} Langton's ant; finite support; periodic highway;
 computer-assisted proof; wake rigidity; exact enumeration.
@@ -478,6 +485,26 @@ contains exactly the displayed standard word. Its separate infinite-future
 verification supplies existence. Therefore $P=104$ and the wake is standard.
 \end{proof}
 
+
+\subsection{A shorter parity route to the same classification}\label{sec:parity-splice}
+The mixed-wake identity in Appendix~\ref{app:mixed} removes three of the five
+profiles analytically. In the top-rail frame its $Q$ layers are the odd
+levels: translating by $(0,1)$ changes the checker convention and leaves
+the lane labels and order unchanged. If $h$ is the missing layer, then
+$V=4$ and $J=(h+37)/2$. The condition $J+V/2\equiv1\pmod2$ leaves precisely
+$h=-7,-3$. It is independent of all eight interior residue choices.
+For $h=-7$, the twenty retained normalized chronological exclusions at cap
+168 apply. The $h=-3$ case is the standard layer-profile theorem, including
+its complete residue classification. This yields an alternative proof using
+those two retained subcertificates. The full five-profile computation above
+remains a complete route with the same conclusion.
+
+More generally, put the full extreme rails at $-2k,0$ and one odd class at
+each interior level except $h=-2k+1+2j$. Heading restoration forces $k$ odd.
+Then $V=k-1$ and $J=(k+2)(k-1)/2+j$, so the identity requires $j$ odd,
+equivalently $h\equiv1\pmod4$. This derivation supplies the necessary
+single-gap parity test at every such width.
+
 \section{Evidence, reproducibility and remaining questions}\label{sec:verification}
 The core theorem is computer-assisted: its logical coverage is a written
 mathematical argument and its finite claims are checked by integer programs.
@@ -500,7 +527,9 @@ python3 wake_synthesis/reproduce.py --quick
 The second command explicitly skips the 76-case exclusion replay, while checking
 its upper certificate, count tables and controls. The default
 is full replay, including the added periodic-growth and mixed-wake checks.
-The option \texttt{--extensions-only} replays those new modules alone.
+The option \texttt{--extensions-only} replays the arithmetic modules, including
+the general quadratic character, analytic unit-diagonal regressions and the
+thin-profile parity reduction, while retaining the classification evidence.
 An additional retained 256-lift profile classification has its own full
 entrypoint in \texttt{PROFILE\_REPLAY.md}; it is not needed by the stronger
 thin-wake theorem. Python's standard library and a C++17 compiler are sufficient;
@@ -747,6 +776,8 @@ Thus any such realizable detour requires an additional wake budget.
 
 
 \input{mixed-wake}
+\input{quadratic-wake}
+\input{unit-diagonal}
 
 \begin{thebibliography}{9}
 \bibitem{Gajardo2003}

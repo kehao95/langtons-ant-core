@@ -1,0 +1,9 @@
+{
+  "schema": "silent-archive-recovery-grammar-v1",
+  "bytes": 64212,
+  "sha256": "6b72915232ab5a9747a951013569db986324110bc4904c2d69211f3b9103372f",
+  "compressed_sha256": "7d3cbaf9c851bec2f3ba5bfa9d63b96b9872f89435e8bbbbd0d44ca4f43b3ef4",
+  "inherited_subset_sha256": "c8a4094feefe01bdbb124bf7921e0acb9919be62c4d85926218d3efce702ac87",
+  "inherited_witness_sha256": "44bebf4dd319a21e5a8cb456259fbced734b2af4a2b1af8bd470b618cfab69ee",
+  "base_commit": "db0c96f4b6181755b62b1860dabd40225fb6fd40"
+}

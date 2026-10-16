@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "thin_case_masks": 1280,
+  "rows": [
+    {
+      "missing": -9,
+      "V": 4,
+      "J": 14,
+      "index": 0,
+      "masks": 256,
+      "outcomes": {
+        "EXCLUDED:mixed_wake_rank_parity": 40,
+        "EXCLUDED:growth_or_signed_residues": 216
+      }
+    },
+    {
+      "missing": -7,
+      "V": 4,
+      "J": 15,
+      "index": 1,
+      "masks": 256,
+      "outcomes": {
+        "NOT_EXCLUDED:mixed_wake_rank_parity": 40,
+        "EXCLUDED:growth_or_signed_residues": 216
+      }
+    },
+    {
+      "missing": -5,
+      "V": 4,
+      "J": 16,
+      "index": 0,
+      "masks": 256,
+      "outcomes": {
+        "EXCLUDED:mixed_wake_rank_parity": 40,
+        "EXCLUDED:growth_or_signed_residues": 216
+      }
+    },
+    {
+      "missing": -3,
+      "V": 4,
+      "J": 17,
+      "index": 1,
+      "masks": 256,
+      "outcomes": {
+        "NOT_EXCLUDED:mixed_wake_rank_parity": 40,
+        "EXCLUDED:growth_or_signed_residues": 216
+      }
+    },
+    {
+      "missing": -1,
+      "V": 4,
+      "J": 18,
+      "index": 0,
+      "masks": 256,
+      "outcomes": {
+        "EXCLUDED:mixed_wake_rank_parity": 40,
+        "EXCLUDED:growth_or_signed_residues": 216
+      }
+    }
+  ],
+  "general_single_gap_cases": 2500,
+  "formal_growth8_controls": [
+    {
+      "scale": 1,
+      "width": 10,
+      "status": "NOT_EXCLUDED"
+    },
+    {
+      "scale": 3,
+      "width": 30,
+      "status": "NOT_EXCLUDED"
+    },
+    {
+      "scale": 5,
+      "width": 50,
+      "status": "NOT_EXCLUDED"
+    },
+    {
+      "scale": 101,
+      "width": 1010,
+      "status": "NOT_EXCLUDED"
+    },
+    {
+      "scale": 1000000000000000000000000000001,
+      "width": 10000000000000000000000000000010,
+      "status": "NOT_EXCLUDED"
+    }
+  ],
+  "scope": {
+    "old_minus7_search_rerun": false,
+    "old_standard_profile_search_rerun": false,
+    "drift_only_P104_proved": false,
+    "formal_wakes_realized": false
+  },
+  "source_sha256": "32ab8d2f6c2ed79f30e6f2ba075773249d89757e9947dd6a97772c78c5726667"
+}

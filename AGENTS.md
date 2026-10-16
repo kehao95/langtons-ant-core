@@ -1,13 +1,15 @@
 # Repository method
 
-This repository owns six publication projects: one-black highways, clocks and escape,
+This repository owns seven publication projects: one-black highways, clocks and escape,
 ports and composable scattering, wake rigidity and inverse synthesis, factor
-language and mass defects, and finite-memory prediction and remote feedback.
+language and mass defects, finite-memory prediction and remote feedback, and
+bounded-defect arithmetic synthesis. `highway_stability/` is an additional draft
+awaiting its original numerical certificate.
 
 ## Ownership
 
 - `one_black/`, `clock_escape/`, `four_cell_port/`, `wake_synthesis/`,
-  `factor_language/` and `memory_feedback/` each own their paper, proof, evidence and release.
+  `factor_language/`, `memory_feedback/` and `defect_synthesis/` each own their paper, proof, evidence and release.
 - Each uses `paper/`, `evidence/`, `release/` and `reproduce.py`. Formalized
   projects also have `lean/`; do not imply a Lean proof for the four-cell result.
 - Project-specific code stays with its consumer: one-black dynamics in
@@ -102,3 +104,11 @@ birth-filtered query and growing-scale necessity. Port, clock and one-black
 are unchanged. Retain pending version numbers and preserve earlier draft
 snapshots. No new Zenodo authorization is implied. New-module replay and
 hash-matched inheritance of an earlier full replay must be distinguished.
+
+## Consolidation of 16 October 2026
+
+Research `9223766d` strengthens factor and wake within their existing pending
+versions and adds `defect_synthesis/` 0.1.0. `highway_stability/` is excluded
+from release packaging until its 739-case archive is restored and replayed.
+Its manuscript states a certificate implication, not a freshly verified numerical
+recovery theorem. Preserve this distinction when updating indexes or the site.

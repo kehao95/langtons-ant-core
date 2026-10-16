@@ -10,12 +10,21 @@ J10-free prefix and consumes them later at J10 events. The related
 [folded ribbon](proof/silent-fold-reset.md) has exact first P104 time
 `152n+2527`, total intrinsic count `56n+926`, and reset flip cost at least
 `max(0,4m-136)`. Their full-source geometry explains why the S_D endpoint
-tube does not transfer to J10. The two families retain distinct future claims.
+tube does not transfer to J10. The two families have different seeds and recovery formulas; the reset bound belongs to the folded ribbon.
+
+## Consolidated results — 16 October 2026
+
+The original `10n+41`-black producer now has complete all-parameter recovery:
+first entry is `550n+6714` for even `n>=10`, `712n+11087` for odd `n>=17`,
+with twelve explicitly checked remaining cases. Every finite ten-legal physical
+interval also lies in a single endpoint coordinate strip with padding 43;
+consecutive events localized in K have an axis-cross container with padding 44.
+[Current replay](evidence/consolidation-replay.json) covers both additions.
 
 ## Manuscript and status
 
 Version **0.1.0** is prepared for review. [Manuscript](paper/main.tex) ·
-[Proof dependencies](PROOF.md) · [New-module verification](evidence/review-2026-10-16.json) ·
+[Proof dependencies](PROOF.md) · [New-module verification](evidence/consolidation-replay.json) ·
 [Release preparation](release/README.md).
 
 This project has no Zenodo record yet. Its first-release materials are local.

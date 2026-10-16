@@ -7,13 +7,13 @@ ROOT=Path(__file__).resolve().parents[1]
 def sha(data): return hashlib.sha256(data).hexdigest()
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--project',required=True,choices=('wake_synthesis','factor_language','memory_feedback','four_cell_port'))
+    parser.add_argument('--project',required=True,choices=('wake_synthesis','factor_language','memory_feedback','four_cell_port','defect_synthesis'))
     parser.add_argument('--quick',action='store_true',help='wake only: omit the large thin-wake exclusion replay')
-    parser.add_argument('--extensions-only',action='store_true',help='wake only: replay new modules and hash-match inherited fully replayed mathematical sources')
+    parser.add_argument('--extensions-only',action='store_true',help='wake/factor: replay new modules and hash-match inherited fully replayed mathematical sources')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
     if not __debug__: parser.error('Run without -O')
-    if args.extensions_only and (args.project!='wake_synthesis' or args.quick): parser.error('--extensions-only is a separate wake mode')
+    if args.extensions_only and (args.project not in {'wake_synthesis','factor_language'} or args.quick): parser.error('--extensions-only is a separate wake/factor mode')
     if args.quick and args.project!='wake_synthesis': parser.error('--quick applies only to wake')
     home=ROOT/args.project;manifest=json.loads((home/'release/candidate-manifest.json').read_text())
     archive=home/'release/candidate'/f"{args.project}-{manifest['version']}-source.zip"
@@ -35,7 +35,7 @@ def main():
                    'prior_completed_utc':replay['completed_utc'],
                    'unchanged_mathematical_files':len(inherited_sources),
                    'source_sha256':inherited_sources,
-                   'scope':'Prior full classification replay retained; these unchanged sources are hash-matched, not re-executed.'}
+                   'scope':'Prior full base replay retained; these unchanged sources are hash-matched, not re-executed.'}
     env=dict(os.environ);env.pop('PYTHONPATH',None);env['PYTHONNOUSERSITE']='1'
     with tempfile.TemporaryDirectory(prefix='preprint-standalone-') as directory:
         work=Path(directory)

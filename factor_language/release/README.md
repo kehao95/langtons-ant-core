@@ -12,3 +12,10 @@ The candidate version number is retained until publication. The current PDF,
 metadata and exact source hashes include the new results from research
 `2f6010a`. The previous 15 October review files are retained under the version's
 `revisions/2026-10-15/` directory. No Zenodo draft or publication was changed.
+
+## Consolidated revision — 16 October 2026
+
+Research `9223766d` is integrated, retaining the pending version number. The
+previous same-day candidate is preserved in
+`revisions/2026-10-16-before-consolidation/`. See the current claim–evidence map
+in the repository review record. No Zenodo action was performed.

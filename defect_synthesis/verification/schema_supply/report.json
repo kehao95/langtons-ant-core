@@ -1,0 +1,114 @@
+{
+  "count_certificate_sha256": "f24eca07b7f5dcf4f6c06b1183da584a53a91e36891cf465861a4043334525ff",
+  "damaged_certificates_rejected": [
+    "missing_linear_component",
+    "wrong_minimum_supply",
+    "false_event_slope",
+    "nonresetting_or_empty_power",
+    "nonresetting_or_empty_power",
+    "falsely_improved_bound"
+  ],
+  "exact": {
+    "archive": {
+      "count_pieces": 40,
+      "defects": "[aa, bb, cc] -> { [d = 0] : cc = 0 and 0 <= bb < aa; [d = -3 + 9cc] : 0 <= bb < aa and 0 < cc <= 2 + bb }",
+      "dichotomy": {
+        "alpha": [
+          9,
+          10
+        ],
+        "beta": [
+          -309,
+          10
+        ],
+        "kind": "affine_budget"
+      },
+      "exact_budget": "[mm] -> { [d] : (3 + d) mod 9 = 0 and mm >= 51 and -390 + 9mm <= 10d <= -309 + 9mm }",
+      "feasible": "[aa, bb, cc] -> {  : 0 <= bb < aa and 0 <= cc <= 2 + bb }",
+      "supply": "[aa, bb, cc] -> { [s = 46 + 5aa + 5bb] : 0 <= bb < aa and 0 <= cc <= 2 + bb }"
+    },
+    "arithmetic_vertical_control": {
+      "base_defects": 2,
+      "defect_stride": 3,
+      "is_ant_orbit": false,
+      "kind": "fixed_mass_unbounded",
+      "mass": 7
+    },
+    "pulse": {
+      "count_pieces": 2,
+      "defects": "[nn] -> { [d = 0] : nn = 0; [d = -8 + 9nn] : nn > 0 }",
+      "dichotomy": {
+        "alpha": [
+          9,
+          2
+        ],
+        "beta": [
+          0,
+          1
+        ],
+        "kind": "affine_budget"
+      },
+      "feasible": "[nn] -> {  : nn >= 0 }",
+      "supply": "[nn] -> { [s = 2nn] : nn >= 0 }"
+    },
+    "rail": {
+      "count_pieces": 2,
+      "defects": "[nn] -> { [d = 0] : 0 <= nn <= 2; [d = -9 + 4nn] : nn >= 3 }",
+      "dichotomy": {
+        "alpha": [
+          2,
+          1
+        ],
+        "beta": [
+          0,
+          1
+        ],
+        "kind": "affine_budget"
+      },
+      "feasible": "[nn] -> {  : nn >= 0 }",
+      "supply": "[nn] -> { [s = 2nn] : nn >= 0 }"
+    },
+    "standard": {
+      "count_pieces": 9,
+      "defects": "[nn] -> { [d = 0] : nn >= 0 }",
+      "feasible": "[nn] -> {  : nn >= 0 }",
+      "supply": "[nn] -> { [s = 17] : nn > 0; [s = 0] : nn = 0 }"
+    },
+    "three_fold": {
+      "feasible": "[aa, bb] -> {  : false }"
+    }
+  },
+  "finite_controls": {
+    "cases": 1323,
+    "complete_symbolic_seed_endpoint_pairs": 32,
+    "feasible_cases": 380,
+    "full_updates_per_implementation_on_feasible_cases": 439516,
+    "rows_sha256": "7a32408e99873733fbbd6423f9663dad5cc7dd1305d414c6276ef13d6b8737a3",
+    "symbolic_pairs_by_schema": {
+      "archive": 8,
+      "pulse": 8,
+      "rail": 8,
+      "standard": 8
+    }
+  },
+  "general_counting_backend": "certified interval-residue fast path; unsupported is UNKNOWN",
+  "huge_parameter": "1000000000000000000000000000000000000000000000000000000000000",
+  "native_library": "isl-0.27-GMP",
+  "not_established": [
+    "HC",
+    "a finite HC counterexample",
+    "fixed-mass unbounded defects for an ant schema",
+    "all-input uniform budget",
+    "automatic closure of all program families",
+    "Lean or external review"
+  ],
+  "schema": "flat-schema-supply-report-v1",
+  "source_sha256": {
+    "check.py": "eb8e40aab3b97eb7faa40c17f5ecab6bde48895b565afee4f1d40db72063293f",
+    "dichotomy.py": "3a48cb6a763e98cc88b599b13bfc4e9e8296d0221dd90dbf3acbeac939debacf",
+    "independent.cpp": "e0a0d5c93b405a3da0abcc7dc9ddfcb1a8d73f35db7ff76ff91881c89a7f263f",
+    "isl_core.py": "59e14c335c1923e59bf16d35d0656e5f372aa011119e0d7ff32e1bbdec0eaec6",
+    "supply.py": "2f8f1f04d967fde7101504fcffe75fcc64076aa9d45fd1965f8015ef7790476a",
+    "witness.json": "5792fad3124ba6293edfdce5fedc1850e42d5304927edd7f56e4c8853b895b0a"
+  }
+}

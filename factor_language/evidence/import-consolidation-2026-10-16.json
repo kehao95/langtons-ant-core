@@ -1,0 +1,82 @@
+{
+  "source_repository": "https://github.com/kehao95/langtons-ant",
+  "source_commit": "9223766d8f4de0e3c3807bc1a3e7008f53d5b9b5",
+  "files": [
+    {
+      "source": "experiments/hc_global/silent_axis_geometry/README.md",
+      "destination": "verification/silent_axis_geometry/README.md",
+      "sha256": "369e76f91de9189895a4101e3134b4de80eaea2677565d1340f8f565444f2b2e"
+    },
+    {
+      "source": "experiments/hc_global/silent_axis_geometry/check.py",
+      "destination": "verification/silent_axis_geometry/check.py",
+      "sha256": "ad7e09b33ad7b31f4b5f5e800cb62d2b5c995030ff509da9d61b9231d0165a1c"
+    },
+    {
+      "source": "experiments/hc_global/silent_axis_geometry/report.json",
+      "destination": "verification/silent_axis_geometry/report.json",
+      "sha256": "99fcdf578846d50e68d8206897b6924c509db207ba72b5e7f4ae4b12c16350f4"
+    },
+    {
+      "source": "experiments/hc_global/silent_axis_geometry/independent.cpp",
+      "destination": "verification/silent_axis_geometry/independent.cpp",
+      "sha256": "1b9eb0905090de56af4d9043a0b5400ccdf7c79f98fede16e51f3e90a68cf780"
+    },
+    {
+      "source": "proof/results/silent-axis-return.md",
+      "destination": "proof/silent-axis-return.md",
+      "sha256": "aa17866a2d7e00e44a47eeb9152ad9c80c2e771e9df6f28217a383b7e0020c15"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/grammar.json.zlib",
+      "destination": "verification/silent_archive_recovery/grammar.json.zlib",
+      "sha256": "7d3cbaf9c851bec2f3ba5bfa9d63b96b9872f89435e8bbbbd0d44ca4f43b3ef4"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/unpack_grammar.py",
+      "destination": "verification/silent_archive_recovery/unpack_grammar.py",
+      "sha256": "92fceb7aa5d5deddaf644240509ef28a242f9c6cf6e74403bf1eedd78579a1a6"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/README.md",
+      "destination": "verification/silent_archive_recovery/README.md",
+      "sha256": "4fad42b7c874099845aabb59a9525b7d04de9f92279c44149d22a764dfde76c3"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/check.py",
+      "destination": "verification/silent_archive_recovery/check.py",
+      "sha256": "d911d8844e42b59db55fb79d8866d154fb258e2af1c37396d2caac6cde321f1a"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/engine.py",
+      "destination": "verification/silent_archive_recovery/engine.py",
+      "sha256": "ae07c115dd6ef3e5f7de971d37bdcbb2e67b391b5380e2f3000e95470ff26929"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/checked_report.json",
+      "destination": "verification/silent_archive_recovery/checked_report.json",
+      "sha256": "57a636d095fd883cc7ac99460d39cc3eb589d60076158e23c17f4a585864a8cd"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/grammar-manifest.json",
+      "destination": "verification/silent_archive_recovery/grammar-manifest.json",
+      "sha256": "31201296991dfd9f3c6c38ed5c69cfeebe8a0dd8ec9ffa02b2149acbb6cc14ae"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/independent.cpp",
+      "destination": "verification/silent_archive_recovery/independent.cpp",
+      "sha256": "6c7a58730cc7a9be633443c87c6fa89fe7349b788d7ab2761bac3e9f080f5b76"
+    },
+    {
+      "source": "restored-original-package/experiments/hc_global/silent_archive_recovery/reproduce.py",
+      "destination": "verification/silent_archive_recovery/reproduce.py",
+      "sha256": "0296a3214378dea113e97d1869137b36d8122072cec0936c7e94b98e486261b8"
+    },
+    {
+      "source": "restored-original-package/proof/results/silent-archive-recovery.md",
+      "destination": "proof/silent-archive-recovery.md",
+      "sha256": "a6c37cb8871a50b7df679f4f750d00987dfe7e3e43f9b801e11e8713ad126de0"
+    }
+  ],
+  "restored_artifact": "research-artifacts/silent-archive-recovery-2026-10-15/"
+}

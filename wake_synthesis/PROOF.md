@@ -586,3 +586,21 @@ The new classification and its exact computations extend the own
 [Reading the Wake, version 0.1.0](https://doi.org/10.5281/zenodo.23402422).
 The renamed manuscript is prepared as version 0.2.0 of that same preprint.
 Published version-0.1.0 delivery files and hashes remain historical records.
+
+## Current consolidation — research 9223766d
+
+The manuscript now includes the [general quadratic wake proof](verification/general_wake_parity/PROOF.md)
+and [analytic unit-diagonal proof](verification/unit_diagonal_analytic/PROOF.md).
+The former reconstructs odd-used edges from the boundary, derives the one-tour
+sign and evaluates it through arithmetic runs; the latter replaces the old local
+enumeration premise with forced words and a binary interleaving contradiction.
+The [thin parity splice](proof/thin-wake-parity-splice.md) eliminates three
+missing-layer cases analytically. Its alternative route inherits the old h=-7
+exhaustion and the separate standard-profile classification. The original
+five-profile exhaustive route remains the default replay and is unchanged.
+
+[Fresh arithmetic replay](evidence/consolidation-replay.json) includes the general
+character, all-parameter excluded family, unit-diagonal regressions and parity
+splice, plus preceding mixed/growth modules. It does not re-execute the large
+classification. New internal labels in the paper do not alter original proofs,
+source manifests or frozen reports.

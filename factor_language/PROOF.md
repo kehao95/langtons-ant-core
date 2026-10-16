@@ -8,11 +8,23 @@ J10-free prefix and consumes them later at J10 events. The related
 [folded ribbon](proof/silent-fold-reset.md) has exact first P104 time
 `152n+2527`, total intrinsic count `56n+926`, and reset flip cost at least
 `max(0,4m-136)`. Their full-source geometry explains why the S_D endpoint
-tube does not transfer to J10. The two families retain distinct future claims.
+tube does not transfer to J10. Both families now have complete futures; their seeds, formulas and reset claims remain distinct.
 
 [New scoped replay](evidence/review-2026-10-16.json) pins research commit
 `2f6010a`. Original imported proof notes retain their historical execution
 statements; the dated evidence records own current replay status.
+
+## Current consolidation
+
+[Complete archive recovery](proof/silent-archive-recovery.md) closes the future
+of the original producer family. The restored original files retain their hashes;
+`verification/silent_archive_recovery` checks every affine band and infinite tail.
+[Silent-axis geometry](proof/silent-axis-return.md) uses the inherited all-parameter
+fold obstruction, new mask closure and four integer potentials to cover every
+finite legal word. Its constant 43 is a certified bound, not a sharpness claim.
+[Fresh replay](evidence/consolidation-replay.json) runs both additions and the
+preceding two construction modules. Unchanged attraction, event-macro and mass
+kernels retain their earlier full replays.
 
 ## Previously integrated proof chain
 
