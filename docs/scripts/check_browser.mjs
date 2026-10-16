@@ -87,11 +87,11 @@ try {
         assert.equal(await text(page, '#scale-output'), '128');
       } else if (name === 'ports') {
         await page.locator('#ports-end').click();
-        await page.waitForFunction(() => /match/i.test(document.querySelector('#ports-check').textContent));
+        await page.waitForFunction(() => document.querySelector('#ports-check').textContent.startsWith('PASS:'));
         await page.locator('#ports-mode').selectOption('sharp');
         await page.locator('#ports-end').click();
-        await page.waitForFunction(() => document.querySelector('#ports-time').textContent === '918');
-        assert.match(await text(page, '#ports-check'), /match/i);
+        await page.waitForFunction(() => document.querySelector('#ports-check').textContent.startsWith('PASS:'));
+        assert.equal(await text(page, '#ports-time'), '918');
       }
       console.log(`PASS ${width}px ${name}`);
     }
