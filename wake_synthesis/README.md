@@ -41,3 +41,14 @@ continues to cover the complete main-paper dependency chain.
 ## Open
 
 Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.
+
+## Analytic unit-diagonal proof
+
+The [standalone analytic note](verification/unit_diagonal_analytic/PROOF.md)
+replaces the unit-diagonal finite certificate by forced layer words and a binary
+interleaving contradiction. The exclusion and its `g>=8` consequence were already
+integrated above; this is a new proof, not a duplicate theorem claim.
+[Manuscript source](verification/unit_diagonal_analytic/paper.tex) and
+[independent regressions](verification/unit_diagonal_analytic/README.md) are
+provided separately; finite checks are no longer premises of this exclusion.
+No published or previously prepared release artifact is changed.
