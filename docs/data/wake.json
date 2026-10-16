@@ -1,0 +1,725 @@
+{
+  "word": "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR",
+  "heading": 1,
+  "seed": [
+    [
+      -7,
+      0
+    ],
+    [
+      -7,
+      1
+    ],
+    [
+      -6,
+      -3
+    ],
+    [
+      -6,
+      -2
+    ],
+    [
+      -6,
+      -1
+    ],
+    [
+      -6,
+      2
+    ],
+    [
+      -5,
+      -2
+    ],
+    [
+      -5,
+      0
+    ],
+    [
+      -5,
+      1
+    ],
+    [
+      -5,
+      2
+    ],
+    [
+      -4,
+      -2
+    ],
+    [
+      -4,
+      1
+    ],
+    [
+      -3,
+      -3
+    ],
+    [
+      -3,
+      1
+    ],
+    [
+      -2,
+      -3
+    ],
+    [
+      -2,
+      -1
+    ],
+    [
+      -2,
+      1
+    ],
+    [
+      -1,
+      -2
+    ],
+    [
+      -1,
+      0
+    ]
+  ],
+  "drift": [
+    2,
+    -2
+  ],
+  "oddClasses": [
+    [
+      -10,
+      0
+    ],
+    [
+      -10,
+      1
+    ],
+    [
+      -9,
+      1
+    ],
+    [
+      -8,
+      1
+    ],
+    [
+      -7,
+      0
+    ],
+    [
+      -6,
+      0
+    ],
+    [
+      -5,
+      0
+    ],
+    [
+      -4,
+      1
+    ],
+    [
+      -2,
+      0
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "sigma": -1,
+  "examples": {
+    "excluded": {
+      "wake": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "test": {
+        "status": "EXCLUDED",
+        "reason": "mixed_wake_rank_parity",
+        "growth": 8,
+        "vertical_odd_classes": 2,
+        "horizontal_odd_classes": 6,
+        "ordered_vertical_horizontal_pairs": 7,
+        "required_parity": 1,
+        "actual_parity": 0,
+        "normalized_residue_counts_Q0_Q1_C0_C1": [
+          1,
+          1,
+          3,
+          3
+        ]
+      }
+    },
+    "not_excluded": {
+      "wake": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "test": {
+        "status": "NOT_EXCLUDED",
+        "reason": "mixed_wake_rank_parity",
+        "growth": 8,
+        "vertical_odd_classes": 2,
+        "horizontal_odd_classes": 6,
+        "ordered_vertical_horizontal_pairs": 6,
+        "required_parity": 1,
+        "actual_parity": 1,
+        "normalized_residue_counts_Q0_Q1_C0_C1": [
+          1,
+          1,
+          3,
+          3
+        ]
+      }
+    }
+  },
+  "cases": [
+    {
+      "hole": -9,
+      "mask": 130,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 136,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 160,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 175,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 187,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 190,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 215,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 221,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 235,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 238,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 245,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -9,
+      "mask": 250,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 135,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 142,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 147,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 149,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 154,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 156,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 166,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 169,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 178,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 180,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 195,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 197,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 202,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 204,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 209,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 216,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 226,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 228,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 240,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -7,
+      "mask": 255,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 129,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 132,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 160,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 175,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 183,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 189,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 219,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 222,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 231,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 237,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 245,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -5,
+      "mask": 250,
+      "cap": 160,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 139,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 142,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 149,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 154,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 163,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 166,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 169,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 172,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 178,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 184,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 195,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 198,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 201,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 204,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 210,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 216,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 225,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 228,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 240,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -3,
+      "mask": 255,
+      "cap": 168,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 130,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 136,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 160,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 175,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 187,
+      "cap": 192,
+      "jobs": 8
+    },
+    {
+      "hole": -1,
+      "mask": 190,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 215,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 221,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 235,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 238,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 245,
+      "cap": 192,
+      "jobs": 1
+    },
+    {
+      "hole": -1,
+      "mask": 250,
+      "cap": 192,
+      "jobs": 1
+    }
+  ],
+  "proof": {
+    "cases": 76,
+    "jobs": 83,
+    "integerEdges": 90158,
+    "prefixVisits": 391065872
+  },
+  "provenance": [
+    {
+      "path": "wake_synthesis/verification/profile_classification/verify_word.py",
+      "sha256": "33d24681feac88c5fa2143b544e31f3a7704b33f74564bf64f50e7ae430b2b1c"
+    },
+    {
+      "path": "wake_synthesis/verification/mixed_wake_parity/check_results_full.json",
+      "sha256": "c23fb8b726f93941ab2bfc6947038e2b4e9dc559bc39b08091668c37a1c2e853"
+    },
+    {
+      "path": "wake_synthesis/verification/thin_wake/evidence/cases.json",
+      "sha256": "5edb708d70fdfbd0e5901ba53a9c763e179121801de5630bea54f96bda28c585"
+    },
+    {
+      "path": "wake_synthesis/verification/mixed_wake_parity/mixed_wake.py",
+      "sha256": "b9a429b209726011ec8c3021636a533e187ebf2a07d147316db25fb72d5e9800"
+    }
+  ]
+}

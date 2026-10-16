@@ -1,85 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="An interactive guide to the universal one-black-cell theorem for Langton's ant." />
-    <title>One Black Cell · Interactive Proof Guide</title>
-    <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
-    <link rel="stylesheet" href="./styles.css?v=39" />
-    <script defer src="./vendor/katex/katex.min.js"></script>
-    <script defer src="./vendor/katex/auto-render.min.js"></script>
-  </head>
-  <body>
-    <main class="shell">
-      <header class="masthead">
-        <div>
-          <p class="eyebrow">ONE BLACK · PROOF GUIDE</p>
-          <h1>One-cell perturbation</h1>
-        </div>
-        <div class="masthead-meta">
-          <p>Each stage isolates the candidate perturbation cells handled by one proof branch. Colors distinguish finite cases, inductive families, and scattering outcomes.</p>
-          <a class="repo-link" href="https://github.com/kehao95/langtons-ant-core" target="_blank" rel="noopener noreferrer" aria-label="View Langton's Ant proof repository on GitHub">
-            <svg class="github-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-            <span>GitHub Repository</span>
-          </a>
-        </div>
-      </header>
-
-      <nav class="stage-switch" aria-label="Proof stages">
-        <button type="button" data-proof-stage="outside" aria-current="page"><b>01</b> Untouched</button>
-        <button type="button" data-proof-stage="prefix"><b>02</b> Prefix hit</button>
-        <button type="button" data-proof-stage="pristine"><b>03</b> P104 scattering</button>
-        <button type="button" data-proof-stage="finiteHistory"><b>04</b> Finite history</button>
-        <button type="button" data-proof-stage="reverseHighway"><b>05</b> Reverse highway</button>
-        <button type="button" data-proof-stage="overview"><b>06</b> Global map</button>
-      </nav>
-
-      <section class="stage-guide" id="stage-guide" aria-label="Detailed stage documentation">
-        <div class="guide-header">
-          <div class="guide-title-row">
-            <span class="guide-badge" id="guide-badge">Stage 01</span>
-            <h2 class="guide-heading" id="guide-title">Untouched Placements & Asymptotic Spatial Immunity</h2>
-          </div>
-          <div class="guide-lean-sig" id="guide-lean-sig">
-            <code id="guide-lean-code">theorem separated_reaches : p ∉ support → separatedFromSupport p = true → ReachesP104 (blacken p entry)</code>
-          </div>
-        </div>
-
-        <div class="guide-body">
-          <div class="guide-prose" id="guide-mechanism"></div>
-        </div>
-      </section>
-
-      <section class="map-card" aria-label="Interactive proof grid">
-        <div class="map-toolbar">
-          <strong>Certified case map</strong>
-          <div class="map-actions">
-            <span id="cell-readout">Hover over a cell to inspect its role</span>
-            <button id="return-selection" type="button" disabled aria-hidden="true">Reset view</button>
-          </div>
-        </div>
-
-        <canvas id="proof-map" width="1100" height="760" aria-label="Interactive grid of certified proof cases and Langton's ant evolution"></canvas>
-
-        <div id="legend" class="legend" aria-label="Map legend">
-          <span class="legend-item"><i class="legend-chip legend-gray"></i>Blank-orbit reads</span>
-          <span class="legend-item"><i class="legend-chip legend-blue"></i>Untouched placements</span>
-        </div>
-
-        <div class="map-caption">
-          <span id="map-caption">The P104 tail continues indefinitely toward the lower left.</span>
-          <div class="map-links">
-            <a href="https://github.com/kehao95/langtons-ant-core/blob/main/one_black/PROOF.md" target="_blank" rel="noopener noreferrer">Read the proof</a>
-            <span class="link-divider">·</span>
-            <a href="https://github.com/kehao95/langtons-ant-core/tree/main/one_black/lean" target="_blank" rel="noopener noreferrer">Lean Proof</a>
-          </div>
-        </div>
-      </section>
-
-    </main>
-    <script type="module" src="./app.js?v=40"></script>
-  </body>
-</html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Six interactive proof laboratories for Langton’s ant: one-black convergence, clocks and escape, wake rigidity, local factors, memory feedback, and highway scattering.">
+<title>Langton’s Ant · Interactive Proof Labs</title>
+<link rel="stylesheet" href="./labs/lab.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to laboratories</a>
+<header data-site-nav></header>
+<main id="main" class="page-shell">
+<section class="home-hero" aria-labelledby="headline">
+<div><p class="eyebrow">A mathematical world in two colours</p>
+<h1>Follow the ant.<br><em>Explore the proof.</em></h1>
+<p class="lede">One simple rule creates a surprisingly rich geometry. Change a configuration, inspect a lifetime, or read a wake—and follow the argument behind what happens.</p>
+<div class="hero-actions"><a class="button primary" href="#laboratories">Choose a proof lab <span aria-hidden="true">↓</span></a><a class="button" href="./one-black.html">Start with one black cell ↗</a></div>
+<p class="muted">Six connected research stories. Exact dynamics. Proofs you can inspect.</p></div>
+<div class="hero-art"><canvas id="hero-ant" width="620" height="490" aria-label="A standard period-104 highway, replayed from its certified finite seed"></canvas><div class="art-caption"><span id="hero-caption">The standard highway · period 104</span><button id="hero-step" type="button">Advance 104 steps ↗</button></div><p class="muted" id="hero-error" role="status" hidden></p></div>
+</section>
+<section id="laboratories" aria-labelledby="labs-title">
+<div class="intro-strip"><div><p class="section-number">01 / THE LABORATORIES</p><h2 id="labs-title" style="margin:7px 0 0">Choose a question.</h2></div><p>Each laboratory begins with an experiment you control. Its proof steps explain how the observed mechanism extends to the complete input class covered by the theorem.</p></div>
+<div class="route-filter" role="group" aria-label="Filter laboratories by question">
+<button type="button" data-filter="all" aria-pressed="true">All six laboratories</button><button type="button" data-filter="geometry" aria-pressed="false">Shape & motion</button><button type="button" data-filter="time" aria-pressed="false">Time & memory</button><button type="button" data-filter="local" aria-pressed="false">Local rules → global structure</button>
+</div>
+<p id="filter-status" class="muted" aria-live="polite">Showing all six laboratories.</p>
+<div class="lab-cards">
+<article class="lab-card" data-topics="geometry local">
+<div class="card-art" aria-hidden="true"><svg viewBox="0 0 300 110"><defs><pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#cbd7cf" stroke-width=".7"/></pattern></defs><rect x="10" width="280" height="108" fill="url(#g)"/><path d="M50 80h32V48h32V64h32V32h32V48h32V16" fill="none" stroke="#146e75" stroke-width="3"/><rect x="113" y="33" width="14" height="14" fill="#17343c"/><path d="M211 10l7 12h-14z" fill="#bc653f"/></svg></div>
+<div class="card-body"><div class="card-kicker"><span>01 / Convergence</span><span class="tag">Lean proof</span></div><h3>One black cell.</h3><p>Place one perturbation anywhere on the infinite grid. See how the proof covers every position and heading.</p><div class="card-task">Try: choose a cell, then follow its proof branch.</div><div class="card-links"><a href="./one-black.html">Explore the case map ↗</a><a class="paper-link" href="./papers/one-black.pdf">Paper ↓</a></div></div></article>
+<article class="lab-card" data-topics="time local">
+<div class="card-art" aria-hidden="true"><svg viewBox="0 0 300 110"><path d="M30 92H270M30 92V15" stroke="#b3c7bc" fill="none"/><path d="M35 84H70V76H105V64H140V52H175V33H210V17H255" stroke="#146e75" fill="none" stroke-width="3"/><circle cx="175" cy="33" r="5" fill="#b65e3b"/><text x="200" y="92" fill="#607378" font-size="14" font-family="monospace">ΔC ≥ 1</text></svg></div>
+<div class="card-body"><div class="card-kicker"><span>02 / Time</span><span class="tag">Exact clock</span></div><h3>An ant on the clock.</h3><p>A clock ticks on every update. Explore why a finite square cannot hold the ant forever.</p><div class="card-task">Try: edit the square and inspect each clock increment.</div><div class="card-links"><a href="./clock.html">Build an escape argument ↗</a><a class="paper-link" href="./papers/clock.pdf">Paper ↓</a></div></div></article>
+<article class="lab-card" data-topics="geometry local">
+<div class="card-art" aria-hidden="true"><svg viewBox="0 0 300 110"><g stroke="#c5d5ca"><path d="M35 20H265M35 37H265M35 54H265M35 71H265M35 88H265"/></g><g fill="#146e75"><circle cx="80" cy="20" r="6"/><circle cx="220" cy="20" r="6"/><circle cx="80" cy="37" r="6"/><circle cx="220" cy="54" r="6"/><circle cx="80" cy="88" r="6"/><circle cx="220" cy="88" r="6"/></g><circle cx="220" cy="71" r="6" fill="none" stroke="#b65e3b" stroke-width="2"/><text x="141" y="108" fill="#607378" font-size="11" font-family="monospace">two lanes</text></svg></div>
+<div class="card-body"><div class="card-kicker"><span>03 / Rigidity</span><span class="tag">Exact certificates</span></div><h3>Read the wake.</h3><p>Can a trail determine a highway? Turn a proposed wake into class counts, parity constraints, and a finite classification.</p><div class="card-task">Try: move an odd class and see which condition changes.</div><div class="card-links"><a href="./wake.html">Inspect the layer profile ↗</a><a class="paper-link" href="./papers/wake.pdf">Draft ↓</a></div></div></article>
+<article class="lab-card" data-topics="local time">
+<div class="card-art" aria-hidden="true"><svg viewBox="0 0 300 110"><rect x="40" y="26" width="216" height="50" rx="7" fill="#d9e7db"/><text x="25" y="58" fill="#17343c" font-size="20" font-family="monospace" letter-spacing="2">R L R R L L R L L R L</text><path d="M41 85H255" stroke="#146e75" stroke-width="2"/><text x="99" y="104" fill="#607378" font-size="11" font-family="monospace">a 10-turn window</text></svg></div>
+<div class="card-body"><div class="card-kicker"><span>04 / Local language</span><span class="tag">Sharp witnesses</span></div><h3>Ten turns tell a story.</h3><p>Small windows constrain long futures. Inspect local violations and the balance between elapsed time and black mass.</p><div class="card-task">Try: slide an interval onto the sharp equality witness.</div><div class="card-links"><a href="./factors.html">Read the local language ↗</a><a class="paper-link" href="./papers/factors.pdf">Draft ↓</a></div></div></article>
+<article class="lab-card" data-topics="time local">
+<div class="card-art" aria-hidden="true"><svg viewBox="0 0 300 110"><path d="M28 65H273" stroke="#b6c9bc" stroke-width="2"/><path d="M62 65Q150 -15 237 65" fill="none" stroke="#146e75" stroke-width="2" stroke-dasharray="4 4"/><circle cx="62" cy="65" r="7" fill="#146e75"/><circle cx="237" cy="65" r="7" fill="#b65e3b"/><text x="43" y="94" fill="#607378" font-size="12" font-family="monospace">birth</text><text x="203" y="94" fill="#607378" font-size="12" font-family="monospace">readback</text><text x="117" y="29" fill="#146e75" font-size="12" font-family="monospace">age &gt; D</text></svg></div>
+<div class="card-body"><div class="card-kicker"><span>05 / Feedback</span><span class="tag">Complete history</span></div><h3>When memory returns.</h3><p>Follow a black cell from its birth to its next read. See how finite memory predicts motion—and where the past returns.</p><div class="card-task">Try: change memory length and inspect a remote lifetime.</div><div class="card-links"><a href="./memory.html">Follow a lifetime ↗</a><a class="paper-link" href="./papers/memory.pdf">Draft ↓</a></div></div></article>
+<article class="lab-card" data-topics="geometry time">
+<div class="card-art" aria-hidden="true"><svg viewBox="0 0 300 110"><path d="M20 85L85 20L150 85L215 20L280 85" fill="none" stroke="#146e75" stroke-width="6" stroke-linejoin="round"/><path d="M78 9H92V23H78ZM143 75H157V89H143ZM208 9H222V23H208Z" fill="#b65e3b"/><path d="M99 10L34 75M164 100L229 35" stroke="#9bbab0" stroke-dasharray="4 5" fill="none"/></svg></div>
+<div class="card-body"><div class="card-kicker"><span>06 / Composition</span><span class="tag">Protected interfaces</span></div><h3>Build with highways.</h3><p>Four black cells create a port. Compatible scattering rules join into finite routes while keeping their full history.</p><div class="card-task">Try: compose two scattering rules and inspect their guard.</div><div class="card-links"><a href="./ports.html">Compose a route ↗</a><a class="paper-link" href="./papers/ports.pdf">Draft ↓</a></div></div></article>
+</div></section>
+<section class="question-route"><p class="eyebrow" style="color:#9ccac0">FOLLOW THE CONNECTIONS</p><h2>What would you like to understand?</h2><p>The same ant appears in every lab. Each proof asks a different question about its motion.</p><div class="question-links"><a href="./clock.html">Why must it leave a finite region? →</a><a href="./wake.html">What fixes the period 104? →</a><a href="./memory.html">Can it revisit very old memory? →</a><a href="./ports.html">Can highways be composed? →</a></div></section>
+<section id="proof-and-evidence" aria-labelledby="evidence-title"><p class="eyebrow">02 / FROM INTERACTION TO PROOF</p><h2 id="evidence-title">Three ways to look closely.</h2><div class="evidence-grid"><article><h3>Run the exact rule.</h3><p>Replays turn, flip, and move on the complete finite field. Controls let you inspect a specific orbit, its true past, and the quantities that change.</p></article><article><h3>Inspect a certificate.</h3><p>Source-pinned data exposes finite witnesses, exact inequalities, and complete classifications. Each lab links to the code that regenerates its data.</p></article><article><h3>Follow the general argument.</h3><p>The proof steps explain coverage beyond any displayed example. The one-black theorem is Lean-checked; other results combine analytic arguments with the exact checks described in their papers.</p></article></div><p class="muted">Each theorem keeps its stated input class. Together these results illuminate the finite-support Highway Conjecture, which remains an open research question. Current drafts and published versions are identified in the <a href="https://github.com/kehao95/langtons-ant-core/blob/main/PREPRINTS.md">publication portfolio</a>.</p></section>
+</main><footer data-site-footer></footer><noscript><p class="noscript">The papers and proof links work without JavaScript. Enable JavaScript to use the live experiments.</p></noscript>
+<script type="module" src="./labs/home.mjs"></script>
+</body></html>

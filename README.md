@@ -63,10 +63,22 @@ memory and the expanded port manuscript use XeLaTeX. One-black retains its
 Pandoc/XeLaTeX workflow. Prepare a local archive with
 `python3 tools/prepare_preprints.py --project <project>`.
 
+## Interactive proof labs
+
+Explore the [six interactive proof labs](https://www.kehao.me/langtons-ant-core/):
+one-black case coverage, editable integer clocks, wake-class parity, local
+language and mass defects, black-cell lifetimes, and composable scattering.
+Each route connects a manipulable witness to its proof steps, exact evidence
+and paper. The original one-black guide is now at
+[one-black.html](https://www.kehao.me/langtons-ant-core/one-black.html).
+
+[Site development and checks](docs/) · [Interaction design](docs/DESIGN.md).
+Browser replay retains complete finite fields. The manuscript snapshots are
+identified as published papers or review drafts in the site's version manifest.
+
 ## Further research
 
-The [interactive one-black guide](https://kehao95.github.io/langtons-ant-core/)
-is maintained in [docs/](docs/). [Research](research/) retains the independent
+[Research](research/) retains the independent
 Highway Conjecture programme. The six papers have distinct input classes and
 conclusions; their combination does not supply an all-input convergence theorem.
 

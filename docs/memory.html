@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory &amp; Remote Feedback · Langton’s Ant</title>
+<meta name="description" content="Follow black-cell lifetimes, inspect exact stale-memory events, and explore a twenty-cell family with unbounded feedback delay.">
+<link rel="stylesheet" href="./vendor/katex/katex.min.css"><link rel="stylesheet" href="./labs/lab.css">
+<script defer src="./vendor/katex/katex.min.js"></script><script defer src="./vendor/katex/auto-render.min.js"></script>
+<script type="module" src="./labs/memory.mjs"></script>
+<style>
+.memory-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}.memory-readout{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.memory-control-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.memory-inspector select{max-width:100%;width:100%}.memory-inspector input[type=range]{width:100%}.memory-inspector label{display:block;margin-bottom:.75rem}.memory-inspector label span{display:block;font-size:.87em;margin-top:.25rem}.memory-big{font-size:clamp(1.1rem,2vw,1.8rem);font-weight:650}.memory-callout{padding:1rem;border-left:3px solid #b4683e;background:rgba(180,104,62,.07)}.memory-theorem{margin-top:1.2rem}.memory-wide-number{font-family:"Proof Mono","DejaVu Sans Mono",ui-monospace,monospace;font-size:.9em;overflow-wrap:anywhere}.memory-event-detail{min-height:6em}.memory-proof-link{display:inline-block;margin:.3rem .8rem .3rem 0}.memory-checkbox{display:flex!important;gap:.5rem;align-items:flex-start}.memory-checkbox input{width:auto!important;margin-top:.25rem}#family-n{width:100%;box-sizing:border-box}#load-status:empty,#family-error:empty{display:none}#memory-canvas{width:100%;height:auto;aspect-ratio:1.35}#scale-count{font-size:1.35rem}@media(max-width:650px){.memory-control-row{grid-template-columns:1fr}.memory-event-detail{min-height:0}}
+</style>
+</head>
+<body>
+<div data-site-nav></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<main id="main" class="page-shell">
+<header class="hero">
+<p class="eyebrow">Finite memory &amp; remote feedback</p>
+<h1>A black cell can remember.</h1>
+<p class="lede">The ant writes a black cell, walks away, and eventually reads it again. Follow one such lifetime, then stretch the journey while keeping the seed and the intervening event count fixed.</p>
+<p><a class="button" href="#explorer">Follow a lifetime</a> <a class="memory-proof-link" href="./papers/memory.pdf">Read the preprint ↗</a></p>
+</header>
+<p id="load-status" class="status" aria-live="polite"></p>
+<section id="explorer" aria-labelledby="explorer-heading">
+<p class="eyebrow">01 · The physical event</p>
+<h2 id="explorer-heading">When does an old black cell return?</h2>
+<p>An \(S_D\) event reads a black cell that was absent from the preceding \(D\) read positions. The true past is recovered by reversing the complete state. A <em>newly generated</em> event additionally consumes a lifetime written after the source checkpoint, outside a chosen fixed region \(K\).</p>
+<div class="lab-layout">
+<div class="panel">
+<canvas id="memory-canvas" class="grid-canvas" width="810" height="600" aria-label="Full black field, ant position, recent path, and selected memory cell"></canvas>
+<div class="metrics">
+<div class="metric"><span>Update</span><strong id="time-output">0</strong></div>
+<div class="metric"><span>All black cells</span><strong id="mass-output">0</strong></div>
+<div class="metric"><span>Position / heading</span><strong id="pose-output">—</strong></div>
+</div>
+<label for="time">Time before the next update</label>
+<input id="time" type="range" min="0" max="800" value="197" step="1" style="width:100%">
+<div class="memory-actions"><button id="play-button" class="button">Play</button><button id="step-button" class="button">One update</button><button id="birth-button" class="button">At birth</button><button id="read-button" class="button">At readback</button><button id="after-button" class="button">After readback</button></div>
+<p id="cell-status" class="status" aria-live="polite"></p>
+<p class="muted">The whole black field is retained. The line shows the most recent 208 read positions; changing the view changes only the camera. Arrow keys move the time slider by one update.</p>
+</div>
+<div class="panel memory-inspector">
+<div class="memory-control-row">
+<label for="input-case">Complete input<select id="input-case"><option value="blank">Blank plane</option><option value="reborn">One black cell at the origin</option><option value="family">Twenty-cell feedback family</option></select></label>
+<label for="literal-n">Literal family parameter<select id="literal-n" disabled><option>20</option><option>22</option><option>24</option><option>30</option><option>40</option></select></label>
+</div>
+<label for="memory">Memory length D = <output id="memory-output">128</output><input id="memory" type="range" min="1" max="256" value="128"></label>
+<label for="region"><output id="region-output">K is empty</output><input id="region" type="range" min="-1" max="24" value="-1"><span>A fixed square centred at the source pose; −1 selects the empty region.</span></label>
+<label class="memory-checkbox" for="fresh-only"><input id="fresh-only" type="checkbox" checked><span>Show only newly generated events outside K</span></label>
+<label for="event-select">Matching readback<select id="event-select"></select></label>
+<div class="memory-actions"><button id="previous-event" class="button">← Previous event</button><button id="next-event" class="button">Next event →</button></div>
+<p id="event-description" class="memory-event-detail" aria-live="polite"></p>
+<label for="view">Camera<select id="view"><option value="all">Whole finite black field</option><option value="local">Follow the ant</option></select></label>
+<p class="muted"><strong id="event-count">0</strong> matching events in <strong id="window-length">800</strong> replayed updates; <strong id="initial-mass">0</strong> initially black cells. Counts describe this finite window.</p>
+</div>
+</div>
+<p class="memory-callout"><strong>Try a causal test.</strong> On the blank plane, jump between birth 21 and readback 197. Raise D to 176: this 176-update-old read stops being an \(S_D\) event. Then choose “One black cell at the origin”: an initially black coordinate can qualify again after its old lifetime is erased and a new one is written.</p>
+</section>
+
+<section class="memory-theorem" aria-labelledby="family-heading">
+<p class="eyebrow">02 · A fixed seed size, a growing delay</p>
+<h2 id="family-heading">Twenty black cells. Thirty-one intervening events. No uniform age limit.</h2>
+<p>For every even \(n\ge20\), an explicit complete twenty-cell input writes cell \((0,2)\) at update 60. That cell survives until update \(624n-1516\). Exactly 31 \(S_{128}\) events occur strictly between these two updates.</p>
+<div class="lab-layout">
+<div class="panel">
+<label for="family-n">Even parameter n ≥ 20</label><input id="family-n" type="text" inputmode="numeric" value="20" maxlength="100" aria-describedby="family-error">
+<div class="memory-actions"><button id="small-family" class="button">n = 20</button><button id="huge-family" class="button">n = 10⁶⁰</button><button id="replay-family" class="button">Replay n = 20 ↑</button></div>
+<p id="family-error" class="status" role="status"></p>
+<p id="family-caption" class="memory-readout"></p>
+<p class="muted">The small inputs above are replayed literally. This calculator evaluates the proven affine formulas using exact integers for any entered even n; it does not simulate the enormous examples.</p>
+</div>
+<div class="panel memory-readout">
+<p>First readback</p><div id="family-death" class="memory-big"></div>
+<p>Black-cell lifetime</p><div id="family-age" class="memory-big"></div>
+<p>First permanent P104 entry</p><div id="family-entry" class="memory-big"></div>
+</div>
+</div>
+<p class="memory-callout">Increasing n moves the seed cells farther apart. Thus memory length D, intervening event count and initial black-cell count alone cannot bound the feedback lifetime. The full input coordinates retain the missing spatial information.</p>
+<ol class="proof-steps">
+<li><strong>Place five ports at time zero.</strong> Their twenty cells depend affinely on n; no later intervention is used.</li>
+<li><strong>Separate all five travel stages.</strong> Affine inequalities hold for every n ≥ 20, protecting previously written history.</li>
+<li><strong>Return to the same physical cell.</strong> The complete field at collision has a protected recovery region. Exact recovery takes 774 more updates and reaches a permanent standard highway.</li>
+</ol>
+</section>
+
+<section class="memory-theorem" aria-labelledby="macro-heading">
+<p class="eyebrow">03 · Predicting without discarding history</p>
+<h2 id="macro-heading">An exact event after 10⁶⁰ highway epochs.</h2>
+<p>The birth-filtered algorithm tracks both read times and complete field changes using finite arithmetic segments combined by XOR. In this checked input, a remote initial obstacle is first encountered at \(104N\), with \(N=10^{60}\). Its initial lifetime is skipped by the birth filter; the first qualifying <em>new</em> lifetime is born at \(104N-102\) and consumed at \(104N+46\).</p>
+<div class="lab-layout">
+<div class="panel memory-readout"><p>Exact birth update</p><strong id="huge-birth" class="memory-wide-number"></strong><p>Exact consumption update</p><strong id="huge-death" class="memory-wide-number"></strong><p>Age: <strong>148</strong> · memory length D: <strong>128</strong></p><details><summary>Inspect the exact endpoint representation</summary><p>Read cell: <span id="huge-point" class="memory-wide-number"></span></p><p><strong id="huge-terms"></strong> XOR segments retain the complete post-state after <span id="huge-reads" class="memory-wide-number"></span> reads, including untouched off-path cells.</p><p><a href="./data/memory.json" download="memory-certificates.json">Download exact segments and source hashes</a></p></details></div>
+<div class="panel"><h3>What makes this a proof-producing query?</h3><ol class="proof-steps"><li>Recover the true D-turn suffix from the source state.</li><li>Use the finite suffix dynamics to locate the next stale read.</li><li>Carry every skipped write as a timed arithmetic segment.</li><li>Check the consumed lifetime’s birth and its position outside fixed K.</li></ol><p class="muted">The browser displays a fixed certificate regenerated by the original exact algorithm. It evaluates its decimal integers exactly; it does not offer a general browser implementation of the event decider.</p></div>
+</div>
+</section>
+
+<section class="memory-theorem" aria-labelledby="scale-heading">
+<p class="eyebrow">04 · What persistent nonperiodicity would require</p>
+<h2 id="scale-heading">More time forces feedback at larger scales.</h2>
+<p><strong>Under the premise that a finite-support trajectory never becomes a nonzero translating periodic orbit</strong>, the growing-scale theorem forces many distinct newly generated black lifetimes to be read back far away and late. This calculator assumes that premise; it does not classify any input as nonperiodic.</p>
+<div class="panel">
+<label for="scale">Horizon H = 3<sup><output id="scale-output">64</output></sup></label><input id="scale" type="range" min="64" max="512" step="16" value="64" style="width:100%">
+<p>For source mass 20 and source coordinate width 100:</p>
+<div class="metrics"><div class="metric"><span>Memory length D</span><strong id="scale-D"></strong></div><div class="metric"><span>Fixed square radius</span><strong id="scale-radius"></strong></div><div class="metric memory-readout"><span>Birth threshold ⌊H¼⌋</span><strong id="scale-late"></strong></div></div>
+<p>At least this many distinct qualifying lifetimes are consumed by H:</p><div id="scale-count" class="memory-readout memory-big"></div>
+<p class="muted">Each counted lifetime is born after the displayed threshold, lives for more than D updates, and is consumed outside the displayed fixed square. The same lifetimes satisfy all three properties.</p>
+<details><summary>Show the exact horizon</summary><p id="scale-horizon" class="memory-wide-number"></p></details>
+</div>
+</section>
+
+<section class="evidence" aria-labelledby="evidence-heading">
+<h2 id="evidence-heading">From interactive witnesses to the proof</h2>
+<p>The lifetime inspector executes the classical complete-field rule. Exact exported fixtures cross-check it against the publication-owned Python implementations. The parameter-family theorem uses all-parameter affine guards; the event algorithms and growing-scale theorem use analytic bounds and exact finite arithmetic.</p>
+<p><a class="memory-proof-link" href="./papers/memory.pdf">Memory preprint</a><a class="memory-proof-link" href="https://github.com/kehao95/langtons-ant-core/blob/main/memory_feedback/PROOF.md">Proof and dependency map</a><a class="memory-proof-link" href="https://github.com/kehao95/langtons-ant-core/blob/main/memory_feedback/verification/scalable_feedback_circuit/circuit.py">Twenty-cell construction</a><a class="memory-proof-link" href="https://github.com/kehao95/langtons-ant-core/blob/main/memory_feedback/verification/birth_filtered_feedback/PROOF.md">Exact feedback and growing scales</a><a class="memory-proof-link" href="./data/memory.json">Checked page data</a></p>
+<p class="muted">The published mathematical owner remains the memory paper. Its S<sub>D</sub> events are defined separately from the factor paper’s J<sub>10</sub> events; their counts are not interchangeable.</p>
+</section>
+</main><div data-site-footer></div>
+</body></html>

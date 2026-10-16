@@ -16,7 +16,7 @@ const proofMapPath = path.join(repositoryRoot, "docs/proof-map.json");
 const outputDirectory = path.join(repositoryRoot, "one_black/paper/figures/scattering");
 const exceptionalDirectory = path.join(repositoryRoot, "one_black/paper/figures/exceptional");
 const stageDirectory = path.join(repositoryRoot, "one_black/paper/figures/stages");
-const baseUrl = process.argv[2] ?? "http://127.0.0.1:4173";
+const baseUrl = process.argv[2] ?? "http://127.0.0.1:4173/one-black.html";
 
 const PRISTINE_REFERENCE_AFTER_HIT_CYCLES = 15;
 const VIEW_PADDING_CELLS = 3;

@@ -1,5 +1,17 @@
 # Repository changes
 
+## 2026-10-16 — Six interactive proof laboratories
+
+Replaced the single-guide landing page with a common overview and six proof
+routes. The original one-black guide remains available at `one-black.html`.
+New labs expose exact clocks, wake parity, mass–defect windows, true-history
+feedback and protected scattering through editable witnesses and proof steps.
+Exports carry hashes of their publication-owned sources; browser arithmetic
+and endpoint tests cross-check the canonical certificates. Pages now builds
+an isolated artifact containing six exact PDF snapshots and tests real
+interactions at a project URL prefix before deployment. Publication records,
+mathematical sources and published release files are unchanged.
+
 ## 2026-10-16 — Integrate renewed feedback, silent memory and mixed wakes
 
 Research `2f6010a` strengthens the existing wake, factor and memory candidates.

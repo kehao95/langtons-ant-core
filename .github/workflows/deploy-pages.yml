@@ -1,10 +1,16 @@
-name: Deploy interactive proof guide
+name: Deploy interactive proof labs
 
 on:
   push:
     branches: [main]
     paths:
       - docs/**
+      - one_black/**
+      - clock_escape/**
+      - wake_synthesis/**
+      - factor_language/**
+      - memory_feedback/**
+      - four_cell_port/**
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -22,16 +28,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Validate static guide
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test tools
+        run: |
+          npm ci --prefix docs
+          docs/node_modules/.bin/playwright install --with-deps chromium
+      - name: Check exact exports and replay witnesses
         run: |
           node --check docs/app.js
           python3 -m json.tool docs/proof-map.json >/dev/null
+          python3 docs/scripts/export_wake_factors.py --check
+          python3 docs/scripts/export_memory.py --check
+          python3 docs/scripts/export_ports.py --check
+          npm test --prefix docs
+      - name: Build and test the deployed artifact
+        run: |
+          python3 docs/scripts/build_site.py
+          python3 docs/scripts/check_site.py
+          npm run test:browser --prefix docs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs
+          path: _site
 
   deploy:
     environment:

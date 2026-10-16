@@ -23,7 +23,7 @@ const proofMapPath = path.join(repositoryRoot, "docs/proof-map.json");
 const outputDirectory = path.join(repositoryRoot, "one_black/media");
 const scatteringDirectory = path.join(repositoryRoot, "one_black/paper/figures/scattering");
 const baseUrl = process.argv.find((argument) => argument.startsWith("http://") || argument.startsWith("https://"))
-  ?? "http://127.0.0.1:4173";
+  ?? "http://127.0.0.1:4173/one-black.html";
 const tempParent = process.env.X_GIF_TMP ?? os.tmpdir();
 const fontPath = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf";
 const captureFps = 5;

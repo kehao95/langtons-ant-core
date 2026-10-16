@@ -14,7 +14,9 @@ language and mass defects, and finite-memory prediction and remote feedback.
   `one_black/langtons_ant/`, clock, port and wake checkers in their respective `verification/` directories.
 - `research/` owns further deductions and the open HC program. Its Python
   modules depend on `one_black/`; the clock project is self-contained.
-- `docs/` owns the interactive one-black guide and its image/animation exporters.
+- `docs/` owns the six interactive proof labs, their source-pinned exports,
+  browser checks and the one-black image/animation exporters. See its README
+  for the staged Pages build and interaction design.
 
 ## Evidence and changes
 
