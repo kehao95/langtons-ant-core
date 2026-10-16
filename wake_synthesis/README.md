@@ -52,3 +52,19 @@ integrated above; this is a new proof, not a duplicate theorem claim.
 [independent regressions](verification/unit_diagonal_analytic/README.md) are
 provided separately; finite checks are no longer premises of this exclusion.
 No published or previously prepared release artifact is changed.
+
+## General non-axis quadratic wake obstruction
+
+The [independent research note](verification/general_wake_parity/PROOF.md)
+extends the attributed rank/port method to every non-axis full drift. The wake
+uniquely determines odd-used edges, giving a quadratic necessary character and
+a polynomial-bit-time evaluator that does not expand transverse gaps. An exact
+all-parameter certificate excludes a growth-eight `(3,1)` family of unbounded
+span, beyond the stated signed-residue, density and winding screens.
+[Manuscript](verification/general_wake_parity/paper.tex) and
+[isolated replay](verification/general_wake_parity/README.md) accompany the proof.
+This module has its own `reproduce.py`; it is not silently included in the
+existing main-paper replay. Passing the screen is NOT a realization certificate.
+No eventual-periodicity, all-growth-eight exclusion, HC solution, independent
+peer-review or external publication claim is made. Published/prepared artifacts
+and the existing theorem dependencies are unchanged.

@@ -1,0 +1,443 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,longtable}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F_2}
+\newcommand{\qd}{\mathfrak q_d}
+\newcommand{\Od}{\Omega_d}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\clip}{\operatorname{clip}}
+\title{A Quadratic Wake Obstruction for\\Non-Axis Periodic Langton Highways}
+\author{Hao Ke}
+\date{Research draft for independent review --- October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a finite-support periodic highway of the classical two-colour Langton ant,
+let $d=(a,b)$ be its full displacement and let $O$ be its odd-class wake.
+When $ab\ne0$, the wake uniquely determines the parity of every used edge:
+horizontal and vertical edge sets are the finite boundary antiderivatives of
+$O$ on quotient lines. We evaluate the lifted-port permutation sign on this
+reconstructed graph and obtain a quadratic, translation- and
+checker-convention-independent character $\qd(O)$ satisfying
+$\qd(O)=1+a\pmod2$, together with an explicit winding condition.
+The characters are computable in polynomial bit time from binary-encoded wake
+representatives, without expanding large spatial gaps or supplying a period.
+An application excludes an explicit growth-eight family of drift $(3,1)$ and
+unbounded transverse span, although every member satisfies the signed residue,
+density and winding tests. The method extends earlier special-drift rank
+obstructions; it is only a necessary screen and proves neither eventual
+periodicity nor the highway conjecture.
+\end{abstract}
+
+\section{Statement and contribution}
+The rule is white/right or black/left, followed by toggling the current site
+and moving one edge. The black field is a complete finite subset of $\Z^2$.
+Suppose a nonempty turn word of length $P$ repeats forever, restores the heading,
+and has nonzero full displacement $d$. Finite preludes and genuinely unread
+debris are allowed. We do not replace $d$ by its primitive direction.
+
+Stable-class realizability, signed mod-four residues, and the axis/two-lane
+rank-factorization method are due to Jillhewar~\cite{J}. The project's earlier
+mixed-wake formula at $(2,-2)$~\cite{M} is a special case, not a new result here.
+The contributions of this note are the elimination of the unknown event graph
+for \emph{all} non-axis drifts, a convention-independent quadratic wake
+character, a compressed polynomial-bit-time evaluator, and an all-scale
+non-diagonal growth-eight exclusion. The use of quadratic permutation
+inversions itself is elementary and already present in~\cite{J}.
+
+Assume $d=(a,b)$, $ab\ne0$. A half-turn makes $a>0$; heading restoration implies
+$a+b$ even. Let $O$ consist of full $d$-classes with odd phase multiplicity and
+write $g=|O|$. Canonical representatives are
+\[
+ \pi_d(x,y)=(r,y-b\lfloor x/a\rfloor),\qquad r=x\bmod a,\quad 0\le r<a.
+\]
+Checker parity $c(r,y)=(r+y)\bmod2$ is well-defined on the quotient. Initially
+use $Q=\{c=0\}$ for vertical-arrival vertices and $C=\{c=1\}$ for horizontal
+arrivals. Lemma~\ref{lem:cancel} removes dependence on this convention.
+
+\subsection{The graph reconstructed from a wake}
+Suppose that every horizontal and vertical quotient component contains an even
+number of $O$ vertices. On each vertical line $r=x\bmod a$, sort the canonical
+$y$ coordinates and pair consecutive endpoints by finite intervals. Horizontal
+components have representative row $Y=y\bmod |b|$. Express a point there using
+\[
+ k=(y-Y)/b,\qquad X=x-ka,
+\]
+then sort and pair the $X$ coordinates. Let $G_d(O)$ be the union of these
+horizontal and vertical interval edges. Orient horizontal edges from $Q$ to
+$C$ and vertical edges from $C$ to $Q$.
+
+Order vertices by $(y,r)$ and ports negative before positive; positive means
+movement $E$ or $N$. An edge has source and target keys $(\text{vertex},\text{port})$.
+Let $E_d(O)$ count, modulo two, edge pairs whose source and target orders disagree.
+Let $N_+(O)$ count positive retained edges, and put $C(O)=|O\cap C|$. Define
+\begin{align}
+ \qd(O)&=E_d(O)+N_+(O)+C(O)\pmod2,\label{eq:character}\\
+ \Od(O)&=\sum_{(r,y)\in O}\left\lfloor y/|b|\right\rfloor\pmod2.
+ \label{eq:winding}
+\end{align}
+The finite graph may be enormous, but Section~\ref{sec:algorithm} does not
+construct its individual edges.
+
+\begin{theorem}[Wake obstruction]\label{thm:main}
+Every finite-support periodic realization with non-axis full drift satisfies
+\[
+ \boxed{\Od(O)=1,\qquad \qd(O)=1+a\pmod2.}
+\]
+There is no restriction on period, transverse width, growth, retreat, seed size,
+or wake shape. The characters are independent of representatives, translation,
+phase origin and checker/heading-axis convention; no heading is a screen input.
+\end{theorem}
+
+\begin{theorem}[Quadratic structure]\label{thm:quadratic}
+On the $\F$ vector space of finite indicators with even sums in every horizontal
+and vertical quotient component, $\qd$ is a quadratic form. In particular
+$\qd(A+B)+\qd(A)+\qd(B)$ is bilinear. Addition is symmetric difference of
+indicators, not superposition of physical trajectories.
+\end{theorem}
+
+\begin{theorem}[Compressed complexity]\label{thm:complexity}
+Given $d$ and explicit representatives of $O$ in binary, signed-residue
+prefilters followed by Theorem~\ref{thm:main} are computable in polynomial bit
+time. After the density filter, at most
+$R=g(a+1)\le g(g/2+1)$ arithmetic edge runs suffice, and the evaluator uses
+$O(g^4\log(g+1))$ integer arithmetic operations on $O(B+\log(g+1))$-bit integers,
+where $B$ bounds coordinate and drift bit lengths. Passing means only
+\texttt{NOT\_EXCLUDED}, not realizability.
+\end{theorem}
+
+\section{Boundary reconstruction and winding}
+In a full $d$-class write phase positions $q_i=b_v+k_i d$. A sufficiently distant
+cell $b_v+nd$ is initially white and eventually has all the phase visits, at
+times $nP+i-Pk_i$. The necessary stable-class condition of~\cite{J} therefore
+orders visits by $\tau_i=i-Pk_i$ and gives letters $R,L,R,L,\ldots$.
+The signed excess in a class is its odd indicator $D_v\in\{0,1\}$.
+Thus $g=\sum D_v$, and heading restoration gives $4\mid g$.
+
+The checker/heading-axis invariant assigns incoming axes alternately to the
+two checker colours. Every visit uses one horizontal and one vertical edge.
+Modulo two, the horizontal incident-edge boundary and the vertical
+incident-edge boundary are consequently both $D$.
+
+Because $b\ne0$, the horizontal quotient graph is a union of infinite paths:
+no nonzero horizontal vector is in $\Z d$. The analogous fact holds vertically
+because $a\ne0$. On an infinite path, a finite edge set with prescribed boundary
+is unique: its indicator is the cumulative endpoint parity, hence exactly the
+intervals pairing consecutive endpoints. A nonempty finite boundary-free edge
+set on a line cannot exist. Therefore the actual edge-count parities are
+precisely $G_d(O)$, whatever their unknown even parts may be.
+
+This argument explains the domain restriction. For axis drift, one direction
+has quotient cycles, and a boundary-free cycle can be added to parity data.
+Axis drift is unsupported here, not classified as impossible.
+
+The actual period has signed seam crossing number one across the cut from
+$x$ residue $a-1$ to $0$. For a horizontal interval from $X_L$ to $X_R$, its
+seam crossing parity is $\lfloor X_R/a\rfloor-\lfloor X_L/a\rfloor$.
+Summing over paired intervals equals the sum of these floors over all endpoints
+modulo two. A canonical endpoint $(r,y)$ has $X=r-ak$, with
+$k=(y-(y\bmod|b|))/b$, so $\lfloor X/a\rfloor=-k$ has parity
+$\lfloor y/|b|\rfloor$. This proves~\eqref{eq:winding} and $\Od=1$.
+On arbitrary representatives the same weight is
+$\lfloor x/a\rfloor+\lfloor y/|b|\rfloor\pmod2$; adding $d$ changes it by the
+even integer $1+\operatorname{sign}(b)$.
+
+\section{The one-tour sign and its wake reduction}
+At a vertex order its $m$ events by stable rank $k=0,\ldots,m-1$.
+Let $\alpha_k,\beta_k$ be positive incoming and outgoing port bits, with totals
+$A,B$, and put $p_v=A+B\pmod2$. At $Q$, a left turn means unequal bits;
+at $C$, it means equal bits. For any binary list,
+\begin{equation}
+ \inv(\alpha)=A(m-1)+\sum_k k\alpha_k+\binom A2\pmod2.
+ \label{eq:binary}
+\end{equation}
+Indeed, each one at position $k$ sees $m-1-k$ later positions, from which its
+later ones are subtracted. Summing the latter gives $\binom A2$.
+
+Put $K=\sum_{L\text{ events}}\text{stable rank}\pmod2$.
+Equation~\eqref{eq:binary} applied to both port lists leaves local corrections
+$p_v(m-1)$ at $Q$ and $p_v(m-1)+\binom m2$ at $C$, besides port inversions and
+positive-edge binomials. At $Q$, $m\equiv D_v\pmod2$. At $C$, counting unequal
+bits gives
+\[
+ D_v=2(A+B)-4\sum_k\alpha_k\beta_k-m,
+ \qquad m\equiv2p_v-D_v\pmod4.
+\]
+For $D_v=0,1$ the two corrections are respectively $p_v(D_v+1)$ and
+$D_v(p_v+1)$. The positive-edge binomials cancel between source and target.
+If $I$ is the sum of all incoming/outgoing port-list inversion parities,
+\begin{equation}
+ K=I+L,\qquad L=\sum_Qp_v(D_v+1)+\sum_CD_v(p_v+1).\label{eq:local}
+\end{equation}
+
+Along a fixed directed quotient edge of voltage $\nu$, target stable time is
+source stable time plus $1-P\nu$. The same constant applies to every occurrence,
+including the cyclic seam. Occurrences therefore match first-to-first.
+Sorting outgoing ports, following edge blocks and unsorting incoming ports
+factors the phase successor. This successor is \emph{one} even-length $P$-cycle,
+of odd sign; hence
+\begin{equation}
+ I+E=1,\qquad K=1+E+L.\label{eq:factor}
+\end{equation}
+A block reversal of sizes $u,v$ contributes $uv\pmod2$. Thus $E$ depends only
+on edge-count parities and equals $E_d(O)$. This is the general version of the
+attributed special-drift factorization, not a finite-period extrapolation.
+
+\begin{lemma}[Cancellation and conventions]\label{lem:cancel}
+For $G_d(O)$ one has
+\[
+ \sum_{v\in O}p_v=0,\qquad L=N_+(O)+C(O)\pmod2.
+\]
+The character is unchanged by the total vertex order or by exchanging the
+checker/heading-axis convention.
+\end{lemma}
+\begin{proof}
+The positive incidence of a paired horizontal interval at its two endpoints
+has parity $1+c(\text{left})+c(\text{right})$. A vertical interval has the same
+formula. There are $g/2$ intervals of each kind; each endpoint checker bit is
+counted twice. The total is $g=0\pmod2$.
+Also $\sum_Qp_v=N_+$, since every positive edge touches exactly one $Q$ vertex.
+Expanding~\eqref{eq:local} proves the stated expression for $L$.
+
+Swapping vertices $v,w$ in the order changes $E$ by
+$\operatorname{out}(v)\operatorname{out}(w)+
+\operatorname{in}(v)\operatorname{in}(w)=2D_vD_w=0\pmod2$.
+Exchanging checker conventions reverses all edges and complements the ports.
+Inversion sign is invariant under permutation inversion; the extra port-block
+reversals contribute $\sum_v(1+D_v)p_v=0$, by endpoint cancellation and
+$\sum_vp_v=0$. The edge set has even size, because the sum of outgoing degree
+parities is $g$. Thus replacing $N_+$ by $|G|-N_+$ does not change its parity;
+neither does replacing $C$ by $g-C$.
+\end{proof}
+Translations merely relabel vertices and possibly exchange conventions, so
+$\qd$ is translation and phase invariant. Moving a seam does not change winding,
+because every fibre population is even.
+
+For an actual stable class word, every $L$ has odd rank. Hence
+$K=\#L=(P-g)/2\pmod2$. There are $P/2$ horizontal moves with net displacement
+$a$, so $P/2\equiv a\pmod2$; since $4\mid g$, $K\equiv a$.
+Equations~\eqref{eq:character}, \eqref{eq:local}, \eqref{eq:factor} prove
+Theorem~\ref{thm:main}.
+
+The reconstruction map $D\mapsto G_d(D)$ is linear by uniqueness of a finite
+boundary antiderivative. The inversion parity is quadratic in edge indicators,
+and $N_+,C$ are linear. This proves Theorem~\ref{thm:quadratic}.
+For $(2,-2)$, the previous evaluation~\cite{M} is
+$\qd=J+V/2$ under signed residues, where $J$ counts $Q$-before-$C$ odd-class pairs
+in transverse order and $V=|O_Q|$. Thus the earlier formula $J+V/2=1$ is recovered.
+
+\section{Compressed evaluation}\label{sec:algorithm}
+The signed residue theorem~\cite{J} gives, in every $x$ residue modulo $a$ and
+every $y$ residue modulo $|b|$, signed odd-class sum $2\pmod4$, with sign
+$(-1)^{x+y}$. In particular $g\ge2\max(a,|b|)$.
+Check positivity and $4\mid g$, then density \emph{before} allocating residue-sized
+arrays; rejected inputs need no graph construction. Both drift magnitudes are
+then at most $g/2$. Signed sums also enforce even fibre populations.
+
+An arithmetic edge run has $n$ edges with source and target keys
+\begin{equation}
+ (s_y+hi,s_x,p),\quad (t_y+hi,t_x,p),\qquad 0\le i<n,\quad h>0.
+ \label{eq:run}
+\end{equation}
+A vertical interval splits by bottom-site parity into at most two step-two runs.
+For a horizontal interval on representative row $Y$, split its left positions
+$X=r+ak$ by $r$, and, for odd $a$, by $k\bmod2$. Canonical heights change by
+$-b$ per $k$. Reverse the index if necessary to obtain positive step $|b|$ or
+$2|b|$ and constant port bits. There are at most $2a$ runs per horizontal interval,
+so $R\le g(a+1)$. All runs have disjoint edges.
+
+A run has no internal inversions. Between runs $A,B$, set
+\[
+ z=s_A+h_Ai-s_B-h_Bj,\qquad
+ \delta=(t_A-s_A)-(t_B-s_B).
+\]
+Let $s=0$ if the source minor key $(x_A,p_A)$ precedes $(x_B,p_B)$, otherwise
+$s=-1$. Define $u=-\delta$ plus $0$ or $-1$ by the analogous target comparison.
+The edge pair is inverted exactly when
+\begin{equation}
+ \min(s,u)<z\le\max(s,u).\label{eq:inversion-range}
+\end{equation}
+Two cumulative pair counts suffice. For
+$ui-vj\le T$, $0\le i<n$, $0\le j<m$, put
+\[
+ \ell=\clip(\lceil-T/v\rceil,0,m),\qquad
+ h=\clip(\lceil(un-T)/v\rceil,0,m).
+\]
+The exact number of pairs is
+\begin{equation}
+ (m-h)n+(h-\ell)+
+ \sum_{j=0}^{h-\ell-1}\left\lfloor\frac{vj+T+v\ell}{u}\right\rfloor.
+ \label{eq:pairs}
+\end{equation}
+There are no eligible $i$ below $\ell$, all $n$ are eligible above $h$, and the
+middle contributes $\lfloor(T+vj)/u\rfloor+1$.
+
+The floor sum $S(n,m,a,b)=\sum_{i=0}^{n-1}\lfloor(ai+b)/m\rfloor$ uses Euclidean
+lattice transposition. Remove quotient parts of $a,b$, contributing
+$\lfloor a/m\rfloor n(n-1)/2+\lfloor b/m\rfloor n$.
+For $0\le a,b<m$ the remainder is zero if $an+b<m$; otherwise, with
+$n'=\lfloor(an+b)/m\rfloor$ and $b'=(an+b)\bmod m$,
+\begin{equation}
+ S(n,m,a,b)=S(n',a,m,b').\label{eq:euclid}
+\end{equation}
+At positive height $j$ there are $n-\lceil(mj-b)/a\rceil$ eligible indices.
+Reindex heights from $n'$ downwards, using $mn'-b=an-b'$, to obtain the right
+side of~\eqref{eq:euclid}. Division first handles negative offsets exactly.
+Euclidean reduction needs logarithmically many stages.
+
+All run-pair counts have polynomial bit length even for runs of $10^{100}$ edges.
+Summing positive run lengths gives $N_+$; $C$ and $\Od$ use only the endpoints.
+The run bound, $R^2$ run pairs, and~\eqref{eq:pairs}--\eqref{eq:euclid} prove
+Theorem~\ref{thm:complexity}. This is not an efficient positive recognition
+algorithm: a wake that passes may still fail stable chronology in other ways.
+
+\section{An unbounded growth-eight exclusion}\label{sec:family}
+Let $d=(3,1)$ and
+\begin{align*}
+ O_* =\{&(0,1),(0,3),(1,-2),(1,-1),\\[-2pt]
+        &(1,0),(1,2),(2,0),(2,2)\}.
+\end{align*}
+For $n\ge1$, put $\lambda=12n+1$ and let $O_n$ be the classes of $\lambda q$,
+$q\in O_*$. They are eight distinct classes with canonical representatives
+\[
+ (r,(12y-4r)n+y),\qquad (r,y)\in O_*.
+\]
+Their signed $x$-fibre sums are $(-2,-2,2)$ and their sole $y$-fibre sum is $-2$.
+They have growth eight, pass density, and have winding
+$\sum\text{canonical }y=28n+5\equiv1\pmod2$.
+
+\begin{corollary}\label{cor:family}
+No finite-support periodic highway of drift $(3,1)$ has wake $O_n$, for any
+integer $n\ge1$ and any period. Their algebraic transverse span, measured by
+$T(x,y)=3y-x$, is $16(12n+1)$ and is unbounded.
+\end{corollary}
+\begin{proof}
+The affine runs in Appendix~\ref{app:runs} give
+\[
+ |G_d(O_n)|=192n+16,\quad N_+(O_n)=96n+9,\quad
+ \#\text{inversions}=400n+19,\quad C(O_n)=5.
+\]
+Thus $\qd(O_n)=496n+33\equiv1$, whereas Theorem~\ref{thm:main} requires
+$1+a\equiv0$. For completeness, the calculation is an all-parameter integer
+identity, not an interpolation. If $L<R$ are horizontal representative-row
+endpoints before dilation, the index bounds at residue $r$ are
+\[
+ k_{\min}=4Ln+\lceil(L-r)/3\rceil,\qquad
+ k_{\max}=4Rn+\lfloor(R-1-r)/3\rfloor.
+\]
+Splitting parity gives 32 runs of step two and positive affine lengths on
+$n\ge1$. For a parity-compatible inversion difference $z$, set
+$k=(z-s_A+s_B)/2$. Its count is exactly
+\begin{equation}
+ \max\{0,\min(n_B,n_A-k)-\max(0,-k)\}.\label{eq:affine-pair}
+\end{equation}
+Every minimum/maximum branch is verified uniformly: an affine expression
+$An+B$ is nonnegative for every $n\ge1$ exactly when $A\ge0$ and $A+B\ge0$.
+Summing the 288 parity-compatible terms among 496 run pairs gives $400n+19$.
+The supplement implements this symbolic arithmetic and fails rather than
+extrapolating if a comparison changes sign on the parameter domain.
+\end{proof}
+
+The unscaled $O_*$ also fails: its counts are 16 retained edges, 9 positive
+edges, 23 inversions and $C=5$. For contrast,
+\[
+ \{(0,1),(0,5),(1,-4),(1,-2),(1,5),(1,6),(2,-4),(2,4)\}
+\]
+has the same signed fibre populations and winding, but $\qd=0$.
+It is \texttt{NOT\_EXCLUDED}, not known realizable here. Thus the character
+strictly strengthens the specified signed-residue/density/winding screens;
+no claim of independence from every possible arithmetic invariant is made.
+
+\section{Verification and the HC boundary}
+The proof and complexity theorem do not depend on bounded experiments. Exact
+affine algebra establishes the entire family parameter range. Separate audits
+check 10,000 floor sums and 10,000 pair-count instances against literal sums,
+4,000 individual-edge reconstructions for eight drift types, vertex-order and
+checker-convention independence, and quadratic polarization.
+All 8,192 closed masks in an eight-layer/two-lane window reproduce~\cite{M}.
+
+An independent C++ vector-turn implementation enumerates all 1,398,100 binary
+words of even length at most 20 and checks the unspecialized port factorization
+on all 456,120 non-axis heading-restoring words. The 84 words with class balances
+in $\{0,1\}$ are additionally cross-checked against the wake-only formula. These
+geometric words are not asserted physically realizable.
+All 104 standard-highway phases, four rotations and powers one through four
+provide 1,664 positive controls using their \emph{full} displacements.
+Undefined-behavior sanitizer is enabled. Huge representatives and $n=10^{100}$
+are checked without traversing their gaps; the latter still uses 32 runs.
+Exact reports and source manifests are in the supplement.
+
+For HC, this supplies a polynomial-time filter and infinite excluded families
+on the periodic-classification side. It does not show that any arbitrary finite
+seed enters a periodic regime, rule out every growth-eight geometry, or exclude
+nonperiodic escape. A passing wake is not a seed or a trajectory. Independent
+human mathematical review and formal-kernel verification remain outstanding.
+
+\begin{thebibliography}{9}
+\bibitem{J} A. Jillhewar, \emph{Finite-Support Periodic Highways of Langton's Ant:
+Necessary Conditions, Transverse Exclusions, and Exact Search}, 2026.
+Repository \url{https://github.com/Atharva12456/langtons-ant-highway},
+inspected revision \texttt{76a7e234e577d992d086c204c3dea00ae72cf10a},
+\texttt{paper/main.tex}.
+\bibitem{M} H. Ke, \emph{Mixed-wake interleaving parity for full drift $(2,-2)$},
+project proof in \texttt{wake\_synthesis/proof/mixed-wake-interleaving.md},
+\url{https://github.com/kehao95/langtons-ant-core}, inspected revision
+\texttt{c7bb906ed94d1345694ce0372fb69fd08a6a0a51}.
+\end{thebibliography}
+
+\clearpage
+\appendix
+\section{Affine edge-run certificate}\label{app:runs}
+All runs have step two and index $i=0,\ldots,\ell-1$. A row gives length $\ell$,
+source $(s_x,s_y+2i)$, target $(t_x,s_y+\delta+2i)$ and port $p$.
+These are edges of the parity graph, not time intervals of a proposed ant orbit.
+The row order is only an enumeration of runs; inversions use vertex order $(y,r)$.
+Formula~\eqref{eq:affine-pair} on these rows yields the counts in
+Corollary~\ref{cor:family} for the whole domain $n\ge1$.
+
+\begin{longtable}{r r r r r r r}
+\toprule
+Run & $\ell$ & $s_x$ & $s_y$ & $t_x$ & $\delta$ & $p$\\
+\midrule
+\endhead
+1&$8n+1$&0&$20n+2$&1&0&1\\
+2&$8n+1$&1&$20n+3$&0&0&0\\
+3&$8n$&2&$20n+4$&1&0&0\\
+4&$8n+1$&1&$20n+3$&2&0&1\\
+5&$8n$&2&$20n+4$&0&-1&1\\
+6&$8n+1$&0&$20n+2$&2&1&0\\
+7&$2n$&0&$12n+2$&1&0&1\\
+8&$2n$&1&$12n+3$&0&0&0\\
+9&$2n$&2&$12n+2$&1&0&0\\
+10&$2n$&1&$12n+3$&2&0&1\\
+11&$2n+1$&2&$12n+2$&0&-1&1\\
+12&$2n$&0&$12n+2$&2&1&0\\
+13&$2n$&0&$-8n$&1&0&1\\
+14&$2n$&1&$-8n+1$&0&0&0\\
+15&$2n+1$&2&$-8n$&1&0&0\\
+16&$2n$&1&$-8n+1$&2&0&1\\
+17&$2n$&2&$-8n+2$&0&-1&1\\
+18&$2n$&0&$-8n$&2&1&0\\
+19&$6n+1$&0&$-28n-2$&1&0&1\\
+20&$6n$&1&$-28n-1$&0&0&0\\
+21&$6n$&2&$-28n$&1&0&0\\
+22&$6n+1$&1&$-28n-1$&2&0&1\\
+23&$6n$&2&$-28n$&0&-1&1\\
+24&$6n+1$&0&$-28n-2$&2&1&0\\
+25&$12n+1$&0&$12n+3$&0&-1&0\\
+26&$12n+1$&0&$12n+1$&0&1&1\\
+27&$6n+1$&1&$-28n-2$&1&1&1\\
+28&$6n$&1&$-28n$&1&-1&0\\
+29&$12n+1$&1&$-4n$&1&1&1\\
+30&$12n+1$&1&$-4n+2$&1&-1&0\\
+31&$12n+1$&2&$-8n+1$&2&-1&0\\
+32&$12n+1$&2&$-8n+1$&2&1&1\\
+\bottomrule
+\end{longtable}
+\end{document}
