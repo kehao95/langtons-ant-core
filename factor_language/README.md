@@ -2,6 +2,22 @@
 
 Ten-factor eventual modes; finite-mass entry at most 12m+212 with sharp slope; polynomial bit-time exact first-J10 macros with complete compressed endpoints and quadratic finite-event deadlines; and the all-input inequality 3(t-s)-26(|B_t|-|B_s|) <= 351 N10(s,t)+322 with sharp additive constant.
 
+## Finite-horizon and nine-factor additions — 20 October 2026
+
+Every finite physical ten-legal word has one contiguous standard core, with
+at most `114c+154693` remaining letters. Its length obeys
+`L <= 52 norm_inf(displacement) + 114c + 223437`, with sharp coefficient 52;
+c is the minimum first-read black supply, bounded by the segment's complete
+starting mass. A closed silent return therefore has a linear starting-mass bound.
+The exact next-J10 algorithm uses one standard jump and O(m+1) literal updates
+on explicit m-point inputs. Repeated intervals use their own starting masses.
+
+The separate nine-factor bound is `deficit <= 1004`, giving
+`deficit <= 1033 N9 + 1004` on all intervals. Finite eight-legal prefixes have
+unbounded deficit, proving nine is the least window for this type of mass bound.
+This does not lower the ten-factor threshold for arbitrary-colouring attraction.
+[Proof map](PROOF.md) · [New-module replay](evidence/replay-2026-10-20.json).
+
 ## Integrated results — 16 October 2026
 
 The revision adds [silent archive manufacture](proof/silent-archive-amplification.md):
@@ -42,8 +58,11 @@ make -C factor_language/paper
 
 Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. A C++17 compiler is required. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
 
-Use `--extensions-only` to replay just the 16 October additions. The default
-continues to cover the complete main-paper dependency chain.
+Use `--new-results-only` for the 20 October silent-supply and nine-factor checks.
+`--extensions-only` skips the original attraction/event/mass kernels and runs
+all later additions. The default covers the complete main-paper chain.
+Original imported proof notes and module READMEs retain historical paths;
+these project entrypoints stage their dependencies in disposable directories.
 
 ## Open
 

@@ -1,0 +1,107 @@
+{
+  "scope": "wall-clock local comparison; no full budget cover; source fields unchanged",
+  "solver": "4.13.3.0",
+  "repeats": 3,
+  "factors": [
+    {
+      "powers": 4,
+      "old_cases": 16,
+      "new_circuit_nodes": 312,
+      "new_bytes": 20393,
+      "old_seconds": [
+        0.001047992999701819,
+        0.002797350000037113,
+        0.0006843119999757619
+      ],
+      "new_seconds": [
+        0.006296944000041549,
+        0.006592563000140217,
+        0.007647602999895753
+      ],
+      "median_ratio": 0.15896594384908103
+    },
+    {
+      "powers": 8,
+      "old_cases": 256,
+      "new_circuit_nodes": 728,
+      "new_bytes": 49115,
+      "old_seconds": [
+        0.011886631999914243,
+        0.012260557999979937,
+        0.010798231000080705
+      ],
+      "new_seconds": [
+        0.012658281000312854,
+        0.012864299000284518,
+        0.014944723000098747
+      ],
+      "median_ratio": 0.9240015332084047
+    },
+    {
+      "powers": 12,
+      "old_cases": 4096,
+      "new_circuit_nodes": 1238,
+      "new_bytes": 86448,
+      "old_seconds": [
+        0.18682528799990905,
+        0.17360531399981483,
+        0.1814124739998988
+      ],
+      "new_seconds": [
+        0.03189705600016168,
+        0.019875551000041014,
+        0.02422155499971268
+      ],
+      "median_ratio": 7.489712118072136
+    },
+    {
+      "powers": 16,
+      "old_cases": 65536,
+      "new_circuit_nodes": 1753,
+      "new_bytes": 127014,
+      "old_seconds": [
+        3.582292425000105,
+        4.329484926000077,
+        3.3970046190001995
+      ],
+      "new_seconds": [
+        0.028013010999984544,
+        0.04377352800020162,
+        0.02496420700026647
+      ],
+      "median_ratio": 127.87959227239377
+    },
+    {
+      "powers": 32,
+      "old_cases_formula": "4294967296",
+      "old_executed": false,
+      "new_circuit_nodes": 3635,
+      "new_bytes": 268113,
+      "new_seconds": 0.04750045999981012
+    },
+    {
+      "powers": 64,
+      "old_cases_formula": "18446744073709551616",
+      "old_executed": false,
+      "new_circuit_nodes": 7294,
+      "new_bytes": 539109,
+      "new_seconds": 0.1044760889999452
+    },
+    {
+      "powers": 128,
+      "old_cases_formula": "340282366920938463463374607431768211456",
+      "old_executed": false,
+      "new_circuit_nodes": 14691,
+      "new_bytes": 1115085,
+      "new_seconds": 0.21631891400011227
+    }
+  ],
+  "process_peak_rss_kib": 194752,
+  "source_documentation_correction": {
+    "file": "benchmark.py",
+    "measured_source_sha256": "007cffb13f84ae3263c8e049a2c49606c69cd1bb262bb0080daee04568644066",
+    "distributed_source_sha256": "ef46a58730ca028ef935812d730b93fef38db8a5d9154e1bd0688cd947dfac37",
+    "change": "Module timing-scope docstring corrected; all imports, functions and executable AST unchanged",
+    "executable_ast_equal": true
+  }
+}

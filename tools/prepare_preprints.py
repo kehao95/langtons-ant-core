@@ -19,6 +19,7 @@ PROJECTS = {
     'wake_synthesis': ('0.3.0', 'build/paper.pdf', 'Layer-Profile-Uniqueness.pdf', 'new-version'),
     'factor_language': ('0.1.0', 'build/paper.pdf', 'Local-Factor-Rigidity.pdf', 'first-release'),
     'defect_synthesis': ('0.1.0', 'build/paper.pdf', 'Counting-Defects.pdf', 'first-release'),
+    'four_row_escape': ('0.1.0', 'build/paper.pdf', 'Four-Row-Exact-Escape.pdf', 'first-release'),
     'memory_feedback': ('0.1.0', 'build/paper.pdf', 'Finite-Memory-and-Remote-Feedback.pdf', 'first-release'),
 }
 

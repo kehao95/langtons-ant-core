@@ -11,6 +11,21 @@ Research source: `9223766d`; immutable imports are listed in
 | Unary NP and small witnesses | [Interval verifier, residue-64 chambers and integer small solutions](proof/defect-small-witnesses.md) | Analytic proof; original optional implementation archive absent, no fresh controls claimed |
 | Fixed-schema query optimization | [Unary strict-order powers and Boolean factor DAG](proof/defect-compiler-optimization.md) | `verification/defect_compiler_optimization`; exact baseline equivalence, invalid-input controls |
 
+The [quantifier-free refinement](proof/quantifier-free-defect-complexity.md) is
+imported from research `16b9b46`. Its new obligations are the stride-1/2 residue
+intersection lemma, parity-boundary elimination of universal reads and shared
+suffix-register factor counting. Complete coverage then gives unary NP with
+binary side constraints and an FP^NP minimum-cost corollary. The new theorem
+does not extend that complexity guarantee to arbitrary quantified sources or
+complete-field target equality.
+
+[Import hashes](evidence/import-2026-10-20.json) and
+[fresh six-section replay](evidence/replay-2026-10-20.json) retain exact source
+provenance. Z3 and ISL/GMP remain native trust dependencies; UNSAT outputs are
+not accompanied by independently checked proof objects. Benchmarks remain
+historical timing evidence, not correctness replay targets. The original
+optional small-witness implementation archive remains absent.
+
 The finite cover inherits the all-parameter three-fold physical obstruction.
 Its [ten-factor proof](proof/ten-factor-attraction.md) and
 [event-macro proof](proof/ten-event-macros.md) are bundled; the resource module

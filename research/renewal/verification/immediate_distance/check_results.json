@@ -1,0 +1,302 @@
+{
+  "schema": "langtons-ant-immediate-distance-obstruction-v1",
+  "scope": "analytic all-n proof plus finite controls; no new HC basin coverage or counterexample",
+  "remote_base": "0ef3f0e149044c64f5a4b2b2ea9e192300fbe4f6",
+  "macro": {
+    "updates": 3,
+    "word": "LRL",
+    "primary": [
+      0,
+      0
+    ],
+    "secondary": [
+      1,
+      1
+    ],
+    "source_distance": 1,
+    "target_distance_formula": "n+10",
+    "target_pose": [
+      [
+        1,
+        2
+      ],
+      0
+    ]
+  },
+  "base_positive": {
+    "certified_boundary": 12544,
+    "first_standard_entry": 12440,
+    "endpoint_black_count": 803,
+    "endpoint_pose": [
+      [
+        -22,
+        4
+      ],
+      3
+    ],
+    "tail_word": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR",
+    "tail_drift": [
+      -2,
+      -2
+    ],
+    "tail_x_minus_y": [
+      -29,
+      -19
+    ],
+    "prelude_maxnorm": 37,
+    "last_bad_index": 12439,
+    "prelude_sha256": "8a1a89695c7f9feacec97b70450233e6396dc5ecd79401b19ddc5690899b32c1",
+    "source_104_prefix": "LRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLRLRRRRLRRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLR",
+    "parity_evaluations": 252
+  },
+  "base_target_all_104_scores": [
+    20,
+    19,
+    40,
+    26,
+    38,
+    24,
+    34,
+    20,
+    36,
+    17,
+    32,
+    22,
+    18,
+    14,
+    18,
+    20,
+    16,
+    21,
+    18,
+    18,
+    36,
+    22,
+    32,
+    16,
+    33,
+    15,
+    29,
+    17,
+    22,
+    15,
+    22,
+    14,
+    13,
+    12,
+    12,
+    13,
+    11,
+    11,
+    11,
+    12,
+    27,
+    15,
+    25,
+    13,
+    24,
+    14,
+    13,
+    17,
+    20,
+    14,
+    16,
+    13,
+    23,
+    14,
+    14,
+    15,
+    26,
+    16,
+    14,
+    18,
+    12,
+    21,
+    21,
+    15,
+    14,
+    14,
+    12,
+    13,
+    28,
+    16,
+    10,
+    15,
+    23,
+    14,
+    14,
+    13,
+    13,
+    16,
+    11,
+    20,
+    32,
+    16,
+    15,
+    15,
+    35,
+    18,
+    13,
+    20,
+    13,
+    20,
+    32,
+    19,
+    17,
+    18,
+    17,
+    21,
+    39,
+    22,
+    37,
+    24,
+    19,
+    20,
+    17,
+    23
+  ],
+  "controls": {
+    "two_implementation_updates": 12544,
+    "full_field_comparisons": 133,
+    "phase_heading_forever_checks": 416,
+    "phase_ray_direction_checks": 4992,
+    "largest_clean_radius": 7,
+    "random_complete_field_oracles": 48,
+    "invalid_parameters_rejected": 4
+  },
+  "padded_controls": [
+    {
+      "n": 0,
+      "start": "1000",
+      "source_distance": 1,
+      "post_macro_distance": 10,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 1,
+      "start": "1000",
+      "source_distance": 1,
+      "post_macro_distance": 11,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 2,
+      "start": "1000",
+      "source_distance": 1,
+      "post_macro_distance": 12,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 7,
+      "start": "1000",
+      "source_distance": 1,
+      "post_macro_distance": 17,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 31,
+      "start": "1000",
+      "source_distance": 1,
+      "post_macro_distance": 41,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 100,
+      "start": "1000",
+      "source_distance": 1,
+      "post_macro_distance": 110,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 0,
+      "start": "1000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 10,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 1,
+      "start": "1000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 11,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 2,
+      "start": "1000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 12,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 7,
+      "start": "1000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 17,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 31,
+      "start": "1000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 41,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 100,
+      "start": "1000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 110,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 0,
+      "start": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 10,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 1,
+      "start": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 11,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 2,
+      "start": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 12,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 7,
+      "start": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 17,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 31,
+      "start": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 41,
+      "first_standard_entry": 12440
+    },
+    {
+      "n": 100,
+      "start": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "source_distance": 1,
+      "post_macro_distance": 110,
+      "first_standard_entry": 12440
+    }
+  ],
+  "universal_boundary": "Padding is unread by the ACTUAL infinite trajectory; it blocks only hypothetical immediate standard futures.",
+  "sources_sha256": {
+    "distance.py": "4dda8e4310877e9d3402e9ffc0486b2ff2ee7869b5b8579b4305b62948475981",
+    "check.py": "8d8978e52524baf72e6a481403ae48e44d5ade308bb345999c61b62f01bb71bf",
+    "baseline/periodic_verify.py": "50186c42b6caa35b51a1d3449d33a340272bbc71daab0a4ed55582fa1ba7f29f",
+    "base_positive.json": "4f0e8d018cb39349421a505c0b09f537b731762e9a4959a380e21b6ca702fa0d"
+  }
+}

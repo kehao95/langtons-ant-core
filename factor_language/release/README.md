@@ -19,3 +19,11 @@ Research `9223766d` is integrated, retaining the pending version number. The
 previous same-day candidate is preserved in
 `revisions/2026-10-16-before-consolidation/`. See the current claim–evidence map
 in the repository review record. No Zenodo action was performed.
+
+## Current revision — 20 October 2026
+
+Research `16b9b46` is integrated at the same pending 0.1.0 version. The earlier
+PDF, metadata, source manifest and replay record are preserved under
+`v0.1.0/revisions/2026-10-20-before-integration/`. The current standalone source
+ZIP and PDF are in `candidate/`; versioned manifests identify their exact bytes.
+Publication remains a separate step.

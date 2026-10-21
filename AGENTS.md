@@ -1,21 +1,22 @@
 # Repository method
 
-This repository owns seven publication projects: one-black highways, clocks and escape,
+This repository owns eight publication projects: one-black highways, clocks and escape,
 ports and composable scattering, wake rigidity and inverse synthesis, factor
 language and mass defects, finite-memory prediction and remote feedback, and
-bounded-defect arithmetic synthesis. `highway_stability/` is an additional draft
+bounded-defect arithmetic synthesis, and exact four-row escape. `highway_stability/` is an additional draft
 awaiting its original numerical certificate.
 
 ## Ownership
 
 - `one_black/`, `clock_escape/`, `four_cell_port/`, `wake_synthesis/`,
-  `factor_language/`, `memory_feedback/` and `defect_synthesis/` each own their paper, proof, evidence and release.
+  `factor_language/`, `memory_feedback/`, `defect_synthesis/` and `four_row_escape/` each own their paper, proof, evidence and release.
 - Each uses `paper/`, `evidence/`, `release/` and `reproduce.py`. Formalized
   projects also have `lean/`; do not imply a Lean proof for the four-cell result.
 - Project-specific code stays with its consumer: one-black dynamics in
   `one_black/langtons_ant/`, clock, port and wake checkers in their respective `verification/` directories.
-- `research/` owns further deductions and the open HC program. Its Python
-  modules depend on `one_black/`; the clock project is self-contained.
+- `research/` owns further deductions and the open HC program. Its older Python
+  modules depend on `one_black/`; `research/renewal/` has a self-contained scoped
+  replay. The clock and four-row projects are self-contained.
 - `docs/` owns the six interactive proof labs, their source-pinned exports,
   browser checks and the one-black image/animation exporters. See its README
   for the staged Pages build and interaction design.
@@ -112,3 +113,15 @@ versions and adds `defect_synthesis/` 0.1.0. `highway_stability/` is excluded
 from release packaging until its 739-case archive is restored and replayed.
 Its manuscript states a certificate implication, not a freshly verified numerical
 recovery theorem. Preserve this distinction when updating indexes or the site.
+
+## Integration of 20 October 2026
+
+Research `16b9b46` supplies the independent four-row 0.1.0 candidate, factor's
+finite-horizon supply and sharp nine-factor mass threshold, and defect synthesis's
+restricted QF backend. Preserve raw imported source hashes and stage any historical
+path layout in disposable runners. The default project runners include the new
+modules; `--new-results-only` isolates additions in factor and defect synthesis.
+Contour transfer and immediate-distance obstructions belong in `research/renewal/`.
+The missing one-bit and original optional small-witness archives remain distinct
+from these restored packages. Prepare local review packages; no new Zenodo or
+journal action is part of this integration.

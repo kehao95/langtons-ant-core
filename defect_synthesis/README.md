@@ -27,6 +27,23 @@ nine inverse-history J10 tests belong to a different finite-count convention.
 Neither the fixed-budget construction nor a fixed finite schema collection
 bounds the number of events on every finite input.
 
+## Quantifier-free backend — 20 October 2026
+
+A restricted supplied-schema backend constructs a polynomial-size QF_LIA circuit
+for exact physical execution, factor counts and endpoint-colour queries. Shared
+suffix registers avoid Cartesian zero-power case expansion. Unary budgets with
+binary linear side conditions admit polynomial-bit positive witnesses; the
+minimum cost mu(N) has an FP^NP upper bound. These refine the existing small-witness
+result rather than establish NP membership a second time.
+
+Powered words must restore heading with diagonal stride 2 or axis stride 2/4;
+source terms are finite XOR segments of those strides or singletons. The older
+compiler still owns arbitrary quantified source predicates, complete target
+field equality and explicit semilinear projection. The new solver is not a
+polynomial-time global synthesis algorithm.
+[Proof](proof/quantifier-free-defect-complexity.md) ·
+[Fresh backend replay](evidence/replay-2026-10-20.json).
+
 ## Reproduce
 
 ```sh
@@ -34,9 +51,9 @@ python3 defect_synthesis/reproduce.py
 make -C defect_synthesis/paper
 ```
 
-Use Python 3.10+ without `-O`, C++17, the system ISL/GMP shared library (the retained
+Use Python 3.10+ without `-O`, C++17, the system Z3 and ISL/GMP shared libraries (the retained
 reports use ISL 0.27), and pdfLaTeX. The entrypoint verifies the import hashes and
-runs four exact modules in a disposable copy, including independent finite controls
+runs the four retained modules and six new backend sections in a disposable copy, including independent finite controls
 and finite-cover reconstruction. Source snapshots retain their original research
 README paths; the commands above are the portable public entrypoints.
 
@@ -45,6 +62,9 @@ not an executed enumeration. The small-witness result has a complete analytic
 proof in the paper; its original optional implementation archive is not available
 in this checkout and its reported controls are not counted as replayed here.
 The supplied-schema, supply-spectrum and optimization implementations are included.
+
+Use `--new-results-only` for the QF backend alone. The restored QF implementation
+is distinct from the still-missing original small-witness archive.
 
 ## Open
 

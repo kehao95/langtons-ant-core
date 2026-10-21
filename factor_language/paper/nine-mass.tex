@@ -1,0 +1,89 @@
+\section{Nine factors suffice for mass balance}\label{sec:nine-mass}
+The language threshold for a uniform mass bound differs from the threshold
+for eventual periodicity. Put
+$D(v)=3|v|-26(\#R(v)-\#L(v))$. Every finite physical nine-legal word satisfies
+\[
+ D(v)\le1004.
+\]
+Consequently every complete finite-support orbit interval satisfies
+\[
+ 3(t-s)-26(|B_t|-|B_s|)\le1033N_9(s,t)+1004,
+\]
+where $N_9$ counts forbidden nine-windows wholly contained in the interval.
+The constant 1004 is not claimed optimal. The stronger ten-language
+constant 322 remains valid on its narrower class.
+
+\subsection{Finite certificate and all-length coverage}
+Two complete enumerators produce all 164,283 feasible nine-legal words of
+length 150. They also cover all shorter words, whose maximum deficit is
+322, including words with no legal length-150 extension. The 149-overlap
+graph has 157,114 vertices. Every longer real word is its initial history
+followed by a graph path; the converse need not hold.
+
+There are three cyclic components: simple cycles of lengths 104 and 24,
+and a component with 34,712 vertices. Successor-signature refinement maps
+the latter to a 1,213-state follower quotient without changing any edge
+label. Fourteen explicitly checked forbidden words each demand two
+consecutive same-colour reads of one site and are physically impossible.
+The reachable product avoiding these words has 9,154 states and 9,550 edges.
+Every quotient state is allowed as an entry with empty suffix history,
+which preserves coverage even when a conflict crosses component boundaries.
+
+An integer potential $0\le y_u\le306$ satisfies
+\[
+ y_u-y_v\ge\omega(c)\quad(u\mathrel{\mathop{\longrightarrow}^{c}}v),
+ \qquad \omega(R)=-23,\quad\omega(L)=29.
+\]
+All inequalities are checked after reconstructing the potential.
+Telescoping bounds the deficit of every internal path by 306.
+The two simple-cycle total weights are 0 and $-32$; their maximal
+subpath weights are 237 and 94. Removing complete laps proves these
+bounds for arbitrarily many repetitions.
+
+Give each component its internal budget and each entry its maximum
+149-letter history deficit. A topological dynamic program on the complete
+condensation graph adds crossing-edge weights and the next internal budget.
+Every real path visits each component at most once. Checking all initial
+and cross-edge inequalities gives the total bound 1004, including both
+ends of the word. This establishes the all-length claim without extending
+a finite simulation cutoff. Finally, remove the last letter of every bad
+nine-window. The at most $N_9+1$ remaining consecutive runs are nine-legal;
+each removed letter costs at most 29. Additivity yields
+$1004(N_9+1)+29N_9$ and proves the unrestricted inequality.
+
+\subsection{The sharp window threshold uses finite inputs}
+Let
+\[
+ u=\mathrm{LLLLRRLLRRRRLLRRLRLLRR},\qquad d=(-3,1),
+\]
+and define
+\[
+ \begin{aligned}
+ A&=\{(0,-1),(1,-1),(2,-1)\},\\
+ H&=\{(-1,1),(-2,1),(0,0),(-1,0),(-1,-1)\}.
+ \end{aligned}
+\]
+All cyclic eight-factors of $u$ are standard, and it contains eleven
+letters of each colour. For every $n\ge0$ the complete finite source
+\[
+ B^{(n)}=A\cup\bigcup_{a\in H}\{a+jd:0\le j<n\}
+\]
+has $3+5n$ black sites and, from the origin facing north, executes $u^n$.
+At update $22n$ it first departs from the proposed repetition.
+
+For the all-parameter proof, partition phase positions into full
+translation classes modulo $\mathbb Z d$. In each class write a phase
+position as $b+a_i d$ and let $h=\max_i a_i$. The five required black rays
+start at $b+h d$; their finite boundary assignments are exactly $A$.
+A phase read in epoch $j<n$ has ray index $j+a_i-h<n$, so every nonnegative
+index is present in the truncation and every negative index uses the same
+boundary assignment. Literal coupling proves the entire prefix. At epoch
+$n$, phase zero first reads the missing site $nd$, which is white.
+The fixed class table and its infinite parity intervals are checked exactly.
+
+Thus $D(u^n)=66n$, disproving a seed-independent constant for window eight
+and every smaller window. For $k\ge9$, a $k$-legal word of length at least
+$k$ is nine-legal; shorter words have deficit at most $29(k-1)$.
+Therefore a finite uniform constant exists exactly when $k\ge9$.
+These finite prefixes do not provide a nonstandard infinite finite-seed
+orbit, and this mass theorem supplies no nine-factor attraction claim.

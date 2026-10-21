@@ -1,0 +1,127 @@
+\section{Finite-horizon rigidity and silent supply}\label{sec:silent-supply}
+The infinite-future attraction theorem does not apply to a legal fragment that
+may later violate the language. We now bound the nonstandard part of every
+finite ten-legal physical word, without assuming a legal continuation.
+For such a word $w$, let $c(w)$ count distinct sites whose first requested read
+is L. The alternating-read criterion makes this exactly the minimum initial
+black mass realizing $w$. In particular $c(w)\le m$ for a segment starting
+with a complete $m$-black field.
+
+\textbf{Theorem (one contiguous standard core).}
+Every finite ten-legal physical word has a decomposition
+\[
+ w=u(W_r)^k v,\qquad k\ge0,\qquad
+ |u|+|v|\le114c(w)+154693,
+\]
+where $W_r$ is a cyclic phase of the standard word. If $\Delta$ is the total
+head displacement, then
+\begin{equation}\label{eq:silent-supply}
+ |w|\le52\|\Delta\|_\infty+114c(w)+223437.
+\end{equation}
+The coefficient 52 is optimal; the other constants are sufficient bounds.
+The core is one contiguous part of the actual trace, and it may be empty.
+
+\subsection{Component order and transverse supply}
+The finite-path fold cover established earlier represents every finite legal
+word by at most five cyclic stages, with periods $24,104,28,28,28$.
+The acyclic steps number at most 956 and the total cycle lengths at most 212.
+Allowing the initial 149 letters, partial cycle remainders and exits leaves
+at most
+\[
+ F=149+956+212+5=1322
+\]
+literal letters outside whole powers. The complete condensation graph checks
+the additional order: at most one $T$ power precedes at most one $W$ power,
+followed by at most three $A$ powers. A departed $W$ component cannot be
+reentered within the same legal word. This order uses the all-parameter
+three-fold obstruction, so it covers arbitrarily long finite paths.
+
+Every phase of $T^k$ requires at least $2k$ distinct initially black read
+sites, and every phase of $A^k$ requires at least $5k$. Each whole period
+of either mode changes black mass by $+4$. These supply counts follow by
+listing phases with no earlier same-cell predecessor in any translating
+copy. If $q_i$ and $q_j$ are phase positions and $d$ the full drift,
+an earlier copy can hit phase $i$ precisely when $q_j-q_i=s d$ with
+$s>0$, or $s=0$ and $j<i$, subject to the copy being present.
+The fixed phase tables check all rotations and starting phases.
+
+A $W$ power reads an eleven-level diagonal strip, whereas an $A$ power
+reads a four-level axis strip. Any translated pair intersects in at most
+$11\cdot4=44$ cells: an axis coordinate and a diagonal coordinate determine
+at most one lattice site. Thus an arbitrarily long standard block can supply
+only 44 sites directly to each later axial block.
+
+\subsection{Complete-field cofactor accounting}
+Let $k_T,k_W,k_1,k_2,k_3$ be the whole-period counts, inserting zeros for
+absent stages, and put $q=m+F$. Initially $2k_T\le q$.
+Let $D$ be the complete net toggle set of the $W$ block. After that block
+write the actual field as $B=R\mathbin{\triangle}D$. The cofactor $R$ is
+an algebraic device, not a substituted physical state. Every cell of $D$
+continues to participate in the actual evolution. For any toggle set $Z$,
+\[
+ |R\triangle Z|-|R|
+ \le |(R\triangle D)\triangle Z|-|R\triangle D|+2|Z\cap D|.
+\]
+This holds pointwise: outside $Z\cap D$ the mass changes agree, and at an
+intersection site they differ by at most two. Consequently an $A^k$ block
+increases cofactor mass by at most $4k+88$, and at most 44 of its required
+first-L sites can be supplied by $D$. Allocating all $F$ literal flips from
+the start gives
+\[
+ 5k_i\le3q+4\sum_{j<i}k_j+88(i-1)+44,\qquad i=1,2,3.
+\]
+Iteration yields
+\[
+ \sum_{i=1}^3 k_i\le\frac{453}{125}q+\frac{15004}{125}.
+\]
+The number $E$ of letters outside the whole standard power therefore obeys
+\[
+ E\le F+24k_T+28\sum_i k_i
+ \le\frac{14184}{125}m+\frac{3867322}{25}
+ \le114m+154693.
+\]
+Applying this bound to the minimal first-read source proves the core claim.
+
+The common-normal certificate from the endpoint-strip argument supplies one
+coordinate normal $n$ whose projection on every cyclic drift of this path
+is nonnegative. If the standard power occurs, its projection is 2 per
+period, while all literal letters together contribute at least $-F$.
+Hence $2k_W\le\|\Delta\|_\infty+F$. Combining this with the bound on $E$
+proves~\eqref{eq:silent-supply}, since $52F=68744$. Without a standard
+power, the bound on $E$ already suffices. Standard prefixes $W^k$ from a
+fixed finite seed have length $104k$, displacement norm $2k$ and bounded
+first-black cost; they rule out any smaller displacement coefficient.
+
+\subsection{Closed returns, lifetimes and a one-jump algorithm}
+A closed legal return from a complete $m$-black field has length at most
+$114m+223437$. If a cell is born black at time $b$ and next read at $e>b$,
+and the word on $[b,e)$ is ten-legal, its endpoints coincide. Thus
+\[
+ e-b\le114|B_b|+223437.
+\]
+The mass belongs to the birth checkpoint. Repeated use of this inequality
+does not replace changing checkpoint masses by the original input mass.
+
+There is also an exact first-$J_{10}$ algorithm using one standard-periodic
+query and at most $114m+154694$ ordinary forward updates on an explicit
+complete $m$-point source. Recover the initial nine turns by inverse dynamics
+on a copy of the full field. Execute literal updates until the first event,
+or until the actual 149-letter history enters the standard component.
+At that point the complete-field ray-parity query either certifies a
+permanent standard future or gives its first mismatch. Retain every skipped
+write as finite XOR segments and continue literally until the first event.
+The component order forbids a second standard stage before that event.
+The core bound limits all remaining literal work and proves totality.
+
+The returned endpoint contains the original points, $O(m+1)$ point changes
+and at most 104 finite translating segments. Coordinates and elapsed time
+may be arbitrarily large binary integers; the algorithm has polynomial bit
+complexity in the explicit sparse input. This does not improve the older
+five-plan algorithm's guarantee for compressed inputs representing huge
+black mass. Both algorithms retain all unread debris.
+
+For a fixed finite target $K$, put
+$R=\max_{q\in K}\|q-p_0\|_\infty$. If the first future event lies in $K$,
+its pre-update index is at most $52R+114m+223437$. This bounds a first-event
+query, not later returns to $K$. No total event budget or cross-event
+descending rank follows.

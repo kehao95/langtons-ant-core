@@ -11,3 +11,11 @@ The candidate contains the complete analytic manuscript and the bundled exact
 arithmetic checks. Its small-witness section is an analytic proof; the original
 optional implementation is recorded as missing rather than included in replay.
 No Zenodo record or draft has been created. The owner must approve publication.
+
+## Current revision — 20 October 2026
+
+Research `16b9b46` is integrated at the same pending 0.1.0 version. The earlier
+PDF, metadata, source manifest and replay record are preserved under
+`v0.1.0/revisions/2026-10-20-before-integration/`. The current standalone source
+ZIP and PDF are in `candidate/`; versioned manifests identify their exact bytes.
+Publication remains a separate step.

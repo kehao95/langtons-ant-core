@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "scope": "local theorems and obstruction controls only",
+  "source_commit": "16b9b465a291933d0229f8febf180fcc3be7fddc",
+  "stages": [
+    {
+      "module": "contour_surgery_pivot",
+      "status": "passed",
+      "seconds": 1.338,
+      "stdout": "{\n  \"schema\": \"contour-surgery-pivot-v1\",\n  \"status\": \"passed\",\n  \"scope\": \"exact representation and finite controls only; no HC advance claimed\",\n  \"local_fields\": 512,\n  \"headings\": 4,\n  \"one_step_surgeries\": {\n    \"merge\": 1024,\n    \"split\": 1024\n  },\n  \"complete_orbit_inputs\": 33,\n  \"physical_updates\": 28384,\n  \"complete_field_equalities\": 28384,\n  \"orbit_trace_sha256\": \"bf76ee84b102ded8c105d4fe7b0eaa03790739913bf964156618b6ca41b275a1\",\n  \"separated_cycle_rejoins\": {\n    \"split_update\": 4,\n    \"rejoin_update\": 8,\n    \"detached_directed_arcs\": 16,\n    \"prefix\": \"RRRRLRRRR\"\n  },\n  \"source_sha256\": \"ade0468278c4c570fee0809885172e1ef77a52df0f8e20ee34d63b96d750cdbc\"\n}\n"
+    },
+    {
+      "module": "contour_exit",
+      "status": "passed",
+      "seconds": 9.7,
+      "stdout": "{\"abstract_cases\": 3261, \"cpp\": {\"complete_endpoints_and_trace_digests\": 2216, \"literal_updates\": 28223}, \"python\": {\"inputs\": 67752, \"interlaced\": 37872, \"noninterlaced\": 29880, \"updates\": 757531}, \"status\": \"PASS\"}\n"
+    },
+    {
+      "module": "immediate_distance",
+      "status": "passed",
+      "seconds": 4.32,
+      "stdout": ""
+    }
+  ],
+  "completed_utc": "2026-10-21T00:21:27.986724+00:00",
+  "global_hc_conclusion": false,
+  "source_sha256": {
+    "verification/contour_exit/README.md": "838177163a736b3f344d0a4028f5df62639ee514725fa2ff0ec8428f2cbd873f",
+    "verification/contour_exit/check.py": "b099cabc9282db0c2088a3b5be1e8356017aeb00b84ada6ae29158f4d6e2b1c8",
+    "verification/contour_exit/independent.cpp": "a4e03815c9c22b67a95c36ab4ad213cddefcda9d3db9e717281cce7af35be1bb",
+    "verification/contour_exit/kernel.py": "9e6fd801c9dda1fe4c1918f50d2db588436923aa66564de18bd57b233d1249d6",
+    "verification/contour_exit/report.json": "bde32e1fe39186fcf61ae9f7df46cec5dcd6bcfda2d0c55176cd4d3424b77d18",
+    "verification/contour_exit/witness.json": "0ddc9dd7f5ad84afc07e3eb0cb38c34d92d1e72e57023d0ec86344489f59ff0e",
+    "verification/contour_surgery_pivot/README.md": "9d06c128e9d5e5d438b7e2610467f463052ca89b9eb8786642ee5b0ddefe2509",
+    "verification/contour_surgery_pivot/check.py": "ade0468278c4c570fee0809885172e1ef77a52df0f8e20ee34d63b96d750cdbc",
+    "verification/contour_surgery_pivot/report.json": "e52a38c21c7cdd12e6ad03ede9d7660413b4c20a45ae72e547ac80b09fb250d5",
+    "verification/immediate_distance/README.md": "2947729280178a19b712b1495c1c7015558609d87f88440731728ed8ee6ccb6c",
+    "verification/immediate_distance/base_positive.json": "4f0e8d018cb39349421a505c0b09f537b731762e9a4959a380e21b6ca702fa0d",
+    "verification/immediate_distance/baseline/periodic_verify.py": "50186c42b6caa35b51a1d3449d33a340272bbc71daab0a4ed55582fa1ba7f29f",
+    "verification/immediate_distance/check.py": "8d8978e52524baf72e6a481403ae48e44d5ade308bb345999c61b62f01bb71bf",
+    "verification/immediate_distance/check_results.json": "38e62636c05ea6f4c615b943e24a40c67b5b31643710122ab1f26ed0656f74cf",
+    "verification/immediate_distance/distance.py": "4dda8e4310877e9d3402e9ffc0486b2ff2ee7869b5b8579b4305b62948475981",
+    "proof/noninterlaced-contour-exit.md": "9034fd80c6dbfbfbe16cb9c13d4f6870820aa5306b5de66d580570eea02ac933",
+    "proof/immediate-highway-distance-obstruction.md": "2b1d1245d929d68f10a7166733299fa9568df466978822874848e46aabcab628",
+    "proof/contour-surgery-pivot.md": "ec734a3aedb2cc274085f98bd6ae21e6ddce13d44f4004a08f1b2e474ae6c043"
+  }
+}

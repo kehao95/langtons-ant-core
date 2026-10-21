@@ -17,7 +17,7 @@
 \newcommand{\dom}{\operatorname{dom}}\newcommand{\ran}{\operatorname{ran}}
 \title{Counting Defects: Semilinear Reachability\\and Resource Bounds for Langton's Ant}
 \author{Hao Ke}
-\date{16 October 2026 --- Version 0.1.0}
+\date{20 October 2026 --- Version 0.1.0}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -33,9 +33,12 @@ yield an effective dichotomy between a fixed-cost unbounded-defect ray and
 a uniform affine supply budget. An exact three-parameter fold--consumer
 classification gives the sharp inequality $10D\le9C-309$.
 A separate affine-chamber argument supplies polynomial-size positive witnesses
-and NP membership when the mass and defect budgets are unary. Exact
-supplied-schema implementations and finite-cover reconstruction accompany
-the proofs.
+and NP membership when the mass and defect budgets are unary. For a
+restricted segment-source syntax we also construct a polynomial-size
+quantifier-free physical-realization circuit and a shared factor counter.
+This backend supports binary linear side conditions and an NP-oracle
+bound for minimum initial cost. Exact supplied-schema implementations
+and finite-cover reconstruction accompany the proofs.
 \end{abstract}
 
 \section{Problem and main result}
@@ -336,6 +339,8 @@ black ray is explicitly supplied. This guards against a finite-support mismatch.
 
 \input{small-witnesses}
 
+\input{quantifier-free}
+
 \section{Fixed budgets and eventual convergence}
 Define the root-cost sequence
 \[
@@ -376,7 +381,7 @@ Run \texttt{python3 defect\_synthesis/reproduce.py}. The self-contained
 supplement contains two exact relation compilers, independent finite-state
 controls, the finite-cover reconstruction, the complete three-parameter
 resource identity and fixed-schema query optimizations. Python 3.10+, a C++17
-compiler and the system ISL/GMP shared library suffice. The arithmetic
+compiler and the system ISL/GMP and Z3 shared libraries are required. The arithmetic
 backend performs exact integer set operations~\cite{isl}.
 
 The replay checks supplied-schema identities and the finite cover. The universal

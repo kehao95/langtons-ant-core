@@ -109,7 +109,7 @@
 
 \title{Local Factor Rigidity and Mass--Defect Bounds for Langton's Ant}
 \author{Hao Ke}
-\date{16 October 2026 · Version 0.1.0}
+\date{20 October 2026 · Version 0.1.0}
 
 \usepackage{fvextra}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
@@ -124,12 +124,17 @@ first entry is at most $12m+212$, with optimal linear coefficient 12.
 A bounded-fold graph computes exact first violation times and complete
 compressed endpoints in polynomial bit time, with quadratic finite-event
 deadlines. Every finite legal interval also lies in one endpoint coordinate
-strip with padding 43. Explicit finite families manufacture long-lived memory,
+strip with padding 43 and has one contiguous standard core outside at most
+$114c+154693$ letters, where $c$ is its minimum initial black supply.
+Its length is at most $52\|\Delta\|_\infty+114c+223437$, with sharp
+displacement coefficient. Explicit finite families manufacture long-lived memory,
 consume it at later violations and recover autonomously; the original archive
 family has exact parity-dependent first-entry times, while a related folded
 ribbon gives a linear reset cost. Independently, a finite-word potential proves
 $3(t-s)-26(|B_t|-|B_s|)\le351N_{10}(s,t)+322$ on every trajectory interval.
-The additive constant and standard mass-growth slope are sharp. Exact finite
+The additive constant and standard mass-growth slope are sharp. A separate
+nine-factor certificate gives a uniform mass-deficit bound, and finite
+eight-legal counterfamilies establish its sharp window threshold. Exact finite
 certificates accompany the all-parameter physical arguments.
 \end{abstract}
 
@@ -160,7 +165,10 @@ discuss highway certification; Jillhewar's full-drift chronology {[}3{]}
 supplies the periodic realization test used here. Our contributions are
 the concrete ten-factor classification, the all-parameter exclusion in
 its nonsimple recurrent component, the sharp transient coefficient, the
-local-target algorithm, and the mass--defect inequality.
+local-target algorithm, finite-horizon core and supply bounds, and the
+mass--defect inequalities. The mass threshold is nine, while the
+arbitrary-colouring eventual-periodicity threshold is ten; these answer
+different questions.
 
 \section{Model and principal results}\label{model-and-principal-results}
 
@@ -707,6 +715,8 @@ the event chain, rather than decidability of an individual query.
 
 \input{silent-geometry}
 
+\input{silent-supply}
+
 \input{silent-memory}
 
 \section{Mass and defects on arbitrary
@@ -871,6 +881,8 @@ if \(|B_t|=o(t)\), then \(\liminf N_{10}(0,t)/t\ge1/117\); if
 \(N_{10}(0,t)=o(t)\), then \(\liminf |B_t|/t\ge3/26\). These quantify
 the cost of maintaining low mass or a nearly legal stream.
 
+\input{nine-mass}
+
 \section{Reproducibility and
 conclusion}\label{reproducibility-and-conclusion}
 
@@ -890,6 +902,13 @@ compare complete endpoint fields, verify the all-future standard recovery,
 and check every alignment in the reset lower bound. Their universal parameter
 coverage comes from the finite arrangement proof, with separate literal
 simulations and damaged-witness controls.
+
+The silent-supply checker independently rebuilds the 6,605-word cover,
+component order and common normal, checks every phase supply and transverse
+intersection bound, and compares 174 complete first-event endpoints.
+The nine-factor checker independently enumerates all 164,283 length-150
+words, checks 9,550 product-edge inequalities and the complete condensation
+budget, and verifies the all-parameter eight-factor truncation.
 
 Run \texttt{python3\ factor\_language/reproduce.py} from the source
 root. Retained source hashes and a fresh per-stage report distinguish
@@ -973,6 +992,7 @@ a phase placement is explicit.
 \end{Highlighting}
 \end{Shaded}
 
+\clearpage
 \section{First-black supply table for the
 24-mode}\label{first-black-supply-table-for-the-24-mode}
 

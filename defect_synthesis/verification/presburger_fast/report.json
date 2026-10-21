@@ -1,0 +1,69 @@
+{
+  "base_commit": "f74b09bd3329d7b83fcf323fc580f5a1320fcd48",
+  "endpoints": {
+    "api_empty_word": true,
+    "api_sat_independently_verified": true,
+    "api_unsat_scope": "supplied schema only",
+    "full_endpoint_all_coordinate_equivalence": true,
+    "jump_value_all_parameter_equivalence": true,
+    "resource_result": "unknown",
+    "sparse_distinctness_equivalence": true
+  },
+  "factors": {
+    "circuit_nodes": 5101,
+    "literal_parameter_instances": 1280,
+    "unbounded_64_power_count_zero": true,
+    "wide_circuit_nodes": 4036,
+    "wide_old_case_count": "18446744073709551616",
+    "wide_smt_bytes": 270218
+  },
+  "full_global_cover_executed": false,
+  "intersections": {
+    "all_integer_equivalences": 312,
+    "circuit_nodes": 10434
+  },
+  "literal": {
+    "endpoint_bit_checks": 175175,
+    "invalid_prefixes": 266,
+    "legacy_feasibility_comparisons": 544,
+    "literal_plan_updates": 28784,
+    "parameter_instances": 544,
+    "schemas": 34,
+    "valid_complete_endpoints": 278
+  },
+  "negative": {
+    "rejected": 8
+  },
+  "schema": "presburger-fast-check-v1",
+  "scope": "supplied-schema equivalences and analytic global upper bound; no full global cover run",
+  "solver_version": "4.13.3.0",
+  "source_scope": "Runtime and correctness-check modules only; benchmark source/measurements are separately versioned",
+  "source_sha256": {
+    "_paths.py": "c3716b52f2291f85940e11102180822b526fcdda6671a2262185cf1f50a80c3a",
+    "api.py": "951eaec2cb3e1be8667fe53b9a356d157829a2ef1e922ee02e957e3953c78d88",
+    "check_fast.py": "d7aeb7c093d81f9a4e5c42bc2a44e525b60972f2d7b8d98db1dd1fd7795aff41",
+    "factor_dag.py": "9adae9cf9c4331efe0873b04af2b5bb5d6664717d461a412db9b87cb89143e47",
+    "numeric.py": "b28ee23ddc2fbf3569cd10f63cec827532350e6b87ac402acf422c4a6ec068de",
+    "solver.py": "4d19fc010704a66e6289b175bac8b081cfa68d0bf0331823a11ac2ee7b36c6b4",
+    "stream_qf.py": "8f4267cedd1782c5110961290eaa1eab386477b6c0e701535e90c601f2e16478"
+  },
+  "symbolic": {
+    "damaged_marker_rejected": true,
+    "huge_numeric_parity_checks": 272,
+    "huge_parameter": "1000000000000000000000000000000000000000000000000000000000000",
+    "huge_post_time": "104000000000000000000000000000000000000000000000000000000000001",
+    "marker_all_coordinate_relation": "kk>0 => (valid iff px=py=-2*kk)",
+    "marker_encoder": {
+      "circuit_nodes": 3436,
+      "constant_divisions": 36,
+      "intervals": 845,
+      "prefix_net_terms": 32,
+      "probes": 841,
+      "read_streams": 105,
+      "smt_bytes": 248521,
+      "source_segments": 18
+    },
+    "marker_exact_defect_count": 1,
+    "rail_all_parameter_equivalence": true
+  }
+}

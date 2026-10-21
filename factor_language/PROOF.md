@@ -1,5 +1,18 @@
 # Factor rigidity and mass–defect balance
 
+## Current additions — research 16b9b46
+
+| Claim | Universal bridge | Executable support |
+|---|---|---|
+| [Single finite standard core and supply bound](proof/silent-supply-rigidity.md) | Ordered finite-fold cover; 44-cell transverse overlap; full-field XOR cofactor inequality; common normal | `verification/silent_supply`: two complete enumerations, component order, phase supplies, 174 complete endpoints and huge-coordinate parity |
+| [Nine-factor mass bound and minimal window](proof/nine-factor-mass-bound.md) | Every finite path projects to checked forbidden-word product; potentials telescope through the full condensation; all-n ray truncation defeats eight | `verification/nine_mass`: 164,283 words, 9,550 edge inequalities and the finite counterfamily |
+
+[Source hashes](evidence/import-2026-10-20.json) pin original files without code
+adaptation; the runner reconstructs their original dependency layout in a temporary
+directory. [Fresh replay](evidence/replay-2026-10-20.json) covers these additions.
+The independent periodic verifier required by the eight-factor witness is bundled.
+The one-jump runtime guarantee is for explicit mass, not compressed mass.
+
 ## Additions integrated on 16 October 2026
 
 The revision adds [silent archive manufacture](proof/silent-archive-amplification.md):

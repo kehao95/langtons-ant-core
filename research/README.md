@@ -6,6 +6,20 @@ proofs establish the blank and universal one-black families. Archived theorem
 and experiment provenance is anchored at
 [`045ff9a`](https://github.com/kehao95/langtons-ant/tree/045ff9a3b66a535ab34f2ed2cbf40e5adce5f9ea).
 
+## Current scoped additions — 20 October 2026
+
+[Complete-history renewal tools](renewal/) now retain exact contour surgery,
+noninterlaced first-contour exit, a physical failure of an unrestricted linear
+exit bound, and the immediate-target distance obstruction. All three checks
+have been replayed from imported sources. This module owns local research
+results and failed rank mechanisms; it asserts no global transience or HC.
+
+The [factor paper](../factor_language/) now bounds finite silent returns by their
+complete starting supply. The [four-row paper](../four_row_escape/) proves an
+all-width persistent-interface closure. These are concrete inputs to studying
+cross-event supply and more general interfaces; neither supplies that global
+extension. The older program below retains its distinct unresolved targets.
+
 ## Proof graph
 
 ```text

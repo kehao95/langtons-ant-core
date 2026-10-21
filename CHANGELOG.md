@@ -1,5 +1,14 @@
 # Repository changes
 
+## 2026-10-20 — four-row exact escape and scoped research integration
+
+- Add the independent four-row 0.1.0 manuscript, all-width certificates and portable replay.
+- Extend factor with finite-horizon single-core supply, one-jump events and the sharp nine-factor mass window.
+- Extend Counting Defects with the QF physical-realization backend and exact six-part controls.
+- Retain contour surgery, noninterlaced exit and immediate-distance rank obstructions as scoped research.
+- Preserve prior candidate snapshots and published releases; retain the missing 739-case and original optional small-witness archive boundaries.
+
+
 ## 2026-10-16 — Consolidate research 9223766d
 
 - Strengthen the existing wake candidate with general quadratic wake arithmetic,

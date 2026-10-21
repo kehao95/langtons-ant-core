@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def sha(data): return hashlib.sha256(data).hexdigest()
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--project',required=True,choices=('wake_synthesis','factor_language','memory_feedback','four_cell_port','defect_synthesis'))
+    parser.add_argument('--project',required=True,choices=('wake_synthesis','factor_language','memory_feedback','four_cell_port','defect_synthesis','four_row_escape'))
     parser.add_argument('--quick',action='store_true',help='wake only: omit the large thin-wake exclusion replay')
     parser.add_argument('--extensions-only',action='store_true',help='wake/factor: replay new modules and hash-match inherited fully replayed mathematical sources')
     parser.add_argument('--output',type=Path,required=True)

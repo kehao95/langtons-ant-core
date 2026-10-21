@@ -1,0 +1,112 @@
+\section{A polynomial-size quantifier-free decision backend}\label{sec:qf}
+The general Presburger construction supports arbitrary finite-fibre source
+predicates and complete target equality. For the modal schemas in the
+finite-defect cover, a narrower syntax admits a polynomial-size existential
+encoding. This provides an executable decision backend and a second route
+to the small-witness conclusion.
+
+Let
+\[
+ \mathcal D=\{(\pm2,\pm2),(\pm2,0),(0,\pm2),(\pm4,0),(0,\pm4)\}.
+\]
+Every powered word must restore heading and have full drift in $\mathcal D$.
+The source is a finite XOR of segments $a+jv$, $0\le j<L$, with
+$v\in\mathcal D$, and singletons. Anchors, lengths and exponents may be
+affine expressions in shared integer parameters; lengths and exponents
+are constrained nonnegative. Explicit $m$-point inputs additionally require
+pairwise distinct coordinates. No coordinate or repetition bound is imposed.
+
+\begin{theorem}[Quantifier-free physical realization]
+For this syntax, a polynomial-time construction produces a quantifier-free
+linear-integer/Boolean circuit whose existential satisfiability is equivalent
+to literal execution of the complete prescribed word. Exact contained-defect
+counts, the final defect flag, endpoint time and pose, and any polynomial
+number of endpoint-colour queries have polynomial-size circuits as well.
+\end{theorem}
+\begin{proof}
+Represent each phase of a power by the injective read stream
+$a_i+j d$, $0\le j<k$, with its fixed required colour. Its actual colour
+is the XOR of the source and every earlier planned write at that point.
+For streams in different blocks, temporal order is fixed. Within one
+power of period $P$, a phase-$r$ occurrence at index $j+s$ precedes
+phase $i$ at index $j$ exactly when $Ps+r<i$. This retains the intra-loop
+chronology rather than grouping all occurrences by phase.
+
+For a source or write stream $b+\ell v$, solve
+$a+jd=b+\ell v$ with its finite index bounds. Nonparallel strides give at
+most one hit by the determinant formula. Parallel strides give a guarded
+arithmetic interval in $j$ with modulus
+$|v_\alpha|/\gcd(|d_\alpha|,|v_\alpha|)$, which is always 1 or 2 for
+$\mathcal D$. Splitting $j=2z+e$ leaves a guarded ordinary interval.
+Floors and exact divisibility use only fixed integer divisors and therefore
+have constant-size linear defining constraints.
+
+On a target residue interval $[0,K]$, the XOR of these interval contributions
+is a step function. It has the required constant colour exactly when its
+value at zero is correct and every active interior boundary has even total
+jump parity. Check this at each candidate interval start and one-past-end,
+including all coincident boundaries. For $q$ contributions, the equality
+and parity tests use $O(q^2)$ shared wire operations; no ordering of symbolic
+endpoints is enumerated. With $R$ read streams and $M$ source terms the
+parity stage has size $O(R(R+M)^2)$, apart from shared affine expressions.
+Induction through the finite planned word proves that these colour tests
+are sufficient as well as necessary for physical execution.
+
+For lexical counts, retain the preceding at most nine turns, their length,
+the defect count and the final-event flag as shared registers. For a power
+$u^k$, at most $\lceil9/|u|\rceil$ copies precede suffix stabilization;
+later copies contribute a fixed cyclic defect count. Constant-size guarded
+transfers select the short cases and the stabilized case. The $k=0$ branch
+preserves the entire incoming state. Sharing these transfers between blocks
+gives a circuit linear in spelled length and block count, instead of a
+Cartesian list of zero/positive choices.
+
+Finally, an endpoint-colour query XORs initial membership with membership
+in every read stream. This retains all unqueried remote cells. Named gates
+and linear definitions preserve polynomial size throughout and prove the
+theorem.
+\end{proof}
+
+\begin{corollary}[Unary budgets with binary side conditions]
+For explicit $m$ coordinate pairs, unary $N\ge1$ and a quantifier-free
+linear-integer side condition $Q$ of binary length $b$, existence of a
+complete $m$-black source whose $N$th contained defect satisfies $Q$ is
+in NP. Positive witnesses have polynomial bit length in $m+N+b$.
+For unary $N$, the minimum initial cost $\mu(N)$ is in $\mathrm{FP}^{\mathrm{NP}}$.
+\end{corollary}
+\begin{proof}
+The inherited complete cover supplies a schema with at most $5(N+1)$
+powers and $2048(N+1)+N$ fixed letters. Its powered bodies are phases of
+$W,T,A$, with strides in $\mathcal D$. Guess this polynomial-length
+schema, apply the theorem to the $m$ distinct source points, and require
+exactly $N$ defects with a bad last letter and condition $Q$.
+Guessing Boolean branches reduces the circuit to polynomially many linear
+integer constraints. The integer small-solution bound used in
+Section~\ref{sec:small} supplies polynomial-bit witnesses, which can be
+checked in polynomial time. This uses the complete physical cover;
+satisfiability of a graph relaxation alone would not suffice.
+
+The finite row construction $(LRRL)^L$ gives
+$\mu(N)\le2\lceil(N+9)/4\rceil$. A finite prefix can be padded by unread
+black cells outside its footprint, so the NP query for exactly $m$ points
+decides $\mu(N)\le m$ without additional side conditions. Binary search
+over this $O(N)$ range needs $O(\log(N+1))$ NP-oracle queries of polynomial
+unary-$N$ size. No value of $\mu$ or divergence statement is computed here.
+\end{proof}
+
+The new backend rejects arbitrary quantified source predicates,
+zero-displacement powers and complete-field target equality. Those tasks
+remain with the more general compiler. Polynomial circuit size does not
+imply a polynomial deterministic solver, and the NP statement is not a
+claim for binary-encoded $N$.
+
+The bundled checks include 312 all-integer intersection equivalences,
+544 parameter instances across 34 schemas, 278 complete valid endpoints,
+175,175 endpoint-bit comparisons, exact huge-coordinate identities and
+eight invalid-input controls. Z3 and ISL/GMP are explicit trust dependencies;
+native UNSAT responses are not independently checked proof objects.
+Historical timing measurements show a roughly $128$-fold gain for the
+factor-counter construction at 16 independent powers, but only about
+$1.8$--$1.9$ on three supplied-schema decision examples and a slowdown on
+one small example. These are distinct tasks; no global synthesis speedup
+is claimed and timing is not a deterministic replay target.

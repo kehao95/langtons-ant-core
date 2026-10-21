@@ -1,12 +1,12 @@
 {
   "files": {
     "Local-Factor-Rigidity.pdf": {
-      "bytes": 170497,
-      "sha256": "8146e4eb718ce85999669300d24958d804c0fbd2744a9322824de41c6b87d3ac"
+      "bytes": 187363,
+      "sha256": "d9a8f8f0e739ca5ff37dea84ac3cf4761de2f4576adcc602d2ad228a031162bd"
     },
     "factor_language-0.1.0-source.zip": {
-      "bytes": 282106,
-      "sha256": "4f5d153a5c27d5e5bdb9a9dc13fa6a62381ea203508729d2838cda408d67d3fe"
+      "bytes": 363963,
+      "sha256": "f574733f16d8415a517a3c1536ff514f00a7753e2749b2c2fcbf33aace779b20"
     }
   },
   "project": "factor_language",

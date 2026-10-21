@@ -1,0 +1,96 @@
+{
+  "source_repository": "https://github.com/kehao95/langtons-ant",
+  "source_commit": "16b9b465a291933d0229f8febf180fcc3be7fddc",
+  "files": [
+    {
+      "source": "experiments/hc_global/contour_exit/README.md",
+      "destination": "verification/contour_exit/README.md",
+      "sha256": "838177163a736b3f344d0a4028f5df62639ee514725fa2ff0ec8428f2cbd873f"
+    },
+    {
+      "source": "experiments/hc_global/contour_exit/check.py",
+      "destination": "verification/contour_exit/check.py",
+      "sha256": "b099cabc9282db0c2088a3b5be1e8356017aeb00b84ada6ae29158f4d6e2b1c8"
+    },
+    {
+      "source": "experiments/hc_global/contour_exit/independent.cpp",
+      "destination": "verification/contour_exit/independent.cpp",
+      "sha256": "a4e03815c9c22b67a95c36ab4ad213cddefcda9d3db9e717281cce7af35be1bb"
+    },
+    {
+      "source": "experiments/hc_global/contour_exit/kernel.py",
+      "destination": "verification/contour_exit/kernel.py",
+      "sha256": "9e6fd801c9dda1fe4c1918f50d2db588436923aa66564de18bd57b233d1249d6"
+    },
+    {
+      "source": "experiments/hc_global/contour_exit/report.json",
+      "destination": "verification/contour_exit/report.json",
+      "sha256": "bde32e1fe39186fcf61ae9f7df46cec5dcd6bcfda2d0c55176cd4d3424b77d18"
+    },
+    {
+      "source": "experiments/hc_global/contour_exit/witness.json",
+      "destination": "verification/contour_exit/witness.json",
+      "sha256": "0ddc9dd7f5ad84afc07e3eb0cb38c34d92d1e72e57023d0ec86344489f59ff0e"
+    },
+    {
+      "source": "experiments/hc_global/contour_surgery_pivot/README.md",
+      "destination": "verification/contour_surgery_pivot/README.md",
+      "sha256": "9d06c128e9d5e5d438b7e2610467f463052ca89b9eb8786642ee5b0ddefe2509"
+    },
+    {
+      "source": "experiments/hc_global/contour_surgery_pivot/check.py",
+      "destination": "verification/contour_surgery_pivot/check.py",
+      "sha256": "ade0468278c4c570fee0809885172e1ef77a52df0f8e20ee34d63b96d750cdbc"
+    },
+    {
+      "source": "experiments/hc_global/contour_surgery_pivot/report.json",
+      "destination": "verification/contour_surgery_pivot/report.json",
+      "sha256": "e52a38c21c7cdd12e6ad03ede9d7660413b4c20a45ae72e547ac80b09fb250d5"
+    },
+    {
+      "source": "experiments/hc_global/immediate_distance/README.md",
+      "destination": "verification/immediate_distance/README.md",
+      "sha256": "2947729280178a19b712b1495c1c7015558609d87f88440731728ed8ee6ccb6c"
+    },
+    {
+      "source": "experiments/hc_global/immediate_distance/base_positive.json",
+      "destination": "verification/immediate_distance/base_positive.json",
+      "sha256": "4f0e8d018cb39349421a505c0b09f537b731762e9a4959a380e21b6ca702fa0d"
+    },
+    {
+      "source": "experiments/hc_global/immediate_distance/baseline/periodic_verify.py",
+      "destination": "verification/immediate_distance/baseline/periodic_verify.py",
+      "sha256": "50186c42b6caa35b51a1d3449d33a340272bbc71daab0a4ed55582fa1ba7f29f"
+    },
+    {
+      "source": "experiments/hc_global/immediate_distance/check.py",
+      "destination": "verification/immediate_distance/check.py",
+      "sha256": "8d8978e52524baf72e6a481403ae48e44d5ade308bb345999c61b62f01bb71bf"
+    },
+    {
+      "source": "experiments/hc_global/immediate_distance/check_results.json",
+      "destination": "verification/immediate_distance/check_results.json",
+      "sha256": "38e62636c05ea6f4c615b943e24a40c67b5b31643710122ab1f26ed0656f74cf"
+    },
+    {
+      "source": "experiments/hc_global/immediate_distance/distance.py",
+      "destination": "verification/immediate_distance/distance.py",
+      "sha256": "4dda8e4310877e9d3402e9ffc0486b2ff2ee7869b5b8579b4305b62948475981"
+    },
+    {
+      "source": "proof/results/noninterlaced-contour-exit.md",
+      "destination": "proof/noninterlaced-contour-exit.md",
+      "sha256": "9034fd80c6dbfbfbe16cb9c13d4f6870820aa5306b5de66d580570eea02ac933"
+    },
+    {
+      "source": "proof/results/immediate-highway-distance-obstruction.md",
+      "destination": "proof/immediate-highway-distance-obstruction.md",
+      "sha256": "2b1d1245d929d68f10a7166733299fa9568df466978822874848e46aabcab628"
+    },
+    {
+      "source": "proof/research-contour-surgery-pivot-2026-10-20.md",
+      "destination": "proof/contour-surgery-pivot.md",
+      "sha256": "ec734a3aedb2cc274085f98bd6ae21e6ddce13d44f4004a08f1b2e474ae6c043"
+    }
+  ]
+}

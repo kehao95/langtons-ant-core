@@ -1,0 +1,551 @@
+{
+  "schema": "four-row-boundary-v1",
+  "status": "passed",
+  "scope": "Complete all-width four-row first-exit theorem and exact escape-time function; not HC.",
+  "width_type_counts": [
+    [
+      12,
+      12,
+      12,
+      12
+    ],
+    [
+      36,
+      36,
+      36,
+      36
+    ],
+    [
+      83,
+      83,
+      83,
+      83
+    ],
+    [
+      158,
+      158,
+      158,
+      158
+    ],
+    [
+      240,
+      240,
+      240,
+      240
+    ],
+    [
+      264,
+      264,
+      264,
+      264
+    ],
+    [
+      269,
+      269,
+      269,
+      269
+    ],
+    [
+      269,
+      269,
+      269,
+      269
+    ]
+  ],
+  "fixed_point_width": 8,
+  "response_max_depth": 13,
+  "certificate_sha256": "3e01b0422cf2d921fb0ed4aaa690d8f89ffacfa92973a25c3aea590ac8d1110b",
+  "affine_vectors_sha256": "4fb5165094326189694eb227157b578497e089f19eff2abed050b14286c27bca",
+  "native": {
+    "status": "passed",
+    "types_per_interface": 269,
+    "composition_cases": 17216,
+    "max_response_depth": 13,
+    "local_column_cases": 18524416,
+    "column_max": 34,
+    "column_witness": [
+      0,
+      172,
+      177,
+      1,
+      1,
+      3
+    ],
+    "cut_cases": 578888,
+    "cut_max": 21,
+    "cut_witness": [
+      0,
+      228,
+      235,
+      1,
+      1
+    ],
+    "weighted_states": 21248,
+    "weighted_edges": 527764,
+    "root_goals": 1078,
+    "stability_base": 20,
+    "stability_inequalities": 2111056,
+    "tight_edge_obligations": 42496,
+    "exact_small": [
+      2,
+      18,
+      28,
+      46,
+      64,
+      86,
+      104,
+      146,
+      156,
+      206,
+      224,
+      266
+    ],
+    "brute_inputs": 4399360,
+    "brute_updates": 20978524,
+    "native_maximizers": 29,
+    "column_histogram": {
+      "1": 4037152,
+      "2": 2255296,
+      "3": 2427616,
+      "4": 1711184,
+      "5": 1688312,
+      "6": 1454076,
+      "7": 1260172,
+      "8": 1034720,
+      "9": 763436,
+      "10": 577120,
+      "11": 375748,
+      "12": 296064,
+      "13": 203956,
+      "14": 147312,
+      "15": 80236,
+      "16": 63280,
+      "17": 46860,
+      "18": 36744,
+      "19": 22056,
+      "20": 16856,
+      "21": 6028,
+      "22": 4604,
+      "23": 3552,
+      "24": 3176,
+      "25": 2316,
+      "26": 2436,
+      "27": 1664,
+      "28": 1204,
+      "29": 636,
+      "30": 436,
+      "31": 88,
+      "32": 72,
+      "33": 4,
+      "34": 4
+    }
+  },
+  "controls": {
+    "exterior_complete_fields": 6,
+    "resource_cap_is_unknown": true,
+    "catalog_representatives": 1076,
+    "complete_short_block_behaviors": 17472,
+    "column_witness": {
+      "columns": [
+        15,
+        9,
+        9,
+        9,
+        7,
+        1,
+        11,
+        6,
+        6,
+        6,
+        0
+      ],
+      "pose": [
+        5,
+        1,
+        3
+      ],
+      "updates": 159,
+      "column_updates": 34,
+      "final_pose": [
+        2,
+        -1,
+        2
+      ],
+      "final_columns": [
+        9,
+        6,
+        2,
+        5,
+        8,
+        8,
+        14,
+        9,
+        15,
+        9,
+        6
+      ]
+    },
+    "cut_witness": {
+      "columns": [
+        11,
+        6,
+        6,
+        2,
+        13,
+        12,
+        4,
+        12,
+        6,
+        13
+      ],
+      "pose": [
+        4,
+        2,
+        2
+      ],
+      "cut": 5,
+      "crossings": 21,
+      "updates": 164
+    },
+    "maximizers": [
+      {
+        "n": 1,
+        "time": 2,
+        "pose": [
+          0,
+          1,
+          3
+        ],
+        "seed_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+        "max_column_updates": 2
+      },
+      {
+        "n": 2,
+        "time": 18,
+        "pose": [
+          1,
+          0,
+          3
+        ],
+        "seed_sha256": "b219cc6e1d7e306763d96546c0759e956877dc57dd6014cc261df43ed66ea40f",
+        "max_column_updates": 10
+      },
+      {
+        "n": 3,
+        "time": 28,
+        "pose": [
+          0,
+          0,
+          0
+        ],
+        "seed_sha256": "a412aba029c80b0f456fd66a1f459e82a68a6bb35c7313e3e3ed472ab6bf6699",
+        "max_column_updates": 14
+      },
+      {
+        "n": 4,
+        "time": 46,
+        "pose": [
+          0,
+          0,
+          0
+        ],
+        "seed_sha256": "2748e59a7ba2d9827eb268602722c224d081d181547bb3945446e791d126a4fc",
+        "max_column_updates": 14
+      },
+      {
+        "n": 5,
+        "time": 64,
+        "pose": [
+          4,
+          0,
+          0
+        ],
+        "seed_sha256": "38aa3c20cbe186bb515dafe61fc5d9282c132e1f993ccf8419c53975c99095a0",
+        "max_column_updates": 20
+      },
+      {
+        "n": 6,
+        "time": 86,
+        "pose": [
+          5,
+          0,
+          3
+        ],
+        "seed_sha256": "bb8a859da53f9366da08d44d791ab4a2891f0334d0b2f57acaffeaa76a06f772",
+        "max_column_updates": 20
+      },
+      {
+        "n": 7,
+        "time": 104,
+        "pose": [
+          6,
+          0,
+          0
+        ],
+        "seed_sha256": "6ac0df0c24eb441966c38555cdcc0e25ee918db564073a42f0dece0544a7afb9",
+        "max_column_updates": 20
+      },
+      {
+        "n": 8,
+        "time": 146,
+        "pose": [
+          6,
+          0,
+          0
+        ],
+        "seed_sha256": "7af0ecd03c53b421668d87eccb9cfbcc5524466bfee695ba55d8e6ffd79576cd",
+        "max_column_updates": 28
+      },
+      {
+        "n": 9,
+        "time": 156,
+        "pose": [
+          7,
+          3,
+          2
+        ],
+        "seed_sha256": "7ed5be6bf3dc7fb60fa2693b35c3e941dda05db5ea0976d2c9a7dfb352aa8578",
+        "max_column_updates": 30
+      },
+      {
+        "n": 10,
+        "time": 206,
+        "pose": [
+          8,
+          0,
+          0
+        ],
+        "seed_sha256": "9123a37400e19114caadb3ee35437d83c979c8abd9e137f2427844feb484f27b",
+        "max_column_updates": 30
+      },
+      {
+        "n": 11,
+        "time": 224,
+        "pose": [
+          9,
+          3,
+          2
+        ],
+        "seed_sha256": "4cfef811c77d833d6d16ec9637f2ab966d84c75206ba07bcf1b966eac04fdd24",
+        "max_column_updates": 34
+      },
+      {
+        "n": 12,
+        "time": 266,
+        "pose": [
+          10,
+          0,
+          0
+        ],
+        "seed_sha256": "6d73a285a7f5b8ea4f6f0389fd81641a519c62eb580bd83567819fd3cadae014",
+        "max_column_updates": 30
+      },
+      {
+        "n": 13,
+        "time": 292,
+        "pose": [
+          11,
+          3,
+          2
+        ],
+        "seed_sha256": "00e8f1820d6ca208345ff786e39f6907e3512b27e5b7ab0e0c3d3f701b7e4767",
+        "max_column_updates": 34
+      },
+      {
+        "n": 14,
+        "time": 326,
+        "pose": [
+          12,
+          0,
+          0
+        ],
+        "seed_sha256": "b462be83c4565f73e96f1cf1d637883cbc1e1968e6fe92b1fa36d4522027691b",
+        "max_column_updates": 34
+      },
+      {
+        "n": 15,
+        "time": 360,
+        "pose": [
+          13,
+          3,
+          2
+        ],
+        "seed_sha256": "3cea9d6d0ad741d3e69edbfc906e2ffb210f3f4dab0900996f9e9647b28cb22a",
+        "max_column_updates": 34
+      },
+      {
+        "n": 16,
+        "time": 394,
+        "pose": [
+          14,
+          0,
+          0
+        ],
+        "seed_sha256": "ddedb82c894c1047890102878d2e5ad41d4f64f92876be423e03c58c758409cf",
+        "max_column_updates": 34
+      },
+      {
+        "n": 17,
+        "time": 428,
+        "pose": [
+          15,
+          3,
+          2
+        ],
+        "seed_sha256": "53e8e13a3c9a6ae78df4931bd860fe22688e1d79b727fec81b8b50e353301cac",
+        "max_column_updates": 34
+      },
+      {
+        "n": 18,
+        "time": 462,
+        "pose": [
+          16,
+          0,
+          0
+        ],
+        "seed_sha256": "f5e7597292f16897309ad71f8bacf3a9b51c95deea710d2a3d6983fd213caba1",
+        "max_column_updates": 34
+      },
+      {
+        "n": 19,
+        "time": 496,
+        "pose": [
+          17,
+          3,
+          2
+        ],
+        "seed_sha256": "89c90bf4055e644944dfe1abc13137c4a484e33638e18f874e8b13e1a0215439",
+        "max_column_updates": 34
+      },
+      {
+        "n": 20,
+        "time": 530,
+        "pose": [
+          18,
+          0,
+          0
+        ],
+        "seed_sha256": "9a172894c89e664ab3b8864f4037351d54200b85ff87c75217c693754e4b52ca",
+        "max_column_updates": 34
+      },
+      {
+        "n": 21,
+        "time": 564,
+        "pose": [
+          19,
+          3,
+          2
+        ],
+        "seed_sha256": "941be1608d661b8dd8a18fdba57043950af55a1639339d1a0e20b63f0f195502",
+        "max_column_updates": 34
+      },
+      {
+        "n": 22,
+        "time": 598,
+        "pose": [
+          20,
+          0,
+          0
+        ],
+        "seed_sha256": "d0948f8f36130a805edd483ca23059b657f04f072464031b10e85a80c38cc62e",
+        "max_column_updates": 34
+      },
+      {
+        "n": 23,
+        "time": 632,
+        "pose": [
+          21,
+          3,
+          2
+        ],
+        "seed_sha256": "278f3ace265f0a59c7b3cbc6f61631cb3376d634c2cf0cf302b648ace5179c57",
+        "max_column_updates": 34
+      },
+      {
+        "n": 40,
+        "time": 1210,
+        "pose": [
+          38,
+          0,
+          0
+        ],
+        "seed_sha256": "2718e6532d8a48ebf63ec5ae523b50b00c7e6fca73d81385d699af4b24ff31e2",
+        "max_column_updates": 34
+      },
+      {
+        "n": 41,
+        "time": 1244,
+        "pose": [
+          39,
+          3,
+          2
+        ],
+        "seed_sha256": "2275dc1b839306f0e1e7c93d665bc0dda352c749733fcd2ed4da60a8a90d3392",
+        "max_column_updates": 34
+      },
+      {
+        "n": 200,
+        "time": 6650,
+        "pose": [
+          198,
+          0,
+          0
+        ],
+        "seed_sha256": "7c6dc2dacf5166a291f60bf74defaf6f73a0729045ebd45565b43e4bfee5e656",
+        "max_column_updates": 34
+      },
+      {
+        "n": 201,
+        "time": 6684,
+        "pose": [
+          199,
+          3,
+          2
+        ],
+        "seed_sha256": "c0b706721c8660d3112c8a4a515a6f9a0c5ee602d302d6dafa80e349dfb4a503",
+        "max_column_updates": 34
+      },
+      {
+        "n": 1000,
+        "time": 33850,
+        "pose": [
+          998,
+          0,
+          0
+        ],
+        "seed_sha256": "52061a86164d55b389c3c49b2ad6495862681723eb91d33df7fde5079587f93f",
+        "max_column_updates": 34
+      },
+      {
+        "n": 1001,
+        "time": 33884,
+        "pose": [
+          999,
+          3,
+          2
+        ],
+        "seed_sha256": "135a5c93124a0c5325cb989430bd41d0595f3061f81b88206a5fbed05b76ddb4",
+        "max_column_updates": 34
+      }
+    ],
+    "maximizer_updates": 89950,
+    "random_inputs": 160,
+    "random_updates": 1494
+  },
+  "python_affine_check": {
+    "all_24_width_vectors_independently_recomputed": true,
+    "inductive_inequalities": 2111056,
+    "tight_edge_obligations": 42496,
+    "damaged_affine_vector_rejected": true
+  },
+  "negative_controls": {
+    "corrupted_protocol_rejected": true,
+    "missing_coverage_edge_count_rejected": true,
+    "wrong_recurrence_weight_rejected": true
+  },
+  "sources_sha256": {
+    "core.py": "702fe4f6e12ceb18a9400d9476ac60db1e70c5589fb593009de054bacbcbd284",
+    "verify.cpp": "3b75dc06833b71f5a73642aea1f7fe930564a77eeadd495367a9a7f2fb665971",
+    "check.py": "7181a5bb1c85e3ffb02659d1df17c8225564b2fd24755345a66bc8f6fa04a7d1"
+  }
+}

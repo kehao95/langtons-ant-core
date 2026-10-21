@@ -24,6 +24,14 @@ all future canonical phase rays, and the 104 thresholds' 739-case index count.
 They do not replay the perturbed cases or certify the bounds 64,584 / 78 / 33,595.
 The default reproduction command fails clearly while those data are absent.
 
+## Recovery check — 20 October 2026
+
+Research remote `16b9b46` still contains only the package integrity record,
+not the 739-case executable archive. A filename search of the workspace,
+Downloads and local cache found no copy. The restored contour and QF packages
+are different artifacts and do not close this gap. Numerical claims and release
+exclusion remain unchanged.
+
 ## Open
 
 Restore `langtons-ant-uniform-one-bit-recovery-2026-10-15.zip`, SHA256

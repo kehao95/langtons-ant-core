@@ -1,4 +1,70 @@
-# Current consolidation review — 16 October 2026
+# Current integration review — 20 October 2026
+
+Research source: `16b9b465a291933d0229f8febf180fcc3be7fddc`; core base: `22e0c9e`.
+Eight publication projects now contain six local release candidates. This revision
+changes three candidates and adds scoped research tools. No Zenodo or journal action.
+
+## Claim–evidence map
+
+| Claim | Evidence | Status and boundary |
+|---|---|---|
+| Four-row exact maximum `34n-150` for every `n>=13` | [Full new-module replay](four_row_escape/evidence/replay-2026-10-20.json), persistent closure and two-vector affine induction in the paper | Supported by an unformalized computer-assisted proof; covers all colors and internal poses, not general plane HC |
+| One contiguous standard core and `L<=52 norm_inf(Delta)+114c+223437` | [Factor replay](factor_language/evidence/replay-2026-10-20.json); ordered cover, transverse 44-cell intersection, full-field cofactor estimate | Supported for every finite ten-legal word; 52 is sharp, other constants need not be |
+| One standard jump for the exact first J10 | Same replay, complete compressed endpoints and huge-coordinate parity checks | Explicit m-point input only; O(m+1) literal work is not a compressed-mass guarantee |
+| Nine-factor bound 1004 and least window nine | Same replay; 164,283 complete words, 9,550 integer edges, complete condensation, all-n finite eight-legal truncation | Supported; mass threshold is distinct from attraction threshold, no finite HC counterexample |
+| Polynomial-size QF physical realization and shared factor circuit | [Six-section backend replay](defect_synthesis/evidence/replay-2026-10-20.json), parity-boundary proof and complete cover | Restricted source/stride syntax; general quantified sources and complete target equality remain with the old compiler |
+| Unary NP with binary side constraints and FP^NP minimum cost | Complete-cover argument, integer small solutions and O(N) padding/search range | Analytic upper bounds; no deterministic polynomial solver or computed mu table |
+| Noninterlaced contour exit and rank-obstruction controls | [All three research modules replayed](research/renewal/evidence/replay-2026-10-20.json) | Local results only; detached contours can rejoin, and interlaced `2L` fails |
+| Complete-history one-bit recovery | [Recovery status](highway_stability/README.md) | Original 739-case archive still absent; numerical theorem remains conditional |
+
+## Manuscript outline and internal review
+
+- **Contribution — pass:** four-row classification answers an explicit published
+  conjecture and has an independent proof runtime. Factor develops local-language
+  rigidity through finite-horizon supply into mass bounds. Counting Defects keeps
+  one arithmetic story, distinguishing general semilinearity from restricted QF
+  decision syntax. Prior NP membership is not presented as a second discovery.
+- **Clarity — pass:** four-row follows interfaces, closure, weighted maxima and
+  induction. Factor places silent supply immediately after interval geometry and
+  the nine-factor threshold after the ten-factor mass proof. Counting Defects
+  places QF realization after small witnesses. Definitions distinguish contained
+  forward defects from inverse-history intrinsic events.
+- **Evidence strength — pass for internal checks:** exact finite premises are
+  reconstructed, full endpoints retained and damaged controls rejected. Literal
+  replays supplement the universal arguments rather than extend cutoffs. Separate
+  implementations are not external mathematical review.
+- **Evaluation completeness — package review:** new modules pass their scoped
+  checks. The three standalone records below own full archive replay and PDF reconstruction;
+  historical unchanged results are not implicitly reverified by a new theorem.
+- **Design and soundness — pass within stated scope:** silent bounds restart with
+  the actual complete mass; interfaces preserve residual state; QF checks keep
+  intra-loop chronology, XOR parity and pairwise-distinct sparse inputs. No
+  global event budget, general strip restriction or HC conclusion is inferred.
+
+The QF timing reports are retained historical measurements. A roughly 128-fold
+factor-construction ratio is not an end-to-end synthesis ratio. The old general
+backend and new existential backend also have different output contracts.
+
+## Packaging and remaining work
+
+The exact standalone records are maintained with each current candidate:
+[four-row](four_row_escape/release/v0.1.0/standalone-check.json),
+[factor](factor_language/release/v0.1.0/standalone-check.json), and
+[Counting Defects](defect_synthesis/release/v0.1.0/standalone-check.json).
+All three PDFs build without unresolved references or overfull boxes. Title,
+affine-induction, finite-core, eight-factor construction and QF transition pages
+were visually inspected. Prior factor/defect PDF, metadata, manifests and replay records are retained in
+`revisions/2026-10-20-before-integration/`. Published artifacts remain immutable.
+
+External mathematical review remains open. The missing one-bit archive is a
+release blocker for that separate draft. The missing original small-witness
+implementation is optional support for an existing analytic proof; the restored
+QF implementation does not silently replace its provenance. Further HC research
+needs a cross-event argument or a justified extension of persistent interfaces.
+
+---
+
+# Historical consolidation review — 16 October 2026
 
 Research source: `9223766d`; public-core base: `733a5115`. This revision prepares
 five release candidates in seven publication projects and one additional

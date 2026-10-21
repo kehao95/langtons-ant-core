@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "complete four-row certificate",
+  "source_commit": "16b9b465a291933d0229f8febf180fcc3be7fddc",
+  "completed_utc": "2026-10-21T00:21:16.591939+00:00",
+  "seconds": 12.029,
+  "result": {
+    "status": "passed",
+    "exact_formula": "34*n-150 for all n>=13",
+    "column_bound": 34,
+    "weighted_states": 21248,
+    "weighted_edges": 527764
+  },
+  "lean_formalized": false,
+  "external_review": false,
+  "source_sha256": {
+    "verification/four_row_boundary/README.md": "4f8785f8af8ca801c5c9c44b681c48e5e4c3fd1c2ee5e41cdd69a09377281f41",
+    "verification/four_row_boundary/check.py": "7181a5bb1c85e3ffb02659d1df17c8225564b2fd24755345a66bc8f6fa04a7d1",
+    "verification/four_row_boundary/core.py": "702fe4f6e12ceb18a9400d9476ac60db1e70c5589fb593009de054bacbcbd284",
+    "verification/four_row_boundary/report.json": "f6c7e2aa6eb26233726953fab3352fc07b55a56a5070eab0adcc67d82f79000e",
+    "verification/four_row_boundary/verify.cpp": "3b75dc06833b71f5a73642aea1f7fe930564a77eeadd495367a9a7f2fb665971",
+    "proof/four-row-exact-escape.md": "30fab6846a3a1226a41f73fb081e562ec6a809389390485dd9a716f65351cd79",
+    "evidence/upstream-main.tex": "b2f5185f3bcafeb811fedf58305076fda95c1051a73c0a53f61eff729c16d703"
+  }
+}

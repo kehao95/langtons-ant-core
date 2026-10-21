@@ -1,0 +1,155 @@
+{
+  "scope": "wall-clock local comparison; no full budget cover; source fields unchanged",
+  "solver": "4.13.3.0",
+  "repeats": 3,
+  "decisions": [
+    {
+      "name": "standard",
+      "answer": "sat",
+      "legacy_seconds": [
+        0.4179415019998487,
+        0.4713738730001751,
+        0.4247198080001908
+      ],
+      "new_total_seconds": [
+        0.24189012600027127,
+        0.22921503200041116,
+        0.23420330200042372
+      ],
+      "new_build_seconds": [
+        0.21773667500019656,
+        0.21449047700025403,
+        0.21834461100024782
+      ],
+      "new_solver_seconds": [
+        0.02415345100007471,
+        0.014724555000157125,
+        0.015858691000175895
+      ],
+      "encoding": {
+        "read_streams": 104,
+        "source_segments": 17,
+        "intervals": 637,
+        "probes": 424,
+        "prefix_net_terms": 0,
+        "circuit_nodes": 185,
+        "constant_divisions": 4,
+        "smt_bytes": 12095
+      },
+      "median_ratio": 1.8134663532601365
+    },
+    {
+      "name": "interrupted_pair",
+      "answer": "unsat",
+      "legacy_seconds": [
+        1.90564577799978,
+        1.7621372900002825,
+        1.732203808000122
+      ],
+      "new_total_seconds": [
+        0.9931952659999297,
+        0.9067025809999905,
+        0.9349486670002989
+      ],
+      "new_build_seconds": [
+        0.874347840000155,
+        0.7803794060000655,
+        0.8093934320004337
+      ],
+      "new_solver_seconds": [
+        0.11884742599977471,
+        0.12632317499992496,
+        0.1255552349998652
+      ],
+      "encoding": {
+        "read_streams": 210,
+        "source_segments": 17,
+        "intervals": 1644,
+        "probes": 1786,
+        "prefix_net_terms": 99,
+        "circuit_nodes": 3986,
+        "constant_divisions": 44,
+        "smt_bytes": 301958
+      },
+      "median_ratio": 1.8847422882091978
+    },
+    {
+      "name": "changed_final_turn",
+      "answer": "unsat",
+      "legacy_seconds": [
+        0.4381443100000979,
+        0.43789025500018397,
+        0.4517979600000217
+      ],
+      "new_total_seconds": [
+        0.2358957790002023,
+        0.26633100899971396,
+        0.24050754300014887
+      ],
+      "new_build_seconds": [
+        0.21521987400001308,
+        0.2423567420000836,
+        0.21687808000024233
+      ],
+      "new_solver_seconds": [
+        0.020675905000189232,
+        0.023974266999630345,
+        0.023629462999906536
+      ],
+      "encoding": {
+        "read_streams": 105,
+        "source_segments": 17,
+        "intervals": 637,
+        "probes": 425,
+        "prefix_net_terms": 32,
+        "circuit_nodes": 336,
+        "constant_divisions": 12,
+        "smt_bytes": 22959
+      },
+      "median_ratio": 1.8217487257762501
+    },
+    {
+      "name": "finite_rail",
+      "answer": "sat",
+      "legacy_seconds": [
+        0.006864532000236068,
+        0.005347825000171724,
+        0.005398922000040329
+      ],
+      "new_total_seconds": [
+        0.020966201999726763,
+        0.012538697999843862,
+        0.01229116000013164
+      ],
+      "new_build_seconds": [
+        0.0012248959997123166,
+        0.0011166689996571222,
+        0.0012279809998290148
+      ],
+      "new_solver_seconds": [
+        0.019741306000014447,
+        0.01142202900018674,
+        0.011063179000302625
+      ],
+      "encoding": {
+        "read_streams": 4,
+        "source_segments": 2,
+        "intervals": 4,
+        "probes": 12,
+        "prefix_net_terms": 0,
+        "circuit_nodes": 45,
+        "constant_divisions": 4,
+        "smt_bytes": 2892
+      },
+      "median_ratio": 0.4305807508967486
+    }
+  ],
+  "process_peak_rss_kib": 145316,
+  "source_documentation_correction": {
+    "file": "benchmark.py",
+    "measured_source_sha256": "007cffb13f84ae3263c8e049a2c49606c69cd1bb262bb0080daee04568644066",
+    "distributed_source_sha256": "ef46a58730ca028ef935812d730b93fef38db8a5d9154e1bd0688cd947dfac37",
+    "change": "Module timing-scope docstring corrected; all imports, functions and executable AST unchanged",
+    "executable_ast_equal": true
+  }
+}

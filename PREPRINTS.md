@@ -1,11 +1,12 @@
 # Publication portfolio
 
-The portfolio has seven distinct mathematical questions. One-black 0.2.0 and
-clock 0.4.0 remain unchanged. The following five candidates are prepared locally;
+The portfolio has eight distinct mathematical questions. One-black 0.2.0 and
+clock 0.4.0 remain unchanged. The following six candidates are prepared locally;
 no new Zenodo version or draft has been created in this integration.
 
 | Candidate | Title | Intended version chain |
 |---|---|---|
+| [Four-row escape 0.1.0](four_row_escape/release/README.md) | Exact Escape Times of Langton's Ant in Four Rows | First release |
 | [Wake 0.3.0](wake_synthesis/release/README.md) | Uniqueness of the Classical Langton Ant Highway from Its Layer Profile | Update [23405441](https://doi.org/10.5281/zenodo.23405441), concept 23402421 |
 | [Factor 0.1.0](factor_language/release/README.md) | Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant | First release |
 | [Defect synthesis 0.1.0](defect_synthesis/release/README.md) | Counting Defects: Semilinear Reachability and Resource Bounds for Langton’s Ant | First release |
@@ -37,7 +38,26 @@ The older immediate 21/14/13 thresholds await their complete original package.
 PG boundary budgets and the scalar cycle-rank obstruction remain research notes;
 they are not additional preprints or hidden premises of the new manuscripts.
 
-## Current consolidation — research 9223766d
+## Current integration — research 16b9b46
+
+- Four-row escape is an independent 0.1.0 candidate. Its persistent interface,
+  exact internal-pose maximum and affine induction resolve the published four-row
+  conjecture. The general clock paper and its public version remain intact.
+- Factor integrates the one-core finite-horizon supply theorem and the sharp
+  nine-factor mass-window threshold into the existing 0.1.0 candidate.
+- Counting Defects integrates a restricted polynomial-size QF decision backend.
+  General Presburger sources and full target equality stay with the older compiler.
+- Contour surgery, noninterlaced transfer and immediate-target distance obstructions
+  remain [research tools](research/renewal/), with no global HC promotion.
+- The one-bit archive is still absent. The restored QF backend is not the missing
+  original small-witness implementation package.
+
+Three current PDF/source packages are checked without the research checkout.
+Earlier factor/defect snapshots are preserved under each version's
+`revisions/2026-10-20-before-integration/`. Other project packages are unchanged.
+[Fresh evidence and review](PREPRINT_REVIEW.md).
+
+## Historical consolidation — research 9223766d
 
 - Wake absorbs the general quadratic wake character, compressed evaluator,
   unbounded growth-eight exclusion, analytic unit-diagonal proof and thin-profile
@@ -97,7 +117,7 @@ version is explicitly approved and published.
 
 ## Open
 
-Owner review of the five candidates, followed by any authorized Zenodo publication.
+Owner review of the six candidates, followed by any authorized Zenodo publication.
 Restore the original one-bit archive before preparing that additional release.
 External mathematical peer review, fuller literature comparison and journal
 selection remain subsequent work; no journal submission has been made.
