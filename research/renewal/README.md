@@ -1,7 +1,7 @@
 # Complete-history renewal: contour tools and rank obstructions
 
-This research module imports scoped results from research `16b9b46` without
-promoting them into a new publication project or a global HC theorem.
+Exact contour operations, first-contour exit bounds and a distance obstruction
+for complete finite-support Langton-ant states.
 
 | Result | Established scope | Missing global step |
 |---|---|---|
@@ -24,16 +24,4 @@ python3 research/renewal/reproduce.py
 Python 3.10+ without `-O`, C++17 and Boost multiprecision headers are required.
 [Import hashes](evidence/import-2026-10-20.json) preserve all original sources.
 [Fresh replay](evidence/replay-2026-10-20.json) checks all three modules in
-disposable copies. The integration replay used the Ubuntu Boost 1.90 development
-package temporarily extracted for headers; no host package was installed.
-
-## Open
-
-Use the factor paper's silent-supply bound to study what can be charged across
-successive actual defects; its starting mass changes at every restart. Study
-whether the four-row persistent-response closure extends to richer physical
-interfaces. Neither question is answered by finite prefix computation. Contour
-exit alone also leaves transient nonperiodic trajectories possible.
-
-The one-bit recovery archive remains missing; its scope and pinned package hash
-belong to [the recovery draft](../../highway_stability/README.md).
+disposable copies. The C++ checks require Boost multiprecision headers.

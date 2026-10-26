@@ -13,7 +13,6 @@ leading square coefficient from 13/4 to 13/6.
 - [Standalone archive checks](v0.4.0/standalone-reproduction.json) verify the final source ZIP and rebuilt PDF; mathematical verification is retained from unchanged proof sources.
 - [Metadata](v0.4.0/zenodo-metadata.json) and [public API record](v0.4.0/public-record.json) preserve the release details.
 
-The earlier candidate and review manifests are prepublication snapshots.
 Published delivery files and receipts are immutable.
 
 # Published clock preprint
@@ -32,8 +31,7 @@ bounds. [Published PDF](../paper/paper.pdf).
 - [Standalone reproduction](v0.3.0/standalone-reproduction.json): the uploaded
   archive was extracted and its full reproduction command passed, including
   critical identities, original clock tests and Lean local lemmas.
-- [Metadata](v0.3.0/zenodo-metadata.json) and
-  [prepublication review snapshot](v0.3.0/review-source-manifest.json).
+- [Metadata](v0.3.0/zenodo-metadata.json).
 
 ## Version chain
 

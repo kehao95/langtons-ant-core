@@ -45,8 +45,3 @@ make -C clock_escape/paper
 The scoped checks use Python 3.10+ and the standard library. Full reproduction
 also runs the established clock evidence and Lean 4.30.0 local lemmas. The PDF
 build uses pdfLaTeX and writes to `paper/build/`.
-
-## Open
-
-Version 0.4.0 is published and its public downloads are verified. External
-mathematical review and journal preparation remain next steps.

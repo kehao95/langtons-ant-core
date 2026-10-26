@@ -1,14 +1,12 @@
 {
   "base_commit": "e51ea3c38dd60f93cb6fc3c71e5a6f706bdae833",
-  "intended_action": "first-release",
   "metadata_sha256": "e10768532000b47c0ef8db7713c118e1f4ef0f8f96e649f1d08899863465f704",
-  "owner_approval_required": true,
   "pdf": {
     "path": "four_row_escape/paper/build/paper.pdf",
     "sha256": "b7c2cece36ee739354593905ed3aa4a70bd04193395a47cdfc6bbbdbc05678aa"
   },
   "project": "four_row_escape",
-  "schema": "local-preprint-candidate-v1",
+  "schema": "preprint-source-v1",
   "snapshot_sha256": "3c609b9bf74feaf78ba3afaa6bdf2283058026d1e66cee90cfb38c8b62861251",
   "source_sha256": {
     "four_row_escape/PROOF.md": "cd60a060ecdbaeab46a3e03f4b6005c50b5be713f021dedacdfa77608f8809c4",
@@ -27,7 +25,6 @@
     "four_row_escape/verification/four_row_boundary/report.json": "f6c7e2aa6eb26233726953fab3352fc07b55a56a5070eab0adcc67d82f79000e",
     "four_row_escape/verification/four_row_boundary/verify.cpp": "3b75dc06833b71f5a73642aea1f7fe930564a77eeadd495367a9a7f2fb665971"
   },
-  "submitted": false,
   "version": "0.1.0",
   "working_tree_sources_included": true
 }

@@ -1,203 +1,34 @@
-# Repository changes
+# Scientific and reproducibility changes
 
-## 2026-10-26 — publish the six-paper batch
+## 26 October 2026
 
-- Publish four-row, factor, defect and memory 0.1.0 as first preprints.
-- Publish wake 0.3.0 in concept 23402421 and port 0.2.0 in concept 23402413.
-- Verify all twelve public downloads against the approved hashes and retain the previous versions.
-- Record exact source ZIPs, publication receipts, public metadata and version-chain checks.
-- Update the portfolio, project READMEs and proof-lab publication labels; derive site status from matching publication receipts.
-- Retain one-black 0.2.0 and clock 0.4.0.
+- Four-row escape 0.1.0: exact maxima for every rectangle of height four,
+  including the all-width formula `S(4,n)=34n−150` for `n≥13`.
+- Factor language 0.1.0: local-language attraction, exact event macros,
+  finite-horizon supply and mass–defect inequalities.
+- Defect synthesis 0.1.0: semilinear bounded-defect relations, complete-state
+  outputs, resource spectra and restricted arithmetic complexity bounds.
+- Memory and feedback 0.1.0: exact event prediction, full-field continuation,
+  spatial event budgets and remote feedback constructions.
+- Wake 0.3.0: thin-wake rigidity and general quadratic/mixed-wake synthesis.
+- Port 0.2.0: arbitrary finite protected scattering trains and return composition.
 
-## 2026-10-26 — primary-source contribution review
+## 16 October 2026
 
-- Compare all six candidates with primary literature and record exact source locations and search limits.
-- Credit Etse's four-row lower family, prior circuit composition and diagonal width exclusions.
-- Attribute Presburger counting, cell decomposition and flat-run encodings directly; clarify the ant-specific physical reduction.
-- Update generalized-ant references to the 2025 journal article and distinguish memory queries from arbitrary-cell visitation.
-- Rebuild the six local candidates, preserving previous artifacts and inheriting unchanged proof replays by source hashes.
-- Retain pending versions and DOI chains; no publication action.
+Six interactive proof laboratories connect exact finite witnesses to the
+one-black, clock, wake, factor, memory and port proofs. Exports pin their
+mathematical sources; browser checks verify arithmetic and complete fields.
 
-## 2026-10-20 — four-row exact escape and scoped research integration
+## 15 October 2026
 
-- Add the independent four-row 0.1.0 manuscript, all-width certificates and portable replay.
-- Extend factor with finite-horizon single-core supply, one-jump events and the sharp nine-factor mass window.
-- Extend Counting Defects with the QF physical-realization backend and exact six-part controls.
-- Retain contour surgery, noninterlaced exit and immediate-distance rank obstructions as scoped research.
-- Preserve prior candidate snapshots and published releases; retain the missing 739-case and original optional small-witness archive boundaries.
+- Clock 0.4.0: integer-clock square escape bound with leading coefficient 13/6,
+  fixed-height rectangle bounds and complete-state orbit algorithms.
+- Wake 0.2.0: all-period uniqueness from the prescribed complete standard wake.
+- Port 0.1.0: the sharp four-cell one-sided port and finite-history completion.
 
+## 13 October 2026
 
-## 2026-10-16 — Consolidate research 9223766d
+One-black 0.2.0 establishes the complete standard P104 trace for every one-black
+initial state, with a clean Lean build and explicit native-computation leaves.
 
-- Strengthen the existing wake candidate with general quadratic wake arithmetic,
-  analytic unit-diagonal exclusion and a three-profile parity reduction.
-- Strengthen factor with all-length endpoint-strip geometry and exact complete
-  recovery of the original silent-archive family.
-- Prepare Counting Defects as one new preprint covering semilinear synthesis,
-  resource spectra, sharp supply bounds and small positive witnesses.
-- Prepare One Bit Off the Highway as a certificate-conditional review draft;
-  retain its missing original archive as an explicit release blocker.
-- Preserve earlier candidate snapshots and every published version; no Zenodo mutation.
-
-## 2026-10-16 — Six interactive proof laboratories
-
-Replaced the single-guide landing page with a common overview and six proof
-routes. The original one-black guide remains available at `one-black.html`.
-New labs expose exact clocks, wake parity, mass–defect windows, true-history
-feedback and protected scattering through editable witnesses and proof steps.
-Exports carry hashes of their publication-owned sources; browser arithmetic
-and endpoint tests cross-check the canonical certificates. Pages now builds
-an isolated artifact containing six exact PDF snapshots and tests real
-interactions at a project URL prefix before deployment. Publication records,
-mathematical sources and published release files are unchanged.
-
-## 2026-10-16 — Integrate renewed feedback, silent memory and mixed wakes
-
-Research `2f6010a` strengthens the existing wake, factor and memory candidates.
-New exact modules and complete proof notes accompany the revised English drafts.
-The additional 256-lift profile package from core `7ed1162` is retained and
-bundled. Default project entrypoints include the new proof checks; scoped
-`--extensions-only` replay is explicit. Prior draft snapshots are retained,
-with current manifests and isolated archive checks distinguishing fresh execution
-from inherited exhaustive evidence. One-black, clock, port and all published
-Zenodo artifacts remain unchanged. No release was submitted.
-
-## 2026-10-15 — Six-paper review portfolio prepared
-
-Imported research `0ef3f0e` by proof dependency. Wake 0.3.0 now derives the
-standard layer profile from interior thinness, drift (2,-2), growth 12 and
-width 10, retaining general inverse synthesis. Factor and memory receive
-independent 0.1.0 manuscripts. Port 0.2.0 adds protected finite composition
-and unbounded old-wake return packets. Full scoped checks passed; fresh
-reports distinguish imported evidence, completed native runs and quick mode.
-A subsequent factor-only import from `0a41fba` adds exact first-J10 macros,
-complete compressed endpoints and quadratic finite-event deadlines.
-README and publication navigation distinguish current candidates from public
-versions. Clock and one-black mathematical sources and all published artifacts
-are retained. No Zenodo mutation or journal submission was performed.
-
-
-## 2026-10-15 — Standard-wake uniqueness version 0.2.0 published
-
-Following the owner's approval, published *Uniqueness of the Classical Langton
-Ant Highway Under Its Standard Wake* as
-[Zenodo 23405441](https://doi.org/10.5281/zenodo.23405441), a new version of
-23402422 in the existing concept 23402421. The release delivers the reviewed
-14-page PDF and standalone source archive. Version 0.1.0 and the preparation
-snapshots remain unchanged. [Release records](wake_synthesis/release/README.md)
-identify the exact artifacts and version chain.
-
-## 2026-10-15 — Standard-wake uniqueness update prepared
-
-Prepared wake version 0.2.0 under the revised title *Uniqueness of the Classical
-Langton Ant Highway Under Its Standard Wake*, updating the existing concept
-23402421. The complete standard wake and drift `(2,-2)` now have a unique
-periodic realization: the standard P104 word. General period bounds and inverse
-synthesis from version 0.1.0 remain with their proofs.
-
-Imported the source-pinned exact enumerator and infinite-trace verifier. Further
-pruning removes transient upper-graph vertices and separates disjoint fixed
-chains in chronological constraints. The source archive reconstructs both the
-integer period certificate and completed classification; previous enumerators
-remain available as controls. The manuscript derives its checker sector from
-the extremal singleton visits. Published 0.1.0 artifacts remain unchanged.
-This entry records preparation, not a new Zenodo publication.
-
-## 2026-10-15 — Integer clock update and two new preprints published
-
-Added a fourth publication project, `wake_synthesis/`, with a standalone inverse
-problem paper, exact period bounds, original evidence and new symbolic audits.
-The clock review manuscript now uses the integer clock and the stronger square
-bound with leading coefficient 13/6. The four-cell completion budget is updated
-to E(n)+182. Following the owner's approval, published clock 0.4.0 as
-[23402379](https://doi.org/10.5281/zenodo.23402379) in the original concept,
-four-cell port 0.1.0 as [23402414](https://doi.org/10.5281/zenodo.23402414), and
-wake synthesis 0.1.0 as [23402422](https://doi.org/10.5281/zenodo.23402422).
-The two new papers cite the exact clock version. Public attachment downloads
-match local SHA256 hashes. The one-black and previous clock PDFs are unchanged.
-Two-round Gemini editorial discussion informed the final exposition.
-See [the publication portfolio](PREPRINTS.md).
-
-## 2026-10-15 — Clock preprint version 0.3.0 published
-
-Published the critical square and rectangle strengthening as
-[Zenodo 23401306](https://doi.org/10.5281/zenodo.23401306), updating the existing
-clock preprint under concept DOI 23341603. The PDF, source archive and manifest
-passed download/hash verification; full reproduction from the uploaded source
-archive passed. Version 0.2.0 and its PDF remain preserved. Release receipts,
-source hashes and the version chain are recorded under `clock_escape/release/`.
-
-
-## 2026-10-15 — Critical clock strengthening
-
-Imported the new critical-potential proof into `clock_escape/`: square first
-exit is O(3^n), and fixed-height rectangles have degree floor(H/2)+1.
-Added independent exact Laurent-polynomial checks, an isolated reproduction
-option, an integrated eight-page review manuscript and current source hashes.
-The source repository receives the localized-potential clarification and
-independent audit. The original published PDFs, DOI records and Lean proofs
-are unchanged; no additional publication project is introduced.
-
-
-## 2026-10-15 — Sharp four-cell outgoing ports
-
-Added `four_cell_port/` as a third independent project: sharp three-black
-half-plane escape by 918, a four-black standard P104 port from update 182,
-and effective four-cell exterior completion of arbitrary finite observed histories.
-The project includes a six-page review manuscript, exact certificates, three
-checker implementations, a completion constructor and a reproducible audit.
-
-Imported original evidence from research commit
-`f8f593ae5d87929bbcd7dd2ddbd2593afe60c28a`; source-proof corrections clarify
-observed-prefix equality versus complete-field difference, absolute phase
-coordinates, and uniform first-contact coverage. The original repository receives
-the same corrections and new audit. Provenance is pinned in the project manifest.
-Existing published PDFs, Lean sources and Zenodo releases are unchanged.
-
-
-## Symmetric project layout — 2026-10-13
-
-Both results now own `paper/`, `lean/`, `evidence/`, `release/` and one
-`reproduce.py` entrypoint. Research and browser-export tooling have their own
-homes. Manuscript text, Lean proof sources, scientific checkers and original
-figure bytes are preserved. Checked-in PDFs are the exact Zenodo delivery files;
-new builds write to ignored `paper/build/` directories.
-
-| Previous path or command | Current location |
-|---|---|
-| `preprint/paper.md`, figures and PDF | `one_black/paper/` |
-| `preprint/verification/` | `one_black/evidence/` |
-| `preprint/verify.py`, `one_black/check.py` | `one_black/reproduce.py` (clean build and axiom audit) |
-| `clock_escape/main.tex`, PDF and Makefile | `clock_escape/paper/` |
-| Project-root release files | Each project's `release/` |
-| `PROOF.md`, `RESEARCH.md` | `research/PROOF.md`, `research/README.md` |
-| `media/x/` | `one_black/media/` |
-| Root and preprint figure exporters | `docs/scripts/` |
-
-Completed editorial drafts, raw Gemini conversations, obsolete draft receipts
-and duplicate JSON/log outputs are removed from the current tree. Their full
-history remains in [the previous snapshot](https://github.com/kehao95/langtons-ant-core/tree/09acf26205e9f602957fc83216eef38c12307eaa).
-The published source manifests retain original archive paths; they are historical
-provenance, not inventories of the reorganized working tree. Commands printed
-inside the published manuscripts refer to that original layout.
-
-Independent scientific checkers remain separate: their different implementations
-provide evidence rather than duplicate administrative state. The browser site's
-`docs/` URL and its runtime assets are unchanged.
-
-Validation after migration: the one-black clean build and both axiom audits
-passed; the clock reproduction and research checks passed. Both rebuilt PDFs
-have exactly the published text. Original manuscript, Lean and independent
-checker bytes, original figure bytes, and published PDF hashes were checked.
-Local links, exporter paths, the static-site checks and the research repository's
-packaging inputs also pass. No Zenodo artifact was modified.
-
-## Published preprints — 2026-10-13
-
-Version 0.2.0 of the [one-black paper](one_black/release/README.md) updates the
-original Zenodo version chain. The [clock paper](clock_escape/release/README.md)
-has a separate record. Both projects retain publication receipts and exact
-published-source hashes. The original public integration verified all 85
-one-black scientific files and the clock's standalone replay, numerical reports,
-Lean axioms and rebuilt PDF text; its report is retained in
-[`clock_escape/evidence/public-integration.json`](clock_escape/evidence/public-integration.json).
+[Publications and exact artifacts](PREPRINTS.md) identify the DOI version chains.

@@ -68,8 +68,3 @@ The supplied-schema, supply-spectrum and optimization implementations are includ
 
 Use `--new-results-only` for the QF backend alone. The restored QF implementation
 is distinct from the still-missing original small-witness archive.
-
-## Open
-
-Restore the original small-witness implementation if available as supplementary
-controls. Independent mathematical review and journal preparation remain open.

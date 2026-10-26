@@ -8,6 +8,13 @@ lake-manifest.json
 **/paper/build/
 **/release/candidate/
 
+# Editorial records and preparation history belong outside this public tree.
+PREPRINT_REVIEW.md
+**/paper/review/
+**/release/revisions/
+**/release/v*/revisions/
+**/release/candidate-manifest.json
+
 # Static proof-lab dependencies and assembled deployment.
 docs/node_modules/
 _site/

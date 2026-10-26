@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify a candidate ZIP and PDF, with fresh or explicitly inherited proof checks."""
+"""Verify a source ZIP and PDF, with fresh or explicitly inherited proof checks."""
 import argparse, hashlib, json, os, subprocess, tempfile, zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -8,8 +8,10 @@ def sha(data): return hashlib.sha256(data).hexdigest()
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project',required=True,choices=('wake_synthesis','factor_language','memory_feedback','four_cell_port','defect_synthesis','four_row_escape'))
+    parser.add_argument('--package',type=Path,help='package directory; defaults to the project paper/build/package')
     parser.add_argument('--quick',action='store_true',help='wake only: omit the large thin-wake exclusion replay')
     parser.add_argument('--extensions-only',action='store_true',help='wake/factor: replay new modules and hash-match inherited fully replayed mathematical sources')
+    parser.add_argument('--inherit-from',type=Path,help='prior fully checked package for --extensions-only')
     parser.add_argument('--editorial-from',type=Path,help='preserved candidate directory: rebuild PDF, inheriting proof replay only when all sources outside paper/ and the project README match')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
@@ -17,8 +19,11 @@ def main():
     if args.extensions_only and (args.project not in {'wake_synthesis','factor_language'} or args.quick): parser.error('--extensions-only is a separate wake/factor mode')
     if args.quick and args.project!='wake_synthesis': parser.error('--quick applies only to wake')
     if args.editorial_from and (args.quick or args.extensions_only): parser.error('--editorial-from is a separate build-only mode')
-    home=ROOT/args.project;manifest=json.loads((home/'release/candidate-manifest.json').read_text())
-    archive=home/'release/candidate'/f"{args.project}-{manifest['version']}-source.zip"
+    if args.extensions_only and not args.inherit_from: parser.error('--extensions-only requires --inherit-from')
+    home=ROOT/args.project
+    package=args.package.resolve() if args.package else home/'paper/build/package'
+    manifest=json.loads((package/'artifact-manifest.json').read_text())
+    archive=package/f"{args.project}-{manifest['version']}-source.zip"
     inherited=None
     editorial=None
     if args.editorial_from:
@@ -41,7 +46,7 @@ def main():
         changed=sorted(name for name in old['source_sha256'].keys() | manifest['source_sha256'].keys()
                        if old['source_sha256'].get(name)!=manifest['source_sha256'].get(name))
         inherited=replay.get('inherited_full_replay')
-        editorial={'prior_report':str(prior_report.relative_to(ROOT)),
+        editorial={'prior_report':str(prior_report),
                    'prior_report_sha256':sha(prior_report.read_bytes()),
                    'prior_mode':replay['mode'],'prior_completed_utc':replay['completed_utc'],
                    'prior_archive_sha256':replay['archive_sha256'],
@@ -50,7 +55,7 @@ def main():
                    'editorial_changes':changed,
                    'scope':'PDF and archive rebuilt; proof replay inherited by exact source hashes. Paper prose requires separate review.'}
     if args.extensions_only:
-        previous=home/'release'/('v'+manifest['version'])/'revisions/2026-10-15'
+        previous=args.inherit_from.resolve()
         old=json.loads((previous/'prepared-source-manifest.json').read_text())
         replay=json.loads((previous/'standalone-check.json').read_text())
         assert replay['status']=='passed' and replay['mode']=='full'

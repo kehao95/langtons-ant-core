@@ -40,7 +40,3 @@ Default replay covers the full 76-case/83-job classification, its 90,158-edge up
 
 Use `--extensions-only` to replay just the 16 October additions. The default
 continues to cover the complete main-paper dependency chain.
-
-## Open
-
-Independent mathematical peer review and journal preparation remain open.

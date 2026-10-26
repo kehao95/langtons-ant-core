@@ -41,7 +41,3 @@ and compares the frozen report. There is no research-checkout dependency.
 Imported source READMEs retain their historical paths; the commands above are
 the portable core entrypoints. `[1,...,12]` maxima are
 `[2,18,28,46,64,86,104,146,156,206,224,266]`.
-
-## Open
-
-Independent mathematical review and journal preparation remain open.

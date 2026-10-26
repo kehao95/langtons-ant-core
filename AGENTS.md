@@ -3,8 +3,7 @@
 This repository owns eight publication projects: one-black highways, clocks and escape,
 ports and composable scattering, wake rigidity and inverse synthesis, factor
 language and mass defects, finite-memory prediction and remote feedback, and
-bounded-defect arithmetic synthesis, and exact four-row escape. `highway_stability/` is an additional draft
-awaiting its original numerical certificate.
+bounded-defect arithmetic synthesis, and exact four-row escape.
 
 ## Ownership
 
@@ -14,9 +13,9 @@ awaiting its original numerical certificate.
   projects also have `lean/`; do not imply a Lean proof for the four-cell result.
 - Project-specific code stays with its consumer: one-black dynamics in
   `one_black/langtons_ant/`, clock, port and wake checkers in their respective `verification/` directories.
-- `research/` owns further deductions and the open HC program. Its older Python
-  modules depend on `one_black/`; `research/renewal/` has a self-contained scoped
-  replay. The clock and four-row projects are self-contained.
+- `research/` contains supplementary complete-history and contour tools. Its
+  Python modules depend on `one_black/`; `research/renewal/` has a self-contained
+  scoped replay. The clock and four-row projects are self-contained.
 - `docs/` owns the six interactive proof labs, their source-pinned exports,
   browser checks and the one-black image/animation exporters. See its README
   for the staged Pages build and interaction design.
@@ -35,8 +34,63 @@ awaiting its original numerical certificate.
   result combines analytic reductions with exact computational certificates.
 - Preserve published PDFs and source manifests. Rebuilt PDFs go to ignored
   `paper/build/` directories; release manifests describe historical snapshots.
-- Keep current navigation in project READMEs. Completed editorial process is
-  recoverable from Git history rather than duplicated in live status documents.
+- Keep current navigation in project READMEs. Editorial operations and review history belong in the private
+  research workspace, outside this public repository.
+
+## Publication quality standards
+
+Every preprint is a complete research article. Apply all four standards to the
+actual source and rendered PDF intended for publication.
+
+1. **External-reader review.** Have Gemini read the entire manuscript through
+   `agy`. Ask whether the abstract identifies a concrete question, setup, main
+   result and proof idea; whether notation and motivation arrive before use;
+   and whether each section advances an argument comprehensible without project
+   history. Resolve substantive findings and recheck materially revised prose.
+   A model review is editorial evidence, not mathematical certification.
+2. **A complete, standalone article.** Supply the definitions, hypotheses,
+   statements and proof/dependency chain needed to understand and check the
+   results. State external dependencies precisely and cite stable sources.
+   Title pages and prose must contain no internal version history, editorial
+   status, approval state, review rounds, release plans or change-log narration.
+   Bibliographic version identifiers, reproducibility details and appropriate
+   assistance disclosures remain valid scientific content. Inspect the PDF,
+   including title page, cross-references, figures and bibliography.
+3. **Constructive exposition.** Lead with the question, positive result and
+   mechanism. Collect broader boundaries, unresolved extensions and non-results
+   in a dedicated Limitations section, rather than interrupting the argument
+   with repeated defensive disclaimers. Keep every necessary hypothesis in its
+   theorem and setup. Preserve logical negations used in proofs, honest evidence
+   scope and qualified sharpness claims; never strengthen a theorem by deleting
+   a restriction or conceal a material limitation.
+4. **Verified references.** Check that each reference exists, its authors,
+   title, venue/date and DOI or stable version are correct, and the primary text
+   supports the associated claim. Read the relevant passage or theorem; a
+   resolving URL or search snippet alone is insufficient. Distinguish prior work
+   from this article's contribution and preserve attribution. Record inaccessible
+   or unresolved sources as unverified and resolve material citation gaps before
+   publication; do not invent bibliographic details or priority claims.
+
+Record manuscript/PDF hashes, review inputs and responses, findings, resolutions,
+and verification scope in the private publication workspace. Distinguish pass,
+revision required and unverified. When independent agents audit multiple papers,
+use a separate reviewer context for each manuscript. Sol audits supplement the
+Gemini check; neither substitutes for proof and certificate verification.
+
+## Public repository boundary
+
+This is the publication-facing repository. Keep articles, proofs, reproducible
+certificates, scientific reference notes, result navigation, and released
+artifacts here. Keep internal progress, owner instructions and quotes, approval
+or hold state, reviewer conversations, editorial checklists, candidate histories,
+and publication planning in the private research workspace. Do not link public
+navigation to private operational records. `AGENTS.md` contains enduring
+contributor standards, not session history or publication authorization.
+
+Published PDFs and source archives remain immutable historical artifacts. Record
+new scientific versions through the existing publication chains. Public release
+notes describe scientific or reproducibility changes, not internal deliberations.
+Do not rewrite Git history or alter an existing published archive during cleanup.
 
 ## Verification
 
@@ -57,83 +111,3 @@ python3 tools/prepare_preprints.py
 Run the checks affected by the change. The one-black reproduction uses a clean
 Lean 4.30.0 build and audits both theorem axiom lists; the clock reproduction
 runs bundled exact checkers and local Lean lemmas.
-
-## Current release approval boundary
-
-On 2026-10-15, after reviewing the prepared manuscripts and Gemini editorial
-discussion, the owner explicitly requested submission of the new Zenodo releases.
-This authorizes the clock 0.4.0 update in its existing concept and the first
-0.1.0 releases of port and wake. The existing one-black publication is retained.
-Record exact delivery hashes, publication receipts and download verification.
-The owner subsequently authorized README cleanup and Git commit/push of this
-publication batch. Journal submission remains a separate approval step.
-
-## Current wake release
-
-The owner approved publication of the prepared 0.2.0 update with
-“好的更新一下zenodo吧”, superseding the prior preparation-only boundary.
-Version 0.2.0 is published as record 23405441 in the existing concept 23402421,
-following record 23402422. It retains the general inverse-synthesis theorem and
-uses the revised standard-wake uniqueness title. Preserve all versioned
-published artifacts and the prepublication snapshots; publication receipts
-record the delivered content. Journal submission remains a separate approval step.
-
-## Six-paper preparation (2026-10-15)
-
-The owner requested this portfolio consolidation after wake 0.2.0 publication.
-Prepare wake 0.3.0 and port 0.2.0 in their existing concepts, plus first factor
-and memory preprints. Retain one-black 0.2.0 and clock 0.4.0. This request
-prepares reviewable local manuscripts and archives; it does not authorize
-publishing these four new candidates. The earlier Zenodo approval was exercised
-for the already published wake 0.2.0 package. Record fresh full/quick scope
-separately and preserve every published versioned artifact.
-
-For wake, thin-wake rigidity subsumes standard-layer-profile and complete-wake
-uniqueness; use the strongest proved theorem while retaining its exact drift,
-growth, width and thinness assumptions. Factor's finite-word mass proof is
-independent of its infinite attraction proof. Memory owns the twenty-cell
-lifetime obstruction; port owns finite scattering composition, including returns.
-Older immediate 21/14/13 thresholds and PG-budget/rank-obstruction notes remain
-research material until their required proof closure is assembled.
-
-## Review revision (2026-10-16)
-
-Continue the six-paper preparation from research `2f6010a`: wake owns mixed-wake
-parity and its attributed periodic-growth dependencies; factor owns silent
-legal-memory production and folded recovery/reset costs; memory owns the exact
-birth-filtered query and growing-scale necessity. Port, clock and one-black
-are unchanged. Retain pending version numbers and preserve earlier draft
-snapshots. No new Zenodo authorization is implied. New-module replay and
-hash-matched inheritance of an earlier full replay must be distinguished.
-
-## Consolidation of 16 October 2026
-
-Research `9223766d` strengthens factor and wake within their existing pending
-versions and adds `defect_synthesis/` 0.1.0. `highway_stability/` is excluded
-from release packaging until its 739-case archive is restored and replayed.
-Its manuscript states a certificate implication, not a freshly verified numerical
-recovery theorem. Preserve this distinction when updating indexes or the site.
-
-## Integration of 20 October 2026
-
-Research `16b9b46` supplies the independent four-row 0.1.0 candidate, factor's
-finite-horizon supply and sharp nine-factor mass threshold, and defect synthesis's
-restricted QF backend. Preserve raw imported source hashes and stage any historical
-path layout in disposable runners. The default project runners include the new
-modules; `--new-results-only` isolates additions in factor and defect synthesis.
-Contour transfer and immediate-distance obstructions belong in `research/renewal/`.
-The missing one-bit and original optional small-witness archives remain distinct
-from these restored packages. Prepare local review packages; no new Zenodo or
-journal action is part of this integration.
-
-## Publication batch — 26 October 2026
-
-After reviewing the literature revision and pushing core `f03850f`, the owner
-explicitly requested “然后把这些都发表更新zenodo吧。” This authorizes the
-reviewed four-row, factor, defect and memory 0.1.0 first releases, wake 0.3.0
-in concept 23402421, and port 0.2.0 in concept 23402413. The six records are
-23665471, 23665478, 23665499, 23665512, 23665515 and 23665526 respectively.
-Their versioned publication receipts own delivery identity and verification.
-This supersedes the preparation-only status of these six versions above.
-Preserve the published PDFs, source ZIPs, manifests and earlier versions.
-Journal submission and the separate one-bit draft remain outside this batch.

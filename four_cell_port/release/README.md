@@ -14,18 +14,12 @@ concept **23402413**. The previous version remains intact.
 
 - [Exact published PDF](v0.2.0/paper.pdf) and [source ZIP](v0.2.0/four_cell_port-0.2.0-source.zip).
 - [Publication receipt](v0.2.0/publication-receipt.json) and [public record](v0.2.0/public-record.json).
-- [Prepared source manifest](v0.2.0/prepared-source-manifest.json), [delivery hashes](v0.2.0/delivery-manifest.json) and [metadata](v0.2.0/metadata.json).
+- [Source manifest](v0.2.0/prepared-source-manifest.json), [delivery hashes](v0.2.0/delivery-manifest.json) and [metadata](v0.2.0/metadata.json).
 - [Standalone verification](v0.2.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
 - [Literature and contribution review](../paper/LITERATURE.md).
 
-Both public attachments were downloaded anonymously and matched the approved
-local SHA256 digests. The public version and concept were checked after publication.
-The approved source state is core `f03850f`; the source manifest identifies the
-exact packaged snapshot and its earlier base commit. Preparation manifests retain
-their original prepublication status; the publication receipt owns the released status.
-
-Earlier candidates remain under `v0.2.0/revisions/`. Published files and
-versioned evidence are immutable.
+Artifact hashes identify the exact published files. Published PDFs and source
+archives are retained unchanged.
 
 ## Version 0.1.0 — published
 
@@ -42,9 +36,4 @@ The manuscript cites the exact companion clock version 0.4.0, record 23402379.
 - [Standalone archive checks](v0.1.0/standalone-reproduction.json): extracted sources build to matching PDF text; prior mathematical checks apply to unchanged proof/verifier sources.
 - [Metadata](v0.1.0/zenodo-metadata.json) and [public API record](v0.1.0/public-record.json).
 
-Published files and receipts are immutable. The top-level candidate and review
-manifests retain the preparation snapshots; versioned release records identify
-the actual published contents.
-
-The earlier source-manifest.json describes the initial preparation at commit
-135ee4d; its PDF is retained in [initial-review/](initial-review/).
+Published PDFs and source archives are retained unchanged.

@@ -24,7 +24,3 @@ make -C four_cell_port/paper
 ```
 
 Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
-
-## Open
-
-Independent mathematical peer review and journal preparation remain open.

@@ -1,7 +1,6 @@
 {
   "status": "passed",
   "version": "0.2.0",
-  "submitted": false,
   "archive_sha256": "4bf60589ce35294a44194ba45779af7498538640901050b9f023bf38c014fd7d",
   "source_files_verified": 41,
   "standalone_full_uniqueness_replay": true,

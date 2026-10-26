@@ -64,7 +64,3 @@ Use `--new-results-only` for the 20 October silent-supply and nine-factor checks
 all later additions. The default covers the complete main-paper chain.
 Original imported proof notes and module READMEs retain historical paths;
 these project entrypoints stage their dependencies in disposable directories.
-
-## Open
-
-Independent mathematical peer review and journal preparation remain open.

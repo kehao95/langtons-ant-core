@@ -46,8 +46,3 @@ verification checks the committed tables directly.
 [![One-black proof map](paper/figures/stages/stage-06-global-map.png)](https://kehao95.github.io/langtons-ant-core/)
 
 [Explore the interactive one-black proof guide](https://kehao95.github.io/langtons-ant-core/).
-
-## Open
-
-Mathematical peer review, broader literature checking and journal preparation
-(Journal of Automated Reasoning candidate).

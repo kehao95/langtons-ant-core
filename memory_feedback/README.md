@@ -37,7 +37,3 @@ Run from the repository root, using Python 3.10+ without `-O`. Checks use dispos
 
 Use `--extensions-only` to replay just the 16 October additions. The default
 continues to cover the complete main-paper dependency chain.
-
-## Open
-
-Independent mathematical peer review and journal preparation remain open.

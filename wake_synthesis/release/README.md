@@ -14,18 +14,12 @@ concept **23402421**. The previous version remains intact.
 
 - [Exact published PDF](v0.3.0/paper.pdf) and [source ZIP](v0.3.0/wake_synthesis-0.3.0-source.zip).
 - [Publication receipt](v0.3.0/publication-receipt.json) and [public record](v0.3.0/public-record.json).
-- [Prepared source manifest](v0.3.0/prepared-source-manifest.json), [delivery hashes](v0.3.0/delivery-manifest.json) and [metadata](v0.3.0/metadata.json).
+- [Source manifest](v0.3.0/prepared-source-manifest.json), [delivery hashes](v0.3.0/delivery-manifest.json) and [metadata](v0.3.0/metadata.json).
 - [Standalone verification](v0.3.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
 - [Literature and contribution review](../paper/LITERATURE.md).
 
-Both public attachments were downloaded anonymously and matched the approved
-local SHA256 digests. The public version and concept were checked after publication.
-The approved source state is core `f03850f`; the source manifest identifies the
-exact packaged snapshot and its earlier base commit. Preparation manifests retain
-their original prepublication status; the publication receipt owns the released status.
-
-Earlier candidates remain under `v0.3.0/revisions/`. Published files and
-versioned evidence are immutable.
+Artifact hashes identify the exact published files. Published PDFs and source
+archives are retained unchanged.
 
 ## Version 0.2.0 — published
 
@@ -42,9 +36,9 @@ It updates record **23402422** within the existing concept
 - [Exact published PDF](v0.2.0/paper.pdf).
 - [Publication receipt](v0.2.0/publication-receipt.json) and
   [public API record](v0.2.0/public-record.json).
-- [Reviewed source manifest](v0.2.0/prepared-source-manifest.json),
+- [Source manifest](v0.2.0/prepared-source-manifest.json),
   [delivery hashes](v0.2.0/delivery-manifest.json), and
-  [metadata](v0.2.0/metadata.json): preserved preparation snapshots.
+  [metadata](v0.2.0/metadata.json): exact source and delivery identities.
 - [Full replay](v0.2.0/review-checks.json) and
   [standalone archive check](v0.2.0/standalone-reproduction.json): the complete
   uniqueness search, exact upper certificate, and matching 14-page PDF.
@@ -77,9 +71,3 @@ The manuscript cites the exact companion clock version 0.4.0, record 23402379.
 - [Metadata](v0.1.0/zenodo-metadata.json) and [public API record](v0.1.0/public-record.json).
 
 Published files and receipts are immutable. Versioned release records identify the actual published contents.
-The candidate and preparation manifests retain the reviewed prepublication
-snapshot. Publication receipts identify the published records.
-
-The mathematical source originates in research commit `9c50691`, with
-publication allocation reviewed at `c56a76b`. Retained research reports are
-byte-identical; the new coefficient and complete-seed audits accompany them.

@@ -1,14 +1,12 @@
 {
   "base_commit": "e51ea3c38dd60f93cb6fc3c71e5a6f706bdae833",
-  "intended_action": "first-release",
   "metadata_sha256": "1c55ecec7a7563d2c8744a17548fa2f0f95d2e21c3aebeb4671870595d9551cc",
-  "owner_approval_required": true,
   "pdf": {
     "path": "factor_language/paper/build/paper.pdf",
     "sha256": "0fd23f734d347758490ea81a6907feef92e3881d8a13d3c523563db286261a90"
   },
   "project": "factor_language",
-  "schema": "local-preprint-candidate-v1",
+  "schema": "preprint-source-v1",
   "snapshot_sha256": "a133b908f6322cd59b4847593c13f017702f5b7ed30cf081441cfba3eb8f4629",
   "source_sha256": {
     "factor_language/PROOF.md": "3e603d37c8b36af2cb6152709b130bec975aaa290ac581f69da6d7ccdee8eeb3",
@@ -114,7 +112,6 @@
     "factor_language/verification/ten_event_macro/reproduce.py": "6858792cec271bde6ccbfd5edd231b0650549f865f48648e916174d7e4fa573f",
     "factor_language/verification/ten_event_macro/witness.json": "e9492f48630e4ab3e3f61ebd0ae6a9b5f5c47aefc61cc3cad1c45292930eec3f"
   },
-  "submitted": false,
   "version": "0.1.0",
   "working_tree_sources_included": true
 }

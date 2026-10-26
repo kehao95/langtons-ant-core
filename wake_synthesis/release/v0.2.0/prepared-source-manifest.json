@@ -1,14 +1,12 @@
 {
   "base_commit": "b0bf29f3d5f66c9cac8870e6ab43eeeed666d0f5",
-  "intended_action": "new-version",
   "metadata_sha256": "bfa085af396cf5ae2455a307b29e0894394d61931ea11ae2338aee68502368ca",
-  "owner_approval_required": true,
   "pdf": {
     "path": "wake_synthesis/paper/build/paper.pdf",
     "sha256": "8d189dfad1c2fab403686bb442dc5bd28e88e37df3232fa1dc26f53db7263300"
   },
   "project": "wake_synthesis",
-  "schema": "local-preprint-candidate-v1",
+  "schema": "preprint-source-v1",
   "snapshot_sha256": "59597d07b2a0d647cffd7cb19129ae56fa71d81104749362d3ce577d47758524",
   "source_sha256": {
     "wake_synthesis/PROOF.md": "fdee2a717213bea3fc7246822364df49a6edb78d8aa40705f84c481110b52c39",
@@ -53,7 +51,6 @@
     "wake_synthesis/verification/standard_wake/v2/test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef",
     "wake_synthesis/verification/wake.py": "2eda494b723cd7d403b1452aaf6547aa1546eadee2e2625a1a74785f9b85bdc2"
   },
-  "submitted": false,
   "version": "0.2.0",
   "working_tree_sources_included": true
 }
