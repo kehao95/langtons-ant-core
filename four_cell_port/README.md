@@ -4,11 +4,13 @@ Sharp four-cell ports and exterior completion, arbitrary finite guarded scatteri
 
 ## Manuscript and status
 
-Version **0.2.0** is prepared for review. [Manuscript](paper/main.tex) ·
+Version **0.2.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665526). [Manuscript](paper/main.tex) ·
 [Proof dependencies](PROOF.md) · [Fresh verification](evidence/review-2026-10-15.json) ·
-[Release preparation](release/README.md).
+[Release and artifacts](release/README.md).
 
-The current public record is [23402414](https://doi.org/10.5281/zenodo.23402414); its published files are preserved. The revision belongs to the same concept **23402413**.
+Record [23665526](https://doi.org/10.5281/zenodo.23665526) updates
+[23402414](https://doi.org/10.5281/zenodo.23402414) in the existing concept
+**23402413**. Earlier published files are preserved.
 
 ## Exact scope
 
@@ -25,4 +27,4 @@ Run from the repository root, using Python 3.10+ without `-O`. Checks use dispos
 
 ## Open
 
-Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.
+Independent mathematical peer review and journal preparation remain open.

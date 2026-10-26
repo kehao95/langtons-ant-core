@@ -1,11 +1,33 @@
-# Published first preprint
+# Release history
 
-## Version 0.2.0 — review package
+## Version 0.2.0 — published 26 October 2026
 
-[Review PDF](v0.2.0/paper.pdf) · [Source snapshot](v0.2.0/prepared-source-manifest.json) · [Standalone check](v0.2.0/standalone-check.json)
+Hao Ke, *Four-Cell Ports and Composable Highway Scattering for Langton's Ant*.
 
-*Four-Cell Ports and Composable Highway Scattering for Langton’s Ant*. The PDF and standalone source archive are prepared locally; no Zenodo mutation is part of this revision. The intended action is a new version of record 23402414 in concept 23402413. [Candidate hashes](candidate-manifest.json) identify the exact review snapshot.
+[doi:10.5281/zenodo.23665526](https://doi.org/10.5281/zenodo.23665526) ·
+[Concept DOI](https://doi.org/10.5281/zenodo.23402413)
 
+This update extends the sharp four-cell port and finite-history completion to arbitrary finite protected scattering trains and composable returns to old wake.
+
+Record **23665526** updates **23402414** in the existing
+concept **23402413**. The previous version remains intact.
+
+- [Exact published PDF](v0.2.0/paper.pdf) and [source ZIP](v0.2.0/four_cell_port-0.2.0-source.zip).
+- [Publication receipt](v0.2.0/publication-receipt.json) and [public record](v0.2.0/public-record.json).
+- [Prepared source manifest](v0.2.0/prepared-source-manifest.json), [delivery hashes](v0.2.0/delivery-manifest.json) and [metadata](v0.2.0/metadata.json).
+- [Standalone verification](v0.2.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
+- [Literature and contribution review](../paper/LITERATURE.md).
+
+Both public attachments were downloaded anonymously and matched the approved
+local SHA256 digests. The public version and concept were checked after publication.
+The approved source state is core `f03850f`; the source manifest identifies the
+exact packaged snapshot and its earlier base commit. Preparation manifests retain
+their original prepublication status; the publication receipt owns the released status.
+
+Earlier candidates remain under `v0.2.0/revisions/`. Published files and
+versioned evidence are immutable.
+
+## Version 0.1.0 — published
 
 Hao Ke, *Four Black Cells Force an Outgoing Highway: A Sharp Half-Plane Threshold for Langton’s Ant*.
 
@@ -26,12 +48,3 @@ the actual published contents.
 
 The earlier source-manifest.json describes the initial preparation at commit
 135ee4d; its PDF is retained in [initial-review/](initial-review/).
-
-## Literature revision — 26 October 2026
-
-Contribution positioning and primary references were revised after a fresh
-literature comparison; see [the project review](../paper/LITERATURE.md).
-The pending version is retained. Previous candidates are preserved under
-`v0.2.0/revisions/2026-10-26-before-literature-review/`.
-The current standalone record separates PDF/source rebuild checks from inherited
-mathematical replay. No publication was performed.

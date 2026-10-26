@@ -1,0 +1,27 @@
+{
+  "draft_id": 23665478,
+  "project": "factor_language",
+  "version": "0.1.0",
+  "title": "Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant",
+  "previous_record_id": null,
+  "conceptrecid": "23665477",
+  "preview_url": "https://zenodo.org/records/23665478?preview=1",
+  "owner_authorization": "然后把这些都发表更新zenodo吧。",
+  "source_commit": "f03850f2b2d2efad2788ffa5a23dfd83341305c0",
+  "source_snapshot_sha256": "a133b908f6322cd59b4847593c13f017702f5b7ed30cf081441cfba3eb8f4629",
+  "files": {
+    "Local-Factor-Rigidity.pdf": {
+      "bytes": 188334,
+      "sha256": "0fd23f734d347758490ea81a6907feef92e3881d8a13d3c523563db286261a90"
+    },
+    "factor_language-0.1.0-source.zip": {
+      "bytes": 364575,
+      "sha256": "15ef16c15d44214969fc995c985485c9336165b6d15951a4bace0192b694f7e3"
+    }
+  },
+  "prepared": true,
+  "prepared_utc": "2026-10-26T12:13:35.553453+00:00",
+  "remote_title": "Local Factor Rigidity and Mass–Defect Bounds for Langton's Ant",
+  "metadata_readback_verified": true,
+  "uploaded_files_verified": true
+}

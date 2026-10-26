@@ -1,22 +1,23 @@
 # Publication portfolio
 
-The portfolio has eight distinct mathematical questions. One-black 0.2.0 and
-clock 0.4.0 remain unchanged. The following six candidates are prepared locally;
-no new Zenodo version or draft has been created in this integration.
+Eight preprints are public. On 26 October 2026, the owner approved publication
+of the reviewed six-paper batch from core `f03850f`: four first releases and
+two updates in existing Zenodo concepts. One-black 0.2.0 and clock 0.4.0 are retained.
 
-| Candidate | Title | Intended version chain |
+| Publication | Version / DOI | Release action and exact artifacts |
 |---|---|---|
-| [Four-row escape 0.1.0](four_row_escape/release/README.md) | Exact Escape Times of Langton's Ant in Four Rows | First release |
-| [Wake 0.3.0](wake_synthesis/release/README.md) | Uniqueness of the Classical Langton Ant Highway from Its Layer Profile | Update [23405441](https://doi.org/10.5281/zenodo.23405441), concept 23402421 |
-| [Factor 0.1.0](factor_language/release/README.md) | Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant | First release |
-| [Defect synthesis 0.1.0](defect_synthesis/release/README.md) | Counting Defects: Semilinear Reachability and Resource Bounds for Langton’s Ant | First release |
-| [Memory 0.1.0](memory_feedback/release/README.md) | Finite-Memory Prediction and Remote Feedback in Langton’s Ant | First release |
-| [Port 0.2.0](four_cell_port/release/README.md) | Four-Cell Ports and Composable Highway Scattering for Langton’s Ant | Update [23402414](https://doi.org/10.5281/zenodo.23402414), concept 23402413 |
+| [Four-row escape](four_row_escape/release/README.md) | [0.1.0 · 23665471](https://doi.org/10.5281/zenodo.23665471) | First release · [PDF](four_row_escape/release/v0.1.0/paper.pdf) · [Source ZIP](four_row_escape/release/v0.1.0/four_row_escape-0.1.0-source.zip) · [Receipt](four_row_escape/release/v0.1.0/publication-receipt.json) |
+| [Factor language](factor_language/release/README.md) | [0.1.0 · 23665478](https://doi.org/10.5281/zenodo.23665478) | First release · [PDF](factor_language/release/v0.1.0/paper.pdf) · [Source ZIP](factor_language/release/v0.1.0/factor_language-0.1.0-source.zip) · [Receipt](factor_language/release/v0.1.0/publication-receipt.json) |
+| [Defect synthesis](defect_synthesis/release/README.md) | [0.1.0 · 23665499](https://doi.org/10.5281/zenodo.23665499) | First release · [PDF](defect_synthesis/release/v0.1.0/paper.pdf) · [Source ZIP](defect_synthesis/release/v0.1.0/defect_synthesis-0.1.0-source.zip) · [Receipt](defect_synthesis/release/v0.1.0/publication-receipt.json) |
+| [Memory and feedback](memory_feedback/release/README.md) | [0.1.0 · 23665512](https://doi.org/10.5281/zenodo.23665512) | First release · [PDF](memory_feedback/release/v0.1.0/paper.pdf) · [Source ZIP](memory_feedback/release/v0.1.0/memory_feedback-0.1.0-source.zip) · [Receipt](memory_feedback/release/v0.1.0/publication-receipt.json) |
+| [Wake rigidity](wake_synthesis/release/README.md) | [0.3.0 · 23665515](https://doi.org/10.5281/zenodo.23665515) | Update 23405441; concept 23402421 · [PDF](wake_synthesis/release/v0.3.0/paper.pdf) · [Source ZIP](wake_synthesis/release/v0.3.0/wake_synthesis-0.3.0-source.zip) · [Receipt](wake_synthesis/release/v0.3.0/publication-receipt.json) |
+| [Ports and scattering](four_cell_port/release/README.md) | [0.2.0 · 23665526](https://doi.org/10.5281/zenodo.23665526) | Update 23402414; concept 23402413 · [PDF](four_cell_port/release/v0.2.0/paper.pdf) · [Source ZIP](four_cell_port/release/v0.2.0/four_cell_port-0.2.0-source.zip) · [Receipt](four_cell_port/release/v0.2.0/publication-receipt.json) |
 
-Each candidate has a buildable English manuscript, a self-contained source ZIP,
-metadata and per-file SHA256 hashes. Candidate manifests identify the working-tree
-snapshot, including its base commit; they do not assert a later commit hash.
-Versioned published PDFs, source manifests and download receipts are preserved.
+All twelve public attachments were downloaded anonymously and matched the
+approved PDF/ZIP hashes. Record metadata, latest-version resolution and the
+retained wake/port predecessors were checked. Source manifests describe the
+exact preparation snapshots; publication receipts record the released versions.
+The PDFs and proof sources are unchanged from the approved batch.
 
 ## Contribution allocation
 
@@ -29,11 +30,11 @@ Wake states uniqueness under its hypotheses within the width left by prior
 exclusions. Port states its sharp resource threshold and protected closure
 alongside earlier circuit composition.
 
-All six candidates have revised introductions and literature notes. Prior files
+All six publications include the revised introductions and literature notes. Prior files
 are preserved under `revisions/2026-10-26-before-literature-review/`. The current
 standalone records certify isolated PDF/source rebuilds and hash inheritance of
 the earlier proof replays; no mathematical suite is claimed freshly rerun for
-this editorial change. Pending versions and existing DOI chains are retained.
+this editorial change. The approved versions are now published in the chains above.
 
 ### Mathematical ownership retained from integration
 
@@ -118,23 +119,18 @@ classification is inherited, not represented as freshly rerun. The separate
 profile-classification evidence is hash-checked and retained with its own full
 replay command. [Review details](PREPRINT_REVIEW.md).
 
-## Existing public records
+## Retained foundation papers
 
 | Project | Public version | Exact published PDF |
 |---|---|---|
 | One-black | [0.2.0 · 23341609](https://doi.org/10.5281/zenodo.23341609) | [PDF](one_black/paper/paper.pdf) |
 | Clock and escape | [0.4.0 · 23402379](https://doi.org/10.5281/zenodo.23402379) | [PDF](clock_escape/release/v0.4.0/paper.pdf) |
-| Four-cell port | [0.1.0 · 23402414](https://doi.org/10.5281/zenodo.23402414) | [PDF](four_cell_port/release/v0.1.0/paper.pdf) |
-| Wake | [0.2.0 · 23405441](https://doi.org/10.5281/zenodo.23405441) | [PDF](wake_synthesis/release/v0.2.0/paper.pdf) |
 
-The published wake version has full download verification in its
-[receipt](wake_synthesis/release/v0.2.0/publication-receipt.json). Earlier releases
-retain their own receipts. These remain publication authorities until another
-version is explicitly approved and published.
+Earlier wake and port publications remain available in their existing version
+chains and project release histories. Every published version retains its own receipt.
 
 ## Open
 
-Owner review of the six candidates, followed by any authorized Zenodo publication.
 Restore the original one-bit archive before preparing that additional release.
 External mathematical peer review and journal selection remain subsequent work.
 Refresh the literature comparison if new sources appear before publication; no

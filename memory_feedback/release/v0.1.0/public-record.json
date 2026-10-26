@@ -1,0 +1,147 @@
+{
+  "conceptdoi": "10.5281/zenodo.23665511",
+  "conceptrecid": "23665511",
+  "created": "2026-10-26T12:15:39.900333+00:00",
+  "doi": "10.5281/zenodo.23665512",
+  "doi_url": "https://doi.org/10.5281/zenodo.23665512",
+  "files": [
+    {
+      "checksum": "md5:648ec3f1d274b8f1c7a2689a20135cb8",
+      "id": "0d9cc2a7-12ce-40ad-9eda-060e80356f07",
+      "key": "Finite-Memory-and-Remote-Feedback.pdf",
+      "links": {
+        "self": "https://zenodo.org/api/records/23665512/files/Finite-Memory-and-Remote-Feedback.pdf/content"
+      },
+      "size": 162022
+    },
+    {
+      "checksum": "md5:eb308570aafa4171c0ad8c0e6e281f2d",
+      "id": "77069b90-13e7-40fb-9b83-59360685b62e",
+      "key": "memory_feedback-0.1.0-source.zip",
+      "links": {
+        "self": "https://zenodo.org/api/records/23665512/files/memory_feedback-0.1.0-source.zip/content"
+      },
+      "size": 231197
+    }
+  ],
+  "id": 23665512,
+  "links": {
+    "access": "https://zenodo.org/api/records/23665512/access",
+    "access_grants": "https://zenodo.org/api/records/23665512/access/grants",
+    "access_links": "https://zenodo.org/api/records/23665512/access/links",
+    "access_request": "https://zenodo.org/api/records/23665512/access/request",
+    "access_users": "https://zenodo.org/api/records/23665512/access/users",
+    "communities": "https://zenodo.org/api/records/23665512/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/23665512/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.23665512",
+    "draft": "https://zenodo.org/api/records/23665512/draft",
+    "file_modification": "https://zenodo.org/api/records/23665512/file-modification",
+    "files": "https://zenodo.org/api/records/23665512/files",
+    "latest": "https://zenodo.org/api/records/23665512/versions/latest",
+    "latest_html": "https://zenodo.org/records/23665512/latest",
+    "media_files": "https://zenodo.org/api/records/23665512/media-files",
+    "parent": "https://zenodo.org/api/records/23665511",
+    "parent_doi": "https://doi.org/10.5281/zenodo.23665511",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23665511",
+    "parent_html": "https://zenodo.org/records/23665511",
+    "preview_html": "https://zenodo.org/records/23665512?preview=1",
+    "quota_increase": "https://zenodo.org/api/records/23665512/quota-increase",
+    "request_deletion": "https://zenodo.org/api/records/23665512/request-deletion",
+    "requests": "https://zenodo.org/api/records/23665512/requests",
+    "reserve_doi": "https://zenodo.org/api/records/23665512/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/23665512",
+    "self_doi": "https://doi.org/10.5281/zenodo.23665512",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23665512",
+    "self_html": "https://zenodo.org/records/23665512",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:23665512/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:23665512/sequence/default",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:23665512:Finite-Memory-and-Remote-Feedback.pdf/full/%5E10,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:23665512:Finite-Memory-and-Remote-Feedback.pdf/full/%5E100,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:23665512:Finite-Memory-and-Remote-Feedback.pdf/full/%5E1200,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:23665512:Finite-Memory-and-Remote-Feedback.pdf/full/%5E250,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:23665512:Finite-Memory-and-Remote-Feedback.pdf/full/%5E50,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:23665512:Finite-Memory-and-Remote-Feedback.pdf/full/%5E750,/0/default.jpg"
+    },
+    "versions": "https://zenodo.org/api/records/23665512/versions"
+  },
+  "metadata": {
+    "access_right": "open",
+    "creators": [
+      {
+        "affiliation": "Independent researcher",
+        "name": "Ke, Hao",
+        "orcid": "0009-0001-2818-4986"
+      }
+    ],
+    "description": "Total fixed-D old-black event prediction, exact full-history XOR continuation, quadratic finite-event budgets, endpoint tubes, fixed-region event filtering, remote long-lived feedback necessity, and the twenty-black spatial-scale obstruction. Birth-filtered total queries return the first newly generated remote old lifetime and its complete endpoint; growing-scale necessity gives Omega(sqrt(H)/log(H)) late-born lifetimes with increasing radius and age on non-eventually-translating orbits.",
+    "doi": "10.5281/zenodo.23665512",
+    "keywords": [
+      "Langton's ant",
+      "finite memory",
+      "event decidability",
+      "symbolic computation",
+      "feedback"
+    ],
+    "language": "eng",
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "publication_date": "2026-10-26",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/memory_feedback",
+        "relation": "isSupplementedBy",
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.23402379",
+        "relation": "references",
+        "scheme": "doi"
+      }
+    ],
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "23665511"
+          }
+        }
+      ]
+    },
+    "resource_type": {
+      "subtype": "preprint",
+      "title": "Preprint",
+      "type": "publication"
+    },
+    "title": "Finite-Memory Prediction and Remote Feedback in Langton's Ant",
+    "version": "0.1.0"
+  },
+  "modified": "2026-10-26T12:15:40.479640+00:00",
+  "owners": [
+    {
+      "id": "1540529"
+    }
+  ],
+  "recid": "23665512",
+  "revision": 3,
+  "state": "done",
+  "stats": {
+    "downloads": 0,
+    "unique_downloads": 0,
+    "unique_views": 0,
+    "version_downloads": 0,
+    "version_unique_downloads": 0,
+    "version_unique_views": 0,
+    "version_views": 0,
+    "views": 0
+  },
+  "status": "published",
+  "submitted": true,
+  "swh": {},
+  "title": "Finite-Memory Prediction and Remote Feedback in Langton's Ant",
+  "updated": "2026-10-26T12:15:40.479640+00:00"
+}

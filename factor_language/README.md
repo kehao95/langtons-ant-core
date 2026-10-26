@@ -39,11 +39,12 @@ consecutive events localized in K have an axis-cross container with padding 44.
 
 ## Manuscript and status
 
-Version **0.1.0** is prepared for review. [Manuscript](paper/main.tex) ·
+Version **0.1.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665478). [Manuscript](paper/main.tex) ·
 [Proof dependencies](PROOF.md) · [New-module verification](evidence/consolidation-replay.json) ·
-[Release preparation](release/README.md).
+[Release and artifacts](release/README.md).
 
-This project has no Zenodo record yet. Its first-release materials are local.
+The first preprint is record **23665478**. Its exact PDF, source archive and
+publication receipt are retained in [release/v0.1.0/](release/v0.1.0/).
 
 ## Exact scope
 
@@ -66,4 +67,4 @@ these project entrypoints stage their dependencies in disposable directories.
 
 ## Open
 
-Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.
+Independent mathematical peer review and journal preparation remain open.

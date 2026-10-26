@@ -15,11 +15,12 @@ polynomial in binary D or K's diameter.
 
 ## Manuscript and status
 
-Version **0.1.0** is prepared for review. [Manuscript](paper/main.tex) ·
+Version **0.1.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665512). [Manuscript](paper/main.tex) ·
 [Proof dependencies](PROOF.md) · [New-module verification](evidence/review-2026-10-16.json) ·
-[Release preparation](release/README.md).
+[Release and artifacts](release/README.md).
 
-This project has no Zenodo record yet. Its first-release materials are local.
+The first preprint is record **23665512**. Its exact PDF, source archive and
+publication receipt are retained in [release/v0.1.0/](release/v0.1.0/).
 
 ## Exact scope
 
@@ -39,4 +40,4 @@ continues to cover the complete main-paper dependency chain.
 
 ## Open
 
-Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.
+Independent mathematical peer review and journal preparation remain open.

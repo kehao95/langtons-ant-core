@@ -1,0 +1,38 @@
+{
+  "record_id": 23665515,
+  "doi": "10.5281/zenodo.23665515",
+  "url": "https://zenodo.org/records/23665515",
+  "conceptrecid": "23402421",
+  "conceptdoi": "10.5281/zenodo.23402421",
+  "previous_record_id": 23405441,
+  "title": "Uniqueness of the Classical Langton Ant Highway from Its Layer Profile",
+  "version": "0.3.0",
+  "state": "done",
+  "submitted": true,
+  "published_at": "2026-10-26T12:15:44.601321+00:00",
+  "owner_authorization": "然后把这些都发表更新zenodo吧。",
+  "source_commit": "f03850f2b2d2efad2788ffa5a23dfd83341305c0",
+  "source_snapshot_sha256": "99a83da0331c0c59873ed93fec862a6671307f619f7653b029377e796ece3298",
+  "public_readback_verified": true,
+  "download_verified": true,
+  "files": [
+    {
+      "filename": "Layer-Profile-Uniqueness.pdf",
+      "bytes": 413489,
+      "sha256": "3d244ee21dafc10dccc3c2e1745d97af07a08e18173055c01ae6c90ce665f062",
+      "download_verified": true,
+      "remote_md5": "md5:118ca60e3014ce0435b0e65f57a4b543"
+    },
+    {
+      "filename": "wake_synthesis-0.3.0-source.zip",
+      "bytes": 441311,
+      "sha256": "1a076e22acc6e7f9ec050c98613f68fef22dbbc321a32cdf5394e5abc375de91",
+      "download_verified": true,
+      "remote_md5": "md5:2278b1baeae26eadd41c5560a54b114f"
+    }
+  ],
+  "previous_version_preserved": true,
+  "anonymous_public_downloads": true,
+  "latest_version_verified": true,
+  "verified_utc": "2026-10-26T12:18:31.292502+00:00"
+}

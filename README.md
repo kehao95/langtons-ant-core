@@ -1,8 +1,8 @@
 # Langton’s Ant: Proofs and Preprints
 
 Eight publication projects about the classical white-right / black-left Langton
-ant, by Hao Ke. Four preprints are public; six new or revised manuscripts are
-prepared locally for review.
+ant, by Hao Ke. Eight preprints are public. The 26 October 2026 batch adds
+four first releases and updates wake rigidity and composable scattering.
 
 ## Results and manuscripts
 
@@ -10,12 +10,12 @@ prepared locally for review.
 |---|---|---|
 | [One-black](one_black/) | Every one-black finite state, at every position and heading, reaches the complete standard P104 trace. | [0.2.0](https://doi.org/10.5281/zenodo.23341609), retained |
 | [Clock and escape](clock_escape/) | Square exit ≤ `(13·3^(n−1)−2n²−4n−5)/2`; fixed-height rectangle degree `⌊H/2⌋+1`; complete-state orbit algorithms. | [0.4.0](https://doi.org/10.5281/zenodo.23402379), retained |
-| [Four-row escape](four_row_escape/) | Exact all-color first-exit maxima: `S(4,n)=34n-150` for every `n>=13`; closed persistent-response classification. | First 0.1.0 prepared |
-| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. General inverse synthesis, non-axis quadratic wake tests and analytic unit-diagonal exclusion. | 0.3.0 prepared; [public 0.2.0](https://doi.org/10.5281/zenodo.23405441) |
-| [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequalities with sharp nine-factor window threshold; finite-horizon core/supply bound; archive recovery. | First 0.1.0 prepared |
-| [Defect synthesis](defect_synthesis/) | All-coordinate bounded-defect semilinearity; complete endpoints; sharp supply spectra; small witnesses, unary NP membership and a restricted polynomial-size QF decision backend. | First 0.1.0 prepared |
-| [Memory and feedback](memory_feedback/) | Exact finite-memory event prediction and full-history continuation; exact newly generated remote feedback, growing-scale necessity and a fixed-mass lifetime obstruction. | First 0.1.0 prepared |
-| [Ports and scattering](four_cell_port/) | Sharp four-cell ports; arbitrary finite protected scattering trains, including unbounded return excursions and old-wake readback. | 0.2.0 prepared; [public 0.1.0](https://doi.org/10.5281/zenodo.23402414) |
+| [Four-row escape](four_row_escape/) | Exact all-color first-exit maxima: `S(4,n)=34n-150` for every `n>=13`; closed persistent-response classification. | [0.1.0](https://doi.org/10.5281/zenodo.23665471), published |
+| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. General inverse synthesis, non-axis quadratic wake tests and analytic unit-diagonal exclusion. | [0.3.0](https://doi.org/10.5281/zenodo.23665515), published |
+| [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequalities with sharp nine-factor window threshold; finite-horizon core/supply bound; archive recovery. | [0.1.0](https://doi.org/10.5281/zenodo.23665478), published |
+| [Defect synthesis](defect_synthesis/) | All-coordinate bounded-defect semilinearity; complete endpoints; sharp supply spectra; small witnesses, unary NP membership and a restricted polynomial-size QF decision backend. | [0.1.0](https://doi.org/10.5281/zenodo.23665499), published |
+| [Memory and feedback](memory_feedback/) | Exact finite-memory event prediction and full-history continuation; exact newly generated remote feedback, growing-scale necessity and a fixed-mass lifetime obstruction. | [0.1.0](https://doi.org/10.5281/zenodo.23665512), published |
+| [Ports and scattering](four_cell_port/) | Sharp four-cell ports; arbitrary finite protected scattering trains, including unbounded return excursions and old-wake readback. | [0.2.0](https://doi.org/10.5281/zenodo.23665526), published |
 
 [Publication versions and packages](PREPRINTS.md) ·
 [Claim–evidence map and review](PREPRINT_REVIEW.md) ·
@@ -86,7 +86,7 @@ and paper. The original one-black guide is now at
 
 [Site development and checks](docs/) · [Interaction design](docs/DESIGN.md).
 Browser replay retains complete finite fields. The manuscript snapshots are
-identified as published papers or review drafts in the site's version manifest.
+identified by their publication receipts in the site's version manifest.
 
 ## Further research
 
@@ -96,9 +96,7 @@ conclusions; their combination does not supply an all-input convergence theorem.
 
 ## Open
 
-Review the six candidate packages in [PREPRINTS.md](PREPRINTS.md), revised after
-the 26 October primary-source contribution review, before a new Zenodo release.
-The editorial rebuilds inherit unchanged mathematical checks explicitly.
-Independent mathematical review and journal preparation
-remain open. Restore the single-bit certificate to complete that separate draft.
-Current published records are unchanged by this preparation.
+Independent mathematical review and journal preparation remain open. Restore
+the single-bit certificate to complete that separate draft. The completed
+[publication batch](PREPRINTS.md) records all six releases and their exact files;
+its editorial rebuilds explicitly inherit unchanged mathematical checks.

@@ -1,5 +1,8 @@
 # Literature and contribution review — 26 October 2026
 
+This review preceded the [six releases published on 26 October](PREPRINTS.md).
+The contribution decisions and source comparisons below describe that approved batch.
+
 Scope: the six candidates in [PREPRINTS.md](PREPRINTS.md), starting from core
 `e51ea3c`. This is a fresh primary-source comparison of contribution statements,
 not a new mathematical replay or external peer review. The comparison supports
@@ -97,7 +100,7 @@ replay explicitly. No Zenodo or journal action belongs to this review.
 
 ## Open
 
-Owner review of the revised contribution statements and candidate PDFs. External
-mathematical review remains separate. If a new primary result is found before
-publication, compare its exact quantifiers and version date against the relevant
+Owner review and the six Zenodo releases are complete. External mathematical
+review remains open. If a new primary result is found before a later revision,
+compare its exact quantifiers and version date against the relevant
 project's `paper/LITERATURE.md` before changing this allocation.

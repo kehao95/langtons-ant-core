@@ -30,7 +30,14 @@ def build(destination):
     manifest={'repository':'https://github.com/kehao95/langtons-ant-core','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'papers':{}}
     for name,source in PAPERS.items():
         p=ROOT/source;shutil.copy2(p,papers/(name+'.pdf'))
-        manifest['papers'][name]={'path':'papers/'+name+'.pdf','source':source,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'status':'published' if name in {'one-black','clock'} else 'review draft'}
+        digest=hashlib.sha256(p.read_bytes()).hexdigest()
+        entry={'path':'papers/'+name+'.pdf','source':source,'sha256':digest,'status':'review draft'}
+        receipt_path=ROOT/'one_black/release/publication-receipt.json' if name=='one-black' else p.parent/'publication-receipt.json'
+        if receipt_path.is_file():
+            receipt=json.loads(receipt_path.read_text())
+            if receipt.get('submitted') and any(f['sha256']==digest for f in receipt['files']):
+                entry.update(status='published',doi=receipt['doi'],record_url=receipt['url'])
+        manifest['papers'][name]=entry
     (destination/'site-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(f'Assembled {destination}: seven pages, six manuscript snapshots.')
 def main():

@@ -1,0 +1,145 @@
+{
+  "conceptdoi": "10.5281/zenodo.23402413",
+  "conceptrecid": "23402413",
+  "created": "2026-10-26T12:15:48.461347+00:00",
+  "doi": "10.5281/zenodo.23665526",
+  "doi_url": "https://doi.org/10.5281/zenodo.23665526",
+  "files": [
+    {
+      "checksum": "md5:d1bbf8da2eabc591fb456725d0dd2335",
+      "id": "f099a12e-313a-4630-9bf0-baac7ba4625e",
+      "key": "Four-Cell-Ports-and-Scattering.pdf",
+      "links": {
+        "self": "https://zenodo.org/api/records/23665526/files/Four-Cell-Ports-and-Scattering.pdf/content"
+      },
+      "size": 147609
+    },
+    {
+      "checksum": "md5:de1a9b25a4aa914c0fa97105df670180",
+      "id": "cdbde116-de8f-48ef-870a-2fffaae6fef4",
+      "key": "four_cell_port-0.2.0-source.zip",
+      "links": {
+        "self": "https://zenodo.org/api/records/23665526/files/four_cell_port-0.2.0-source.zip/content"
+      },
+      "size": 93385
+    }
+  ],
+  "id": 23665526,
+  "links": {
+    "access": "https://zenodo.org/api/records/23665526/access",
+    "access_grants": "https://zenodo.org/api/records/23665526/access/grants",
+    "access_links": "https://zenodo.org/api/records/23665526/access/links",
+    "access_request": "https://zenodo.org/api/records/23665526/access/request",
+    "access_users": "https://zenodo.org/api/records/23665526/access/users",
+    "communities": "https://zenodo.org/api/records/23665526/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/23665526/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.23665526",
+    "draft": "https://zenodo.org/api/records/23665526/draft",
+    "file_modification": "https://zenodo.org/api/records/23665526/file-modification",
+    "files": "https://zenodo.org/api/records/23665526/files",
+    "latest": "https://zenodo.org/api/records/23665526/versions/latest",
+    "latest_html": "https://zenodo.org/records/23665526/latest",
+    "media_files": "https://zenodo.org/api/records/23665526/media-files",
+    "parent": "https://zenodo.org/api/records/23402413",
+    "parent_doi": "https://doi.org/10.5281/zenodo.23402413",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23402413",
+    "parent_html": "https://zenodo.org/records/23402413",
+    "preview_html": "https://zenodo.org/records/23665526?preview=1",
+    "quota_increase": "https://zenodo.org/api/records/23665526/quota-increase",
+    "request_deletion": "https://zenodo.org/api/records/23665526/request-deletion",
+    "requests": "https://zenodo.org/api/records/23665526/requests",
+    "reserve_doi": "https://zenodo.org/api/records/23665526/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/23665526",
+    "self_doi": "https://doi.org/10.5281/zenodo.23665526",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23665526",
+    "self_html": "https://zenodo.org/records/23665526",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:23665526/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:23665526/sequence/default",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:23665526:Four-Cell-Ports-and-Scattering.pdf/full/%5E10,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:23665526:Four-Cell-Ports-and-Scattering.pdf/full/%5E100,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:23665526:Four-Cell-Ports-and-Scattering.pdf/full/%5E1200,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:23665526:Four-Cell-Ports-and-Scattering.pdf/full/%5E250,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:23665526:Four-Cell-Ports-and-Scattering.pdf/full/%5E50,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:23665526:Four-Cell-Ports-and-Scattering.pdf/full/%5E750,/0/default.jpg"
+    },
+    "versions": "https://zenodo.org/api/records/23665526/versions"
+  },
+  "metadata": {
+    "access_right": "open",
+    "creators": [
+      {
+        "affiliation": "Independent researcher",
+        "name": "Ke, Hao",
+        "orcid": "0009-0001-2818-4986"
+      }
+    ],
+    "description": "A sharp four-cell one-sided highway interface and an exact 918-update three-cell exit bound yield four-cell exterior completion after any finite observation. Protected scattering interfaces compose into arbitrary finite trains, including unbounded return excursions with old-wake readback and the complete field retained. These resource thresholds and full-field closure theorems extend the classical ant's earlier finite-gadget constructions.",
+    "doi": "10.5281/zenodo.23665526",
+    "keywords": [
+      "Langton's ant",
+      "discrete dynamics",
+      "computer-assisted proof"
+    ],
+    "language": "eng",
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "publication_date": "2026-10-26",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/kehao95/langtons-ant-core/tree/main/four_cell_port",
+        "relation": "isSupplementedBy",
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.23402379",
+        "relation": "references",
+        "scheme": "doi"
+      }
+    ],
+    "relations": {
+      "version": [
+        {
+          "index": 1,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "23402413"
+          }
+        }
+      ]
+    },
+    "resource_type": {
+      "subtype": "preprint",
+      "title": "Preprint",
+      "type": "publication"
+    },
+    "title": "Four-Cell Ports and Composable Highway Scattering for Langton's Ant",
+    "version": "0.2.0"
+  },
+  "modified": "2026-10-26T12:15:48.889809+00:00",
+  "owners": [
+    {
+      "id": "1540529"
+    }
+  ],
+  "recid": "23665526",
+  "revision": 4,
+  "state": "done",
+  "stats": {
+    "downloads": 10,
+    "unique_downloads": 10,
+    "unique_views": 3,
+    "version_downloads": 0,
+    "version_unique_downloads": 0,
+    "version_unique_views": 0,
+    "version_views": 0,
+    "views": 3
+  },
+  "status": "published",
+  "submitted": true,
+  "swh": {},
+  "title": "Four-Cell Ports and Composable Highway Scattering for Langton's Ant",
+  "updated": "2026-10-26T12:15:48.889809+00:00"
+}

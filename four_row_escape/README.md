@@ -6,9 +6,12 @@ values are determined. Exterior colors are arbitrary and unread before exit;
 the exit-producing update is counted. This resolves Etse's MFCS 2026 four-row
 linear-bound conjecture (published Conjecture 11; arXiv v1 Conjecture 13).
 
-[Manuscript](paper/main.tex) · [Review PDF](release/v0.1.0/paper.pdf) ·
+Version **0.1.0**, published 26 October 2026:
+[doi:10.5281/zenodo.23665471](https://doi.org/10.5281/zenodo.23665471).
+
+[Manuscript](paper/main.tex) · [Published PDF](release/v0.1.0/paper.pdf) ·
 [Proof map](PROOF.md) · [Replay](evidence/replay-2026-10-20.json) ·
-[Release preparation](release/README.md)
+[Release and artifacts](release/README.md)
 
 ## Proof and scope
 
@@ -41,5 +44,4 @@ the portable core entrypoints. `[1,...,12]` maxima are
 
 ## Open
 
-Review the first 0.1.0 PDF and source package. External mathematical review and
-publication remain separate steps; no Zenodo record has been created.
+Independent mathematical review and journal preparation remain open.

@@ -1,0 +1,37 @@
+{
+  "record_id": 23665499,
+  "doi": "10.5281/zenodo.23665499",
+  "url": "https://zenodo.org/records/23665499",
+  "conceptrecid": "23665498",
+  "conceptdoi": "10.5281/zenodo.23665498",
+  "previous_record_id": null,
+  "title": "Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant",
+  "version": "0.1.0",
+  "state": "done",
+  "submitted": true,
+  "published_at": "2026-10-26T12:15:36.237357+00:00",
+  "owner_authorization": "然后把这些都发表更新zenodo吧。",
+  "source_commit": "f03850f2b2d2efad2788ffa5a23dfd83341305c0",
+  "source_snapshot_sha256": "22dea4fcdfe550413fc7435f9c7593a13bc7c61253fe6775926d945141e37286",
+  "public_readback_verified": true,
+  "download_verified": true,
+  "files": [
+    {
+      "filename": "Counting-Defects.pdf",
+      "bytes": 346257,
+      "sha256": "3010d499aed96301935ce160c4199c04be00ae6e607573158b9343db46996a9c",
+      "download_verified": true,
+      "remote_md5": "md5:5f978e36446de1c4749e8eecf7190b26"
+    },
+    {
+      "filename": "defect_synthesis-0.1.0-source.zip",
+      "bytes": 224672,
+      "sha256": "9ddc0af162dbfd03dc125e2c78e62941c3bc17859956b2262a53dc4a4828e0db",
+      "download_verified": true,
+      "remote_md5": "md5:77b424228b32a79046d3ee21464c7f83"
+    }
+  ],
+  "anonymous_public_downloads": true,
+  "latest_version_verified": true,
+  "verified_utc": "2026-10-26T12:16:49.571003+00:00"
+}

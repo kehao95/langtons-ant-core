@@ -1,5 +1,14 @@
 # Repository changes
 
+## 2026-10-26 — publish the six-paper batch
+
+- Publish four-row, factor, defect and memory 0.1.0 as first preprints.
+- Publish wake 0.3.0 in concept 23402421 and port 0.2.0 in concept 23402413.
+- Verify all twelve public downloads against the approved hashes and retain the previous versions.
+- Record exact source ZIPs, publication receipts, public metadata and version-chain checks.
+- Update the portfolio, project READMEs and proof-lab publication labels; derive site status from matching publication receipts.
+- Retain one-black 0.2.0 and clock 0.4.0.
+
 ## 2026-10-26 — primary-source contribution review
 
 - Compare all six candidates with primary literature and record exact source locations and search limits.

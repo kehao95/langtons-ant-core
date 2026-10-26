@@ -5,9 +5,12 @@ resource spectra for supplied finite schema collections, and small positive witn
 It is independent of the factor paper's attraction and mass inequality, while using
 its bounded-fold coverage theorem as an attributed input.
 
-[Manuscript](paper/main.tex) · [Review PDF](release/v0.1.0/paper.pdf) ·
+Version **0.1.0**, published 26 October 2026:
+[doi:10.5281/zenodo.23665499](https://doi.org/10.5281/zenodo.23665499).
+
+[Manuscript](paper/main.tex) · [Published PDF](release/v0.1.0/paper.pdf) ·
 [Proof map](PROOF.md) · [Replay](evidence/consolidation-replay.json) ·
-[Release preparation](release/README.md)
+[Release and artifacts](release/README.md)
 
 ## Results
 
@@ -68,6 +71,5 @@ is distinct from the still-missing original small-witness archive.
 
 ## Open
 
-Author review of the first 0.1.0 candidate; restore the original small-witness
-implementation if available as supplementary controls. Publication requires the
-owner's approval. Independent mathematical review and journal preparation remain open.
+Restore the original small-witness implementation if available as supplementary
+controls. Independent mathematical review and journal preparation remain open.

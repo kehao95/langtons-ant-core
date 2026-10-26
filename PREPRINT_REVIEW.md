@@ -1,4 +1,24 @@
-# Current literature revision — 26 October 2026
+# Publication verification — 26 October 2026
+
+The owner approved the six reviewed releases after core `f03850f` was pushed.
+[Publication records and exact artifacts](PREPRINTS.md) now link all six DOIs.
+Twelve public attachments were downloaded anonymously and matched their approved
+SHA256 hashes. Wake and port remain in their existing concepts; their prior
+file checksums and bibliographic metadata are unchanged. Zenodo correctly marks
+those predecessor records as no longer the latest versions.
+
+This publication did not rerun the mathematical suites or change the approved
+papers. The editorial-only verification and inherited proof evidence below remain
+the exact scope. Versioned preparation manifests are preserved as historical
+snapshots; publication receipts record delivery and public download verification.
+
+The proof-lab publication update passes its three exact-export checks, all 32
+existing Node tests, and the static-site link/PDF checks. All six deployed paper
+snapshots match a published receipt and carry the corresponding DOI.
+
+---
+
+# Literature revision before publication — 26 October 2026
 
 The [primary-source review](LITERATURE_REVIEW.md) compares all six candidates
 with their nearest located predecessors and records the revised contributions.

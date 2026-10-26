@@ -4,7 +4,7 @@ Thin-wake rigidity derives the standard layer profile and all longitudinal resid
 
 ## Integrated results — 16 October 2026
 
-The current candidate absorbs the general non-axis quadratic wake character,
+Version 0.3.0 absorbs the general non-axis quadratic wake character,
 its polynomial-bit-time evaluator and all-scale growth-eight exclusion family.
 The unit-diagonal exclusion now has a purely analytic layer-forcing proof.
 The special `(2,-2)` mixed-wake identity analytically removes three of the five
@@ -15,11 +15,13 @@ shortened classification route. [Current proof map](PROOF.md).
 
 ## Manuscript and status
 
-Version **0.3.0** is prepared for review. [Manuscript](paper/main.tex) ·
+Version **0.3.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665515). [Manuscript](paper/main.tex) ·
 [Proof dependencies](PROOF.md) · [New-module verification](evidence/consolidation-replay.json) ·
-[Release preparation](release/README.md).
+[Release and artifacts](release/README.md).
 
-The current public record is [23405441](https://doi.org/10.5281/zenodo.23405441); its published files are preserved. The revision belongs to the same concept **23402421**.
+Record [23665515](https://doi.org/10.5281/zenodo.23665515) updates
+[23405441](https://doi.org/10.5281/zenodo.23405441) in the existing concept
+**23402421**. Earlier published files are preserved.
 
 ## Exact scope
 
@@ -41,4 +43,4 @@ continues to cover the complete main-paper dependency chain.
 
 ## Open
 
-Review the prepared manuscript and standalone package before authorizing a Zenodo release. Independent mathematical peer review and journal preparation remain separate steps.
+Independent mathematical peer review and journal preparation remain open.

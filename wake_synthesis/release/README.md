@@ -1,11 +1,31 @@
 # Release history
 
-## Version 0.3.0 — review package
+## Version 0.3.0 — published 26 October 2026
 
-[Review PDF](v0.3.0/paper.pdf) · [Source snapshot](v0.3.0/prepared-source-manifest.json) · [Standalone check](v0.3.0/standalone-check.json)
+Hao Ke, *Uniqueness of the Classical Langton Ant Highway from Its Layer Profile*.
 
-*Uniqueness of the Classical Langton Ant Highway from Its Layer Profile*. The PDF and standalone source archive are prepared locally; no Zenodo mutation is part of this revision. The intended action is a new version of record 23405441 in concept 23402421. [Candidate hashes](candidate-manifest.json) identify the exact review snapshot.
+[doi:10.5281/zenodo.23665515](https://doi.org/10.5281/zenodo.23665515) ·
+[Concept DOI](https://doi.org/10.5281/zenodo.23402421)
 
+This update replaces prescribed complete-wake labels with thin-wake rigidity, retains general inverse synthesis, and integrates the quadratic and mixed-wake parity results.
+
+Record **23665515** updates **23405441** in the existing
+concept **23402421**. The previous version remains intact.
+
+- [Exact published PDF](v0.3.0/paper.pdf) and [source ZIP](v0.3.0/wake_synthesis-0.3.0-source.zip).
+- [Publication receipt](v0.3.0/publication-receipt.json) and [public record](v0.3.0/public-record.json).
+- [Prepared source manifest](v0.3.0/prepared-source-manifest.json), [delivery hashes](v0.3.0/delivery-manifest.json) and [metadata](v0.3.0/metadata.json).
+- [Standalone verification](v0.3.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
+- [Literature and contribution review](../paper/LITERATURE.md).
+
+Both public attachments were downloaded anonymously and matched the approved
+local SHA256 digests. The public version and concept were checked after publication.
+The approved source state is core `f03850f`; the source manifest identifies the
+exact packaged snapshot and its earlier base commit. Preparation manifests retain
+their original prepublication status; the publication receipt owns the released status.
+
+Earlier candidates remain under `v0.3.0/revisions/`. Published files and
+versioned evidence are immutable.
 
 ## Version 0.2.0 — published
 
@@ -32,7 +52,7 @@ It updates record **23402422** within the existing concept
 All three published attachments—the PDF, standalone source ZIP and
 [SHA256 manifest](v0.2.0/release-manifest.json)—were downloaded anonymously and
 matched the local delivery hashes. The previous record is unchanged, and the
-concept's latest version resolves to 0.2.0.
+concept's latest version resolved to 0.2.0 at that release.
 
 Build and package locally with:
 
@@ -63,31 +83,3 @@ snapshot. Publication receipts identify the published records.
 The mathematical source originates in research commit `9c50691`, with
 publication allocation reviewed at `c56a76b`. Retained research reports are
 byte-identical; the new coefficient and complete-seed audits accompany them.
-
-## Review revision — 16 October 2026
-
-The candidate version number is retained until publication. The current PDF,
-metadata and exact source hashes include the new results from research
-`2f6010a`. The previous 15 October review files are retained under the version's
-`revisions/2026-10-15/` directory. No Zenodo draft or publication was changed.
-
-The current standalone report separates a fresh new-module replay and PDF
-rebuild from hash-matched inheritance of the previous full classification.
-The complete default replay remains available; the independent profile replay
-has its own command in `PROFILE_REPLAY.md`.
-
-## Consolidated revision — 16 October 2026
-
-Research `9223766d` is integrated, retaining the pending version number. The
-previous same-day candidate is preserved in
-`revisions/2026-10-16-before-consolidation/`. See the current claim–evidence map
-in the repository review record. No Zenodo action was performed.
-
-## Literature revision — 26 October 2026
-
-Contribution positioning and primary references were revised after a fresh
-literature comparison; see [the project review](../paper/LITERATURE.md).
-The pending version is retained. Previous candidates are preserved under
-`v0.3.0/revisions/2026-10-26-before-literature-review/`.
-The current standalone record separates PDF/source rebuild checks from inherited
-mathematical replay. No publication was performed.

@@ -1,30 +1,28 @@
-# Release preparation
+# Release history
 
-## Version 0.1.0 — first preprint candidate
+## Version 0.1.0 — published 26 October 2026
 
-*Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant*.
+Hao Ke, *Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant*.
 
-[Review PDF](v0.1.0/paper.pdf) · [Source manifest](v0.1.0/prepared-source-manifest.json) ·
-[Standalone check](v0.1.0/standalone-check.json)
+[doi:10.5281/zenodo.23665499](https://doi.org/10.5281/zenodo.23665499) ·
+[Concept DOI](https://doi.org/10.5281/zenodo.23665498)
 
-The candidate contains the complete analytic manuscript and the bundled exact
-arithmetic checks. Its small-witness section is an analytic proof; the original
-optional implementation is recorded as missing rather than included in replay.
-No Zenodo record or draft has been created. The owner must approve publication.
+First release: complete-field arithmetic synthesis, resource spectra and the restricted quantifier-free backend, with the generic Presburger tools attributed explicitly.
 
-## Current revision — 20 October 2026
+- [Exact published PDF](v0.1.0/paper.pdf) and [source ZIP](v0.1.0/defect_synthesis-0.1.0-source.zip).
+- [Publication receipt](v0.1.0/publication-receipt.json) and [public record](v0.1.0/public-record.json).
+- [Prepared source manifest](v0.1.0/prepared-source-manifest.json), [delivery hashes](v0.1.0/delivery-manifest.json) and [metadata](v0.1.0/metadata.json).
+- [Standalone verification](v0.1.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
+- [Literature and contribution review](../paper/LITERATURE.md).
 
-Research `16b9b46` is integrated at the same pending 0.1.0 version. The earlier
-PDF, metadata, source manifest and replay record are preserved under
-`v0.1.0/revisions/2026-10-20-before-integration/`. The current standalone source
-ZIP and PDF are in `candidate/`; versioned manifests identify their exact bytes.
-Publication remains a separate step.
+Both public attachments were downloaded anonymously and matched the approved
+local SHA256 digests. The public version and concept were checked after publication.
+The approved source state is core `f03850f`; the source manifest identifies the
+exact packaged snapshot and its earlier base commit. Preparation manifests retain
+their original prepublication status; the publication receipt owns the released status.
 
-## Literature revision — 26 October 2026
+Earlier candidates remain under `v0.1.0/revisions/`. Published files and
+versioned evidence are immutable.
 
-Contribution positioning and primary references were revised after a fresh
-literature comparison; see [the project review](../paper/LITERATURE.md).
-The pending version is retained. Previous candidates are preserved under
-`v0.1.0/revisions/2026-10-26-before-literature-review/`.
-The current standalone record separates PDF/source rebuild checks from inherited
-mathematical replay. No publication was performed.
+The small-witness argument is analytic. Its original optional implementation
+archive remains unavailable; the supplied-schema checks and QF backend are included.

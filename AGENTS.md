@@ -125,3 +125,15 @@ Contour transfer and immediate-distance obstructions belong in `research/renewal
 The missing one-bit and original optional small-witness archives remain distinct
 from these restored packages. Prepare local review packages; no new Zenodo or
 journal action is part of this integration.
+
+## Publication batch — 26 October 2026
+
+After reviewing the literature revision and pushing core `f03850f`, the owner
+explicitly requested “然后把这些都发表更新zenodo吧。” This authorizes the
+reviewed four-row, factor, defect and memory 0.1.0 first releases, wake 0.3.0
+in concept 23402421, and port 0.2.0 in concept 23402413. The six records are
+23665471, 23665478, 23665499, 23665512, 23665515 and 23665526 respectively.
+Their versioned publication receipts own delivery identity and verification.
+This supersedes the preparation-only status of these six versions above.
+Preserve the published PDFs, source ZIPs, manifests and earlier versions.
+Journal submission and the separate one-bit draft remain outside this batch.

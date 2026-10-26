@@ -1,0 +1,37 @@
+{
+  "record_id": 23665512,
+  "doi": "10.5281/zenodo.23665512",
+  "url": "https://zenodo.org/records/23665512",
+  "conceptrecid": "23665511",
+  "conceptdoi": "10.5281/zenodo.23665511",
+  "previous_record_id": null,
+  "title": "Finite-Memory Prediction and Remote Feedback in Langton's Ant",
+  "version": "0.1.0",
+  "state": "done",
+  "submitted": true,
+  "published_at": "2026-10-26T12:15:40.479640+00:00",
+  "owner_authorization": "然后把这些都发表更新zenodo吧。",
+  "source_commit": "f03850f2b2d2efad2788ffa5a23dfd83341305c0",
+  "source_snapshot_sha256": "3965e1704abe4ad1ea28b7bf1dbf7426b50bcb23a4935566e8d84a902e3885f4",
+  "public_readback_verified": true,
+  "download_verified": true,
+  "files": [
+    {
+      "filename": "Finite-Memory-and-Remote-Feedback.pdf",
+      "bytes": 162022,
+      "sha256": "d9d3e7a3dec35d4dc98f352cf6dc6c4fad2ae10a4ea115bb293f5665229b0ed1",
+      "download_verified": true,
+      "remote_md5": "md5:648ec3f1d274b8f1c7a2689a20135cb8"
+    },
+    {
+      "filename": "memory_feedback-0.1.0-source.zip",
+      "bytes": 231197,
+      "sha256": "3b41b2d654c3fac9251c501cdcaf704813c6fe8165fe43ff5f23424a084e7940",
+      "download_verified": true,
+      "remote_md5": "md5:eb308570aafa4171c0ad8c0e6e281f2d"
+    }
+  ],
+  "anonymous_public_downloads": true,
+  "latest_version_verified": true,
+  "verified_utc": "2026-10-26T12:16:57.245820+00:00"
+}

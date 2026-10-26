@@ -1,0 +1,27 @@
+{
+  "draft_id": 23665526,
+  "project": "four_cell_port",
+  "version": "0.2.0",
+  "title": "Four-Cell Ports and Composable Highway Scattering for Langton’s Ant",
+  "previous_record_id": 23402414,
+  "conceptrecid": "23402413",
+  "preview_url": "https://zenodo.org/records/23665526?preview=1",
+  "owner_authorization": "然后把这些都发表更新zenodo吧。",
+  "source_commit": "f03850f2b2d2efad2788ffa5a23dfd83341305c0",
+  "source_snapshot_sha256": "f576e8056ead2348027440770b16dd4959689eff98e972153fc8dd4eb2cbe988",
+  "files": {
+    "Four-Cell-Ports-and-Scattering.pdf": {
+      "bytes": 147609,
+      "sha256": "d6e83fceffdce2b921a2cc9fd5f89a7e1d969e227c4f21d0dc969309a8c73555"
+    },
+    "four_cell_port-0.2.0-source.zip": {
+      "bytes": 93385,
+      "sha256": "b6a1b49bccfc3b9360513a28325cb0218bda707b8e353eea3a047a0950c192bf"
+    }
+  },
+  "prepared": true,
+  "prepared_utc": "2026-10-26T12:14:50.709376+00:00",
+  "remote_title": "Four-Cell Ports and Composable Highway Scattering for Langton's Ant",
+  "metadata_readback_verified": true,
+  "uploaded_files_verified": true
+}

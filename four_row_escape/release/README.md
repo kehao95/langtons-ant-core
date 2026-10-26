@@ -1,18 +1,25 @@
-# First 0.1.0 review package
+# Release history
 
-[PDF](v0.1.0/paper.pdf) · [Source manifest](v0.1.0/prepared-source-manifest.json) ·
-[Standalone check](v0.1.0/standalone-check.json)
+## Version 0.1.0 — published 26 October 2026
 
-This independent candidate owns the four-row exact escape problem. Its source
-archive, metadata and PDF are prepared locally; no publication or submission
-has been made. [Candidate hashes](candidate-manifest.json) identify the exact
-review snapshot. The existing clock concept and published artifacts are retained.
+Hao Ke, *Exact Escape Times of Langton's Ant in Four Rows*.
 
-## Literature revision — 26 October 2026
+[doi:10.5281/zenodo.23665471](https://doi.org/10.5281/zenodo.23665471) ·
+[Concept DOI](https://doi.org/10.5281/zenodo.23665470)
 
-Contribution positioning and primary references were revised after a fresh
-literature comparison; see [the project review](../paper/LITERATURE.md).
-The pending version is retained. Previous candidates are preserved under
-`v0.1.0/revisions/2026-10-26-before-literature-review/`.
-The current standalone record separates PDF/source rebuild checks from inherited
-mathematical replay. No publication was performed.
+First release: complete persistent-response classification and the exact all-width four-row escape maximum.
+
+- [Exact published PDF](v0.1.0/paper.pdf) and [source ZIP](v0.1.0/four_row_escape-0.1.0-source.zip).
+- [Publication receipt](v0.1.0/publication-receipt.json) and [public record](v0.1.0/public-record.json).
+- [Prepared source manifest](v0.1.0/prepared-source-manifest.json), [delivery hashes](v0.1.0/delivery-manifest.json) and [metadata](v0.1.0/metadata.json).
+- [Standalone verification](v0.1.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
+- [Literature and contribution review](../paper/LITERATURE.md).
+
+Both public attachments were downloaded anonymously and matched the approved
+local SHA256 digests. The public version and concept were checked after publication.
+The approved source state is core `f03850f`; the source manifest identifies the
+exact packaged snapshot and its earlier base commit. Preparation manifests retain
+their original prepublication status; the publication receipt owns the released status.
+
+Earlier candidates remain under `v0.1.0/revisions/`. Published files and
+versioned evidence are immutable.
