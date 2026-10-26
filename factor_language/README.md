@@ -40,7 +40,7 @@ consecutive events localized in K have an axis-cross container with padding 44.
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23665478)
 
 ## Exact scope
 

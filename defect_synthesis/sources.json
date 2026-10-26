@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "3cc49613c98fe9ee7682a10db7a5faf570ab86483813df3d3c6b2aece4edcc70",
-    "README.md": "750c2d747fab51762e48c22d9697497799e1a836e9552939e37b5b05ee7cc88a",
+    "README.md": "1e571c51b12c12f8187b6042b7a9bd47cf784e6a109f514d1a99dbfb74f1209e",
     "evidence/README.md": "b0290f096524b45176837f986e617a2c3c07249885921a62416555560e81203d",
     "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
     "paper/main.tex": "f384b57a9a146e737a763047330d2b2a95f1a73f84d47e5b629b3c55df63cfdf",
@@ -17,7 +17,6 @@
     "proof/quantifier-free-defect-complexity.md": "11f6bb7f241a5754c99269fe90838e44b79ad2d58befcbd857ad0c32616b2828",
     "proof/ten-event-macros.md": "cc854a2371e87bbfa746409b89b22d05f51e5a82addabefa808c66ce41e2b0f6",
     "proof/ten-factor-attraction.md": "4a469fa907993c483fa44216240de86aedc4d2dc63b97cc4fd3fe8191b61f7e0",
-    "release/README.md": "74598e4302dadd01bd6c0bea7071fd8aee0a5f4ef76b2709b07ac953b90254d0",
     "reproduce.py": "532d7a5eb2ecac29e3be1dcc5c9b5ecfa215f3b1ea5d4974c1c2648de58b08c9",
     "verification/defect_compiler_optimization/README.md": "c4de3f825ffa71e3d912e70995e8c066c0fe89aed9f99edc15b047dee9af852a",
     "verification/defect_compiler_optimization/benchmark.py": "df44be292da129871d7049c171e919d5aff04c4b3518ab4ddda33579e034a21c",

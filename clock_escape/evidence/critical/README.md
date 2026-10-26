@@ -61,5 +61,5 @@ The comparison with Etse's Theorem 12 uses its parity-dependent degrees;
 see [article bibliography](../../paper/main.tex). The degree comparison for H>=6
 concerns asymptotic growth at fixed height.
 
-The critical results appear in [archived editions](../../release/README.md).
-The stronger integer-clock bound appears in [clock 0.4.0](../../release/README.md).
+The [article](../../paper/main.tex) presents the critical bounds alongside the
+stronger [integer-clock bound](../integer/README.md).

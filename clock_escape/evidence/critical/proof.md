@@ -281,8 +281,6 @@ Theorem 12 on p.49:15. The stronger parity-dependent rectangle formula, not just
 its simplified corollary, is used in the comparison. Extended version:
 arXiv:2606.26677v1, Theorems 5 and 14.
 
-The supercritical clock and complete-state orbit proofs are retained in
-[the integrated manuscript](../../paper/main.tex), with local formal lemmas in
-[Lean lemmas](../../lean/ClockLemmas.lean). The published version remains
-[available unchanged](https://doi.org/10.5281/zenodo.23341604); the stronger proof is now
-published as [version 0.3.0](../../paper/paper.pdf).
+The [article](../../paper/main.tex) presents the supercritical clock,
+critical bounds, integer clock and complete-state orbit proofs, with
+[local formal lemmas](../../lean/ClockLemmas.lean) for the supercritical clock.

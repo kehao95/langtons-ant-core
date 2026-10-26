@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "97f1459f6563def02623e7c257c0bf99b35c5eba8a572f3a5ac722cbf47a216f",
-    "README.md": "d2ecd97c96e4811b90d49b7e167afb5bce6835c1d990cd73549e4cf0d73e7e12",
+    "README.md": "1777a8d163b165859ad7417bc4aded7e848c0e55714708718f695442095e238f",
     "evidence/README.md": "0c9fb89435b2d5ec5955337f739f897a8fb63e3aec0ed1decfe6368c4a34e229",
     "evidence/audit.json": "25d9123163ed0d6f23682eb8b54391a3570d324963566b4a83ee8e66751dfb4b",
     "evidence/escapes.json": "c8ada99e13b069da66ccecf8f44c8837ab20b1db64664e16e4c4c6e11b61e064",
@@ -14,7 +14,6 @@
     "paper/scattering.tex": "24b94faa400851f0bfd8d2451ef56329b1f269c9ce31e055c552e06db6cf6f29",
     "proof/guarded-scattering-renewal.md": "d0182875288a73bb5130d10ee3de6fde95bb7bfb92f1e0e304bde6d183fb3663",
     "proof/return-scattering-closure.md": "3a9adcaf761eee6b3811aea9e5fa4093103387ed37a1aa8cb02e6ba4093c7694",
-    "release/README.md": "c8dfb172775c19e3108507b894f4d626c2496f9f5cd49cdac5cd6c3ac3a84130",
     "reproduce.py": "b59be932ba22648100320b496725d9a0c34a22d86cc6dee39391320ff61fcc6b",
     "verification/audit.py": "8b2bc02b302c9b077c93bed1335c4f9db3ca8708f838049cdde3236ba3357642",
     "verification/check.py": "89ba09f4482e45eef4da0a3edf288e2af9770e0297e0f3e148d79d3c3b9f29b4",

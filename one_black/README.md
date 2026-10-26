@@ -8,7 +8,7 @@ a translated and rotated blank highway.
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/paper.md) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23341609)
 
 ## Reproduce
 
@@ -34,7 +34,6 @@ figures remain in `paper/figures/` for rebuilding.
 | [PROOF.md](PROOF.md) | Proof narrative: 22 channels, 21+1 classification and wake isolation |
 | [lean/](lean/) | Complete proof, finite witnesses and [standard-trace theorem](lean/StandardTrace.lean) |
 | [evidence/](evidence/README.md) | Certificate inputs and computational trust boundary |
-| [release/](release/README.md) | Bibliographic version links |
 | [langtons_ant/](langtons_ant/) | Exact dynamics for witness generation and downstream research |
 | [media/](media/README.md) | Explanatory proof animations |
 

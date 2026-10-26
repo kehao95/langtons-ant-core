@@ -318,11 +318,11 @@ above is necessary. Complete enumeration therefore proves uniqueness.
 The explicit nineteen-cell seed in the paper realizes the accepted word by
 the independent all-future formula of Section 2, proving existence.
 
-## 6. General wake theory retained from version 0.1.0
+## 6. General wake theory
 
 The classification is a concrete application of the broader wake-dependent
 inverse problem. The following analytic results and their exact algebraic
-checks are preserved from the first release. The general diagonal cutoff for
+checks provide its period bounds. The general diagonal cutoff for
 the standard wake is 856; Section 4's chronological certificate strengthens
 that cutoff to 168 and Section 5 completes the classification.
 
@@ -549,7 +549,7 @@ that remove other steps, or arbitrary nonstandard periodic trajectories.
 `python3 wake_synthesis/reproduce.py` runs the complete standard-wake certificate
 and classification replay, together with the general algebraic checks.
 `--baseline` additionally repeats the original unpruned cap-168 traversal;
-`--search` retains the supplementary finite detour search from version 0.1.0.
+`--search` runs the supplementary finite detour search.
 The [standard-wake evidence](evidence/standard_wake/) records exact inputs,
 completed outputs and scoped controls. Python 3.10+ and C++17 suffice.
 

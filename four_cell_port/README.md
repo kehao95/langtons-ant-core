@@ -5,7 +5,7 @@ Sharp four-cell ports and exterior completion, arbitrary finite guarded scatteri
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23665526)
 
 ## Exact scope
 

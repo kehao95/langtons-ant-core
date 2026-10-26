@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "3c38b22a283ea906bdd0d6d19ee4e819e750e41c5e275f9eefffab08765d324f",
-    "README.md": "7e5ed18866949ae35244ef96fabddccf266070e4af108a4e5be069336f788441",
+    "README.md": "20d4940227684bfebf28cfcbe8d631e0bfa9a19e1e8cb156bf768ddc387b9734",
     "evidence/README.md": "af9520d992bc16917f61b4b12e198724905436389de75e3625d21f2b3eb5f411",
     "paper/Makefile": "a4a7c276edbf9e61a847ffaed4ffa3293cac26a2ef523b6f9bf939ed71ac3509",
     "paper/birth-feedback.tex": "1fde58da4c61d04a693b21f0afb5153c333f013c94cd9a697bd9acda2b3e2866",
@@ -13,7 +13,6 @@
     "proof/stale-event-geometry.md": "ad5bd754ae9746eb639a2ebb953a2b9cea8a33e6b08c381621447bca2e5437f0",
     "proof/stale-memory.md": "5db0c3fb75fecdd7273297e96c3c33509818ce96537357ef7b23c260a56756cb",
     "proof/symbolic-stale-macros.md": "8e29ba65c7f7b84cea378e0453df53795b4fbd0ded2dddb9f62d6ada8016e13e",
-    "release/README.md": "e251bfae7e1caab915de9d695d69794472eb91325243b7bdb6519e6fac325bef",
     "reproduce.py": "2bcddc6204ea6cec7279da19cac044a2c09d8557b50446122ea74c9650c28c95",
     "verification/birth_filtered_feedback/PROOF.md": "8738d314b5717bc787d53a88f22cec7734d13b510c06adb7e72029b2cb3c8cb7",
     "verification/birth_filtered_feedback/README.md": "016e993ae05b20f2df7860036d28ff24f3e11f5545fdc2cb4645cce8f7a99144",

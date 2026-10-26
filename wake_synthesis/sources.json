@@ -2,8 +2,8 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROFILE_CLASSIFICATION.md": "d321bc69a4a1a0a0a6a7b2fc68d5641512e336b8cdf2731cca5a8ad780fd2793",
-    "PROOF.md": "0988b8f9eea5fc6e8c9cc5487661aeffb04b1123df25ae597154b2df12246705",
-    "README.md": "d8b4868c908edab56f7e96c2443f46ac9ed0f74267833a518244b7afa3dd68bd",
+    "PROOF.md": "f16e4bfd597e7bd4ed9fb16ad74c17c6751c64040d258cd5fb3b9557170a2e5e",
+    "README.md": "c10032aecc389cb843d28be6d6b1d53802d1eafe08dbff825634471a7d61f325",
     "evidence/README.md": "c1bfe6089a2d0b524bb5ac6a87f9a79b4348e85c62cd13f79077e565f19ebe71",
     "evidence/audit.json": "9d1f5509f4962edda537f6ed2d2cbdb7729dd8322338805da853fdeaabf813ed",
     "evidence/audit_integer.json": "cd26ab5232f842facd2801cd6757228ebe36b087c6b59c4382045b3c9b7c0d0d",
@@ -39,7 +39,6 @@
     "proof/thin-wake-parity-splice.md": "96c70f60e86a0bace532969c2f40174b4f41f52ad66f78b3db48fa6d2ddf61f4",
     "proof/thin-wake.md": "0ab5f050acf1fead10c67b4689eac7b4a86d6328f5d9afe07ff1d358040bc331",
     "proof/unit-diagonal-obstruction.md": "9f3ecb9aa291e4566c9152bcb31672e3e42459681c63dc89bcf580d8bafb82bd",
-    "release/README.md": "a53f3df9986a97fbd423e2bcc8bd0581bd8947caa2da3ab12e3cba89c136cb84",
     "reproduce.py": "2c640242704e6e5d48737801abafa5e44b45a90e688f6836e2346c4b8edb7c41",
     "verification/audit.py": "554fe941c9a697a427583674b8d76fb8027b4e74e246cc613c7beac38970ea17",
     "verification/audit_integer.py": "a88650696e9b14dcc8e002a1b08bd27a368bc807302d65b9c63ebb8034860fb4",

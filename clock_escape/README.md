@@ -19,7 +19,7 @@ rectangular estimate.
 Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton's Ant*.
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Verification](evidence/README.md) · [Archived editions](release/README.md)
+[Verification](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23402379)
 
 The new proofs are analytic with exact algebraic checks. Lean covers the
 supercritical local identities and telescoping retained in the appendix.

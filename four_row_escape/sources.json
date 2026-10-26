@@ -2,12 +2,11 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "4db6d55bfd9785c4e2d6787894985a40c13cfc95d272e7f2c00652e4b28dd629",
-    "README.md": "7eb1579ca08864aac0a003c0218404ac8985488c25324466bfe0fd39c81ae009",
+    "README.md": "db57c5c6df98728c6a28c5bf400af91308395d7e6fa3b25bcf759f13850ff0ad",
     "evidence/README.md": "9615743551dfedf3b9900ec496a03caf6b2df8376c66314e20455fcf81e67518",
     "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
     "paper/main.tex": "4d3d7335f3aa438346a2b09799215f733942059fabb20ccf8e3ca9ddd24767c2",
     "proof/four-row-exact-escape.md": "d7d51002bb72caebe2c37171827f6a85ad2d388aab4a514db006951238303361",
-    "release/README.md": "539db123b5d2e4628d74046714da7aa406480e6a93da6dcfb065bbbe868d15c7",
     "reproduce.py": "8ef8592d60f3c12127fc36765c25f5c172bfb0b8ae1159cdafcb8ac6dc8f05b6",
     "verification/four_row_boundary/README.md": "4f8785f8af8ca801c5c9c44b681c48e5e4c3fd1c2ee5e41cdd69a09377281f41",
     "verification/four_row_boundary/check.py": "7181a5bb1c85e3ffb02659d1df17c8225564b2fd24755345a66bc8f6fa04a7d1",

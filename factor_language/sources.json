@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "b63a736ae2db37ae6526bbeac817c0820d43682e7379d68829fdb83971088925",
-    "README.md": "ee7ba4515e79227552a4ec9d2a2ebad7f95c00ba035cfac4d4f42c1b66d46d3a",
+    "README.md": "ebbee95ba5f12b1eb2f74a1451ace2d8270f06aad0b210428195432d1f162da6",
     "evidence/README.md": "d80206e1ec7025edd0ed9c1570b750565f2a259bb63cd8995563585d8c54f465",
     "paper/Makefile": "a4a7c276edbf9e61a847ffaed4ffa3293cac26a2ef523b6f9bf939ed71ac3509",
     "paper/archive-recovery.tex": "0f3d78d574027529f088b1abaf68a82a9debd42eeeebc101df5e922c7ad629dc",
@@ -21,7 +21,6 @@
     "proof/silent-supply-rigidity.md": "f4ae4dd4b6ec92722b8f4cdcc6ca97517d23a603521c62d1e63379f9ebe24d70",
     "proof/ten-event-macros.md": "3bb9f7bb903a1ed7954087094e302d357774835445fa51e287db421671f3595d",
     "proof/ten.md": "4a469fa907993c483fa44216240de86aedc4d2dc63b97cc4fd3fe8191b61f7e0",
-    "release/README.md": "cc18722bae2337a49a5d15cee09d81d6912b861db2b17408f78d34311566ea6b",
     "reproduce.py": "fbac065062a7a6cde6427442c5f3da9eee2c4d19176dab08fcab55570b198c83",
     "verification/immediate_distance/baseline/periodic_verify.py": "50186c42b6caa35b51a1d3449d33a340272bbc71daab0a4ed55582fa1ba7f29f",
     "verification/mass/PROOF.md": "10aea85e7c11e8d5bfec82269947cd59cb1fe4176cd42c936754686afb48eeb8",
