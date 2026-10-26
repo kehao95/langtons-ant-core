@@ -54,29 +54,12 @@ The constant-turn proof now states the common four-reward product 4^4/81,
 and the rectangle argument spells out the binomial bound for (1+1/N)^N<3.
 These refinements also land in the original proof and manuscript.
 
-The integrated paper keeps the established title and orbit algorithms, replaces
-the main square estimate with the stronger one, and adds the rectangular theorem.
-The original published PDF remains unchanged; the eight-page `paper/review.pdf`
-is the current revision. The new critical arguments have exact algebra checks,
-but the existing Lean proofs still cover only the supercritical local lemmas.
-No new Lean coverage is claimed.
+The critical bounds have exact algebraic checks. Lean covers the supercritical
+local identities and telescoping; the critical proofs are analytic.
 
-The official Etse Theorem 12 comparison uses its parity-dependent degrees, not
-just the abstract's coarser summary; see `../../paper/LITERATURE.md`. The lower
-new degree for H>=6 is an asymptotic comparison, not a claim of optimal constants.
+The comparison with Etse's Theorem 12 uses its parity-dependent degrees;
+see [literature](../../paper/LITERATURE.md). The degree comparison for H>=6
+concerns asymptotic growth at fixed height.
 
-## Remaining work
-
-External mathematical review and final literature checking before a versioned
-update of the existing clock preprint. The new bounds estimate first exit;
-they do not bound later re-entries or establish the global Highway Conjecture.
-No Zenodo action is part of this integration.
-
-## Publication follow-through
-
-On 15 October 2026 the owner explicitly requested release. Version 0.3.0 was
-published in the existing Zenodo chain. The exact reviewed PDF is now
-`paper/paper.pdf`; version 0.2.0 is retained at `release/v0.2.0/paper.pdf`.
-The uploaded archive passed full isolated reproduction, including the retained
-Lean proofs; see [the release receipt](../../release/v0.3.0/publication-receipt.json).
-The paragraphs above record the proof audit before that publication action.
+The critical results appear in [clock 0.3.0](../../release/v0.3.0/publication-receipt.json).
+The stronger integer-clock bound appears in [clock 0.4.0](../../release/README.md).
