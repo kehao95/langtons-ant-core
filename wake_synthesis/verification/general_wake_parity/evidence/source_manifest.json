@@ -4,12 +4,10 @@
     "family.py": "8d68f5e7f1c0167ec8eab6675b6f23fc41b981f16e2d76a475846d5c404b1bec",
     "audit.py": "d60afd5650e065e102d35e78a1ec2795a7cf7ebae3b33ce0ba3279bb7218d793",
     "independent.cpp": "307067100c5ba1b6b8c32368fde75602d17601aa64258657a5d75ab90ae4cf3d",
-    "reproduce.py": "cc595122e5bd5cf17e1d0176195751af1fb7752d6bf52ee713b8ccfd369c688d",
-    "PROOF.md": "c4071d919bba2641e03037a9828269b9512c729c26947f2d059df24634b0998d",
-    "README.md": "ff316d492de58aada765ef1ad902dc66c1c71363cb8b6cc612187e16699ef1b6",
-    "paper.tex": "f9205bcba24ea5d9ee660efb47c9be87e5bd11b1788514ff25bdf36dbac7ffa1"
+    "reproduce.py": "2868609b936254c77600469c3a8e6020bc9d20cf70c8ed265872aa9120a7205e",
+    "PROOF.md": "498cce6c7fe5f33349643ac0532106ccc0ce594adcc4d3d2b3e48ca8b96806da",
+    "README.md": "c10112893fec191c80a7598287d64362095e7d7ab33423cccca6c7dd78dca526"
   },
-  "inspected_project_base": "c7bb906ed94d1345694ce0372fb69fd08a6a0a51",
   "attributed_rank_method": "Atharva12456/langtons-ant-highway@76a7e234e577d992d086c204c3dea00ae72cf10a",
   "external_code_copied": false
 }

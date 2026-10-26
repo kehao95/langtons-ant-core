@@ -2,15 +2,10 @@
 
 Sharp four-cell ports and exterior completion, arbitrary finite guarded scattering trains, and composable unbounded return packets with genuine old-wake consumption.
 
-## Manuscript and status
+## Article
 
-Version **0.2.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665526). [Manuscript](paper/main.tex) ·
-[Proof dependencies](PROOF.md) · [Fresh verification](evidence/review-2026-10-15.json) ·
-[Release and artifacts](release/README.md).
-
-Record [23665526](https://doi.org/10.5281/zenodo.23665526) updates
-[23402414](https://doi.org/10.5281/zenodo.23402414) in the existing concept
-**23402413**. Earlier published files are preserved.
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
+[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
 
 ## Exact scope
 
@@ -19,7 +14,7 @@ The four-cell minimum concerns the fixed inward boundary pose. Both train theore
 ## Reproduce
 
 ```sh
-python3 four_cell_port/reproduce.py --output-report /tmp/four_cell_port-review.json
+python3 four_cell_port/reproduce.py --output-report /tmp/four_cell_port-checks.json
 make -C four_cell_port/paper
 ```
 

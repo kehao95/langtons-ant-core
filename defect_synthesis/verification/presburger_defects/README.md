@@ -34,7 +34,7 @@ set is fully enumerated; no large global schema search is represented as run.
 The reproduction report is compared semantically for integer relations, because
 ISL versions may print different but equivalent normal forms. Source hashes and
 all non-format data are checked exactly. ISL/GMP and the Python adapter/compiler
-are in the computational trust boundary; no Lean or external-review claim is made.
+are in the computational trust boundary. The physical coverage proof is analytic.
 
 Minimal interactive example (from this directory):
 

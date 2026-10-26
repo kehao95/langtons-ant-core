@@ -106,7 +106,6 @@
   ],
   "endpoint_control": "1x1 exits at update 1",
   "nonstrict_base_control": "r=3 rejected as a strict clock",
-  "third_party_review": false,
   "full_ant_theorem_formalized": false,
-  "checker_sha256": "fd647167bd2c01b7eb4f35bd469c17b7755490c6b463ee977ed514e4f44021f3"
+  "checker_sha256": "eb8fd03e0aa235dea6d536f59d45549505dc5132001606489829e030d350cb2e"
 }

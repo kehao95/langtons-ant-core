@@ -1,11 +1,10 @@
 # Exact standard-defect macros through non-simple transient components
 
-**Research date: 15 October 2026. Initial parent read: `228a0902dac69651e1e6aec75b080fee650ee29f`.**
-Evidence: analytic coverage and geometric arguments, a complete finite lifted-graph certificate checked by Python and independently by C++, and exact full-state controls. No Lean formalization, external mathematical review, priority determination, HC proof, or finite HC counterexample. Later concurrent work is preserved when this package is committed.
+Evidence: analytic coverage and geometric arguments, a complete finite lifted-graph certificate checked by Python and independently by C++, and exact full-state controls. No Lean formalization, external mathematical review, priority determination, HC proof, or finite HC counterexample.
 
 ## 1. Literal target and results
 
-A state is X=(B,p,h), with the COMPLETE finite black set B and h=N,E,S,W. White turns right (R), black turns left (L); flip, then move. Time t is before update t. Let L10 be the cyclic ten-letter factors of the fixed standard P104 word W. Recover the preceding nine turns by the literal inverse. J10(X) means that those nine letters followed by the current turn are not in L10. This is the same intrinsic event as in [ten-factor attraction](ten-factor-attraction.md), not a new event definition or a PG/S_D identification.
+A state is X=(B,p,h), with the COMPLETE finite black set B and h=N,E,S,W. White turns right (R), black turns left (L); flip, then move. Time t is before update t. Let L10 be the cyclic ten-letter factors of the fixed standard P104 word W. Recover the preceding nine turns by the literal inverse. J10(X) means that those nine letters followed by the current turn are not in L10. This is the same intrinsic event as in [ten-factor attraction](ten.md), not a new event definition or a PG/S_D identification.
 
 **Theorem 1 (exact next event).** On every complete finite input, the first future J10, or its permanent absence, is decidable. A finite answer returns its exact time AND the complete state after the event. A negative event answer returns a verified standard periodic suffix, not NO-HIGHWAY.
 
@@ -156,7 +155,7 @@ A tempting shortcut was to equate absence of J10 with the standard 116-step blac
 
 The new graph rank avoids that shortcut. It counts physical fold starts within an H traversal, not black age, black mass, or the number of all future J10 events.
 
-Run `python scripts/check_ten_event_macro.py`. The disposable replay reconstructs the old pinned input witnesses only as necessary, then checks the new lifted graph, independently compiles the new C++ checker, compares the complete edge/rank hashes, rejects damaged rank and missing-word controls, and checks exact event times AND complete endpoint fields. Actual counts are recorded in checked_report.json. No old singleton, clock proof, large wake enumeration, broad repository suite or outside review is represented as rerun.
+Run `python scripts/check_ten_event_macro.py`. The disposable replay reconstructs the old pinned input witnesses only as necessary, then checks the new lifted graph, independently compiles the new C++ checker, compares the complete edge/rank hashes, rejects damaged rank and missing-word controls, and checks exact event times AND complete endpoint fields. Actual counts are recorded in checked_report.json.
 
 The sparse 28-black remote-marker family at distance parameter n is returned at its exact first event 104n-92, including n=10^60, with 34 literal main-orbit updates and one plan in this implementation. Equality of its returned field with a separate direct periodic-write construction is EXTENSIONAL XOR equality, not equality of expression lists. The capped 24-mode finite family at n=10^60 is certified event-free through its long transient using two plans and 138 ordinary updates, from a 45-term mature input. It has enormous but finite support. The unprotected finite 28-rail also returns its first event rather than being confused with an infinite black background.
 

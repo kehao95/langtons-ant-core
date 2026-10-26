@@ -3,8 +3,8 @@
 **15 October 2026.** Initial mathematical base `2f6010a6`; integration preserves
 `efe22a9f551b1c1670bf5741013beec11d3c8041` and its all-coordinate Presburger theorem.
 
-The [complete independent development](../../experiments/hc_global/defect_resource_spectrum/PROOF.md)
-and [six-page manuscript source](../../experiments/hc_global/defect_resource_spectrum/paper/main.tex)
+The [complete independent development](../verification/defect_resource_spectrum/PROOF.md)
+and [six-page manuscript source](../paper/main.tex)
 are accompanied by an executable exact-integer compiler. This note records the
 additional resource theorem and the boundary between independent corroboration
 and a genuinely new claim. The parallel
@@ -127,7 +127,3 @@ Both relational formulations use libisl/GMP. Independent vector-rotation finite
 replay corroborates them, but no independently proof-checked elimination witness,
 Lean proof or outside mathematical review is claimed. Arithmetic failures are
 not NO answers. Incomplete development runs are retained as diagnostics.
-
-Run `python scripts/check_defect_resource_spectrum.py`. The full paper is a
-review draft, not a DOI release or journal submission. Old proofs, the parallel
-compiler, public core manuscripts and all concurrent commits are unchanged.

@@ -1,7 +1,5 @@
 # A quadratic wake obstruction for non-axis periodic Langton highways
 
-Hao Ke. Research draft, October 2026. Independent mathematical review pending.
-
 ## Contribution and attribution
 
 This note extends the lifted-port permutation method from special small drifts
@@ -391,5 +389,4 @@ proof in `wake_synthesis/proof/mixed-wake-interleaving.md`, inspected at
 `kehao95/langtons-ant-core@c7bb906ed94d1345694ce0372fb69fd08a6a0a51`.
 
 The unit-diagonal analytic exclusion is a distinct existing result and is NOT a
-premise of this theorem. Existing thin-wake classification and published source
-snapshots are preserved; this note is an additional independent manuscript draft.
+premise of this theorem.

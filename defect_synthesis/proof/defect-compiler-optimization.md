@@ -1,11 +1,9 @@
 # Fixed-schema query optimization without changing physical coverage
 
-**Research date: 15 October 2026. Baseline: `6afea97c2a8a26d03b2bf89de9d23a87d64a31e0`.**
 This is an exact algorithmic refinement of the supplied-schema resource backend,
 not a new HC implication, an all-schema exclusion, or a polynomial-time theorem
 for general Presburger arithmetic. Proofs are analytic and unformalized; exact
-checks use libisl/GMP and the unchanged SHA256-pinned two-file baseline. Neither
-an external review nor a publication-priority claim is made.
+checks use libisl/GMP and the unchanged SHA256-pinned two-file baseline.
 
 ## 1. The avoidable numeric-threshold dimension
 

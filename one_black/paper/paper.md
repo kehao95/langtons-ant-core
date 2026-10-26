@@ -7,7 +7,7 @@ author: |
   \href{mailto:i@kehao.me}{\texttt{i@kehao.me}}
   \end{tabular}
 author-meta: "Hao Ke"
-date: "13 October 2026"
+date: ""
 bibliography: references.bib
 link-citations: true
 documentclass: article
@@ -815,24 +815,16 @@ theorems depend on three native-evaluation axioms, one for each finite report.
 The baseline source code, checked witness data, and Lean proof are available in
 the public repository
 [github.com/kehao95/langtons-ant-core](https://github.com/kehao95/langtons-ant-core)
-[@hao2026artifact]. The accompanying revision archive contains the exact
-strengthened sources audited here. The repository pins `leanprover/lean4:v4.30.0`. From its
-root, the complete theorem is rebuilt with
+[@hao2026artifact]. The accompanying source package contains the proof and
+finite witnesses. The repository pins `leanprover/lean4:v4.30.0`. From its
+root, rebuild both final theorems without cached proof objects:
 
 ```console
-python3 one_black/check.py
+python3 one_black/reproduce.py
 ```
 
-The command builds both closed theorem targets from checked-in sources and
-witness tables by direct replay.
-For a fresh build without cached proof objects, run
-
-```console
-python3 preprint/verify.py
-```
-
-This copies the Lean sources into a new temporary directory and records build
-output, source SHA256 digests and the axiom dependencies of both final theorems.
+The command copies the Lean sources into a new temporary directory, builds
+both targets from the checked-in witnesses, and checks their axiom dependencies.
 The strengthened conclusion is exposed as
 
 ```lean
@@ -846,8 +838,8 @@ blank state at update 9977 and equality of every future position, heading and
 read colour. Both final theorems have exactly the same three native computation
 leaves; the new bridge adds no native evaluation or proof assumption.
 The accompanying source package records exact file digests in its manifest
-and supplies the strengthened theorem and clean-build evidence for this
-revision of the preprint [@hao2026preprint]. The interactive website illustrates
+and supplies the theorem, finite witnesses and clean-build reproduction
+entrypoint [@hao2026preprint]. The interactive website illustrates
 the proof geometry and channel classification.
 
 # Related work
@@ -947,12 +939,7 @@ none is a parameter of the theorem statement.
 ::: {#refs}
 :::
 
+# Acknowledgements
 
-# Version history and acknowledgements
-
-An earlier version of this manuscript is publicly available as
-[doi:10.5281/zenodo.22086968](https://doi.org/10.5281/zenodo.22086968).
-This revision strengthens the exported semantic statement and documents a
-fresh proof build.
 Generative AI assisted in proof development, code, auditing and manuscript
 preparation.

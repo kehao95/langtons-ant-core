@@ -1,5 +1,4 @@
 {
-  "date": "2026-10-15",
   "evidence_sha256": {
     "README.md": "b368018eb7f92b16eebc25fb137638c1fe89c74cc1eec0d8264df2b7eb010631",
     "accepted_words.json": "e2fe412b1fc90fff325133fbcf23d98a70f9b93dd718d976847e88a94eb4a9cc",
@@ -19,12 +18,9 @@
     "inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
     "inputs/upper_bound.py": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2"
   },
-  "read_main_revision": "6aa3728a6da3c9edb122b4bc2b79ff9253d1b70f",
-  "remote_modified": false,
-  "repository": "kehao95/langtons-ant-core",
   "source_sha256": {
-    "wake_synthesis/PROFILE_CLASSIFICATION.md": "ab104363676e27b0210bbe77466d75e9031cc7dc366643a18be98634d813eac7",
-    "wake_synthesis/README.md": "246e1f04c60476cc359f9f0dd82b9285491f58d2af7ffd09344e99f182300f76",
+    "wake_synthesis/PROFILE_CLASSIFICATION.md": "d321bc69a4a1a0a0a6a7b2fc68d5641512e336b8cdf2731cca5a8ad780fd2793",
+    "wake_synthesis/README.md": "d8b4868c908edab56f7e96c2443f46ac9ed0f74267833a518244b7afa3dd68bd",
     "wake_synthesis/verification/profile_classification/audit_profile.py": "bb784f573c381af6042a989324dcedcfbafd603985c9bb4c5b4b9bf3b8c22318",
     "wake_synthesis/verification/profile_classification/counts_profile.py": "4b177b9edbf29405b3f836a2231cb813463070816060dd48d649d54fb706c320",
     "wake_synthesis/verification/profile_classification/generate.py": "83e856a0a6477d6047a85530c2ae7004a75b29bbe5da6e44f40e452cf8cb030e",

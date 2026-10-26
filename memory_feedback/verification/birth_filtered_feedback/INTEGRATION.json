@@ -1,7 +1,0 @@
-{
-  "initial_source": "2396e9fa4365933b74f27dd84a349b331c66088d",
-  "prepared_against": "db0c96f4b6181755b62b1860dabd40225fb6fd40",
-  "actual_parent": "c3851976275bd92a764f9080fc37561a8cac6089",
-  "policy": "Rebased new files and additive ledger/result-map changes onto the concurrent parent. Preserve mixed-wake and global all-coordinate budget notes. No older proof, simulator or public manuscript is changed.",
-  "dedicated_replay": "passed in disposable directory; deterministic SHA256 8018767717395264913aabc3fd5bbfd432635b3101bf3d4127a3e60d1e4b205a"
-}

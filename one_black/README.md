@@ -5,12 +5,10 @@ position and heading, eventually reaches the standard translating period-104
 highway. The final Lean theorem establishes the complete future read trace of
 a translated and rotated blank highway.
 
-## Paper
+## Article
 
-Hao Ke, *Every One-Black-Cell Langton Ant Reaches the Period-104 Highway:
-A Lean-Checked Proof*, version 0.2.0.
-[Zenodo](https://doi.org/10.5281/zenodo.23341609) ·
-[PDF](paper/paper.pdf) · [Source](paper/paper.md).
+[PDF](paper/paper.pdf) · [Source](paper/paper.md) · [Proof](PROOF.md) ·
+[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
 
 ## Reproduce
 
@@ -25,7 +23,7 @@ The verifier builds in a fresh temporary directory and checks both final
 axiom lists. The finite certificates use three native computation leaves;
 [`evidence/`](evidence/README.md) records the exact dependencies.
 The paper build uses Pandoc and XeLaTeX and writes `paper/build/paper.pdf`.
-The checked-in `paper/paper.pdf` is the published delivery PDF; the full-resolution
+The checked-in `paper/paper.pdf` is built from the accompanying source; the full-resolution
 figures remain in `paper/figures/` for rebuilding.
 
 ## Sources
@@ -35,8 +33,8 @@ figures remain in `paper/figures/` for rebuilding.
 | [paper/](paper/) | Manuscript, bibliography, original figures and published PDF |
 | [PROOF.md](PROOF.md) | Proof narrative: 22 channels, 21+1 classification and wake isolation |
 | [lean/](lean/) | Complete proof, finite witnesses and [standard-trace theorem](lean/StandardTrace.lean) |
-| [evidence/](evidence/README.md) | Mathematical audit, clean-build log and source hashes |
-| [release/](release/README.md) | Published version, source manifest and publication receipt |
+| [evidence/](evidence/README.md) | Certificate inputs and computational trust boundary |
+| [release/](release/README.md) | Bibliographic version links |
 | [langtons_ant/](langtons_ant/) | Exact dynamics for witness generation and downstream research |
 | [media/](media/README.md) | Explanatory proof animations |
 

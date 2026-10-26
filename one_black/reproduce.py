@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the pinned proof in a new directory, without prior .olean/native caches."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import re
@@ -11,10 +12,9 @@ import time
 
 ROOT=Path(__file__).resolve().parent
 PROOF=ROOT/'lean'
-OUT=ROOT/'evidence'
 
-def main():
-    OUT.mkdir(exist_ok=True)
+def verify(OUT):
+    OUT.mkdir(parents=True, exist_ok=True)
     pin=(PROOF/'lean-toolchain').read_text().strip()
     lake=shutil.which('lake')
     if not lake:
@@ -39,7 +39,7 @@ def main():
         with (OUT/'clean-build.log').open('w') as log:
             result=subprocess.run([lake,'build'],cwd=target,stdout=log,stderr=subprocess.STDOUT)
         if result.returncode:
-            raise SystemExit('Clean build failed; see one_black/evidence/clean-build.log')
+            raise SystemExit('Clean build failed: '+(OUT/'clean-build.log').read_text())
         audit=subprocess.run([lake,'env','lean','StandardTrace.lean'],cwd=target,
                              text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,check=True)
         (OUT/'axioms.log').write_text(audit.stdout)
@@ -58,9 +58,18 @@ def main():
         elapsed_seconds=round(time.monotonic()-started,2),
         final_theorems=['OneBlack.universal_one_black','OneBlack.universal_one_black_standard_trace'],
         axioms=sorted(expected),lean_sources=len(files),
-        sha256={str(p.relative_to(PROOF)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-        external_review=False)
+        sha256={str(p.relative_to(PROOF)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
     (OUT/'report.json').write_text(json.dumps(report,indent=2)+'\n')
     print('Clean one-black build and both final axiom audits passed.')
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir', type=Path, help='retain build output at this destination')
+    args=parser.parse_args()
+    if args.output_dir:
+        verify(args.output_dir.resolve())
+    else:
+        with tempfile.TemporaryDirectory(prefix='one-black-output-') as td:
+            verify(Path(td))
 
 if __name__=='__main__': main()

@@ -115,6 +115,4 @@ Run `python reproduce.py` (Python standard library plus a C++17 compiler). A dis
 
 The final replay checked 2,816,005 C++ DFS nodes, all 29,559 integer edge inequalities, 128 arbitrary finite seeds, 192,128 prefix inequalities and 16,384 arbitrary-interval inequalities. Sixteen test inputs retain remote black cells with coordinates of size 10^60. The controls supplement rather than replace Sections 2, 3 and 5. The 90-step equality witness was replayed with its full field.
 
-Earlier explorations at depths 150--250 and a stopped depth-400 attempt are not certificate coverage for those unfinished targets. An initial Python negative-control typo was fixed before the passing replay; no theorem is inferred from that failed run. No old shared runtime, singleton proof, broad repository regression, public release, or external mathematical review is represented as newly executed.
-
 This is a substantive new necessary-condition theorem for the HC mainline. Publication novelty and whether to combine it with the factor-language manuscript require further assessment; no independent-publication acceptance claim is made.

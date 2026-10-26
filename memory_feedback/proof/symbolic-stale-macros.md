@@ -219,6 +219,3 @@ singleton terms). Feeding the exact post-event state back into the macro solver
 finds the next event after 65 further updates. A fixed recipe and digest preserve
 the huge endpoint without expanding it. The point probes of this control are
 finite implementation checks; the full infinite-family endpoint theorem is (2).
-
-No old one-black proof or shared simulator was modified. No independent review
-or formal verification is implied by independent finite reference code.

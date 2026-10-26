@@ -1,16 +1,12 @@
 # Initial-black supply for bounded-power traces: an effective dichotomy
 
-**Research date: 15 October 2026. Remote base inspected:**
 `f74b09bd3329d7b83fcf323fc580f5a1320fcd48`.
 
-**Status:** a written analytic theorem using attributed Presburger arithmetic,
-plus an exact computer-assisted three-parameter classification and a separate
-literal checker. Unformalized; ISL/GMP is trusted for the computed relations.
-No external review, novelty certification, HC solution, or remote persistence is
-implied by this document. The previous recovery package was independently imported to remote main during
-this session at `4b229dc714dc43c7eac33a35cbe74c7daa7307a4`; it is not imported twice.
+The proof uses attributed Presburger arithmetic, an exact computer-assisted
+three-parameter classification and a separate literal checker. The analytic
+argument is unformalized; ISL/GMP computes the exact integer relations.
 
-## Concurrent integration and attribution
+## Dependencies and attribution
 
 At final integration, remote main is `6afea97c2a8a26d03b2bf89de9d23a87d64a31e0`.
 Its [resource-spectrum theorem](defect-resource-spectrum.md), Section 2, already
@@ -26,11 +22,8 @@ The distinct completed physical result is Section 5: the full three-independent-
 parameter fold/consumer classification, exact minimum supply, three-component
 resource image, sharp slope/intercept, and exact mass-budget optimum. The new
 counter actually executes checked unary interval/residue counting; its limits
-are stated below. The concurrent two-fold theorem concerns B A^n B A^m, not
+are stated below. The two-fold theorem concerns B A^n B A^m, not
 our B[9:] A^a B A^b P^r. Neither is silently substituted for the other.
-No concurrent source, existing verifier, ledger volume, or public manuscript is
-changed or represented as rerun. This document's persistence status is recorded
-in the accompanying work record, not inferred from its mathematical status.
 
 ## 1. Question and scope
 
@@ -129,7 +122,7 @@ count, not a count of L turns, births, or current black mass.
 This is the same physical lifting interface used in
 [presburger-defect-reachability](presburger-defect-reachability.md), but the
 supply count and unbounded-defect projection do not use its N-event cover.
-The concurrent resource-spectrum result independently establishes this same count.
+The resource-spectrum result independently establishes this same count.
 
 A non-heading-restoring u can be handled by a finite preliminary partition:
 let q in {1,2,4} be its heading-return order and write k=q*l+r, 0<=r<q.
@@ -394,7 +387,7 @@ self-renewing finite seed, a global event budget, and HC remain unproved.
   https://doi.org/10.1007/978-3-030-99253-8_12
 * ISL manual, exact integer sets, lexicographic extrema and disjoint partitions.
   https://libisl.sourceforge.io/user.html
-* Repository `proof/results/defect-resource-spectrum.md`: concurrent unary supply/count
+* Repository `proof/results/defect-resource-spectrum.md`: unary supply/count
   theorem, retained as an imported result rather than a second novelty claim.
 * Repository `proof/results/presburger-defect-reachability.md`: earlier physical
   schema lifting, original feasibility attribution, and the separate fixed-N

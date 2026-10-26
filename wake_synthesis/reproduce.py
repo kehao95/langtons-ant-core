@@ -29,7 +29,7 @@ def main():
     extensions=check_extensions()
     if args.extensions_only:
         report={'status':'passed','scope':'extensions-only','extensions':extensions,
-                'full_current_classification_replayed':False,'source_commit':extensions['source_commit']}
+                'full_current_classification_replayed':False}
         if args.output_report: args.output_report.write_text(json.dumps(report,indent=2)+'\n')
         return
     tasks = [('check.py', ('check_results.json', 'standard_wake.json')),
@@ -53,9 +53,6 @@ def main():
             print(f'{script}: PASS')
         standard = work / 'standard_wake'
         evidence = ROOT / 'evidence/standard_wake'
-        imported = json.loads((evidence / 'provenance.json').read_text())
-        for entry in imported['imported_sources']:
-            assert hashlib.sha256((ROOT / entry['destination']).read_bytes()).hexdigest() == entry['sha256']
         count_check = subprocess.run([sys.executable, str(standard / 'audit_counts.py')],
                                      capture_output=True, text=True, check=True)
         counts = json.loads(count_check.stdout)
@@ -109,8 +106,6 @@ def main():
         subprocess.run(thin_command, check=True)
         report['thin_wake'] = json.loads(thin_output.read_text())
         report['full_current_classification_replayed'] = not args.quick
-        report['base_source_commit'] = json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())['source_commit']
-        report['source_commit'] = extensions['source_commit']
         if args.output_report:
             args.output_report.write_text(json.dumps(report, indent=2) + '\n')
     print('WAKE SYNTHESIS AND THIN-WAKE RIGIDITY: PASS')

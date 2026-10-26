@@ -5,11 +5,8 @@ resource spectra for supplied finite schema collections, and small positive witn
 It is independent of the factor paper's attraction and mass inequality, while using
 its bounded-fold coverage theorem as an attributed input.
 
-Version **0.1.0**, published 26 October 2026:
-[doi:10.5281/zenodo.23665499](https://doi.org/10.5281/zenodo.23665499).
-
-[Manuscript](paper/main.tex) · [Published PDF](release/v0.1.0/paper.pdf) ·
-[Proof map](PROOF.md) · [Replay](evidence/consolidation-replay.json) ·
+[Manuscript](paper/main.tex) · [PDF](paper/paper.pdf) ·
+[Proof map](PROOF.md) · [Verification](evidence/README.md) ·
 [Release and artifacts](release/README.md)
 
 ## Results
@@ -45,7 +42,7 @@ compiler still owns arbitrary quantified source predicates, complete target
 field equality and explicit semilinear projection. The new solver is not a
 polynomial-time global synthesis algorithm.
 [Proof](proof/quantifier-free-defect-complexity.md) ·
-[Fresh backend replay](evidence/replay-2026-10-20.json).
+[Verification](evidence/README.md).
 
 ## Reproduce
 
@@ -55,10 +52,9 @@ make -C defect_synthesis/paper
 ```
 
 Use Python 3.10+ without `-O`, C++17, the system Z3 and ISL/GMP shared libraries (the retained
-reports use ISL 0.27), and pdfLaTeX. The entrypoint verifies the import hashes and
+reports use ISL 0.27), and pdfLaTeX. The entrypoint verifies the source hashes and
 runs the four retained modules and six new backend sections in a disposable copy, including independent finite controls
-and finite-cover reconstruction. Source snapshots retain their original research
-README paths; the commands above are the portable public entrypoints.
+and finite-cover reconstruction. The commands above reconstruct the complete module layout.
 
 The full all-coordinate nonzero-budget disjunction is a constructive theorem,
 not an executed enumeration. The small-witness result has a complete analytic

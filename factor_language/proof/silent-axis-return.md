@@ -1,6 +1,5 @@
 # Axis-strip geometry of arbitrary silent returns
 
-**Research date: 15 October 2026. Mathematical base:**
 `53f98d2e93614a8eea5424b0bb967c7311bb97f7`.
 
 **Evidence.** An all-length analytic lifting/telescoping proof with complete finite

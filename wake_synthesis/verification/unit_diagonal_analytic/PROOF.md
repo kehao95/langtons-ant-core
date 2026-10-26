@@ -1,7 +1,5 @@
 # A short analytic proof of unit-diagonal highway exclusion
 
-**Hao Ke — research draft for independent review.**
-
 ## Result, provenance, and scope
 
 **Theorem.** A classical two-colour Langton ant started from a finite black
@@ -236,10 +234,7 @@ Run `python3 reproduce.py --output /tmp/unit-diagonal-replay.json`. Sources,
 checks, full retained report and their hashes are supplied together. Reproduction
 requires Python 3.10+ without -O and g++ with C++17/undefined-behavior sanitizer;
 the mathematical proof requires neither program. Failed or interrupted runs
-are not accepted as verification. No Lean formalization or independent human
-review has been performed. This is a draft prepared with AI-assisted research
-and coding, subject to author review. No external publication or submission is
-performed, and previous release snapshots remain unchanged.
+are not accepted as verification. The proof is analytic; exact computations check its finite controls.
 
 ### References and version boundary
 

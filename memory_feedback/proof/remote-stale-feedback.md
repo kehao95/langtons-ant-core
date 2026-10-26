@@ -25,7 +25,7 @@ No transfer between these two event segmentations is assumed in this note.
 The existing [stale theorem](stale-memory.md) provides a deterministic predictor
 on D-letter turn suffixes, with at most Q states, whose first prediction failure
 is exactly S_D. It also gives a total next-S_D-or-permanent-no-S_D procedure on
-any complete finite input. The existing [clock theorem](clock.md) provides the
+any complete finite input. The existing [clock theorem](../../clock_escape/PROOF.md) provides the
 conservative square first-exit bound
 
     E(n)=8*n*3^n+1                                             (1)
@@ -343,27 +343,7 @@ It concerns literal S_D consumptions. It must not be relabelled as a theorem tha
 the same long-lived cells are PG primary/secondary blockers: some S_D events can
 occur inside one PG macro, and no transfer theorem is proved here.
 
-## 8. Reconciliation with the exact HC interfaces
-
-The existing [physical gate](../physical-secondary-gate-program-bireduction.md)
-retains H(X) iff PG_X halts. The [bounded-blocker argument](../active-blocker-self-construction.md)
-and [absence of complete relative-state recurrence](../column-flux-and-clean-writer-obstructions.md)
-combine to give, without a remaining exact-cycle alternative,
-
-    infinite PG => unbounded actual primary/secondary blocker positions. (15)
-
-Equation (15) is an integration of existing theorems, not an independent new
-physical mechanism or a claim that the one-black proof was rebuilt.
-
-The exhaustive HC contradiction split remains:
-
-    A. a finite-support-realizable NONSTANDARD translating periodic tail;
-    B. a finite-support orbit with NO eventual translating periodic tail.
-
-[Standard-wake uniqueness](standard-wake-uniqueness.md) closes only the specified
-full wake and drift within A. Theorem 6 is necessary for every B input and does
-not exclude A. In particular, an affirmative eventual-periodicity result would
-still require classification of other wakes, drifts and primitive period words.
+## 8. Eventual translation as a filtered-event condition
 
 For EACH input X, let ETC(X) mean eventual nonzero translating periodicity. The
 new results give the exact semantic reformulation
@@ -374,34 +354,7 @@ The predicate inside (16) is now total computable. The existential choices of D
 and K are not bounded by the input. Searching them is only a positive semidecision,
 not a total ETC/HIGHWAY algorithm and not a proof that every X satisfies (16).
 
-## 9. Attempted closures and why the present integration stops
-
-1. **Extend the burst bound to moving regions.** False without a new premise:
-   on certified standard P104, D=1 has 46 black events each period; all lie in
-   the moving singleton K_t={p_t}. Thus bounded instantaneous control radius
-   cannot substitute for ONE fixed K. This does not settle D=116 or D=128.
-2. **Pay for exterior feedback using only initial black fuel.** False: the
-   retained autonomous two-sweep family creates and consumes 2L new black
-   lifetimes, each aged 8L+12, while source size is 4L+8. All can be placed far
-   from a chosen finite region. Its endpoint is not a renewable source.
-3. **Use endpoint clocks or the PG forest as an automatic decreasing rank.**
-   The former give finite-domain/time conversions; the latter has the identity
-   V_n-|B_n|=2n. Neither bounds the unbounded skeleton length J_m of (8) or the
-   number of productive regenerations.
-4. **Identify the filtered negative answer with NO-HIGHWAY.** Incorrect: blank
-   input with D=128 has NO_EXTERNAL_EVENT for K=[-64,64]^2 and is HC-positive.
-   A filtered negative answer certifies a translator, not its standard identity.
-5. **Infer contradiction merely from (14).** The finite two-sweep family already
-   realizes arbitrarily long, arbitrarily remote examples as its input grows.
-   What remains unconstructed/excluded is indefinite renewal from ONE fixed
-   finite seed. No law bounding that renewal was obtained in this integration.
-
-The remaining bridge is therefore specific: control or construct the unbounded
-MIGRATING event skeleton together with its newly regenerated, later-consumed
-black field. This work removes persistent fixed-location stale-event behaviour
-and proves a joint quantitative condition, but does not close that bridge.
-
-## 10. Reproduction and evidence
+## 9. Reproduction and evidence
 
 Run `python scripts/check_remote_stale_feedback.py`. It copies the isolated
 three-file package into a temporary directory, reruns only these controls, and

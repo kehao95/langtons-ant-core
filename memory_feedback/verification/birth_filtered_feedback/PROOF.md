@@ -11,7 +11,7 @@ anew. The additions are a total FIRST-birth-filtered feedback operator with exac
 birth/death/complete endpoint, its effective budget, a growing-scale uniform
 consequence, and a compressed implementation that does not spend initial black
 lifetimes twice. These are constructive consequences of the retained global
-estimates, not a new descending rank or a claim of independent publication priority.
+estimates, with the scope of those estimates.
 
 Evidence: written analytic arguments and exact finite implementation controls;
 no Lean formalization, outside mathematical review, HC proof, nonperiodic seed,
@@ -311,7 +311,6 @@ HALT problems decidable.
 
 Run `python reproduce.py`. It copies the package into a temporary directory,
 checks hashes, rebuilds the reports, and compares all deterministic quantities.
-No earlier repository test suite or proof is modified or represented as rerun.
 Python 3.10+ standard library is enough; no external optimizer or numerical solver.
 
 Dependencies at the pinned source commit:
@@ -319,7 +318,3 @@ Dependencies at the pinned source commit:
 - proof/results/remote-stale-feedback.md: endpoint tube, fixed-region bursts,
   uniform exterior quadratic deadline, and the prior qualitative newborn result;
 - proof/results/clock.md: the conservative square exit bound used in that proof.
-
-The main input is the classical finite-support dynamics, not an altered background
-or an external controller. Software provenance and the exact source read are in
-PROVENANCE.json. Mathematical scope and confidence remain as stated above.

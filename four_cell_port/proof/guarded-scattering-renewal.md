@@ -1,12 +1,8 @@
 # Guarded scattering closure and a clocked renewal rank
 
-**2026-10-15. Inspected main: `cc1e8c3706082fda095d8b5da98fce9f217971c0`.**
-Analytic, unformalized proof with exact finite certificates and scoped replay.
-This is a constructive, restricted infinite-family theorem, **not HC**, not a
-complete classification of scattering, and not a global S_D or PG event budget.
-No novelty, independent review, Lean build, or publication claim is made.
+An analytic all-parameter proof is supported by exact finite interface certificates.
 
-## 1. What is new here, and what is deliberately not claimed
+## 1. Composable protected interfaces
 
 A finite library is closed under arbitrarily many successive encounters,
 including repeated changes between northeast and southeast standard highways.
@@ -15,13 +11,8 @@ than restarting on a blank field. A moving guard proves that retired history
 cannot return. The existing strict clock supplies a literal-step countdown
 inside each recovery; an explicit marker count supplies the outer event rank.
 
-The earlier [deflection audit](deflection-certificate-audit.md) already had a
-protected single-scattering family. The [repair audit](repair-closure-audit.md)
-already showed why counting reference-visible or actually-read residual cells
-fails in general. Neither result is claimed new. The addition is an explicit
-30-rule, two-orientation composition certificate, its all-length induction,
-and its clocked rank on a specified class. No restriction proved here is
-imposed on an arbitrary finite HC input.
+The 30-rule, two-orientation composition certificate supplies an all-length
+induction and a clocked rank for the specified protected interfaces.
 
 The rules require an incoming standard phase, a specific mature local wake,
 a single fresh marked cell, and sufficiently separated subsequent markers.
@@ -43,7 +34,7 @@ Rotate the repository's thirteen-cell canonical template by 180 degrees:
 
 The start pose is (0,0), EAST. Its standard word w, length 104, and displacement
 d=(2,2) are reproduced and infinitely checked in
-[check.py](../../experiments/hc_global/guarded_scattering/check.py). Let P_i,H_i
+[check.py](../verification/guarded_scattering/check.py). Let P_i,H_i
 be its pre-update phase positions and headings, 0<=i<104, with P_0=(0,0).
 Let R_0 be identity and R_1(x,y)=(y,-x), a clockwise rotation, NOT reflection.
 The two incoming orientations have displacement d_k=R_k d, k=0,1.
@@ -247,7 +238,7 @@ The following rank is for the certified train class, not arbitrary finite states
 During a recovery choose its finite read rectangle Q, including its endpoint.
 Exterior colours remain unchanged. Let s=x+y-c, with integer c centering the
 rectangle's diagonal range, and M=max_(p in Q)|s(p)|. With the invariant sigma
-from [the clock proof](clock.md), use the scaled integer clock
+from [the clock proof](../../clock_escape/PROOF.md), use the scaled integer clock
 
     C_Q(X)=-5*sigma*sum_(q in B intersect Q) chi(q)
                               *(4^(M+s(q))+4^(M-s(q))) + G(p,h),

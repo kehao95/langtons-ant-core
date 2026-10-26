@@ -1,10 +1,7 @@
 # Proof and evidence map
 
-The [full proof](proof/four-row-exact-escape.md) and immutable sources are imported
-from research `16b9b465a291933d0229f8febf180fcc3be7fddc`.
-[Import hashes](evidence/import-2026-10-20.json) identify every original byte.
-The manuscript adapts authorship and reproduction paths; its original source is
-retained in `evidence/upstream-main.tex`.
+The [full proof](proof/four-row-exact-escape.md) gives the analytic coverage
+argument. The exact finite obligations are listed below.
 
 | Claim | Universal bridge | Exact finite obligation |
 |---|---|---|
@@ -14,7 +11,5 @@ retained in `evidence/upstream-main.tex`.
 | Affine formula at all widths | Two alternating integer-vector recurrences, with tight-edge attainment | 2,111,056 inequalities and 42,496 tight-edge obligations; exact small widths |
 | Literal semantics | Separate whole-field simulators supplement the reductions | 4,399,360 inputs through width four, complete tree controls, 29 attaining witnesses, damaged-certificate rejection |
 
-[Fresh replay](evidence/replay-2026-10-20.json) records the complete new module.
 Finite enumeration supplies the stated finite premises; the written closure and
-integer induction supply the unbounded-width quantifier. No Lean proof or external
-review is asserted. All full-field history is retained.
+integer induction supply the unbounded-width quantifier. The proof is analytic and computer-assisted; all full-field history is retained.

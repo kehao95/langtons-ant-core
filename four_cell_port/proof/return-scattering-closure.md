@@ -1,10 +1,8 @@
 # Composable unbounded-return scattering with genuine old-wake consumption
 
-**15 October 2026. Base: `a2818eff029aef45e12ffd2c843fbab560cd3b46`.**
 Analytic, unformalized all-parameter proof with exact finite certificates and
 scoped independent replay. This is a restricted constructive convergence and
 closure theorem, not HC, a global event budget, or a self-renewing controller.
-No external review, Lean build, publication or priority claim is made.
 
 ## 1. Result and its difference from the previous closed family
 
@@ -398,7 +396,7 @@ PG secondary gates or intrinsic S_D reads. Use a finite-stage lexicographic rank
 The stage order is incoming NE flight, A, B, C, D, E. Each flight has the exact
 remaining update count from the formulas above. In each finite A, C or E block,
 choose its finite read rectangle, INCLUDING the last endpoint, and use the
-scaled integer r=4 clock already proved in [clock.md](clock.md). The unchanged
+scaled integer r=4 clock already proved in [clock.md](../../clock_escape/PROOF.md). The unchanged
 exterior contribution cancels. Its computable upper bound over all internal
 fields and poses yields the nonnegative integer fuel
 
@@ -449,8 +447,6 @@ The dependency is the unchanged earlier checker with its pinned SHA256. Its two
 tail criteria share integer geometry primitives; they are distinct exact
 formulations, not independently maintained software systems. The analytic
 extraction from the ant to the parametric interfaces remains unformalized.
-No old broad test campaign, old Lean build, external review or priority search
-is counted as completed here.
 
 ## 11. What was attempted and what is still not closed
 

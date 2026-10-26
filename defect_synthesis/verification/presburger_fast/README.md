@@ -3,7 +3,7 @@
 An opt-in, exact supplied-schema backend. All coordinates and repeat counts remain
 unbounded. Complete initial fields and all writes are retained as finite XOR terms.
 It avoids a global same-cell successor relation and avoids zero-power Cartesian
-factor-case expansion. See [the complete proof](../../../proof/results/quantifier-free-defect-complexity.md).
+factor-case expansion. See [the complete proof](../../proof/quantifier-free-defect-complexity.md).
 
 **Scope:** loops must restore heading with diagonal stride 2 or axis stride 2/4;
 source terms are finite XOR segments with the same strides, or singletons. Source
@@ -94,8 +94,7 @@ existential decision. No full-global-synthesis speedup is measured.
 
 `report.json` contains correctness controls and source hashes;
 `benchmark-*.json` contains timings. Libraries, the new compiler and the inherited
-analytic finite-path cover remain explicit trust dependencies. No external review,
-Lean formalization, priority claim or HC conclusion is made.
+analytic finite-path cover remain explicit trust dependencies. The algorithmic checks use exact library arithmetic; the coverage proof is analytic.
 
 ### Exact timer boundaries
 

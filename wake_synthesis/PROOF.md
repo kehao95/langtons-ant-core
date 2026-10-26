@@ -1,20 +1,15 @@
 # Layer-profile uniqueness and inverse synthesis
 
-## Additions integrated on 16 October 2026
+## Arithmetic and feedback constructions
 
-The revision adds [mixed-wake interleaving](proof/mixed-wake-interleaving.md):
+The construction gives [mixed-wake interleaving](proof/mixed-wake-interleaving.md):
 for full drift `(2,-2)`, `J(O)+V/2 = 1 (mod 2)` at arbitrary growth and width.
 The [attributed periodic-growth closure](proof/periodic-growth-closure.md)
 retains signed residues, small-drift restrictions and the unit-diagonal certificate.
 These are a separate necessary screen, not premises replacing the complete
-thin-wake enumeration. The incoming [profile replay](PROFILE_REPLAY.md) is
-also bundled as additional evidence for the subsumed profile theorem.
+thin-wake enumeration. The [profile proof](PROFILE_CLASSIFICATION.md) gives the standard layer-count special case.
 
-[New scoped replay](evidence/review-2026-10-16.json) pins research commit
-`2f6010a`. Original imported proof notes retain their historical execution
-statements; the dated evidence records own current replay status.
-
-## Previously integrated proof chain
+## Proof dependencies
 
 The current main theorem fixes full drift `(2,-2)`, growth `12`, transverse
 width `10`, and at most one odd translation class on each interior level.
@@ -32,19 +27,10 @@ The proof chain is:
 4. The retained proof below establishes the complete-wake special case,
    ordered-event coverage, general budgets and terminating inverse synthesis.
 
-[Fresh full evidence](evidence/review-2026-10-15.json) records both the new
-classification and the retained standard-wake/general checks. The proof notes
-are preserved research snapshots; their statements about earlier replay dates
-are historical. Current execution status is owned by the evidence report.
-
 # Retained complete-wake and general-synthesis proof
 
-The [current manuscript](paper/main.tex) proves all-period uniqueness for the
-complete standard wake and drift `(2,-2)`. It updates the wake preprint within
-its existing [Zenodo concept](https://doi.org/10.5281/zenodo.23402421).
-The published [v0.1.0](release/v0.1.0/) remains unchanged; its general
-wake-dependent bounds, inverse-synthesis theorem and detour obstruction are
-retained below and in Appendix A of the new manuscript.
+The [article](paper/main.tex) proves conditional uniqueness and general
+wake-dependent bounds, inverse synthesis and a detour obstruction.
 
 The new proof joins an integer period bound `P<=168` to complete enumeration of
 ordered visits. Its conventional coverage and pruning arguments are given here
@@ -580,14 +566,10 @@ Section 11.
 
 Jillhewar's finite-word realization criterion, constructive seed, extremal
 rigidity and special-width period bounds are explicitly attributed; see the
-[primary-source comparison](paper/LITERATURE.md). The integer clock belongs to
+[article bibliography](paper/main.tex). The integer clock belongs to
 [An Ant on the Clock](https://doi.org/10.5281/zenodo.23402379).
-The new classification and its exact computations extend the own
-[Reading the Wake, version 0.1.0](https://doi.org/10.5281/zenodo.23402422).
-The renamed manuscript is prepared as version 0.2.0 of that same preprint.
-Published version-0.1.0 delivery files and hashes remain historical records.
 
-## Current consolidation — research 9223766d
+## Recovery and geometry — research 9223766d
 
 The manuscript now includes the [general quadratic wake proof](verification/general_wake_parity/PROOF.md)
 and [analytic unit-diagonal proof](verification/unit_diagonal_analytic/PROOF.md).
@@ -598,9 +580,3 @@ The [thin parity splice](proof/thin-wake-parity-splice.md) eliminates three
 missing-layer cases analytically. Its alternative route inherits the old h=-7
 exhaustion and the separate standard-profile classification. The original
 five-profile exhaustive route remains the default replay and is unchanged.
-
-[Fresh arithmetic replay](evidence/consolidation-replay.json) includes the general
-character, all-parameter excluded family, unit-diagonal regressions and parity
-splice, plus preceding mixed/growth modules. It does not re-execute the large
-classification. New internal labels in the paper do not alter original proofs,
-source manifests or frozen reports.

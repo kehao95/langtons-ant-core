@@ -1,7 +1,7 @@
 # Guarded scattering and clocked renewal
 
 A restricted, genuinely composable family of classical finite-support inputs.
-See [the all-length proof](../../../proof/results/guarded-scattering-renewal.md).
+See [the all-length proof](../../proof/guarded-scattering-renewal.md).
 This is not an HC proof or an arbitrary-history termination theorem.
 
 `check.py` contains the immutable 30-rule integer table, the exact mature-wake

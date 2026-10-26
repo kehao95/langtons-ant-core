@@ -12,7 +12,7 @@ a human-checkable proof. Existing signed-residue and other small-drift results
 retain their attribution; the growth corollary is not claimed again as new.
 
 - [Analytic proof and provenance](PROOF.md)
-- [Standalone manuscript source](paper.tex)
+- [Standalone manuscript source](../../paper/main.tex)
 - [Fresh independent regressions](evidence/full_replay.json)
 - [Source manifest](evidence/source_manifest.json)
 
@@ -38,7 +38,4 @@ premises. Detailed witnesses can be regenerated:
 python3 wake_synthesis/verification/unit_diagonal_analytic/local_obstruction.py --certificates /tmp/unit-diagonal-certificates.json.gz
 ```
 
-From this directory build with `pdflatex -output-directory=/tmp paper.tex`
-(three passes). Independent human review and author approval remain outstanding.
-No Lean proof, external publication, journal submission or HC solution is claimed.
-Published artifacts and earlier prepared manuscript snapshots remain unchanged.
+The analytic proof appears in the accompanying article.

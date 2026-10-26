@@ -310,11 +310,3 @@ HIGHWAY classification, standard-period uniqueness or finite negative seed is
 claimed. The runtime MSO compiler is not used or introduced by this result.
 
 ## 9. Provenance and publication
-
-This proof and its checkers were prepared against `432814c2c0389542dda21ffc1d74cfb4b6977b4e`
-and first delivered as a conversation package because that preparation session
-could not write to the remote. The current integration preserves the proof and
-exact checker bytes, reruns the dedicated suite, and publishes them as project
-files. The integration report records source hashes and the actual scope.
-No remote-publication statement is a mathematical promotion. Existing symbolic
-runtime dependencies and old ledger volumes remain unchanged.

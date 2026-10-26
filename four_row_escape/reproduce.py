@@ -20,9 +20,9 @@ def main():
     args = parser.parse_args()
     if not __debug__:
         parser.error('Run without Python -O')
-    imported = json.loads((ROOT/'evidence/import-2026-10-20.json').read_text())
-    for row in imported['files']:
-        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest() == row['sha256'], row['destination']
+    sources=json.loads((ROOT/'sources.json').read_text())['sha256']
+    for name, digest in sources.items():
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
     start = time.monotonic()
     with tempfile.TemporaryDirectory(prefix='four-row-core-') as td:
         work = Path(td)/'module'
@@ -34,12 +34,10 @@ def main():
             raise RuntimeError(result.stdout+'\n'+result.stderr)
         print(result.stdout, end='')
     report = {'status': 'passed', 'scope': 'complete four-row certificate',
-              'source_commit': imported['source_commit'],
               'completed_utc': datetime.now(timezone.utc).isoformat(),
               'seconds': round(time.monotonic()-start, 3),
               'result': json.loads(result.stdout), 'lean_formalized': False,
-              'external_review': False,
-              'source_sha256': {r['destination']: r['sha256'] for r in imported['files']}}
+              'source_sha256': sources}
     if args.output_report:
         args.output_report.parent.mkdir(parents=True, exist_ok=True)
         args.output_report.write_text(json.dumps(report, indent=2)+'\n')

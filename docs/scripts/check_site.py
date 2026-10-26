@@ -53,6 +53,6 @@ for paper in manifest['papers'].values():
     assert deployed.read_bytes().startswith(b'%PDF-')
     assert hashlib.sha256(deployed.read_bytes()).hexdigest() == paper['sha256']
     assert source.read_bytes() == deployed.read_bytes()
-for unwanted in ('node_modules', 'scripts', 'tests', 'package-lock.json'):
+for unwanted in ('node_modules', 'scripts', 'tests', 'package-lock.json', 'sources.json'):
     assert not (SITE / unwanted).exists(), f'Development file deployed: {unwanted}'
 print('Site checks passed: seven pages, local links, canvas labels, six exact PDFs.')

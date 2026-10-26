@@ -317,9 +317,3 @@ and native exhaustive enumeration. No new Lean proof or outside peer review is
 claimed. Reproduction explicitly separates record checking from full enumeration;
 source hashes identify the programs but do not by themselves prove exhaustion.
 Resource-limited and failed exploratory attempts are not negative evidence.
-
-The package was independently copied to a temporary directory and fully replayed
-after assembly. Every selected run finished, all deterministic output fields
-matched, and all 83 completion tables matched a separately retained recurrence
-implementation. The frozen baseline predates five concurrent repository commits;
-those later audit/integration changes are not overwritten or needed as premises.

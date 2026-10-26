@@ -1,0 +1,66 @@
+{
+  "one_black": {
+    "title": "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof",
+    "doi": "10.5281/zenodo.23341609",
+    "version": "0.2.0",
+    "pdf": "one_black/paper/paper.pdf",
+    "sources": "one_black/sources.json",
+    "pdf_sha256": "ba69f43e3a70c544c648acc02d20680558908fc805f35d3848138d87d37678ce"
+  },
+  "clock_escape": {
+    "title": "An Ant on the Clock: Exponential Escape Bounds for Langton's Ant",
+    "doi": "10.5281/zenodo.23402379",
+    "version": "0.4.0",
+    "pdf": "clock_escape/paper/paper.pdf",
+    "sources": "clock_escape/sources.json",
+    "pdf_sha256": "86bc350d2108289ee266d3555f2df563add7b2213a1e3628ff21d8bc4a729d26"
+  },
+  "four_row_escape": {
+    "title": "Exact Escape Times of Langton's Ant in Four Rows",
+    "doi": "10.5281/zenodo.23665471",
+    "version": "0.1.0",
+    "pdf": "four_row_escape/paper/paper.pdf",
+    "sources": "four_row_escape/sources.json",
+    "pdf_sha256": "78934bfac55036b312778e14063b8bad19acc79515801dbe7a3c6603459732d5"
+  },
+  "factor_language": {
+    "title": "Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant",
+    "doi": "10.5281/zenodo.23665478",
+    "version": "0.1.0",
+    "pdf": "factor_language/paper/paper.pdf",
+    "sources": "factor_language/sources.json",
+    "pdf_sha256": "13971c3272779e5527ccbe98e70d62d1f0f03764837eb1acd35a61289ceefb62"
+  },
+  "defect_synthesis": {
+    "title": "Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant",
+    "doi": "10.5281/zenodo.23665499",
+    "version": "0.1.0",
+    "pdf": "defect_synthesis/paper/paper.pdf",
+    "sources": "defect_synthesis/sources.json",
+    "pdf_sha256": "b3a518c1313d063e3f54246070c202bdb0949da7805c2e2b54c6b69f789a5f44"
+  },
+  "memory_feedback": {
+    "title": "Finite-Memory Prediction and Remote Feedback in Langton’s Ant",
+    "doi": "10.5281/zenodo.23665512",
+    "version": "0.1.0",
+    "pdf": "memory_feedback/paper/paper.pdf",
+    "sources": "memory_feedback/sources.json",
+    "pdf_sha256": "78466d7f8c05891e00f03ae35e1fca37d2a2b1e1b3adb71d737721f92618e39e"
+  },
+  "wake_synthesis": {
+    "title": "Uniqueness of the Classical Langton Ant Highway from Its Layer Profile",
+    "doi": "10.5281/zenodo.23665515",
+    "version": "0.3.0",
+    "pdf": "wake_synthesis/paper/paper.pdf",
+    "sources": "wake_synthesis/sources.json",
+    "pdf_sha256": "d34c8d16e0d4c4aeea03d5b1ad4768022999a5fe1c4be1f29c872017e89fda7a"
+  },
+  "four_cell_port": {
+    "title": "Four-Cell Ports and Composable Highway Scattering for Langton’s Ant",
+    "doi": "10.5281/zenodo.23665526",
+    "version": "0.2.0",
+    "pdf": "four_cell_port/paper/paper.pdf",
+    "sources": "four_cell_port/sources.json",
+    "pdf_sha256": "45adbe6f2674c412775401069a46d565e44530886527eca9640c9751484722d7"
+  }
+}

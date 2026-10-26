@@ -48,9 +48,9 @@ def main():
               '96 exterior completions PASS')
     with tempfile.TemporaryDirectory(prefix='scattering-') as directory:
         work = Path(directory)
-        imported = json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())
-        for entry in imported['files']:
-            assert hashlib.sha256((ROOT/entry['destination']).read_bytes()).hexdigest() == entry['sha256']
+        sources=json.loads((ROOT/'sources.json').read_text())['sha256']
+        for name, digest in sources.items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
         for module, retained in [('guarded_scattering', 'check_results.json'), ('return_scattering', 'report.json')]:
             shutil.copytree(ROOT/'verification'/module, work/module, ignore=shutil.ignore_patterns('__pycache__'))
             result = subprocess.run([sys.executable, 'check.py', '--compare', retained],

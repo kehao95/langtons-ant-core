@@ -17,7 +17,7 @@ Use the literal classical rule on Z^2: read white/R or black/L, turn, toggle, th
 move one edge. A state at t is before update t. Every physical initial field here
 is finite and COMPLETE. Quarter turns and translations are allowed; the rule is
 not reflected. W is the same standard 104-letter word as in
-[ten-factor attraction](ten-factor-attraction.md), pinned in the new `model.py`.
+[ten-factor attraction](ten.md), pinned in the new `model.py`.
 Let L10 be its 84 cyclic length-ten factors. A finite word is *ten-legal* if every
 length-ten factor wholly inside it belongs to L10. No condition is imposed on a
 word shorter than ten. No promise about an infinite legal extension is made.

@@ -1,8 +1,0 @@
-'ClockEscape.increment_pp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.increment_mm' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.increment_pm' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.increment_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.reciprocal_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.scaled_increment_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.telescope' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClockEscape.internal_interval' depends on axioms: [propext, Classical.choice, Quot.sound]

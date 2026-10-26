@@ -1,0 +1,30 @@
+{
+  "schema": "article-sources-v1",
+  "sha256": {
+    "PROOF.md": "97f1459f6563def02623e7c257c0bf99b35c5eba8a572f3a5ac722cbf47a216f",
+    "README.md": "d2ecd97c96e4811b90d49b7e167afb5bce6835c1d990cd73549e4cf0d73e7e12",
+    "evidence/README.md": "0c9fb89435b2d5ec5955337f739f897a8fb63e3aec0ed1decfe6368c4a34e229",
+    "evidence/audit.json": "25d9123163ed0d6f23682eb8b54391a3570d324963566b4a83ee8e66751dfb4b",
+    "evidence/escapes.json": "c8ada99e13b069da66ccecf8f44c8837ab20b1db64664e16e4c4c6e11b61e064",
+    "evidence/report.json": "6c3a27f82a43c3ce202c738d3174c12ecfa275d83efa45801d1b7526eb50cba0",
+    "evidence/witness.json": "440ef4aff3be11f8ecc315fc29fbf3e71ad96148a125c3e76237ede80f9b4556",
+    "paper/Makefile": "a4a7c276edbf9e61a847ffaed4ffa3293cac26a2ef523b6f9bf939ed71ac3509",
+    "paper/main.tex": "6a461db13329f0d1fcdf7ac335a7f2ed537e62084ae879e063d313724c8b2ca1",
+    "paper/returns.tex": "3b9867a45689c27520be6a4fe6536b45feb4299bc8e3139ff5d084e87a18671d",
+    "paper/scattering.tex": "24b94faa400851f0bfd8d2451ef56329b1f269c9ce31e055c552e06db6cf6f29",
+    "proof/guarded-scattering-renewal.md": "d0182875288a73bb5130d10ee3de6fde95bb7bfb92f1e0e304bde6d183fb3663",
+    "proof/return-scattering-closure.md": "3a9adcaf761eee6b3811aea9e5fa4093103387ed37a1aa8cb02e6ba4093c7694",
+    "release/README.md": "c8dfb172775c19e3108507b894f4d626c2496f9f5cd49cdac5cd6c3ac3a84130",
+    "reproduce.py": "b59be932ba22648100320b496725d9a0c34a22d86cc6dee39391320ff61fcc6b",
+    "verification/audit.py": "8b2bc02b302c9b077c93bed1335c4f9db3ca8708f838049cdde3236ba3357642",
+    "verification/check.py": "89ba09f4482e45eef4da0a3edf288e2af9770e0297e0f3e148d79d3c3b9f29b4",
+    "verification/completion.py": "4956685dcd5cc60756391f305c1b2cf4345753e8285354e9e0bef8f93e10ba21",
+    "verification/guarded_scattering/README.md": "6e1414026e4b8aab2f5e07206e1bae26610b8c6bfefcd5c25a7fab8a3854e066",
+    "verification/guarded_scattering/check.py": "7b199ee5d2f291eb5450c3f232d2bbf91e469de2bd9eb416a753393886d3da14",
+    "verification/guarded_scattering/check_results.json": "fdafb73f01e8201823723e9461b0dbe9823fb55a60fa74fe9b42339637b300ad",
+    "verification/independent.py": "044291b41ae9a47b6962c7d730d01074cf3a8806961d8b920a8d63eb79b7014a",
+    "verification/return_scattering/README.md": "4f2fbbd00294c260d0e24f5890be354521544f09ae090e489c2185adaca376e9",
+    "verification/return_scattering/check.py": "ff02d62860d76bb5f68e9f3a9cbcd72b520c32ac08943593cfa92b39f9152d93",
+    "verification/return_scattering/report.json": "466ad85b09d996ab2d5f55416fba9a7afa87f46f8870a282377e1667d433217c"
+  }
+}

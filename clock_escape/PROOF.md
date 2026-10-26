@@ -102,4 +102,4 @@ range argument in c56a76b. The current manuscript assigns clocks, escape and
 complete-state algorithms to this project. The separate [wake project](../wake_synthesis/)
 uses their whole-period increments to solve the prescribed-wake inverse problem.
 Published clock 0.3.0 remains at [its immutable PDF](paper/paper.pdf);
-the integer-clock bound appears in [version 0.4.0](release/v0.4.0/paper.pdf).
+the integer-clock bound appears in [version 0.4.0](paper/paper.pdf).

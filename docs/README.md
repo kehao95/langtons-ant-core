@@ -51,9 +51,10 @@ enumeration. Each owner's `reproduce.py` remains the full proof entrypoint.
 
 `build_site.py` copies static assets into ignored `_site/`, excludes development
 tools, and adds exact manuscript PDFs under `papers/`. It records source paths,
-SHA-256 hashes, the source commit and publication status in `site-manifest.json`.
-All six laboratories use published snapshots. The build matches each PDF
-to its publication receipt and includes the DOI in the site manifest.
+SHA-256 hashes, the source commit and archived-edition links in `site-manifest.json`.
+All six laboratories use article PDFs identified in `../publications.json`.
+The build verifies their hashes and includes the archived-edition DOI links in
+the site manifest.
 Rebuilding the site never rebuilds or alters those PDFs.
 The Pages workflow runs the same checks before uploading `_site/`.
 

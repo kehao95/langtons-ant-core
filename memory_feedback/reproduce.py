@@ -8,19 +8,14 @@ ROOT=Path(__file__).resolve().parent
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-report',type=Path)
-    parser.add_argument('--extensions-only',action='store_true',help='replay only the 16 October additions')
+    parser.add_argument('--extensions-only',action='store_true',help='replay only birth-filtered feedback')
     args=parser.parse_args()
     if not __debug__: parser.error('Run without Python -O')
-    imported=json.loads((ROOT/'evidence/import-2026-10-15.json').read_text())
-    for row in imported['files']:
-        if row['destination'].startswith('verification/'):
-            assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
-    extension=json.loads((ROOT/'evidence/import-2026-10-16.json').read_text())
-    for row in extension['files']:
-        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
-    report={'status':'passed','source_commit':extension['source_commit'],
-            'base_source_commit':imported['source_commit'],'scope':'extensions-only' if args.extensions_only else 'full',
-            'completed_utc':None,'stages':[], 'external_review':False,'lean_build':False}
+    sources=json.loads((ROOT/'sources.json').read_text())['sha256']
+    for name, digest in sources.items():
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
+    report={'status':'passed','scope':'extensions-only' if args.extensions_only else 'full',
+            'completed_utc':None,'stages':[]}
     with tempfile.TemporaryDirectory(prefix=ROOT.name+'-replay-') as td:
         work=Path(td)/'verification'
         shutil.copytree(ROOT/'verification',work,ignore=shutil.ignore_patterns('__pycache__'))

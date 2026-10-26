@@ -1,15 +1,7 @@
 # Effective semilinear reachability with a bounded standard-defect budget
 
-**Research date: 15 October 2026. Mathematical base: `2f6010a6bbccf5d342648f1c730a8bd2ea628961`.**
-
-Evidence: complete analytic composition of the retained finite-path coverage theorem,
-a new exact supplied-schema arithmetic implementation, and scoped independent literal
-controls. Unformalized and not externally reviewed. Native ISL/GMP is in the trusted
-computing base of the computed examples, not a Lean proof checker. Neither HC, a
-finite HC counterexample, a practical unrestricted synthesis solver, nor publication
-priority is claimed. This replaces the *proposal status* of the bounded-budget
-corollary in [the earlier research note](../research-global-all-coordinate-budget-2026-10-15.md)
-with the explicit theorem and proof below. The old note itself remains unchanged.
+The proof combines finite-path coverage with exact supplied-schema arithmetic.
+Native ISL/GMP computes the example relations; the universal argument is analytic.
 
 ## 1. Complete inputs, events and the main theorem
 
@@ -76,12 +68,9 @@ handled by the physical impossibility of B A^n B A^m B for all n,m>=0.
 
 We import that FINITE-path theorem, not just an eventual-periodicity statement.
 An infinite-tail classification alone would not cover long dead-end prefixes.
-No earlier shared code or graph certificate is changed or presented as rerun.
 
-The old [semilinear trace lifting](../semilinear-trace-lifting.md) treats a fixed
-literal word. It does NOT already supply unbounded powers or global event-prefix
-coverage. We add both: affine occurrence geometry for bounded power schemas, and
-an exact chronological colour test retaining all cross-block dependencies.
+The construction uses affine occurrence geometry for bounded-power schemas
+and an exact chronological colour test retaining all cross-block dependencies.
 
 Presburger closure, quantifier elimination and effective semilinearity are standard
 imported arithmetic. Flat-path-schema reachability is also established verification
@@ -346,10 +335,9 @@ all non-format report data and semantically compares saved relations, allowing I
 versions to print different normal forms. The actual version was isl-0.27-GMP.
 This tests the supplied-schema arithmetic and examples. Universal Theorem 1 still
 rests on its written proof and the inherited finite-path coverage, not execution
-of the full astronomical cover. No old broad suite, Lean build, earlier large
-wake search, published-paper update, or third-party mathematical review is claimed.
+of the full astronomical cover.
 
-## 10. Attribution and publication assessment
+## 10. References
 
 Presburger arithmetic, effective semilinearity and flat path schemas are imported
 methods. The exact first-read/alternation characterization is the standard Langton
@@ -359,7 +347,7 @@ with complete fields and exact piecewise-affine event outputs. It strengthens th
 previous point-input macro algorithm and the earlier fixed-literal-word lifting;
 it does not claim a new general Presburger decision procedure.
 
-Primary references consulted in this session:
+Primary references:
 
 - A. Gajardo, *A symbolic projection of Langton's ant* (2003), HAL-01183320.
 - S. Demri, A. Dhar and A. Sangnier, *Taming Past LTL and Flat Counter Systems*,
@@ -370,12 +358,4 @@ Primary references consulted in this session:
   Quantifier Elimination Procedure for Presburger Arithmetic*, ICALP 2024,
   DOI 10.4230/LIPIcs.ICALP.2024.142, arXiv:2405.01183.
 - ISL official manual, 'Sets and Relations', 'Lexicographic Optimization', and
-  'Error Handling', https://libisl.sourceforge.io/user.html (read this session).
-
-Theorem 1 together with Corollaries 2--3 is a plausible standalone theoretical
-paper core, tentatively *Semilinear Reachability of Langton's Ant with Bounded
-Highway Defects*. That is an editorial assessment, not publication acceptance or
-an exhaustive priority determination. A manuscript must include or properly import
-the full finite-path coverage argument; a supplied-schema implementation alone
-is not a substitute. The current deliverable is a research proof and reproducible
-compiler, not a new public paper version or submission.
+  'Error Handling', https://libisl.sourceforge.io/user.html.

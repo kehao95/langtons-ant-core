@@ -1,6 +1,6 @@
 # Silent archive / J10 bridge audit
 
-[Full proof and quantifiers](../../../proof/results/silent-archive-amplification.md).
+[Full proof and quantifiers](../../proof/silent-archive-amplification.md).
 "Silent" means no J10, not no old-memory reads. The complete finite field is
 retained at every checkpoint.
 
@@ -22,6 +22,6 @@ simulator provide finite implementation controls, not the universal bridge.
 `check.py --write <file>` explicitly writes a new report; normal checking never
 repairs or overwrites a witness.
 
-No HC result, infinite controller, global rank, external review, Lean theorem,
-or post-prefix standardness for the entire family is claimed. Source chronology
-and provenance are in the [research record](../../../proof/research-silent-archive-2026-10-15.md).
+The finite-prefix certificate is accompanied by the
+[all-parameter construction](../../proof/silent-archive-amplification.md) and
+[complete recovery proof](../../proof/silent-archive-recovery.md).

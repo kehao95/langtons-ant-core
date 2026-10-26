@@ -1,21 +1,15 @@
 # Factor rigidity and mass–defect balance
 
-## Current additions — research 16b9b46
+## Finite-interval bounds
 
 | Claim | Universal bridge | Executable support |
 |---|---|---|
 | [Single finite standard core and supply bound](proof/silent-supply-rigidity.md) | Ordered finite-fold cover; 44-cell transverse overlap; full-field XOR cofactor inequality; common normal | `verification/silent_supply`: two complete enumerations, component order, phase supplies, 174 complete endpoints and huge-coordinate parity |
 | [Nine-factor mass bound and minimal window](proof/nine-factor-mass-bound.md) | Every finite path projects to checked forbidden-word product; potentials telescope through the full condensation; all-n ray truncation defeats eight | `verification/nine_mass`: 164,283 words, 9,550 edge inequalities and the finite counterfamily |
 
-[Source hashes](evidence/import-2026-10-20.json) pin original files without code
-adaptation; the runner reconstructs their original dependency layout in a temporary
-directory. [Fresh replay](evidence/replay-2026-10-20.json) covers these additions.
-The independent periodic verifier required by the eight-factor witness is bundled.
-The one-jump runtime guarantee is for explicit mass, not compressed mass.
+## Arithmetic and feedback constructions
 
-## Additions integrated on 16 October 2026
-
-The revision adds [silent archive manufacture](proof/silent-archive-amplification.md):
+The construction gives [silent archive manufacture](proof/silent-archive-amplification.md):
 a complete `(10n+41)`-black family produces `2(n+1)` lifetimes during a
 J10-free prefix and consumes them later at J10 events. The related
 [folded ribbon](proof/silent-fold-reset.md) has exact first P104 time
@@ -23,11 +17,7 @@ J10-free prefix and consumes them later at J10 events. The related
 `max(0,4m-136)`. Their full-source geometry explains why the S_D endpoint
 tube does not transfer to J10. Both families now have complete futures; their seeds, formulas and reset claims remain distinct.
 
-[New scoped replay](evidence/review-2026-10-16.json) pins research commit
-`2f6010a`. Original imported proof notes retain their historical execution
-statements; the dated evidence records own current replay status.
-
-## Current consolidation
+## Recovery and geometry
 
 [Complete archive recovery](proof/silent-archive-recovery.md) closes the future
 of the original producer family. The restored original files retain their hashes;
@@ -35,11 +25,9 @@ of the original producer family. The restored original files retain their hashes
 [Silent-axis geometry](proof/silent-axis-return.md) uses the inherited all-parameter
 fold obstruction, new mask closure and four integer potentials to cover every
 finite legal word. Its constant 43 is a certified bound, not a sharpness claim.
-[Fresh replay](evidence/consolidation-replay.json) runs both additions and the
-preceding two construction modules. Unchanged attraction, event-macro and mass
-kernels retain their earlier full replays.
+The reproduction entrypoint checks these constructions together with the attraction, event and mass kernels.
 
-## Previously integrated proof chain
+## Proof dependencies
 
 [Ten-factor proof](proof/ten.md) owns the 150-window coverage, the non-simple
 component and its all-parameter foldback exclusion, finite-mass attraction,
@@ -56,6 +44,4 @@ integer potential, sharp 90-step witness and deletion-of-bad-endpoints argument.
 The mass proof does not require an infinite legal extension or the attraction theorem.
 
 The current [manuscript](paper/main.tex) combines these arguments in that order.
-[Fresh exact checks](evidence/review-2026-10-15.json) compare Python/C++ kernels
-and reject damaged certificates. Old immediate 21/14/13 thresholds are excluded
-until their complete proof sources and certificates can be imported.
+The exact checks compare Python/C++ kernels and reject damaged certificates.

@@ -11,8 +11,7 @@ composition theorems:
 The complete field is retained throughout. The clock supplies local countdowns;
 protected-region equalities and nested guards supply compositional closure.
 The twenty-cell lifetime obstruction is owned by `memory_feedback/`.
-[Fresh verification](evidence/review-2026-10-15.json) replays the base port and both
-scattering modules. The source proof notes retain their historical execution wording.
+The reproduction entrypoint checks the base port and both scattering modules.
 
 # Four-cell one-sided highway forcing: a sharp half-plane threshold
 
@@ -132,10 +131,6 @@ This effectively constructs a standard-P104 certificate for the **four-cell augm
 ## 5. What is new, and limits of publication claims
 
 This advances the earlier 13-cell universal exterior-completion gate to a four-cell gate, and adds a **sharp** unbounded-coordinate half-plane exit theorem for at most three black sites, complete with a finite total proof checker. The upper/lower cardinalities agree for the canonical *one-sided gate* contract; no claim is made about the optimal number of arbitrary exterior edits without that contract.
-
-The available literature check found prior work on finite-support circuit construction (Gajardo--Moreira--Goles 2002), standard P104, finite-support periodic realization (Jillhewar 2026), and quantitative finite-box escape (Etse, MFCS 2026). It did not locate this particular sharp half-plane cardinality theorem or four-cell exterior forcing property. This is a **nonexhaustive novelty search**, not proof of priority, accepted publication or external review.
-
-The result is a coherent, self-contained **short-paper candidate** directly connected to finite-support HC: it shows that every finite physical initial history can be locally preserved while four additional exterior black cells guarantee a standard highway. It does not show any original input is necessarily positive, produce a negative seed, or classify nonperiodic orbits.
 
 ## 6. Reproduce the computer-assisted finite leaves
 

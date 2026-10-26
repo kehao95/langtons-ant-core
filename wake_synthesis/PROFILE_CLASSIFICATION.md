@@ -1,9 +1,7 @@
 # The standard layer-count profile determines the classical highway
 
-Date: 2026-10-15. Status: computationally assisted classification, with an
-analytic coverage argument and complete exact enumerations. This is not a Lean
-formalization or a claim of independent peer review. Published release files are
-unchanged.
+The classification combines an analytic coverage argument and complete exact
+enumerations.
 
 ## 1. The strengthened statement
 
@@ -323,8 +321,7 @@ Python 3.10+ and g++ with C++17 and undefined-behavior sanitizer support are
 required. `--output PATH` writes to a **new** evidence directory. The default
 also uses a new directory. `--jobs`, `--seconds`, and `--nodes` control resources;
 any incomplete search raises `INCONCLUSIVE` and cannot produce a completed
-classification summary. The replay does not modify historical evidence,
-manuscripts, release PDFs, or publication receipts.
+classification summary. The checker leaves certificate inputs unchanged.
 
 In addition to the full searches and upper witness, the replay checks all
 8,191 binary arrival strings of lengths 0..12 against the local count formula
@@ -344,8 +341,7 @@ representation is not an independent reimplementation of that representation.
 The code is based on the source files read from `kehao95/langtons-ant-core` at
 main revision `6aa3728a6da3c9edb122b4bc2b79ff9253d1b70f`, with individual content
 hashes pinned by the replay. Evidence and hashes are retained under
-`evidence/profile_classification/`. No remote commit or publication action was
-performed by this local patch.
+`evidence/profile_classification/`.
 
 ## 7. Remaining classification boundary
 

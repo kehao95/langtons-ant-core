@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
     paths:
+      - publications.json
+      - tools/check_publication.py
       - docs/**
       - one_black/**
       - clock_escape/**
@@ -42,6 +44,7 @@ jobs:
           docs/node_modules/.bin/playwright install --with-deps chromium
       - name: Check exact exports and replay witnesses
         run: |
+          python3 tools/check_publication.py
           node --check docs/app.js
           python3 -m json.tool docs/proof-map.json >/dev/null
           python3 docs/scripts/export_wake_factors.py --check

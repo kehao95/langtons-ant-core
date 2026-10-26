@@ -10,7 +10,7 @@ finite HC counterexample is asserted. No earlier implementation is changed.
 ## 1. Question and result
 
 The new [exact J10 macro](ten-event-macros.md) invites two possible closures:
-transport the [S_D two-endpoint tube](remote-stale-feedback.md) to J10, or reset
+transport the [S_D two-endpoint tube](../../memory_feedback/proof/remote-stale-feedback.md) to J10, or reset
 an event-free folded computation by a bounded local repair and run it again.
 Both require additional physical information. Here one explicit family gives
 an obstruction to the first and a quantitative lower bound for the second.
@@ -57,7 +57,7 @@ Use the following fixed words (wrapped B lines are concatenated):
     D = LLRRRRLRRLRRRRLLLLRLRRRRLRL                         (27)
 
 The A,B words are the inherited short loop and fold word from
-[ten-factor attraction](ten-factor-attraction.md), not newly discovered modes.
+[ten-factor attraction](ten.md), not newly discovered modes.
 Define
 
     w_n = C A^(n+6) B A^(n+2) D,       P_n=|w_n|=56n+397.  (3)
@@ -75,7 +75,7 @@ attributed to Gajardo (2003) in ten-factor-attraction, Section 2. The infinite
 period checks retain the full-drift chronology attribution to Jillhewar (2026)
 there. No new claim of either criterion is made.
 
-The declarative [grammar](../../experiments/hc_global/silent_fold_reset/grammar.json)
+The declarative [grammar](../verification/silent_fold_reset/grammar.json)
 contains every fixed letter and all affine exponents used below. It contains no
 unverified statement about a simulated endpoint. A parser must derive geometry,
 read identities, and initial colours from its words.
@@ -295,7 +295,7 @@ members into this same folded-word interface. Repairs growing with m survive.
 ## 7. Conditional J10 cost for a CLEAN nonexpanding reset
 
 There is an additional, narrower consequence of the already proved
-[all-input mass-defect inequality](mass-defect.md). Suppose a real repair from
+[all-input mass-defect inequality](mass.md). Suppose a real repair from
 Y_n ends at EXACTLY a translated/rotated complete B_m, with no additional debris.
 Its black change is 10m-18n-52. If V counts forbidden ten-windows wholly contained
 in its ell updates, the imported inequality gives
@@ -343,5 +343,4 @@ parameters through n=64, totalling 59826 complete-field updates; these are contr
 not the universal proof. Damaged recovery, changed initial colour, and a blocker
 10^20 standard epochs away are rejected; an off-trace marker remains harmless
 without being erased. The known four-cell standard port is a scoped positive
-control, not a rerun of its original coverage theorem. No old broad test suite,
-large wake search, previous Lean proof, or publication release is repeated.
+control, not a rerun of its original coverage theorem.

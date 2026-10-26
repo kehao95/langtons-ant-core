@@ -1,26 +1,8 @@
 # Silent archive manufacture, defect amplification, and a failed J10 bridge
 
-**15 October 2026. Mathematical base:** `11894a516e40fef9be730e266936071c7750142c`.
-
-**Status.** An all-parameter finite-orbit construction, with a written finite
-coverage proof and an exact integer certificate. It refutes two PARTICULAR
-shortcuts in a proposed J10 termination argument. It is not a global event
-budget, an infinite self-renewing controller, an HC proof or counterexample,
-Lean formalization, external review, or a priority claim. "Silent" below means
-no **J10**; it does not mean absence of S_D reads or absence of memory use.
-
-**Concurrent-work note.** Before persistence, main advanced to
-`94f82c92916ae456abe2b9540be4dfc5cd835d2d`. The independent
-[silent-fold/reset proof](silent-fold-reset.md) already establishes the failure
-of a J10 endpoint tube on a different ribbon, its autonomous standard recovery,
-and a linear reset cost. The endpoint corollary here is therefore a separately
-checked control, NOT another new closure or priority claim. The distinct retained
-content is the explicit J10-free birth / later-J10 death table, extinction of
-initial lifetimes, and the complete output interface of the twenty-step consumer.
-The concurrent [aggregate-rank obstruction](renewal-rank-obstruction.md) already
-uses exhausted initial fuel on another rail; this note does not claim that
-phenomenon alone is new. Neither concurrent proof is rerun or used as a premise
-for this certificate, and their files remain unchanged.
+This all-parameter finite-orbit construction has a written coverage proof and
+an exact integer certificate. “Silent” means no J10 event; S_D reads and memory
+use may occur during such an interval.
 
 ## 1. What was tested
 
@@ -38,7 +20,7 @@ arbitrary bookkeeping genealogies, or to a rank which already charges latent
 resources in the complete field.
 
 The words A and B below are inherited from the non-simple component in
-[ten-factor attraction](ten-factor-attraction.md). The construction and checks
+[ten-factor attraction](ten.md). The construction and checks
 here use literal dynamics and per-cell alternation; they do not rerun or depend
 on the old 6,605-word graph enumeration or its attraction proof.
 
@@ -147,7 +129,7 @@ H={(-3,11),(-3,12),(-2,9),(-2,10),(-2,13),
 Hence its mass is 23+10n+18. ALL other cells are white. There is no intervention,
 recolouring, external controller, infinite prelaid track, or deletion of residue.
 The complete checkpoint profiles are retained in
-[the declarative witness](../../experiments/hc_global/silent_archive_amplification/witness.json);
+[the declarative witness](../verification/silent_archive_amplification/witness.json);
 (3) gives the same meaning to each one. The checker proves their equality to the
 literal endpoints on the whole lattice, including cells never read in a block.
 
@@ -346,11 +328,7 @@ Separately, a vector-rotation Python simulator and a heading-based C++ simulator
 check 101 complete inputs (n=1,...,96,127,128,255,512,1000). Each performs
 526,718 literal updates, 303 complete checkpoint comparisons and 13,558 selected
 lifetime checks. Their complete rows agree. Eight damaged witnesses are rejected.
-Both implementations were written in this session; this is algorithmic
-independence, not independent mathematical review.
 
 The source hashes, arrangement hash and deterministic report are retained.
-The affine coverage argument itself is unformalized. No old repository-wide
-regression, Lean build, publication release, or old exhaustive wake search is
-represented as newly run. The full-family future after the checked prefix is
+The affine coverage argument itself is unformalized.  The full-family future after the checked prefix is
 explicitly outside the claim.

@@ -1,17 +1,13 @@
-# Verification for Finite-Memory Prediction and Remote Feedback in Langton’s Ant
+# Reproduction and certificate scope
 
-[Source provenance](import-2026-10-15.json) pins the imported research commit and per-file SHA256 values.
-[15 October full replay](review-2026-10-15.json) records the checks actually executed for this candidate.
-Imported reports within `verification/` are retained historical evidence, not additional fresh runs.
-The manuscript supplies the universal reductions; the exact programs check their finite premises.
-No new Lean build or external mathematical review is claimed by these reports.
+The analytic finite-memory predictor is checked against literal dynamics.
+Exact arithmetic-segment XOR representations preserve every skipped write.
+The modules cover stale-memory events, symbolic continuation, event geometry,
+remote feedback, the twenty-cell family and birth-filtered queries.
+`--extensions-only` selects birth-filtered feedback; the default covers all six.
 
-Run `python3 memory_feedback/reproduce.py --output-report /tmp/memory_feedback-review.json`.
+```sh
+python3 memory_feedback/reproduce.py
+```
 
-## 16 October additions
-
-[Import manifest](import-2026-10-16.json) pins research `2f6010a` and every
-copied file. [New-module replay](review-2026-10-16.json) records only the new
-scoped checks. The full archive check is linked from the project release index.
-All-parameter coverage remains an analytic argument; implementation controls
-and finite certificates are not described as an external mathematical review.
+[Proof dependencies](../PROOF.md) · [Source file hashes](../sources.json)

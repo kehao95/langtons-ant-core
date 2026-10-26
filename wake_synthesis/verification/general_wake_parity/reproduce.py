@@ -13,7 +13,7 @@ import tempfile
 
 HERE = Path(__file__).resolve().parent
 SOURCES = ('screen.py', 'family.py', 'audit.py', 'independent.cpp',
-           'reproduce.py', 'PROOF.md', 'README.md', 'paper.tex')
+           'reproduce.py', 'PROOF.md', 'README.md')
 FLAGS = ('-std=c++17', '-O2', '-Wall', '-Wextra', '-Werror', '-pedantic',
          '-fsanitize=undefined', '-fno-sanitize-recover=all')
 

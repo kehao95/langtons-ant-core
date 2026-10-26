@@ -50,4 +50,4 @@ marker correctness also has direct expected-set checks and an exhaustive Boolean
 truth table; a timed-out original standard matcher is not claimed to have passed.
 Timing is for the named query, excluding common schema construction. Peak RSS is
 for the entire fresh worker, not additional query memory. Count speedups are NOT
-end-to-end global solver speedups. See [proof and scope](../../../proof/results/defect-compiler-optimization.md).
+end-to-end global solver speedups. See [proof and scope](../../proof/defect-compiler-optimization.md).

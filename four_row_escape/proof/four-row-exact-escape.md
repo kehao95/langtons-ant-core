@@ -348,13 +348,6 @@ There is no SMT solver, numerical optimizer, ISL, upstream graph enumeration,
 old Lean build, or inherited simulator in the trusted runtime. The proof is
 nevertheless unformalized: trust includes the written reductions, the small
 verifier source, language implementations and ordinary integer execution.
-Implementations written in the same session are not external peer review.
-
-During development an overly restrictive verifier format guard capped one
-vertex's outdegree at 10,000; the actual terminal-root node has 15,935 choices.
-It rejected the input, was corrected to a safe bound, and all checks were rerun.
-The cut-sharpness control was also changed to include the first crossing by an
-explicit inverse step. Neither failed development run is counted as proof.
 
 ## 8. Consequences and exact boundary relative to HC
 

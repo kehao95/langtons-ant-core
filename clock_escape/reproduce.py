@@ -11,13 +11,13 @@ import tempfile
 
 HERE=Path(__file__).resolve().parent
 EVIDENCE=HERE/'evidence'
-EVIDENCE.mkdir(exist_ok=True)
+
 
 
 def run(args, logfile=None, cwd=HERE):
     p=subprocess.run(args,cwd=cwd,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     if logfile is not None:
-        (EVIDENCE/logfile).write_text(p.stdout)
+        (OUTPUT/logfile).write_text(p.stdout)
     if p.returncode:
         print(p.stdout)
         raise SystemExit(p.returncode)
@@ -44,7 +44,7 @@ def run_critical():
               'original_report_reproduced_byte_for_byte': True,
               'independent_laurent_audit_reproduced_byte_for_byte': True,
               'new_lean_formalization': False}
-    (evidence / 'reproduction.json').write_text(json.dumps(report, indent=2) + '\n')
+    (OUTPUT / 'critical-reproduction.json').write_text(json.dumps(report, indent=2) + '\n')
 
 
 def run_integer():
@@ -61,14 +61,18 @@ def run_integer():
             print(f'Integer {script}: PASS')
 
 
-def main():
+def verify():
+    global OUTPUT
     parser = argparse.ArgumentParser(description=__doc__)
     scope = parser.add_mutually_exclusive_group()
     scope.add_argument('--integer-only', action='store_true',
                        help='verify the integer clock and stronger square bound')
     scope.add_argument('--critical-only', action='store_true',
                         help='verify only the new critical-potential strengthening')
+    parser.add_argument('--output-dir', type=Path, help='retain generated checks outside the source tree')
     args = parser.parse_args()
+    OUTPUT = args.output_dir.resolve() if args.output_dir else Path(output_tmp)
+    OUTPUT.mkdir(parents=True, exist_ok=True)
     if sys.flags.optimize:
         raise SystemExit('Do not use -O')
     if not args.critical_only:
@@ -78,7 +82,8 @@ def main():
     run_critical()
     if args.critical_only:
         return
-    run([sys.executable,str(HERE/'verification/check.py')])
+    result=subprocess.run([sys.executable,str(HERE/'verification/check.py')],capture_output=True,check=True)
+    assert json.loads(result.stdout)==json.loads((EVIDENCE/'independent.json').read_text())
     baseline=HERE/'verification/baseline/diagonal_clock.py'
     checker=HERE/'verification/check_clock_paper.py'
     baseline_files=['diagonal_clock.py','check_orbit_decider.py',
@@ -90,11 +95,11 @@ def main():
             shutil.copy2(baseline.parent/filename,root/'baseline'/filename)
         shutil.copy2(checker,root/'check_legacy.py')
         run([sys.executable,str(root/'check_legacy.py')],cwd=root)
-        shutil.copy2(root/'clock_check_results.json',EVIDENCE/'legacy.json')
+        shutil.copy2(root/'clock_check_results.json',OUTPUT/'legacy.json')
         for script, output in [('check_orbit_decider.py','orbit_decider_checks.json'),
                                ('check_affine_certificates.py','affine_certificate_checks.json')]:
             run([sys.executable,str(root/'baseline'/script)],cwd=root/'baseline')
-            shutil.copy2(root/'baseline'/output,EVIDENCE/output)
+            shutil.copy2(root/'baseline'/output,OUTPUT/output)
     pin=(HERE/'lean/lean-toolchain').read_text().strip()
     lean=shutil.which('lean')
     if not lean:
@@ -103,14 +108,15 @@ def main():
     if 'version 4.30.0' not in version:
         raise SystemExit('Expected Lean 4.30.0, got '+version)
     run([lean,'ClockLemmas.lean'],'lean.log',HERE/'lean')
-    if any(x in (EVIDENCE/'lean.log').read_text() for x in ('sorryAx','ofReduceBool','error:')):
+    if any(x in (OUTPUT/'lean.log').read_text() for x in ('sorryAx','ofReduceBool','error:')):
         raise SystemExit('Unexpected trust dependency in local clock lemmas')
     sources=[HERE/'paper/main.tex',HERE/'lean/ClockLemmas.lean',HERE/'verification/check.py',checker]+[baseline.parent/p for p in baseline_files]
     report={'schema':'clock-reproduction-v1','python':sys.version,'lean':version,
             'sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
-            'full_ant_formalization':False,'third_party_review':False}
-    (EVIDENCE/'reproduction.json').write_text(json.dumps(report,indent=2)+'\n')
+            'full_ant_formalization':False}
+    (OUTPUT/'reproduction.json').write_text(json.dumps(report,indent=2)+'\n')
     print('Clock evidence passed: independent graph, legacy replay, kernel-checked local lemmas.')
 
 if __name__=='__main__':
-    main()
+    with tempfile.TemporaryDirectory(prefix='clock-output-') as output_tmp:
+        verify()

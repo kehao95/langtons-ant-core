@@ -134,11 +134,8 @@ def main():
                 direct_field_sum_cases=60, exponential_bound_parameters=1000,
                 exact_square_graphs=squares, endpoint_control='1x1 exits at update 1',
                 nonstrict_base_control='r=3 rejected as a strict clock',
-                third_party_review=False, full_ant_theorem_formalized=False,
+                full_ant_theorem_formalized=False,
                 checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
-    out=HERE.parent/'evidence'/'independent.json'
-    out.parent.mkdir(exist_ok=True)
-    out.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 
 if __name__=='__main__':

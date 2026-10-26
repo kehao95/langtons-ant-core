@@ -48,7 +48,7 @@ The shortened proof is therefore:
 
 For h=-7 use the twenty completed normalized cases in the original thin-wake
 archive, with cap 168 and its original exact-event coverage proof. For h=-3
-invoke [standard-layer-profile uniqueness](standard-layer-profile-uniqueness.md),
+invoke [standard-layer-profile uniqueness](layer-profile.md),
 which already covers all longitudinal residue assignments without a period
 premise. Its proof is not repeated here. Merely passing mixed parity would
 NOT permit replacing either of these remaining arguments.
@@ -100,6 +100,3 @@ pairs in both coordinate conventions for all 1280 thin masks, tests the
 closed general formula, and retains formal growth-eight and full-drift controls.
 It emits the report to stdout and does not modify existing certificates.
 The all-k conclusion is proved in Section 3, not extrapolated from finite tests.
-No old native search, old Lean theorem, public manuscript or external review
-is claimed to have been rerun. This is proof refactoring plus an elementary
-family consequence, not a new full-drift classification.

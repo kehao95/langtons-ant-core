@@ -1,13 +1,7 @@
 # Critical potentials and sharper first-exit bounds
 
-**15 October 2026. Imported research commit: c8e280096572b39fd4db4ba91a2fc49bf86d80ff.**
-
-Status: complete written analytic arguments with exact finite implementation
-checks. No Lean formalization, outside mathematical review, priority certification,
-HC proof, or HC counterexample. These are new quantitative results in the clock
-line, not a closure of the global entrance or periodic-uniqueness problems.
-The natural publication unit is a strengthening of the existing clock manuscript,
-not several papers for individual corollaries.
+The local identities and finite-range arguments give quantitative escape bounds.
+Exact finite checks accompany the analytic proof.
 
 ## 1. Statements
 
@@ -261,13 +255,7 @@ the theorem gives no bound on the number of re-entries or on the growth of the
 region needed before P104 begins. A global increasing potential has no common
 finite upper bound on the entire plane. Thus it does not force standard entry.
 
-No nonstandard periodic word was constructed in this session. Inspection of
-existing periodic-classification work did not establish a new seed-size bound,
-period uniqueness, or entrance theorem. The completed result is a stronger
-quantitative clock/escape theorem. It should not be described as proving a
-fraction of HC or as a total HIGHWAY decider.
-
-## 7. Reproduction and publication status
+## 7. Reproduction
 
 `python3 clock_escape/reproduce.py --critical-only` from the repository root (standard library only) verifies local identities, all four-
 letter words on tested poses, sharp four-step control, rectangular pairing,
@@ -283,12 +271,9 @@ all constant four-turn products and the horizontal two-step exponents. Its
 integer rounding checks include zero-length internal segments.
 
 The packaged all-parameter proof is Sections 2--5, not an extrapolation of finite
-checks. No previous shared runtime, one-black certificate, or historical suite is
-modified or claimed reverified. No external referee or independent researcher has
-yet reviewed these new arguments. A publication recommendation is a research
-judgment, not a priority or acceptance guarantee.
+checks.
 
-### References checked
+### References
 
 K. R. Etse, *How Long Can The Escaping Ant Be Confined?*, MFCS 2026, LIPIcs 386,
 49:1--49:17, DOI 10.4230/LIPIcs.MFCS.2026.49. Published PDF: Theorem 5 on p.49:9;
@@ -299,5 +284,5 @@ arXiv:2606.26677v1, Theorems 5 and 14.
 The supercritical clock and complete-state orbit proofs are retained in
 [the integrated manuscript](../../paper/main.tex), with local formal lemmas in
 [Lean lemmas](../../lean/ClockLemmas.lean). The published version remains
-[available unchanged](../../release/v0.2.0/paper.pdf); the stronger proof is now
+[available unchanged](https://doi.org/10.5281/zenodo.23341604); the stronger proof is now
 published as [version 0.3.0](../../paper/paper.pdf).

@@ -1,7 +1,6 @@
 # Exact standard-defect macros through non-simple transient components
 
-**Research date: 15 October 2026. Initial parent read: `228a0902dac69651e1e6aec75b080fee650ee29f`.**
-Evidence: analytic coverage and geometric arguments, a complete finite lifted-graph certificate checked by Python and independently by C++, and exact full-state controls. No Lean formalization, external mathematical review, priority determination, HC proof, or finite HC counterexample. Later concurrent work is preserved when this package is committed.
+Evidence: analytic coverage and geometric arguments, a complete finite lifted-graph certificate checked by Python and independently by C++, and exact full-state controls. No Lean formalization, external mathematical review, priority determination, HC proof, or finite HC counterexample.
 
 ## 1. Literal target and results
 
@@ -156,7 +155,7 @@ A tempting shortcut was to equate absence of J10 with the standard 116-step blac
 
 The new graph rank avoids that shortcut. It counts physical fold starts within an H traversal, not black age, black mass, or the number of all future J10 events.
 
-Run `python scripts/check_ten_event_macro.py`. The disposable replay reconstructs the old pinned input witnesses only as necessary, then checks the new lifted graph, independently compiles the new C++ checker, compares the complete edge/rank hashes, rejects damaged rank and missing-word controls, and checks exact event times AND complete endpoint fields. Actual counts are recorded in checked_report.json. No old singleton, clock proof, large wake enumeration, broad repository suite or outside review is represented as rerun.
+Run `python scripts/check_ten_event_macro.py`. The disposable replay reconstructs the old pinned input witnesses only as necessary, then checks the new lifted graph, independently compiles the new C++ checker, compares the complete edge/rank hashes, rejects damaged rank and missing-word controls, and checks exact event times AND complete endpoint fields. Actual counts are recorded in checked_report.json.
 
 The sparse 28-black remote-marker family at distance parameter n is returned at its exact first event 104n-92, including n=10^60, with 34 literal main-orbit updates and one plan in this implementation. Equality of its returned field with a separate direct periodic-write construction is EXTENSIONAL XOR equality, not equality of expression lists. The capped 24-mode finite family at n=10^60 is certified event-free through its long transient using two plans and 138 ordinary updates, from a 45-term mature input. It has enormous but finite support. The unprotected finite 28-rail also returns its first event rather than being confused with an infinite black background.
 

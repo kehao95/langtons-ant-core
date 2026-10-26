@@ -1,7 +1,5 @@
 # A twenty-cell one-shot feedback circuit and a failed global closure
 
-**15 October 2026. Base: `7a8101ee9827d2f060853e70a2804c0fd5c9117e`.**
-
 Evidence: analytic all-parameter arguments plus regenerated integer inequality
 certificates, exact finite dynamics, and two all-future checks. Not Lean-formalized,
 externally reviewed, or a publication-priority claim. This proves a positive
@@ -45,7 +43,7 @@ The literal rule is white/right, black/left, toggle then move, on Z^2. A state
 at time t precedes update t. Headings are N,E,S,W=0,1,2,3. All unspecified input
 cells are white.
 
-Use the already certified [outgoing four-cell port](four-cell-outgoing-port.md)
+Use the already certified [outgoing four-cell port](../../four_cell_port/PROOF.md)
 
     G={(0,-1),(1,1),(1,3),(2,2)}
 
@@ -299,9 +297,9 @@ event deadline explicitly includes input diameter and is fully consistent with
 these linear-in-n delays. Nor does this show that one fixed seed has unbounded
 lifetimes, or refute a uniform bound on event count for each input.
 
-### The same obstruction for the concurrent J10 event
+### The same obstruction for the J10 event
 
-The concurrent factor-language import defines L10 as the ten-letter cyclic
+The factor-language article defines L10 as the ten-letter cyclic
 factors of U, and J10 as a true ten-turn window outside L10. We use only this
 definition, not its separate rigidity theorem. There are 84 allowed factors.
 On every X_n the number of J10 events strictly in (60,e) is exactly **264**.
@@ -319,7 +317,7 @@ the interior count.
 Thus a bound using only J10 count and initial black count cannot bound this
 newly created lifetime's age either. This does NOT refute a bound on the TOTAL
 number of J10 events as a function of the complete input; that is a different
-potential route to HC. The concurrent import and its evidence remain unchanged.
+potential route to HC.
 
 ## 6. Relation to HC and the exact remaining closure
 
@@ -356,5 +354,4 @@ blocker rejection and retained off-trace marker. A parameter 2*10^60 is handled
 by the proved formulas and twenty coordinates, not by a purported literal run.
 
 The generic coverage and coupling are the written proofs above. These finite
-controls are not an enumeration of arbitrary seeds. No older Lean build, all-
-repository regression, large wake enumeration or external review is claimed.
+controls are not an enumeration of arbitrary seeds.

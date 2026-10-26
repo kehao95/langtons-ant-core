@@ -2,26 +2,21 @@
 
 Thin-wake rigidity derives the standard layer profile and all longitudinal residues from full drift (2,-2), growth twelve, width ten and at most one odd class on each interior level. General non-axis wake budgets and inverse synthesis remain.
 
-## Integrated results — 16 October 2026
+## Constructions and algorithms
 
-Version 0.3.0 absorbs the general non-axis quadratic wake character,
+The article includes the general non-axis quadratic wake character,
 its polynomial-bit-time evaluator and all-scale growth-eight exclusion family.
 The unit-diagonal exclusion now has a purely analytic layer-forcing proof.
 The special `(2,-2)` mixed-wake identity analytically removes three of the five
 thin-profile cases; the original complete classification remains available.
 These results are integrated into the paper and its `--extensions-only` replay.
-The [profile replay](PROFILE_REPLAY.md) remains bundled for the alternate
+The [profile proof](PROFILE_CLASSIFICATION.md) remains bundled for the alternate
 shortened classification route. [Current proof map](PROOF.md).
 
-## Manuscript and status
+## Article
 
-Version **0.3.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665515). [Manuscript](paper/main.tex) ·
-[Proof dependencies](PROOF.md) · [New-module verification](evidence/consolidation-replay.json) ·
-[Release and artifacts](release/README.md).
-
-Record [23665515](https://doi.org/10.5281/zenodo.23665515) updates
-[23405441](https://doi.org/10.5281/zenodo.23405441) in the existing concept
-**23402421**. Earlier published files are preserved.
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
+[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
 
 ## Exact scope
 
@@ -30,7 +25,7 @@ The theorem classifies periodic traces under the stated drift, growth, width and
 ## Reproduce
 
 ```sh
-python3 wake_synthesis/reproduce.py --output-report /tmp/wake_synthesis-review.json
+python3 wake_synthesis/reproduce.py --output-report /tmp/wake_synthesis-checks.json
 make -C wake_synthesis/paper
 ```
 
@@ -38,5 +33,5 @@ Run from the repository root, using Python 3.10+ without `-O`. Checks use dispos
 
 Default replay covers the full 76-case/83-job classification, its 90,158-edge upper certificate, and the retained standard-wake/general-synthesis checks. `--quick` skips the 76-case exhaustion but still rebuilds its upper graph, all count tables and controls. `--jobs 4` controls native concurrency. `--baseline` additionally repeats the older exact enumerators.
 
-Use `--extensions-only` to replay just the 16 October additions. The default
+Use `--extensions-only` to replay the periodic arithmetic modules. The default
 continues to cover the complete main-paper dependency chain.

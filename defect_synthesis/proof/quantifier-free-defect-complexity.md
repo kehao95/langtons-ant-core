@@ -1,6 +1,5 @@
 # Quantifier-free defect synthesis and a polynomial witness bound
 
-**Research date: 15 October 2026. Mathematical/code base:**
 `f74b09bd3329d7b83fcf323fc580f5a1320fcd48`.
 The later `6afea97c2a8a26d03b2bf89de9d23a87d64a31e0` resource-spectrum and
 silent-recovery imports are preserved; their sources are not modified or rerun.

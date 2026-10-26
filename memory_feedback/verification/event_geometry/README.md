@@ -10,6 +10,4 @@ python scripts/check_stale_event_geometry.py
 
 The runner checks pinned existing symbolic dependencies and works in a temporary
 copy. The all-input arguments are analytic and unformalized; finite checks do
-not prove global nonuniversality or supply a total event budget. The original
-attachment and its preparation-only publication notes are preserved by the
-integration provenance record.
+not prove global nonuniversality or supply a total event budget.

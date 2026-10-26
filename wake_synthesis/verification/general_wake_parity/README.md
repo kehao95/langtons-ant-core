@@ -17,7 +17,7 @@ The application excludes an explicit growth-eight, drift-`(3,1)` family at
 arbitrarily large transverse span. Its 32-run symbolic identity holds for every
 integer parameter `n>=1`, not just sampled sizes.
 
-[Full proof and attribution](PROOF.md) · [Independent manuscript](paper.tex) ·
+[Full proof and attribution](PROOF.md) · [Independent manuscript](../../paper/main.tex) ·
 [Exact replay](evidence/full_replay.json). Jillhewar's stable-order criterion,
 signed residues and rank-factorization method, and the project's earlier
 `(2,-2)` mixed-wake formula retain their attribution. The contribution is the
@@ -50,4 +50,4 @@ certifies all minimum/maximum branches over `n>=1` symbolically.
 
 This concerns HC's periodic-classification side, not the entry/convergence
 problem. It proves neither HC nor existence or impossibility of every growth-eight
-highway. This draft is not an authorization to post a preprint or submit a journal.
+highway.

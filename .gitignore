@@ -4,16 +4,8 @@ __pycache__/
 .lake/
 lake-manifest.json
 
-# Rebuilt manuscripts; published PDFs live directly in each paper/ directory.
+# Generated article builds.
 **/paper/build/
-**/release/candidate/
-
-# Editorial records and preparation history belong outside this public tree.
-PREPRINT_REVIEW.md
-**/paper/review/
-**/release/revisions/
-**/release/v*/revisions/
-**/release/candidate-manifest.json
 
 # Static proof-lab dependencies and assembled deployment.
 docs/node_modules/

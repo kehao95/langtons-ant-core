@@ -58,8 +58,8 @@ The critical bounds have exact algebraic checks. Lean covers the supercritical
 local identities and telescoping; the critical proofs are analytic.
 
 The comparison with Etse's Theorem 12 uses its parity-dependent degrees;
-see [literature](../../paper/LITERATURE.md). The degree comparison for H>=6
+see [article bibliography](../../paper/main.tex). The degree comparison for H>=6
 concerns asymptotic growth at fixed height.
 
-The critical results appear in [clock 0.3.0](../../release/v0.3.0/publication-receipt.json).
+The critical results appear in [archived editions](../../release/README.md).
 The stronger integer-clock bound appears in [clock 0.4.0](../../release/README.md).

@@ -399,8 +399,3 @@ missing source bulk bit, and a marker 10^60 tail epochs away are rejected.
 An off-trace marker is retained and correctly accepted. Six hundred exact
 first-contact queries match finite traces; a 10^60 input-parameter/epoch control
 uses only finite integer formulas, not literal simulation through that time.
-
-The proof itself is unformalized. No older theorem's evidence level is upgraded;
-no old broad test suite, old Lean build, publication release, or priority claim
-is made. Remote persistence is a separate operation and must be reported using
-an actually confirmed remote commit, not this document's existence.

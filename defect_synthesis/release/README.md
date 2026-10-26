@@ -1,22 +1,12 @@
-# Release history
+# Publication
 
-## Version 0.1.0 — published 26 October 2026
+Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant
 
-Hao Ke, *Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant*.
+[Article PDF](../paper/paper.pdf) · [Source](../paper/) · [Reproduction](../README.md)
 
-[doi:10.5281/zenodo.23665499](https://doi.org/10.5281/zenodo.23665499) ·
-[Concept DOI](https://doi.org/10.5281/zenodo.23665498)
+The repository PDF is built from the accompanying article source. DOI links identify
+archived editions and their original supplementary files.
 
-First release: complete-field arithmetic synthesis, resource spectra and the restricted quantifier-free backend, with the generic Presburger tools attributed explicitly.
-
-- [Exact published PDF](v0.1.0/paper.pdf) and [source ZIP](v0.1.0/defect_synthesis-0.1.0-source.zip).
-- [Publication receipt](v0.1.0/publication-receipt.json) and [public record](v0.1.0/public-record.json).
-- [Source manifest](v0.1.0/prepared-source-manifest.json), [delivery hashes](v0.1.0/delivery-manifest.json) and [metadata](v0.1.0/metadata.json).
-- [Standalone verification](v0.1.0/standalone-check.json): isolated editorial rebuild with explicitly inherited mathematical replay.
-- [Literature and contribution review](../paper/LITERATURE.md).
-
-Artifact hashes identify the exact published files. Published PDFs and source
-archives are retained unchanged.
-
-The small-witness argument is analytic. Its original optional implementation
-archive remains unavailable; the supplied-schema checks and QF backend are included.
+| Version | Archived edition |
+|---|---|
+| 0.1.0 | [10.5281/zenodo.23665499](https://doi.org/10.5281/zenodo.23665499) |

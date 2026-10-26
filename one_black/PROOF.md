@@ -267,7 +267,6 @@ the prefix certificate, spectrum, and analytic Lean lemmas.
 `python3 one_black/reproduce.py` builds this closed theorem from the checked-in
 sources and witness tables.
 
-
 ## Fixed-standard-word bridge (2026-10-13)
 
 The exported `PermanentP104` predicate now combines observation recurrence

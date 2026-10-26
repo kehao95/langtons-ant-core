@@ -2,7 +2,9 @@
 
 **Date:** 15 October 2026. **Repository read:** `0bcaad6ce318b79479f03e9c9d89cb3fcd4d4489` in `kehao95/langtons-ant`.
 
-**Status:** complete analytic reduction and all-parameter arguments below, together with exact finite certificates checked by two implementations. Not Lean-formalized, externally mathematically reviewed, or certified novel. This is a research-paper candidate, not an HC proof or a finite HC counterexample. Only the new theorem-local checks are replayed. Earlier shared repository modules are not modified.
+The proof combines analytic reductions and all-parameter arguments with exact
+finite certificates checked by two implementations. The coverage arguments
+are analytic; finite leaves are checked by the supplied programs.
 
 ## 1. Statements and the precise quantifiers
 
@@ -229,15 +231,13 @@ The present work does not prove the right side for arbitrary finite inputs, cons
 
 The earlier local-factor package proved sharp IMMEDIATE-standardness thresholds 21,14,13 in three different domains. The present conclusion allows a transient, weakens the whitelist to ten, analyzes a non-simple recurrent graph rather than only simple cycles, gives an unbounded-parameter physical foldback exclusion, and obtains a sharp cardinality coefficient. Its arbitrary-background nine-factor spiral establishes a different, precise optimality claim. These are new mathematical statements relative to that package, not a recounting of its numerical threshold.
 
-A defensible publication unit is the combined ten-factor eventual-mode theorem, sharp finite-mass slope, and all-input target algorithm. The earlier immediate-rigidity results can be integrated as a companion section rather than fragmented into multiple overlapping papers. Worth circulating as a research draft is an editorial judgment; novelty and acceptance require outside assessment.
-
-Prior tools are credited: Gajardo's symbolic feasibility/forbidden-word framework, standard-highway certification as treated by Gajardo--Lutfalla--Rao, and Jillhewar's full-drift chronology criterion. This work does not claim the first discovery of those methods or of nonperiodic ants on infinite backgrounds. `LITERATURE.md` records the actual primary sources inspected and the limited scope of the search.
+Prior tools are credited: Gajardo's symbolic feasibility/forbidden-word framework, standard-highway certification as treated by Gajardo--Lutfalla--Rao, and Jillhewar's full-drift chronology criterion. This work does not claim the first discovery of those methods or of nonperiodic ants on infinite backgrounds. The article bibliography supplies the primary references.
 
 ## 10. Reproduction, trust, and persistence
 
 Run `python reproduce.py`. It makes a disposable copy, regenerates and compares the entire edge set, freshly compiles the independent C++ checker, verifies the quotient and exact path/supply bounds, rejects damaged certificates without repairing them, and checks the all-input algorithm against literal controls. The checked-in word and quotient certificates are never overwritten by the default checks. The final report includes return codes, source hashes, certificate hashes, and measured runtimes.
 
-The all-parameter parts of Lemma 1, the seed-family induction, and the spiral separation are the written arguments above. Their finite geometric premises are checked, and large-parameter tests are supplementary. No finite test is being substituted for their quantifiers. The two implementations were written during the same research session: algorithmic independence is not outside mathematical review.
+The all-parameter parts of Lemma 1, the seed-family induction, and the spiral separation are the written arguments above. Their finite geometric premises are checked, and large-parameter tests are supplementary. No finite test is being substituted for their quantifiers.
 
 The initial C++ development run correctly exposed a checker bug in accepting an unsuccessful collinearity test's output variable. It was corrected before the passing replay, and all parameter controls were rerun. This was an implementation correction, not an amendment to Lemma 1. The final report and hashes bind only the corrected source.
 

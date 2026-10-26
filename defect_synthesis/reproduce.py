@@ -11,12 +11,9 @@ def main():
     ap.add_argument('--new-results-only',action='store_true',help='replay only the quantifier-free backend')
     args=ap.parse_args()
     if not __debug__: ap.error('Run without Python -O')
-    imported=json.loads((ROOT/'evidence/import-consolidation-2026-10-16.json').read_text())
-    for row in imported['files']:
-        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
-    current=json.loads((ROOT/'evidence/import-2026-10-20.json').read_text())
-    for row in current['files']:
-        assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['sha256'],row['destination']
+    sources=json.loads((ROOT/'sources.json').read_text())['sha256']
+    for name, digest in sources.items():
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
     stages=[]
     tasks=[('presburger_defects',['check.py','--compare','report.json']),
            ('defect_resource_spectrum',['reproduce.py']),
@@ -44,12 +41,12 @@ def main():
                            'seconds':round(time.monotonic()-start,3),'result':actual[part],
                            'solver_version':actual['solver_version']})
             print('presburger_fast/'+part+': PASS',flush=True)
-    report={'status':'passed','source_commit':current['source_commit'],
+    report={'status':'passed',
             'scope':'new-results-only' if args.new_results_only else 'full',
             'completed_utc':datetime.now(timezone.utc).isoformat(),'stages':stages,
             'all_coordinate_nonzero_budget_disjunction_expanded':False,
             'small_witness_proof':'analytic; original executable archive absent',
-            'source_sha256':{row['destination']:row['sha256'] for row in imported['files']+current['files']}}
+            'source_sha256':sources}
     if args.output_report:
         args.output_report.parent.mkdir(parents=True,exist_ok=True)
         args.output_report.write_text(json.dumps(report,indent=2)+'\n')

@@ -2,7 +2,7 @@
 
 15 October 2026. Mathematical base: `6afea97c2a8a26d03b2bf89de9d23a87d64a31e0`.
 
-**Status:** complete written analytic argument, not formalized or externally reviewed. This strengthens the existing all-coordinate fixed-defect semilinearity theorem; it is not a second claim to that result. The executable implementation was run locally, but two source-file write requests failed at the tool safety-status layer. This commit records the proof and does NOT claim that a runnable new module has been saved remotely. The full source, reports, six-page manuscript and standalone proof are retained in `langtons-ant-defect-small-witnesses-2026-10-15.zip` delivered with the research session. No existing source or concurrent result is overwritten.
+This is a written analytic proof of the small-witness bound and its complexity consequences.
 
 ## 1. Exact question and theorem
 
@@ -78,10 +78,8 @@ Short schemas plus small integer solutions are established methodology in flat-c
 
 A standard 17-black phase plus marker (-2n,-2n) executes W^n L at n=10^60+1, with one contained defect and 104n+1 updates. The compressed check uses105 phase types,366 phase-pair queries,1890 initial-point queries and168 constant-parity checks. It does not simulate 10^62 steps. Its three-parameter chamber has residues (1,62,62),29 guards and coefficient bound128. The same chamber contains (65,-130,-130), producing another 18-black input with exactly one defect in6761 updates. This is a changed source, not acceleration of the same physical run. The remote-marker mechanism is prior work; the chamber reduction is the new control.
 
-The final locally executed suite checks all156 library bodies,1152 intersections,1228 traces against an independent integer-vector simulator,10841 complete endpoint membership queries,300 summary-monoid cases,2000 raw chamber tests, a second two-loop chamber and explicit invalid-certificate controls. Reports regenerate byte for byte. No full nonzero-budget global schema search, new mu value, old broad regression, Lean build or external review is claimed.
+The final locally executed suite checks all156 library bodies,1152 intersections,1228 traces against an independent integer-vector simulator,10841 complete endpoint membership queries,300 summary-monoid cases,2000 raw chamber tests, a second two-loop chamber and explicit invalid-certificate controls. Reports regenerate byte for byte. These controls check supplied schemas; they do not enumerate the full nonzero-budget global cover.
 
 The result removes arbitrary coordinate magnitude from the SIZE of a positive finite-budget certificate. HC still requires finite event counts on each fixed input; mu(N)->infinity is not proved. Nonempty witness families can move with N without supplying one infinite counterexample. The theorem gives no total HIGHWAY decider and no nonstandard periodic or aperiodic seed.
 
 Before this direction a finite nine-factor experiment yielded a large nonsimple cyclic component; nine-factor finite-support attraction remains unproved. That experiment is not a premise here. The natural publication plan is to strengthen the existing fixed-defect manuscript, not to issue overlapping semilinearity claims.
-
-**Persistence boundary.** This proof note is the remote part of the current work. The full six-page draft, exact source, frozen checks and small-chamber data remain in the delivered standalone package because source-upload requests were blocked by the tool before a full module commit. Do not claim that a new repository replay command is available until those files are successfully installed. Concurrent research through the current branch is preserved.

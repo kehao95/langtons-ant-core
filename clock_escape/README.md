@@ -18,18 +18,9 @@ rectangular estimate.
 
 Hao Ke, *An Ant on the Clock: Exponential Escape Bounds for Langton's Ant*.
 
-- Published **0.4.0**: [Zenodo](https://doi.org/10.5281/zenodo.23402379),
-  [exact PDF](release/v0.4.0/paper.pdf), [source](paper/main.tex),
-  [proof](PROOF.md), [integer audit](evidence/integer/README.md).
-- Previous **0.3.0**: [Zenodo](https://doi.org/10.5281/zenodo.23401306),
-  [unchanged PDF](paper/paper.pdf), leading square coefficient 13/4.
-- Earlier **0.2.0**: [Zenodo](https://doi.org/10.5281/zenodo.23341604),
-  [unchanged PDF](release/v0.2.0/paper.pdf).
-- [Critical audit](evidence/critical/README.md), [literature](paper/LITERATURE.md),
-  [release records](release/README.md).
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
+[Verification](evidence/README.md) · [Archived editions](release/README.md)
 
-The publication remains in the existing concept DOI
-[10.5281/zenodo.23341603](https://doi.org/10.5281/zenodo.23341603).
 The new proofs are analytic with exact algebraic checks. Lean covers the
 supercritical local identities and telescoping retained in the appendix.
 

@@ -246,9 +246,5 @@ proves the theorem, with no global period or width bound. QED.
 
 ## 7. Integration note
 
-Sections 1-6 above preserve the mathematical proof from the previous-session
-unit-diagonal package. Its generator, independent verifier and controls are
-unchanged. The former external growth dependencies are now proved in the parent
-`../PROOF.md`; its Sections 2-5 close g>=8 and include new all-growth consequences.
-Run the parent `reproduce.py` for full isolated reconstruction and verification.
-The original standalone archive remains identified in `../PROVENANCE.json`.
+The unit-diagonal argument combines with the periodic-growth lemmas.
+The project reproduction entrypoint checks their exact certificates.

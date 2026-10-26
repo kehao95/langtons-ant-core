@@ -19,13 +19,6 @@ piecewise-affine first-black-cost refinement, and implements the finite-schema
 queries. The earlier `proof/semilinear-trace-lifting.md` treated fixed literal
 words, not words with unbounded power parameters.
 
-**Concurrent integration.** During preparation, commit
-`efe22a9f551b1c1670bf5741013beec11d3c8041` supplied a parallel implementation
-and proof of the same bounded-defect corollary. Those results are preserved,
-not counted twice. This package adds the supplied-schema resource spectrum and
-exact two-fold cost, and independently reconstructs its own arithmetic/flat-cover
-checks. See `INTEGRATION.md` for the shared and distinct contributions.
-
 ## 1. Literal model and principal theorem
 
 A complete state is `(B,p,h)`, with finite B in Z^2 and headings N,E,S,W. White
@@ -404,6 +397,3 @@ an allegedly completed HC decider.
   complete fixed-defect cover are essential extra premises.
 - S. Verdoolaege et al., *Integer Set Library manual*,
   https://libisl.sourceforge.io/user.html. Consulted 15 October 2026.
-
-No comprehensive literature-priority search, external review, DOI publication
-or journal submission was completed in this session.

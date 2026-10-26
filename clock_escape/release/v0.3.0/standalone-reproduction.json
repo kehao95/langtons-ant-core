@@ -1,7 +1,0 @@
-{
-  "status": "passed",
-  "archive_sha256": "99b779bbe24abdbc4a5912498e0d2f3df145efe0946368045de4d4b63bababb9",
-  "source_commit": "3bd30a8ca4343e9cc4bf80166d740a8714436840",
-  "files_verified": 31,
-  "complete_standalone_reproduction": true
-}

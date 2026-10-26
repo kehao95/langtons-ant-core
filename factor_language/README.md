@@ -2,7 +2,7 @@
 
 Ten-factor eventual modes; finite-mass entry at most 12m+212 with sharp slope; polynomial bit-time exact first-J10 macros with complete compressed endpoints and quadratic finite-event deadlines; and the all-input inequality 3(t-s)-26(|B_t|-|B_s|) <= 351 N10(s,t)+322 with sharp additive constant.
 
-## Finite-horizon and nine-factor additions — 20 October 2026
+## Finite intervals and nine-factor mass bounds
 
 Every finite physical ten-legal word has one contiguous standard core, with
 at most `114c+154693` remaining letters. Its length obeys
@@ -16,11 +16,11 @@ The separate nine-factor bound is `deficit <= 1004`, giving
 `deficit <= 1033 N9 + 1004` on all intervals. Finite eight-legal prefixes have
 unbounded deficit, proving nine is the least window for this type of mass bound.
 This does not lower the ten-factor threshold for arbitrary-colouring attraction.
-[Proof map](PROOF.md) · [New-module replay](evidence/replay-2026-10-20.json).
+[Proof map](PROOF.md) · [Verification](evidence/README.md).
 
-## Integrated results — 16 October 2026
+## Constructions and algorithms
 
-The revision adds [silent archive manufacture](proof/silent-archive-amplification.md):
+The construction gives [silent archive manufacture](proof/silent-archive-amplification.md):
 a complete `(10n+41)`-black family produces `2(n+1)` lifetimes during a
 J10-free prefix and consumes them later at J10 events. The related
 [folded ribbon](proof/silent-fold-reset.md) has exact first P104 time
@@ -28,39 +28,34 @@ J10-free prefix and consumes them later at J10 events. The related
 `max(0,4m-136)`. Their full-source geometry explains why the S_D endpoint
 tube does not transfer to J10. The two families have different seeds and recovery formulas; the reset bound belongs to the folded ribbon.
 
-## Consolidated results — 16 October 2026
+## Recovery and geometry
 
-The original `10n+41`-black producer now has complete all-parameter recovery:
+The original `10n+41`-black producer has complete all-parameter recovery:
 first entry is `550n+6714` for even `n>=10`, `712n+11087` for odd `n>=17`,
 with twelve explicitly checked remaining cases. Every finite ten-legal physical
 interval also lies in a single endpoint coordinate strip with padding 43;
 consecutive events localized in K have an axis-cross container with padding 44.
-[Current replay](evidence/consolidation-replay.json) covers both additions.
+[Verification](evidence/README.md) covers both additions.
 
-## Manuscript and status
+## Article
 
-Version **0.1.0** is [published on Zenodo](https://doi.org/10.5281/zenodo.23665478). [Manuscript](paper/main.tex) ·
-[Proof dependencies](PROOF.md) · [New-module verification](evidence/consolidation-replay.json) ·
-[Release and artifacts](release/README.md).
-
-The first preprint is record **23665478**. Its exact PDF, source archive and
-publication receipt are retained in [release/v0.1.0/](release/v0.1.0/).
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
+[Reproduction details](evidence/README.md) · [Archived editions](release/README.md)
 
 ## Exact scope
 
-The attraction bound assumes every future ten-window is legal. The mass–defect inequality applies to every finite-support orbit interval independently of that promise. The nine-legal counterexample to arbitrary-colouring attraction uses an infinite background. The eight-legal mass-deficit witnesses are finite prefixes realizable from finite support. Older 21/14/13 immediate thresholds await their full source package and are not dependencies.
+The attraction bound assumes every future ten-window is legal. The mass–defect inequality applies to every finite-support orbit interval independently of that promise. The nine-legal counterexample to arbitrary-colouring attraction uses an infinite background. The eight-legal mass-deficit witnesses are finite prefixes realizable from finite support.
 
 ## Reproduce
 
 ```sh
-python3 factor_language/reproduce.py --output-report /tmp/factor_language-review.json
+python3 factor_language/reproduce.py --output-report /tmp/factor_language-checks.json
 make -C factor_language/paper
 ```
 
 Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. A C++17 compiler is required. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
 
-Use `--new-results-only` for the 20 October silent-supply and nine-factor checks.
+Use `--new-results-only` for the silent-supply and nine-factor checks.
 `--extensions-only` skips the original attraction/event/mass kernels and runs
 all later additions. The default covers the complete main-paper chain.
-Original imported proof notes and module READMEs retain historical paths;
-these project entrypoints stage their dependencies in disposable directories.
+The entrypoints stage their dependencies in disposable directories.
