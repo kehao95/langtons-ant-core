@@ -1,15 +1,15 @@
 {
-  "base_commit": "733a5115ddbcc57a135ee9f1553b77f690a6d1e3",
+  "base_commit": "e51ea3c38dd60f93cb6fc3c71e5a6f706bdae833",
   "intended_action": "new-version",
-  "metadata_sha256": "37bdf84cdae32f9c9b094942621008e67a219fc63c50dc7777f30f1a4367d160",
+  "metadata_sha256": "e97c756c2c02248da699e6443a3bef58895cfbce9db2ea61a724a5b50cd2b8dd",
   "owner_approval_required": true,
   "pdf": {
     "path": "wake_synthesis/paper/build/paper.pdf",
-    "sha256": "b1fb0d09e360f494b7e7e048ef0378d8d55ccce0d003e4550dbef8d4a5a7378e"
+    "sha256": "3d244ee21dafc10dccc3c2e1745d97af07a08e18173055c01ae6c90ce665f062"
   },
   "project": "wake_synthesis",
   "schema": "local-preprint-candidate-v1",
-  "snapshot_sha256": "f717c1590c6b1a10d9a8036a2f7198443e5f03e93302e7329dda10fdfcc3c875",
+  "snapshot_sha256": "99a83da0331c0c59873ed93fec862a6671307f619f7653b029377e796ece3298",
   "source_sha256": {
     "wake_synthesis/PROFILE_CLASSIFICATION.md": "ab104363676e27b0210bbe77466d75e9031cc7dc366643a18be98634d813eac7",
     "wake_synthesis/PROFILE_REPLAY.md": "630193539bfe68918e3fe640ce219a7fb2fb37a85d7c7126db921ee8d7fa87d6",
@@ -48,9 +48,9 @@
     "wake_synthesis/evidence/standard_wake/provenance.json": "a1a15eda849d76780f528491d862a60f33feeb7ee9b8349884cb65240aa3c634",
     "wake_synthesis/evidence/standard_wake/rank-pruning.json": "144b7ed23b544d867670b297cbe5f9d378ed82c74c7058bad2159e6cf712399c",
     "wake_synthesis/evidence/standard_wake/upper-pruning.json": "3399534b8b2b2aa759ad5e1c8bac242f161ae8f6eaf9ee2996f9151f497a2562",
-    "wake_synthesis/paper/LITERATURE.md": "e8a2b77806890f41eea6c093f523192c1d0f01f837587c542b895becdc60a2d0",
+    "wake_synthesis/paper/LITERATURE.md": "9b463076b95cfbaafb9a9114153147545ca47aa59259b4ae461d3a54a07e9751",
     "wake_synthesis/paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
-    "wake_synthesis/paper/main.tex": "935a71a7a62d6b508e23af72f611ce50edf9abfee0b90473dd5c7668b7547954",
+    "wake_synthesis/paper/main.tex": "760e759f0286114ea49b36be0b6470867e71f4bb0b4c7760a3a0c40be089d5b4",
     "wake_synthesis/paper/mixed-wake.tex": "9854475e2ce5e3e9f7b697d03b979e2260c63edf86bd7e29113669e380b40160",
     "wake_synthesis/paper/quadratic-wake.tex": "ea0a7dd81510df7f9ed51d95d93dc10b3106ad753358b035e68e49b6672c28ef",
     "wake_synthesis/paper/unit-diagonal.tex": "7ab1d47ef37314c7e9be9dfb4098f469f53ca0270b9975ebb5caae19b55491a7",

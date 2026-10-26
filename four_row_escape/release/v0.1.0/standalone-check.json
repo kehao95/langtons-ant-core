@@ -2,38 +2,44 @@
   "status": "passed",
   "project": "four_row_escape",
   "version": "0.1.0",
-  "mode": "full",
+  "mode": "editorial-only",
   "inherited_full_replay": null,
-  "archive_sha256": "f91579cc1314b9ba49665109cf0f573671c598ee52282a8ccad4af9523c71578",
-  "source_snapshot_sha256": "598e8ff6c9db1ccfd8a653e67f6bae82e228e7442cd6ea3944bee57d3e235a1c",
-  "source_files_verified": 14,
+  "archive_sha256": "03232fe02370d8d060e9415b7dec0227c8d0ac4827beec8d92cc83408a7b920b",
+  "source_snapshot_sha256": "3c609b9bf74feaf78ba3afaa6bdf2283058026d1e66cee90cfb38c8b62861251",
+  "source_files_verified": 15,
   "no_research_checkout_dependency": true,
   "pdf_text_matches": true,
-  "pdf_text_sha256": "568541bd716b5fb7f0751f421b44f84827d32c106aef7ae654aa23cc94fcb782",
+  "pdf_text_sha256": "1ed9f1b860adf8fa6b1598966b7ee90c2afdda1dd952a2ca454965fa8d6e8fe6",
   "replay": {
-    "status": "passed",
-    "scope": "complete four-row certificate",
-    "source_commit": "16b9b465a291933d0229f8febf180fcc3be7fddc",
-    "completed_utc": "2026-10-21T00:28:30.599081+00:00",
-    "seconds": 12.051,
-    "result": {
-      "status": "passed",
-      "exact_formula": "34*n-150 for all n>=13",
-      "column_bound": 34,
-      "weighted_states": 21248,
-      "weighted_edges": 527764
-    },
-    "lean_formalized": false,
-    "external_review": false,
-    "source_sha256": {
-      "verification/four_row_boundary/README.md": "4f8785f8af8ca801c5c9c44b681c48e5e4c3fd1c2ee5e41cdd69a09377281f41",
-      "verification/four_row_boundary/check.py": "7181a5bb1c85e3ffb02659d1df17c8225564b2fd24755345a66bc8f6fa04a7d1",
-      "verification/four_row_boundary/core.py": "702fe4f6e12ceb18a9400d9476ac60db1e70c5589fb593009de054bacbcbd284",
-      "verification/four_row_boundary/report.json": "f6c7e2aa6eb26233726953fab3352fc07b55a56a5070eab0adcc67d82f79000e",
-      "verification/four_row_boundary/verify.cpp": "3b75dc06833b71f5a73642aea1f7fe930564a77eeadd495367a9a7f2fb665971",
-      "proof/four-row-exact-escape.md": "30fab6846a3a1226a41f73fb081e562ec6a809389390485dd9a716f65351cd79",
-      "evidence/upstream-main.tex": "b2f5185f3bcafeb811fedf58305076fda95c1051a73c0a53f61eff729c16d703"
-    }
+    "status": "not-rerun",
+    "scope": "Unchanged proof sources; see inherited_previous_replay."
   },
-  "completed_utc": "2026-10-21T00:28:31.607506+00:00"
+  "completed_utc": "2026-10-26T12:03:22.988911+00:00",
+  "inherited_previous_replay": {
+    "prior_report": "four_row_escape/release/v0.1.0/revisions/2026-10-26-before-literature-review/standalone-check.json",
+    "prior_report_sha256": "f21bda9b495d5321bb32ab5e0a8368d2031ef3719a015c88355af041634f4a13",
+    "prior_mode": "full",
+    "prior_completed_utc": "2026-10-21T00:28:31.607506+00:00",
+    "prior_archive_sha256": "f91579cc1314b9ba49665109cf0f573671c598ee52282a8ccad4af9523c71578",
+    "source_snapshot_sha256": "598e8ff6c9db1ccfd8a653e67f6bae82e228e7442cd6ea3944bee57d3e235a1c",
+    "unchanged_noneditorial_files": 11,
+    "source_sha256": {
+      "four_row_escape/PROOF.md": "cd60a060ecdbaeab46a3e03f4b6005c50b5be713f021dedacdfa77608f8809c4",
+      "four_row_escape/evidence/import-2026-10-20.json": "23e44a6763256b50dbcba80eb685702c0d05270e00c9ee9456f763d0cb010caa",
+      "four_row_escape/evidence/replay-2026-10-20.json": "26485cc88f7ebebebe5d295bc9024622054606c06a17f732e4e348cde77e085b",
+      "four_row_escape/evidence/upstream-main.tex": "b2f5185f3bcafeb811fedf58305076fda95c1051a73c0a53f61eff729c16d703",
+      "four_row_escape/proof/four-row-exact-escape.md": "30fab6846a3a1226a41f73fb081e562ec6a809389390485dd9a716f65351cd79",
+      "four_row_escape/reproduce.py": "4318c85c70b004408d1ad8e185f0bcf84dd3ff21fced21e6b08b56b785275294",
+      "four_row_escape/verification/four_row_boundary/README.md": "4f8785f8af8ca801c5c9c44b681c48e5e4c3fd1c2ee5e41cdd69a09377281f41",
+      "four_row_escape/verification/four_row_boundary/check.py": "7181a5bb1c85e3ffb02659d1df17c8225564b2fd24755345a66bc8f6fa04a7d1",
+      "four_row_escape/verification/four_row_boundary/core.py": "702fe4f6e12ceb18a9400d9476ac60db1e70c5589fb593009de054bacbcbd284",
+      "four_row_escape/verification/four_row_boundary/report.json": "f6c7e2aa6eb26233726953fab3352fc07b55a56a5070eab0adcc67d82f79000e",
+      "four_row_escape/verification/four_row_boundary/verify.cpp": "3b75dc06833b71f5a73642aea1f7fe930564a77eeadd495367a9a7f2fb665971"
+    },
+    "editorial_changes": [
+      "four_row_escape/paper/LITERATURE.md",
+      "four_row_escape/paper/main.tex"
+    ],
+    "scope": "PDF and archive rebuilt; proof replay inherited by exact source hashes. Paper prose requires separate review."
+  }
 }

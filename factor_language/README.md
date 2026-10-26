@@ -47,7 +47,7 @@ This project has no Zenodo record yet. Its first-release materials are local.
 
 ## Exact scope
 
-The attraction bound assumes every future ten-window is legal. The mass–defect inequality applies to every finite-support orbit interval independently of that promise. The nine-factor threshold example uses infinite background. Older 21/14/13 immediate thresholds await their full source package and are not dependencies.
+The attraction bound assumes every future ten-window is legal. The mass–defect inequality applies to every finite-support orbit interval independently of that promise. The nine-legal counterexample to arbitrary-colouring attraction uses an infinite background. The eight-legal mass-deficit witnesses are finite prefixes realizable from finite support. Older 21/14/13 immediate thresholds await their full source package and are not dependencies.
 
 ## Reproduce
 

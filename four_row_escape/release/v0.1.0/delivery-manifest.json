@@ -1,12 +1,12 @@
 {
   "files": {
     "Four-Row-Exact-Escape.pdf": {
-      "bytes": 306492,
-      "sha256": "92e1952951946879fd6d0bae8fb65d661ff270fca0c1f34bb3437448c3f55466"
+      "bytes": 306383,
+      "sha256": "b7c2cece36ee739354593905ed3aa4a70bd04193395a47cdfc6bbbdbc05678aa"
     },
     "four_row_escape-0.1.0-source.zip": {
-      "bytes": 56323,
-      "sha256": "f91579cc1314b9ba49665109cf0f573671c598ee52282a8ccad4af9523c71578"
+      "bytes": 57287,
+      "sha256": "03232fe02370d8d060e9415b7dec0227c8d0ac4827beec8d92cc83408a7b920b"
     }
   },
   "project": "four_row_escape",

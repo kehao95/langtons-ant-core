@@ -20,6 +20,23 @@ Versioned published PDFs, source manifests and download receipts are preserved.
 
 ## Contribution allocation
 
+The [26 October literature review](LITERATURE_REVIEW.md) now owns the current
+external comparison and six contribution decisions. Four-row foregrounds the
+all-width upper proof beyond Etse's existing lower construction. Factor owns
+physical local-language rigidity; defect owns complete-field arithmetic using
+attributed Presburger tools; memory owns specific event/feedback queries.
+Wake states uniqueness under its hypotheses within the width left by prior
+exclusions. Port states its sharp resource threshold and protected closure
+alongside earlier circuit composition.
+
+All six candidates have revised introductions and literature notes. Prior files
+are preserved under `revisions/2026-10-26-before-literature-review/`. The current
+standalone records certify isolated PDF/source rebuilds and hash inheritance of
+the earlier proof replays; no mathematical suite is claimed freshly rerun for
+this editorial change. Pending versions and existing DOI chains are retained.
+
+### Mathematical ownership retained from integration
+
 Wake derives the standard layer profile from interior thinness and three numerical
 invariants; prescribed-profile and complete-wake uniqueness become corollaries.
 General non-axis inverse synthesis stays in the same paper. The stronger thin-wake
@@ -38,7 +55,7 @@ The older immediate 21/14/13 thresholds await their complete original package.
 PG boundary budgets and the scalar cycle-rank obstruction remain research notes;
 they are not additional preprints or hidden premises of the new manuscripts.
 
-## Current integration — research 16b9b46
+## Mathematical integration of 20 October 2026 — research 16b9b46
 
 - Four-row escape is an independent 0.1.0 candidate. Its persistent interface,
   exact internal-pose maximum and affine induction resolve the published four-row
@@ -52,9 +69,9 @@ they are not additional preprints or hidden premises of the new manuscripts.
 - The one-bit archive is still absent. The restored QF backend is not the missing
   original small-witness implementation package.
 
-Three current PDF/source packages are checked without the research checkout.
+That integration checked three PDF/source packages without the research checkout.
 Earlier factor/defect snapshots are preserved under each version's
-`revisions/2026-10-20-before-integration/`. Other project packages are unchanged.
+`revisions/2026-10-20-before-integration/`. Other project packages were unchanged in that integration.
 [Fresh evidence and review](PREPRINT_REVIEW.md).
 
 ## Historical consolidation — research 9223766d
@@ -119,5 +136,6 @@ version is explicitly approved and published.
 
 Owner review of the six candidates, followed by any authorized Zenodo publication.
 Restore the original one-bit archive before preparing that additional release.
-External mathematical peer review, fuller literature comparison and journal
-selection remain subsequent work; no journal submission has been made.
+External mathematical peer review and journal selection remain subsequent work.
+Refresh the literature comparison if new sources appear before publication; no
+journal submission has been made.

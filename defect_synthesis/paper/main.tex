@@ -17,7 +17,7 @@
 \newcommand{\dom}{\operatorname{dom}}\newcommand{\ran}{\operatorname{ran}}
 \title{Counting Defects: Semilinear Reachability\\and Resource Bounds for Langton's Ant}
 \author{Hao Ke}
-\date{20 October 2026 --- Version 0.1.0}
+\date{26 October 2026 --- Version 0.1.0}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -83,11 +83,18 @@ Sections~\ref{sec:supply} and~\ref{sec:small} give the supply dichotomy and
 small-witness complexity theorem.
 
 Symbolic feasibility for ant words has an established history~\cite{gajardo}.
-Presburger descriptions of flat runs are likewise standard in verification
-\cite{flat,demri}. We use these tools to prove complete-field statements for
-the ant. The ten-factor rigidity and bounded-fold cover are supplied by the
-companion factor paper~\cite{project}; the arithmetic synthesis and resource
-spectra are the contributions developed here.
+The equivalence of Presburger descriptions and semilinear sets is classical
+\cite{ginsburg}. Flat-system verification already provides run schemas,
+small-witness arguments and quantifier-free counting encodings~\cite{flat,demri}.
+Our reduction supplies the additional physical semantics of the ant's complete
+mutable black field. The companion factor paper~\cite{project} supplies the
+bounded-fold exclusion and complete finite cover. Together these yield exact
+all-coordinate synthesis, ant-specific supply spectra and unary-budget NP
+membership. The restricted backend encodes spatial read/write parity as well
+as factor counts in polynomial size. Unary counting and piecewise-affine
+Presburger functions are established tools~\cite{counting,cluckers}; the
+explicit fold--consumer spectrum is an application with sharp ant-specific
+constants.
 
 \section{Consecutive reads without a parity-counting oracle}
 Fix a parameter tuple $\theta$ in a Presburger domain $D$. Suppose a prescribed
@@ -202,6 +209,9 @@ Defect end-times in a schema are Presburger: intersect shifted letter-time
 sets for each allowed factor and subtract their union from eligible times.
 This treats cross-block windows and zero powers exactly.
 
+The following standard counting fact combines unary counting elimination
+\cite[Theorem~5.4]{counting} with Presburger cell decomposition
+\cite[Theorem~1]{cluckers}. We give the elementary effective argument needed here.
 \begin{lemma}[Unary finite-fibre counting]\label{lem:count}
 For an effectively Presburger set $F\subseteq\Z^d\times\Z$ with finite fibres,
 $\theta\mapsto |F_\theta|$ is effectively rational-affine on the cells of a
@@ -399,8 +409,9 @@ mask intersections instead of 840. Exact set-equality controls compare the
 optimized queries with their baseline semantics. These improvements preserve
 the mathematical schema cover and the complete endpoint field.
 
+\clearpage
 \begingroup\small
-\begin{thebibliography}{9}\setlength{\itemsep}{1pt}
+\begin{thebibliography}{10}\setlength{\itemsep}{1pt}
 \bibitem{gajardo} A.~Gajardo. A symbolic projection of Langton's Ant.
 \emph{Discrete Mathematics \& Theoretical Computer Science}, DMCS'03, 2003.
 \href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
@@ -409,7 +420,8 @@ G.~Zetzsche. An efficient quantifier elimination procedure for Presburger
 arithmetic. \emph{ICALP 2024}, LIPIcs 297, 142:1--142:17.
 \href{https://doi.org/10.4230/LIPIcs.ICALP.2024.142}{doi:10.4230/LIPIcs.ICALP.2024.142}.
 \bibitem{flat} N.~Decker and A.~Pirogov. Flat model checking for counting LTL
-using quantifier-free Presburger arithmetic. 2019.
+using quantifier-free Presburger arithmetic. \emph{VMCAI 2019},
+LNCS 11388, 513--534, 2019.
 \href{https://arxiv.org/abs/1901.05692}{arXiv:1901.05692}.
 \bibitem{isl} S.~Verdoolaege et al. \emph{Integer Set Library manual}.
 \url{https://libisl.sourceforge.io/user.html}. Accessed 15 October 2026.
@@ -424,6 +436,17 @@ Verifying a solver for linear mixed integer arithmetic in Isabelle/HOL.
 Taming past LTL and flat counter systems.
 \emph{Information and Computation} 242, 306--339, 2015.
 \href{https://doi.org/10.1016/j.ic.2015.03.007}{doi:10.1016/j.ic.2015.03.007}.
+\bibitem{ginsburg} S.~Ginsburg and E.~H.~Spanier.
+Semigroups, Presburger formulas, and languages.
+\emph{Pacific Journal of Mathematics} 16(2), 285--296, 1966.
+\href{https://doi.org/10.2140/pjm.1966.16.285}{doi:10.2140/pjm.1966.16.285}.
+\bibitem{counting} N.~Schweikardt. Arithmetic, first-order logic, and counting
+quantifiers. \emph{ACM Transactions on Computational Logic} 6(3), 634--671, 2005.
+\href{https://doi.org/10.1145/1071596.1071602}{doi:10.1145/1071596.1071602}.
+Author version: \href{https://arxiv.org/abs/cs/0211022}{arXiv:cs/0211022}.
+\bibitem{cluckers} R.~Cluckers. Presburger sets and $p$-minimal fields.
+\emph{Journal of Symbolic Logic} 68(1), 153--162, 2003.
+\href{https://doi.org/10.2178/jsl/1045861509}{doi:10.2178/jsl/1045861509}.
 \end{thebibliography}
 \endgroup
 \end{document}

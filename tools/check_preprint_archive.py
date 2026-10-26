@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify an exact candidate ZIP in isolation, replay its checks, and rebuild its PDF."""
+"""Verify a candidate ZIP and PDF, with fresh or explicitly inherited proof checks."""
 import argparse, hashlib, json, os, subprocess, tempfile, zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,14 +10,45 @@ def main():
     parser.add_argument('--project',required=True,choices=('wake_synthesis','factor_language','memory_feedback','four_cell_port','defect_synthesis','four_row_escape'))
     parser.add_argument('--quick',action='store_true',help='wake only: omit the large thin-wake exclusion replay')
     parser.add_argument('--extensions-only',action='store_true',help='wake/factor: replay new modules and hash-match inherited fully replayed mathematical sources')
+    parser.add_argument('--editorial-from',type=Path,help='preserved candidate directory: rebuild PDF, inheriting proof replay only when all sources outside paper/ and the project README match')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
     if not __debug__: parser.error('Run without -O')
     if args.extensions_only and (args.project not in {'wake_synthesis','factor_language'} or args.quick): parser.error('--extensions-only is a separate wake/factor mode')
     if args.quick and args.project!='wake_synthesis': parser.error('--quick applies only to wake')
+    if args.editorial_from and (args.quick or args.extensions_only): parser.error('--editorial-from is a separate build-only mode')
     home=ROOT/args.project;manifest=json.loads((home/'release/candidate-manifest.json').read_text())
     archive=home/'release/candidate'/f"{args.project}-{manifest['version']}-source.zip"
     inherited=None
+    editorial=None
+    if args.editorial_from:
+        previous=args.editorial_from.resolve()
+        old=json.loads((previous/'prepared-source-manifest.json').read_text())
+        prior_report=previous/'standalone-check.json'
+        replay=json.loads(prior_report.read_text())
+        assert old['project']==args.project and old['version']==manifest['version']
+        assert replay['status']=='passed' and replay['mode'] in {'full','extensions-only'}
+        assert replay['source_snapshot_sha256']==old['snapshot_sha256']
+        old_archive=previous/f"{args.project}-{manifest['version']}-source.zip"
+        assert sha(old_archive.read_bytes())==replay['archive_sha256']
+        assert sha((previous/'paper.pdf').read_bytes())==old['pdf']['sha256']
+        def proof_sources(snapshot):
+            return {name:digest for name,digest in snapshot['source_sha256'].items()
+                    if not name.startswith(args.project+'/paper/')
+                    and name!=args.project+'/README.md'}
+        retained=proof_sources(old)
+        assert retained and retained==proof_sources(manifest),'Sources outside the editorial scope changed'
+        changed=sorted(name for name in old['source_sha256'].keys() | manifest['source_sha256'].keys()
+                       if old['source_sha256'].get(name)!=manifest['source_sha256'].get(name))
+        inherited=replay.get('inherited_full_replay')
+        editorial={'prior_report':str(prior_report.relative_to(ROOT)),
+                   'prior_report_sha256':sha(prior_report.read_bytes()),
+                   'prior_mode':replay['mode'],'prior_completed_utc':replay['completed_utc'],
+                   'prior_archive_sha256':replay['archive_sha256'],
+                   'source_snapshot_sha256':old['snapshot_sha256'],
+                   'unchanged_noneditorial_files':len(retained),'source_sha256':retained,
+                   'editorial_changes':changed,
+                   'scope':'PDF and archive rebuilt; proof replay inherited by exact source hashes. Paper prose requires separate review.'}
     if args.extensions_only:
         previous=home/'release'/('v'+manifest['version'])/'revisions/2026-10-15'
         old=json.loads((previous/'prepared-source-manifest.json').read_text())
@@ -51,8 +82,11 @@ def main():
         command=['python3',f'{args.project}/reproduce.py','--output-report',str(work/'fresh-report.json')]
         if args.quick: command.append('--quick')
         if args.extensions_only: command.append('--extensions-only')
-        print('Isolated replay:',args.project,flush=True)
-        subprocess.run(command,cwd=work,env=env,check=True)
+        if not editorial:
+            print('Isolated replay:',args.project,flush=True)
+            subprocess.run(command,cwd=work,env=env,check=True)
+        else:
+            print('Isolated editorial rebuild with inherited proof replay:',args.project,flush=True)
         subprocess.run(['make','-C',f'{args.project}/paper'],cwd=work,env=env,check=True,
                        stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
         pdf=work/args.project/'paper/build/paper.pdf'
@@ -63,14 +97,16 @@ def main():
         b=subprocess.check_output(['pdftotext',str(current),'-'])
         assert a==b,'Rebuilt PDF text differs'
         report={'status':'passed','project':args.project,'version':manifest['version'],
-                'mode':'extensions-only' if args.extensions_only else ('quick' if args.quick else 'full'),
+                'mode':'editorial-only' if editorial else ('extensions-only' if args.extensions_only else ('quick' if args.quick else 'full')),
                 'inherited_full_replay':inherited,'archive_sha256':sha(archive.read_bytes()),
                 'source_snapshot_sha256':manifest['snapshot_sha256'],
                 'source_files_verified':len(manifest['source_sha256']),
                 'no_research_checkout_dependency':True,'pdf_text_matches':True,
-                'pdf_text_sha256':sha(a),'replay':json.loads((work/'fresh-report.json').read_text()),
+                'pdf_text_sha256':sha(a),
+                'replay':{'status':'not-rerun','scope':'Unchanged proof sources; see inherited_previous_replay.'} if editorial else json.loads((work/'fresh-report.json').read_text()),
                 'completed_utc':datetime.now(timezone.utc).isoformat()}
+        if editorial: report['inherited_previous_replay']=editorial
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n')
-    print(args.project+': isolated archive replay and PDF rebuild PASS',flush=True)
+    print(args.project+(': isolated editorial archive and PDF rebuild PASS' if editorial else ': isolated archive replay and PDF rebuild PASS'),flush=True)
 if __name__=='__main__':main()

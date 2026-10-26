@@ -1,21 +1,25 @@
-# Primary-source attribution check
+# Literature and contribution review — 26 October 2026
 
-Checked 15 October 2026. The following primary sources were reread for this
-manuscript's attribution; this is a targeted check rather than a priority claim.
+The contribution concerns total, specific old-black and birth-filtered queries,
+complete physical continuation, quantitative geometry and remote feedback,
+with a fixed-mass/fixed-event-count lifetime obstruction.
 
-- Gajardo (2003), *A symbolic projection of Langton's Ant*, DMTCS AB, 57–68:
-  https://dmtcs.episciences.org/en/articles/2312/download . Symbolic projection,
-  consecutive-cell consistency and forbidden words are prior methodology.
-- Gajardo, Lutfalla and Rao (2024), *Ants on the highway*, version 1:
-  https://arxiv.org/html/2409.10124v1 . Background on reversibility,
-  unboundedness and highway certification; conventions are aligned explicitly.
-- Jillhewar (2026), *Finite-Support Periodic Highways of Langton's Ant*,
-  DOI 10.21203/rs.3.rs-10516269/v1, Theorem 3.1 and Remark 3.2:
-  https://atharva12456.github.io/langtons-ant-highway/paper.pdf . Full-drift
-  visit chronology and seed reconstruction are attributed to this source.
-- Ke (2026), clock/escape 0.4.0: https://doi.org/10.5281/zenodo.23402379 .
-  Clock and escape ownership remains with that paper.
+[Gajardo (2003)](https://dmtcs.episciences.org/en/articles/2312/download), Section 6,
+already discusses infinite memory effects. The twenty-cell result gives a
+particular uniform-bound obstruction with simultaneous constraints; the general
+observation that the ant remembers its past is background.
 
-The new contribution is the concrete theorem and its coverage argument, not
-use of forbidden words, a finite automaton, or supplied-word certification.
-Broader literature comparison and external mathematical review remain open.
+[Gajardo–Moreira–Goles (2002)](https://arxiv.org/html/nlin/0306022v2), Sections 1.3–3,
+is now cited for the distinct arbitrary-cell visitation problem and its circuit
+construction. Our input remains finite support, the queried predicate is S_D,
+and polynomial bit complexity fixes D and the spatial filter. The full-state
+output is needed to restart the query exactly. None of these statements decides
+the finiteness of the complete event chain.
+
+Use the [2025 journal version of Ants on the highway](https://doi.org/10.1007/s11047-025-10018-9)
+for generalized-ant context. Supplied-word chronology is attributed to
+[Jillhewar's fixed source](https://github.com/Atharva12456/langtons-ant-highway/blob/76a7e234e577d992d086c204c3dea00ae72cf10a/paper/main.tex),
+and the finite-region argument cites [clock 0.4.0](https://doi.org/10.5281/zenodo.23402379).
+Port owns protected scattering composition; this paper owns the twenty-black
+lifetime obstruction. The scoped searches found no matching earlier theorem
+with these simultaneous input, event and lifetime conditions.

@@ -1,15 +1,15 @@
 {
-  "base_commit": "7ed1162a02cdc6e14e5c91a6260dbcbc601662cf",
+  "base_commit": "e51ea3c38dd60f93cb6fc3c71e5a6f706bdae833",
   "intended_action": "first-release",
-  "metadata_sha256": "1fbb109491dfeacfab2145f8c4cb5e9d6cd518498e8cdf9b0388652438ea64de",
+  "metadata_sha256": "5c3b205ec1b23cbdd9054516bfe1e8e63ee100a6157e297264f69dc3f75bc264",
   "owner_approval_required": true,
   "pdf": {
     "path": "memory_feedback/paper/build/paper.pdf",
-    "sha256": "848f75039d1cbda79a6dbb4249faf2c266066659b0be4a1832c5aed052e16554"
+    "sha256": "d9d3e7a3dec35d4dc98f352cf6dc6c4fad2ae10a4ea115bb293f5665229b0ed1"
   },
   "project": "memory_feedback",
   "schema": "local-preprint-candidate-v1",
-  "snapshot_sha256": "8a6c1ca2ce2324bea3a941f8ef1ffedda173164d81d8a11be7223802b3cde7d9",
+  "snapshot_sha256": "3965e1704abe4ad1ea28b7bf1dbf7426b50bcb23a4935566e8d84a902e3885f4",
   "source_sha256": {
     "memory_feedback/PROOF.md": "d47f90eed4e810bbc27670504336186a50feae5d88a62ad80841b73e7a657e1b",
     "memory_feedback/README.md": "96cc745e5e42c679e61ac0054c86fbecdd858c9006d22e43e197f8398841ea6b",
@@ -18,10 +18,10 @@
     "memory_feedback/evidence/import-2026-10-16.json": "6db62ac03bd8da57ff54f74afb2395c85e4bfe651a41312ebe4c4253b79f2029",
     "memory_feedback/evidence/review-2026-10-15.json": "295c41b267385a0a00d41946e1059e950a09afc4abc13c3cd6a688209420e229",
     "memory_feedback/evidence/review-2026-10-16.json": "1d6ebe5c934402d7eb60b989f31b378c57932c3fda391d5db3121e158692991a",
-    "memory_feedback/paper/LITERATURE.md": "32e0bcaadbc9bc390bc23c9f14a65cc74596f849c48ca9ccef19b775f0f8aea4",
+    "memory_feedback/paper/LITERATURE.md": "c3a4783cb051ec2915057ce0dd5ebba81dd6aaaa9df872de54aea1c15cbfa45a",
     "memory_feedback/paper/Makefile": "a4a7c276edbf9e61a847ffaed4ffa3293cac26a2ef523b6f9bf939ed71ac3509",
     "memory_feedback/paper/birth-feedback.tex": "1fde58da4c61d04a693b21f0afb5153c333f013c94cd9a697bd9acda2b3e2866",
-    "memory_feedback/paper/main.tex": "f873a6f8db8e5a01dc5c6251c29bb3e5c7846f4529a40cfaeaa388320d14689b",
+    "memory_feedback/paper/main.tex": "740306cfaaf60f177e2de70ea833f87a369bf178c24419d0f01a39bce136effe",
     "memory_feedback/proof/birth-filtered-feedback.md": "f4c380ca9e25da2f4a5d0b5e592a3a8de62fda4bbd2e7410423a1e9b41e451c2",
     "memory_feedback/proof/remote-stale-feedback.md": "7525eb161466e56ecb8d19444669a2e201d68a070ed27eca01b4e92afed54eb4",
     "memory_feedback/proof/scalable-feedback-circuit.md": "1b2b1cffedd2115c3201b9582e374a18726337be7a7e28a84364b5fa902e0608",

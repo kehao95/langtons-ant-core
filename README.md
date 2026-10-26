@@ -18,7 +18,8 @@ prepared locally for review.
 | [Ports and scattering](four_cell_port/) | Sharp four-cell ports; arbitrary finite protected scattering trains, including unbounded return excursions and old-wake readback. | 0.2.0 prepared; [public 0.1.0](https://doi.org/10.5281/zenodo.23402414) |
 
 [Publication versions and packages](PREPRINTS.md) ·
-[Claim–evidence map and review](PREPRINT_REVIEW.md) · [Changes](CHANGELOG.md)
+[Claim–evidence map and review](PREPRINT_REVIEW.md) ·
+[Literature and contributions](LITERATURE_REVIEW.md) · [Changes](CHANGELOG.md)
 
 The current integration pins research `16b9b46`: four-row escape becomes an
 independent candidate, factor gains finite-horizon silent supply and nine-factor
@@ -95,7 +96,9 @@ conclusions; their combination does not supply an all-input convergence theorem.
 
 ## Open
 
-Review the six candidate packages in [PREPRINTS.md](PREPRINTS.md) before a
-new Zenodo release. Independent mathematical review and journal preparation
+Review the six candidate packages in [PREPRINTS.md](PREPRINTS.md), revised after
+the 26 October primary-source contribution review, before a new Zenodo release.
+The editorial rebuilds inherit unchanged mathematical checks explicitly.
+Independent mathematical review and journal preparation
 remain open. Restore the single-bit certificate to complete that separate draft.
 Current published records are unchanged by this preparation.

@@ -1,5 +1,14 @@
 # Repository changes
 
+## 2026-10-26 — primary-source contribution review
+
+- Compare all six candidates with primary literature and record exact source locations and search limits.
+- Credit Etse's four-row lower family, prior circuit composition and diagonal width exclusions.
+- Attribute Presburger counting, cell decomposition and flat-run encodings directly; clarify the ant-specific physical reduction.
+- Update generalized-ant references to the 2025 journal article and distinguish memory queries from arbitrary-cell visitation.
+- Rebuild the six local candidates, preserving previous artifacts and inheriting unchanged proof replays by source hashes.
+- Retain pending versions and DOI chains; no publication action.
+
 ## 2026-10-20 — four-row exact escape and scoped research integration
 
 - Add the independent four-row 0.1.0 manuscript, all-width certificates and portable replay.

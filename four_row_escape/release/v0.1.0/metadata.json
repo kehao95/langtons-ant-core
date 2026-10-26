@@ -9,7 +9,7 @@
       "orcid": "0009-0001-2818-4986"
     }
   ],
-  "description": "Computer-assisted exact first-exit maxima for all initial colorings and internal poses: S(4,n)=34n-150 for every n>=13, with every smaller value determined. A closed persistent-response catalog and an integer induction resolve Etse's four-row linear-bound conjecture. Independent finite implementations verify the certificates. This is not a proof of the unrestricted Highway Conjecture.",
+  "description": "Exact first-exit maxima over all initial colorings and internal poses: S(4,n)=34n-150 for every n>=13, with every smaller value determined. Etse supplied the matching lower family for n>=14 and finite computations. A complete persistent-response classification and an all-width integer induction establish the exact upper bound and resolve his four-row linear-bound conjecture. Exact finite implementations verify the certificates and attainment constructions.",
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
@@ -32,5 +32,5 @@
     }
   ],
   "language": "eng",
-  "publication_date": "2026-10-20"
+  "publication_date": "2026-10-26"
 }

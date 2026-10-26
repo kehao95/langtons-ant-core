@@ -1,18 +1,18 @@
 {
-  "base_commit": "22e0c9edcc566a4c2f7a9bf92f5cd05c19199617",
+  "base_commit": "e51ea3c38dd60f93cb6fc3c71e5a6f706bdae833",
   "intended_action": "first-release",
-  "metadata_sha256": "9b628e323367e07514fbb67817a18a2a3f040f251ddab5991d699503bd483a01",
+  "metadata_sha256": "1c55ecec7a7563d2c8744a17548fa2f0f95d2e21c3aebeb4671870595d9551cc",
   "owner_approval_required": true,
   "pdf": {
     "path": "factor_language/paper/build/paper.pdf",
-    "sha256": "d9a8f8f0e739ca5ff37dea84ac3cf4761de2f4576adcc602d2ad228a031162bd"
+    "sha256": "0fd23f734d347758490ea81a6907feef92e3881d8a13d3c523563db286261a90"
   },
   "project": "factor_language",
   "schema": "local-preprint-candidate-v1",
-  "snapshot_sha256": "c19b3502efce18e47337c1753f51745fcdb691d4cd5446c4a8ef7b3fd0c5b801",
+  "snapshot_sha256": "a133b908f6322cd59b4847593c13f017702f5b7ed30cf081441cfba3eb8f4629",
   "source_sha256": {
     "factor_language/PROOF.md": "3e603d37c8b36af2cb6152709b130bec975aaa290ac581f69da6d7ccdee8eeb3",
-    "factor_language/README.md": "2e8a1ae4d84aca9423903e14de4511fab561d64f65d2cfadf8c8b2143f34ec04",
+    "factor_language/README.md": "50f7cb42e8be226ee172e24367a9ac9ef018e4087e25a37132bbd7630f33b96b",
     "factor_language/evidence/README.md": "4c5def1de58afd5ccf6c3a7286dc921a873cf202155906cf3ab8e45ca3a18835",
     "factor_language/evidence/consolidation-replay.json": "9ebf8debe997ac6cf78d40c766632e0988117900b860b6951ef54db447c90c58",
     "factor_language/evidence/import-2026-10-15.json": "d3a5cf83d7be7fe4472a6b78551cc4377a656bff7a76381b2d5929a463819f72",
@@ -22,11 +22,11 @@
     "factor_language/evidence/replay-2026-10-20.json": "b42fe2c57e1a9a2b00e62174dce82d59e177f26a76d1980001cc933049684473",
     "factor_language/evidence/review-2026-10-15.json": "86d94bda85236821d61b971acb870965f299bb3c699659a5a8de1395803bbb00",
     "factor_language/evidence/review-2026-10-16.json": "24b60ddf11d05222a431f570c626de8b342a57f37338d9aa0e1c0629864e223d",
-    "factor_language/paper/LITERATURE.md": "32e0bcaadbc9bc390bc23c9f14a65cc74596f849c48ca9ccef19b775f0f8aea4",
+    "factor_language/paper/LITERATURE.md": "b4b4d47d365d469b9840de366706948e85cd1a31ee5bd963f63ba2188303b003",
     "factor_language/paper/Makefile": "a4a7c276edbf9e61a847ffaed4ffa3293cac26a2ef523b6f9bf939ed71ac3509",
     "factor_language/paper/archive-recovery.tex": "0f3d78d574027529f088b1abaf68a82a9debd42eeeebc101df5e922c7ad629dc",
     "factor_language/paper/event-macros.tex": "129ada2c70c861b06f183d4bb863ac411a9565a0a9bc43db13b3b0cba2d60318",
-    "factor_language/paper/main.tex": "3452f320edf0e7886cfef3998de7f69f3ff47c54d33817af6c3f6533a4288604",
+    "factor_language/paper/main.tex": "fc07fa776774f46c1cd8c1b728844b70e54a1e6c73a0f5c409ae60cba18f0729",
     "factor_language/paper/nine-mass.tex": "25a96052796a4449862c3049e9b1c36dfca7070bf85266aec3862ba38ac2d35e",
     "factor_language/paper/silent-geometry.tex": "cbf726628264d87d83a53f4fc1084d872e4057b1d2ddb8349f7826ff43e14994",
     "factor_language/paper/silent-memory.tex": "c98588a4189aec5fc96a90c588acfa5b8cb7c02734e5590484c1866a3e2b1ac8",

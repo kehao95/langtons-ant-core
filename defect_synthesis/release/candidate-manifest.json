@@ -1,15 +1,15 @@
 {
-  "base_commit": "22e0c9edcc566a4c2f7a9bf92f5cd05c19199617",
+  "base_commit": "e51ea3c38dd60f93cb6fc3c71e5a6f706bdae833",
   "intended_action": "first-release",
-  "metadata_sha256": "3a41f87f8556422b33b7007cba5ea7f113d82d3a7251b1dd6f025726077a9f23",
+  "metadata_sha256": "a0d00b7445f1e4617d80b31099d2238a5d34fc68b99682e13e24fef20629817d",
   "owner_approval_required": true,
   "pdf": {
     "path": "defect_synthesis/paper/build/paper.pdf",
-    "sha256": "1a251c17388bda36f3975109911578a375251a8579399b0c6fe52fe7769b55f7"
+    "sha256": "3010d499aed96301935ce160c4199c04be00ae6e607573158b9343db46996a9c"
   },
   "project": "defect_synthesis",
   "schema": "local-preprint-candidate-v1",
-  "snapshot_sha256": "d276861f6ec386cfb95a7925ff3f7fd0ea09a890f93582fc622c842c776b175d",
+  "snapshot_sha256": "22dea4fcdfe550413fc7435f9c7593a13bc7c61253fe6775926d945141e37286",
   "source_sha256": {
     "defect_synthesis/PROOF.md": "f1d574f8a10f11b7fa1b761dc25a7ad751fd9feb417fe1434c237cf8314fecd4",
     "defect_synthesis/README.md": "26e454ce46727a3608a62a3df235e66c51689f706a3d6b6a0b714bcd1d54035f",
@@ -17,11 +17,11 @@
     "defect_synthesis/evidence/import-2026-10-20.json": "cd22701d4d498f80f8edd1b904cf8c90ad97d2c605da7773671b8374e496dbd7",
     "defect_synthesis/evidence/import-consolidation-2026-10-16.json": "f23781c723e3f2c44863f129202cefeb8882b460d8ae786e8a66350d2dc6700b",
     "defect_synthesis/evidence/replay-2026-10-20.json": "1e8b87a544b805152ab56cefe2049b1a5fa58e88714f8cc821478b461439b018",
-    "defect_synthesis/paper/LITERATURE.md": "759abcdb0c49bdde0fe2d8fe0f676de422e74b6962261b6ab813812de94cd2ab",
+    "defect_synthesis/paper/LITERATURE.md": "8b87c8bf8de7ff357b7235567e78c48a8ef8963e75e103ddadb5142772e2eab9",
     "defect_synthesis/paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
-    "defect_synthesis/paper/main.tex": "b8379bee61ca108743fdad6e0e14d27e05305e22a4787ded2661b15cb2038fd2",
-    "defect_synthesis/paper/quantifier-free.tex": "f05d2ae8273c9b80160e5f011cdf3fe29be9863b117748011ae9f392e9091acd",
-    "defect_synthesis/paper/resources.tex": "442d48ce3e9dc64d240e2c56b0c2110d2dcfa32beec7ce9a83eb673cddb52b6d",
+    "defect_synthesis/paper/main.tex": "ee54959df41ea91116ba204eeab44ac93e27259aca91e57d762559be14b86937",
+    "defect_synthesis/paper/quantifier-free.tex": "5898138e741b96d90be17f587638429f40cb889df23ddefe8a428820a435bf0a",
+    "defect_synthesis/paper/resources.tex": "aaf1239a22157aed8fa5e5c74d88ef4316db83676a694e7f506598c26622b08e",
     "defect_synthesis/paper/small-witnesses.tex": "a0875630d162354a7378c2dd2c2f1b2833ad809fa2c9bcf8846ef3f89f39c9eb",
     "defect_synthesis/proof/defect-compiler-optimization.md": "1574d8e50a7fe89d450061995c6d976c03266e74491cb0fcdebf385324aa65b3",
     "defect_synthesis/proof/defect-resource-spectrum.md": "b573f5bb7d89164cf3af6146a6e05b5c0d306f7d591f43ad71950a088561acff",

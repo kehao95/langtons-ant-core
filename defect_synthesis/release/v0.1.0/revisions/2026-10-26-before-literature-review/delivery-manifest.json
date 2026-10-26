@@ -1,0 +1,15 @@
+{
+  "files": {
+    "Counting-Defects.pdf": {
+      "bytes": 342897,
+      "sha256": "1a251c17388bda36f3975109911578a375251a8579399b0c6fe52fe7769b55f7"
+    },
+    "defect_synthesis-0.1.0-source.zip": {
+      "bytes": 223636,
+      "sha256": "cbbdea7b44f0badd8c78b9963ee3e1929729de1089f16290c0759a2e876bfdc7"
+    }
+  },
+  "project": "defect_synthesis",
+  "submitted": false,
+  "version": "0.1.0"
+}

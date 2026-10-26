@@ -1,12 +1,12 @@
 {
   "files": {
     "Layer-Profile-Uniqueness.pdf": {
-      "bytes": 411784,
-      "sha256": "b1fb0d09e360f494b7e7e048ef0378d8d55ccce0d003e4550dbef8d4a5a7378e"
+      "bytes": 413489,
+      "sha256": "3d244ee21dafc10dccc3c2e1745d97af07a08e18173055c01ae6c90ce665f062"
     },
     "wake_synthesis-0.3.0-source.zip": {
-      "bytes": 443526,
-      "sha256": "3ffd26a07467757752ba95943171beaf9bddfe8b8261e97adaf5f397447aa05a"
+      "bytes": 441311,
+      "sha256": "1a076e22acc6e7f9ec050c98613f68fef22dbbc321a32cdf5394e5abc375de91"
     }
   },
   "project": "wake_synthesis",

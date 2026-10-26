@@ -18,7 +18,7 @@
 \title{Exact Escape Times of Langton's Ant in Four Rows\\[4pt]
 \large A finite persistent-response classification and an all-width certificate}
 \author{Hao Ke}
-\date{20 October 2026 --- Version 0.1.0}
+\date{26 October 2026 --- Version 0.1.0}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -69,16 +69,18 @@ Etse~\cite{etse} asks whether $S_{4,n}\le34n$ in Conjecture~11 of the published
 MFCS version, Section~4.3.3, p.~49:14. The adjoining text and Figure~13 give
 lower constructions of size $34n-150$ for $n\ge14$ and finite experimental
 agreement. The full arXiv version numbers this as Conjecture~13.
-Theorem~\ref{thm:main} proves the conjectured upper bound, supplies an independent
-all-width attainment argument, and determines the exact exceptional values.
+Theorem~\ref{thm:main} proves the conjectured upper bound and establishes the
+exact maximum for every width. Etse already supplied the lower-bound family
+and finite-width computations; the new step is a complete persistent-interface
+classification and an all-width upper certificate. Our attainment construction
+and small-width checks make the resulting exact classification reproducible.
 The coefficient $34$ is consequently optimal. The first-exit convention agrees
 with~\cite{etse}; our reduction includes all internal poses and does not rely
 on a boundary-start lemma.
 
-The finite checks below are part of the proof. Their purpose is not to extrapolate
-from a list of computed $S_{4,n}$. The two infinite-quantifier bridges are an
-explicit compositional closure and an elementary integer induction. This
-manuscript is unformalized and has not received external mathematical review.
+The finite checks below certify an explicit compositional closure and an
+elementary integer induction. These are the two bridges from finite data to
+the all-width theorem.
 
 \section{Persistent one-sided responses}
 Put $\epsilon=(h-x-y)\bmod2$. Each update changes both heading parity and cell
@@ -405,9 +407,8 @@ The column viewpoint and motivating conjecture are due to Etse~\cite{etse}.
 Behavioral minimization, compositional interfaces and weighted dynamic
 programming are established methods; they are not claimed as inventions here.
 The new concrete result is the complete four-row response closure and exact
-all-width maximum. A targeted literature check found no earlier proof, but
-this is not an exhaustive priority guarantee. No journal acceptance, public
-release or external verification is represented by this working manuscript.
+all-width maximum, establishing the upper bound suggested by Etse's
+constructions and computations.
 
 \appendix
 \section{Reproduction and witness format}

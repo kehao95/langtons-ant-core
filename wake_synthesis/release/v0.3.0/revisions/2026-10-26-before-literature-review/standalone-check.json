@@ -1,0 +1,1513 @@
+{
+  "status": "passed",
+  "project": "wake_synthesis",
+  "version": "0.3.0",
+  "mode": "extensions-only",
+  "inherited_full_replay": {
+    "source_snapshot_sha256": "f117b52f7bb35e2dde80f18debc3958f9116fe9a1eb3f279c22833857fd37931",
+    "prior_full_archive_sha256": "acf6919b3325da17fe637b620cc99cb5a76d0d6b6efdffbdc18aa349e6fe4de5",
+    "prior_completed_utc": "2026-10-15T22:52:28.260598+00:00",
+    "unchanged_mathematical_files": 143,
+    "source_sha256": {
+      "wake_synthesis/evidence/audit.json": "9d1f5509f4962edda537f6ed2d2cbdb7729dd8322338805da853fdeaabf813ed",
+      "wake_synthesis/evidence/audit_integer.json": "cd26ab5232f842facd2801cd6757228ebe36b087c6b59c4382045b3c9b7c0d0d",
+      "wake_synthesis/evidence/audit_trace.json": "a7e46a052267105783a79bbf14948eda0e5511ec3230b75ce4881139b8876ad7",
+      "wake_synthesis/evidence/check_results.json": "bb484d413b557ef922f417031ef2a83b56bf142cef16c6517ee60fc38b1efd69",
+      "wake_synthesis/evidence/detour_results.json": "7911fd4fc38fc60277d33ee690c1ab533c06f1744a96a10638f70409ccf91944",
+      "wake_synthesis/evidence/import-2026-10-15.json": "6a8daf56197da17eb29ce3c9e89e032986a61731d58137be7a6215d9d589ea43",
+      "wake_synthesis/evidence/review-2026-10-15.json": "84b244854157bd0d4f520c45acd6d2faa91c73d5e82a4913d6eb0e75d96e823f",
+      "wake_synthesis/evidence/standard_wake.json": "32e037943fa1603171464595f4fc4064697fbf6feed1c8b206f2a1d8f2e71b0c",
+      "wake_synthesis/evidence/standard_wake/chain-separation.json": "4adf81b12969a3ba0c9b563b11e0a309572805dd3e130fc3cd21e83d158b8c0a",
+      "wake_synthesis/evidence/standard_wake/counts.json": "ba8f45d9dca8536f6d02e1f45081d8697681bebc1818cd39c97c9b545a0cfa53",
+      "wake_synthesis/evidence/standard_wake/partial-embeddings.json": "bf6f4b00ef66d215f0b873344d3d80445c41f5ad022ea838bf8d948444d39bf8",
+      "wake_synthesis/evidence/standard_wake/provenance.json": "a1a15eda849d76780f528491d862a60f33feeb7ee9b8349884cb65240aa3c634",
+      "wake_synthesis/evidence/standard_wake/rank-pruning.json": "144b7ed23b544d867670b297cbe5f9d378ed82c74c7058bad2159e6cf712399c",
+      "wake_synthesis/evidence/standard_wake/upper-pruning.json": "3399534b8b2b2aa759ad5e1c8bac242f161ae8f6eaf9ee2996f9151f497a2562",
+      "wake_synthesis/proof/layer-profile.md": "a337ffe6d58d301bd1d6ba32f7b83a8db9b47231b3522f60f6e2e9dd90479cd0",
+      "wake_synthesis/proof/thin-wake.md": "c4066430ac92a525e2c386c5d220c63581d92758d91d28e141e0f64e03cfd390",
+      "wake_synthesis/verification/audit.py": "554fe941c9a697a427583674b8d76fb8027b4e74e246cc613c7beac38970ea17",
+      "wake_synthesis/verification/audit_integer.py": "a88650696e9b14dcc8e002a1b08bd27a368bc807302d65b9c63ebb8034860fb4",
+      "wake_synthesis/verification/audit_trace.py": "45366f44ff1e81802e25da66f78ffb61948d9006c68904c5647b15d2ea2013f5",
+      "wake_synthesis/verification/check.py": "865b5e482fdacb94dd6016bb026603134d87d5664c079f169a1699467e0a3c40",
+      "wake_synthesis/verification/detour_search.cpp": "8749b4ab5e245f6304bf739c0788631ab6c5ccb9ad1ba88cd0c0cc17685e4157",
+      "wake_synthesis/verification/search_replay.py": "dbe9fb6548234339db0dfbe3d33992e829a31c79905dee8db1320e4b7953d59a",
+      "wake_synthesis/verification/standard_wake/README.md": "b741fd60c11652e7a90f6f5da01c58b9ae6c6a7c890f0af51d758097a4e56d52",
+      "wake_synthesis/verification/standard_wake/audit_counts.py": "8cfb0ff686ab16ae1206425444c07d4be1e076a7c05835f7a491f7a6f174450e",
+      "wake_synthesis/verification/standard_wake/audit_partial.py": "0407c0e8cc36b669ca1043af352c7f58bef82b5fe0470dba28cfb9ec62cd83ef",
+      "wake_synthesis/verification/standard_wake/code/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+      "wake_synthesis/verification/standard_wake/code/patch_search.py": "6204046dde2d364727418d8be19b41537ceb202edf348f521ef7d4934198659f",
+      "wake_synthesis/verification/standard_wake/code/test_rank.cpp": "49225b5bdf3f4253189c0cbe270c260d69ee5004cc9e3b463bbe49e5590cf9a7",
+      "wake_synthesis/verification/standard_wake/inputs/counts.py": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc",
+      "wake_synthesis/verification/standard_wake/inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+      "wake_synthesis/verification/standard_wake/inputs/upper_bound.py": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2",
+      "wake_synthesis/verification/standard_wake/inputs/verify.py": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973",
+      "wake_synthesis/verification/standard_wake/reproduce.py": "c9a90ca0b6b859dd2aefd6ff35a549d0fef090a93eb105bc0c2bd1d2b7d395f9",
+      "wake_synthesis/verification/standard_wake/upper_pruning.py": "f12b92b2d37a845766b47da36c8d9bc310c1fb988930468e8db9e77ed4aeaf34",
+      "wake_synthesis/verification/standard_wake/v2/patch_search.py": "fcf78584f3f8dc1fe2efc730e908f714ad15c96a067e2ee5c0f3cf0ff00eb97e",
+      "wake_synthesis/verification/standard_wake/v2/reproduce.py": "464d5960c5f0db0caef50ade496cfa6caa62bdbb95e511a6b504febd08e6670e",
+      "wake_synthesis/verification/standard_wake/v2/test_feasible.cpp": "4b0f3e299a89d800c8573e619b7414718b44a681b7cefce1ef0e3ad18075c0ef",
+      "wake_synthesis/verification/thin_wake/PROOF.md": "c4066430ac92a525e2c386c5d220c63581d92758d91d28e141e0f64e03cfd390",
+      "wake_synthesis/verification/thin_wake/code/check.py": "105175102e1b9a3f0591ae2363ba40d60fa0c6e03602d68127ffc566a7209dca",
+      "wake_synthesis/verification/thin_wake/code/derive.py": "79786c5ad48e8d8f833b4586f7c334adbd2ab85f3c131f527c7fb2714b403dc0",
+      "wake_synthesis/verification/thin_wake/evidence/cases.json": "5edb708d70fdfbd0e5901ba53a9c763e179121801de5630bea54f96bda28c585",
+      "wake_synthesis/verification/thin_wake/evidence/full_replay.json": "f09cd07e02e6a19df1a3ffd5d80dde4d8c96d97bb5a7476b8fe684c86ee68e1a",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m130_thin_bottom_s0.log": "8c53f75eb1c7e6350e434dba60479c679c21921304cb9ff617d6d3bd223102d2",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m136_thin_bottom_s0.log": "85bfa669d2c53d09dd07f645a4df37635d8517e8df6219fce61315b017fe9a2a",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m160_thin_bottom_s0.log": "6d6665dd624573fce71e71f426648d11d20cb23914824afca4c96a383622d9c4",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m175_thin_bottom_s0.log": "19ea8fc69c902c6ee7335998ea0ba2a64dedefe7b87c6a74b0d1da3cd7a2d64c",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s0.log": "ef4c348a2724c14f0649bfbd4cea48a8a039b7b021fe71c66be8e70382efbdf5",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s1.log": "058417b17f7509e1d00cd9a75bf0487b283f38a7e4b1de966e7fd133c99d7d5e",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s2.log": "912882f49f74219a4647d429589bdbeca5b5102a182b54f9d0cc36c02ce42979",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s3.log": "e245ab96f8edbabf1d10b0bd187c6dc28e71edc9638d38c3e0d93df08ee0050d",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s4.log": "9e258a6ef85e17cb11036126fb582457f6f5a877844bd72379ea7a581509927f",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s5.log": "7e312435777f82f2c32e4161c19c77fa795b5dd0ea82a2eb7ac846d232f07480",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s6.log": "68533b5153647fb2a50068ea784a6872bd8c923825d8988008808a4aef0be5da",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m187_sharded_top_s7.log": "eea7e3968f5ca8c3f8e2ab5c4eb3521c524ad18a92c39d431c09d66b7d09009a",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m190_thin_bottom_s0.log": "615c8e29f895edeb5f33f5d66ce5eea065aafaef4182ecde7ffdf52514b87d32",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m215_thin_bottom_s0.log": "ad74f2c40676ba09501fb3aeb7cbe904c3d499db8f16d02953ed863185873eee",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m221_thin_bottom_s0.log": "5525169f5ff00ed1cea3e103088be3e7a0817c61d0e513a8abe46e743223e5bc",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m235_thin_bottom_s0.log": "577d9ebdeb4415a1219026669a3e22c1a48e43afb227a128cee36f50cb734de0",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m238_thin_bottom_s0.log": "52a7190d44e01d3bb3b54d43d2fa2525dc1e4f5bdd6321463305abc3eff18609",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m245_thin_bottom_s0.log": "d5bd9ae07db1cb8d81dd768916feb9d2062c9a8a66178ee884e6cfe1fe280505",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-1_m250_thin_bottom_s0.log": "f093a37b742c50edcec598594a729fde4a4ccb9ac1f8e796e08696f3c68d13bd",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m139_profile_bottom_s0.log": "f13bf2a09111cee3524fa1bcf913253bfd7b348f73527a56b26538539743e8e2",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m142_profile_bottom_s0.log": "ac0604ff3f275c51ff87ffac3dc5f6ca5e4302178efa3763c729818bfaf8bbe5",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m149_profile_bottom_s0.log": "91323fc278b90d22eb46968cac42f9760dda279164fb77e91e910daaa3ba3985",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m154_profile_bottom_s0.log": "0ce64edaf3cd4eeeb634ce96d77ba73e6a0e8560b355bd0c4c92dba34550c706",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m163_profile_search_s0.log": "5fd8d1471aa0b17109047e48a8c38e3cd5346d04e7974b8f3e91e02639732fe1",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m166_profile_bottom_s0.log": "485e19a120311c511c47b5a66f1ac514ef6d63eff582f40c6d9b4893678af541",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m169_profile_bottom_s0.log": "3d867b7433e445f0f2a6b30f2436f687070ddc2bd6735bb581101c51cb36aa00",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m172_profile_bottom_s0.log": "43fbfe5fc7f74023b88467bb42bb0776014b563a60cb4d4912c55664a41d3722",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m178_profile_bottom_s0.log": "372022cbdc7ae0d9652ab83bd317f61e5cb3fcb5d1b25ca54d04d132401d57d1",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m184_profile_bottom_s0.log": "28bd289122e761f238e52074fa46097085931721edb717e1cb500f26509265bd",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m195_profile_search_s0.log": "cc536052076f6febf92d11afcdade1b68426db74149971d0c5909d74bdc3849f",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m198_profile_search_s0.log": "9d221139e95d02379d96f59ab245e6d92c81f808cf1e72797251aaf57adca94a",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m201_profile_search_s0.log": "cfae760f58afcc14c91350e2109eec0385bce70bed04843c5170f045ed427d87",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m204_profile_search_s0.log": "1dc4f83537a41dc7e15cdf82ea2c8383534fe59f335656f36849963261640144",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m210_profile_search_s0.log": "b0d47070dc4317747acc68bf3874da51e10458bb8ea52530653e1eb8f8a5f7b9",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m216_profile_search_s0.log": "3875f6a80bdff74ccd119f937c6f4117b2379e7ea3750630576349faa606cfb8",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m225_profile_search_s0.log": "0c5e90f7771fef6beb11757573c6caa537ee1b956891deea6555b9c00b4af93d",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m228_profile_search_s0.log": "5bf066aea2cfe63f3f5c4558ec60d67ff6d469e200f3822a45c30f775f2468a6",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m240_profile_search_s0.log": "baa40cb45570e20e9e643770b5e422a8a720e5ee19617b9faf31e7dde199c7e1",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-3_m255_profile_search_s0.log": "c4cbe274ea4499878ff9dca8d0c920f7697595dafd34d650ca12185b83060504",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m129_thin_bottom_s0.log": "626b89be35aab8e6eb430596e88df7e38a0225a266ce9dbed4416109b341cd81",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m132_thin_bottom_s0.log": "fb0e9b9456f08cf36bf7687cb3e7fe1a7809c5dfbc1c336e06fd33bb8d64edc0",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m160_thin_bottom_s0.log": "3185a34a70143b216f988c435391a5a70439a6ce1d6b21f165c07dd8b9db445d",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m175_thin_bottom_s0.log": "83c1eeb65d514f611a90c6bf2851fe6c8d56632d5c00a240e7ead00be153667b",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m183_thin_bottom_s0.log": "2dbb897e46d6d566440ad88d52342a4aac98e635ed3a2a9c872829a799644340",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m189_thin_bottom_s0.log": "7e166d177e0eb2f52bb5880da472db3e5001fdfc2f7f9cd842d2ae0e4a5ef5ef",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m219_thin_top_s0.log": "b5c96806d0d8816dd2a675889675569b212d85606187e57d9eb8bde99b1d8017",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m222_thin_top_s0.log": "d3e8a0da77ee3c9319d75be88367c666f096640efd59ad4233914af0083aa96b",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m231_thin_top_s0.log": "ed908e40ab2d1140fbb28feca87834261c93419df85020dce4517b0e7ff3c931",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m237_thin_top_s0.log": "c941d3d49776161394f5e5d9d8966acec7967a3fd891afe131876568b66c3b60",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m245_thin_top_s0.log": "0c98b244b233c32db6dfa4420cc65425cc19e55fd30599e134460bf068ded521",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-5_m250_thin_top_s0.log": "73f03731f5ca65fc69c70fb5bcff7ede9e59f7bb866bd032490fc907dad7d270",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m135_thin_top_s0.log": "f590258f7ede040e23a936d75625420c24c2a1a082cf658c744ca0279ba507e5",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m142_thin_bottom_s0.log": "ec5020d99e70233634cecc3296a804fac29db2ea8197e06d8170f28e47e8f116",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m147_thin_top_s0.log": "8b0024ccac42b500c1933aa43a566bd4885d4146b2d28d0c9215dc729082b06e",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m149_thin_bottom_s0.log": "31b926132e0a833eeb6c7f51fa25a8d9a5024dcdefa1baee47d91455fe6e7427",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m154_thin_bottom_s0.log": "f1f5ed0ce3c258689e287d3ac947e3ce5ed1c1779a0ff8a0ed5847d2090dcd91",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m156_thin_top_s0.log": "3a1c2cef6df7d3957985ed8ed3927b4999096036a157cfadb06fe5041572d718",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m166_thin_bottom_s0.log": "7f3599681a4c0b296b74abfab1efe93769118e78463658b4ca85e32c272b73a1",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m169_thin_bottom_s0.log": "473663ed60f3744e1163ba9fa877918b0c5b783d8f8ac3cab711c7f21c7325c5",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m178_thin_bottom_s0.log": "e1f6e454c0329f1b42a30fc082e5d0a54aceb57008d3e82935bfeaa8b66f3ee1",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m180_thin_top_s0.log": "37dd9eff4717abdcff1a2283826ad988735aee806df68d804a34bbd091e25356",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m195_thin_top_s0.log": "58734de139c60eddcc242c9f510b034aef42487ec50e621398c19bc069abd16d",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m197_thin_top_s0.log": "6b0581f08990eee4d49d56819b25910c5c652ce9caa3142a02a887a04e0cac82",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m202_thin_top_s0.log": "b3d098a287a32afc4c8b864079e547ef9b8828ccaab10dd4c1f86dfd592e8d7a",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m204_thin_top_s0.log": "74f551ef26c9aa2aaaf808468b3cba78abba68a924bb64564722ecc98d932191",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m209_thin_top_s0.log": "d9142b50dee826551122e4eea228b330d78960b800d537762b12faea14c85948",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m216_thin_top_s0.log": "1146a5ec5e1bcae6966f3b796febf46dad0f60b007b888772cf1ec81342162da",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m226_thin_top_s0.log": "3effca9e623846ee5ed5a13231275a076bdddf4da785873ac6281ffbf9f4f3d4",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m228_thin_top_s0.log": "5b2c5c65f6b90634e5f5b139c4a4358b0f74f7cbc32be84cbda0835e535fdad4",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m240_thin_top_s0.log": "6edca2222c481c3c6d0c997e313be9d22442a81fc7bf35b3d9d92677295fc97b",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-7_m255_thin_top_s0.log": "190c1c430f1549af6b789dfcc4aa71066ccedd14ba5f5c5c309c9e3baffb0058",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m130_thin_top_s0.log": "ad4ea551e7044ec9787ec4acb8ba083381696b99651ec9bf76acc7e39cf8281e",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m136_thin_top_s0.log": "b501a10b118a857477c152ed5a2ef872484cc8ac5d72dfd5cba2894ab5763228",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m160_thin_top_s0.log": "d7a2235cea08a2aa161fb16c7c096daaafb0f00b0be1e7053e266235e2e1939f",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m175_thin_top_s0.log": "2674de8a836f802d259ae5884bfa1af32e33afd141b22e335296c35d559730f4",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m187_thin_top_s0.log": "ad10f80b759e682967d5e61c76d54fdd3729f63936489fca88cdebf921516a27",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m190_thin_top_s0.log": "6458bb61e9b9f9a91e5098ebd749ae1f6e1f7f3a9654267cc2afca9f08577047",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m215_thin_top_s0.log": "f3cb1fa45d814ef844ab16b8ca816acc8d774760ba4d313d51b9aaef4d503bbe",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m221_thin_top_s0.log": "e4028978696f045f28fbefa22f23a44555bd8a6c8617f5b1a40ec17b44df4cd0",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m235_thin_top_s0.log": "7c5d0b5444d362a68b53b9fc1269d19d061e033ce575ec44c9a66bdf48e02427",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m238_thin_top_s0.log": "dec5cc75eeb912c22a745f7f4278d1188b79090f4026b563316a2cba57ffd97b",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m245_thin_top_s0.log": "b93205047c8e6c3b9c875871c16cb7841fc43cef23f032f0dfd8c34b7925d539",
+      "wake_synthesis/verification/thin_wake/evidence/logs/h-9_m250_thin_top_s0.log": "e943fa9630e63e7ed8685b35f4e1186ddedd50dd257d8a9497f2ff48314365dc",
+      "wake_synthesis/verification/thin_wake/evidence/parameterization_recipe.py": "76fb28153dd61d04e03cb3ccd0184d34718bad7ec6d561182ff4e64edc1bf3c8",
+      "wake_synthesis/verification/thin_wake/inputs/MANIFEST.json": "8a84b855ad59c2bf6c71b5e7e914d5126222d5a9a18b954be6676ae6cd54e21c",
+      "wake_synthesis/verification/thin_wake/inputs/README.md": "a4421975c9a2ae7688eb2a7bcb62cd51fe9f5721e3ab434008fe5751a15618aa",
+      "wake_synthesis/verification/thin_wake/inputs/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+      "wake_synthesis/verification/thin_wake/inputs/counts.py": "5e735ab9fe491d04d8133d365059324a61f76e851b4e267e4cd00b39de7ef5bc",
+      "wake_synthesis/verification/thin_wake/inputs/glue_bottom.cpp": "cdb94ae057055256742ba4223470e7a05c47175ef6ca534795a6a0f617be9832",
+      "wake_synthesis/verification/thin_wake/inputs/glue_top.cpp": "567e5464e0be3fe7a748b50661113d5c0ca4466ae3a73488cd0f643830aba39c",
+      "wake_synthesis/verification/thin_wake/inputs/upper_bound.py": "3a9a227f7e26d99875c37d4ea5fc45f886bb3c772ca350ba31217397e90297b2",
+      "wake_synthesis/verification/thin_wake/inputs/verify.py": "4bc7173d87311fc9b42dc3fda131648e2ff4d71bef7b7c34f31ab01dbd5c3973",
+      "wake_synthesis/verification/thin_wake/native/MANIFEST.json": "20041adc1cd18bfc699c54bf6429957b185805cc678a3e65462ec8ba75410ae5",
+      "wake_synthesis/verification/thin_wake/native/chain_rank.hpp": "faea9b6b883edd9c888f5bb4bd5a6b1bf086ce4b3169e197c89533ac1c18b056",
+      "wake_synthesis/verification/thin_wake/native/profile_bottom.cpp": "a13df2aea62ba4de4e6d3ae4cbc4315ff22f547435249f717794cc7cd2dfe927",
+      "wake_synthesis/verification/thin_wake/native/profile_search.cpp": "01c3d8fbefff53e9cb0ce7523fcee496ed0de7e9d8260edfc4dfa5647c476719",
+      "wake_synthesis/verification/thin_wake/native/sharded_top.cpp": "c2ee7fde8a125486327a4fd1377eb5a8687c974d02357d47b4fa2b5960c72193",
+      "wake_synthesis/verification/thin_wake/native/thin_bottom.cpp": "9fe1706baaf71783547073295ba19cc660813ff133d4fe5223c5bd6c6ade4e03",
+      "wake_synthesis/verification/thin_wake/native/thin_top.cpp": "30a0a503dd78252bc86e8c2ca76dd17625a2d55ff9d11a45d30f7755968ef47c",
+      "wake_synthesis/verification/thin_wake/reproduce.py": "4f26ce236c6930060ec87863e5afe9a73d84da9ccad8fa1f8f3c4e8e810be066",
+      "wake_synthesis/verification/wake.py": "2eda494b723cd7d403b1452aaf6547aa1546eadee2e2625a1a74785f9b85bdc2"
+    },
+    "scope": "Prior full base replay retained; these unchanged sources are hash-matched, not re-executed."
+  },
+  "archive_sha256": "3ffd26a07467757752ba95943171beaf9bddfe8b8261e97adaf5f397447aa05a",
+  "source_snapshot_sha256": "f717c1590c6b1a10d9a8036a2f7198443e5f03e93302e7329dda10fdfcc3c875",
+  "source_files_verified": 229,
+  "no_research_checkout_dependency": true,
+  "pdf_text_matches": true,
+  "pdf_text_sha256": "bb8502e1f81896375f6afc975b61a95687eea88bd0e579ee07fac49a9b0d04b3",
+  "replay": {
+    "status": "passed",
+    "scope": "extensions-only",
+    "extensions": {
+      "status": "passed",
+      "source_commit": "9223766d8f4de0e3c3807bc1a3e7008f53d5b9b5",
+      "new_arithmetic": {
+        "general_wake_parity": {
+          "status": "complete",
+          "audit": {
+            "status": "complete",
+            "floor_sum_cases": 10000,
+            "lattice_pair_count_cases": 10000,
+            "literal_edge_and_signature_cases": 4000,
+            "drifts": [
+              [
+                1,
+                -1
+              ],
+              [
+                2,
+                -2
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                -3
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                -4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                -3
+              ]
+            ],
+            "checker_and_translation_invariance_checks": 4000,
+            "vertex_order_checks": 512,
+            "quadratic_polarization_checks": 512,
+            "all_two_lane_closed_masks": 8192,
+            "native_period_rows": [
+              {
+                "period": 2,
+                "all_words": 4,
+                "balanced_words": 0,
+                "kinematic_words": 2
+              },
+              {
+                "period": 4,
+                "all_words": 16,
+                "balanced_words": 0,
+                "kinematic_words": 2
+              },
+              {
+                "period": 6,
+                "all_words": 64,
+                "balanced_words": 0,
+                "kinematic_words": 32
+              },
+              {
+                "period": 8,
+                "all_words": 256,
+                "balanced_words": 0,
+                "kinematic_words": 50
+              },
+              {
+                "period": 10,
+                "all_words": 1024,
+                "balanced_words": 0,
+                "kinematic_words": 512
+              },
+              {
+                "period": 12,
+                "all_words": 4096,
+                "balanced_words": 0,
+                "kinematic_words": 968
+              },
+              {
+                "period": 14,
+                "all_words": 16384,
+                "balanced_words": 84,
+                "kinematic_words": 8192
+              },
+              {
+                "period": 16,
+                "all_words": 65536,
+                "balanced_words": 0,
+                "kinematic_words": 17298
+              },
+              {
+                "period": 18,
+                "all_words": 262144,
+                "balanced_words": 0,
+                "kinematic_words": 131072
+              },
+              {
+                "period": 20,
+                "all_words": 1048576,
+                "balanced_words": 0,
+                "kinematic_words": 297992
+              }
+            ],
+            "native_all_words": 1398100,
+            "native_kinematic_factorizations": 456120,
+            "native_balanced_words_cross_checked": 84,
+            "native_exhaust_stdout_sha256": "772bab74c7ff51b7f07dc8d637cc7f3a39f4e4923d02ae36e40f0860c84db11d",
+            "standard_phase_rotation_power_controls": 1664,
+            "representative_and_rotation_checks": 12,
+            "invalid_input_controls": 4,
+            "new_drift_negative_example": {
+              "drift": [
+                3,
+                1
+              ],
+              "growth": 8,
+              "orientation_convention": 1,
+              "status": "EXCLUDED",
+              "reason": "quadratic port sign",
+              "required_signature": 0,
+              "winding": 1,
+              "charges": [
+                [
+                  -2,
+                  -2,
+                  2
+                ],
+                [
+                  -2
+                ]
+              ],
+              "signature": 1,
+              "E": 1,
+              "L": 0,
+              "positive_edges_parity": 1,
+              "endpoint_port_parity": 0,
+              "C_parity": 1,
+              "runs": 16,
+              "odd_edges": 16
+            },
+            "arithmetic_matched_not_excluded_example": {
+              "drift": [
+                3,
+                1
+              ],
+              "growth": 8,
+              "orientation_convention": 1,
+              "status": "NOT_EXCLUDED",
+              "reason": "quadratic port sign",
+              "required_signature": 0,
+              "winding": 1,
+              "charges": [
+                [
+                  -2,
+                  -2,
+                  2
+                ],
+                [
+                  -2
+                ]
+              ],
+              "signature": 0,
+              "E": 0,
+              "L": 0,
+              "positive_edges_parity": 1,
+              "endpoint_port_parity": 0,
+              "C_parity": 1,
+              "runs": 20,
+              "odd_edges": 32
+            },
+            "symbolic_unbounded_family": {
+              "domain": "all integers n>=1",
+              "runs": 32,
+              "pair_comparisons": 496,
+              "affine_inversion_terms": 288,
+              "inversion_count": [
+                400,
+                19
+              ],
+              "positive_edges": [
+                96,
+                9
+              ],
+              "odd_edges": [
+                192,
+                16
+              ],
+              "endpoint_positive_incidence": 10,
+              "C_population": 5,
+              "winding_parity": 1,
+              "signature": 1,
+              "required_signature": 0,
+              "sampled_parameters_are_not_the_proof": true
+            },
+            "huge_parameter_decimal_digits": 101,
+            "huge_case": {
+              "drift": [
+                3,
+                1
+              ],
+              "growth": 8,
+              "orientation_convention": 1,
+              "status": "EXCLUDED",
+              "reason": "quadratic port sign",
+              "required_signature": 0,
+              "winding": 1,
+              "charges": [
+                [
+                  -2,
+                  -2,
+                  2
+                ],
+                [
+                  -2
+                ]
+              ],
+              "signature": 1,
+              "E": 1,
+              "L": 0,
+              "positive_edges_parity": 1,
+              "endpoint_port_parity": 0,
+              "C_parity": 1,
+              "runs": 32,
+              "odd_edges": 1920000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016
+            },
+            "mathematical_scope": "necessary only; NOT_EXCLUDED is not realizable",
+            "formal_kernel_checked": false,
+            "independent_human_review": false
+          },
+          "source_sha256": {
+            "screen.py": "8430007f1921cd456d318ad2d74a682ccc1c709d1e4b599c637f687072b0214a",
+            "family.py": "8d68f5e7f1c0167ec8eab6675b6f23fc41b981f16e2d76a475846d5c404b1bec",
+            "audit.py": "d60afd5650e065e102d35e78a1ec2795a7cf7ebae3b33ce0ba3279bb7218d793",
+            "independent.cpp": "307067100c5ba1b6b8c32368fde75602d17601aa64258657a5d75ab90ae4cf3d",
+            "reproduce.py": "cc595122e5bd5cf17e1d0176195751af1fb7752d6bf52ee713b8ccfd369c688d",
+            "PROOF.md": "c4071d919bba2641e03037a9828269b9512c729c26947f2d059df24634b0998d",
+            "README.md": "ff316d492de58aada765ef1ad902dc66c1c71363cb8b6cc612187e16699ef1b6",
+            "paper.tex": "f9205bcba24ea5d9ee660efb47c9be87e5bd11b1788514ff25bdf36dbac7ffa1"
+          },
+          "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+          "compiler_flags": [
+            "-std=c++17",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-pedantic",
+            "-fsanitize=undefined",
+            "-fno-sanitize-recover=all"
+          ],
+          "python_version": "3.14.4",
+          "isolated_replay": true,
+          "retained_audit_matched": true,
+          "proof_boundary": "analytic general theorem; exact affine all-n application; finite tests are regressions",
+          "formal_kernel_checked": false,
+          "independent_human_review": false
+        },
+        "unit_diagonal_analytic": {
+          "proof_type": "analytic",
+          "finite_checks_are_premises": false,
+          "analytic_audit": {
+            "status": "complete",
+            "role": "regression, not a mathematical premise",
+            "first_return_compass_paths": [
+              "NESW",
+              "ENWS",
+              "ENESWNWS",
+              "SENW",
+              "NWSE"
+            ],
+            "second_layer_candidates": 124,
+            "forced_second_layer_words": [
+              [
+                3,
+                "00001101"
+              ],
+              [
+                3,
+                "000011010"
+              ]
+            ],
+            "interleaving_checks": {
+              "third_layer_candidates": 12756,
+              "both_forced_returns": 72,
+              "forbidden_bridge_forced": 72
+            }
+          },
+          "status": "complete",
+          "theorem": "No finite-support periodic highway has full drift (1,-1)",
+          "scope": {
+            "period_bound_assumed": false,
+            "width_bound_assumed": false,
+            "growth_assumed": false,
+            "tail_thinness_assumed": false
+          },
+          "python_enumeration": {
+            "status": "complete",
+            "period_parameter_used": false,
+            "width_parameter_used": false,
+            "rows_below_extreme": 3,
+            "reports": [
+              {
+                "depth": 1,
+                "candidates": 4,
+                "outcomes": {
+                  "survives": 2,
+                  "stable_order_reversal": 2
+                },
+                "max_events": 5,
+                "max_row": 4,
+                "survivors": [
+                  [
+                    [
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  [
+                    [
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      0
+                    ]
+                  ]
+                ]
+              },
+              {
+                "depth": 2,
+                "candidates": 124,
+                "outcomes": {
+                  "rank_gap": 96,
+                  "closed_component": 26,
+                  "survives": 2
+                },
+                "max_events": 18,
+                "max_row": 13,
+                "survivors": [
+                  [
+                    [
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      0,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      0,
+                      1,
+                      0
+                    ]
+                  ]
+                ]
+              },
+              {
+                "depth": 3,
+                "candidates": 12756,
+                "outcomes": {
+                  "closed_component": 3198,
+                  "rank_gap": 9558
+                },
+                "max_events": 38,
+                "max_row": 24,
+                "survivors": []
+              }
+            ],
+            "certificate_count": 12880,
+            "certificates_sha256": "e23fc0680978657507b6192e1fa9984f9b927d686f57584e8e7816414482593d"
+          },
+          "independent_cpp": {
+            "status": "complete",
+            "implementation": "independent-vector-geometry",
+            "rows": [
+              {
+                "depth": 1,
+                "tested_subsets": 9,
+                "candidates": 4,
+                "survives": 2,
+                "closed_component": 0,
+                "rank_gap": 0,
+                "stable_order_reversal": 2,
+                "max_events": 5,
+                "survivor_words": [
+                  [
+                    "0",
+                    "100"
+                  ],
+                  [
+                    "0",
+                    "1000"
+                  ]
+                ]
+              },
+              {
+                "depth": 2,
+                "tested_subsets": 1119,
+                "candidates": 124,
+                "survives": 2,
+                "closed_component": 26,
+                "rank_gap": 96,
+                "stable_order_reversal": 0,
+                "max_events": 18,
+                "survivor_words": [
+                  [
+                    "0",
+                    "1000",
+                    "00001101"
+                  ],
+                  [
+                    "0",
+                    "1000",
+                    "000011010"
+                  ]
+                ]
+              },
+              {
+                "depth": 3,
+                "tested_subsets": 534962,
+                "candidates": 12756,
+                "survives": 0,
+                "closed_component": 3198,
+                "rank_gap": 9558,
+                "stable_order_reversal": 0,
+                "max_events": 38,
+                "survivor_words": []
+              }
+            ]
+          },
+          "audit": {
+            "status": "complete",
+            "witnesses_checked": 12880,
+            "corruption_controls": 2,
+            "literal_geometry": {
+              "geometric_port_cases": 8,
+              "binary_strings_examined": 32766,
+              "port_count_groups_compared": 32
+            },
+            "standard_highway_prefix_controls": 936,
+            "standard_controls_use_full_drift": [
+              2,
+              -2
+            ],
+            "certificate_sha256": "e23fc0680978657507b6192e1fa9984f9b927d686f57584e8e7816414482593d"
+          },
+          "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+          "compiler_flags": [
+            "-std=c++17",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-pedantic",
+            "-fsanitize=undefined",
+            "-fno-sanitize-recover=all"
+          ],
+          "python_version": "3.14.4",
+          "source_sha256": {
+            "local_obstruction.py": "9e3e98b27d2d665f20c07ff757a800f0ae37924fe607db57380ebcbb67171f0c",
+            "independent.cpp": "c04aafcf8cd24a6bbf8251fae18e701ef070b2b620284d3a8a0e6a856a70179e",
+            "audit.py": "e1c5c2987be449d93cde1e9396c4db31b7db0fc028137460dd7252e2860df09a",
+            "analytic_audit.py": "c9692389d00d256402dcd3eb130111352ac998a885462770ef347127caad6543",
+            "reproduce.py": "cc548f746a68aa2c4772c3a72f96a9a545a8a3d8b48da2e94d68461a21a8665a",
+            "PROOF.md": "4c575761922577867bbef5049773d02bee2d351c24576f7932838041d797d75d",
+            "paper.tex": "525347f35e0bd81bed3fa1a9a108b545bb999e8d8d8b5301cada77ef6a6fc15a",
+            "README.md": "2d6d1e5c1d605f5a0f893dbaa47a09ea9d224f6d03689685f325ebd03a13c232"
+          },
+          "growth_corollary_dependencies": "Jillhewar: positive growth, density, axis g4, even-diagonal g4; not revalidated here",
+          "formal_kernel_checked": false,
+          "independent_human_review": false
+        },
+        "thin_parity_bridge": {
+          "status": "passed",
+          "thin_case_masks": 1280,
+          "rows": [
+            {
+              "missing": -9,
+              "V": 4,
+              "J": 14,
+              "index": 0,
+              "masks": 256,
+              "outcomes": {
+                "EXCLUDED:mixed_wake_rank_parity": 40,
+                "EXCLUDED:growth_or_signed_residues": 216
+              }
+            },
+            {
+              "missing": -7,
+              "V": 4,
+              "J": 15,
+              "index": 1,
+              "masks": 256,
+              "outcomes": {
+                "NOT_EXCLUDED:mixed_wake_rank_parity": 40,
+                "EXCLUDED:growth_or_signed_residues": 216
+              }
+            },
+            {
+              "missing": -5,
+              "V": 4,
+              "J": 16,
+              "index": 0,
+              "masks": 256,
+              "outcomes": {
+                "EXCLUDED:mixed_wake_rank_parity": 40,
+                "EXCLUDED:growth_or_signed_residues": 216
+              }
+            },
+            {
+              "missing": -3,
+              "V": 4,
+              "J": 17,
+              "index": 1,
+              "masks": 256,
+              "outcomes": {
+                "NOT_EXCLUDED:mixed_wake_rank_parity": 40,
+                "EXCLUDED:growth_or_signed_residues": 216
+              }
+            },
+            {
+              "missing": -1,
+              "V": 4,
+              "J": 18,
+              "index": 0,
+              "masks": 256,
+              "outcomes": {
+                "EXCLUDED:mixed_wake_rank_parity": 40,
+                "EXCLUDED:growth_or_signed_residues": 216
+              }
+            }
+          ],
+          "general_single_gap_cases": 2500,
+          "formal_growth8_controls": [
+            {
+              "scale": 1,
+              "width": 10,
+              "status": "NOT_EXCLUDED"
+            },
+            {
+              "scale": 3,
+              "width": 30,
+              "status": "NOT_EXCLUDED"
+            },
+            {
+              "scale": 5,
+              "width": 50,
+              "status": "NOT_EXCLUDED"
+            },
+            {
+              "scale": 101,
+              "width": 1010,
+              "status": "NOT_EXCLUDED"
+            },
+            {
+              "scale": 1000000000000000000000000000001,
+              "width": 10000000000000000000000000000010,
+              "status": "NOT_EXCLUDED"
+            }
+          ],
+          "scope": {
+            "old_minus7_search_rerun": false,
+            "old_standard_profile_search_rerun": false,
+            "drift_only_P104_proved": false,
+            "formal_wakes_realized": false
+          },
+          "source_sha256": "32ab8d2f6c2ed79f30e6f2ba075773249d89757e9947dd6a97772c78c5726667"
+        }
+      },
+      "periodic_growth": {
+        "status": "passed",
+        "unit_certificate_sha256": "ffa016bb1f6458dfa1c963097b022f409b99e7baa629834e869bea65e5f2d838",
+        "unit_verification": {
+          "status": "verified",
+          "branches": 12884,
+          "counts": {
+            "-1": {
+              "expand": 2,
+              "order": 2
+            },
+            "-2": {
+              "order": 96,
+              "closed": 26,
+              "expand": 2
+            },
+            "-3": {
+              "closed": 3198,
+              "order": 9534,
+              "read": 24
+            }
+          },
+          "max_built_events": 38,
+          "terminal_read_conflicts": 24,
+          "forbidden_words": [
+            "RLRRRRLLR"
+          ],
+          "certificate_sha256": "ffa016bb1f6458dfa1c963097b022f409b99e7baa629834e869bea65e5f2d838"
+        },
+        "unit_controls": {
+          "status": "passed",
+          "abstract_valid_partial_cycles": 5000,
+          "period_2_mod_4_controls": 2518,
+          "actual_standard_partial_cycles": 2080,
+          "corrupt_certificates_rejected": 7,
+          "standard_literal_steps": 10400,
+          "standard_infinite_phases": 104,
+          "standard_rotations": 4,
+          "far_blocker_epoch": 100000000000000000000,
+          "forbidden_factor_assignments": 64,
+          "forbidden_factor_positions": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "upstream_axis": "schema=langton-axis-rank-parity-audit-v1\nperiod=4 endpoint_words=1 failures=0\nperiod=8 endpoint_words=12 failures=0\nperiod=12 endpoint_words=150 failures=0\nperiod=16 endpoint_words=1960 failures=0\nrewrite_deltas={'cancel': {0, 1}, 'commute': {0, 1}}\nstatus=bounded_evidence_not_proof\n",
+        "upstream_diagonal": {
+          "all_checks_passed": true,
+          "chain_length": 6,
+          "finite_chain_checks": 8192,
+          "gadget_checks": 38,
+          "local_correction_checks": 8,
+          "schema": "langton-even-diagonal-rank-parity-audit-v1",
+          "status": "bounded_evidence_not_proof"
+        },
+        "independent": {
+          "status": "passed",
+          "local_mod4_identities": 4096,
+          "monodromy_instances": 130560,
+          "literal_full_field_steps": 6144,
+          "standard_phases_rotations_powers": 1664,
+          "independent_axis_words": {
+            "4": 1,
+            "8": 12,
+            "12": 150,
+            "16": 1960
+          },
+          "ladder": {
+            "pair_table": [
+              [
+                0,
+                0,
+                -6,
+                0
+              ],
+              [
+                0,
+                0,
+                -4,
+                0
+              ],
+              [
+                0,
+                0,
+                -2,
+                1
+              ],
+              [
+                0,
+                0,
+                2,
+                1
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                6,
+                0
+              ],
+              [
+                0,
+                1,
+                -6,
+                0
+              ],
+              [
+                0,
+                1,
+                -4,
+                0
+              ],
+              [
+                0,
+                1,
+                -2,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2,
+                0
+              ],
+              [
+                0,
+                1,
+                4,
+                0
+              ],
+              [
+                0,
+                1,
+                6,
+                0
+              ],
+              [
+                1,
+                0,
+                -6,
+                0
+              ],
+              [
+                1,
+                0,
+                -4,
+                0
+              ],
+              [
+                1,
+                0,
+                -2,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2,
+                0
+              ],
+              [
+                1,
+                0,
+                4,
+                0
+              ],
+              [
+                1,
+                0,
+                6,
+                0
+              ],
+              [
+                1,
+                1,
+                -6,
+                0
+              ],
+              [
+                1,
+                1,
+                -4,
+                0
+              ],
+              [
+                1,
+                1,
+                -2,
+                1
+              ],
+              [
+                1,
+                1,
+                2,
+                1
+              ],
+              [
+                1,
+                1,
+                4,
+                0
+              ],
+              [
+                1,
+                1,
+                6,
+                0
+              ]
+            ],
+            "finite_binary_chains": 4096
+          },
+          "arithmetic": {
+            "axis_residue_pairs": 496,
+            "pure_lane_pairs": 1024,
+            "g4_drift_partition": {
+              "diagonal2": 4,
+              "axis2": 4,
+              "unit": 4
+            },
+            "residue_matrices": {
+              "4": [
+                {
+                  "matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      2,
+                      0
+                    ]
+                  ],
+                  "checker_pure": true
+                },
+                {
+                  "matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "checker_pure": true
+                }
+              ],
+              "8": [
+                {
+                  "matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      2,
+                      4
+                    ]
+                  ],
+                  "checker_pure": false
+                },
+                {
+                  "matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      6,
+                      0
+                    ]
+                  ],
+                  "checker_pure": true
+                },
+                {
+                  "matrix": [
+                    [
+                      0,
+                      6
+                    ],
+                    [
+                      2,
+                      0
+                    ]
+                  ],
+                  "checker_pure": true
+                },
+                {
+                  "matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      3,
+                      1
+                    ]
+                  ],
+                  "checker_pure": false
+                },
+                {
+                  "matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      0,
+                      6
+                    ]
+                  ],
+                  "checker_pure": true
+                },
+                {
+                  "matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      4,
+                      2
+                    ]
+                  ],
+                  "checker_pure": false
+                },
+                {
+                  "matrix": [
+                    [
+                      2,
+                      4
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "checker_pure": false
+                },
+                {
+                  "matrix": [
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "checker_pure": false
+                },
+                {
+                  "matrix": [
+                    [
+                      4,
+                      2
+                    ],
+                    [
+                      2,
+                      0
+                    ]
+                  ],
+                  "checker_pure": false
+                },
+                {
+                  "matrix": [
+                    [
+                      6,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "checker_pure": true
+                }
+              ]
+            }
+          },
+          "boundary": "Finite exact checks plus complete written algebra; not an all-seed HC proof or Lean formalization."
+        },
+        "attribution": "A. Jillhewar, 2026, signed residues and axis/two-lane rank arguments; explicit formulas, all-growth corollaries and unit-diagonal combination in this integration.",
+        "scope": "All-period necessary restrictions and g>=8. Not HC, not g>=12, not an existence claim at g=8, not Lean or peer review."
+      },
+      "mixed_wake": {
+        "schema": "langton-mixed-wake-parity-v1",
+        "status": "passed",
+        "kernel": {
+          "truth_cases": 512,
+          "symbolic_variables": 9,
+          "symbolic_residual_monomials": 0
+        },
+        "raw_event_order": {
+          "geometric_words_by_length": {
+            "8": 4,
+            "12": 75,
+            "16": 1176,
+            "20": 17640
+          },
+          "total": 18895,
+          "class_checks": 187572,
+          "scope": "arbitrary geometric words, not asserted dynamically realizable"
+        },
+        "layer_controls": {
+          "enumerated_wakes": 65536,
+          "closed_mod2_wakes": 8192,
+          "signed_residue_wakes": 800
+        },
+        "standard": {
+          "standard_phases": 104,
+          "full_rank_factorizations": 25,
+          "class_turns_checked": 10816
+        },
+        "shapes": {
+          "interior_order_types": [
+            {
+              "sequence": "CCQQ",
+              "lane_choices": 4,
+              "result": "NOT_EXCLUDED"
+            },
+            {
+              "sequence": "CQCQ",
+              "lane_choices": 4,
+              "result": "EXCLUDED"
+            },
+            {
+              "sequence": "CQQC",
+              "lane_choices": 4,
+              "result": "NOT_EXCLUDED"
+            },
+            {
+              "sequence": "QCCQ",
+              "lane_choices": 4,
+              "result": "NOT_EXCLUDED"
+            },
+            {
+              "sequence": "QCQC",
+              "lane_choices": 4,
+              "result": "EXCLUDED"
+            },
+            {
+              "sequence": "QQCC",
+              "lane_choices": 4,
+              "result": "NOT_EXCLUDED"
+            }
+          ],
+          "huge_gap_cases": 256,
+          "saturated_extrema_cases": 30
+        },
+        "example": {
+          "excluded": {
+            "wake": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                11,
+                0
+              ],
+              [
+                11,
+                1
+              ]
+            ],
+            "test": {
+              "status": "EXCLUDED",
+              "reason": "mixed_wake_rank_parity",
+              "growth": 8,
+              "vertical_odd_classes": 2,
+              "horizontal_odd_classes": 6,
+              "ordered_vertical_horizontal_pairs": 7,
+              "required_parity": 1,
+              "actual_parity": 0,
+              "normalized_residue_counts_Q0_Q1_C0_C1": [
+                1,
+                1,
+                3,
+                3
+              ]
+            }
+          },
+          "not_excluded": {
+            "wake": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                11,
+                0
+              ],
+              [
+                11,
+                1
+              ]
+            ],
+            "test": {
+              "status": "NOT_EXCLUDED",
+              "reason": "mixed_wake_rank_parity",
+              "growth": 8,
+              "vertical_odd_classes": 2,
+              "horizontal_odd_classes": 6,
+              "ordered_vertical_horizontal_pairs": 6,
+              "required_parity": 1,
+              "actual_parity": 1,
+              "normalized_residue_counts_Q0_Q1_C0_C1": [
+                1,
+                1,
+                3,
+                3
+              ]
+            }
+          }
+        },
+        "bounded_growth8_screen": [
+          {
+            "width": 10,
+            "raw_wakes": 111588,
+            "pass_prior_residues_and_mixing": 7410,
+            "excluded_by_new_parity": 3058,
+            "not_excluded": 4352,
+            "by_residue_matrix": {
+              "(0, 2, 2, 4)": {
+                "excluded": 149,
+                "not_excluded": 156
+              },
+              "(1, 3, 3, 1)": {
+                "excluded": 2136,
+                "not_excluded": 3264
+              },
+              "(2, 0, 4, 2)": {
+                "excluded": 312,
+                "not_excluded": 288
+              },
+              "(2, 4, 0, 2)": {
+                "excluded": 312,
+                "not_excluded": 288
+              },
+              "(3, 1, 1, 3)": {
+                "excluded": 0,
+                "not_excluded": 200
+              },
+              "(4, 2, 2, 0)": {
+                "excluded": 149,
+                "not_excluded": 156
+              }
+            },
+            "stream_sha256": "b06b09c5465d31328e0ab951a413d51097250bb9386c840aaad3c8cc65b621a0",
+            "scope": "complete wake arithmetic screen at this width; no accepted realization claim"
+          },
+          {
+            "width": 12,
+            "raw_wakes": 411103,
+            "pass_prior_residues_and_mixing": 26930,
+            "excluded_by_new_parity": 11374,
+            "not_excluded": 15556,
+            "by_residue_matrix": {
+              "(0, 2, 2, 4)": {
+                "excluded": 693,
+                "not_excluded": 672
+              },
+              "(1, 3, 3, 1)": {
+                "excluded": 7616,
+                "not_excluded": 11284
+              },
+              "(2, 0, 4, 2)": {
+                "excluded": 1186,
+                "not_excluded": 1064
+              },
+              "(2, 4, 0, 2)": {
+                "excluded": 1186,
+                "not_excluded": 1064
+              },
+              "(3, 1, 1, 3)": {
+                "excluded": 0,
+                "not_excluded": 800
+              },
+              "(4, 2, 2, 0)": {
+                "excluded": 693,
+                "not_excluded": 672
+              }
+            },
+            "stream_sha256": "3ba4d07bba9dc212e0c08514d0a34b64c1f9bec8cc1cd30394a195312bc73469",
+            "scope": "complete wake arithmetic screen at this width; no accepted realization claim"
+          },
+          {
+            "width": 14,
+            "raw_wakes": 1198990,
+            "pass_prior_residues_and_mixing": 77784,
+            "excluded_by_new_parity": 33320,
+            "not_excluded": 44464,
+            "by_residue_matrix": {
+              "(0, 2, 2, 4)": {
+                "excluded": 2317,
+                "not_excluded": 2128
+              },
+              "(1, 3, 3, 1)": {
+                "excluded": 21616,
+                "not_excluded": 31598
+              },
+              "(2, 0, 4, 2)": {
+                "excluded": 3535,
+                "not_excluded": 3080
+              },
+              "(2, 4, 0, 2)": {
+                "excluded": 3535,
+                "not_excluded": 3080
+              },
+              "(3, 1, 1, 3)": {
+                "excluded": 0,
+                "not_excluded": 2450
+              },
+              "(4, 2, 2, 0)": {
+                "excluded": 2317,
+                "not_excluded": 2128
+              }
+            },
+            "stream_sha256": "dc0c108ebf8994a4b2e3c81d9573f42da1cb0ef8544276a9372ab7da70331ae9",
+            "scope": "complete wake arithmetic screen at this width; no accepted realization claim"
+          }
+        ],
+        "unsupported_drift_rejections": 3,
+        "source_sha256": {
+          "mixed_wake.py": "b9a429b209726011ec8c3021636a533e187ebf2a07d147316db25fb72d5e9800",
+          "check.py": "3bd4e0a7742e0f647b6b3e5dc0ebfefd41e98fd68a8008eac867714ae90b6a9c"
+        },
+        "scope": {
+          "all_growth8_excluded": false,
+          "finite_nonstandard_seed_found": false,
+          "HC_proved": false,
+          "Lean_formalized": false,
+          "externally_reviewed": false,
+          "pass_means_realizable": false
+        }
+      }
+    },
+    "full_current_classification_replayed": false,
+    "source_commit": "9223766d8f4de0e3c3807bc1a3e7008f53d5b9b5"
+  },
+  "completed_utc": "2026-10-16T05:31:19.923872+00:00"
+}

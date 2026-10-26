@@ -82,3 +82,12 @@ Research `9223766d` is integrated, retaining the pending version number. The
 previous same-day candidate is preserved in
 `revisions/2026-10-16-before-consolidation/`. See the current claim–evidence map
 in the repository review record. No Zenodo action was performed.
+
+## Literature revision — 26 October 2026
+
+Contribution positioning and primary references were revised after a fresh
+literature comparison; see [the project review](../paper/LITERATURE.md).
+The pending version is retained. Previous candidates are preserved under
+`v0.3.0/revisions/2026-10-26-before-literature-review/`.
+The current standalone record separates PDF/source rebuild checks from inherited
+mathematical replay. No publication was performed.

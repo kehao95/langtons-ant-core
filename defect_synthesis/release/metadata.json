@@ -9,7 +9,7 @@
       "orcid": "0009-0001-2818-4986"
     }
   ],
-  "description": "Effective all-coordinate bounded-defect synthesis with complete endpoint fields; semilinear initial-supply and defect spectra; a finite-collection supply dichotomy; a sharp three-parameter fold-consumer classification; analytic small positive witnesses and unary NP membership. The self-contained artifact replays exact supplied-schema arithmetic and finite-cover reconstruction. A restricted polynomial-size quantifier-free realization backend, shared factor circuits and an FP^NP minimum-cost bound complement the general semilinear compiler.",
+  "description": "Complete-field realization and a complete bounded-defect schema cover yield effective all-coordinate semilinear synthesis for Langton's ant. Established Presburger counting and flat-run methods support exact initial-supply and defect spectra, a supply dichotomy, a sharp three-parameter fold-consumer classification, small positive witnesses and unary-budget NP membership. A restricted polynomial-size quantifier-free backend encodes physical read/write parity and shared factor counts; an FP^NP minimum-cost upper bound complements the general semilinear compiler.",
   "access_right": "open",
   "license": "cc-by-4.0",
   "keywords": [
@@ -34,5 +34,5 @@
     }
   ],
   "language": "eng",
-  "publication_date": "2026-10-20"
+  "publication_date": "2026-10-26"
 }

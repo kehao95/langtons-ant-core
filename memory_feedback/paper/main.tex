@@ -71,7 +71,7 @@
 
 \title{Finite-Memory Prediction and Remote Feedback in Langton's Ant}
 \author{Hao Ke}
-\date{16 October 2026 · Version 0.1.0}
+\date{26 October 2026 --- Version 0.1.0}
 
 \usepackage{fvextra}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
@@ -119,10 +119,19 @@ simultaneous growing-scale lower bound. A twenty-black construction shows why a 
 essential even when initial mass and the number of intervening events
 are fixed.
 
-Reversibility, unboundedness and highway geometry are classical features
-of the ant {[}1,2{]}. The periodic read test uses full-drift chronology
-{[}3{]}, and the finite-region argument uses the square escape theorem
-{[}4{]}. The contributions here are the quantitative event interface,
+Gajardo's symbolic treatment already relates long return paths to infinite
+memory effects {[}1{]}. Our starting point is the specific old-black-read
+predicate, whose next occurrence can be computed from each complete finite
+input. This is a different target from arbitrary-cell visitation, which
+Gajardo, Moreira and Goles prove P-hard using finite circuit configurations
+{[}6{]}. Their infinite computation construction uses an infinite background.
+The event algorithms here apply to finite support and are polynomial in
+sparse input bit length for fixed memory length and fixed spatial filter.
+
+The periodic read test uses full-drift chronology {[}3{]}, and the finite-region
+argument uses the square escape theorem {[}4{]}. Highway multiplicity for
+generalized rules is studied in {[}2{]}; the dynamics here use the classical
+two-colour rule. The contributions are the quantitative event interface,
 exact continuation with full history, geometric event budgets, exact birth-filtered
 feedback and its growing-scale consequence, and the
 construction separating those budgets from bounds based only on mass and
@@ -1625,9 +1634,10 @@ one fixed seed can renew feedback indefinitely.
   Abstract)}. DMTCS Proceedings AB, 57--68 (2003).
   \href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
 \item
-  Anahí Gajardo, Victor Lutfalla and Michaël Rao. \emph{Ants on the
-  highway} (2024).
-  \href{https://arxiv.org/abs/2409.10124v1}{arXiv:2409.10124v1}.
+  Anahí Gajardo, Victor H. Lutfalla and Michaël Rao. \emph{Ants on the
+  highway}. Natural Computing 24, 497--509 (2025).
+  \href{https://doi.org/10.1007/s11047-025-10018-9}{doi:10.1007/s11047-025-10018-9}.
+  Author version: \href{https://arxiv.org/abs/2409.10124v1}{arXiv:2409.10124v1}.
 \item
   Atharva Jillhewar. \emph{Finite-Support Periodic Highways of Langton's
   Ant: Necessary Conditions, Transverse Exclusions, and Exact Search}
@@ -1643,6 +1653,10 @@ one fixed seed can renew feedback indefinitely.
   Hao Ke. \emph{Four Black Cells Force an Outgoing Highway: A Sharp
   Half-Plane Threshold for Langton's Ant}, version 0.1.0 (2026).
   \newline\href{https://doi.org/10.5281/zenodo.23402414}{doi:10.5281/zenodo.23402414}.
+\item
+  Anahí Gajardo, Andrés Moreira and Eric Goles. \emph{Complexity of
+  Langton's ant}. Discrete Applied Mathematics 117, 41--50 (2002).
+  \href{https://doi.org/10.1016/S0166-218X(00)00334-6}{doi:10.1016/S0166-218X(00)00334-6}.
 \end{enumerate}
 
 \end{document}

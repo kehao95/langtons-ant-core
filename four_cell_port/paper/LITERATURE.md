@@ -1,43 +1,25 @@
-# Ports and scattering: contribution allocation
+# Literature and contribution review — 26 October 2026
 
-Version 0.2.0 retains the sharp one-sided port and finite-history completion,
-and adds protected finite composition and composable unbounded return packets.
-The new contribution is full-field interface closure under arbitrary finite
-sequences, including genuine old-wake consumption. The local clock remains an
-application of clock 0.4.0; the twenty-cell fixed-event-count lifetime obstruction
-belongs to the companion memory paper. The finite marker lists are preinstalled.
+Version 0.2.0 retains the sharp one-sided four-cell threshold, exact 918-update
+three-cell bound and exterior completion from 0.1.0. Its upgrade is protected
+finite scattering composition, including unbounded return excursions and
+old-wake consumption with the entire field retained.
 
-## Historical literature review for version 0.1.0
+[Gajardo–Moreira–Goles (2002)](https://arxiv.org/html/nlin/0306022v2), Section 2,
+already constructs composable circuits and a highway-seed output. This is now
+compared explicitly in the introduction. The increment lies in the minimal
+port resource and the protected full-field closure, not in the general idea of
+joining ant gadgets.
 
-# Literature and contribution assessment — 15 October 2026
+[Etse (MFCS 2026)](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2026.49)
+studies finite-domain escape. The half-plane theorem fixes an inward boundary
+pose and constrains initial black count in an infinite domain. Supplied-word
+verification retains the [Jillhewar attribution](https://doi.org/10.5281/zenodo.21381637).
+[Clock 0.4.0](https://doi.org/10.5281/zenodo.23402379) owns the escape estimate
+used in completion time. The [one-black theorem](https://doi.org/10.5281/zenodo.23341609)
+covers unchanged singleton inputs, whereas the completion theorem adds four
+remote cells. The twenty-black lifetime obstruction belongs to memory_feedback.
 
-The candidate contribution is the sharp one-sided initial-black threshold
-(three cells force escape by 918, four permit a standard highway), together
-with four-cell exterior completion of every finite observed history.
-
-Primary sources checked:
-
-| Source | Relationship |
-|---|---|
-| Gajardo, Moreira and Goles, [Complexity of Langton's ant](https://arxiv.org/html/nlin/0306022v2), journal version 2002 | Circuit constructions and computational complexity; distinct from the present half-plane cardinality threshold. |
-| Etse, [How Long Can The Escaping Ant Be Confined?](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2026.49), MFCS 2026 | Finite-domain confinement, including a factorial square bound. Our lower bound concerns an infinite half-plane with a bounded initial black count. |
-| Jillhewar, [Finite-Support Periodic Highways](https://doi.org/10.5281/zenodo.21381637), 2026; [primary manuscript](https://github.com/Atharva12456/langtons-ant-highway/blob/main/paper/main.tex) | Provides a general periodic-realisability criterion. The per-cell verification method is attributed to it; that criterion is not claimed as a new contribution. |
-| Ke, [An Ant on the Clock](https://doi.org/10.5281/zenodo.23341603), 2026 | Supplies the finite-square escape bound used in the completion-time corollary. |
-| Ke, [Every One-Black-Cell Langton Ant Reaches the Period-104 Highway](https://doi.org/10.5281/zenodo.23341609), 2026 | Proves eventual standard behaviour for unchanged singleton inputs. This paper constructs four-cell extensions of arbitrary finite inputs. |
-
-Searches combined “Langton's ant” with “half-plane”, “four black cells”,
-“918”, “exterior completion” and related finite-support highway terms. The
-bounded search located no earlier statement of this exact threshold or
-four-cell completion theorem. This supports preparing a separate short
-preprint; it does not settle priority. A final search and external mathematical
-review remain before release.
-
-The manuscript is organized around threshold → infinite port certificate →
-universal completion. The escape-time corollary is an application of the
-existing clock result, not a third claim of a new escape estimate.
-
-The prepared revision cites the companion integer-clock manuscript for
-`E(n)=(13*3^(n-1)-2*n^2-4*n-5)/2`, giving completion by `E(n)+182`.
-The current concept DOI retains earlier published versions; use the exact
-new version DOI after release approval. The application remains a corollary
-of the clock theorem, with no duplicated claim of a new escape proof.
+The scoped search found no matching earlier sharp threshold or the stated
+full-history composition theorem. The 0.2.0 manuscript remains an update of
+concept 23402413. This review changes attribution and exposition, not proof data.

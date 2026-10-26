@@ -109,7 +109,7 @@
 
 \title{Local Factor Rigidity and Mass--Defect Bounds for Langton's Ant}
 \author{Hao Ke}
-\date{20 October 2026 · Version 0.1.0}
+\date{26 October 2026 --- Version 0.1.0}
 
 \usepackage{fvextra}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
@@ -160,9 +160,13 @@ interval. Its proof uses a separate graph of finite legal words, so it
 does not assume that a finite fragment can continue legally forever.
 
 Gajardo's symbolic projection and forbidden-word framework {[}1{]}
-provide the finite-word viewpoint. Gajardo, Lutfalla and Rao {[}2{]}
-discuss highway certification; Jillhewar's full-drift chronology {[}3{]}
-supplies the periodic realization test used here. Our contributions are
+provide the finite-word viewpoint. Gajardo and Mazoyer {[}5{]} relate
+finite-state trace descriptions to restrictions on a head's return tours.
+Here the physical ten-factor language requires an additional all-parameter
+exclusion of repeated folds before its recurrent behaviour can be classified.
+Gajardo, Lutfalla and Rao {[}2{]} study highway multiplicity for generalized
+ant rules; Jillhewar's full-drift chronology {[}3{]} supplies the periodic
+realization test used here. Our contributions for the classical two-colour ant are
 the concrete ten-factor classification, the all-parameter exclusion in
 its nonsimple recurrent component, the sharp transient coefficient, the
 local-target algorithm, finite-horizon core and supply bounds, and the
@@ -1034,6 +1038,7 @@ Phase & Finite first-L times & Ray starts & Maximum \(L-12b_j(L)\) \\
 
 \section{References}\label{references}
 
+\begingroup\small
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -1042,9 +1047,10 @@ Phase & Finite first-L times & Ray starts & Maximum \(L-12b_j(L)\) \\
   Abstract)}. DMTCS Proceedings AB, 57--68 (2003).
   \href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
 \item
-  Anahí Gajardo, Victor Lutfalla and Michaël Rao. \emph{Ants on the
-  highway} (2024).
-  \href{https://arxiv.org/abs/2409.10124v1}{arXiv:2409.10124v1}.
+  Anahí Gajardo, Victor H. Lutfalla and Michaël Rao. \emph{Ants on the
+  highway}. Natural Computing 24, 497--509 (2025).
+  \href{https://doi.org/10.1007/s11047-025-10018-9}{doi:10.1007/s11047-025-10018-9}.
+  Author version: \href{https://arxiv.org/abs/2409.10124v1}{arXiv:2409.10124v1}.
 \item
   Atharva Jillhewar. \emph{Finite-Support Periodic Highways of Langton's
   Ant: Necessary Conditions, Transverse Exclusions, and Exact Search}
@@ -1056,6 +1062,11 @@ Phase & Finite first-L times & Ray starts & Maximum \(L-12b_j(L)\) \\
   Hao Ke. \emph{An Ant on the Clock: Exponential Escape Bounds for
   Langton's Ant}, version 0.4.0 (2026).
   \href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
+\item
+  Anahí Gajardo and Jacques Mazoyer. \emph{One Head Machines from a
+  symbolic approach}. Theoretical Computer Science 370, 34--47 (2007).
+  \newline\href{https://doi.org/10.1016/j.tcs.2006.10.004}{doi:10.1016/j.tcs.2006.10.004}.
 \end{enumerate}
+\endgroup
 
 \end{document}

@@ -26,3 +26,12 @@ the actual published contents.
 
 The earlier source-manifest.json describes the initial preparation at commit
 135ee4d; its PDF is retained in [initial-review/](initial-review/).
+
+## Literature revision — 26 October 2026
+
+Contribution positioning and primary references were revised after a fresh
+literature comparison; see [the project review](../paper/LITERATURE.md).
+The pending version is retained. Previous candidates are preserved under
+`v0.2.0/revisions/2026-10-26-before-literature-review/`.
+The current standalone record separates PDF/source rebuild checks from inherited
+mathematical replay. No publication was performed.

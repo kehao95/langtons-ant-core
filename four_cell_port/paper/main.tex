@@ -17,7 +17,7 @@
 \newcommand{\HH}{\mathcal H}
 \title{Four-Cell Ports and Composable Highway Scattering\\for Langton's Ant}
 \author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
-\date{15 October 2026\\Version 0.2.0}
+\date{26 October 2026 --- Version 0.2.0}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -50,6 +50,16 @@ region. Increasing guards establish this condition for arbitrarily many
 encounters. A further return packet deliberately revisits old wake, then
 recovers a closed outgoing interface using a second exact comparison region.
 These two constructions give complementary finite-train theorems.
+
+Gajardo, Moreira and Goles already compose finite logical gates, crossings
+and paths, ending a circuit in a highway seed~\cite[Section~2]{gajardo2002}.
+Our contribution specifies a sharp four-cell one-sided interface and proves
+closure of protected highway scattering under arbitrary finite composition,
+including return to old wake with the full field retained. The four-cell
+exterior completion theorem applies after any prescribed finite observation.
+Etse's finite-rectangle escape problem~\cite{etse2026} instead bounds time in
+a finite domain; our half-plane threshold bounds the initial black inventory
+in an infinite domain.
 
 A colouring is a set $B\subseteq\Z^2$ of black cells; $p$ and $h$ denote the
 ant's position and cardinal heading. On an update, the ant turns left on
@@ -330,14 +340,13 @@ retention of the inside debris, and the all-future certificate after the
 placed port. These cases test the implementation; the universal statement
 is the geometric coupling proof above.
 
-Finite circuit constructions for the classical ant were given by Gajardo,
-Moreira and Goles~\cite{gajardo2002}. Etse studies confinement in finite
-domains~\cite{etse2026}, while our clock paper supplies the square bound used
-for the explicit completion time~\cite{clock2026}. The one-black theorem
+Our clock paper supplies the square bound used for the explicit completion
+time~\cite{clock2026}. The one-black theorem
 establishes eventual standard-highway behaviour for unchanged singleton
 inputs~\cite{ke2026}. The present contribution is the sharp initial
 cardinality threshold for a one-sided port, the exact three-cell exit bound,
-and a four-cell completion for arbitrary finite histories. The general
+and a four-cell completion for arbitrary finite histories, followed by the
+protected composition and return theorems. The general
 periodic-realisability criterion~\cite{jillhewar2026} is used as a verification
 method; the new threshold is established by first-contact coverage.
 

@@ -1,4 +1,40 @@
-# Current integration review — 20 October 2026
+# Current literature revision — 26 October 2026
+
+The [primary-source review](LITERATURE_REVIEW.md) compares all six candidates
+with their nearest located predecessors and records the revised contributions.
+Introductions, bibliography, literature notes and descriptions were updated.
+No theorem statement, proof certificate or executable mathematical checker changed.
+
+The candidate standalone records use `editorial-only`: the source ZIP and PDF
+are rebuilt in isolation, while proof checks are inherited from the preserved
+pre-review candidates by exact non-editorial source hashes. Five predecessor
+records are full replays; wake retains its documented new-module replay plus
+hash-matched full classification. This distinction supersedes the package dates
+below without replacing their mathematical evidence.
+
+The six candidate versions remain pending. Owner review and external mathematical
+review remain separate, and no Zenodo operation was performed.
+
+| Candidate | PDF pages | Source files checked | Mathematical replay inherited from |
+|---|---:|---:|---|
+| [Four-row](four_row_escape/release/v0.1.0/standalone-check.json) | 8 | 15 | Full, 21 October |
+| [Factor](factor_language/release/v0.1.0/standalone-check.json) | 31 | 102 | Full, 21 October |
+| [Defect](defect_synthesis/release/v0.1.0/standalone-check.json) | 12 | 71 | Full, 21 October |
+| [Memory](memory_feedback/release/v0.1.0/standalone-check.json) | 27 | 60 | Full, 16 October |
+| [Wake](wake_synthesis/release/v0.3.0/standalone-check.json) | 25 | 229 | Extensions, 16 October; retained full base, 15 October |
+| [Port](four_cell_port/release/v0.2.0/standalone-check.json) | 18 | 28 | Full, 15 October |
+
+All six isolated builds pass and reproduce the delivered PDF text. All 505
+source hashes match their archives; 466 files outside manuscript/README scope
+match the preserved predecessors. Formal theorem environments and display
+mathematics were compared unchanged, alongside manual review of the prose diff.
+No unresolved references or overfull boxes remain. Revised introduction and
+bibliography pages were visually checked. A changed-proof-source negative
+control is rejected by the inheritance checker before any pass report is written.
+
+---
+
+# Mathematical integration review — 20 October 2026
 
 Research source: `16b9b465a291933d0229f8febf180fcc3be7fddc`; core base: `22e0c9e`.
 Eight publication projects now contain six local release candidates. This revision
@@ -47,10 +83,11 @@ backend and new existential backend also have different output contracts.
 
 ## Packaging and remaining work
 
-The exact standalone records are maintained with each current candidate:
-[four-row](four_row_escape/release/v0.1.0/standalone-check.json),
-[factor](factor_language/release/v0.1.0/standalone-check.json), and
-[Counting Defects](defect_synthesis/release/v0.1.0/standalone-check.json).
+The full standalone replays from this integration are preserved with the
+pre-literature-review snapshots:
+[four-row](four_row_escape/release/v0.1.0/revisions/2026-10-26-before-literature-review/standalone-check.json),
+[factor](factor_language/release/v0.1.0/revisions/2026-10-26-before-literature-review/standalone-check.json), and
+[Counting Defects](defect_synthesis/release/v0.1.0/revisions/2026-10-26-before-literature-review/standalone-check.json).
 All three PDFs build without unresolved references or overfull boxes. Title,
 affine-induction, finite-core, eight-factor construction and QF transition pages
 were visually inspected. Prior factor/defect PDF, metadata, manifests and replay records are retained in
