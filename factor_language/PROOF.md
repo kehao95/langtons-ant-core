@@ -20,7 +20,7 @@ tube does not transfer to J10. Both families now have complete futures; their se
 ## Recovery and geometry
 
 [Complete archive recovery](proof/silent-archive-recovery.md) closes the future
-of the original producer family. The restored original files retain their hashes;
+of the producer family;
 `verification/silent_archive_recovery` checks every affine band and infinite tail.
 [Silent-axis geometry](proof/silent-axis-return.md) uses the inherited all-parameter
 fold obstruction, new mask closure and four integer potentials to cover every
@@ -36,8 +36,8 @@ sharp slope, infinite-background nine-factor example and intrinsic J10 decider.
 7,595 vertices and 7,763 edges, exact first-event time/full endpoint, and
 `s_n <= n*(212W+854199)+415308*n*(n-1)`. It uses the already proved
 finite-word foldback obstruction, not a transfer of S_D budgets.
-The runtime import changes only the sibling path to `ten/`; original and
-adapted hashes are recorded separately.
+The runtime uses the sibling `verification/ten/` kernel;
+`sources.json` identifies the complete dependency set.
 
 [Mass proof](proof/mass.md) independently owns the finite-word 300-window graph,
 integer potential, sharp 90-step witness and deletion-of-bad-endpoints argument.

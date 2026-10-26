@@ -1,11 +1,9 @@
 # Silent foldbacks, autonomous depletion, and the cost of resetting a ribbon
 
-**15 October 2026. Base inspected: `11894a516e40fef9be730e266936071c7750142c`.**
-
 Evidence: the analytic finite reduction below, exact integer/word certificates,
 and independent complete-state finite dynamics with two all-future tail checks.
-Not Lean-formalized, externally reviewed, or a priority claim. No HC solution or
-finite HC counterexample is asserted. No earlier implementation is changed.
+The analytic proof is not Lean-formalized. No HC solution or
+finite HC counterexample is asserted.
 
 ## 1. Question and result
 
@@ -312,7 +310,7 @@ is newly checked here. No reset of that kind is asserted to exist. If arbitrary
 leftover black debris is allowed, its mass belongs in (5), and (6) is NOT an
 unconditional event-cost bound. The more general flip bound (2) still applies.
 
-## 8. What the closure attempt has and has not achieved
+## 8. Scope and limitations
 
 The family shows that a J10-free segment may contain an arbitrarily long return
 to a newly created black cell, and that its endpoints need not describe its
@@ -330,11 +328,12 @@ No global contradiction or finite negative seed has been obtained.
 
 ## 9. Reproduction
 
-Run `python scripts/check_silent_fold_reset.py`, or `python check.py --compare
+Run `python3 factor_language/reproduce.py --extensions-only`, or `python check.py --compare
 report.json` inside the isolated package. The repository runner uses a temporary
 copy. It reconstructs all records, masks, finite order cases, complete endpoints,
 infinite tails and mismatch tables, and requires byte-identical reports/masks.
-Python standard library only; no graph optimizer or solver is trusted.
+Python standard library and a C++17 compiler suffice for the repository runner;
+no graph optimizer or solver is trusted.
 
 Current evidence: 2287 read records; 874 affine functions and 1772 cross-slope
 pairs; all parameter order cases n=0,1,2; 7491 ordered reads; 510 all-future parity

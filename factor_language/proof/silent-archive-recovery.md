@@ -1,14 +1,12 @@
 # Complete autonomous recovery of the silent-archive family
 
-**15 October 2026. Base inspected: `db0c96f4b6181755b62b1860dabd40225fb6fd40`.**
-
 Evidence: a complete analytic finite-reduction argument, declarative exact words,
 and an integer affine-cell verifier; separate Python/C++ full-state controls.
-Not Lean-formalized, externally mathematically reviewed, or certified novel.
+The analytic proof is not Lean-formalized.
 This closes the all-parameter terminal behaviour left unresolved in
 [silent archive amplification](silent-archive-amplification.md), not general HC.
-The earlier construction, its lifetime table, and its method obstructions remain
-unchanged. No history is erased and no reset is externally applied.
+The construction retains the complete field and its lifetime table; no reset
+is externally applied.
 
 ## 1. Precise result
 
@@ -317,7 +315,7 @@ an exact first colour divergence at the least of these reference read times.
 If every answer is absent, first-difference induction proves permanent coupling
 with all E physically retained. This is a supplied-reference interface, not a
 solver for the future after an arbitrary interruption or for arbitrary HC.
-Its use of the standard coupling principle is inherited, not a priority claim.
+It uses the standard first-difference coupling principle.
 
 ## 7. The twelve finite exceptions
 
@@ -372,11 +370,11 @@ and an autonomous HC-negative seed remain unsupplied.
 
 Run from the repository root:
 
-    python experiments/hc_global/silent_archive_recovery/reproduce.py
+    python3 factor_language/verification/silent_archive_recovery/reproduce.py
 
 Or compare directly:
 
-    python experiments/hc_global/silent_archive_recovery/check.py --compare experiments/hc_global/silent_archive_recovery/checked_report.json
+    python3 factor_language/verification/silent_archive_recovery/check.py --compare factor_language/verification/silent_archive_recovery/checked_report.json
 
 Only Python's standard library and a C++17 compiler named g++ are required.
 The default command does not change the grammar or report. `unpack_grammar.py`
@@ -391,8 +389,7 @@ integer premises. Separately, Python uses vector rotations and C++ uses headings
 on complete mutable fields. They check 88 complete inputs (n=1,...,80 and
 127,128,255,256,511,512,1000,1001), each implementation performing 5,222,713 literal
 updates, and compare all 88 COMPLETE terminal fields. Each checks every finite
-requested turn and an exact infinite-tail criterion. Their algorithmic
-independence is not outside peer review.
+requested turn and an exact infinite-tail criterion. The analytic coverage argument supplies the universal parameter quantifier.
 
 Wrong recovery turns, a shortened parameterized scan, a wrong tail phase, a
 missing source bulk bit, and a marker 10^60 tail epochs away are rejected.

@@ -1,10 +1,10 @@
 # A nine-factor mass-deficit bound, and the sharp window threshold
 
-**15 October 2026.** Classical white/right, black/left, toggle-then-move ant.
+Classical white/right, black/left, toggle-then-move ant.
 Evidence: the analytic coverage argument below, two complete finite enumerations,
 a rebuilt integer certificate and explicit all-parameter finite counterinputs.
-Not a Lean proof, external mathematical review, priority claim, nine-factor
-attraction theorem, HC proof or finite HC counterexample.
+The analytic argument is not Lean-formalized. This is a mass bound, not a
+nine-factor attraction theorem, HC proof or finite HC counterexample.
 
 ## 1. Definitions and exact results
 
@@ -183,7 +183,7 @@ No assertion about the future length of the actual orbit is required.
 
 Together with the separately exhausted short-word bound 322, this proves (2).
 The readable code, deterministic report and all integer coefficients are in
-`experiments/hc_global/nine_mass/`. The 150-window enumeration and the finite
+[`../verification/nine_mass/`](../verification/nine_mass/). The 150-window enumeration and the finite
 projection/edge checks are substantive finite premises of the written argument;
 this is not a conclusion extrapolated from sampled initial states.
 
@@ -284,24 +284,15 @@ input. In particular, (3) is a LOWER bound on event counts when black mass grows
 too slowly; reversing it into an event-termination budget would be invalid.
 
 The canonical J_10-to-HC equivalence and total exact J_10 macros remain separate
-imported tools. No theorem here bounds the number of iterations of those macros.
+dependencies proved separately. No theorem here bounds the number of iterations of those macros.
 The 22-period construction cannot refute HC: each finite truncation stops
 following it at the explicitly identified first missing initial-black read.
 
-An intermediate work update conjectured an unverified nine-legal 308-period
-counterexample to a uniform mass bound. That statement did not survive independent
-re-execution and is withdrawn. No such object or associated sample claims are
-used in the evidence. The retained results are (2), (3), and the verified
-EIGHT-legal 22-period finite-prefix counterfamily (9).
-
 ## 8. Reproduction
 
-Run `python experiments/hc_global/nine_mass/check.py --compare
-experiments/hc_global/nine_mass/check_results.json`, or the combined entrypoint
-`python scripts/check_hc_continuation.py`. Python 3.10+ and a C++17 compiler are
-required for the complete finite graph reconstruction; no LP or SAT solver is
-needed. The native and independent Python enumeration both finish, all product
-and condensation inequalities are checked, and the explicit infinite/finite
-support distinction is tested. Code and declarative reports are hashed. Older
-whole-repository suites, old standard-wake exhaustion and Lean builds are not
-represented as freshly run.
+Run `python3 factor_language/reproduce.py --new-results-only` from the repository
+root. Python 3.10+ and a C++17 compiler are required for the complete finite
+graph reconstruction; no LP or SAT solver is needed. The native and independent
+Python enumerations, every product/condensation inequality, and the explicit
+infinite/finite support distinction are checked. Code and declarative reports
+are identified by source hashes.

@@ -97,22 +97,16 @@ $\mu(N)\le2\lceil(N+9)/4\rceil$. A finite prefix can be padded by unread
 black cells outside its footprint, so the NP query for exactly $m$ points
 decides $\mu(N)\le m$ without additional side conditions. Binary search
 over this $O(N)$ range needs $O(\log(N+1))$ NP-oracle queries of polynomial
-unary-$N$ size. No value of $\mu$ or divergence statement is computed here.
+unary-$N$ size. This is a complexity classification; no numerical table of $\mu$ is computed here.
 \end{proof}
 
-The new backend rejects arbitrary quantified source predicates,
-zero-displacement powers and complete-field target equality. Those tasks
-remain with the more general compiler. Polynomial circuit size does not
+The encoding applies to the stated segment-source syntax and endpoint
+colour queries. The general compiler handles quantified source predicates,
+zero-displacement powers and complete-field target equality. Polynomial circuit size does not
 imply a polynomial deterministic solver, and the NP statement is not a
 claim for binary-encoded $N$.
 
-The bundled checks include 312 all-integer intersection equivalences,
-544 parameter instances across 34 schemas, 278 complete valid endpoints,
-175,175 endpoint-bit comparisons, exact huge-coordinate identities and
-eight invalid-input controls. Z3 and ISL/GMP are explicit trust dependencies;
-native UNSAT responses are not independently checked proof objects.
-Historical timing measurements show a roughly $128$-fold gain for the
-factor-counter construction at 16 independent powers, but only about
-$1.8$--$1.9$ on three supplied-schema decision examples and a slowdown on
-one small example. These are distinct tasks; no global synthesis speedup
-is claimed and timing is not a deterministic replay target.
+The reproduction archive checks the encoding by exact intersection
+identities and complete finite endpoint comparisons. Its Z3 and ISL/GMP
+backends are part of the computational evidence described in the
+reproduction section.

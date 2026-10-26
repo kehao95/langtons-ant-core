@@ -1,12 +1,13 @@
-# A twenty-cell one-shot feedback circuit and a failed global closure
+# A twenty-cell feedback circuit and a spatial-scale obstruction
 
 Evidence: analytic all-parameter arguments plus regenerated integer inequality
-certificates, exact finite dynamics, and two all-future checks. Not Lean-formalized,
-externally reviewed, or a publication-priority claim. This proves a positive
-family and refutes a proposed global age bound. It does NOT prove or refute HC.
+certificates, exact finite dynamics, and two all-future checks. The result
+constructs a positive family and excludes a lifetime bound depending only on
+memory depth, intervening event count and initial black cardinality. These
+arguments are analytic and computer-assisted rather than Lean-formalized.
 The four-cell port and the supplied-word verification methods are inherited.
 
-## 1. The closure attempted, and the outcome
+## 1. Spatial extent is essential
 
 The [endpoint-tube theorem](remote-stale-feedback.md) says that the next S_D
 macro, if its event is at e and its source head is p, has duration at most
@@ -334,16 +335,12 @@ and full-history guards. Neither mechanism is supplied here. New remote gates
 cannot be appended after the run, and increasing n between separate inputs is
 not an autonomous iteration.
 
-The mainline therefore remains: exclude or construct indefinitely renewable
-migrating feedback from ONE finite seed, and separately treat nonstandard
-periodic tails. We do not replace that target by this family, by a strip promise,
-by sparse-input time growth, or by a count-only surrogate already falsified above.
-
 ## 7. Reproduction and trust boundary
 
-Run `python scripts/check_scalable_feedback_circuit.py`. Only the new isolated
-package is copied and replayed. The runner requires byte-identical deterministic
-JSON against the committed report. Python 3.10+ standard library suffices.
+Run `python3 memory_feedback/reproduce.py` from the repository root. The runner
+checks this module alongside the other memory results in disposable copies,
+comparing deterministic reports with the retained evidence. Python 3.10+ and
+its standard library suffice.
 
 Actual controls: 6,832 all-parameter stage-separation inequalities; 1,247 affine
 and 208 constant protected-field inequalities; 20 affine endpoint identities;

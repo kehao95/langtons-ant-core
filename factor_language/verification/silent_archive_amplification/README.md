@@ -12,7 +12,7 @@ The twenty-step pulse executes n+1 times and fails at relative offset 20n+22;
 it is not infinitely self-renewing.
 
 ```sh
-python experiments/hc_global/silent_archive_amplification/check.py --compare experiments/hc_global/silent_archive_amplification/checked_report.json
+python3 factor_language/reproduce.py --extensions-only
 ```
 
 The witness is declarative. `affine.py` covers every integer n>=1 by the complete

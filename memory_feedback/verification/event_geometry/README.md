@@ -1,11 +1,11 @@
 # Finite stale-event geometry
 
-Canonical proof: `proof/results/stale-event-geometry.md`.
+Canonical proof: [stale-event-geometry](../../proof/stale-event-geometry.md).
 
 Run from the repository root:
 
 ```sh
-python scripts/check_stale_event_geometry.py
+python memory_feedback/reproduce.py
 ```
 
 The runner checks pinned existing symbolic dependencies and works in a temporary

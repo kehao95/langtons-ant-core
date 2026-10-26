@@ -1,15 +1,9 @@
 # Exact root-cost spectra and relational verification for defect schemas
 
-**15 October 2026.** Initial mathematical base `2f6010a6`; integration preserves
-`efe22a9f551b1c1670bf5741013beec11d3c8041` and its all-coordinate Presburger theorem.
-
-The [complete independent development](../verification/defect_resource_spectrum/PROOF.md)
-and [six-page manuscript source](../paper/main.tex)
-are accompanied by an executable exact-integer compiler. This note records the
-additional resource theorem and the boundary between independent corroboration
-and a genuinely new claim. The parallel
-[bounded-defect theorem](presburger-defect-reachability.md) is preserved and is
-NOT registered again as a second theorem. Neither work proves HC.
+The [complete development](../verification/defect_resource_spectrum/PROOF.md)
+and [article source](../paper/main.tex) accompany the exact-integer compiler.
+The resource refinements use the
+[bounded-defect theorem](presburger-defect-reachability.md); neither result proves HC.
 
 ## 1. Exact whole-history relation
 
@@ -108,13 +102,13 @@ conflict of event definitions: both count forward-contained windows, not the
 first nine inverse-history J10 tests.
 
 The resulting all-coordinate finite-budget relation and computability of mu(N)
-are the same project results already committed at efe22a9f. The existence of a
+are established by the bounded-defect theorem. The existence of a
 finite complete schema collection is proved; its nontrivial global disjunction
 has NOT been fully traversed. Caps return INCONCLUSIVE. Neither semilinearity
 nor computability of mu proves that mu diverges or that infinite intersections
 of the nested seed domains are empty.
 
-## 5. Evidence and integration
+## 5. Evidence and trust
 
 The source package's full disposable replay passed: 255 short literal words,
 48 powered schemas/768 parameter assignments, universal two- and three-fold
@@ -126,4 +120,4 @@ was rebuilt rather than taken from a sample. Source hashes fix the tested files.
 Both relational formulations use libisl/GMP. Independent vector-rotation finite
 replay corroborates them, but no independently proof-checked elimination witness,
 Lean proof or outside mathematical review is claimed. Arithmetic failures are
-not NO answers. Incomplete development runs are retained as diagnostics.
+not NO answers.

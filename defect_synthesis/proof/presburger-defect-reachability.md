@@ -279,9 +279,9 @@ Finite search in this m range computes mu(N); it is nondecreasing. No new numeri
 mu table was computed here. Subword-first-L costs are not automatically costs of
 the ORIGINAL input, which is why the definition uses complete prefixes.
 
-The unproved strengthening mu(N)->infinity would imply HC and, using the new
-emptiness procedure, yield a computable coordinate-independent total event budget
-for each initial cardinality. The converse from HC is NOT established.
+A hypothetical condition mu(N)->infinity would imply HC and, together with
+the emptiness procedure, a computable coordinate-independent event budget for
+each initial cardinality. This is a conditional implication about quantifiers.
 
 Precisely, HC requires every fixed coordinate tuple to leave the nested E_(m,N)
 eventually. A cardinality-uniform budget requires one E_(m,N) to be empty for each
@@ -330,7 +330,7 @@ native operation cap was reached on an unnecessarily expanded guard; no empty-se
 conclusion was drawn. The final checks use exact relations and explicitly test
 that incomplete cover/native errors never produce UNSAT.
 
-Run `python scripts/check_presburger_defects.py`. The disposable replay compares
+Run `python3 defect_synthesis/reproduce.py`. The disposable replay compares
 all non-format report data and semantically compares saved relations, allowing ISL
 versions to print different normal forms. The actual version was isl-0.27-GMP.
 This tests the supplied-schema arithmetic and examples. Universal Theorem 1 still

@@ -1,11 +1,10 @@
-# Critical-potential verification — 15 October 2026
+# Critical-potential verification
 
-The new proof supports square first exit by
+The critical-potential proof gives square first exit by
 `4 floor(3 R_n/16)+4 <= (13/4)3^n+4` and rectangular first exit by
 `floor((9/2)(NH+16)(4N+1)^floor(H/2))+3`.
-No mathematical counterexample or failure of either constant was found.
-The results strengthen the existing clock paper. Software independence here
-means separate implementations; this audit is not external peer review.
+The symbolic audit uses a separately written implementation. The universal
+claims follow from the analytic arguments and exact finite checks below.
 
 ## Claim-to-proof map
 
@@ -26,11 +25,9 @@ Thus these checks are symbolic identities, not sampled parameter fits.
 The ordinary inequality proofs, geometric sums and invariant-sector range
 arguments remain the analytic proof in `../../PROOF.md`.
 
-## Original package and fresh reproduction
+## Reproduction
 
-The original `critical.py`, `check.py`, `symbolic_check.py`, `check_results.json`
-and `symbolic.json` are retained byte for byte from the incoming research commit.
-The standard-library checker reproduces its retained report exactly:
+The standard-library checker reproduces the retained report exactly:
 
 - 3,000 local identities and 6,400 four-update cases;
 - 10,608 horizontal-arrival two-step cases;
@@ -38,21 +35,18 @@ The standard-library checker reproduces its retained report exactly:
 - 28,808 complete initial states on eight small rectangles, with 86,584 updates;
 - 80 exterior-field trajectories, with 575 updates, and eight invalid-input controls.
 
-The additional symbolic audit is recorded in `audit.json`; source hashes and
-fresh run metadata are in `reproduction.json`. The retained optional SymPy output
-is supplementary history; the required new algebra audit uses no SymPy.
+The symbolic audit is recorded in `audit.json`. The optional SymPy output
+provides a second symbolic check; the required algebra audit uses no SymPy.
 Run `python3 clock_escape/reproduce.py --critical-only` at the repository root.
 The full reproduction command also includes the retained supercritical evidence.
 
-## Proof and manuscript revisions
+## Localization and proof scope
 
-The original arguments are valid under the stated finite-state model. The audit
-makes their extension to arbitrary exterior colouring explicit: the potential
-sum is localized to the observation region, avoiding undefined infinite sums.
+For arbitrary exterior colouring, the potential sum is localized to the
+observation region, avoiding undefined infinite sums.
 For finite complete fields this only subtracts a constant during confinement.
-The constant-turn proof now states the common four-reward product 4^4/81,
+The constant-turn proof uses the common four-reward product 4^4/81,
 and the rectangle argument spells out the binomial bound for (1+1/N)^N<3.
-These refinements also land in the original proof and manuscript.
 
 The critical bounds have exact algebraic checks. Lean covers the supercritical
 local identities and telescoping; the critical proofs are analytic.

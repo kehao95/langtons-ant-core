@@ -16,7 +16,7 @@ shortened classification route. [Current proof map](PROOF.md).
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23665515)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675970)
 
 ## Exact scope
 

@@ -1,6 +1,6 @@
 # Exact standard-defect macros through non-simple transient components
 
-Evidence: analytic coverage and geometric arguments, a complete finite lifted-graph certificate checked by Python and independently by C++, and exact full-state controls. No Lean formalization, external mathematical review, priority determination, HC proof, or finite HC counterexample.
+Evidence: analytic coverage and geometric arguments, a complete finite lifted-graph certificate checked by Python and independently by C++, and exact full-state controls. The analytic proof is not Lean-formalized; neither HC nor a finite HC counterexample follows.
 
 ## 1. Literal target and results
 
@@ -155,14 +155,14 @@ A tempting shortcut was to equate absence of J10 with the standard 116-step blac
 
 The new graph rank avoids that shortcut. It counts physical fold starts within an H traversal, not black age, black mass, or the number of all future J10 events.
 
-Run `python scripts/check_ten_event_macro.py`. The disposable replay reconstructs the old pinned input witnesses only as necessary, then checks the new lifted graph, independently compiles the new C++ checker, compares the complete edge/rank hashes, rejects damaged rank and missing-word controls, and checks exact event times AND complete endpoint fields. Actual counts are recorded in checked_report.json.
+Run `python3 factor_language/verification/ten_event_macro/reproduce.py`. The disposable replay reconstructs the old pinned input witnesses only as necessary, then checks the new lifted graph, independently compiles the new C++ checker, compares the complete edge/rank hashes, rejects damaged rank and missing-word controls, and checks exact event times AND complete endpoint fields. Actual counts are recorded in checked_report.json.
 
 The sparse 28-black remote-marker family at distance parameter n is returned at its exact first event 104n-92, including n=10^60, with 34 literal main-orbit updates and one plan in this implementation. Equality of its returned field with a separate direct periodic-write construction is EXTENSIONAL XOR equality, not equality of expression lists. The capped 24-mode finite family at n=10^60 is certified event-free through its long transient using two plans and 138 ordinary updates, from a 45-term mature input. It has enormous but finite support. The unprotected finite 28-rail also returns its first event rather than being confused with an infinite black background.
 
 Initial control-code mistakes compared differently split XOR expressions for syntactic equality and used an unshifted T word after a 150-step advance. They were corrected before the passing replay. They are not suppressed successful tests. The physical macro source and all future certificates were checked after those corrections.
 
-## 9. Status in the HC proof graph
+## 9. Scope and limitations
 
-Completed: a finite physical fold rank for one event-free interval; exact first-J10 time and complete-state closure on compressed finite fields; constant finite-macro halo; explicit quadratic nth-event deadlines and polynomial bit-time bounded event-prefix computation.
+The results establish a finite physical fold rank for one event-free interval; exact first-J10 time and complete-state closure on compressed finite fields; constant finite-macro halo; explicit quadratic nth-event deadlines and polynomial bit-time bounded event-prefix computation.
 
 Unproved: finiteness of J10 on every finite seed; a rank across arbitrarily many fresh macro calls; a certified negative finite seed; unrestricted HIGHWAY decidability/nonrecursiveness; all-input nonuniversality; HC. The loop counter resets legitimately for a new event macro, so it is NOT the missing global rank. No fresh-language or geometric promise is attached to the input in Theorems 1--3.

@@ -16,7 +16,7 @@ polynomial in binary D or K's diameter.
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23665512)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675969)
 
 ## Exact scope
 

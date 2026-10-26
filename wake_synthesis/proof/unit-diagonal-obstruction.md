@@ -1,7 +1,6 @@
 # A three-layer obstruction to unit-diagonal highways
 
-**15 October 2026.** Classical two-colour Langton ant, white/right and black/left,
-flip then move. Research baseline: `cc1e8c3706082fda095d8b5da98fce9f217971c0`.
+Classical two-colour Langton ant, white/right and black/left, flip then move.
 
 Evidence: a written all-input coverage argument for the stated periodic-drift
 class, and a finite certificate whose every branch and rejection is independently
@@ -244,7 +243,7 @@ Section 5. Since W>=4, premature closed components really do have mandatory
 unbuilt successors below. No candidate reaches a fourth layer. This contradiction
 proves the theorem, with no global period or width bound. QED.
 
-## 7. Integration note
+## 7. Growth consequence
 
 The unit-diagonal argument combines with the periodic-growth lemmas.
 The project reproduction entrypoint checks their exact certificates.

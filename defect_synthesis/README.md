@@ -7,7 +7,7 @@ its bounded-fold coverage theorem as an attributed input.
 
 [Manuscript](paper/main.tex) · [PDF](paper/paper.pdf) ·
 [Proof map](PROOF.md) · [Verification](evidence/README.md) ·
-[Zenodo](https://doi.org/10.5281/zenodo.23665499)
+[Zenodo](https://doi.org/10.5281/zenodo.23675966)
 
 ## Results
 

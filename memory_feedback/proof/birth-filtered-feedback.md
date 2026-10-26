@@ -6,7 +6,7 @@ This note treats the branch in which a finite-support classical ant never become
 an eventually translating periodic trace (abbreviated ETC). It does NOT exclude
 that branch. The qualitative statement that such a trajectory must consume
 arbitrarily late-born, remote, old black lifetimes is ALREADY proved in
-`proof/results/remote-stale-feedback.md`, Section 7. We do not claim that statement
+[remote-stale-feedback](remote-stale-feedback.md), Section 7. We do not claim that statement
 anew. The additions are a total FIRST-birth-filtered feedback operator with exact
 birth/death/complete endpoint, its effective budget, a growing-scale uniform
 consequence, and a compressed implementation that does not spend initial black
@@ -314,7 +314,7 @@ checks hashes, rebuilds the reports, and compares all deterministic quantities.
 Python 3.10+ standard library is enough; no external optimizer or numerical solver.
 
 Dependencies at the pinned source commit:
-- proof/results/stale-memory.md: suffix prediction and finite-event/ETC theorem;
-- proof/results/remote-stale-feedback.md: endpoint tube, fixed-region bursts,
+- stale-memory.md: suffix prediction and finite-event/ETC theorem;
+- remote-stale-feedback.md: endpoint tube, fixed-region bursts,
   uniform exterior quadratic deadline, and the prior qualitative newborn result;
-- proof/results/clock.md: the conservative square exit bound used in that proof.
+- ../../clock_escape/PROOF.md: the conservative square exit bound used in that proof.

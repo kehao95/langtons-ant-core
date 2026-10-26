@@ -27,7 +27,7 @@ from experiments.hc_global.defect_compiler_optimization.fast import FastSchema, 
 ```
 
 `FastSchema` is an opt-in replacement for `defect_resource_spectrum`'s Schema;
-old manuscripts and their pinned baseline backends are not silently switched.
+the pinned baseline backend remains available for comparison.
 Unbounded coordinate/loop parameters stay symbolic. An integer threshold is not
 an affine threshold variable. Multidimensional fibres are explicitly rejected.
 Arithmetic failures and caps remain exceptions/INCONCLUSIVE, never UNSAT.
@@ -35,8 +35,8 @@ Arithmetic failures and caps remain exceptions/INCONCLUSIVE, never UNSAT.
 ## Reproduction and measurements
 
 ```sh
-python scripts/check_defect_compiler_optimization.py
-python experiments/hc_global/defect_compiler_optimization/benchmark.py --repeats 5 --timeout 10 --output /tmp/defect-opt-benchmark.json
+python3 defect_synthesis/reproduce.py
+python3 defect_synthesis/verification/defect_compiler_optimization/benchmark.py --repeats 5 --timeout 10 --output /tmp/defect-opt-benchmark.json
 ```
 
 Python 3.10+, Linux for RSS/benchmark limits, and system libisl/GMP are required;

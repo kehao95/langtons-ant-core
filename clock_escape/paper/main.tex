@@ -40,12 +40,14 @@ a spatial one: bound the range of its values inside the region.
 
 A state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite, $p\in\Z^2$, and
 $h\in\{N,E,S,W\}$. Headings are encoded cyclically by $0,1,2,3$.
-Let $e_h$ be the corresponding unit vector. A state at time $t$ is observed
+The unit vectors are $e_N=(0,1)$, $e_E=(1,0)$, $e_S=(0,-1)$ and $e_W=(-1,0)$.
+A state at time $t$ is observed
 \emph{before} update $t$. The update is
 \begin{equation}\label{eq:rule}
  h'=h+1-2\mathbf1_B(p)\pmod4,\qquad
  B'=B\symdiff\{p\},\qquad p'=p+e_{h'}.
 \end{equation}
+Write $F(X)=(B',p',h')$ for this update map.
 Thus white gives a right turn, black a left turn, and the read cell flips
 before the ant moves.
 
@@ -68,8 +70,8 @@ The square estimate improves the factorial upper bound of
 Etse~\cite{Etse2026} to exponential order in the side length. His fixed-height
 rectangle bound has degree $H-1$ for even $H$ and $H-2$ for odd $H$; the degree
 above is smaller for every $H\ge6$. For heights two and three, his linear
-estimates remain sharper. The integer clock gives the leading square coefficient $13/6$ through a
-unit-increment identity and an explicit finite range.
+estimates remain sharper. The integer clock gives the leading square
+coefficient $13/6$ through a unit-increment identity and an explicit finite range.
 
 The common mechanism is positive clock growth within a finite range.
 For squares, absolute diagonal weights give an integer clock with unit minimum
@@ -225,10 +227,10 @@ from the stated table entry simplifies to
 The numerator vanishes on the critical curve.
 \end{proof}
 
-The potential combines rotated critical components of the directional
-exponential family. A single component can have zero increment. Their sum does
-not, but its increments need not have a location-independent lower bound.
-For rectangles, pairs of updates give the lower bound needed below.
+Every entry in the increment table is positive. Its dependence on position
+allows an individual increment to be arbitrarily small. For rectangles,
+pairing consecutive updates gives a uniform lower bound on their combined
+cost in the short direction.
 
 \section{Pairing in the short direction}
 For first exit from $Q_{N,H}$, restrict the field sum in
@@ -402,13 +404,24 @@ identities as Laurent polynomials in $a,b,U,V$, together with short-block
 identities and exit-step rounding. The written geometric range and pairing
 arguments supply the universal rectangular bound.
 
-The artifact retains the earlier rational clock checks and an independent
+The artifact includes the supercritical rational-clock checks and an independent
 functional-graph audit of all 4,213,000 colour/pose states in squares through
 side four, whose maximum exit times are $1,6,17,46$. Lean 4.30.0 checks the
 local algebra and telescoping lemmas for the supercritical clock in the
 appendix; its printed axioms are \texttt{propext}, \texttt{Classical.choice}
 and \texttt{Quot.sound}. The integer and critical-potential proofs are analytic,
 with exact algebraic checks, and are separate from those Lean lemmas.
+
+\section{Limitations}
+The escape estimates are uniform upper bounds. Their asymptotic sharpness,
+including the exponential growth rate for squares, remains open. The orbit
+algorithms take the entire finite black field and pose as input and compare
+complete states; deciding arbitrary local-observation events or eventual
+highway behaviour requires additional arguments. Their explicit simulation
+budgets establish decidability with the representation-dependent cost described
+above. The formalized results cover the supercritical local identities and
+telescoping; the integer and critical escape bounds use the analytic proofs
+and exact algebraic checks given here.
 
 \section{Conclusion}
 An absolute-diagonal integer clock converts finite spatial range into a unit
@@ -420,8 +433,12 @@ zero-crossing representative of every two-sided orbit. These results connect
 the local turn-and-flip rule to quantitative escape and effective orbit structure.
 
 \paragraph{Source and software availability.}
-Sources, certificates and verification reports are maintained in the
-\href{https://github.com/kehao95/langtons-ant-core/tree/main/clock_escape}{clock project}.
+The computational supplement is fixed at
+\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/clock_escape}{repository commit \texttt{e932522}, clock project}.
+Its \texttt{sources.json} gives the verification-source hashes;
+\texttt{evidence/integer/} and \texttt{evidence/critical/} contain the exact
+reports for the two escape arguments. The accompanying source archive includes
+these checkers and reports together with this article's source.
 From the repository root, run:
 \begin{verbatim}
 python3 clock_escape/reproduce.py --integer-only
@@ -429,8 +446,8 @@ python3 clock_escape/reproduce.py --critical-only
 python3 clock_escape/reproduce.py
 make -C clock_escape/paper
 \end{verbatim}
-The scoped checks use Python's standard library; full reproduction also uses
-Lean 4.30.0. Release manifests bind manuscript and verification sources by SHA256.
+The algebraic checks use Python's standard library; the formalized lemmas use
+Lean 4.30.0.
 
 \paragraph{AI assistance.}
 Generative AI assisted with developing and checking arguments, implementing
@@ -438,7 +455,7 @@ verification programs, and revising the exposition.
 
 \appendix
 \section{The supercritical rational clock}\label{app:rational}
-The earlier rational construction supplies the local identities formalized in
+The supercritical rational construction supplies the local identities formalized in
 Lean and a smooth family of strictly increasing potentials. Use the same
 $\sigma$ and $\eps$ as in Section~2.
 Fix $c\in\Z$ and a rational $r>3$. The parameter $c$ centres the diagonal

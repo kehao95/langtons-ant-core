@@ -11,13 +11,9 @@ premises. The whole all-coordinate schema disjunction is effective but is NOT
 reported as having been expanded for a nontrivial event budget. No HC proof,
 finite counterexample, general termination algorithm, or priority claim is made.
 
-The repository's `proof/research-global-all-coordinate-budget-2026-10-15.md`
-already proposed the fixed-budget Presburger corollary. This work does not
-claim that proposal as a new idea. It supplies an exact relational realization,
-rechecks its flat-cover dependency, treats complete output fields, proves the
-piecewise-affine first-black-cost refinement, and implements the finite-schema
-queries. The earlier `proof/semilinear-trace-lifting.md` treated fixed literal
-words, not words with unbounded power parameters.
+The construction supplies exact relational realization, complete output fields,
+piecewise-affine first-black costs and finite-schema queries. The imported
+finite-cover dependencies are identified below.
 
 ## 1. Literal model and principal theorem
 
@@ -291,7 +287,7 @@ The scanner (LRRL)^q at heading E uses 2q initially black row cells and has
 max(0,4q-9) defects. Hence mu(N)<=2 ceil((N+9)/4). Searching this finite mass
 range with Theorem 1 computes mu(N). Monotonicity in N is immediate.
 
-The proposed global route is now a precise sufficient theorem:
+The attraction theorem also gives the conditional implication:
 
     mu(N) tends to infinity => HC.                        (10)
 
@@ -299,8 +295,7 @@ Indeed an m-black seed can realize only words of first-black cost at most m.
 If (10)'s premise holds, it has finitely many contained defects and is standard
 by the ten-factor attraction theorem.
 
-The premise has NOT been proved. Neither does bounded mu refute HC. The exact
-HC statement in these coordinates is
+Bounded mu does not refute HC. The exact HC statement in these coordinates is
 
     for all m, intersection_N E[m,N] is empty.
 
@@ -384,9 +379,9 @@ an allegedly completed HC decider.
 
 ## References and provenance
 
-- H. Ke, project proofs at the pinned research commit: `ten-factor-attraction.md`,
-  `ten-event-macros.md`, `semilinear-trace-lifting.md`, and the all-coordinate
-  proposal named at the start. The finite-word same-cell criterion is attributed
+- H. Ke, bundled project proofs: [ten-factor attraction](../../proof/ten-factor-attraction.md),
+  [event macros](../../proof/ten-event-macros.md), and
+  [bounded-defect reachability](../../proof/presburger-defect-reachability.md). The finite-word same-cell criterion is attributed
   there to A. Gajardo (2003); periodic-word realization to A. Jillhewar (2026).
 - C. Haase, S. N. Krishna, K. Madnani, O. S. Mishra, G. Zetzsche, *An Efficient
   Quantifier Elimination Procedure for Presburger Arithmetic*, ICALP 2024,

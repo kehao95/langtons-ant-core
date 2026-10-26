@@ -1,8 +1,6 @@
 # Quantifier-free defect synthesis and a polynomial witness bound
 
 `f74b09bd3329d7b83fcf323fc580f5a1320fcd48`.
-The later `6afea97c2a8a26d03b2bf89de9d23a87d64a31e0` resource-spectrum and
-silent-recovery imports are preserved; their sources are not modified or rerun.
 
 **Evidence:** complete written analytic reduction, a new exact arithmetic encoder,
 solver-checked identities over unbounded integers, and independent compressed and
@@ -285,15 +283,12 @@ A finite word with minimum initial cost c<=m can be executed with exactly m
 initial black cells by padding unvisited cells outside its finite footprint.
 Hence the NP query with no coordinate side constraint decides mu(N)<=m.
 Binary search on this O(N) range uses O(log(N+1)) NP-oracle calls of polynomial
-unary-N size. This proves the FP^NP upper bound. It neither computes the
-function here nor proves mu(N) tends to infinity; both HC and the stronger
-mass-only total-defect conjecture retain their previous status.
+unary-N size. This proves the FP^NP upper bound for fixed finite targets.
 
 ## 7. Actual implementation, controls and timing boundary
 
-The new optional module is experiments/hc_global/presburger_fast. It imports
-only the hash-pinned, unchanged old compiler.py syntax and isl_exact.py for
-comparisons. It does not edit the old compiler, old proof or old cover driver.
+The optional module is `verification/presburger_fast`. It uses hash-pinned
+`compiler.py` syntax and `isl_exact.py` for baseline comparisons.
 
 - stream_qf.py: exact complete-field parity boundaries, constant-division DAG.
 - factor_dag.py: shared suffix-register count and final-event flag.
@@ -349,12 +344,11 @@ permits applying a polynomial succinct representation to this ant input class.
 The generic initial-read/alternation method remains the project's credited
 Gajardo methodology; the retained full-drift period checks are not rediscovered.
 
-The parallel resource-spectrum theorem at 6afea97c concerns explicit effective
-piecewise-affine minimum-root-cost and defect spectra. It is preserved, not
-claimed a second time. This note adds a restricted-syntax succinct decision
-upper bound and an implemented acceleration, not a replacement for its general
-partition/counting statement. No comparative timing against that new parallel
-compiler is claimed: its own declared exact relation method is different.
+The [resource-spectrum theorem](defect-resource-spectrum.md) concerns explicit
+effective piecewise-affine minimum-root-cost and defect spectra. The present
+restricted-syntax succinct decision upper bound complements its general
+partition/counting statement. No comparative timing against that relation
+compiler is claimed.
 
 Missing: efficient complete all-schema search at useful N; sharp practical
 complexity of those instances; deterministic polynomial-time existence; arbitrary

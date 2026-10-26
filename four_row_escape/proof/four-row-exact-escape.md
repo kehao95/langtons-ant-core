@@ -1,13 +1,9 @@
 # Exact escape times of Langton's ant in four rows
 
-**20 October 2026.** Research base: `54cbf29d7454da8c0d088c4c14864a55153e4a18`.
-
-**Evidence:** complete analytic reduction, two separately written exact finite
-implementations, and a checked inductive certificate for all widths. Not Lean
-formalized or externally peer reviewed. No full Highway Conjecture (HC) solution
-is asserted. This is an independent, complete first-exit problem for four rows,
-not another fixed-event prefix theorem or an assumption that all HC orbits lie
-in a thin strip. The proof imports no earlier project theorem or simulator.
+The proof combines a complete analytic reduction, two separately written
+exact finite implementations and an inductive certificate covering all widths.
+The analytic coverage arguments and exact checkers form the trust boundary;
+this is a computer-assisted proof without Lean formalization.
 
 ## 1. Main theorem and relation to the literature
 
@@ -382,11 +378,8 @@ Etse's column-by-column analysis and four-row conjecture are explicitly credited
 Behavioral minimization, persistent interfaces and dynamic programming are
 standard methods, not claimed as inventions. The new mathematical content is
 the complete closed four-row response catalog and the verified exact formula.
-A targeted public-source search on 20 October 2026 found no earlier proof of
-this formula; this limited search is not an exhaustive priority guarantee.
 
-Run `python scripts/check_four_row_escape.py`. The entrypoint uses a disposable
+Run `python3 four_row_escape/reproduce.py` from the repository root. The entrypoint uses a disposable
 directory and compares a fresh result to the immutable report. Resource failure
-raises an error/UNKNOWN, never an empty case or a proof. Only the new module is
-checked. A readable standalone manuscript and full source package accompany it;
-no submission, public DOI release or outside acceptance is claimed.
+raises an error/UNKNOWN, never an empty case or a proof. The [article](../paper/main.tex) gives the complete argument, and the
+[source manifest](../sources.json) identifies the reproducible inputs.

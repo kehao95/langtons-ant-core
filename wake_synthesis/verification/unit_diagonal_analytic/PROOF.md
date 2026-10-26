@@ -1,6 +1,6 @@
 # A short analytic proof of unit-diagonal highway exclusion
 
-## Result, provenance, and scope
+## Result and scope
 
 **Theorem.** A classical two-colour Langton ant started from a finite black
 field cannot have an eternally periodic, heading-restoring turn word whose
@@ -10,11 +10,9 @@ There is no restriction on period, growth, width, retreat, seed size, or wake.
 The full vector matters: standard P104 has displacement `(2,-2)` and is not
 excluded because its primitive *direction* happens to be `(1,-1)`.
 
-The theorem itself and the consequent universal growth bound `g>=8` were
-integrated by parallel project work in `2067bb5c8cee453988993aa4a63e059751f9866d`,
-using a three-layer finite certificate [C]. **The new contribution of this
-note is a purely analytic proof**: the 12,884-case finite check is replaced by
-forced first/second-layer words and one binary-port interleaving argument.
+The three-layer finite certificate [C] establishes the same theorem and
+consequent universal growth bound `g>=8`. The proof here is purely analytic:
+it uses forced first/second-layer words and one binary-port interleaving argument.
 The independently written Python/C++ enumerations and witness audit in this
 package are regressions, NOT mathematical premises of the proof below.
 
@@ -236,7 +234,7 @@ requires Python 3.10+ without -O and g++ with C++17/undefined-behavior sanitizer
 the mathematical proof requires neither program. Failed or interrupted runs
 are not accepted as verification. The proof is analytic; exact computations check its finite controls.
 
-### References and version boundary
+### References
 
 [J] A. Jillhewar, *Finite-Support Periodic Highways of Langton's Ant: Necessary
 Conditions, Transverse Exclusions, and Exact Search*, manuscript dated 17 August
@@ -245,9 +243,8 @@ https://github.com/Atharva12456/langtons-ant-highway/tree/76a7e234e577d992d086c2
 
 [C] H. Ke, *Closing the periodic-growth proof: residues, ranks, and small drifts*,
 `wake_synthesis/proof/periodic-growth-closure.md`, with its separately bundled
-unit-diagonal finite certificate, as integrated in main revision
+unit-diagonal finite certificate, at immutable revision
 `2067bb5c8cee453988993aa4a63e059751f9866d` of `kehao95/langtons-ant-core`.
-This parallel result was discovered on the final synchronization; it supersedes
-any novelty claim for the theorem itself. The present analytic forcing proof
-and its independent regression package are the incremental contribution.
+The theorem is attributed to [C]; this note supplies an analytic forcing proof
+and independent regression checks.
 https://github.com/kehao95/langtons-ant-core/blob/2067bb5c8cee453988993aa4a63e059751f9866d/wake_synthesis/proof/periodic-growth-closure.md

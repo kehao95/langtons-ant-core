@@ -1,8 +1,8 @@
 {
   "schema": "langton-periodic-growth-closure-v1",
   "files": {
-    "PROOF.md": "bd3e74c5a2a87c4431fe4c777b9eeaa7010e42600ab9eb9bea6198e9ca249db7",
-    "README.md": "c9dac1ce3cd487b13705b68c53c47f23c7e65f7de39261d3de704ea4f49f6f32",
+    "PROOF.md": "d941ee2327c101f4e8d34cca5abee3b88f8d2dd959ed656a1024098d319805f1",
+    "README.md": "0853de500d042e3ce2693374878004373646dd83b108dd2f9a867258dbacf0a5",
     "code/audit.py": "7eef19007c51db8bd12ea2726c36aae81ac937f84e2a2f0d6bdc9bb7104244e6",
     "evidence/independent.json": "4b6d35d5b41d513732ca57724adab99e3868bb82ff2735a9d30e2d61b09c7d87",
     "evidence/unit_replay.json": "84a99bd7fe06f89999fa5c35122c49fd0bd7285dc8cba6c0f3066b3bb5234d22",
@@ -13,7 +13,7 @@
     "third_party/README.md": "c329ed429f503c082c598be7613f2cace49163d2a093b8d342ce9978269f262e",
     "third_party/axis_rank_parity_audit.py": "62e2ac572d57280f99e217e99d2923a3c912b926ce53a861096e66ca1755986e",
     "third_party/even_diagonal_rank_parity_audit.py": "fd51e63150cef4c3ab63379804b36eac138ceb8bfc9f196f09421859af11ea91",
-    "unit/PROOF.md": "9f3ecb9aa291e4566c9152bcb31672e3e42459681c63dc89bcf580d8bafb82bd",
+    "unit/PROOF.md": "389c7b6728906f3f99cf9ca6349110f244289bf1a16992dc5437a4340cbac621",
     "unit/controls.py": "83208557cf2a62af81fefa723d369751a7fde17f7d9fffe3f3c857b6a224c8ab",
     "unit/obstruction.py": "c21b4185852f29660f091ff9af59e75ad7a87e9b936ffc77eaa72239d556032d",
     "unit/verify_certificate.py": "a96a4a1fa2ce571b8c024e1a93d9f92fd8c0e3122c4f71ca747d7bcd5685dba4"

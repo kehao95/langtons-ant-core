@@ -1,6 +1,6 @@
 # A sharp finite-word mass deficit and an all-input defect inequality
 
-**15 October 2026.** Classical square-lattice Langton ant, white/right, black/left, flip then move. A state is observed before the update. All finite black fields below are COMPLETE. Evidence: analytic coverage and telescoping arguments plus two independently implemented exhaustive finite kernels. Neither Lean formalization, external mathematical review, priority, HC, nor a finite HC counterexample is claimed.
+Classical square-lattice Langton ant, white/right, black/left, flip then move. A state is observed before the update. All finite black fields below are COMPLETE. Evidence: analytic coverage and telescoping arguments plus two independently implemented exhaustive finite kernels. The analytic proof is not Lean-formalized. The result supplies neither HC nor a finite HC counterexample.
 
 ## 1. Statements
 
@@ -111,8 +111,6 @@ Thus no all-input J10 finiteness theorem, certified finite negative seed, HIGHWA
 
 ## 7. Evidence, reproduction and source boundary
 
-Run `python reproduce.py` (Python standard library plus a C++17 compiler). A disposable replay independently reconstructs all kernels, compares both sorted edge and potential hashes, tests a damaged native potential without modifying it, and runs literal complete-field controls. witness.json is immutable unless the separate explicit `audit.py --generate` mode is requested. That generation mode is not called by reproduce.py.
+Run `python3 factor_language/verification/mass/reproduce.py` from the repository root (Python standard library plus a C++17 compiler). A disposable replay independently reconstructs all kernels, compares both sorted edge and potential hashes, tests a damaged native potential without modifying it, and runs literal complete-field controls. witness.json is immutable unless the separate explicit `audit.py --generate` mode is requested. That generation mode is not called by reproduce.py.
 
 The final replay checked 2,816,005 C++ DFS nodes, all 29,559 integer edge inequalities, 128 arbitrary finite seeds, 192,128 prefix inequalities and 16,384 arbitrary-interval inequalities. Sixteen test inputs retain remote black cells with coordinates of size 10^60. The controls supplement rather than replace Sections 2, 3 and 5. The 90-step equality witness was replayed with its full field.
-
-This is a substantive new necessary-condition theorem for the HC mainline. Publication novelty and whether to combine it with the factor-language manuscript require further assessment; no independent-publication acceptance claim is made.

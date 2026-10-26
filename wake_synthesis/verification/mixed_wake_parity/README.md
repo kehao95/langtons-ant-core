@@ -14,6 +14,5 @@ Run `python check.py`. Add `--enumerate` for the bounded width-10/12/14 arithmet
 screen. Standard library only. The finite table does not carry the unbounded
 quantifier: the telescoping algebra identity does.
 
-No current manuscript or public DOI is modified. New general statements remain
-analytic/unformalized, not externally reviewed. HC, growth-eight existence, and
-all-seed periodic entrance are not settled here.
+The general statements have analytic proofs without formalization. HC,
+growth-eight existence, and all-seed periodic entrance remain open.

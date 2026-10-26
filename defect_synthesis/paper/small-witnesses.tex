@@ -19,7 +19,9 @@ same budgets. A specified input may put its next obstacle arbitrarily far away.
 
 \subsection{A polynomial verifier for a compressed physical run}
 The canonical cover has at most $s$ powers and $2048(N+1)+N$ literal letters.
-There are at most $K$ phase types. A powered type has position
+There are at most $K$ phase types: the literal bound plus at most
+$104\cdot5(N+1)$ powered phases is
+$2568(N+1)+N\le2570(N+1)$. A powered type has position
 $A_i(k)+jD_i$ and affine time, with $0\le j<k_i$. The nonzero strides,
 after rotations, are
 \[

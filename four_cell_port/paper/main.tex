@@ -21,22 +21,47 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Four black cells form a sharp one-sided interface for the classical Langton
-ant: they launch a permanent period-104 highway in a half-plane, whereas
-at most three force first exit within the sharp bound of 918 updates.
-The interface also completes any prescribed finite observed history using
-four remote cells. We extend this construction to composable highway
-scattering. A library of thirty protected rules closes under every compatible
-finite sequence with gaps of at least one hundred periods. A second interface
-permits arbitrarily long return excursions that read black memory written by
-the same ant and then restore the incoming highway orientation. Any finite
-number of these return packets can be installed in one finite input.
-Nested guard regions and exact XOR identities preserve the complete field
-through every encounter. Analytic composition proofs are accompanied by
-reconstructed finite kernels, affine inequalities and all-future tail checks.
+How few black cells can send a Langton ant permanently into an otherwise
+white half-plane, and can such outgoing motion be composed with later
+collisions? With the ant starting on the boundary and facing inward, four
+black cells suffice to launch the standard period-104 highway without ever
+leaving the half-plane. Three cells never suffice: the ant exits within
+918 updates, and this bound is attained. For any finitely supported initial
+colouring, placing a four-cell pattern beyond a finite observed trajectory
+preserves that observation and makes
+the subsequent motion converge to the highway. We then construct finite
+sequences of highway collisions. Thirty certified scattering rules compose
+along every compatible rule sequence when successive collisions are separated
+by at least one hundred full periods. A second construction permits
+arbitrarily long excursions that return to black cells written earlier by
+the same ant, then recover the incoming highway orientation. Any finite
+number of these excursions can be arranged in one finite initial colouring.
+The composition proofs compare the entire colouring in protected regions;
+expanding these regions keeps past writes from interfering with later
+stages. Exact finite trajectories, affine separation inequalities and
+infinite-tail checks certify the interfaces used in the proofs.
 \end{abstract}
 
 \section{A sharp outgoing interface}
+A colouring is a set $B\subseteq\Z^2$ of black cells; $p$ and $h$ denote the
+ant's position and cardinal heading. On an update, the ant turns left on
+black and right on white, toggles the current cell, and moves one unit in the
+new heading. Cartesian headings N,E,S,W have vectors
+$(0,1),(1,0),(0,-1),(-1,0)$; a right turn maps $(u,v)$ to $(v,-u)$. Let $(B_t,p_t,h_t)$ be the state before update $t$, and define
+its observation as
+\[
+ O_t=(p_t,h_t,\mathbf1_{B_t}(p_t)).
+\]
+The half-plane result permits arbitrary exterior colouring. Finite support
+is required for the exterior-completion theorem.
+
+Put $\HH_+=\{(x,y):x\ge0\}$. A \emph{one-sided port} is a finite black seed
+in $\HH_+$ whose trajectory, from $(0,0)$ facing east, remains in $\HH_+$
+forever. The \emph{standard P104 trace} is the fixed blank-orbit 104-turn word
+at update 9977, repeated forever, with a lattice translation, quarter-turn
+rotation and cyclic phase allowed. Positions, headings and read colours are
+part of this trace; black cells away from its future path remain in the state.
+
 A local pattern can determine the ant's eventual motion while leaving an
 arbitrarily long initial observation unchanged. We construct such a pattern
 using four black cells in a half-plane. The supporting line separates its
@@ -44,7 +69,8 @@ entire future from any configuration on the other side, making the pattern
 an outgoing interface for arbitrary finite histories. A matching lower bound
 shows that four cells are necessary for this one-sided interface.
 
-We next compose this interface with protected scattering rules. The central
+The second part starts from an explicit thirteen-cell standard-highway
+seed and composes protected scattering rules. The central
 closure condition is equality of the entire field in the next protected
 region. Increasing guards establish this condition for arbitrarily many
 encounters. A further return packet deliberately revisits old wake, then
@@ -61,24 +87,6 @@ Etse's finite-rectangle escape problem~\cite{etse2026} instead bounds time in
 a finite domain; our half-plane threshold bounds the initial black inventory
 in an infinite domain.
 
-A colouring is a set $B\subseteq\Z^2$ of black cells; $p$ and $h$ denote the
-ant's position and cardinal heading. On an update, the ant turns left on
-black and right on white, toggles the current cell, and moves one unit in the
-new heading. Let $(B_t,p_t,h_t)$ be the state before update $t$, and define
-its observation as
-\[
- O_t=(p_t,h_t,\mathbf1_{B_t}(p_t)).
-\]
-The half-plane result permits arbitrary exterior colouring. Finite support
-is required for the exterior-completion theorem.
-
-Put $\HH_+=\{(x,y):x\ge0\}$. A \emph{one-sided port} is a finite black seed
-in $\HH_+$ whose trajectory, from $(0,0)$ facing east, remains in $\HH_+$
-forever. The \emph{standard P104 trace} is the fixed blank-orbit 104-turn word
-at update 9977, repeated forever, with a lattice translation, quarter-turn
-rotation and cyclic phase allowed. Positions, headings and read colours are
-part of this trace; black cells away from its future path remain in the state.
-
 \begin{theorem}[Sharp half-plane escape]\label{th:threshold}
 Start at $(0,0)$ facing east. For every initial colouring with at most three
 black sites in $\HH_+$, regardless of the colours in $x<0$, the first-exit time
@@ -90,7 +98,8 @@ $B_* = \{(0,-1),(2,1),(3,3)\}$ with all other cells white.
 \end{theorem}
 
 \begin{theorem}[A four-cell outgoing port]\label{th:port}
-For $G=\{(0,-1),(1,1),(1,3),(2,2)\}$ and initial pose $(0,0),E$, every
+For the complete initial black set
+$G=\{(0,-1),(1,1),(1,3),(2,2)\}$, all other cells white, and initial pose $(0,0),E$, every
 $p_t$ lies in $\HH_+$. At update 182 the position is $(5,1)$, the heading is
 $E$, and there are 36 black cells. The entire future from this state is the
 standard P104 trace, with drift $(2,2)$ per 104 updates. Consequently four
@@ -127,8 +136,8 @@ preserved object is the observed trajectory: the four extra black cells are
 present in the modified colouring from time zero.
 
 \begin{theorem}[Four-cell exterior completion]\label{th:extension}
-Let $X=(B,p,h)$ have finite black support. Given a finite protected set $K$,
-an integer $T\ge0$, and any axis-aligned square $Q$ containing $B$, $K$ and
+Let $X=(B,p,h)$ have finite black support. Given a finite protected set $P$,
+an integer $T\ge0$, and any axis-aligned square $Q$ containing $B$, $P$ and
 the $\ell^\infty$ ball of radius $T$ about $p$, one can compute a four-element
 set $A\subset\Z^2\setminus Q$ such that the evolution of
 $X^+=(B\cup A,p,h)$ satisfies
@@ -310,14 +319,13 @@ augmented run: every read avoids $B_\tau$, so both runs read the same colour
 and make the same turn, write and move. The inside debris remains present
 and unchanged. The standard trace begins by time $\tau+182$, hence by
 $E(n)+182$. The earlier observation equality includes the first $T$ updates,
-and adding $A$ preserves every initial colour in $K$.
+and adding $A$ preserves every initial colour in $P$.
 \end{proof}
 
 The construction has the quantifier form
-$\forall X\,\forall K\,\forall T\,\exists A$ with $|A|=4$: its conclusion
+$\forall X\,\forall P\,\forall T\,\exists A$ with $|A|=4$: its conclusion
 concerns the augmented input $X^+$. The matching lower bound characterizes
-one-sided ports from a boundary pose. It does not assert minimality among
-all possible exterior modifications of an individual input.
+one-sided ports from a boundary pose.
 
 \input{scattering}
 \input{returns}
@@ -350,10 +358,24 @@ protected composition and return theorems. The general
 periodic-realisability criterion~\cite{jillhewar2026} is used as a verification
 method; the new threshold is established by first-contact coverage.
 
+\section{Limitations}
+The constructions prescribe a finite initial field and finitely many
+preinstalled instructions. Their train lengths, gaps and excursion parameters
+are arbitrary within the stated domains, including $n_i,m_i\ge100$ where
+required, but their proofs apply to these specified seed families and guard
+hypotheses. They do not construct autonomous infinite instruction renewal or
+establish convergence for every finite-support input.
+
+The reported recovery boundaries are sufficient onset times and need not be
+the first permanent-P104 times. Fixed black-cell cardinality does not bound
+the coordinates or the excursion length in these families. The sharp
+three/four-cell threshold concerns inward boundary ports; it does not assert
+minimality among all exterior modifications of an individual input.
+
 \section{Conclusion}
 The sharp four-cell port connects a local resource threshold with effective
-completion of finite histories. Guarded scattering then turns the outgoing
-trace into a composable interface. Its proof requires agreement on a complete
+completion of finite histories. The scattering constructions give explicit standard-highway seeds with
+composable collision interfaces. Its proof requires agreement on a complete
 protected region and a strictly advancing guard; matching endpoint poses alone
 would not suffice. The return construction extends that interface to
 unbounded excursions and actual readback of old self-written memory, while
@@ -361,14 +383,15 @@ retaining the full field at every stage.
 
 Each finite train has its markers fixed at input time. The number of packets
 is supplied by that finite input, while every gap and excursion parameter may
-be arbitrarily large. The separate feedback manuscript studies a twenty-black
-family with fixed intermediate event count; its lifetime obstruction belongs
-to that paper rather than being a second main claim here.
+be arbitrarily large. Each theorem specifies its complete initial field and proves the entire
+sequence of encounters from those pre-placed markers.
 
 \paragraph{Reproducibility.}
-The source, finite certificates and checkers are in
-\href{https://github.com/kehao95/langtons-ant-core/tree/main/four_cell_port}{public project directory}.
-From the repository root, run:
+The source, finite certificates and checkers are in the
+\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/four_cell_port}{public project directory}.
+The complete verification source and certificate snapshot is Git commit
+\texttt{e93252230ea9109908c23a009824d72d30fb91e2}.
+From that repository revision, run:
 \begin{verbatim}
 python3 four_cell_port/reproduce.py
 make -C four_cell_port/paper
@@ -382,6 +405,9 @@ with the verification evidence.
 Generative AI assisted with developing and checking arguments, implementing
 verification programs, and revising the exposition.
 
+\appendix
+\input{local-ranks}
+
 \begin{thebibliography}{9}
 \bibitem{gajardo2002} A. Gajardo, A. Moreira and E. Goles,
 ``Complexity of Langton's ant,'' \emph{Discrete Applied Mathematics} 117
@@ -391,8 +417,10 @@ verification programs, and revising the exposition.
 \href{https://doi.org/10.4230/LIPIcs.MFCS.2026.49}{doi:10.4230/LIPIcs.MFCS.2026.49}.
 \bibitem{jillhewar2026} A. Jillhewar, ``Finite-Support Periodic Highways of
 Langton's Ant: Necessary Conditions, Transverse Exclusions, and Exact Search,''
-preprint (2026).
-\href{https://doi.org/10.5281/zenodo.21381637}{doi:10.5281/zenodo.21381637}.
+Paper bundled with the software/source archive, version 1.3 (31 July 2026),
+Section 3, ``A constructive periodic-realisability criterion,''
+theorem ``Periodic-realisability criterion.''
+\href{https://doi.org/10.5281/zenodo.21716510}{doi:10.5281/zenodo.21716510}.
 \bibitem{ke2026} H. Ke, ``Every One-Black-Cell Langton Ant Reaches the
 Period-104 Highway: A Lean-Checked Proof,'' Zenodo, version 0.2.0 (2026).
 \href{https://doi.org/10.5281/zenodo.23341609}{doi:10.5281/zenodo.23341609}.

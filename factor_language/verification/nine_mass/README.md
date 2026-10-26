@@ -21,17 +21,15 @@ It does not supply a finite-support nonstandard periodic ant.
 Run from the repository root:
 
 ```sh
-python experiments/hc_global/nine_mass/check.py --compare experiments/hc_global/nine_mass/check_results.json
+python3 factor_language/reproduce.py --new-results-only
 ```
 
 Python 3.10+, a C++17 compiler and the standard library suffice. Runtime scratch
 files and the native executable are created in a temporary directory. The native
-enumerator source is in `research/nine_factor/enumerate.cpp`; no network is used.
+enumerator source is in `verification/nine_factor/enumerate.cpp` within this project; no network is used.
 The analytic all-length coverage and truncation proof are in
-`proof/results/nine-factor-mass-bound.md`. This is not Lean formalization,
-outside mathematical review, a nine-factor attraction theorem, or an HC proof.
+[nine-factor-mass-bound.md](../../proof/nine-factor-mass-bound.md). The proof is not Lean-formalized and supplies neither a nine-factor
+attraction theorem nor an HC proof.
 
 `discovery.json` records a finite proposal/refinement search. It is not trusted
 as proof: every forbidden factor and every final integer inequality is rechecked.
-An earlier unverified 308-period narrative was withdrawn and is not part of this
-certificate; do not resurrect it from transient messages or obsolete patches.

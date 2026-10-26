@@ -1,8 +1,5 @@
 # Silent supply and finite-horizon ballistic rigidity
 
-Research date: 20 October 2026. Pinned mathematical base:
-`kehao95/langtons-ant@8c414b8963260f5d4d394dc5b4c53065028b4c6e`.
-
 Every physically feasible finite word with all contained standard ten-factors
 has ONE contiguous standard core; at most `114*c+154693` letters lie outside it,
 where c is the exact first-read initial-black cost. Its length satisfies
@@ -17,10 +14,10 @@ A compressed description representing huge mass is outside its O(m) guarantee.
 
 ## Reproduce
 
-From the project root:
+From the repository root:
 
 ```sh
-python scripts/check_silent_supply.py
+python3 factor_language/reproduce.py --new-results-only
 ```
 
 Python 3.10+ and a C++17 compiler (`g++`) suffice. Use normal Python, not `-O`:
@@ -33,7 +30,7 @@ is an explicit development-only mode of `check.py`, not called by the runner.
 
 ```python
 import sys
-sys.path.insert(0, 'experiments/hc_global/silent_supply')
+sys.path.insert(0, 'factor_language/verification/silent_supply')
 from one_jump import next_defect
 
 result = next_defect({(0, 0)}, head=(0, 0), heading=0)
@@ -56,8 +53,7 @@ feasible length-150 word and every short-level count with a different enumeratio
 `check.py` checks the new supply/cofactor arithmetic, all phase identities,
 complete endpoints, huge-coordinate parity equality, and negative controls.
 
-Full proof: `proof/results/silent-supply-rigidity.md`.
-The analytic no-three-fold lemma and ten-factor graph coverage are imported and
-recalled in the proof, not established by finite simulation. The runtime and
-certificates are not Lean proofs or outside peer review. No global J10 budget,
-mu(N) divergence, negative finite seed or publication priority follows.
+Full proof: [silent-supply-rigidity.md](../../proof/silent-supply-rigidity.md).
+The analytic no-three-fold lemma and ten-factor graph coverage are dependencies
+recalled in the proof, not established by finite simulation. The analytic proof is not Lean-formalized. No global J10 budget or finite
+HC counterexample follows.

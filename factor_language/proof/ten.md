@@ -1,7 +1,5 @@
 # Ten-factor highway attraction with a sharp cardinality coefficient
 
-**Date:** 15 October 2026. **Repository read:** `0bcaad6ce318b79479f03e9c9d89cb3fcd4d4489` in `kehao95/langtons-ant`.
-
 The proof combines analytic reductions and all-parameter arguments with exact
 finite certificates checked by two implementations. The coverage arguments
 are analytic; finite leaves are checked by the supplied programs.
@@ -221,7 +219,7 @@ The all-parameter first-contact calculation is: for the supplied phase positions
 
 For $n=10^{12}$ the first event is at $103999999999908$, but the new decision algorithm returns a forced-future YES after only 548 main-trajectory updates. The extra operations are nine inverse updates and the constant lookahead and ray tests, not simulation to the event. This family illustrates the distinction between reachability decision and event-time observation. It is not an HC negative family.
 
-## 9. Relation to HC, previous work, and independent-paper scope
+## 9. Relation to HC and prior work
 
 For finite states, if $J_{10}$ is absent after time $T$, all forward windows from that time are legal, so Theorem B applied to the COMPLETE state $F^T X$ gives eventual standardness. Conversely any standard future has only finitely many intrinsic violations, since after nine updates the true history is within that future. Therefore
 
@@ -229,19 +227,13 @@ $$H(X)\ \Longleftrightarrow\ \#\{t\ge0:J_{10}(F^tX)\}<\infty.$$
 
 The present work does not prove the right side for arbitrary finite inputs, construct a finite negative seed, or show that every possible future event chain terminates. In particular, the theorem's $12m+212$ is NOT an unrestricted HC entry bound.
 
-The earlier local-factor package proved sharp IMMEDIATE-standardness thresholds 21,14,13 in three different domains. The present conclusion allows a transient, weakens the whitelist to ten, analyzes a non-simple recurrent graph rather than only simple cycles, gives an unbounded-parameter physical foldback exclusion, and obtains a sharp cardinality coefficient. Its arbitrary-background nine-factor spiral establishes a different, precise optimality claim. These are new mathematical statements relative to that package, not a recounting of its numerical threshold.
-
 Prior tools are credited: Gajardo's symbolic feasibility/forbidden-word framework, standard-highway certification as treated by Gajardo--Lutfalla--Rao, and Jillhewar's full-drift chronology criterion. This work does not claim the first discovery of those methods or of nonperiodic ants on infinite backgrounds. The article bibliography supplies the primary references.
 
-## 10. Reproduction, trust, and persistence
+## 10. Reproduction and trust
 
-Run `python reproduce.py`. It makes a disposable copy, regenerates and compares the entire edge set, freshly compiles the independent C++ checker, verifies the quotient and exact path/supply bounds, rejects damaged certificates without repairing them, and checks the all-input algorithm against literal controls. The checked-in word and quotient certificates are never overwritten by the default checks. The final report includes return codes, source hashes, certificate hashes, and measured runtimes.
+Run `python3 factor_language/reproduce.py` from the repository root. It makes a disposable copy, regenerates and compares the entire edge set, freshly compiles the independent C++ checker, verifies the quotient and exact path/supply bounds, rejects damaged certificates without repairing them, and checks the all-input algorithm against literal controls. The checked-in word and quotient certificates are never overwritten by the default checks. The final report includes return codes, source hashes, certificate hashes, and measured runtimes.
 
 The all-parameter parts of Lemma 1, the seed-family induction, and the spiral separation are the written arguments above. Their finite geometric premises are checked, and large-parameter tests are supplementary. No finite test is being substituted for their quantifiers.
-
-The initial C++ development run correctly exposed a checker bug in accepting an unsuccessful collinearity test's output variable. It was corrected before the passing replay, and all parameter controls were rerun. This was an implementation correction, not an amendment to Lemma 1. The final report and hashes bind only the corrected source.
-
-No prior theorem's evidence level is upgraded. No global suite, old Lean rebuild, outside review, or repository write is implied by generation of this package. Actual remote persistence, if any, must be reported separately using a confirmed commit.
 
 ## Appendix A. Exact words
 

@@ -299,14 +299,12 @@ Combining Sections 2-6 with the completed finite inventory proves the theorem.
 
 ## 8. Evidence, comparison, and HC boundary
 
-The new main statement is stronger than uniqueness under a prescribed complete
+The main statement is stronger than uniqueness under a prescribed complete
 standard wake. It removes both the empty-layer prescription and all longitudinal
 residue prescriptions, using only thinness and three numerical trace invariants.
 It does NOT remove the drift, growth, width or eventual-periodicity hypotheses.
 A general HC counterexample is not constrained to satisfy those hypotheses.
 
-This strengthens the existing standard-wake manuscript and should be considered
-for an expanded version, not automatically a separate overlapping paper.
 The period bound, realization criterion and pruning lemmas retain their prior
 attribution. In particular, earlier literature's 'thin crossing profiles' for
 primitive-diagonal growth four are different from the interior odd-class

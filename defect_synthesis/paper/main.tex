@@ -21,38 +21,55 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-A bounded number of local deviations from the standard Langton highway admits
-an exact arithmetic description, even when all initial black-cell coordinates
-are unrestricted. We construct effective semilinear sets of complete finite
-inputs reaching any supplied defect budget, together with exact event times,
-poses and endpoint black fields. The construction combines a finite cover by
-bounded-power words with same-cell successor relations that preserve the
-entire read chronology. For each fixed finite schema collection, initial-black
-cost and defect count have piecewise rational-affine spectra. These spectra
-yield an effective dichotomy between a fixed-cost unbounded-defect ray and
-a uniform affine supply budget. An exact three-parameter fold--consumer
-classification gives the sharp inequality $10D\le9C-309$.
-A separate affine-chamber argument supplies polynomial-size positive witnesses
-and NP membership when the mass and defect budgets are unary. For a
-restricted segment-source syntax we also construct a polynomial-size
-quantifier-free physical-realization circuit and a shared factor counter.
-This backend supports binary linear side conditions and an NP-oracle
-bound for minimum initial cost. Exact supplied-schema implementations
-and finite-cover reconstruction accompany the proofs.
+Fix a number of initially black cells and a target number of departures
+from the standard Langton highway. Which placements of those cells make the
+ant reach that target? We count a departure whenever ten consecutive turns
+form a word absent from the standard 104-turn cycle. For each supplied pair
+of integers $m,N$, we prove that the placements of exactly $m$ black cells
+producing at least $N$ such departures form an effectively computable
+semilinear set: a finite union of integer translates of finitely generated
+additive monoids. Initial coordinates are unrestricted. The construction also
+describes the exact time, pose and entire black field just after the $N$th
+departure. The key reduction represents the intervening legal motion by a
+finite collection of words with variable repetition counts. Consecutive visits
+to each cell enforce the ant's read-and-flip rule throughout these compressed
+traces. This yields decidable synthesis under integer-linear coordinate
+constraints and piecewise rational-affine resource formulas for supplied
+word families. Positive instances have polynomial-bit witnesses when $m,N$
+are written in unary. A restricted quantifier-free encoding makes the
+spatial read/write tests polynomial in the supplied description size.
+Together these results turn finite departure targets into exact arithmetic
+questions about complete ant states.
 \end{abstract}
 
 \section{Problem and main result}
+Suppose we may place $m$ black cells anywhere on an otherwise white plane.
+We want the ant to depart from the local turn patterns of its standard highway
+at least $N$ times. The cell coordinates can be arbitrarily large, and the
+$N$th departure may occur after an arbitrarily long flight. This is therefore
+a synthesis problem over unbounded coordinates and time. We show that each
+fixed target $m,N$ has an exact description in integer-linear arithmetic.
+
+Here \emph{Presburger arithmetic} means first-order arithmetic with integer
+addition, order and fixed integer constants, but without multiplication of
+two variables. Its definable sets are exactly the semilinear sets: finite
+unions of sets $a+\mathbb N v_1+\cdots+\mathbb N v_r$ with integer vectors
+$a,v_i$. Such a description allows one to test whether any initial placement
+meets additional coordinate constraints. Our construction also records the
+complete state when the target is first reached.
 A state is $(B,p,h)$, where $B\subset\Z^2$ is the \emph{complete} finite set of
 black cells, $p$ is the head position, and $h\in\{N,E,S,W\}$. A white read turns
 right, a black read turns left, the current cell flips, and the ant then moves
 one unit. Time $t$ denotes the state immediately before update $t$.
 
-Let $W$ be a fixed cyclic representative of the standard period-104 turn word,
+Record a right turn by R and a left turn by L. Let $W$ be the standard
+period-104 turn word printed in Appendix~\ref{app:words},
 and let $\mathcal L_{10}$ be its cyclic ten-letter factors. A \emph{contained
-defect} of a finite forward word is a length-ten factor outside
-$\mathcal L_{10}$. Thus its ending time is at least nine. The contained count
-and the intrinsic $J_{10}$ count obtained from inverse history can differ in the
-first nine tests. Their finiteness is equivalent. The retained ten-factor
+defect} of a finite forward word is a length-ten consecutive subword outside
+$\mathcal L_{10}$. For example, a segment of the repeated highway word has
+no defects, even across the boundary between two copies. A contained defect
+is indexed by its final update $t\ge9$; its post-event state is at time $t+1$.
+The ten-factor
 attraction theorem states that a finite-support orbit is eventually standard
 if and only if it has finitely many such defects \cite{project}.
 
@@ -60,6 +77,18 @@ Normalize the head to the origin facing north. For fixed $m\ge0$ and $N\ge1$,
 let $E_{m,N}$ contain the ordered, pairwise-distinct tuples
 $z=(x_1,y_1,\ldots,x_m,y_m)$ for which the actual ant with exactly these black
 cells has at least $N$ contained defects. Coordinates have no range restriction.
+
+A finite-fibre field family is a definable set of pairs $(z,q)$ such that,
+for each parameter tuple $z$, only finitely many lattice cells $q$ belong to
+the field. Describing this membership relation specifies every endpoint cell,
+including unvisited initial inventory.
+For later resource questions, write
+\[
+ \mu(N)=\min\{|B|:\text{the complete finite input }B
+              \text{ produces at least }N\text{ contained defects}\}.
+\]
+The initial pose is normalized as above. This quantity asks for the least
+black inventory needed to reach a finite target.
 
 \begin{theorem}[All-coordinate fixed-budget synthesis]\label{thm:main}
 There is an effective construction, uniform in the supplied integers $m,N$,
@@ -72,15 +101,25 @@ family over the initial coordinates.
 In particular, existence, nonexistence, and intersection with a prescribed
 Presburger coordinate domain are decidable. A finite union handles ``at most
 $m$ black cells.'' This is not one fixed formula in which arbitrary $m,N$ are
-additional free variables. The construction may be prohibitively large.
+additional free variables. The finite union can be large; its effective construction establishes
+decidability, while the complexity results below concern compressed positive
+witnesses and a restricted encoding.
+
+The quantity $N$ is a target for a finite prefix: the ant may have further
+defects after the reported endpoint. The formula describes inputs reaching
+the $N$th defect and says nothing about a bound on the total future count.
 
 The central difficulty is physical execution: the ant carries an unbounded
 mutable spatial store, so a short word description must retain every earlier
 read and every initially black cell. Consecutive same-cell relations solve
 this problem exactly. A finite ten-factor cover then yields the all-coordinate
 construction, and unary time-fibre counting yields its resource refinement.
-Sections~\ref{sec:supply} and~\ref{sec:small} give the supply dichotomy and
-small-witness complexity theorem.
+Sections~\ref{sec:power}--\ref{sec:cover} build the arithmetic description
+and prove that its finite family of word forms covers every $N$th-event
+prefix. Sections~\ref{sec:supply} and~\ref{sec:small} derive resource spectra
+and small witnesses; Section~\ref{sec:qf} gives the restricted quantifier-free
+encoding. A \emph{word schema} means a fixed sequence of literal words and
+repeated words whose nonnegative repetition counts are parameters.
 
 Symbolic feasibility for ant words has an established history~\cite{gajardo}.
 The equivalence of Presburger descriptions and semilinear sets is classical
@@ -157,7 +196,9 @@ This quantified form of the established same-cell alternation criterion
 \cite{gajardo} handles all parameter assignments together. Its advantage is that it avoids assuming an arbitrary definable
 cardinality has a definable parity.
 
-For a finite feasible trace without a supplied field, the smallest supporting
+Without a supplied field, call a trace \emph{feasible} when it satisfies
+the same-cell alternation condition~\eqref{eq:alternate}; it is then
+realizable from some initial colouring. For a finite feasible trace, the smallest supporting
 initial black set is
 \begin{equation}\label{eq:root}
  B_{\min}(\theta)=V_\theta(\operatorname{First}_\theta\cap L_\theta).
@@ -248,20 +289,23 @@ integer thresholds via
 \[
  |F_\theta|>b\iff\exists t_0<\cdots<t_b\quad\bigwedge_i t_i\in F_\theta.
 \]
-The general symbolic counting-partition algorithm above is a constructive
-proof, not an optimized backend claimed implemented in this release.
+The counting lemma gives a constructive partition algorithm; the exact
+integer-threshold tests above suffice for the supplied-schema queries.
 
 For any supplied finite schema collection and fixed mass bound, unboundedness
 of its defect spectrum is consequently decidable. If unbounded, a semilinear
 component gives an affine family of finite witnesses. Such a parameter family
 is not a fixed infinite counterexample.
 
-\section{Why fixed defect counts have complete finite schema coverage}
+\section{A finite cover of all prefixes reaching a fixed defect count}\label{sec:cover}
 The ant-specific bridge is the existing ten-factor macro theorem
 \cite{project}. We state its certificate content to make the dependency explicit.
-All feasible length-150 words with legal ten-factors give a graph with 6,501
-vertices and 6,605 edges. Its cyclic components have 104, 24 and 366 vertices.
-The 366-state component maps to a graph with two loops: a translating word
+The vertices are feasible 149-letter words whose every contained ten-factor
+is legal; an edge appends one letter
+and discards the first, provided the resulting 150-letter word is feasible
+and every ten-factor is legal. The graph has 6,501 vertices and 6,605 edges. Its cyclic components have 104, 24 and 366 vertices.
+The fixed words are printed in Appendix~\ref{app:words}. The 366-state
+component maps to a graph with two loops: a translating word
 $A$ of length 28 and a heading-reversing word $B$ of length 102. The established
 physical obstruction is
 \begin{equation}\label{eq:fold}
@@ -278,14 +322,27 @@ regenerates every feasible word, checks every quotient edge, rebuilds the lift
 and recovers these bounds. The exact arithmetic kernel separately verifies
 \eqref{eq:fold} over the entire quadrant.
 
+The graph construction proves the following precise coverage statement.
+\begin{proposition}[Finite legal-word cover, from~\cite{project}]\label{prop:cover}
+Every physically feasible finite word with no contained defect has a
+representation $v_0u_1^{k_1}v_1\cdots u_r^{k_r}v_r$ with $r\le5$,
+$k_i\ge0$, and $\sum_i|v_i|\le1317$. Each $u_i$ is a cyclic phase of
+$W,A$ or $T$. These words restore heading. From a north-facing pose the
+displayed representatives have displacements $(-2,-2),(0,-4)$ and $(0,-2)$,
+respectively; cyclic phases have quarter-turn rotations of those vectors.
+\end{proposition}
 A finite defect-free word uses at most 149 initial letters before this graph
 cover applies. Every cyclic visit is a power followed by a partial cycle and
 possible exit. Therefore it has a schema with at most five powers and at most
 $149+956+212=1317$ nonpowered letters. The number of ordinary updates is not
 bounded: all exponents remain free.
 
-Cut a prefix just after each of its first $N$ defects. Applying this cover to
-the intervening pieces gives a conservative finite schema family with
+Remove the last letter of each of the first $N$ defect windows from the
+prefix ending at the $N$th defect. The at most $N+1$ remaining contiguous
+pieces contain no defect: any bad window wholly in a piece would have had
+its last letter removed. Apply Proposition~\ref{prop:cover} to each piece
+and restore the $N$ removed letters as literal separators. Using the relaxed
+constant $2048\ge1317$ gives a finite schema family with
 \begin{equation}\label{eq:budget}
  s\le5(N+1),\qquad\sum_i|v_i|\le2048(N+1)+N.
 \end{equation}
@@ -304,46 +361,8 @@ to obtain their graph. Formula~\eqref{eq:out} gives the black field; different
 schemas representing the same prefix agree by determinism.
 \end{proof}
 
-The finite union supplies a total mathematical decision procedure. In a
-resource-limited implementation, an unfinished enumeration returns
-\texttt{INCONCLUSIVE}; only complete coverage licenses an emptiness answer.
-
-\section{Exact two-fold classification and parametric controls}
-The kernel obtains the following certificate-assisted proposition. The fixed
-words are recorded in the source package, with $|B|=102$ and $A=\Ll B_{75}\cdots
-B_{101}$.
-\begin{proposition}\label{prop:two}
-The finite word $BA^nBA^m$ is realizable from some finite support exactly when
-$n\ge1$ and $0\le m<n$. Its minimum initial-black cardinality is
-\[
- c(n,m)=5n+5m+47.
-\]
-\end{proposition}
-The feasible domain is computed using \eqref{eq:alternate}. Its equality with
-the displayed integer region is checked by exact Presburger set operations.
-For the cost, the first $B$ supplies 24 distinct first-left reads, the second
-supplies 23, and every copy in either $A$ run supplies exactly the five local
-indices $0,9,15,26,27$. The full time-set identity is checked parametrically,
-not extrapolated from sample values. Its disjoint blocks give the formula.
-The complete declarative time lists are in \texttt{PROOF.md}.
-
-A separate old three-sweep rail is accepted for every length $n\ge1$, with all
-output rails and four cap cells preserved. For an eastward scanner
-$(\Rr\Ll\Ll\Rr)^n$, an initial lower rail at $y=-1$, $0\le x<2n$, and an
-extra black marker $(a,b)$, the exact acceptance domain is
-\[
- n\ge0\quad\wedge\quad(b\ne0\ \vee\ a<0\ \vee\ a\ge2n).
-\]
-Thus an arbitrary distant initial black cell is not silently ignored. A
-$10^{60}$-copy instance checks the complete endpoint without expanding its
-ordinary trajectory.
-
-Both successor-subtraction and lexicographic next-read minimization reproduce
-the double-fold and triple-fold results. They share an exact arithmetic backend
-and are not independent theorem provers. Finite controls instead use independently
-written vector rotations and explicit full black fields. An infinite-scanner
-control rejects an empty finite seed; it succeeds only when an infinite initial
-black ray is explicitly supplied. This guards against a finite-support mismatch.
+The finite union supplies a total mathematical decision procedure; all
+remaining parameters are eliminated by exact integer arithmetic.
 
 \input{resources}
 
@@ -351,11 +370,14 @@ black ray is explicitly supplied. This guards against a finite-support mismatch.
 
 \input{quantifier-free}
 
-\section{Fixed budgets and eventual convergence}
-Define the root-cost sequence
+\section{Finite targets and coordinate dependence}
+The minimum initial mass introduced in Section~1 can equivalently be
+computed from finite feasible words:
 \[
- \mu(N)=\min\{c(w):w\text{ is finite feasible and }d_{10}(w)\ge N\}.
+ \mu(N)=\min\{c(w):w\text{ is finite feasible and }d(w)\ge N\}.
 \]
+Indeed every input supplies the first-left reads of each prefix, and every
+feasible word has the minimal seed in~\eqref{eq:root}.
 A row scanner $(\Ll\Rr\Rr\Ll)^q$ uses $2q$ initial black cells and has
 $\max(0,4q-9)$ defects. Hence
 \[
@@ -365,17 +387,8 @@ Theorem~\ref{thm:main} makes every fixed-mass query decidable, so this finite
 upper bound proves that $\mu$ is a total computable nondecreasing function.
 Corollary~\ref{cor:mu} supplies a quantitative computation bound for this function.
 
-\begin{corollary}
-If $\mu(N)\to\infty$, then the finite-support Highway Conjecture holds.
-\end{corollary}
-\begin{proof}
-An $m$-black input has first-black cost at most $m$ on every prefix. Divergence
-of $\mu$ bounds its defect count. The ten-factor attraction theorem then makes
-its future standard.
-\end{proof}
-
-The premise is unproved and stronger than the exact HC formulation. Indeed,
-HC asks for $\bigcap_NE_{m,N}=\varnothing$ for every $m$, whereas a
+The finite-support Highway Conjecture asks for
+$\bigcap_NE_{m,N}=\varnothing$ for every $m$, whereas a
 coordinate-independent event budget asks that some individual $E_{m,N}$ be
 empty. Nested semilinear sets $\{a:a\ge N\}$ show that these quantifiers cannot
 be interchanged. A family of increasingly remote finite witnesses need not
@@ -386,19 +399,44 @@ all coordinates. The supply dichotomy instead fixes a finite schema collection
 and allows unbounded repetitions. Keeping these two inputs explicit gives a
 way to study which physical mechanisms can produce many defects at low cost.
 
+\section{Limitations}
+The all-coordinate construction takes fixed numerical budgets $m,N$;
+its formulas need not have uniformly bounded size when these budgets vary.
+The supply dichotomy applies to a supplied finite schema collection. Its
+sharp constants describe that collection, and a growing family of finite
+witnesses is distinct from a single infinite trajectory. Fixed-prefix
+decision procedures alone do not settle eventual convergence.
+
+The polynomial-size quantifier-free backend assumes the heading-restoring
+stride library and source syntax specified in Section~\ref{sec:qf}; the
+complexity statements use unary budgets. Unary time-fibre counting is
+essential: general planar Presburger fibres can have nonlinear cardinality.
+The proof gives an effective universal disjunction for nonzero budgets;
+the reported computations verify the finite cover and supplied schemas
+rather than expand every instance of that disjunction. Exact programs and
+written reductions constitute the computational proof, with language and
+arithmetic-library implementations in its trust base.
+
 \section{Reproducibility}
 Run \texttt{python3 defect\_synthesis/reproduce.py}. The self-contained
 supplement contains two exact relation compilers, independent finite-state
 controls, the finite-cover reconstruction, the complete three-parameter
 resource identity and fixed-schema query optimizations. Python 3.10+, a C++17
 compiler and the system ISL/GMP and Z3 shared libraries are required. The arithmetic
-backend performs exact integer set operations~\cite{isl}.
+backend performs exact integer set operations~\cite{isl}; the retained
+computational reports use ISL 0.27.
 
-The replay checks supplied-schema identities and the finite cover. The universal
-nonzero-budget disjunction is specified constructively; it is too large to be
-part of the executed replay. The small-witness theorem is supported by the
-interval and chamber proof in Section~\ref{sec:small}. The source manifest and
-review record distinguish these analytic arguments from computational checks.
+The computational supplement is fixed at
+\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/defect_synthesis}{repository commit \texttt{e932522}, defect project}.
+Its \texttt{sources.json} lists the exact source and certificate hashes.
+The imported factor results are Theorems A--B (attraction), Subsection 3.3
+(the all-parameter fold obstruction), and Theorem F with its finite
+covering lift in Subsections 4.1--4.2 of the archived article~\cite{project}.
+
+The programs check supplied-schema identities and reconstruct the finite cover.
+The universal nonzero-budget disjunction is established by the constructive
+proof; its full expansion is not needed by these computations. The small-witness
+theorem follows from the interval and chamber argument in Section~\ref{sec:small}.
 
 For repeated integer threshold queries, the optimized kernel represents a
 unary time set by its strict-order relation. Its $m$th relation power witnesses
@@ -408,6 +446,36 @@ A shared decision graph also evaluates the 84 allowed ten-factors with 183
 mask intersections instead of 840. Exact set-equality controls compare the
 optimized queries with their baseline semantics. These improvements preserve
 the mathematical schema cover and the complete endpoint field.
+
+\appendix
+\section{Fixed turn words}\label{app:words}
+The following representatives use the origin and north-facing initial heading,
+with N,E,S,W step vectors $(0,1),(1,0),(0,-1),(-1,0)$.
+Line breaks carry no meaning. A cyclic phase is a rotation of the letters;
+its displacement is a quarter-turn rotation of the displayed representative's
+vector when the initial heading is reset to north.
+
+\noindent $W$ (104 letters):
+\begin{quote}\ttfamily\small
+RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRL\\
+LRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR
+\end{quote}
+
+\noindent $T$ (24 letters):
+\begin{quote}\ttfamily\small
+RRRRLLRLLRRRRLLRRRRLLRLL
+\end{quote}
+
+\noindent $A$ (28 letters):
+\begin{quote}\ttfamily\small
+LLRRRRLRRLRRRRLLLLRLRRRRLRLL
+\end{quote}
+
+\noindent $B$ (102 letters):
+\begin{quote}\ttfamily\small
+RRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLLLRRRR\\
+LRRLRRRRLLLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRLL
+\end{quote}
 
 \clearpage
 \begingroup\small
@@ -423,11 +491,12 @@ arithmetic. \emph{ICALP 2024}, LIPIcs 297, 142:1--142:17.
 using quantifier-free Presburger arithmetic. \emph{VMCAI 2019},
 LNCS 11388, 513--534, 2019.
 \href{https://arxiv.org/abs/1901.05692}{arXiv:1901.05692}.
-\bibitem{isl} S.~Verdoolaege et al. \emph{Integer Set Library manual}.
-\url{https://libisl.sourceforge.io/user.html}. Accessed 15 October 2026.
+\bibitem{isl} S.~Verdoolaege et al. \emph{Integer Set Library manual},
+ISL 0.27, \texttt{doc/user.pod} in the
+\href{https://libisl.sourceforge.io/isl-0.27.tar.xz}{ISL 0.27 source distribution}.
 \bibitem{project} H.~Ke. \emph{Local Factor Rigidity and Mass--Defect Bounds
-for Langton's Ant}. Version 0.1.0, 2026. Source and certificates:
-\url{https://github.com/kehao95/langtons-ant-core/tree/main/factor_language}.
+for Langton's Ant}. Version 0.1.0, 2026.
+\href{https://doi.org/10.5281/zenodo.23665478}{doi:10.5281/zenodo.23665478}.
 \bibitem{small} R.~Bottesch, M.~W.~Haslbeck, A.~Reynaud and R.~Thiemann.
 Verifying a solver for linear mixed integer arithmetic in Isabelle/HOL.
 \emph{NASA Formal Methods}, LNCS 12229, 233--250, 2020.

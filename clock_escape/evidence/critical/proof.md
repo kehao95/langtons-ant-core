@@ -22,7 +22,7 @@ four-turn segment.
     R_n = 3^(1-n)(3^n-1)^2 + 4(3^(n-1)-3^(1-n)),
     S(n,n) <= 4 floor(3 R_n/16)+4 <= (13/4) 3^n+4.
 
-Thus the former internal bound 8n3^n+1 improves to O(3^n).
+Thus the square bound has exponential order O(3^n).
 
 **Theorem C (rectangle bound).** For every pair of positive integers N,H,
 

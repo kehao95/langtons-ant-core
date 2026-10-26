@@ -116,73 +116,105 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-The cyclic ten-letter factors of the standard Langton highway impose
-asymptotic rigidity, finite-interval geometry and a mass constraint.
-Every physical ten-legal infinite stream eventually has period 104, 28 or 24.
-For finite initial black mass $m$, only the standard highway remains and its
-first entry is at most $12m+212$, with optimal linear coefficient 12.
-A bounded-fold graph computes exact first violation times and complete
-compressed endpoints in polynomial bit time, with quadratic finite-event
-deadlines. Every finite legal interval also lies in one endpoint coordinate
-strip with padding 43 and has one contiguous standard core outside at most
-$114c+154693$ letters, where $c$ is its minimum initial black supply.
-Its length is at most $52\|\Delta\|_\infty+114c+223437$, with sharp
-displacement coefficient. Explicit finite families manufacture long-lived memory,
-consume it at later violations and recover autonomously; the original archive
-family has exact parity-dependent first-entry times, while a related folded
-ribbon gives a linear reset cost. Independently, a finite-word potential proves
-$3(t-s)-26(|B_t|-|B_s|)\le351N_{10}(s,t)+322$ on every trajectory interval.
-The additive constant and standard mass-growth slope are sharp. A separate
-nine-factor certificate gives a uniform mass-deficit bound, and finite
-eight-legal counterfamilies establish its sharp window threshold. Exact finite
-certificates accompany the all-parameter physical arguments.
+Can the short turn patterns of a highway force a Langton ant to follow
+that highway? We call a ten-turn window legal when it occurs in the standard
+104-turn highway word, read cyclically. If every future window is legal and
+the initial colouring has $m$ black cells, the ant reaches the standard
+highway within $12m+212$ updates. The coefficient 12 is optimal.
+For trajectories from any finite black set, the same language measures
+departures from highway behaviour. Writing $B_t$ for the black cells at time $t$ and
+$N_{10}(s,t)$ for the illegal windows wholly contained in $[s,t)$, we prove
+\[
+3(t-s)-26(|B_t|-|B_s|)\le351N_{10}(s,t)+322.
+\]
+Thus a trajectory with few illegal windows must create black cells at nearly
+the highway rate. The additive constant 322 and the asymptotic mass-growth
+slope are sharp. The attraction proof excludes arbitrarily repeated folds
+in a finite graph of physically feasible words. The mass inequality uses a
+separate finite-word potential and applies even to fragments with no infinite
+legal continuation. We also compute the next illegal window and its complete
+output state, describe the geometry of finite legal intervals, and show that
+nine is the least window length giving a uniform legal-word mass-deficit bound.
 \end{abstract}
 
 \section{Introduction}\label{introduction}
+The standard Langton highway repeats a sequence of 104 left and right turns.
+A much shorter observation records only which ten-turn windows occur in that
+cycle. Does matching this local vocabulary force the ant eventually to follow
+the whole highway? The question involves the physical colouring as well as the
+turn sequence: each visit flips a cell, so a word allowed by overlapping
+windows may still request the wrong colour when it returns to an earlier site.
 
-The standard Langton highway has a long period but a short local
-signature. Its cyclic ten-letter factors already constrain every
-physically realizable infinite turn stream to three eventual modes.
-Finite black support selects one of them, the standard period-104
-highway. The same local signature also controls finite pieces of
-arbitrary trajectories through a quantitative balance between black-cell
-growth and forbidden windows.
+We answer this question for every finite initial black set. If all future
+ten-turn windows belong to the highway vocabulary, the ant enters the standard
+highway within $12m+212$ updates, where $m$ is the initial number of black
+cells. The linear coefficient is optimal. On an infinite initial colouring,
+two other eventual modes can occur. The proof identifies these possibilities
+in a finite word graph and then excludes arbitrarily long combinations of
+folds by explicit conflicts at repeated cell visits.
 
-This paper develops these consequences together with exact event computation and finite memory constructions. The first is an
-attraction theorem under a future-language hypothesis, with a sharp
-linear dependence on initial black mass. It yields a polynomial-time
-decision procedure for the existence of a particular local violation
-event, strengthened below to exact first-event time and complete output.
-Two finite families then describe the memory created inside legal intervals
-and the physical cost of reusing a folded interface.
-The second main bound is an unconditional inequality on every finite orbit
-interval. Its proof uses a separate graph of finite legal words, so it
-does not assume that a finite fragment can continue legally forever.
+The same vocabulary yields a second result for trajectories with no promise
+about their future turns. Every illegal ten-turn window contributes a fixed
+allowance to a bound on the difference between elapsed time and black-cell
+growth. Consequently a long interval with few violations must leave nearly
+as many black cells as a highway would. This statement requires a separate
+proof for finite words: a finite legal fragment need not admit a legal
+infinite continuation. A finite graph potential supplies that proof.
+
+After establishing these two results, we develop their algorithmic and
+geometric consequences. We compute the first local violation and the complete
+state it leaves, bound the geometry and black supply of finite legal
+intervals, and construct examples that store and later read back black
+memory. Nine-letter windows suffice for a uniform mass-deficit bound,
+whereas ten are necessary to force eventual periodicity on arbitrary
+colourings. These are different thresholds for different conclusions.
 
 Gajardo's symbolic projection and forbidden-word framework {[}1{]}
-provide the finite-word viewpoint. Gajardo and Mazoyer {[}5{]} relate
-finite-state trace descriptions to restrictions on a head's return tours.
-Here the physical ten-factor language requires an additional all-parameter
-exclusion of repeated folds before its recurrent behaviour can be classified.
+provide the finite-word viewpoint. Gajardo and Mazoyer {[}4{]} relate
+finite-state trace descriptions to restrictions on a head's return tours;
+their one-dimensional equivalences are in Section 6 of the cited author text.
 Gajardo, Lutfalla and Rao {[}2{]} study highway multiplicity for generalized
 ant rules; Jillhewar's full-drift chronology {[}3{]} supplies the periodic
-realization test used here. Our contributions for the classical two-colour ant are
-the concrete ten-factor classification, the all-parameter exclusion in
-its nonsimple recurrent component, the sharp transient coefficient, the
-local-target algorithm, finite-horizon core and supply bounds, and the
-mass--defect inequalities. The mass threshold is nine, while the
-arbitrary-colouring eventual-periodicity threshold is ten; these answer
-different questions.
+realization test used here. Our contribution is the concrete physical
+classification of the short-factor language, its sharp quantitative bounds,
+and the resulting local-event algorithms. The all-parameter exclusion of
+repeated folds and the finite-word potential are the two main proof steps.
+
+The paper first proves attraction and the mass inequalities. It then develops
+exact event computation and finite-interval geometry. The appendices give the
+explicit words, supply tables, and memory constructions used to attain or
+illustrate the bounds.
 
 \section{Model and principal results}\label{model-and-principal-results}
 
 A state consists of the complete black set \(B\), a position in
 \(\mathbb Z^2\), and a cardinal heading. White turns right (R), black
 turns left (L); the cell then flips and the ant moves. Time denotes the
-state before the update. Let \(W\) be the standard 104-letter turn word
+state before the update. Denote the state by $X=(B,p,h)$ and one update
+by $F$. Headings N,E,S,W correspond to $h=0,1,2,3$ and vectors
+$(0,1),(1,0),(0,-1),(-1,0)$. The update is invertible: step back along the
+current heading, flip that cell, and undo the turn determined by its recovered
+colour. Thus each complete state determines its turn sequence at all integer
+times, including the nine turns preceding the input checkpoint.
+Let \(W\) be the standard 104-letter turn word
 in the appendix and let \(\mathcal L_k\) contain all its cyclic factors
-of length \(k\). A stream is \(k\)-legal if every future length-\(k\)
-window belongs to \(\mathcal L_k\).
+of length \(k\). A \emph{factor} is a consecutive subword; cyclic factors
+may cross the end of $W$ and continue at its beginning. A stream is
+\(k\)-legal if every future length-\(k\) window belongs to
+\(\mathcal L_k\). A physical stream is the turn sequence of an actual ant
+on a specified colouring. The \emph{standard trace} repeats $W$, together
+with its induced positions, headings and read colours, up to translation,
+rotation and cyclic phase. The entry time $\tau(X)$ is the earliest update
+from which this complete future trace is standard. The mass is $|B_t|$;
+unvisited initial black cells remain part of that set. Write $H(X)$ for
+$\tau(X)<\infty$. The vocabulary $\mathcal L_{10}$ contains 84 distinct
+words. Forward legality tests windows starting at times $t\ge0$; the intrinsic
+predicate $J_{10}$ tests the window ending now, including inverse-recovered
+turns near the input checkpoint. The contained count $N_{10}(s,t)$ tests only
+windows wholly inside the specified interval. These conventions agree away
+from its first nine updates. For finite words, we also use \emph{silent}
+to mean ten-legal; an event-free trajectory interval excludes the intrinsic
+$J_{10}$ tests at the times specified.
 
 \textbf{Theorem A (eventual modes).} Every physical ten-legal stream on
 an arbitrary initial colouring eventually has least period 104, 28 or
@@ -214,8 +246,8 @@ interval. The constant 322 is attained by a 90-step witness; the mass
 slope \(3/26\) is asymptotically sharp. The penalty 351 is not asserted
 optimal.
 
-Theorems A--D concern infinite legal futures or a decision using their
-contrapositive. Theorem E instead rests on a complete finite-word
+Theorems A--C concern infinite legal futures; Theorem D uses the
+finite-mass attraction bound and a complete-field periodic-tail test. Theorem E instead rests on a complete finite-word
 potential certificate. This separates their logical dependencies while
 using the same local language.
 
@@ -230,10 +262,10 @@ consecutive reads of each same physical cell have alternating letters.
 Necessity is the flip rule. For sufficiency, make a visited cell
 initially black exactly when its first requested letter is L; leave
 every unvisited cell white. Induction over the finite word proves
-execution. This is established methodology, not a new criterion; see
-Gajardo (2003), Subsection \ref{ten-3}.
+execution. Gajardo {[}1{]}, Section 3, pp.\ 60--62, gives this
+first-read assignment and its forbidden-word formulation.
 
-Let \(E\) contain EVERY physically feasible 150-letter word whose
+Let \(E\) contain every physically feasible 150-letter word whose
 10-factors lie in \(\mathcal L_{10}\). Construct a graph \(G\) with edge
 \(v_0\cdots v_{148}\to v_1\cdots v_{149}\) for each \(v\in E\). No word
 is removed because it looks unlikely or because its seed is large.
@@ -416,7 +448,7 @@ leave a strongly connected component and later return to it. The current
 letters of a run of \(L\) successive vertices in \(\mathcal T\) form a
 length-\(L\) prefix of a phase of \(T^\omega\).
 
-Let \(b_j(L)\) count distinct cells whose FIRST read is L in this prefix
+Let \(b_j(L)\) count distinct cells whose first read is L in this prefix
 starting at phase \(j\). If the complete black mass at the run's start
 is \(m_T\), physical execution requires \(b_j(L)\le m_T\). The count
 includes only first reads relative to that run; cells written during the
@@ -512,7 +544,7 @@ segment based at height -2 or less remains strictly below it. The
 the appendix; its full infinite execution is verified by chronology and
 an independent epoch-breakpoint formula. Its phase footprint has maximum
 height zero and drift \((-2,-2)\), so its continuation from height -2
-also stays below \(R\). Induction therefore retains and guards ALL
+also stays below \(R\). Induction therefore retains and guards all
 successive residuals and proves the exact infinite word
 
 \[T^n Z^\omega.\]
@@ -529,7 +561,7 @@ first standard time is
 For \(n\ge1\), \(\tau_n=12|B_n|-159\). An affine upper bound with slope
 less than 12 and fixed intercept fails for large \(n\). This proves the
 sharp coefficient, without claiming 212 is sharp. Every member of this
-family is H-positive.
+family eventually reaches the standard highway.
 
 \subsection{Nine factors admit an aperiodic infinite-background
 spiral}\label{ten-7}
@@ -715,27 +747,19 @@ Theorem D decides each future-event query. This equivalence identifies
 the additional global assertion needed for convergence: finiteness of
 the event chain, rather than decidability of an individual query.
 
-\input{event-macros}
-
-\input{silent-geometry}
-
-\input{silent-supply}
-
-\input{silent-memory}
-
 \section{Mass and defects on arbitrary
 intervals}\label{mass-and-defects-on-arbitrary-intervals}
 
 For a finite word \(v\), put \(g(v)=\#R-\#L\) and \(D(v)=3|v|-26g(v)\).
-\textbf{Theorem 1 (finite-word deficit).} Every physically feasible,
+\textbf{Theorem (finite-word deficit).} Every physically feasible,
 ten-legal finite word satisfies \(D(v)\le322\), with no
-infinite-extension premise. The all-input inequality of Theorem E is
-denoted (MASS1) in this section.
+infinite-extension premise. We derive the all-input inequality of Theorem E from this finite-word
+bound.
 
 \subsection{Exact finite-word feasibility and enumeration
 coverage}\label{mass-2}
 
-A prescribed turn word fixes its geometric path from (0,0),N. It is
+A prescribed turn word fixes its geometric path from $(0,0)$, heading N. It is
 physically feasible exactly when successive reads of each physical cell
 request opposite turns. Necessity is the flip rule. For sufficiency, put
 an initial black cell precisely at each visited position whose first
@@ -752,7 +776,7 @@ Starting at the empty word, branch on BOTH turns. Reject an extension
 exactly if its new ten-factor is forbidden, or its current cell was
 previously read with the same letter. Induction on length proves
 complete enumeration of physically feasible ten-legal words through
-depth 300. Words of lengths below ten are NOT initially restricted to
+depth 300. Words of lengths below ten are initially unrestricted by
 the standard factor table.
 
 The Python implementation uses breadth-first cloned last-read maps. The
@@ -764,52 +788,51 @@ hashes.
 \subsection{The finite graph certificate covers arbitrarily long finite
 words}\label{mass-3}
 
-Form a graph from EVERY accepted word of length 300: its 299-prefix is
+Form a graph from every accepted word of length 300: its 299-prefix is
 the source, its 299-suffix the target, and the appended letter labels
 the edge. There are exactly 29,334 vertices and 29,559 edges. Assign the
 weight
 
-\begin{verbatim}
-w(R)=-23, w(L)=29,
-\end{verbatim}
+\[
+w(R)=-23,\qquad w(L)=29,
+\]
 
-so that D(v) is the sum of its letter weights.
+so that $D(v)$ is the sum of its letter weights.
 
-The certificate assigns a nonnegative integer h(u) to each vertex, with
-maximum 251, and verifies EVERY edge inequality
+The certificate assigns a nonnegative integer $h(u)$ to each vertex, with
+maximum 251, and verifies every edge inequality
 
-\begin{verbatim}
-h(u) >= w(c)+h(v),               u --c--> v,             (MASS2)
-\end{verbatim}
+\begin{equation}\label{eq:mass2}
+h(u)\ge w(c)+h(v)\quad\text{for every edge }u\xrightarrow{c}v
+\end{equation}
+and every initial-vertex inequality
 
-and EVERY initial-vertex inequality
-
-\begin{verbatim}
-D(u)+h(u) <= 284.                                       (MASS3)
-\end{verbatim}
+\begin{equation}\label{eq:mass3}
+D(u)+h(u)\le284.
+\end{equation}
 
 These are direct integer comparisons; an optimizer's output is not
 trusted. The potential generators are only proposal generators. Their
 resource caps raise an error with no mathematical conclusion. An
 independently supplied damaged potential is rejected without repair.
 
-For any physically feasible ten-legal finite word z of length
-n\textgreater=300, all its 300-windows belong to this graph. They define
-a path starting with its first 299 letters u0. Summing (MASS2) over the
+For any physically feasible ten-legal finite word $z$ of length
+$n\ge300$, all its 300-windows belong to this graph. They define
+a path starting with its first 299 letters $u_0$. Summing \eqref{eq:mass2} over the
 appended letters gives
 
-\begin{verbatim}
-D(z) <= D(u0)+h(u0)-h(u_final) <= 284,
-\end{verbatim}
+\[
+D(z)\le D(u_0)+h(u_0)-h(u_{\rm final})\le284,
+\]
 
-using (MASS3) and h\textgreater=0. This is an overapproximation
+using \eqref{eq:mass3} and $h\ge0$. This is an overapproximation
 argument: not every graph path need be physically realizable, but every
 physical word is covered. No extension to an infinite ten-legal path is
 assumed. There is no misuse of eventual-cycle classification for a
 finite segment.
 
 For all lengths 0 through 299, exhaustive enumeration gives maximum 322.
-Combining the two finite kernels proves Theorem 1 for all finite
+Combining the two finite kernels proves the finite-word deficit theorem for all finite
 lengths.
 
 The source witness fixes SHA256 hashes for the sorted depth-300 words
@@ -817,7 +840,7 @@ and the potentials in lexicographic vertex order.
 
 The complete finite sets are reconstructed deterministically and checked
 against those hashes and the local inequalities. They need not be stored
-as a nine-megabyte enumeration dump. verification/mass/witness.json
+as a nine-megabyte enumeration dump. \texttt{verification/mass/witness.json}
 contains the immutable numerical claim, exact short witness and its
 complete minimal seed.
 
@@ -832,50 +855,49 @@ LLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLR
 has length 90, 44 right turns and 46 left turns. It is physically
 feasible and all of its 81 ten-factors are allowed. Its unique minimal
 first-read seed has 28 black cells and is listed in
-verification/mass/witness.json. Literal execution leaves 26 black cells.
+\texttt{verification/mass/witness.json}. Literal execution leaves 26 black cells.
 Thus
 
-\begin{verbatim}
-3*90-26*(26-28)=322,
-\end{verbatim}
+\[
+3\cdot90-26(26-28)=322,
+\]
 
-proving the additive constant in Theorem 1 and in (MASS1), with wholly
+proving the additive constant in the finite-word deficit theorem and in Theorem E, with wholly
 contained windows, cannot be decreased.
 
 The standard word has 104 updates and 12 more R than L. Its certified
-finite-support realization supplies physically feasible words W\^{}k for
-every k\textgreater=1. Thus any uniform lower estimate
-g\textgreater=rho*n-C with rho\textgreater12/104=3/26 fails as k tends
+finite-support realization supplies physically feasible words $W^k$ for
+every $k\ge1$. Thus any uniform lower estimate
+$g\ge\rho n-C$ with $\rho>12/104=3/26$ fails as $k$ tends
 to infinity. The standard tail is an existing certified input here; this
-work uses that standard growth as its sharpness witness. The supplementary literal W\^{}4 check is a control, not the
-justification of the universal k quantifier.
+work uses that standard growth as its sharpness witness. The supplementary literal $W^4$ check is a control, not the
+justification of the universal $k$ quantifier.
 
 \subsection{Derivation of the unrestricted inequality}\label{mass-5}
 
 In any actual finite orbit segment, every right turn increases complete
 black mass by one and every left turn decreases it by one. Hence
 
-\begin{verbatim}
-g(a_s...a_(t-1))=|B_t|-|B_s|.                            (MASS4)
-\end{verbatim}
+\begin{equation}\label{eq:mass4}
+g(a_s\cdots a_{t-1})=|B_t|-|B_s|.
+\end{equation}
 
 Remove each letter that ends a forbidden ten-window wholly contained in
-the segment. These N=N10(s,t) single-letter positions separate at most
-N+1 consecutive remaining runs. Every ten-window wholly inside a
+the segment. These $N=N_{10}(s,t)$ single-letter positions separate at most
+$N+1$ consecutive remaining runs. Every ten-window wholly inside a
 remaining run was wholly inside the original segment and cannot be
 forbidden: otherwise its last position would have been removed. Each run
-is a genuine physical subword and is therefore covered by Theorem 1. An
+is a genuine physical subword and is therefore covered by the finite-word deficit theorem. An
 empty run has deficit zero and may harmlessly be charged the same upper
 bound.
 
-Each removed letter has deficit at most 29. Additivity of D, Theorem 1
-and (MASS4) yield
+Each removed letter has deficit at most 29. Additivity of $D$, the finite-word deficit theorem
+and \eqref{eq:mass4} yield
 
-\begin{verbatim}
-D(total) <= 322(N+1)+29N = 351N+322,
-\end{verbatim}
-
-proving (MASS1). This does not require disjoint forbidden windows.
+\[
+D(\text{total})\le322(N+1)+29N=351N+322,
+\]
+proving Theorem E. This does not require disjoint forbidden windows.
 Removing their ending letters handles overlaps exactly.
 
 \subsection{Density consequences}\label{density-consequences}
@@ -886,6 +908,32 @@ if \(|B_t|=o(t)\), then \(\liminf N_{10}(0,t)/t\ge1/117\); if
 the cost of maintaining low mass or a nearly legal stream.
 
 \input{nine-mass}
+
+\input{event-macros}
+
+\input{silent-geometry}
+
+\input{silent-supply}
+
+\section{Limitations}
+The attraction theorem assumes a legal future; the mass inequalities apply
+to arbitrary finite trajectory intervals. Together they give local-event
+algorithms and necessary density laws. They provide no upper bound on the
+total number of events of an arbitrary finite seed. The ten-factor threshold
+for attraction is sharp over arbitrary initial colourings; its optimality
+on finite black supports is a separate question. The mass theorem has the
+distinct sharp window threshold nine.
+
+The coefficient twelve in the attraction bound and the constant 322 in the
+ten-factor deficit bound have matching witnesses. The attraction intercept
+212 and the penalty coefficient 351 are sufficient constants whose optimality
+is open. Algorithmic costs distinguish explicit point sets from compressed
+XOR segments and depend polynomially on the numerical event count, rather
+than its bit length. Lifetime bounds use the complete mass at the named
+checkpoint; repeated application does not replace it by the initial mass.
+The memory families have finite prescribed prefixes and recoveries. Whether
+one finite seed can sustain autonomous infinite renewal remains a global
+dynamical question.
 
 \section{Reproducibility and
 conclusion}\label{reproducibility-and-conclusion}
@@ -915,11 +963,15 @@ words, checks 9,550 product-edge inequalities and the complete condensation
 budget, and verifies the all-parameter eight-factor truncation.
 
 Run \texttt{python3\ factor\_language/reproduce.py} from the source
-root. Retained source hashes and a fresh per-stage report distinguish
-the imported evidence from the checks performed for this manuscript.
-These are analytic proofs with exact computation. The older
-immediate-standardness thresholds concern a different conclusion and are
-not premises of this paper.
+root. Each checker implements the finite coverage or integer inequality
+stated in its corresponding proof, and records its source identifiers and
+verification results. The analytic arguments establish coverage for all
+parameters; the exact computations establish their finite premises.
+
+The computational sources and certificates are fixed at
+\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/factor_language}{repository commit \texttt{e932522}, factor project}.
+The \texttt{sources.json} manifest lists their hashes. The accompanying
+source archive includes those finite kernels and this article's source.
 
 The two proof routes expose complementary structure: a legal infinite
 future has rigid eventual motion, while an arbitrary finite interval
@@ -928,6 +980,8 @@ connects a local signature of P104 with both a decidable event and a
 quantitative all-input law.
 
 \appendix
+
+\input{silent-memory}
 
 \section{Exact words}\label{exact-words}
 
@@ -1036,6 +1090,8 @@ Phase & Finite first-L times & Ray starts & Maximum \(L-12b_j(L)\) \\
 23 & 6,8 & 0,9 & 0 \\
 \end{longtable}
 
+\input{nine-forbidden}
+
 \section{References}\label{references}
 
 \begingroup\small
@@ -1059,13 +1115,11 @@ Phase & Finite first-L times & Ray starts & Maximum \(L-12b_j(L)\) \\
   Theorem 3.1 and Remark 3.2 supply full-drift visit chronology and seed
   reconstruction.
 \item
-  Hao Ke. \emph{An Ant on the Clock: Exponential Escape Bounds for
-  Langton's Ant}, version 0.4.0 (2026).
-  \href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
-\item
   Anahí Gajardo and Jacques Mazoyer. \emph{One Head Machines from a
   symbolic approach}. Theoretical Computer Science 370, 34--47 (2007).
   \newline\href{https://doi.org/10.1016/j.tcs.2006.10.004}{doi:10.1016/j.tcs.2006.10.004}.
+  Author manuscript (2005), Section 6, Proposition 8 and Theorems 1--2:
+  \href{https://www.ing-mat.udec.cl/investigacion/paginas-pp/download.php?file=pp05-10.pdf}{Universidad de Concepción preprint pp05-10}.
 \end{enumerate}
 \endgroup
 

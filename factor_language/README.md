@@ -40,7 +40,7 @@ consecutive events localized in K have an axis-cross container with padding 44.
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23665478)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675965)
 
 ## Exact scope
 
@@ -53,7 +53,7 @@ python3 factor_language/reproduce.py --output-report /tmp/factor_language-checks
 make -C factor_language/paper
 ```
 
-Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. A C++17 compiler is required. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
+Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and preserve the source and evidence. A C++17 compiler is required. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
 
 Use `--new-results-only` for the silent-supply and nine-factor checks.
 `--extensions-only` skips the original attraction/event/mass kernels and runs

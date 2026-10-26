@@ -1,36 +1,57 @@
 \section{Guarded composition of highway
 scattering}\label{guarded-composition-of-highway-scattering}
 
+A black marker placed on a future white read of a standard highway changes
+that turn and triggers a finite recovery. We construct a library whose outputs
+are again standard highways, directed northeast or southeast. Both directions
+advance eastward, allowing a vertical boundary to move beyond each completed
+collision while leaving its historical field behind it.
+
+The result proved in this section is an arbitrary finite composition theorem:
+start from the explicit standard seed below, choose a compatible sequence from
+the thirty-rule table, and separate consecutive collisions by at least one
+hundred full periods. Installing all markers initially produces exactly that
+sequence and then a permanent standard highway. The precise placement formula
+and time bound appear in Theorem~\ref{th:scattering-train}. Compatibility means
+that the output orientation of one rule is the input orientation of the next.
+
+A \emph{guard} is a half-plane containing every read in the current recovery
+and its outgoing tail. We compare the complete colouring on that half-plane.
+Nested guards make this comparison valid at the next marker despite all past
+writes elsewhere. The following proof develops the rule table, the guarded
+field identity, and finally the induction over encounters.
+
 \subsection{Literal convention and finite certificate
 data}\label{scattering-2}
 
 A state is the complete finite black set B, position p, and heading h in
-N,E,S,W=0,1,2,3. White turns right, black turns left, then flip and
+$\mathrm N,\mathrm E,\mathrm S,\mathrm W=0,1,2,3$. White turns right, black turns left, then flip and
 move. Time t is before update t. All markers are installed at time zero.
 There is no intervention between encounters and no physical deletion of
 old cells.
 
-Rotate the repository's thirteen-cell canonical template by 180 degrees:
+Use the following complete thirteen-cell standard-highway seed:
 
-\begin{lstlisting}
-K={(0,6),(1,5),(0,5),(2,4),(0,4),(2,3),(-1,3),
-   (1,2),(-1,2),(1,1),(2,0),(1,0),(0,0)}.
-\end{lstlisting}
+\[
+\begin{aligned}K=\{&(0,6),(1,5),(0,5),(2,4),(0,4),(2,3),(-1,3),\\&(1,2),(-1,2),(1,1),(2,0),(1,0),(0,0)\}.\end{aligned}
+\]
 
-The start pose is (0,0), EAST. Its standard word w, length 104, and
-displacement d=(2,2) are reproduced and infinitely checked in check.py.
-Let P\_i,H\_i be its pre-update phase positions and headings,
-0\textless=i\textless104, with P\_0=(0,0). Let R\_0 be identity and
-R\_1(x,y)=(y,-x), a clockwise rotation, NOT reflection. The two incoming
-orientations have displacement d\_k=R\_k d, k=0,1.
+The start pose is $(0,0)$ facing east, and every cell outside $K$ is
+initially white. Its standard word w, length 104, and
+displacement $d=(2,2)$ are reproduced and infinitely checked in the \texttt{check.py} identified below.
+Let $P_i,H_i$ be its pre-update phase positions and headings,
+$0\le i<104$, with $P_0=(0,0)$. Let $R_0$ be identity and
+$R_1(x,y)=(y,-x)$, a clockwise rotation. The two incoming
+orientations have displacement $d_k=R_kd,\ k=0,1$.
 
-A phase j is fresh when its cell has no earlier visit in the two-sided
-planned standard geometry. For P\_j-P\_i=a*d, an earlier visit exists
+We place markers at sites whose first highway visit is the intended
+collision. These sites are identified by fresh phases. A phase j is fresh when its cell has no earlier visit in the two-sided
+planned standard geometry. For $P_j-P_i=ad$, an earlier visit exists
 exactly when
 
-\begin{lstlisting}
-a<0, or a=0 and i<j.
-\end{lstlisting}
+\[
+a<0\quad\text{or}\quad(a=0\text{ and }i<j).
+\]
 
 The finite test yields 22 fresh phases:
 
@@ -45,9 +66,19 @@ input.
 
 \subsubsection{The 30 checked rules}\label{the-30-checked-rules}
 
-Each table entry in check.py specifies incoming k,j, guard g\textless=0,
-recovery length t INCLUDING the first black marker update, and the exact
-output pose and standard phase. The graph is:
+The defining supplement is the literal \texttt{TABLE} in
+\path{four_cell_port/verification/guarded_scattering/check.py} at the
+immutable source revision specified in Reproducibility below. Its SHA256 is
+\begin{center}\scriptsize\texttt{7b199ee5d2f291eb5450c3f232d2bbf91e469de2bd9eb416a753393886d3da14}\end{center}
+The 30 rows have schema $(k,j,g,t,a,x,y,h)$: incoming rotation, collision
+phase, guard, recovery updates including the marker update, outgoing
+standard phase, endpoint coordinates, and heading ($0,1,2,3$ mean
+N,E,S,W). Thus each row defines $g_r=g$, $t_r=t$, $a_r=a$ and
+$v_r=(x,y)$; its outgoing rotation is the unique $k'$ satisfying
+$h\equiv H_a+k'\pmod4$. The same file defines the literal 104-letter
+\texttt{WORD} and thirteen-cell \texttt{BASE} used here. These finite data,
+together with the displayed mature-field formula, completely determine
+all thirty kernels and their endpoints. The graph is:
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
@@ -64,30 +95,30 @@ SE & NE & 15,45,46,47,57 \\
 
 There are 16 NE-input rules and 14 SE-input rules. Recovery lengths
 range from 312 to 32656 updates. These are supplied sufficient recovery
-boundaries, NOT necessarily first permanent-P104 times. The finite
+boundaries, not necessarily first permanent-P104 times. The finite
 incoming kernels contain 24 to 252 black cells; some recovered kernels
-contain 1797 black cells. The rank below does not require that this
+contain 1797 black cells. The termination rank in Appendix~\ref{scattering-6}
+does not require that this
 black mass decrease.
 
 \subsection{Exact mature-wake restriction and guarded
 recovery}\label{scattering-3}
 
-For a rule (k,j,g), put A\_i=R\_k(P\_i-P\_j), d\_k=(2,+/-2), and u\_i=0
-if i\textless j, u\_i=-1 otherwise. Define the finite set by XOR:
+For a rule (k,j,g), put $A_i=R_k(P_i-P_j)$
+and $d_k=R_kd$. Put $u_i=0$ if $i<j$ and $u_i=-1$ otherwise. Define the finite set by XOR:
 
-\begin{lstlisting}
-M_(k,j,g) = XOR over i=0..103, ceil((g-A_i.x)/2)<=a<=u_i
-                of {A_i+a*d_k}.
-\end{lstlisting}
+\[
+M_{k,j,g}=\mathop{\triangle}_{i=0}^{103}\ \mathop{\triangle}_{\lceil(g-A_{i,x})/2\rceil\le a\le u_i}\{A_i+ad_k\}.
+\]
 
-It is the restriction to x\textgreater=g of all writes before the
-collision in the mature incoming standard plan. The positive x drift
+It is the restriction to $x\ge g$ of all writes before the
+collision in the mature incoming standard plan. The positive $x$ drift
 makes the displayed ranges finite. Freshness implies 0 is not in M. The
 certificate kernel is
 
-\begin{lstlisting}
-X_r=(M union {0}, (0,0), (H_j+k) mod 4).
-\end{lstlisting}
+\[
+X_r=(M\cup\{0\},(0,0),(H_j+k)\bmod4).
+\]
 
 For each of the 30 rules the checker proves the following finite
 obligations:
@@ -100,11 +131,11 @@ obligations:
   field and pose; a separately written integer-vector simulator agrees
   on every turn and on the complete endpoint.
 \item
-  Every recovery read has x\textgreater=g.
+  Every recovery read has $x\ge g$.
 \item
   Both exact infinite-tail verifiers accept the declared standard phase
-  from that endpoint. Its drift has positive x component 2, and every
-  phase read in the first tail period has x\textgreater=g.
+  from that endpoint. Its drift has positive $x$ component 2, and every
+  phase read in the first tail period has $x\ge g$.
 \end{enumerate}
 
 The two infinite tests are not finite repetition heuristics. One
@@ -112,21 +143,21 @@ evaluates, for each phase ray, all onset thresholds for previous writes
 and all exceptions from the finite initial black field. Parity is
 constant between those finitely many breakpoints, including the last
 infinite interval. The other orders all visits to a fixed
-translation-class cell: writing its coordinate as m*d, a phase at
-longitudinal index z\_i visits at time 104*m+(i-104*z\_i), when
-m\textgreater=z\_i. Those visits must alternate colours beginning with
+translation-class cell: write its coordinate as $b+md_k$ and the
+phase position as $b+z_id_k$, for a fixed class representative $b$. That phase visits at time $104m+(i-104z_i)$, when
+$m\ge z_i$. Those visits must alternate colours beginning with
 the actual initial colour. It checks every change of the active list and
 every finite-field exception. The two tests share the integer geometry
 primitives; they are two independently formulated all-future checks, not
 two independently maintained software stacks.
 
 \textbf{Guard lemma.} Add any finite black field G contained in
-x\textless g to X\_r. The entire future read/turn sequence remains that
-of X\_r, and G is never touched.
+$x<g$ to $X_r$. The entire future read/turn sequence remains that
+of $X_r$, and G is never touched.
 
-\textbf{Proof.} Until a first x\textless g read, first-difference
+\textbf{Proof.} Until a first $x<g$ read, first-difference
 induction gives the certified recovery and then its certified tail. Both
-stay in x\textgreater=g, so no first such read exists. This proves
+stay in $x\ge g$, so no first such read exists. This proves
 invisibility instead of assuming it. G remains physically present. The
 same reasoning holds until a later, explicitly planned marker interrupts
 the tail. Permanent protection across such interruptions requires the
@@ -135,19 +166,19 @@ nesting argument in the next section. \(\square\)
 \subsection{Finite arithmetic certificate for every compatible
 pair}\label{scattering-4}
 
-Suppose rule r has output displacement d\_k, phase a and endpoint v\_r
-relative to its marker. To place a later phase-j marker after n full
+Suppose rule $r$ has outgoing rotation $k$, matching the incoming rotation
+of the next rule $s$, displacement $d_k$, outgoing phase $a$ and endpoint
+$v_r$ relative to its marker. To place a later phase-j marker after n full
 periods plus the phase adjustment, its position relative to the previous
 marker is
 
-\begin{lstlisting}
-q'=v_r+(n+1_[j<a])*d_k+R_k(P_j-P_a),
-flight updates=104*n+((j-a) mod 104).                  (1)
-\end{lstlisting}
+\begin{equation}\label{eq:sc1}
+\begin{aligned}q'&=v_r+(n+\mathbf1_{\{j<a\}})d_k+R_k(P_j-P_a),\\\text{flight duration}&=104n+((j-a)\bmod104).\end{aligned}
+\end{equation}
 
-Use n\textgreater=100. This deliberately loose threshold is not asserted
-optimal. For the next rule s with guard g\_s, its absolute half-plane
-starts at q'.x+g\_s. The certificate checks that this boundary is
+Use $n\ge100$. This deliberately loose threshold is not asserted
+optimal. For the next rule s with guard $g_s$, its absolute half-plane
+starts at $q'_x+g_s$. The certificate checks that this boundary is
 strictly to the right of:
 
 \begin{itemize}
@@ -161,21 +192,21 @@ strictly to the right of:
   the entire synthetic standard past before that endpoint.
 \end{itemize}
 
-The last maximum is finite and, relative to v\_r, equals
+The last maximum is finite and, relative to $v_r$, equals
 
-\begin{lstlisting}
-max_i [R_k(P_i).x-R_k(P_a).x + (0 if i<a else -2)].     (2)
-\end{lstlisting}
+\begin{equation}\label{eq:sc2}
+\max_i\left[(R_kP_i)_x-(R_kP_a)_x+\begin{cases}0&i<a,\\-2&i\ge a.\end{cases}\right].
+\end{equation}
 
-Earlier epochs only decrease x by further multiples of 2. Formula (2),
+Earlier epochs only decrease x by further multiples of 2. Formula \eqref{eq:sc2},
 rather than a simulation horizon, proves that all omitted pre-output
 planned writes are outside the next half-plane.
 
-There are exactly 448 compatible ordered rule pairs. At n=100 all pass,
+There are exactly 448 compatible ordered rule pairs. At $n=100$ all pass,
 with minimum strict-boundary slack \textbf{122} and minimum marker x
 displacement \textbf{184}. For larger n, the left-hand boundary
-increases by 2(n-100) and the earlier objects do not change. Thus the
-same inequalities hold for EVERY n\textgreater=100. The 16 initial NE
+increases by $2(n-100)$ and the earlier objects do not change. Thus the
+same inequalities hold for every $n\ge100$. The 16 initial NE
 choices also pass; the minimum initial boundary slack is 160.
 
 Future markers cannot interrupt an earlier recovery because they lie
@@ -193,9 +224,9 @@ family}\label{why-the-output-really-re-enters-the-same-input-family}
 At the next collision half-plane, all previous endpoint black cells and
 all previous retired debris are outside. Inside, only the newly
 generated standard writes and the remaining preinstalled markers occur.
-By (2), adding back the synthetic pre-output past changes nothing there.
-Therefore those newly generated writes restrict to EXACTLY
-M\_(k,j,g\_s). The current marker adds its single black cell; more
+By \eqref{eq:sc2}, adding back the synthetic pre-output past changes nothing there.
+Therefore those newly generated writes restrict to exactly
+$M_{k,j,g_s}$. The current marker adds its single black cell; more
 distant markers remain untouched. This is equality of the complete
 inside field, not equality on a fixed-radius sample or merely on
 reference rays. It proves closure of the interface needed by the next
@@ -210,39 +241,46 @@ deflections occur.
 \subsection{All-length, multi-encounter convergence
 theorem}\label{scattering-5}
 
-Choose any finite directed word r\_1,\ldots,r\_m in the displayed
-two-state graph, starting NE, and ANY integers
-n\_1,\ldots,n\_m\textgreater=100. Starting with p\_0=(0,0), phase 0 and
-NE orientation, apply (1) recursively to obtain q\_i, then set
+Choose any finite directed word $r_1,\ldots,r_m$ in the displayed
+two-state graph, starting NE, and any integers
+$n_1,\ldots,n_m\ge100$. Let rule $r_i$ have incoming rotation $k_i$,
+collision phase $j_i$, recovery time $t_{r_i}$, endpoint $v_{r_i}$ and
+outgoing phase $a_i$. Set $p_0=(0,0)$ and $a_0=0$. Starting NE gives
+$k_1=0$; compatibility makes each subsequent $k_i$ the preceding rule's
+outgoing rotation. For $i=1,\ldots,m$, define
 
-\begin{lstlisting}
-p_i=q_i+v_(r_i),
-\end{lstlisting}
+\[
+\begin{aligned}
+q_i&=p_{i-1}+(n_i+\mathbf1_{\{j_i<a_{i-1}\}})d_{k_i}
+       +R_{k_i}(P_{j_i}-P_{a_{i-1}}),\\
+p_i&=q_i+v_{r_i}.
+\end{aligned}
+\]
 
-and use rule r\_i's certified outgoing phase and orientation for the
-next step. This is a finite, effective prescription using integer
+This is \eqref{eq:sc1} written from the preceding recovery endpoint,
+including the initial canonical endpoint when $i=1$. This is a finite, effective prescription using integer
 arithmetic and the fixed rule table. Define the literal initial state
 
-\begin{lstlisting}
-B_0=K union {q_1,...,q_m} union G,
-p_0=(0,0), h_0=E,
-\end{lstlisting}
+\[
+B_0=K\cup\{q_1,\ldots,q_m\}\cup G,\qquad p_0=(0,0),\quad h_0=\mathrm E,
+\]
 
-where G is any finite set in x\textless-1. The markers, K and G are
-disjoint, so \textbar B\_0\textbar=13+m+\textbar G\textbar. No marker is
+where G is any finite set in $x<-1$. The markers, K and G are
+disjoint, so $|B_0|=13+m+|G|$. No marker is
 installed later during the run.
 
-\textbf{Theorem (guarded scattering trains).} Every such state
+\begin{theorem}[Guarded scattering trains]\label{th:scattering-train} Every such state
 encounters the markers in the prescribed order, executes all prescribed
 recoveries with its complete history retained, and reaches permanent
 standard P104 by time
 
-\begin{lstlisting}
-T=sum_(i=1..m) [104*n_i+((j_i-a_(i-1)) mod 104)+t_(r_i)].  (3)
-\end{lstlisting}
+\begin{equation}\label{eq:sc3}
+T=\sum_{i=1}^m\bigl[104n_i+((j_i-a_{i-1})\bmod104)+t_{r_i}\bigr].
+\end{equation}
 
-For m=0 take T=0. The final direction is the graph's final NE or SE
+For $m=0$ take $T=0$. The final direction is the graph's final NE or SE
 orientation.
+\end{theorem}
 
 \textbf{Proof.} The canonical tail has minimum read x=-1, so G cannot
 affect its first flight. The initial-boundary inequalities remove K and
@@ -255,7 +293,7 @@ restricted kernel. Induct on the finite rule word. Nested guards keep
 every retired part invisible throughout all remaining recoveries. After
 the last marker there is no further perturbation ahead and the final
 infinite-tail certificate applies with the entire western history still
-present. Summing the actual flight and recovery lengths gives (3).
+present. Summing the actual flight and recovery lengths gives \eqref{eq:sc3}.
 \(\square\)
 
 This is not just checking more finite seeds: m, all gap parameters, and
@@ -266,7 +304,7 @@ closed-interface induction, not extrapolation from the replay tests.
 instance}\label{a-concrete-repeated-turn-instance}
 
 Repeat the pair (NE phase 29, SE phase 15) twelve times, with every
-n\_i=100. The initial field has \textbf{37 black cells}, including the
+$n_i=100$. The initial field has \textbf{37 black cells}, including the
 thirteen-cell base. The first six markers are
 
 \begin{lstlisting}
@@ -277,74 +315,4 @@ thirteen-cell base. The first six markers are
 The 24 prescribed encounters complete at time \textbf{451214}, with head
 at (5387,-81), NE output and standard phase 94. The retained complete
 field then has \textbf{43669} black cells. Both infinite-tail tests
-accept it. This illustrates why a decreasing black-cell count is
-unnecessary, but is not a statement about all 37-black-cell inputs or
-the first time this state becomes P\_now.
-
-\subsection{Transfer of the strict clock into an actual renewal
-rank}\label{scattering-6}
-
-The following rank is defined on the certified scattering train, whose
-checkpoints are its finite recovery boundaries.
-
-During a recovery choose its finite read rectangle Q, including its
-endpoint. Exterior colours remain unchanged. Let s=x+y-c, with integer c
-centering the rectangle's diagonal range, and M=max\_(p in
-Q)\textbar s(p)\textbar. With the invariant sigma from the clock proof,
-use the scaled integer clock
-
-\begin{lstlisting}
-C_Q(X)=-5*sigma*sum_(q in B intersect Q) chi(q)
-                          *(4^(M+s(q))+4^(M-s(q))) + G(p,h),
-\end{lstlisting}
-
-where G=2*(4\^{}(M+s)-4\^{}(M+1-s)) for h=N,E and
-G=2*(4\^{}(M-s)-4\^{}(M+1+s)) for h=S,W. It is 5*4\^{}M times the r=4
-clock, with the unchanged outside contribution subtracted. For every
-internal literal update,
-
-\begin{lstlisting}
-C_Q(FX)-C_Q(X)>=2*4^M.                                (4)
-\end{lstlisting}
-
-A computable upper bound U\_Q for all internal colourings and poses is
-
-\begin{lstlisting}
-5*sum_(q in Q)(4^(M+s(q))+4^(M-s(q))) + max_(p,h in Q)|G(p,h)|.
-\end{lstlisting}
-
-Thus
-
-\begin{lstlisting}
-rho_Q(X)=ceil((U_Q-C_Q(X))/(2*4^M))                    (5)
-\end{lstlisting}
-
-is a nonnegative integer which strictly decreases on every internal
-recovery update. Each stored finite recovery checks (4), (5), and the
-complete endpoint clock again. The universal identity is imported from
-the existing clock proof; these finite checks validate the particular
-representation and convention.
-
-The whole certified computation has a lexicographic rank in N x \{0,1\}
-x N:
-
-\begin{lstlisting}
-(number of still-unread input markers, mode, local fuel),
-\end{lstlisting}
-
-with recovery mode 1 and flight mode 0. During flight, local fuel is the
-exact number of updates to the next marked read, computed by (1).
-Reading that marker decreases the first coordinate, permitting a reset
-to recovery mode. During recovery, use rho\_Q; returning to flight
-decreases mode, permitting the next flight fuel to be reset. After the
-last recovery the certificate program halts. This is a rank on the state
-with its finite checked train description, not a claimed all-input
-physical-state rank. It stops at certification; the actual ant then
-continues forever along its highway.
-
-The logical role of closure is crucial: generated historical black cells
-do not create further unaccounted marker obligations because their
-possible interactions have been absorbed in the verified recovery and
-then guarded. Without that proof, counting original markers would repeat
-the failed general seed-size induction. The clock alone cannot supply
-that guard.
+accept it. This illustrates why a decreasing black-cell count is unnecessary.

@@ -34,7 +34,7 @@ python3 wake_synthesis/verification/general_wake_parity/reproduce.py \
 Python 3.10+ and a C++17 compiler with undefined-behavior sanitizer are required.
 The full suite runs in a temporary directory, checks hashes, reconstructs all
 reports, and compares deterministic results with retained evidence. It does not
-write over evidence or releases. No network, solver, or external Python package
+overwrite the supplied evidence. No network, solver, or external Python package
 is needed. The manuscript can be compiled with pdfLaTeX.
 
 To screen an input JSON object with `drift` and `wake` fields:

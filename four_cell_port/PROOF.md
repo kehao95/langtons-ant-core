@@ -128,7 +128,7 @@ From the exit, compare to the standalone gate run. All its future reads remain i
 
 This effectively constructs a standard-P104 certificate for the **four-cell augmented input**, whose standard trace starts by update `E(n)+182` for a protected n-by-n square. The original X may or may not already have a standard future. In particular, `forall X exists E (|E|=4 and H(X+E))` is NOT `forall X H(X)`.
 
-## 5. What is new, and limits of publication claims
+## 5. Sharpness and scope
 
 This advances the earlier 13-cell universal exterior-completion gate to a four-cell gate, and adds a **sharp** unbounded-coordinate half-plane exit theorem for at most three black sites, complete with a finite total proof checker. The upper/lower cardinalities agree for the canonical *one-sided gate* contract; no claim is made about the optimal number of arbitrary exterior edits without that contract.
 

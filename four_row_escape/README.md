@@ -8,7 +8,7 @@ linear-bound conjecture (published Conjecture 11; arXiv v1 Conjecture 13).
 
 [Manuscript](paper/main.tex) · [PDF](paper/paper.pdf) ·
 [Proof map](PROOF.md) · [Verification](evidence/README.md) ·
-[Zenodo](https://doi.org/10.5281/zenodo.23665471)
+[Zenodo](https://doi.org/10.5281/zenodo.23675964)
 
 ## Proof and scope
 

@@ -8,15 +8,10 @@ argument is unformalized; ISL/GMP computes the exact integer relations.
 
 ## Dependencies and attribution
 
-At final integration, remote main is `6afea97c2a8a26d03b2bf89de9d23a87d64a31e0`.
-Its [resource-spectrum theorem](defect-resource-spectrum.md), Section 2, already
-proves the same unary-first-time supply/count semilinearity as Theorem 1 below,
-including decidability of a supplied fixed-mass unboundedness query. That general
-result is retained as an imported project theorem with an independent derivation
-here, NOT registered as a second discovery. The new general addition is the
-explicit vertical-ray versus UNIFORM affine-budget corollary over ALL masses of
-a fixed finite portfolio. Its proof is a short consequence of the established
-semilinear spectrum, not a new arithmetic method or a separate priority claim.
+The [resource-spectrum theorem](defect-resource-spectrum.md), Section 2,
+provides unary-first-time supply/count semilinearity, including fixed-mass
+unboundedness queries. The vertical-ray versus uniform affine-budget dichotomy
+below is a consequence of that spectrum for a fixed finite collection.
 
 The distinct completed physical result is Section 5: the full three-independent-
 parameter fold/consumer classification, exact minimum supply, three-component
@@ -337,7 +332,7 @@ projection or replace the written coverage argument.
 
 ## 7. Checks, limits and files
 
-Run `python experiments/hc_global/schema_supply/reproduce.py`. It copies only
+Run `python3 defect_synthesis/verification/schema_supply/reproduce.py`. It copies only
 this isolated module into a disposable directory and compares a freshly rebuilt
 report with the frozen one. Python 3.10+, system libisl and a C++17 compiler
 are required. The exact frozen textual report uses isl-0.27-GMP; another ISL
@@ -357,12 +352,8 @@ budget, unnormalized powers and unsupported residue holes are rejected or remain
 UNKNOWN as appropriate. A vertical-ray branch control uses a clearly marked
 SYNTHETIC ARITHMETIC relation, not an ant orbit or negative seed.
 
-A first native parser check found a token-count bug. A later oversized symbolic
-full-field control timed out and is NOT recorded as passed. The final checker
-uses smaller complete symbolic field controls alongside all the literal controls;
-its successful full replay is the retained evidence. Report hashes identify only
-the corrected final sources. Shared simulators and prior theorem files are not
-modified or broadly rechecked.
+The retained report and hashes identify the tested sources. Finite controls
+supplement the exact symbolic identities and do not replace them.
 
 ## 8. What remains for HC
 
@@ -387,14 +378,13 @@ self-renewing finite seed, a global event budget, and HC remain unproved.
   https://doi.org/10.1007/978-3-030-99253-8_12
 * ISL manual, exact integer sets, lexicographic extrema and disjoint partitions.
   https://libisl.sourceforge.io/user.html
-* Repository `proof/results/defect-resource-spectrum.md`: unary supply/count
+* Repository `proof/defect-resource-spectrum.md`: unary supply/count
   theorem, retained as an imported result rather than a second novelty claim.
-* Repository `proof/results/presburger-defect-reachability.md`: earlier physical
+* Repository `proof/presburger-defect-reachability.md`: earlier physical
   schema lifting, original feasibility attribution, and the separate fixed-N
-  complete-cover theorem. It is preserved unchanged.
+  complete-cover theorem.
 
 The arithmetic closure and semilinear-ray method are established mathematics;
-no priority claim is attached to them. The initial-black timestamp application is shared with the concurrent
-resource-spectrum theorem and is NOT counted again. This package adds its checked
+no priority claim is attached to them. The initial-black timestamp construction is given in the resource-spectrum theorem. This package adds its checked
 counting backend, the explicit affine-budget corollary, and the exact independent-
 length fold/consumer classification and sharp budget.

@@ -222,14 +222,12 @@ rejected; genuinely unread extra debris is accepted and retained.
 From the repository root:
 
 ```
-python scripts/check_hc_global_integration.py --full
+python3 wake_synthesis/verification/profile_classification/reproduce.py
 ```
 
-The full mode regenerates all 256 count tables and exhausts all twenty native
-representatives. The quick/default mode explicitly does NOT replay that complete
-exhaustion. Both modes execute independent infinite-word tests, all 416 standard
-phase/rotation checks, the local-count oracle and 12,821 native/local-order
-comparisons, plus malformed-input and resource-limit controls. A time or node
+The replay regenerates all 256 count tables and exhausts all forty native searches (including both complementary phases). The replay
+executes independent infinite-word tests, the local-count oracle, native/local-order
+comparisons, malformed-input checks and resource-limit controls. A time or node
 limit is INCONCLUSIVE, never a negative result.
 
 The all-parameter reduction and completeness arguments are mathematical proofs,

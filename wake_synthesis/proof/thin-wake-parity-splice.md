@@ -1,9 +1,8 @@
 # A parity splice in the thin width-ten rigidity proof
 
-15 October 2026. Base read: `2f6010a6bbccf5d342648f1c730a8bd2ea628961`.
-This shortens the proof of an existing theorem; it does not enlarge its input
-class or establish full-drift-only uniqueness. Prior native certificates are
-retained and not reclassified as newly run or newly formalized.
+This provides a shorter proof under the thin-wake theorem's stated hypotheses.
+It uses the native certificates for the remaining chronological exclusions;
+full-drift-only uniqueness remains open.
 
 ## 1. The two interfaces, with the same normalization
 

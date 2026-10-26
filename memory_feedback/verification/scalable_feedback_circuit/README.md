@@ -11,10 +11,11 @@ and an infinite-period verifier. `check.py` adds independent finite dynamics
 and a second infinite-period criterion. `report.json` is deterministic and
 hashes both source files. No third-party libraries, solver or network is used.
 
-Run `python scripts/check_scalable_feedback_circuit.py` from the repository root.
-The runner checks this package in a temporary copy and compares JSON bytes.
+Run `python memory_feedback/reproduce.py` from the repository root.
+The runner checks the memory modules in temporary copies and compares
+deterministic reports.
 The universal proof and precise failed closure are in
-`proof/results/scalable-feedback-circuit.md`.
+[scalable-feedback-circuit](../../proof/scalable-feedback-circuit.md).
 
 All input cells are specified at time zero and every other cell is white.
 The parameter is in the input coordinates. No external intervention or deletion

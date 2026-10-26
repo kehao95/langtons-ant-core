@@ -18,9 +18,9 @@ cover or decide HC.
 From the repository root:
 
 ```sh
-python scripts/check_presburger_fast.py
-python experiments/hc_global/presburger_fast/benchmark.py --part factors --output /tmp/factor-times.json
-python experiments/hc_global/presburger_fast/benchmark.py --part decisions --output /tmp/decision-times.json
+python3 defect_synthesis/reproduce.py --new-results-only
+python3 defect_synthesis/verification/presburger_fast/benchmark.py --part factors --output /tmp/factor-times.json
+python3 defect_synthesis/verification/presburger_fast/benchmark.py --part decisions --output /tmp/decision-times.json
 ```
 
 Python 3.10+ and system `libz3`/`libisl` are required. No Python third-party module

@@ -233,15 +233,11 @@ The earlier local-factor package proved sharp IMMEDIATE-standardness thresholds 
 
 Prior tools are credited: Gajardo's symbolic feasibility/forbidden-word framework, standard-highway certification as treated by Gajardo--Lutfalla--Rao, and Jillhewar's full-drift chronology criterion. This work does not claim the first discovery of those methods or of nonperiodic ants on infinite backgrounds. The article bibliography supplies the primary references.
 
-## 10. Reproduction, trust, and persistence
+## 10. Reproduction and trust
 
-Run `python reproduce.py`. It makes a disposable copy, regenerates and compares the entire edge set, freshly compiles the independent C++ checker, verifies the quotient and exact path/supply bounds, rejects damaged certificates without repairing them, and checks the all-input algorithm against literal controls. The checked-in word and quotient certificates are never overwritten by the default checks. The final report includes return codes, source hashes, certificate hashes, and measured runtimes.
+Run `python3 factor_language/verification/ten/reproduce.py` from the repository root. It makes a disposable copy, regenerates and compares the entire edge set, freshly compiles the independent C++ checker, verifies the quotient and exact path/supply bounds, rejects damaged certificates without repairing them, and checks the all-input algorithm against literal controls. The checked-in word and quotient certificates are never overwritten by the default checks. The final report includes return codes, source hashes, certificate hashes, and measured runtimes.
 
 The all-parameter parts of Lemma 1, the seed-family induction, and the spiral separation are the written arguments above. Their finite geometric premises are checked, and large-parameter tests are supplementary. No finite test is being substituted for their quantifiers.
-
-The initial C++ development run correctly exposed a checker bug in accepting an unsuccessful collinearity test's output variable. It was corrected before the passing replay, and all parameter controls were rerun. This was an implementation correction, not an amendment to Lemma 1. The final report and hashes bind only the corrected source.
-
-No prior theorem's evidence level is upgraded. No global suite, old Lean rebuild, outside review, or repository write is implied by generation of this package. Actual remote persistence, if any, must be reported separately using a confirmed commit.
 
 ## Appendix A. Exact words
 

@@ -65,9 +65,11 @@ without expanding the possibly enormous integer \(3^\ell\).
 Alongside the XOR field, store each actual read sequence as a finite
 arithmetic segment with its time progression:
 \[
- (a,v,L,t_0,\delta_t,c),\qquad
- \text{read }a+jv\text{ at }t_0+j\delta_t,quad 0\le j<L.
+ (a,v,L,t_0,\delta_t,\chi),\qquad
+ \text{read }a+jv\text{ at }t_0+j\delta_t,\quad 0\le j<L.
 \]
+Here \(\chi\in\{\mathrm L,\mathrm R\}\) records the turn at each read in
+this phase stream: \(\mathrm L\) reads black and \(\mathrm R\) reads white.
 A repeated heading-restoring word contributes one such segment per phase;
 literal updates contribute singleton records. These records partition all
 executed updates, including those skipped by arithmetic acceleration.
@@ -75,10 +77,14 @@ Intersecting a queried cell with every segment and selecting the largest
 recorded time below \(e\) recovers its exact last writer. The same records
 retain every field toggle, giving the complete reusable post-state.
 
-The arithmetic applies to nonprimitive strides as well. For parallel
-segments write \(d=gu\), \(v=hu\), \(a-q=cu\), with \(u\) primitive.
-The intersection equation is \(gk=c+hj\); its congruence and finite index
-bounds give a finite arithmetic progression of epochs \(k\). Nonparallel
+The arithmetic applies to nonprimitive strides as well. Recall the
+phase-ray intersection \(q_i+kd=a+jv\) in \eqref{eq:xor1}, with
+\(d\) the period drift, \(q_i\) the phase position, \(k\ge0\), and
+\(0\le j<L\). For nontrivial parallel segments write \(d=gu\),
+\(v=hu\), \(a-q_i=\eta u\), with \(u\) primitive and \(g>0\).
+The intersection equation is \(gk=\eta+hj\); its congruence and finite
+index bounds give a finite arithmetic progression of epochs \(k\).
+Singleton records use the direct ray-membership test. Nonparallel
 segments use an exact determinant solve. Splitting epochs modulo the least
 common multiple of progression steps reduces the colour parity to finite
 interval sweeps, including the final infinite interval. Thus neither a

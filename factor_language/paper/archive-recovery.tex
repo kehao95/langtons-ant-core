@@ -35,8 +35,12 @@ even regime, or 27 variable loops and 28 fixed words in the odd regime.
 The loop drifts are vertical, of magnitude four or eight; their lengths and
 affine repeat counts are derived from their stored letters. Summing them
 gives additional durations $474n+6524$ and $636n+10897$.
-The grammar is exposed by the supplement's decompressor, together with word
-lengths and hashes.
+The source archive contains these literal words in
+\texttt{verification/silent\_archive\_recovery/grammar.json.zlib};
+\texttt{unpack\_grammar.py} reconstructs the JSON description and
+\texttt{grammar-manifest.json} records each word's length and hash.
+The complete word data are part of the computational certificate; the
+following argument explains why its finite comparisons cover every parameter.
 
 For execution, write $n=2k+10$ or $2k+17$. Split displacement-four loop
 indices by parity and represent physical sites as $(x,\rho+8r)$,

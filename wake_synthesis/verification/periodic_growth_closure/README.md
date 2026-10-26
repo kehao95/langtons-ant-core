@@ -26,9 +26,8 @@ python reproduce.py --output /tmp/periodic-growth-replay.json
 Python 3.10+ standard library suffices. All sources and reports are pinned by
 SHA256. The 1.7 MB unit certificate is regenerated, hash-matched, and then checked
 branch-by-branch by an independent verifier; no optimizer, network or SAT result
-is needed. Original unit Python sources are unchanged; proof Sections 1-6 are retained
-with an updated integration note. The earlier result is not
-claimed as newly discovered in this integration.
+is needed. The unit-diagonal argument and its independently verified certificate are
+supplied with the signed-residue and rank proofs.
 
 Do not use `python -O`. A thrown exception is failure, not a negative mathematical
-answer. No public preprint, DOI, Lean claim or peer-review status is changed.
+answer. The proofs are not formalized in Lean.

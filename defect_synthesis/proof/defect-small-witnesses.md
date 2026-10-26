@@ -80,6 +80,4 @@ A standard 17-black phase plus marker (-2n,-2n) executes W^n L at n=10^60+1, wit
 
 The final locally executed suite checks all156 library bodies,1152 intersections,1228 traces against an independent integer-vector simulator,10841 complete endpoint membership queries,300 summary-monoid cases,2000 raw chamber tests, a second two-loop chamber and explicit invalid-certificate controls. Reports regenerate byte for byte. These controls check supplied schemas; they do not enumerate the full nonzero-budget global cover.
 
-The result removes arbitrary coordinate magnitude from the SIZE of a positive finite-budget certificate. HC still requires finite event counts on each fixed input; mu(N)->infinity is not proved. Nonempty witness families can move with N without supplying one infinite counterexample. The theorem gives no total HIGHWAY decider and no nonstandard periodic or aperiodic seed.
-
-Before this direction a finite nine-factor experiment yielded a large nonsimple cyclic component; nine-factor finite-support attraction remains unproved. That experiment is not a premise here. The natural publication plan is to strengthen the existing fixed-defect manuscript, not to issue overlapping semilinearity claims.
+The result removes arbitrary coordinate magnitude from the SIZE of a positive finite-budget certificate. HC concerns finite event counts on each fixed input. Nonempty witness families can move with N without supplying one infinite counterexample. The theorem gives no total HIGHWAY decider and no nonstandard periodic or aperiodic seed.

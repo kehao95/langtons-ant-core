@@ -1,6 +1,6 @@
 # Presburger compiler for complete bounded-power ant traces
 
-The canonical proof is `proof/results/presburger-defect-reachability.md`.
+The canonical proof is [bounded-defect reachability](../../proof/presburger-defect-reachability.md).
 This is a new supplied-schema integer-relation compiler and a complete, extremely
 large finite schema generator derived from the retained J10 finite-path theorem.
 It does not decide unlimited J10 renewal or prove HC.
@@ -8,7 +8,7 @@ It does not decide unlimited J10 renewal or prove HC.
 Run from the repository root:
 
 ```sh
-python scripts/check_presburger_defects.py
+python3 defect_synthesis/reproduce.py
 ```
 
 Requirements: Python 3.10+ and the system ISL shared library (for example libisl23).

@@ -70,17 +70,18 @@ reproduction commands.
 
 Langton's ant is among the simplest deterministic systems in which a short
 local rule produces a long irregular transient followed by rigid macroscopic
-motion. A cell of the square lattice is white or black. On each update the ant
+motion [@langton1986]. A cell of the square lattice is white or black. On each update the ant
 reads its current cell, turns right on white and left on black, flips that
 cell, and advances one lattice edge. From the all-white plane, the orbit is
 observed to settle into a diagonal highway: every 104 updates the same local
-behaviour recurs, translated by two cells in each coordinate [@langton1986].
+behaviour recurs, translated by two cells in each coordinate [@gajardo2024, §1]. That source uses white-left/black-right;
+reflection gives the white-right/black-left convention used here.
 The central question is which finite perturbations provably enter this
 permanent regime.
 
 The general finite-support Highway Conjecture remains unresolved. Classical
 unboundedness results rule out confinement to a finite region
-[@bunimovich1992], yet unbounded motion need not have the period, drift, or
+(see the accessible corner proof in [@gajardo2024, §2]), yet unbounded motion need not have the period, drift, or
 phase coherence of the standard highway. Complexity results sharpen the
 obstruction: finite-support prediction already contains P-hard instances,
 while universality and undecidability constructions use an infinite but
@@ -112,7 +113,8 @@ certified blank-orbit boundary. After translation and rotation normalization,
 let $q$ be the single black cell and $E$ the blank highway entry state.
 If the blank transient reads $q$, a finite witness settles the case.
 Otherwise a first-difference coupling
-gives exactly $\operatorname{blacken}(q,E)$. The future P104 read set
+gives exactly $\operatorname{blacken}(q,E)$, where blackening forces $q$ black
+and leaves every other cell and the ant pose unchanged. The future P104 read set
 decomposes all remaining $q$ into cells that are inert, finitely many
 active-support cells, and 22 affine channels $q=h+dv$. This turns an unbounded
 plane into 22 one-parameter scattering problems.
@@ -131,7 +133,7 @@ The proof is formalized in Lean 4 [@demoura2021]. Analytic proof terms handle
 symmetry, coupling, affine geometry, recurrence, archive induction, and
 universal assembly. Closed Boolean reports handle three finite leaves and are
 reflected into typed certificates. They are evaluated using
-\texttt{native\_decide}; according to the Lean reference, that mechanism uses
+\texttt{native\_decide}; as documented by the pinned Lean source, that mechanism uses
 a dedicated axiom and relies on the native compiler and runtime
 [@leanref2026]. Section \ref{sec:lean} records the proof components and their dependencies.
 
@@ -181,8 +183,8 @@ late-contact cases are discharged by channel induction.}
 Sections 2--4 define the dynamics and reduce the plane to frontier channels.
 Sections 5--7 prove pristine scattering, ordinary historical transfer, and the
 exceptional family. Section 8 assembles the theorem. Section 9 describes the
-formal artifact and checked computation. Sections 10 and 11 position and
-summarize the result.
+formal artifact and checked computation. Section 10 positions the result, Section 11 states limitations, and Section 12
+summarizes the result.
 
 # Dynamics, symmetries, and the main theorem
 
@@ -194,7 +196,9 @@ $$s=(b,p,d),\qquad b:\Z^2\to\{0,1\},\quad d\in\{N,E,S,W\}.$$
 
 Here $b(x)=1$ denotes black. Let $R$ and $L$ be clockwise and
 counterclockwise quarter turns, and let $e_d$ be the unit vector in heading
-$d$. One update reads $c=b(p)$ and sets
+$d$, with $e_N=(0,1)$, $e_E=(1,0)$, $e_S=(0,-1)$ and
+$e_W=(-1,0)$. Define the canonical all-white state
+$\omega=(\mathbf 0,(0,0),N)$. One update reads $c=b(p)$ and sets
 
 $$
 d'=\begin{cases}R(d),&c=0,\\L(d),&c=1,\end{cases}\qquad
@@ -220,8 +224,8 @@ $$
 $$
 In addition its first 104 read colours must equal the fixed word
 $$
-w_r=b_{\operatorname{run}(9977+r,\mathrm{white})}
-       (p(\operatorname{run}(9977+r,\mathrm{white}))),\qquad 0\le r<104.
+w_r=b_{\operatorname{run}(9977+r,\omega)}
+       (p(\operatorname{run}(9977+r,\omega))),\qquad 0\le r<104.
 $$
 A state \emph{reaches P104} if $\operatorname{run}(N,s)$ has permanent P104
 for some $N\ge0$.
@@ -238,6 +242,9 @@ so the fixed-word clause propagates through the scattering proof. The module
 a placement of the actual blank state at update 9,977: periodicity extends
 the fixed first word to all times, equality of read colours and aligned
 initial poses determines the same positions and headings inductively.
+For this bridge, choose the quarter-turn rotation of the blank template that
+aligns its initial heading with that of the terminal state, then translate
+to align its position. Rotation and translation preserve the read-colour word.
 
 ## Equivariance and canonical states
 
@@ -263,15 +270,16 @@ $\operatorname{ReachesP104}(\sigma_q)$ for every $q\in\Z^2$.
 
 ## The certified blank boundary
 
-Let $\omega$ be the all-white canonical state. Exact replay supplies the
+Starting from the canonical all-white state $\omega$, exact replay supplies the
 following data.
 
 \begin{proposition}[Blank highway boundary]\label{prop:blank}
 At time $T=9{,}977$, the blank orbit is in a state $E$ whose ant is at
 $(-15,10)$ heading west. The next 104 updates read a support $S$ of 40
 distinct cells, restore the heading, and translate the local observation by
-$v=(-2,-2)$. Thirteen cells form the active black pattern. The state $E$ has
-715 black cells in total: 13 active cells and a 702-cell historical wake.
+$v=(-2,-2)$. Of the 40 cells in $S$, 13 are black in $E$ (the active black pattern)
+and 27 are white. Outside $S$, there are 702 black cells, the historical wake.
+Thus $E$ has 715 black cells in total.
 Moreover, the 104-step block iterates permanently.
 \end{proposition}
 
@@ -362,14 +370,25 @@ exhaustive decomposition.
 \begin{proposition}[Entry partition]\label{prop:partition}
 For every $q\notin P$, an ordered case split gives one of the following:
 
-1. $q$ is already black in $E$, so blackening changes nothing;
-2. $q$ is one of the 27 white cells in the 40-cell active support, handled by
+\begin{enumerate}
+\item $q$ is already black in $E$, so blackening changes nothing;
+\item $q$ is one of the 27 white cells in the 40-cell active support, handled by
    finite replay;
-3. $q\notin\bigcup_{k\ge0}(S+kv)$, so the blank highway never reads it; or
-4. there are unique $h\in H$ and $d\ge1$ with $q=h+dv$.
+\item $q\notin\bigcup_{k\ge0}(S+kv)$, so the blank highway never reads it; or
+\item there are unique $h\in H$ and $d\ge1$ with $q=h+dv$.
+\end{enumerate}
 
 Furthermore, $|H|=22$.
 \end{proposition}
+
+Branches 1--3 already reach P104: Branch 1 leaves $E$ unchanged;
+Branch 2 has the 27 checked replays; and Branch 3 follows the blank highway
+by untouched-region coupling since its future reads are
+$\bigcup_{k\ge0}(S+kv)$. For uniqueness in Branch 4, the checked heads have
+distinct pairs $(h_x-h_y,h_x\bmod2)$. These invariants are constant along a
+$v=(-2,-2)$ ray, so a point cannot lie on two head rays; a fixed head and point
+then determine the depth uniquely. The heads occupy 11 diagonal lines, with
+two parity classes per line.
 
 The raw predicates need not be pairwise disjoint before earlier branches are
 removed; the formal theorem uses the stated order. Uniqueness of $(h,d)$ in
@@ -407,59 +426,72 @@ their grids differ. We express agreement outside a set by the
 sets. Thus a growing archive of differences can be carried through an
 induction while the ant continues along the same path.
 
-For Boolean grids, finite changes compose by exclusive-or. Let $W$ be the
-finite difference between one clean 104-step block and its translated target.
-If the obstacle is moved one additional period down a channel, the ant first
-executes one additional clean block and deposits one additional translated
-copy of $W$. After $n$ clean blocks the difference has the form
-
-$$
-\mathcal A_n(W)=W\oplus(W+v)\oplus\cdots\oplus(W+(n-1)v).
-\tag{1}\label{eq:archive}
-$$
-
-The XOR expression retains cancellation between overlapping wakes.
-The following lemma combines this algebra with avoidance of the accumulated
-archive during both scattering and the final highway motion.
+Boolean changes compose by exclusive-or, with cancellation on overlaps.
+The induction uses only a union support envelope, not an exact XOR identity.
+Write $\tau_v=T_v$ for translation by $v$, and $S\equiv_A S'$ for equal ant
+poses and grid agreement outside $A$. Let $\operatorname{reads}(S,r)$ denote
+the cells read at updates $0\le k<r$ and $\operatorname{futureReads}(S)$
+all future read cells, including update zero.
 
 \begin{lemma}[Archive induction]\label{lem:archive}
-Fix a clean state, drift $v$, obstacle anchor, period, anchored scattering
-trace, wake $W$, and terminal P104 corridor. Suppose that:
+Fix a clean state $B$, drift $v$, obstacle anchor $a$, natural numbers $m,t$,
+and regions $C,F,W,K$. Put
+\[
+L_n=\operatorname{blacken}(a+nv,B),\qquad Q=\operatorname{run}(t,L_0),
+\]
+and define
+\[
+D_0=F,\quad D_{n+1}=C\cup\tau_vD_n,\qquad
+A_0=\varnothing,\quad A_{n+1}=W\cup\tau_vA_n.
+\tag{1}\label{eq:archive}
+\]
+Assume the following seven conditions:
 
-1. the clean block is exact up to $W$;
-2. all translated clean and anchored read sets avoid the relevant copies of
-   $W$; and
-3. the accumulated archive avoids the translated infinite terminal corridor.
+\begin{enumerate}
+\item $\operatorname{reads}(B,m)=C$;
+\item $\operatorname{run}(m,B)\equiv_W\tau_vB$;
+\item $\operatorname{reads}(L_0,t)=F$;
+\item $a+(n+1)v\notin C$ for every $n\ge0$;
+\item $W\cap\tau_vD_n=\varnothing$ for every $n\ge0$;
+\item $\operatorname{futureReads}(Q)\subseteq K$; and
+\item $A_n\cap\tau_v^nK=\varnothing$ for every $n\ge0$.
+\end{enumerate}
 
-Then the depth-$P+n$ scattering state reaches the translated anchored terminal
-state for every $n\ge0$, up to the inert archive $\mathcal A_n(W)$, and hence
-reaches P104.
+Then for every $n\ge0$,
+\[
+\operatorname{reads}(L_n,nm+t)=D_n,\qquad
+\operatorname{run}(nm+t,L_n)\equiv_{A_n}\tau_v^nQ.
+\]
+If additionally $Q$ is permanent P104, every $L_n$ reaches P104 at time $nm+t$.
 \end{lemma}
 
-The Lean proof packages the three assumptions as
-\texttt{Induction.Data}. It first proves an exact normal form for the finite
-trace and then uses untouched-region coupling for the infinite corridor. The
-separation premises are discharged by exact affine-ray predicates for all
-translated copies.
+\begin{proof}
+Condition 4 and untouched-region coupling show that the first $m$ reads of
+$L_{n+1}$ are exactly $C$. Blackening commutes with translation. Applying
+condition 2 with the same forced-black cell on both sides gives
+\[
+\operatorname{run}(m,L_{n+1})\equiv_W\tau_vL_n.
+\]
+At $n=0$, condition 3 gives the read set and $A_0=\varnothing$ gives the
+terminal identity. Inductively the translated depth-$n$ trace reads exactly
+$\tau_vD_n$. Condition 5 permits coupling through the $W$ discrepancy.
+Composing its terminal discrepancy with the translated inductive discrepancy
+bounds their support by $W\cup\tau_vA_n=A_{n+1}$. The full read set is
+$C\cup\tau_vD_n=D_{n+1}$ and its duration is
+$m+(nm+t)=(n+1)m+t$. Conditions 6 and 7 then make every future read of
+$\tau_v^nQ$ avoid $A_n$. Coupling transfers its permanent P104 observations.
+\end{proof}
 
-## All-depth pristine classification
-
-For every head, the certificate checks the nonempty direct row, the stable
-replay, its deduplicated read set, terminal orientation, and the ray guards
-required by Lemma \ref{lem:archive}. There are 152 pristine replay
-witnesses in total, including one stable witness per channel.
-
-\begin{proposition}[Pristine scattering]\label{prop:pristine}
-For all $h\in H$ and $d\ge1$, the pristine state $\Sigma_B(h,d)$ reaches P104.
-For 21 heads the stable output has the forward standard drift. For the
-remaining head $h_{72}$, the stable output has reverse drift $-v=(2,2)$.
-\end{proposition}
-
-Figure \ref{fig:scattering-spectrum} displays one common-depth replay for every
-frontier head. These panels are exported directly from Stage 03 of the
-interactive app: the app runs the exact ant rule to the stored terminal witness
-and then continues the resulting P104 orbit for 20 cycles. The checked
-22-head list and archive induction extend this classification to all depths.
+The seven premises are exactly the fields of \texttt{Induction.Data}.
+The normal form is \texttt{Induction.exact}; the final implication is
+\texttt{Induction.reaches}, with its separate permanent-P104 premise for $Q$.
+For head $h$ take $a=h+P_hv$, $m=104$ and $t$ its anchored scattering
+duration, so $L_n=\Sigma_B(h,P_h+n)$. Explicitly,
+$A_n=\bigcup_{0\le j<n}\tau_v^jW$ and
+$D_n=(\bigcup_{0\le j<n}\tau_v^jC)\cup\tau_v^nF$.
+Thus conditions 5 and 7 quantify over every required translated copy.
+Exact affine-ray guards discharge these infinite conditions. No exact XOR
+identity beyond support containment is required.
 
 \begin{landscape}
 \begin{figure}[p]
@@ -529,6 +561,27 @@ physical-history proof.}
 \end{figure}
 \end{landscape}
 
+## All-depth pristine classification
+
+For every head, the certificate checks the nonempty direct row, the stable
+replay, its deduplicated read set, terminal orientation, and the ray guards
+required by Lemma \ref{lem:archive}. There are 152 pristine replay
+witnesses in total, including one stable witness per channel.
+
+\begin{proposition}[Pristine scattering]\label{prop:pristine}
+For all $h\in H$ and $d\ge1$, the pristine state $\Sigma_B(h,d)$ reaches P104.
+Relative to the incoming highway, the stable outputs comprise nine straight,
+seven right-turn and five left-turn standard highways. The remaining head
+$h_{72}$ has reverse drift $-v=(2,2)$.
+\end{proposition}
+
+Figure \ref{fig:scattering-spectrum} displays one common-depth replay for every
+frontier head. These panels are exported directly from Stage 03 of the
+interactive app: the app runs the exact ant rule to the stored terminal witness
+and then continues the resulting P104 orbit for 20 cycles. The checked
+22-head list and archive induction extend this classification to all depths.
+
+
 The subscript records the phase label used by the artifact, not a count. Its
 coordinate relative to the pristine base pose is
 
@@ -549,7 +602,7 @@ and the geometric guards that make this transfer uniform in depth.
 
 Write
 
-$$H_E=\{x:E(x)=1,\ x\notin S\}.$$
+$$H_E=\{x:b_E(x)=1,\ x\notin S\}.$$
 
 The exact entry certificate gives $|H_E|=702$. For an ordinary head $h$, let
 $A_h$ be one plus the length of its checked physical direct row. The
@@ -620,7 +673,11 @@ translations carry the physical state into the affine reverse family.
 Let $R$ be the reverse base state obtained after the checked pristine
 scattering time of 52,262 updates. Let $v_r=-v=(2,2)$, and let $W_r$ be the
 finite difference between one reverse block and the translated state. The
-certificate and its soundness theorem establish
+certificate and its soundness theorem establish the following identity.
+For a state $s=(b,p,d)$ and cell set $A$, write
+$s\oplus A=(b\oplus\mathbf 1_A,p,d)$: colours flip on $A$ while the pose
+is unchanged. For cell sets, $\bigoplus$ denotes symmetric difference.
+Thus
 
 $$
 \operatorname{run}(104,R)=T_{v_r}R\oplus W_r.
@@ -635,14 +692,26 @@ pristine setting.
 ## First historical collision
 
 With the historical wake restored, the reverse path eventually meets a cell
-that the blank transient had changed. The checked first-hit report proves that
-the base reverse trajectory avoids all 702 historical cells for ten complete
-reverse cycles and phases 0 through 88 of the next cycle, then reaches
+that the blank transient had changed. The checked first-hit report shows that
+the unshifted pristine reverse base $R$ avoids all 702 historical cells for
+ten complete reverse cycles and phases 0 through 88 of the next cycle, then
+reaches
 
 $$c=(20,-22)$$
 
-at phase 89. Thus the elapsed reverse time is
-$10\cdot104+89=1{,}129$ updates. The report also verifies $c\in H_E$.
+at phase 89. The reverse time measured from $R$ is therefore
+$10\cdot104+89=1{,}129$ updates; the report also verifies $c\in H_E$.
+The physical depth-15 orbit has a four-block forward prefix before the
+52,262-step scattering segment. Its reverse segment starts four translations
+further away, and takes $(4+10)\cdot104+89=1{,}545$ updates to reach $c$.
+Measured from the entry state $\Sigma_E(h_{72},15)$, the total time is
+
+$$
+t_{\mathrm{hit}}(0)=4\cdot104+52{,}262+(4+10)\cdot104+89=54{,}223.
+$$
+
+For general $n$, $t_{\mathrm{hit}}(n)$ is likewise measured from the entry
+state $\Sigma_E(h_{72},15+n)$, before its forward prefix.
 
 Increasing physical obstacle depth from $15+n$ to $15+(n+1)$ inserts one
 forward block before reversal and one reverse block before the collision. The
@@ -688,8 +757,10 @@ From $C$, exact replay for 7,994 updates reaches a forward P104 terminal state.
 The checked post-hit trace guard proves that every layer in
 Equation \ref{eq:hitnormal} avoids this finite replay. A second forward
 ray guard proves that every layer also avoids the infinite terminal corridor.
-Archive induction therefore transfers the depth-15 computation to all
-$15+n$.
+Once Equation \ref{eq:hitnormal} is established inductively, untouched-region
+coupling outside the union envelope $\bigcup_{0\le j<n}(L+jv)$ directly
+transfers the 7,994-step replay and subsequent permanent P104 corridor from
+the fixed collision state $C$ to every depth $15+n$.
 
 \begin{proposition}[Exceptional physical channel]\label{prop:exceptional}
 For every $d\ge1$, $\Sigma_E(h_{72},d)$ reaches P104.
@@ -752,8 +823,7 @@ theorem OneBlack.universal_one_black :
 
 The Lean 4.30.0 development combines analytic proof terms with three finite
 computation leaves. Its proof cone includes the dynamics, certificate modules
-and explicit \texttt{StandardTrace} bridge; the release manifest records all
-source digests. Table \ref{tab:modules} maps the mathematical stages to their
+and explicit \texttt{StandardTrace} bridge. Table \ref{tab:modules} maps the mathematical stages to their
 principal modules.
 
 | Mathematical obligation | Principal Lean modules |
@@ -807,25 +877,29 @@ and the typed certificates feed the analytic theorems. The closed equalities
 makes the finite obligations inspectable and reproducible. The trusted
 computing base consists of Lean's kernel and foundational axioms together
 with the native compiler, runtime, code-generation backend and any externally
-linked native code used by \texttt{native\_decide} [@leanref2026]. The final
+linked native code used by \texttt{native\_decide}. The pinned Lean 4.30.0
+source documents and implements this axiom construction in
+\texttt{Lean.Meta.nativeEqTrue}; the tactic calls it from
+\texttt{elabNativeDecideCore} [@leanref2026]. The final
 theorems depend on three native-evaluation axioms, one for each finite report.
 
 ## Reproduction
 
-The baseline source code, checked witness data, and Lean proof are available in
-the public repository
-[github.com/kehao95/langtons-ant-core](https://github.com/kehao95/langtons-ant-core)
-[@hao2026artifact]. The accompanying source package contains the proof and
-finite witnesses. The repository pins `leanprover/lean4:v4.30.0`. From its
-root, rebuild both final theorems without cached proof objects:
+The proof sources and checked witness data are available in the
+[public repository](https://github.com/kehao95/langtons-ant-core)
+[@hao2026artifact] at immutable commit
+`e93252230ea9109908c23a009824d72d30fb91e2`. The accompanying Zenodo source
+archive is version 0.2.0, `one-black-0.2.0-source.zip` [@hao2026preprint].
+The development pins `leanprover/lean4:v4.30.0`. From the repository root, run
 
 ```console
 python3 one_black/reproduce.py
 ```
 
-The command copies the Lean sources into a new temporary directory, builds
-both targets from the checked-in witnesses, and checks their axiom dependencies.
-The strengthened conclusion is exposed as
+This command builds both final theorem targets in a fresh temporary directory,
+checks the witness tables by direct simulation, and records the build output,
+source digests and axiom dependencies. The complete trace conclusion is
+
 
 ```lean
 theorem OneBlack.universal_one_black_standard_trace
@@ -836,11 +910,8 @@ theorem OneBlack.universal_one_black_standard_trace
 Here `HasStandardTrace` quantifies a symmetry placement of the fixed actual
 blank state at update 9977 and equality of every future position, heading and
 read colour. Both final theorems have exactly the same three native computation
-leaves; the new bridge adds no native evaluation or proof assumption.
-The accompanying source package records exact file digests in its manifest
-and supplies the theorem, finite witnesses and clean-build reproduction
-entrypoint [@hao2026preprint]. The interactive website illustrates
-the proof geometry and channel classification.
+leaves. The trace bridge is proved without additional native computation.
+The interactive website illustrates the proof geometry and channel classification.
 
 # Related work
 
@@ -848,8 +919,10 @@ the proof geometry and channel classification.
 
 Langton introduced the model in the context of artificial life and reported
 the emergence of organized motion from simple local rules [@langton1986].
-Bunimovich and Troubetzkoy proved recurrence and unboundedness results for the
-associated Lorentz lattice-gas dynamics [@bunimovich1992]. Unboundedness is a
+Gajardo, Lutfalla, and Rao present an accessible proof of unboundedness for
+every initial configuration in §2 of [@gajardo2024], attributing the classical
+result to Bunimovich and Troubetzkoy. Their corner argument applies also to
+the reflected classical rule used here. Unboundedness is a
 qualitatively weaker conclusion than Theorem \ref{thm:main}: it excludes
 finite confinement but neither selects the period-104 orbit nor gives a time
 after which translated phase equality holds. Gale, Propp, Sutherland, and
@@ -865,7 +938,8 @@ giving an infinite family of highway-reaching configurations. The present
 theorem covers the exhaustive natural family defined solely by ``exactly one
 black cell'', with arbitrary relative position.
 
-For generalized reversible ants, recognition of repeatable configurations can
+For generalized reversible ants with an additional unchanged, straight-going
+gray-cell state, recognition of repeatable configurations can
 be PSPACE-hard [@tsukiji2011]. Recent work shows that generalized rules may
 possess unboundedly or infinitely many distinct highways [@gajardo2024], and
 may also exhibit qualitatively different finite-configuration asymptotics
@@ -881,6 +955,21 @@ geometric archive guards. In the exceptional channel, a reverse renewal orbit
 and an affine collision law account for the return through the historical wake.
 Together these mechanisms extend finitely checked anchors to every channel
 depth and suggest a route to studying interactions among several defects.
+
+# Limitations
+
+The theorem covers exactly one initial black cell on the infinite square
+lattice with the white-right/black-left rule. Its conclusion equates every
+future position, heading and read colour with a placed standard P104 orbit.
+Inert historical debris may differ outside future reads; whole-grid translation
+equality is not asserted. Several-defect convergence and the general
+finite-support Highway Conjecture remain open. Generalized ant rules are
+outside the theorem's scope.
+
+The three finite native leaves retain trust in Lean's compiler, runtime and
+native backend, as detailed in Section 9. The infinite reductions are checked
+relative to these leaves. The formal artifact and finite witnesses record
+this evidence boundary.
 
 # Conclusion
 
@@ -927,7 +1016,8 @@ none is a parameter of the theorem statement.
 | Ordinary / exceptional heads | 21 / 1 | scattering classification |
 | Exceptional pristine / physical depth | 11 / 15 | reverse-family anchors |
 | Exceptional reverse scattering time | 52,262 | exact pristine anchor replay |
-| Reverse first-hit elapsed time | 1,129 | $10\cdot104+89$ |
+| Unshifted reverse first-hit time | 1,129 | from pristine reverse base $R$ |
+| Physical depth-15 first-hit time | 54,223 | from $\Sigma_E(h_{72},15)$ |
 | Historical hit point | $(20,-22)$ | depth-independent collision |
 | Post-hit replay | 7,994 | terminal forward P104 witness |
 | Pristine / physical replay witnesses | 152 / 179 | finite scattering leaves |
@@ -938,6 +1028,7 @@ none is a parameter of the theorem statement.
 
 ::: {#refs}
 :::
+
 
 # Acknowledgements
 

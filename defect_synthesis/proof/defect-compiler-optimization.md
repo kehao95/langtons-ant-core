@@ -154,7 +154,7 @@ This reduces two actual backend costs without changing the physical question.
 
 ## 6. Reproduction and attribution
 
-Run `python scripts/check_defect_compiler_optimization.py` for disposable,
+Run `python3 defect_synthesis/reproduce.py` for disposable,
 deterministic report-comparison correctness replay. Run the module's `benchmark.py` separately
 for new measurements; timing reports are not byte-comparison certificates.
 The committed benchmark JSON losslessly deduplicates repeated output sets and

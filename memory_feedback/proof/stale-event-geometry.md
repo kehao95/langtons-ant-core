@@ -308,5 +308,3 @@ Finite tests supplement the analytic all-input proof in Sections 3--7; they do
 not establish it by exhaustive seed simulation. No complete nonuniversality,
 HIGHWAY classification, standard-period uniqueness or finite negative seed is
 claimed. The runtime MSO compiler is not used or introduced by this result.
-
-## 9. Provenance and publication

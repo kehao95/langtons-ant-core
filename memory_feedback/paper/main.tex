@@ -8,7 +8,7 @@
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{3}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -78,76 +78,110 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study the failure of finite-recency prediction in the classical
-Langton ant. For each memory length \(D\), the next old-black read is
-decidable on every finite input, with polynomial bit complexity for
-fixed \(D\). Finite arithmetic segments retain the complete black field
-as an XOR expression across long predicted flights, making the event
-interface exactly iterable. We prove quadratic finite-event time budgets
-and an endpoint-tube theorem. These imply decidability of spatially
-filtered events and force every non-eventually-translating orbit to
-consume newly created, arbitrarily old black memory outside every fixed
-finite region. A birth-filtered total query returns the first such lifetime
-created since its source checkpoint, together with exact birth, consumption
-and complete endpoint. Uniform deadlines yield
-\(\Omega(\sqrt H/\log H)\) late-born lifetimes at simultaneously growing
-radius and age on every non-eventually-translating orbit.
-An explicit twenty-black family has unbounded feedback
-lifetime with exactly 31 intervening \(S_{128}\) events, showing why
-spatial scale cannot be removed from a uniform lifetime bound.
+A Langton ant can encounter a black cell long after it last visited that
+location. How far can its future be predicted from only its last $D$ turns,
+and how can the prediction resume after such an encounter? We call a black
+read old when the cell was absent from the preceding $D$ visits. From any
+complete finite initial state, we compute the next old-black read, or certify
+that none occurs. For fixed $D$, the algorithm is polynomial in the sparse
+binary input size. It also returns the complete resulting black field, using
+finite arithmetic segments to represent all skipped writes exactly.
+Geometric bounds make the time to $n$ events at most quadratic in $n$, with
+constants depending on $D$ and the initial spatial extent. They also allow
+queries restricted to events outside a given finite region. Any orbit that
+never settles into a periodically translating trace must repeatedly read
+back black cells created arbitrarily late, left unread arbitrarily long,
+and consumed arbitrarily far away; all three properties hold for the same
+cell lifetimes. Finally, a family of twenty-black inputs has unbounded
+feedback lifetimes with exactly 31 intervening old-black reads at $D=128$.
+This explains why spatial extent is essential in uniform lifetime bounds.
 \end{abstract}
 
 \section{Introduction}\label{introduction}
+A short record of the ant's turns determines the geometry of its recent
+visits. If the current cell occurs in that record, its colour follows from
+the last visit and the intervening flip. If it does not, a predictor can
+provisionally treat it as white. This prediction fails exactly when the ant
+reads a black cell absent from its recent visits. Such a cell may be an
+unvisited obstacle in the initial colouring or a mark left long ago by the
+ant itself.
 
-A Langton ant can read a cell long after it last wrote there. Predicting
-the next turn from a finite suffix therefore raises two questions: when
-can an old black cell first invalidate the prediction, and what complete
-state remains after the resulting long excursion? We answer both
-questions by combining a finite suffix predictor with exact arithmetic
-on periodic rays and finite XOR expressions for the entire black field.
+We study this failure for a memory of $D$ turns. The first question is
+algorithmic: given the entire finite colouring now, can one find the next
+failure without simulating a potentially distant collision? The second is
+physical: after skipping a long predicted flight, can one retain every black
+cell needed to continue the calculation? We answer both questions. A finite
+suffix predictor gives a repeating candidate motion, exact arithmetic finds
+its first disagreement with the colouring, and finite arithmetic segments
+record all writes made during the skipped flight.
 
-The resulting event interface also exposes the geometry of memory
-feedback. Every interval ending in a prediction failure lies near the
-segment joining its endpoints. A fixed finite region can consequently
-host only a bounded consecutive run of failures. Spatially filtered
-event queries are decidable, and every non-eventually-translating orbit
-must repeatedly consume long-lived black memory outside every fixed
-region. Tracking last writers strengthens this to an exact first-lifetime query:
-initial inventory can be distinguished from newly generated memory even
-when the same coordinate is reused. Uniform event budgets then provide a
-simultaneous growing-scale lower bound. A twenty-black construction shows why a spatial parameter is
-essential even when initial mass and the number of intervening events
-are fixed.
+These algorithms also constrain how old marks can influence later motion.
+We prove that a flight ending at a prediction failure lies in a bounded tube
+around the segment joining its endpoints. This yields quadratic bounds on
+the time to a given number of failures and makes queries outside a fixed
+finite region decidable. Applied repeatedly, the bounds imply that an orbit
+which never becomes periodically translating must consume black marks that
+are simultaneously newly created, arbitrarily old when read, and arbitrarily
+far away. Here a mark's lifetime begins with a white-to-black update and ends
+at the next read of that cell, which turns it white.
 
-Gajardo's symbolic treatment already relates long return paths to infinite
-memory effects {[}1{]}. Our starting point is the specific old-black-read
-predicate, whose next occurrence can be computed from each complete finite
-input. This is a different target from arbitrary-cell visitation, which
-Gajardo, Moreira and Goles prove P-hard using finite circuit configurations
-{[}6{]}. Their infinite computation construction uses an infinite background.
-The event algorithms here apply to finite support and are polynomial in
-sparse input bit length for fixed memory length and fixed spatial filter.
+A final construction explains the spatial parameter in these bounds. With
+only twenty initially black cells and exactly 31 intervening failures for
+$D=128$, a family of inputs produces lifetimes of unbounded duration. The
+inputs spread farther apart as the duration grows. Thus fixed black mass and
+a fixed number of failures do not by themselves control a lifetime.
 
+Gajardo's symbolic treatment relates long return paths to infinite memory
+effects {[}1{]}. Gajardo, Moreira and Goles establish P-hardness of arbitrary
+cell visitation through finite circuit configurations {[}6{]}; their infinite
+computation construction uses an infinite background. Our target is the
+specific failure of a finite-recency predictor on complete finite input.
+For fixed $D$, the event algorithm is polynomial in sparse binary input size.
 The periodic read test uses full-drift chronology {[}3{]}, and the finite-region
 argument uses the square escape theorem {[}4{]}. Highway multiplicity for
-generalized rules is studied in {[}2{]}; the dynamics here use the classical
-two-colour rule. The contributions are the quantitative event interface,
-exact continuation with full history, geometric event budgets, exact birth-filtered
-feedback and its growing-scale consequence, and the
-construction separating those budgets from bounds based only on mass and
-event count.
+generalized rules is studied in {[}2{]}; we use the classical two-colour rule.
+
+Section~\ref{predicting-the-next-old-black-read} constructs the predictor.
+Sections~\ref{sec:endpoint-tube}--\ref{quadratic-event-budgets} prove the
+geometric bounds, which then control the cost of exact continuation in
+Section~\ref{exact-continuation-with-complete-history}.
+Sections~\ref{endpoint-tubes-and-spatially-filtered-feedback}--\ref{sec:birth-feedback}
+derive remote feedback. The final construction explains the spatial scale
+in the estimates.
 
 \section{Model and results}\label{model-and-results}
 
 A complete state \(X=(B,p,h)\) has finite \(B\subset\mathbb Z^2\). White
-turns right, black turns left; flip then move. Let \(F\) be the
-invertible update. For \(D\ge1\), write \(Q=2^D\) and define the
+turns right, black turns left; flip then move. Cartesian headings N,E,S,W
+have vectors $(0,1),(1,0),(0,-1),(-1,0)$ and are numbered $0,1,2,3$.
+Write \(\operatorname{pos}(X)=p\), and let \(\operatorname{dir}(h)\) be the unit
+vector of heading \(h\). The turn \(\operatorname{turn}(X)\) is
+\(\mathrm R\) when \(p\notin B\) and \(\mathrm L\) when \(p\in B\).
+The standard highway, abbreviated P104 below, repeats the classical
+104-turn word with displacement $(2,2)$ up to quarter-turn rotation and
+cyclic phase. Let \(F\) be the
+invertible update. A state at time \(t\) precedes update \(t\), which
+maps \(F^tX\) to \(F^{t+1}X\). For \(D\ge1\), write \(Q=2^D\) and define the
 intrinsic event \[S_D(X)\iff p\in B\quad\text{and}\quad
 \operatorname{pos}(F^{-j}X)\ne p\quad(1\le j\le D).\] Its
 inverse-history definition applies at the input time as well as later.
-It records an old black read. The factor-language event \(J_{10}\) and
-the physical gate segmentation are different predicates; none is
-substituted for \(S_D\) in the following bounds.
+It records an old black read. For forward times at least $D$, the definition
+uses the actual preceding $D$ visits. At the input time, inverse dynamics
+supply the same history convention. An initially black cell can trigger this
+event even if the ant has never read it during the forward run.
+
+A \emph{black lifetime} is a pair of update times $b<e$: update $b$ changes a
+cell from white to black, and update $e$ is its next read. Its age at consumption
+is $e-b$. Initially black inventory has no post-input birth. An orbit is
+\emph{eventually translating} if, after some time, its turns repeat with a
+heading-restoring period and nonzero displacement; its full black field still
+records the accumulated trail. A \emph{complete endpoint} below includes that
+entire field, the head position and the heading.
+
+Write $m=|B|$, let $b$ denote the input coordinate bit length when discussing
+complexity, and put $R=\max(\{\|q-p\|_\infty:q\in B\}\cup\{0\})$.
+The algorithms return either the first requested event with its exact
+post-event state, or a certificate that the requested event never occurs.
 
 \textbf{Prediction and continuation.} The next \(S_D\), if present,
 occurs before \(Q(R+2Q+10)\), where \(R\) is the initial head-relative
@@ -160,7 +194,9 @@ events and their full encoded endpoint are computable in
 
 \textbf{Geometry.} With \(W=\operatorname{diam}_\infty(B\cup\{p\})\),
 the time just after event \(n\), whenever it exists, is at most
-\[T_D(n,W)=Qn(W+2Q+10)+5Q^2n(n-1).\] Between a starting head \(p\) and
+\begin{equation}\label{eq:event-budget}
+T_D(n,W)=Qn(W+2Q+10)+5Q^2n(n-1).
+\end{equation} Between a starting head \(p\) and
 its next event cell \(e\), the entire finite trajectory stays within
 \(3Q+1\) of \([p,e]\). After joining successive event locations the
 corresponding tube radius is \(3Q+2\).
@@ -175,6 +211,7 @@ for the same lifetimes.
 \textbf{Newly generated feedback.} The first exterior old lifetime born
 since the input checkpoint is totally computable, including its exact birth,
 consumption and complete post-state. On a non-eventually-translating orbit,
+for every sufficiently large time horizon $H$,
 Section~\ref{sec:birth-feedback} gives
 \(\Omega(\sqrt H/\log H)\) lifetimes with birth after \(H^{1/4}\) up to
 integer rounding, radius of order \(\log H\), and age of order
@@ -193,133 +230,137 @@ read}\label{predicting-the-next-old-black-read}
 \subsection{Definitions and an intrinsic finite-local
 target}\label{sm-1}
 
-Write X=(B,p,h), headings N,E,S,W. Let F be the literal update. Define
+Write \(X\)=(\(B\),\(p\),\(h\)), headings N,E,S,W. Let \(F\) be the literal update. Define
 
-\begin{verbatim}
-R(X)=max({||q-p||_infinity:q in B} union {0}).
-\end{verbatim}
+\[
+R(X)=\max(\{\|q-p\|_\infty:q\in B\}\cup\{0\}).
+\]
 
-For integer D\textgreater=1, define the stale-black predicate
+For integer $D\ge1$, define the stale-black predicate
 
-\begin{verbatim}
-S_D(X) iff p in B and position(F^(-k) X) != p for every 1<=k<=D.       (SM1)
-\end{verbatim}
+\begin{equation}\label{eq:sm1}
+S_D(X)\iff p\in B\ \text{and}\ \operatorname{pos}(F^{-k}X)\ne p\quad(1\le k\le D).
+\end{equation}
 
-The inverse is literal and unique: q=p-dir(h), flip q, and undo a right
-turn when q is black in the supplied post-state, otherwise undo a left
-turn. Only cells at distance at most D from p are read during D inverse
-steps. Consequently (SM1) is a translation-invariant FINITE LOCAL
-PREDICATE on the present colouring and heading. It does not use an
-infinite historical oracle.
+The inverse is literal and unique: set \(q=p-\operatorname{dir}(h)\), flip \(q\), and undo a right
+turn when \(q\) is black in the supplied post-state, otherwise undo a left
+turn. Only cells at distance at most \(D\) from \(p\) are read during \(D\) inverse
+steps. Consequently \eqref{eq:sm1} is a translation-invariant finite local predicate on the present colouring and heading. It is determined by this finite neighbourhood.
 
-Using the intrinsic backward orbit makes (SM1) defined even at input
-time zero. At forward times t\textgreater=D, it says exactly: the
+Using the intrinsic backward orbit makes \eqref{eq:sm1} defined even at input
+time zero. At forward times $t\ge D$, it says exactly: the
 current read is black and the same cell has not been read in the
-previous D updates. A very old WHITE reread is not an S\_D event. A
-never-yet-read initial black cell can be an S\_D event too. This
+previous \(D\) updates. A very old white reread is not an $S_D$ event. A
+never-yet-read initial black cell can be an $S_D$ event too. This
 convention is distinguished from an age defined only after time zero.
 
-Let tau\_D(X)=min\{t\textgreater=0:S\_D(F\^{}t X)\}, when it exists.
+Let $\tau_D(X)=\min\{t\ge0:S_D(F^tX)\}$, when it exists.
 This target comprises infinitely many full states; the result below is
 not just specified-full-state reachability.
 
 \subsection{Prediction identity: no event means one unique next
 turn}\label{sm-2}
 
-For a D-letter R/L word w, execute its geometric turns from a fixed
-pose. Compare the final position to the preceding D pre-update
-positions. If the last matching position has index j, set
-f\_D(w)=opposite(w\_j); if there is no match, set f\_D(w)=R. This
-depends only on w: translation and quarter turns preserve position
-equality.
+For a \(D\)-letter word \(w=w_0\cdots w_{D-1}\) over
+\(\{\mathrm R,\mathrm L\}\), order the letters chronologically from oldest
+to newest and execute its geometric turns from a fixed pose. Compare the
+final position to the preceding \(D\) pre-update positions, indexed by
+\(j=0,\ldots,D-1\). If the last matching position has index \(j\), set
+\(f_D(w)=\operatorname{opposite}(w_j)\); if there is no match, set
+\(f_D(w)=\mathrm R\). This depends only on \(w\): translation and quarter
+turns preserve position equality.
 
-Recover the actual previous D turns of X using F\^{}(-1), and call them
-w(X). The following equality is exact for EVERY finite state:
+Recover the actual previous \(D\) turns of \(X\) using \(F^{-1}\), and
+write \(w(X)\) for the turns at \(F^{-D}X,\ldots,F^{-1}X\), in that order.
+Pre-update position \(j\) corresponds to \(F^{-(D-j)}X\), and
+\(\operatorname{suffix}_{D-1}(w)=w_1\cdots w_{D-1}\) (the empty word when
+\(D=1\)). The following equality is exact for every finite state:
 
-\begin{verbatim}
-actual_turn(X) != f_D(w(X))  iff  S_D(X).                           (SM2)
-\end{verbatim}
+\begin{equation}\label{eq:sm2}
+\operatorname{turn}(X)\ne f_D(w(X))\iff S_D(X).
+\end{equation}
 
-Moreover the only possible mismatch is predicted R versus actual L.
+Moreover the only possible mismatch is predicted \(R\) versus actual \(L\).
 
 Proof: a recent previous read fixes the current colour to its flipped
-value. With no recent previous read, f\_D predicts R. This is wrong
+value. With no recent previous read, $f_D$ predicts \(R\). This is wrong
 precisely when the current cell is black. Old white cells and virgin
-white cells both give R. The backward suffix is part of the actual
-orbit, so inconsistent fake histories cannot enter this argument.
+white cells both give \(R\). The backward suffix is part of the actual
+orbit and is recovered uniquely by inverse updates.
 
-While S\_D is absent, suffixes evolve autonomously as
+While $S_D$ is absent, suffixes evolve autonomously as
 
-\begin{verbatim}
-w -> suffix_(D-1)(w) f_D(w).
-\end{verbatim}
+\[
+w\longmapsto\operatorname{suffix}_{D-1}(w)\,f_D(w).
+\]
 
-This is a deterministic map on Q=2\^{}D states. Its generated infinite
-turn word has a transient shorter than Q and period at most Q. This
-alone does NOT prove that the physical ant follows the word forever:
+This is a deterministic map on $Q=2^D$ states. Its generated infinite
+turn word has a transient shorter than \(Q\) and period at most \(Q\). This
+alone does not prove that the physical ant follows the word forever:
 distant black cells may cause a first mismatch. The next section bounds
-WHEN any such mismatch can occur.
+when any such mismatch can occur.
 
 \subsection{First mismatch against an ultimately periodic motion
 plan}\label{sm-3}
 
-Consider a complete finite state Y of radius r and a proposed periodic
-turn word u of length P, with matching start/end heading and
-displacement d!=0. Let q\_i, 0\textless=i\textless P, be its relative
-pre-update positions, q\_0=0. Its proposed future reads are
+Consider a complete finite state \(Y\) of radius \(r\) and a proposed periodic
+turn word \(u\) of length \(P\), with matching start/end heading and
+displacement $d\ne0$. Let $q_i$, $0\le i<P$, be its relative
+pre-update positions in the head-centred frame \(p_Y=0\), so
+\(B_Y\) is translated into that frame and \(q_0=0\). Its proposed future reads are
 
-\begin{verbatim}
-q_i + k*d,  k>=0.
-\end{verbatim}
+\[
+q_i+kd,\qquad k\ge0.
+\]
 
 Earlier periodic reads of the same cell correspond exactly to
 
-\begin{verbatim}
-q_j-q_i = l*d, l>=0, and (l>0 or j<i), with k>=l.                     (SM3)
-\end{verbatim}
+\begin{equation}\label{eq:sm3}
+q_j-q_i=\ell d,\quad \ell\ge0,\quad(\ell>0\ \text{or}\ j<i),\quad k\ge\ell.
+\end{equation}
 
-Each such l is at most P: the finite footprint's pairwise
-infinity-distance is at most P, and
-\textbar\textbar d\textbar\textbar\_infinity\textgreater=1. Earlier-read
-parity can change only at these finitely many thresholds l.
+Each such \(\ell\) is at most \(P\): the finite footprint's pairwise
+infinity-distance is at most \(P\), and
+$\|d\|_\infty\ge1$. Earlier-read
+parity can change only at these finitely many thresholds \(\ell\).
 
-The initial colour contribution is 1{[}q\_i+k*d in B\_Y{]}. If this is
+The initial colour contribution is $\mathbf1_{B_Y}(q_i+kd)$. If this is
 nonzero then
 
-\begin{verbatim}
-k*||d||_infinity <= r+||q_i||_infinity <= r+P,
-\end{verbatim}
+\[
+k\|d\|_\infty\le r+\|q_i\|_\infty\le r+P,
+\]
 
-so k\textless=r+P. It is a one-epoch contribution, turning on at k and
-off at k+1. Thus the colour required by literal dynamics at each phase i
-is
+so $k\le r+P$. It is a one-epoch contribution, turning on at \(k\) and
+off at \(k\)+1. Thus the cell colour produced by literal dynamics at each
+phase \(i\), which must match the turn \(u_i\), is
 
-\begin{verbatim}
-1[q_i+k*d in B_Y] XOR parity(number of eligible pairs in (SM3)).       (SM4)
-\end{verbatim}
+\begin{equation}\label{eq:sm4}
+\mathbf1_{B_Y}(q_i+kd)\ \oplus\ \bigl(\#\{\text{eligible pairs in \eqref{eq:sm3}}\}\bmod2\bigr).
+\end{equation}
 
-All changes occur by epoch r+P+1. Testing every breakpoint, including
+All changes occur by epoch \(r\)+\(P\)+1. Testing every breakpoint, including
 the last infinite constant interval, is necessary and sufficient for
-infinite execution. If there is a mismatch, its FIRST time is strictly
+infinite execution. If there is a mismatch, its first time is strictly
 below
 
-\begin{verbatim}
-P*(r+P+2).                                                         (SM5)
-\end{verbatim}
+\begin{equation}\label{eq:sm5}
+P(r+P+2).
+\end{equation}
 
 This statement concerns the first mismatch, not a hypothetical
 trajectory after an earlier mismatch. Induction in time ensures that the
 proposed path agrees with the real path up to that first point.
 
-If u does not restore heading, repeat it two or four times to restore
+If \(u\) does not restore heading, repeat it two or four times to restore
 heading. The resulting displacement is zero, since the quarter-rotated
-displacement vectors sum to zero. If heading is restored but d=0
-already, use u itself. In either case let v be the closed-pose block, of
-length at most 4P. If two consecutive copies of v were both physically
+displacement vectors sum to zero. If heading is restored but \(d=0\)
+already, use \(u\) itself. In either case let \(v\) be the closed-pose block, of
+length at most \(4P\). If two consecutive copies of \(v\) were both physically
 valid, all flips would occur twice and the complete state would recur.
 Such an orbit would remain in finitely many cells forever, impossible
 for the classical ant. Hence a first mismatch occurs before
-2\textbar v\textbar\textless=8P updates.
+$2|v|\le8P$ updates.
 
 For clarity, the elementary no-bounded-orbit argument used here is as
 follows. If the set I of infinitely read cells were nonempty and finite,
@@ -327,75 +368,66 @@ choose a cell maximizing x+y. After the north and east neighbours have
 ceased being read, the checkerboard/heading-axis invariant fixes the
 only possible entering and leaving directions at that cell. This
 requires the same read colour on every sufficiently late visit,
-contradicting colour alternation. No periodicity, finite-support HC or
-new computational evidence is assumed in this argument.
+contradicting colour alternation. This proves that the orbit cannot remain
+in a bounded region.
 
 \subsection{Uniform waiting theorem}\label{sm-4}
 
-\textbf{Theorem 1.} For every finite state X and D\textgreater=1, with
-Q=2\^{}D, put
+\textbf{Theorem (first-event waiting bound).} For every finite state \(X\) and $D\ge1$, with
+$Q=2^D$, put
 
-\begin{verbatim}
-H_D(X)=Q*(R(X)+2Q+10).                                             (SM6)
-\end{verbatim}
+\begin{equation}\label{eq:sm6}
+\mathcal H_D(X)=Q(R(X)+2Q+10).
+\end{equation}
 
 Exactly one of the following occurs:
 
 \begin{itemize}
 \tightlist
 \item
-  tau\_D(X) exists and 0\textless=tau\_D(X)\textless H\_D(X);
+  $\tau_D(X)$ exists and $0\le\tau_D(X)<\mathcal H_D(X)$;
 \item
-  S\_D never occurs at any nonnegative time; the ant has a nonzero
-  translating periodic trace with period \textless=Q, beginning at a
-  time \textless=Q.
+  $S_D$ never occurs at any nonnegative time; the ant has a nonzero
+  translating periodic trace with period at most $Q$, beginning at a
+  time at most $Q$.
 \end{itemize}
 
-Thus observing no S\_D event at times 0,\ldots,H\_D(X)-1 proves that
+Thus observing no $S_D$ event at times 0,\ldots,$\mathcal H_D(X)-1$ proves that
 none ever occurs.
 
 Proof: construct the autonomous suffix trajectory. If a physical
-mismatch occurs before the first repeated suffix, (SM2) gives the event
-within Q updates. Otherwise at a repetition time j\textless=Q, the
+mismatch occurs before the first repeated suffix, \eqref{eq:sm2} gives the event
+within \(Q\) updates. Otherwise at a repetition time $j\le Q$, the
 physical trajectory has followed the plan and a periodic suffix cycle of
-length P\textless=Q begins from its current phase. The current complete
-radius is at most R(X)+j: initial black cells move relative to the ant
-by at most j; any newly black cell is also within j steps of it.
+length $P\le Q$ begins from its current phase. The current complete
+radius is at most \(R\)(\(X\))+\(j\): initial black cells move relative to the ant
+by at most \(j\); any newly black cell is also within \(j\) steps of it.
 
-For nonzero translational drift, (SM5) bounds a first future mismatch by
+For nonzero translational drift, \eqref{eq:sm5} bounds a first future mismatch by
 
-\begin{verbatim}
-j+P*(R(X)+j+P+2) <= Q*(R(X)+2Q+3).
-\end{verbatim}
+\[
+j+P(R(X)+j+P+2)\le Q(R(X)+2Q+3).
+\]
 
-For a closed geometric plan, the other bound is j+8P\textless=9Q. Both
-are strictly covered by (SM6). If no mismatch exists, the planned
+For a closed geometric plan, the other bound is $j+8P\le9Q$. Both
+are strictly covered by \eqref{eq:sm6}. If no mismatch exists, the planned
 periodic trace is the exact infinite future. A closed or rotating
-periodic plan was excluded above, so its drift is nonzero. By (SM2), no
-mismatch also means no S\_D event. This proves both the waiting bound
+periodic plan was excluded above, so its drift is nonzero. By \eqref{eq:sm2}, no
+mismatch also means no $S_D$ event. This proves both the waiting bound
 and the dichotomy.
-
-No width, cone, retreat, mass, visit-count, future-active set, or
-hypothesized computation-time bound is supplied as an extra premise. The
-ONLY spatial size in (SM6) is the computable radius of the actual finite
-input.
 
 \subsubsection{What is the corresponding decision
 problem?}\label{what-is-the-corresponding-decision-problem}
 
 The family
 
-\begin{verbatim}
-L_D={X:there exists t>=0 with S_D(F^t X)}                            (SM7)
-\end{verbatim}
+\begin{equation}\label{eq:sm7}
+\mathcal L_D=\{X:\exists t\ge0,\ S_D(F^tX)\}.
+\end{equation}
 
-is recursive, uniformly in D. This is a genuine all-input decision
-theorem for a family of local predicates, not a HIGHWAY algorithm. Even
-an input-dependent computable D(x) cannot make a reduction of an
-undecidable source language to (SM7). An arbitrary HALT pattern is NOT
-automatically of this form.
+is recursive, uniformly in $D$.
 
-A simple decision algorithm simulates the explicit finite bound (SM6).
+A simple decision algorithm simulates the explicit finite bound \eqref{eq:sm6}.
 The implementation uses the stronger symbolic version: only the first
 suffix cycle is produced, then all-future ray/flip arithmetic finds the
 first event, or verifies a permanent event-free trace. No simulation to
@@ -404,43 +436,386 @@ a late arithmetic collision is necessary.
 \subsubsection{Bit complexity of the implemented first-event
 decision}\label{bit-complexity-of-the-implemented-first-event-decision}
 
-With an explicit sparse list of m black coordinates of bit length at
-most b, the symbolic first-event algorithm uses time 2\^{}\{O(D)\} times
-a polynomial in the input length. In particular, for every fixed D,
-language (SM7) is decidable in polynomial time in the sparse
-BINARY-coordinate input size.
+With an explicit sparse list of \(m\) black coordinates of bit length at
+most b, the symbolic first-event algorithm uses time $2^{O(D)}$ times
+a polynomial in the input length. In particular, for every fixed \(D\),
+language \eqref{eq:sm7} is decidable in polynomial time in the sparse
+binary-coordinate input size.
 
-Indeed inverse-history recovery uses D steps; the suffix search uses at
-most Q=2\^{}D states; its explicit black field has at most m+Q+D cells.
-The candidate word has length at most Q, and the ray verifier checks
-O(Q*m+Q\^{}2) phase/cell and phase/phase relations. All coordinate,
-epoch and offset arithmetic has bit length polynomial in b+D.
-Closed-pose control replay costs at most 8Q updates. Ordinary
+Indeed inverse-history recovery uses \(D\) steps; the suffix search uses at
+most $Q=2^D$ states; its explicit black field has at most \(m\)+\(Q\)+\(D\) cells.
+The candidate word has length at most \(Q\), and the ray verifier checks
+$O(Qm+Q^2)$ phase/cell and phase/phase relations. All coordinate,
+epoch and offset arithmetic has bit length polynomial in b+\(D\).
+Closed-pose control replay costs at most \(8Q\) updates. Ordinary
 polynomial-time set/dictionary implementations suffice. The parameter
-factor grows exponentially in D.
+factor grows exponentially in \(D\).
 
-For fixed D the upper bound is linear in R. This order cannot in general
+For fixed \(D\) the upper bound is linear in \(R\). This order cannot in general
 be replaced by a radius-independent constant: take a certified
-event-free P104 state with D=128 and insert one remote black cell at a
-virgin frontier site k highway periods ahead. Until its first read the
+event-free P104 state with \(D\)=128 and insert one remote black cell at a
+virgin frontier site \(k\) highway periods ahead. Until its first read the
 original periodic trajectory is unchanged. The first event is at
-104k+O(1), while R=2k+O(1). The phase-ray calculation gives the
+\(104k+O(1)\), while \(R=2k+O(1)\). The phase-ray calculation gives the
 constants exactly. The full input coordinates supply the growing scale.
+
+\section{Geometry between prediction failures}\label{sec:endpoint-tube}
+A finite event segment starts from a complete state and ends just after its
+first $S_D$ update. Its endpoints constrain every intervening read, even
+when the segment contains a very long predicted flight. Throughout this
+section $Q=2^D$ and $\|\cdot\|$ denotes the maximum norm.
+
+\subsection{Two-endpoint tube for a finite event macro}\label{remote-2}
+
+Start at \(X\) with head \(p\).~Suppose its first $S_D$ event is at offset \(\tau\),
+at cell \(e\). The macro includes that read and its actual outgoing move, so
+its duration is \(L=\tau+1\). Let \([p,e]\) denote the real line segment
+between its endpoints.
+
+\textbf{Theorem (endpoint tube and distance-sensitive time).} Every
+head position from time 0 through time \(\tau+1\) is in
+
+\begin{equation}\label{eq:remote3}
+[p,e]+[-(3Q+1),3Q+1]^2.
+\end{equation}
+
+Every changed cell is in the same tube, and
+
+\begin{equation}\label{eq:remote4}
+L\le Q\|e-p\|_\infty+5Q^2.
+\end{equation}
+
+The tube does not depend on the radius or cardinality of \(B\). Unchanged
+black cells outside it remain physically present; \eqref{eq:remote3} does not
+enclose the full input black field. The next-event premise is essential.
+
+\subsubsection{Proof}\label{proof}
+
+Until the first event, the actual turns agree with the autonomous suffix
+predictor. Its word has a prefix of length $j\le Q$ and a cycle \(u\) of
+length $P\le Q$. If the event occurs in that prefix, its whole path
+and actual outgoing move are within \(Q\)+1 of \(p\), sufficient for
+\eqref{eq:remote3}--\eqref{eq:remote4}.
+
+Otherwise let a be the head after the j-step prefix, and $v_i$ the
+relative pre-update phase positions of \(u\). Then
+$\|a-p\|_\infty\le j$ and
+$\|v_i\|_\infty\le P$.
+
+First suppose \(u\) restores heading and has nonzero displacement \(d\).~Write
+the event as phase i, epoch \(k\), so
+
+\[
+e=a+v_i+kd.
+\]
+
+When $k\ge1$, any earlier phase position in epoch $\ell\le k$
+has
+
+\begin{equation}\label{eq:remote5}
+\begin{aligned}a+v_s+\ell d&=(1-\lambda)a+\lambda e+v_s-\lambda v_i,\\ \lambda&=\ell/k\in[0,1].\end{aligned}
+\end{equation}
+
+The error has $\ell_\infty$ norm at most \(2P\). Moving a to \(p\) costs at most
+\(j\); the prefix is within \(j\) of \(p\) as well. For \(k\)=0 all cycle-prefix
+positions are within \(j\)+\(P\) of \(p\) directly. Thus all positions through the
+event read lie in $[p,e]+[-3Q,3Q]^2$. The true mismatched
+outgoing move costs at most one more.
+
+Also, since \(d\) is a nonzero integer vector,
+
+\[
+k\le k\|d\|\le\|e-p\|+j+P.
+\]
+
+Hence
+
+\begin{equation}\label{eq:remote6}
+\begin{aligned}\tau+1&=j+kP+i+1\\&\le Q\|e-p\|+2Q^2+2Q\\&\le Q\|e-p\|+5Q^2.\end{aligned}
+\end{equation}
+
+If the cycle rotates heading, repeat it twice or four times to restore
+heading. The resulting geometric block is closed, since its successively
+rotated drift vectors sum to zero. If heading is already restored with
+\(d=0\), use one copy. The closed block has length at most \(4P\); its footprint
+is within \(2P\) of \(a\), because a point on a closed unit-step walk is reached
+by either side of the loop. Thus \eqref{eq:remote3} again holds. Two physically
+valid copies of a closed block would repeat the complete state (every
+cell is toggled an even number of times), impossible by
+the no-bounded-orbit argument of Subsection~\ref{sm-3}. Consequently
+$\tau+1\le j+8P\le9Q$, which is at most $5Q^2$ because
+$Q\ge2$. This proves \eqref{eq:remote4} also in the closed cases. Every
+changed cell was a read position, proving the final assertion.
+\(\square\)
+
+This argument needs only a finite macro to its first event, not a
+presumption that any candidate predictor cycle is physically realizable
+forever.
+
+\subsection{The event skeleton carries the large-scale
+geometry}\label{remote-3}
+
+List the actual $S_D$ event times $t_1<t_2<\cdots$ and
+cells $e_i$. Put
+
+\[
+\begin{gathered}H_D=3Q+2,\qquad s_m=t_m+1,\\J_m=\|e_1-p_0\|+\sum_{i=1}^{m-1}\|e_{i+1}-e_i\|.\end{gathered}
+\]
+
+\textbf{Corollary (event-chain tube).} Up to the complete post-mth-event state, the
+entire head path is contained in the $H_D$-neighbourhood of the polygonal
+chain
+
+\begin{equation}\label{eq:remote7}
+p_0\longrightarrow e_1\longrightarrow\cdots\longrightarrow e_m.
+\end{equation}
+
+and
+
+\begin{equation}\label{eq:remote8}
+J_m+1\le s_m\le QJ_m+6Q^2m.
+\end{equation}
+
+In particular, all changed cells are in that tube; the complete state
+still contains every unaltered initial black cell outside it.
+
+Proof: each later macro starts one unit from $e_i$. Replacing that start
+by $e_i$ in \eqref{eq:remote3} adds at most one to the tube radius. Sum \eqref{eq:remote4},
+bounding each later source-to-event distance by
+$\|e_{i+1}-e_i\|_\infty+1$. The lower bound
+follows from unit-speed motion between the actual event cells.
+\(\square\)
+
+For every real linear functional a, the maximum of $a\cdot p_s$ over this
+prefix lies between $\max(a\cdot p_0,a\cdot e_1,\ldots,a\cdot e_m)$ and that value plus
+$H_D\|a\|_1$. Thus, on an infinite event
+chain, any direction in which the head is unbounded above is also a
+direction in which these event locations are unbounded above. This controls the directional ranges of the event locations.
+
+This is stronger than using the convex hull of the whole black field:
+far, untouched black debris does not enlarge the event-to-event tube. The bound follows from the geometry between consecutive events.
+
+\paragraph{A lifetime with no intervening event.}
+Let $N_D(b,e)$ count $S_D$ events strictly between the birth and consumption
+of a black lifetime. If this count is zero, its age is bounded independently
+of the initial diameter. At a
+white birth b there is no $S_D$ event. If $e-b>D$ and there is
+none in (b,\(e\)), the death is the first $S_D$ from $X_b$ and its
+source/event positions are equal. The endpoint-tube time estimate gives
+$e-b+1\le5\cdot4^D$. If $e-b\le D$ the weaker bound
+$e-b\le5\cdot4^D$ is immediate. Thus
+
+\begin{equation}\label{eq:circuit9}
+N_D(b,e)=0\quad\Longrightarrow\quad e-b\le5\cdot4^D.
+\end{equation}
+
+
+\section{Quadratic event budgets}\label{quadratic-event-budgets}
+
+Put $C(X)=\operatorname{conv}(B\cup\{p\})$, and let $X_n$ be the
+complete state just after event $n$.
+
+\textbf{Theorem (convex-hull and quadratic event bounds).}
+A finite event segment, including every intermediate head position, satisfies
+the enclosure
+\[C(X_{\rm next})\subset C(X)+[-5Q,5Q]^2.\] Iterating gives \(C(X_n)\subset C(X_0)+[-5Qn,5Qn]^2\) and
+the stated \(T_D(n,W)\), together with the radius bound
+\(R(X_n)\le W+10Qn\). The
+first-event waiting estimate is the predictor bound proved above,
+given in \eqref{eq:sm6}.
+
+\subsection{A geometric lemma for a translating motion plan}\label{geo-3}
+
+Start at \(Y=(B,p,h)\). Let a nonempty word \(u\) of length \(P\) restore heading
+and have nonzero drift \(d\).~Write its pre-update phase positions as
+$q_0,\ldots,q_{P-1}$, with $q_0=p$. The prescribed infinite positions are
+$q_i+kd$ for $k\ge0$. These are at first just a motion plan:
+executability is not assumed.
+
+Until its first read mismatch with literal LR dynamics, the plan is the
+actual orbit, by induction on updates. All earlier plan writes then
+legitimately contribute to its current read colour.
+
+\subsubsection{Only finitely many old-field and self-read changes
+matter}\label{only-finitely-many-old-field-and-self-read-changes-matter}
+
+A previous phase \(j\) visits the position $q_i+kd$ precisely when
+
+\[
+q_j-q_i=sd,\quad s\ge0,\quad(s>0\ \text{or}\ j<i),\quad k\ge s.
+\]
+
+For each phase pair this toggles parity at one threshold \(s\). Let $K_{\rm self}$
+be the maximum of all these \(s\) and zero. Since the two phase points are
+connected by at most \(P\) unit moves within the block,
+
+\begin{equation}\label{eq:geo3}
+K_{\rm self}\|d\|_\infty\le P.
+\end{equation}
+
+Let $K_B$ be the greatest epoch $k\ge0$ for which some $q_i+kd$
+is in the actual finite set \(B\). If there is no such pair, put $K_B$=-1.
+This maximum is finite. If $K_B\ge0$, retain one corresponding
+black point
+
+\begin{equation}\label{eq:geo4}
+z=q_j+K_Bd\in B.
+\end{equation}
+
+Put
+
+\begin{equation}\label{eq:geo5}
+K_*=\max(0,K_{\rm self},K_B+1).
+\end{equation}
+
+At every epoch $k\ge K_*$ the old field contributes zero at every
+phase and every self-read threshold has stabilized. The prescribed
+read-colour vector is thus constant in \(k\) there. If a mismatch exists at
+all, a first mismatch must occur within epochs \(0,\ldots,K_*\), hence at an
+offset strictly below \((K_*+1)P\).
+
+This remains true if early old-black cells temporarily mask a
+self-inconsistent motion plan. Such masking ends by $K_B$+1 and has not
+been silently discarded. The argument works for either direction of
+colour mismatch; its later suffix instantiation has the special R-to-L
+mismatch property.
+
+\subsubsection{The same cutoff bounds space by a constant halo, not
+by travel
+time}\label{the-same-cutoff-bounds-space-by-a-constant-halo-not-by-travel-time}
+
+We prove that every prescribed read in epochs \(0,\ldots,K_*\) is in
+
+\begin{equation}\label{eq:geo6}
+\operatorname{conv}(B\cup\{p\})+[-3P,3P]^2.
+\end{equation}
+
+If \(K_*=K_{\rm self}\), \eqref{eq:geo3} gives
+$\|kd\|_\infty\le P$ for all $k\le K_*$,
+while $\|q_i-p\|_\infty\le P$. These points
+are within \(2P\) of \(p\), already sufficient for \eqref{eq:geo6}. If \(K_*=0\) the statement
+is immediate.
+
+Otherwise take \(K_*=K_B+1\) and the old black point \(z\) from \eqref{eq:geo4}. For
+$0\le k\le K_B$ and $K_B>0$, put $\lambda=k/K_B$.
+Then
+
+\[
+q_i+kd=(1-\lambda)p+\lambda z+(q_i-p)-\lambda(q_j-p).
+\]
+
+The first two terms lie on the segment \([p,z]\); the remainder has
+$\ell_\infty$ norm at most \(2P\). For \(k\)=$K_B$+1, add \(d\) to the \(k\)=$K_B$
+expression; $\|d\|_\infty\le P$, giving \(3P\).
+When $K_B$=0, the two epochs \(k\)=0,1 are within \(2P\) of \(p\) directly. Thus
+\eqref{eq:geo6} holds in every case, including ties between maxima in \eqref{eq:geo5}.
+
+In particular, if the plan has a first physical mismatch, all positions
+before and at that read satisfy \eqref{eq:geo6}. Executing the actual mismatched
+move instead of the planned one adds at most one unit of halo. The old
+field and every new black cell at the resulting complete endpoint also
+lie inside \eqref{eq:geo6} enlarged by one, since each new black cell is a
+previously updated location.
+
+There is no claim that an arbitrarily long valid event-free translating
+tail stays in \eqref{eq:geo6}. The finite mismatch is an essential hypothesis.
+
+\subsection{The one-event convex-hull bound}\label{geo-4}
+
+Run the order-D predictor from \(X\) until an immediate $S_D$ event or a
+repeated suffix. Before the repetition $j\le Q$, all written cells
+and the head are within \(Q\) of the original head, so
+
+\begin{equation}\label{eq:geo7}
+C(X_j)\subset C(X)+[-Q,Q]^2.
+\end{equation}
+
+An immediate event and its outgoing move have the claimed bound
+trivially. At a repeated suffix the plan cycle has length $P\le Q$.
+
+If the heading is restored and drift is nonzero, apply Subsection
+\ref{geo-3} from the full state $X_j$. A finite next event is exactly its
+first mismatch. By \eqref{eq:geo6},\eqref{eq:geo7} and the real final update, the entire
+macro stays within halo
+
+\begin{equation}\label{eq:geo8}
+Q+3P+1\le4Q+1\le5Q.
+\end{equation}
+
+If the cycle rotates heading, repeat it at most four times to get a
+closed-pose plan; if its displacement is already zero use one copy. This
+closed plan has length $L\le4P$. Each point of a closed unit-step
+walk is reachable from its origin in either time direction, so its
+distance from the origin is at most $L/2\le2P$. If two copies of
+that plan were fully executable, they would flip each cell an even total
+number of times and restore the pose, repeating the complete state.
+Consequently a mismatch occurs before $2L\le8P$. All positions up
+to its read are in the same closed footprint, and the true mismatched
+move adds one unit. The resulting source-relative halo is at most
+$Q+2P+1\le5Q$.
+
+Every unchanged black cell was already in C(\(X\)), and every newly black
+cell was on the bounded read footprint. This proves both the path and
+complete-support parts of the one-event enclosure.
+
+\subsection{Iteration and coordinate bit lengths}\label{geo-5}
+
+Minkowski sums of $\ell_\infty$ balls add their radii. Applying the one-event
+enclosure successively proves the iterated enclosure, and also covers the complete trajectory
+between checkpoints. The $\ell_\infty$ diameter of
+$C(X_0)+[-5Qn,5Qn]^2$ is $W+10Qn$. Both the current head and each
+current black cell lie in that set, proving the stated radius bound.
+
+The nth macro starts after n-1 events. Because the event offset is strictly less than \eqref{eq:sm6}, and the post-event duration is offset+1, its duration is at most
+
+\[
+Q(W+10Q(n-1)+2Q+10).
+\]
+
+Summing from 1 through \(n\) proves the quadratic time bound. These are integer non-strict
+bounds for post-event time; the event itself occurred one update
+earlier.
+
+For each fixed $D$, the event deadline is quadratic in the event count.
+Its constants retain the initial diameter and depend exponentially on $D$.
+
+\subsubsection{Complete XOR histories still have a growing number of
+terms}\label{complete-xor-histories-still-have-a-growing-number-of-terms}
+
+In the symbolic representation of Section~\ref{exact-continuation-with-complete-history}, a skipped periodic phase adds a
+finite arithmetic segment of actual read positions, and ordinary updates
+add singletons. Starting from an explicit m-black input, every generated
+term endpoint up to \(n\) events is an actual read location covered by the iterated enclosure;
+original singleton terms also lie in that hull. This is true before
+syntactic cancellations, since every term records actual read positions
+along the finite trajectory. Each nontrivial segment has
+nonzero integer stride, so its length is at most W+10Qn+1 (distance
+between its two endpoints is length-1 times a norm at least one). If
+initial absolute coordinate bit length is b, endpoints and lengths thus
+have bit length
+
+\begin{equation}\label{eq:geo9}
+O(b+D+\log(n+1)).
+\end{equation}
+
+per coordinate and length. The number of segment terms can grow as
+$m+n(9Q+1)$, as proved in the continuation construction below. Temporary inverse-history reconstruction
+adds at most \(D\) additional local moves; it changes neither the returned
+state nor this asymptotic bit bound.
 
 \section{Exact continuation with complete
 history}\label{exact-continuation-with-complete-history}
 
-\subsection{Finite XOR segments, not infinite periodic
-background}\label{xor-2}
+\subsection{Finite arithmetic segments and symmetric difference}\label{xor-2}
 
-For integer a,v and n\textgreater=1 put
+For integer a,\(v\) and $n\ge1$ put
 
-\begin{verbatim}
-Seg(a,v,n) = {a+j*v:0<=j<n}.
-\end{verbatim}
+\[
+\operatorname{Seg}(a,v,n)=\{a+jv:0\le j<n\}.
+\]
 
-If n\textgreater1 require v!=0. An encoded colouring consists of a
-finite list of segments and means their SYMMETRIC DIFFERENCE. A
+If $n>1$ require $v\ne0$. An encoded colouring consists of a
+finite list of segments and means their symmetric difference. A
 singleton is a segment of length one. Thus an explicit finite black set
 embeds exactly as singleton terms. Every encoded state still has finite
 support, including after a huge skipped prefix. Overlaps cancel modulo
@@ -457,59 +832,59 @@ canonical: distinct expressions may encode the same finite set.
 \subsection{Exact first mismatch against a periodic motion
 plan}\label{xor-3}
 
-Let a supplied word u have length P, restore heading, and have nonzero
-drift d. Its pre-update phase positions are q\_i. The proposed future
+Let a supplied word \(u\) have length \(P\), restore heading, and have nonzero
+drift \(d\). Its pre-update phase positions are $q_i$. The proposed future
 reads are
 
-\begin{verbatim}
-q_i+k*d, 0<=i<P, k>=0.
-\end{verbatim}
+\[
+q_i+kd,\qquad0\le i<P,\quad k\ge0.
+\]
 
 As in the earlier finite-field verifier, an earlier periodic read at
-this same position exists for each pair (j,r) satisfying
+this same position exists for each pair (\(j\),\(r\)) satisfying
 
-\begin{verbatim}
-q_j-q_i=r*d, r>=0, and (r>0 or j<i), with k>=r.
-\end{verbatim}
+\[
+q_j-q_i=rd,\quad r\ge0,\quad(r>0\ \text{or}\ j<i),\quad k\ge r.
+\]
 
-Each pair toggles read parity at the one threshold r. These are finite
+Each pair toggles read parity at the one threshold \(r\). These are finite
 in number.
 
-Now intersect a phase ray with ONE old finite segment:
+Now intersect a phase ray with one old finite segment:
 
-\begin{verbatim}
-q_i+k*d=a+j*v, k>=0, 0<=j<n.                       (XOR1)
-\end{verbatim}
+\begin{equation}\label{eq:xor1}
+q_i+kd=a+jv,\qquad k\ge0,\quad0\le j<n.
+\end{equation}
 
-If d and v are not parallel, determinants give at most one integer pair
-(k,j), which is tested against the bounds. If they are parallel but
-a-q\_i is not, there is no intersection. Otherwise reduce a nonzero
-coordinate of d to
+If \(d\) and \(v\) are not parallel, determinants give at most one integer pair
+(\(k\),\(j\)), which is tested against the bounds. If they are parallel but
+a-$q_i$ is not, there is no intersection. Otherwise reduce a nonzero
+coordinate of \(d\) to
 
-\begin{verbatim}
-A*k-B*j=C, A>0.
-\end{verbatim}
+\[
+\alpha k-\beta j=\gamma,\qquad \alpha>0.
+\]
 
-Writing g=gcd(A,\textbar B\textbar), there is no solution unless g
-divides C. When it does, solutions for k form one residue class modulo
-\textbar B\textbar/g. The finite bounds on j supply an interval
-{[}lo,hi{]}, intersected with k\textgreater=0. Thus (XOR1) is either
+Writing \(g=\gcd(\alpha,|\beta|)\), there is no solution unless \(g\)
+divides \(\gamma\). When it does, solutions for \(k\) form one residue class modulo
+\(|\beta|/g\). The finite bounds on \(j\) supply an interval
+\([\mathrm{lo},\mathrm{hi}]\), intersected with $k\ge0$. Thus \eqref{eq:xor1} is either
 empty, a singleton, or a finite arithmetic progression of epochs. The
 singleton case also handles length-one terms independently of the unused
 stride.
 
 For a phase i, its initial-black contribution is the XOR of membership
-in these finitely many epoch progressions. Partition k\textgreater=0 at
+in these finitely many epoch progressions. Partition $k\ge0$ at
 all progression starts, ends+1, and earlier-read thresholds. Within each
 partition interval, the active progressions are fixed; their combined
-parity is periodic in k, with period dividing the least common multiple
+parity is periodic in \(k\), with period dividing the least common multiple
 of their moduli. The earlier- read parity is constant on that interval.
 Test a whole residue period, or the shorter finite interval. The final
 unbounded interval has no active finite segment and needs one parity
 test.
 
 This is an exhaustive finite algorithm, not sampling a few epochs. It
-decides whether u\^{}omega is the exact future; otherwise it finds the
+decides whether $u^\omega$ is the exact future; otherwise it finds the
 first mismatch. Until the first mismatch the proposed and literal paths
 agree by induction, so its position and time are real. The running time
 can depend on a large lcm. No polynomial-time claim is made for
@@ -517,495 +892,136 @@ arbitrary segment-encoded input strides.
 
 \subsection{Exact algebra of the skipped writes}\label{xor-4}
 
-Suppose the first n proposed updates have been verified (including n=0).
+Suppose the first \(n\) proposed updates have been verified (including \(n\)=0).
 For each phase i put
 
-\begin{verbatim}
-n_i=max(0, floor((n-1-i)/P)+1).
-\end{verbatim}
+\[
+n_i=\max\!\left(0,\left\lfloor\frac{n-1-i}{P}\right\rfloor+1\right).
+\]
 
-Its updated cells are exactly Seg(q\_i,d,n\_i), omitting phases with
-n\_i=0. Therefore the complete endpoint is
+Its updated cells are exactly $\operatorname{Seg}(q_i,d,n_i)$, omitting phases with
+$n_i=0$. Therefore the complete endpoint is
 
-\begin{verbatim}
-B_n = B_0 XOR XOR_(0<=i<P,n_i>0) Seg(q_i,d,n_i).      (XOR2)
-\end{verbatim}
+\begin{equation}\label{eq:xor2}
+B_n=B_0\mathbin{\triangle}\mathop{\triangle}_{\substack{0\le i<P\\n_i>0}}\operatorname{Seg}(q_i,d,n_i).
+\end{equation}
 
-If n=kP+i, the endpoint position is q\_i+k*d and its heading is the
-recorded heading before phase i. Equation (XOR2) accounts for every
+If \(n\)=kP+i, the endpoint position is $q_i+kd$ and its heading is the
+recorded heading before phase i. Equation \eqref{eq:xor2} accounts for every
 flip, including self-overlap, overlap between phases, and overlap with
-every old segment. It adds at most P terms regardless of n.~The helper
-applying (XOR2) does NOT assert that an arbitrary geometric word is
+every old segment. It adds at most \(P\) terms regardless of \(n\).~The helper
+applying \eqref{eq:xor2} does not assert that an arbitrary geometric word is
 physically executable; its caller must first establish validity through
 the chosen prefix.
 
-At the first mismatch of the recency-D predictor, the planned turn is R
-and the actual turn is L. Toggle that point in (XOR2), turn left and
+At the first mismatch of the recency-D predictor, the planned turn is \(R\)
+and the actual turn is \(L\). Toggle that point in \eqref{eq:xor2}, turn left and
 move once. This is the exact full input for the next macro, with no
-separate history oracle: the needed preceding D positions are recovered
+separate history oracle: the needed preceding \(D\) positions are recovered
 by the literal inverse.
 
 \subsection{Total single-event macro and finite iteration}\label{xor-5}
 
-For D\textgreater=1 put Q=2\^{}D. The previous suffix identity says that
-no S\_D event means one deterministic next turn from the latest D-turn
-word. There are Q words. Execute at most Q matching turns until an event
+For $D\ge1$ put $Q=2^D$. The previous suffix identity says that
+no $S_D$ event means one deterministic next turn from the latest D-turn
+word. There are \(Q\) words. Execute at most \(Q\) matching turns until an event
 or a repeated suffix occurs. In the latter case the prediction has a
-period P\textless=Q.
+period $P\le Q$.
 
 If its geometric period is nontranslating or rotates the heading, two
-copies of a closed-pose block of length at most 4P expose a mismatch:
+copies of a closed-pose block of length at most \(4P\) expose a mismatch:
 otherwise the complete state would recur and the ant would be
 permanently confined. Literal no-bounded-orbit excludes that. Replaying
-at most 8P steps handles this case.
+at most \(8P\) steps handles this case.
 
 For nonzero translation apply Subsection \ref{xor-3}. A valid infinite
-word gives a certified permanent event-free tail. Otherwise (XOR2) and
+word gives a certified permanent event-free tail. Otherwise \eqref{eq:xor2} and
 one real black update give the next full post-event state. Every input
 is finite and every arithmetic search here is finite, so this single
 macro is total without caller resource caps.
 
-If the input expression has M terms, an event output has at most
+If the input expression has \(M\) terms, an event output has at most
 
-\begin{verbatim}
-M+9Q+1 terms.                                         (XOR3)
-\end{verbatim}
+\begin{equation}\label{eq:xor3}
+M+9Q+1\quad\text{terms}.
+\end{equation}
 
-The loose uniform value covers Q preliminary writes, at most 8Q
-closed-plan writes, or at most Q new periodic segment terms, and the
+The loose uniform value covers \(Q\) preliminary writes, at most \(8Q\)
+closed-plan writes, or at most \(Q\) new periodic segment terms, and the
 final event. Inverse history recovery is temporary and does not alter
 the returned physical field. Nontrivial new segment strides are period
-drifts; both coordinate magnitudes are at most Q. The same statement
+drifts; both coordinate magnitudes are at most \(Q\). The same statement
 applies to a terminating tail's entry state.
 
-After n successive event outputs from an explicit m-black input, the
-expression has at most m+n(9Q+1) terms. Every individual call
-terminates; the iteration over ALL events is not asserted to terminate.
-\texttt{event\_prefix} computes the first n events, or stops earlier on
-a certified event-free tail. Reaching its finite requested event budget
-is neither HALT nor NO-HIGHWAY. Optional resource caps return
-INCONCLUSIVE and do not change the mathematical total algorithm.
+After $n$ successive event outputs from an explicit $m$-black input,
+the expression has at most $m+n(9Q+1)$ terms. The finite iteration computes
+the first $n$ events, or stops earlier with a certified event-free tail.
+The returned field includes every initial cell and every subsequent flip.
 
-\subsection{Parameterized complexity of a FINITE event
-prefix}\label{xor-6}
+\subsection{Complexity of a finite event prefix}\label{xor-6}
 
-For an explicit sparse input with m black cells, coordinate bit length
-b, fixed D, and an event count n measured numerically (or in unary), the
-first n events and their complete compressed endpoint are computable in
+For an explicit sparse input with \(m\) black cells, coordinate bit length
+b, fixed \(D\), and an event count \(n\) measured numerically (or in unary), the
+first \(n\) events and their complete compressed endpoint are computable in
 
-\begin{verbatim}
-f(D) * poly(m+n+b).                                   (XOR4)
-\end{verbatim}
+\begin{equation}\label{eq:xor4}
+f(D)\operatorname{poly}(m+n+b).
+\end{equation}
 
-This is not a polynomial bound in log(n), an ordinary-step cutoff, or a
-claim that large D is practical. f may be doubly exponential in D.
-
-Here is the bound rather than an assumption of compactness. All initial
+All initial
 terms are singletons, and every nontrivial generated stride has
-components of magnitude at most Q by (XOR3). A parallel intersection
-modulus is \textbar B\textbar/g\textless=Q. Hence all residue periods
-divide Lambda\_Q=lcm(1,\ldots,Q), a function only of D. The numbers of
-old terms, phase pairs and interval endpoints are polynomial in m+n for
-fixed Q. One whole residue enumeration therefore costs a factor at most
-Lambda\_Q, not a factor equal to the huge skipped physical time.
-
-For bit lengths use the already proved event deadline, or rederive it by
-R(F\^{}t X)\textless=R(X)+t. For this bit-length argument the elementary
-preliminary bound suffices. With C=R(X)+2Q+10, the nth event, if
-present, occurs before
-
-\begin{verbatim}
-C*((Q+1)^n-1).
-\end{verbatim}
-
-All segment endpoints come from the initial support or actual reads
-before this time. Their binary coordinate and length encodings thus use
-O(b+n(D+1)) bits. No cancellation-dependent radius computation or
-hypothesized mass bound is required. Membership, determinants, gcd and
-residue arithmetic consequently have polynomial bit cost; combining
-these bounds proves (XOR4).
-
-General arbitrary-stride symbolic inputs retain totality but are outside
-(XOR4)'s explicit-input/generated-stride premise. The lcm cost must not
-be hidden.
-
-\section{Quadratic event budgets}\label{quadratic-event-budgets}
-
-Put \(C(X)=\operatorname{conv}(B\cup\{p\})\). A finite macro ends just
-after its first \(S_D\) update. We prove the convex-halo enclosure
-\[C(X_{\rm next})\subset C(X)+[-5Q,5Q]^2,\] including every intermediate
-head position. Iterating gives \(C(X_n)\subset C(X_0)+[-5Qn,5Qn]^2\) and
-the stated \(T_D(n,W)\). In the proof below, (A) denotes this one-macro
-enclosure, and (B1)--(B3) denote the iterated enclosure,
-\(R(X_n)\le W+10Qn\), and the quadratic time bound, respectively. The
-first-event waiting estimate is the predictor bound proved above,
-denoted (GEO1) in this section.
-
-\subsection{A geometric lemma for ANY translating periodic motion
-plan}\label{geo-3}
-
-Start at Y=(B,p,h). Let a nonempty word u of length P restore heading
-and have nonzero drift d.~Write its pre-update phase positions as
-q\_0,\ldots,q\_(P-1), q\_0=p. The prescribed infinite positions are
-q\_i+k*d for k\textgreater=0. These are at first just a MOTION PLAN:
-executability is not assumed.
-
-Until its first read mismatch with literal LR dynamics, the plan is the
-actual orbit, by induction on updates. All earlier plan writes then
-legitimately contribute to its current read colour.
-
-\subsubsection{3.1 Only finitely many old-field and self-read changes
-matter}\label{only-finitely-many-old-field-and-self-read-changes-matter}
-
-A previous phase j visits the position q\_i+k*d precisely when
-
-\begin{verbatim}
-q_j-q_i=s*d,  s>=0, and (s>0 or j<i),  k>=s.
-\end{verbatim}
-
-For each phase pair this toggles parity at one threshold s. Let K\_self
-be the maximum of all these s and zero. Since the two phase points are
-connected by at most P unit moves within the block,
-
-\begin{verbatim}
-K_self*||d||_infinity <= P.                              (GEO3)
-\end{verbatim}
-
-Let K\_B be the greatest epoch k\textgreater=0 for which some q\_i+k*d
-is in the ACTUAL finite set B. If there is no such pair, put K\_B=-1.
-This maximum is finite. If K\_B\textgreater=0, retain one corresponding
-black point
-
-\begin{verbatim}
-z=q_j+K_B*d in B.                                       (GEO4)
-\end{verbatim}
-
-Put
-
-\begin{verbatim}
-K=max(0,K_self,K_B+1).                                  (GEO5)
-\end{verbatim}
-
-At every epoch k\textgreater=K the old field contributes zero at every
-phase and every self-read threshold has stabilized. The prescribed
-read-colour vector is thus constant in k there. If a mismatch exists at
-all, a FIRST mismatch must occur within epochs 0,\ldots,K, hence at an
-offset strictly below (K+1)*P.
-
-This remains true if early old-black cells temporarily mask a
-self-inconsistent motion plan. Such masking ends by K\_B+1 and has not
-been silently discarded. The argument works for either direction of
-colour mismatch; its later suffix instantiation has the special R-to-L
-mismatch property.
-
-\subsubsection{3.2 The same cutoff bounds SPACE by a constant halo, not
-by travel
-time}\label{the-same-cutoff-bounds-space-by-a-constant-halo-not-by-travel-time}
-
-We prove that every prescribed read in epochs 0,\ldots,K is in
-
-\begin{verbatim}
-conv(B union {p}) + [-3P,3P]^2.                          (GEO6)
-\end{verbatim}
-
-If K=K\_self, (GEO3) gives
-\textbar\textbar k*d\textbar\textbar\textless=P for all k\textless=K,
-while \textbar\textbar q\_i-p\textbar\textbar\textless=P. These points
-are within 2P of p, already sufficient for (GEO6). If K=0 the statement
-is immediate.
-
-Otherwise take K=K\_B+1 and the old black point z from (GEO4). For
-0\textless=k\textless=K\_B and K\_B\textgreater0, put lambda=k/K\_B.
-Then
-
-\begin{verbatim}
-q_i+k*d = (1-lambda)*p+lambda*z
-          +(q_i-p)-lambda*(q_j-p).
-\end{verbatim}
-
-The first two terms lie on the segment {[}p,z{]}; the remainder has
-l\_infinity norm at most 2P. For k=K\_B+1, add d to the k=K\_B
-expression; \textbar\textbar d\textbar\textbar\textless=P, giving 3P.
-When K\_B=0, the two epochs k=0,1 are within 2P of p directly. Thus
-(GEO6) holds in every case, including ties between maxima in (GEO5).
-
-In particular, if the plan has a first physical mismatch, ALL positions
-before and AT that read satisfy (GEO6). Executing the actual mismatched
-move instead of the planned one adds at most one unit of halo. The old
-field and every new black cell at the resulting complete endpoint also
-lie inside (GEO6) enlarged by one, since each new black cell is a
-previously updated location.
-
-There is no claim that an arbitrarily long VALID event-free translating
-tail stays in (GEO6). The finite mismatch is an essential hypothesis.
-
-\subsection{Proof of Theorem A, including rotating/closed
-plans}\label{geo-4}
-
-Run the order-D predictor from X until an immediate S\_D event or a
-repeated suffix. Before the repetition j\textless=Q, all written cells
-and the head are within Q of the original head, so
-
-\begin{verbatim}
-C(X_j) subset C(X)+[-Q,Q]^2.                             (GEO7)
-\end{verbatim}
-
-An immediate event and its outgoing move have the claimed bound
-trivially. At a repeated suffix the plan cycle has length P\textless=Q.
-
-If the heading is restored and drift is nonzero, apply Subsection
-\ref{geo-3} from the full state X\_j. A finite next event is exactly its
-first mismatch. By (GEO6),(GEO7) and the real final update, the entire
-macro stays within halo
-
-\begin{verbatim}
-Q+3P+1 <= 4Q+1 <= 5Q.                                  (GEO8)
-\end{verbatim}
-
-If the cycle rotates heading, repeat it at most four times to get a
-closed-pose plan; if its displacement is already zero use one copy. This
-closed plan has length L\textless=4P. Each point of a closed unit-step
-walk is reachable from its origin in either time direction, so its
-distance from the origin is at most L/2\textless=2P. If TWO copies of
-that plan were fully executable, they would flip each cell an even total
-number of times and restore the pose, repeating the complete state.
-Consequently a mismatch occurs before 2L\textless=8P. All positions up
-to its read are in the same closed footprint, and the true mismatched
-move adds one unit. The resulting source-relative halo is at most
-Q+2P+1\textless=5Q.
-
-Every unchanged black cell was already in C(X), and every newly black
-cell was on the bounded read footprint. This proves both the path and
-complete-support parts of (A). Neither the geometric convex-envelope
-theorem nor deleting any archive is needed for this new bound.
-
-\subsection{Proof of Theorem B and the improved coordinate bit
-bound}\label{geo-5}
-
-Minkowski sums of l\_infinity balls add their radii. Applying (A)
-successively proves (B1), and also covers the complete trajectory
-between checkpoints. The l\_infinity diameter of
-C(X\_0)+{[}-5Qn,5Qn{]}\^{}2 is W+10Qn. Both the current head and each
-current black cell lie in that set, proving (B2).
-
-The nth macro starts after n-1 events. Because event offset \textless{}
-(GEO1), and the post-event duration is offset+1, its duration is at most
-
-\begin{verbatim}
-Q*(W+10Q*(n-1)+2Q+10).
-\end{verbatim}
-
-Summing from 1 through n proves (B3). These are integer non-strict
-bounds for post-event time; the event itself occurred one update
-earlier.
-
-The old exponential event deadline remains sound; this is a stronger
-conversion, not a retraction of its proof. No claim of a best constant
-or sharp lower bound is made. Smaller D can produce more events, and the
-constants are exponential in D; the comparison is for each FIXED D as n
-grows.
-
-\subsubsection{Complete XOR histories still have a growing number of
-terms}\label{complete-xor-histories-still-have-a-growing-number-of-terms}
-
-In the prior symbolic representation, a skipped periodic phase adds a
-finite arithmetic segment of actual read positions, and ordinary updates
-add singletons. Starting from an explicit m-black input, every generated
-term endpoint up to n events is an actual read location covered by (B1);
-original singleton terms also lie in that hull. This is true BEFORE
-syntactic cancellations, since a term is produced from a genuine finite
-path, not from invented archive filling. Each nontrivial segment has
-nonzero integer stride, so its length is at most W+10Qn+1 (distance
-between its two endpoints is length-1 times a norm \textgreater=1). If
-initial absolute coordinate bit length is b, endpoints and lengths thus
-have bit length
-
-\begin{verbatim}
-O(b+D+log(n+1)),                                        (GEO9)
-\end{verbatim}
-
-improving the earlier O(b+n(D+1)) estimate from the exponential
-deadline. The NUMBER of terms can still grow as m+n(9Q+1). Thus (GEO9)
-is NOT a constant-size memory theorem, not a finite-state quotient, and
-not logarithmic-in-n runtime. Temporary inverse-history reconstruction
-adds at most D additional local moves; it changes neither the returned
-state nor this asymptotic bit bound.
-
-\section{Endpoint tubes and spatially filtered
-feedback}\label{endpoint-tubes-and-spatially-filtered-feedback}
-
-Throughout this section \(Q=2^D\), and \(T_D\) is the quadratic budget
-above, denoted (REMOTE2). For the square argument one may use the
-current bound {[}4{]}
-\[E(\ell)=\frac{13\cdot3^{\ell-1}-2\ell^2-4\ell-5}{2}.\] The
-accompanying remote-feedback implementation retains the conservative
-\(8\ell3^\ell+1\) bound, which suffices for the same termination
-argument; it does not evaluate huge powers during event filtering.
-Neither choice changes the tube lemma or the qualitative feedback
-conclusion.
-
-\subsection{Two-endpoint tube for a finite event macro}\label{remote-2}
-
-Start at X with head p.~Suppose its first S\_D event is at offset tau,
-at cell e. The macro includes that read and its actual outgoing move, so
-its duration is L=tau+1. Let {[}p,e{]} denote the real line segment
-between its endpoints.
-
-\textbf{Theorem 1 (endpoint tube and distance-sensitive time).} Every
-head position from time 0 through time tau+1 is in
-
-\begin{verbatim}
-[p,e] + [-(3Q+1),3Q+1]^2.                                (REMOTE3)
-\end{verbatim}
-
-Every changed cell is in the same tube, and
-
-\begin{verbatim}
-L <= Q*||e-p||_infinity + 5*Q^2.                         (REMOTE4)
-\end{verbatim}
-
-The tube does not depend on the radius or cardinality of B. Unchanged
-black cells outside it remain physically present; (REMOTE3) does NOT
-enclose the full input black field. A forever event-free trajectory is
-expressly outside the premise.
-
-\subsubsection{Proof}\label{proof}
-
-Until the first event, the actual turns agree with the autonomous suffix
-predictor. Its word has a prefix of length j\textless=Q and a cycle u of
-length P\textless=Q. If the event occurs in that prefix, its whole path
-and actual outgoing move are within Q+1 of p, sufficient for
-(REMOTE3)--(REMOTE4).
-
-Otherwise let a be the head after the j-step prefix, and v\_i the
-relative pre-update phase positions of u. Then
-\textbar\textbar a-p\textbar\textbar\textless=j and
-\textbar\textbar v\_i\textbar\textbar\textless=P.
-
-First suppose u restores heading and has nonzero displacement d.~Write
-the event as phase i, epoch k, so
-
-\begin{verbatim}
-e=a+v_i+k*d.
-\end{verbatim}
-
-When k\textgreater=1, any earlier phase position in epoch ell\textless=k
-has
-
-\begin{verbatim}
-a+v_s+ell*d = (1-lambda)*a+lambda*e+v_s-lambda*v_i,
-lambda=ell/k in [0,1].                                  (REMOTE5)
-\end{verbatim}
-
-The error has l\_infinity norm at most 2P. Moving a to p costs at most
-j; the prefix is within j of p as well. For k=0 all cycle-prefix
-positions are within j+P of p directly. Thus all positions through the
-event read lie in {[}p,e{]}+{[}-3Q,3Q{]}\^{}2. The TRUE mismatched
-outgoing move costs at most one more.
-
-Also, since d is a nonzero integer vector,
-
-\begin{verbatim}
-k <= k*||d|| <= ||e-p||+j+P.
-\end{verbatim}
-
-Hence
-
-\begin{verbatim}
-tau+1 = j+k*P+i+1
-       <= Q*||e-p||+2Q^2+2Q
-       <= Q*||e-p||+5Q^2.                               (REMOTE6)
-\end{verbatim}
-
-If the cycle rotates heading, repeat it twice or four times to restore
-heading. The resulting geometric block is closed, since its successively
-rotated drift vectors sum to zero. If heading is already restored with
-d=0, use one copy. The closed block has length at most 4P; its footprint
-is within 2P of a, because a point on a closed unit-step walk is reached
-by either side of the loop. Thus (REMOTE3) again holds. Two physically
-valid copies of a closed block would repeat the complete state (every
-cell is toggled an even number of times), impossible by classical
-unboundedness or the strict clock. Consequently
-tau+1\textless=j+8P\textless=9Q, which is at most 5Q\^{}2 because
-Q\textgreater=2. This proves (REMOTE4) also in the closed cases. Every
-changed cell was a read position, proving the final assertion.
-\(\square\)
-
-This argument needs only a finite macro to its first event, not a
-presumption that any candidate predictor cycle is physically realizable
-forever.
-
-\subsection{The event skeleton carries the large-scale
-geometry}\label{remote-3}
-
-List the actual S\_D event times t\_1\textless t\_2\textless\ldots{} and
-cells e\_i. Put
-
-\begin{verbatim}
-H_D=3Q+2,
-J_m=||e_1-p_0|| + sum_(i=1 to m-1) ||e_(i+1)-e_i||,
-s_m=t_m+1.
-\end{verbatim}
-
-\textbf{Corollary 2.} Up to the complete post-mth-event state, the
-entire head path is contained in the H\_D-neighbourhood of the polygonal
-chain
-
-\begin{verbatim}
-p_0 -> e_1 -> ... -> e_m,                                (REMOTE7)
-\end{verbatim}
-
-and
-
-\begin{verbatim}
-J_m+1 <= s_m <= Q*J_m+6Q^2*m.                           (REMOTE8)
-\end{verbatim}
-
-In particular, all changed cells are in that tube; the complete state
-still contains every unaltered initial black cell outside it.
-
-Proof: each later macro starts one unit from e\_i. Replacing that start
-by e\_i in (REMOTE3) adds at most one to the tube radius. Sum (REMOTE4),
-bounding each later source-to-event distance by
-\textbar\textbar e\_(i+1)-e\_i\textbar\textbar+1. The lower bound
-follows from unit-speed motion between the actual event cells.
-\(\square\)
-
-For every real linear functional a, the maximum of a.p\_s over this
-prefix lies between max(a.p\_0,a.e\_1,\ldots,a.e\_m) and that value plus
-H\_D*\textbar\textbar a\textbar\textbar\_1. Thus, on an infinite event
-chain, any direction in which the head is unbounded above is also a
-direction in which these event locations are unbounded above. This is a
-statement about directional ranges, not limiting speeds or angular
-convergence.
-
-This is stronger than using the convex hull of the WHOLE black field:
-far, untouched black debris does not enlarge the event-to-event tube. It
-is not an assertion that the event skeleton itself is bounded or
-eventually straight.
+components of magnitude at most \(Q\) by \eqref{eq:xor3}. A parallel intersection
+modulus is \(|\beta|/g\le Q\), where \(\beta\) is the chosen
+signed coordinate of the segment stride after the same sign normalization
+as \(\alpha\) in Section~\ref{xor-3}. Hence all residue periods
+divide $\Lambda_Q=\operatorname{lcm}(1,\ldots,Q)$, a function only of \(D\). The numbers of
+old terms, phase pairs and interval endpoints are polynomial in \(m\)+\(n\) for
+fixed \(Q\). One whole residue enumeration therefore costs a factor at most
+$\Lambda_Q$, not a factor equal to the huge skipped physical time.
+
+The convex-hull bound in Section~\ref{quadratic-event-budgets} gives
+$O(b+D+\log(n+1))$ bits for every generated endpoint and segment length.
+Membership, determinant, gcd and residue computations therefore have
+polynomial bit cost. Together with the polynomial number of terms and the
+fixed-$D$ residue enumeration, this proves \eqref{eq:xor4}.
+
+The generated-stride premise supplies the fixed residue bound used in
+\eqref{eq:xor4}; arbitrary symbolic strides are discussed in
+Section~\ref{limitations}.
+
+\section{Spatially filtered events and remote feedback}\label{endpoint-tubes-and-spatially-filtered-feedback}
+The tube bounds turn a spatial event restriction into a finite stopping
+criterion. We use the following escape theorem from {[}4{]}: for any
+axis-aligned square with $\ell$ lattice sites on each side, any colouring
+and any starting pose inside it, the first exit occurs within
+\[
+ E_*(\ell)=\frac{13\cdot3^{\ell-1}-2\ell^2-4\ell-5}{2}
+\]
+updates. Exterior colours remain unread until the exit. For uniformity with
+the supplied event certificates, all bounds below use the valid, looser
+choice $E(\ell)=8\ell3^\ell+1\ge E_*(\ell)$, for $\ell\ge1$.
 
 \subsection{A finite-region burst bound, independent of the outside
 field}\label{remote-4}
 
-Let K be a nonempty FIXED finite set of lattice cells, w its l\_infinity
+Let \(K\) be a nonempty fixed finite set of lattice cells, \(w\) its $\ell_\infty$
 diameter, and choose an axis-aligned square enclosing
-K+{[}-H\_D,H\_D{]}\^{}2. A sufficient side is
+$K+[-H_D,H_D]^2$. A sufficient side is
 
-\begin{verbatim}
-ell(K,D)=w+2H_D+1,
-b(K,D)=E(ell(K,D)).                                     (REMOTE9)
-\end{verbatim}
+\begin{equation}\label{eq:remote9}
+\ell(K,D)=w+2H_D+1,\qquad b(K,D)=E(\ell(K,D)).
+\end{equation}
 
-\textbf{Theorem 3 (bounded internal bursts).} A consecutive run in the
-EVENT LIST whose event cells all belong to K has length at most b(K,D).
+\textbf{Theorem (bounded internal bursts).} A consecutive run in the
+event list whose event cells all belong to \(K\) has length at most b(\(K\),\(D\)).
 The bound is independent of the rest of the complete black field and of
 the starting time.
 
-Proof: start immediately before the first event of that run. Corollary 2
+Proof: start immediately before the first event of that run. The event-chain tube corollary
 keeps the whole actual path, through every completed internal event in
-the run, inside the square in (REMOTE9). Its first exit is no later than
-E(ell). Thus the elapsed time through any such consecutive completed run
-is strictly less than E(ell), and the number of distinct event reads is
+the run, inside the square in \eqref{eq:remote9}. Its first exit is no later than
+\(E(\ell)\). Thus the elapsed time through any such consecutive completed run
+is strictly less than \(E(\ell)\), and the number of distinct event reads is
 at most that elapsed time. The slightly weaker integer bound b is
 sufficient. Exterior colours can be arbitrary because they stay
 unchanged before first exit. \(\square\)
@@ -1015,227 +1031,209 @@ may execute many non-event updates between them. Neither infinite local
 oscillation nor arbitrarily much exterior storage invalidates this
 uniform bound.
 
-\textbf{Corollary 4 (joint, not merely separate, escape).} For each
-fixed D, an orbit has infinitely many S\_D events if and only if their
+\textbf{Corollary (unbounded event locations).} For each
+fixed \(D\), an orbit has infinitely many $S_D$ events if and only if their
 positions form an unbounded set. If the events are infinite, infinitely
-many lie outside EVERY fixed finite K.
+many lie outside every fixed finite \(K\).
 
-An infinite tail confined to K would contradict Theorem 3 after its last
+An infinite tail confined to \(K\) would contradict the bounded-burst theorem after its last
 external event. A finite event list has a finite position set, giving
-the reverse direction. This is not a claim that e\_i tends to infinity:
-returns to K can occur infinitely often, interleaved with external
+the reverse direction. This is not a claim that $e_i$ tends to infinity:
+returns to \(K\) can occur infinitely often, interleaved with external
 events.
 
-\subsection{A genuinely total spatially filtered event
+\subsection{A total spatially filtered event
 algorithm}\label{remote-5}
 
-\textbf{Theorem 5.} Uniformly in a complete finite X, integer
-D\textgreater=1 and explicitly supplied finite K, the following
+\textbf{Theorem (spatially filtered event query).} Uniformly in a complete finite \(X\), integer
+$D\ge1$ and explicitly supplied finite \(K\), the following
 predicate is decidable:
 
-\begin{verbatim}
-exists t>=0: S_D(F^t X) and pos(F^t X) not in K.          (REMOTE10)
-\end{verbatim}
+\begin{equation}\label{eq:remote10}
+\exists t\ge0:\quad S_D(F^tX)\ \text{and}\ \operatorname{pos}(F^tX)\notin K.
+\end{equation}
 
-The algorithm returns the FIRST such event, when one exists. A negative
+The algorithm returns the first such event, when one exists. A negative
 answer also certifies eventual nonzero translating periodicity, but need
 not certify standard P104.
 
 Algorithm: call the already-total next-event procedure. If it certifies
-no future S\_D, return NO\_EXTERNAL\_EVENT and its periodic certificate.
-If its event cell is outside K, return that event and accumulated time.
+no future $S_D$, return a negative answer and its periodic certificate.
+If its event cell is outside \(K\), return that event and accumulated time.
 Otherwise execute the finite prefix through that event with the complete
 field retained and repeat.
 
 Every individual query and finite replay terminates. Were the outer loop
-infinite, there would be infinitely many S\_D events all in K,
-contradicting Corollary 4. This supplies the previously missing
-loop-termination proof; it is not a chosen resource cap. More
-quantitatively, use K union \{p\_0\} in (REMOTE9): every completed
+infinite, there would be infinitely many $S_D$ events all in \(K\),
+contradicting the unbounded-event-location corollary. This proves termination. More
+quantitatively, use \(K\) union \{$p_0$\} in \eqref{eq:remote9}: every completed
 inside-only prefix has its whole path inside that square, so fewer than
-its E(ell) literal updates, hence at most E(ell) internal events, can
+its \(E(\ell)\) literal updates, hence at most \(E(\ell)\) internal events, can
 precede the final query. The final external event itself may be
-arbitrarily distant in time. For K empty, the original next-event
+arbitrarily distant in time. For \(K\) empty, the original next-event
 procedure suffices directly.
 
-The implementation leaves E(ell) symbolic, instead of attempting to
-construct an integer such as 3\^{}(6*2\^{}128). It uses literal replay
+The implementation leaves \(E(\ell)\) symbolic, instead of attempting to
+construct an integer such as $3^{6\cdot2^{128}}$. It uses literal replay
 of inside-event intervals; no efficient full symbolic continuation is
-claimed for huge inside intervals. Optional resource limits return
-INCONCLUSIVE, NEVER a false negative answer.
+claimed for huge inside intervals. The symbolic escape bound is used to
+prove that the number of iterations is finite.
 
 \subsubsection{An explicit first-external-event
 deadline}\label{an-explicit-first-external-event-deadline}
 
-Let R\_0=max\_\{q in B\_0\}\textbar\textbar q-p\_0\textbar\textbar{}
-(zero for empty B), and use ell\_0=ell(K union \{p\_0\},D). If an
-external event exists, its FIRST time is strictly less than
+Let $R_0=\max_{q\in B_0}\|q-p_0\|_\infty$
+(zero for empty \(B\)), and use $\ell_0=\ell(K\cup\{p_0\},D)$. If an
+external event exists, its first time is strictly less than
 
-\begin{verbatim}
-(Q+1)*E(ell_0)+Q*(R_0+2Q+10).                           (REMOTE10a)
-\end{verbatim}
+\begin{equation}\label{eq:remote10a}
+(Q+1)E(\ell_0)+Q(R_0+2Q+10).
+\end{equation}
 
 Indeed, the head first exits the guard square at some
-tau\textless=E(ell\_0). Either an external event has already occurred,
-or all preceding event cells are in K. In the latter case the NEXT S\_D
-after tau, if present, cannot be in K: otherwise (REMOTE7) would enclose
+$\tau\le E(\ell_0)$. Either an external event has already occurred,
+or all preceding event cells are in \(K\). In the latter case the next $S_D$
+after \(\tau\), if present, cannot be in \(K\): otherwise \eqref{eq:remote7} would enclose
 the whole prefix through it inside that square, contradicting the exit
-at tau. Apply the existing first-event waiting bound at X\_tau, using
-R(X\_tau)\textless=R\_0+tau. If there is no next event, there is no
+at \(\tau\). Apply the existing first-event waiting bound at $X_\tau$, using
+$R(X_\tau)\le R_0+\tau$. If there is no next event, there is no
 external event at all. This is also a direct two-stage decision proof,
 independent of the loop argument.
 
-For fixed D and fixed K in the normalized p\_0=0 frame, the filtered
+For fixed \(D\) and fixed \(K\) in the normalized $p_0$=0 frame, the filtered
 predicate is polynomial-time in the sparse binary-coordinate input
 encoding, using the existing fixed-D polynomial-time next-event
-procedure. There are only constantly many internal events, and the TOTAL
-literal inside-prefix replay is bounded by E(ell\_0), a constant in this
-fixed-parameter assertion. These constants can be enormous; no practical
-efficiency or uniform polynomial bound in D,K is claimed.
+procedure. There are only constantly many internal events, and the total
+literal inside-prefix replay is bounded by $E(\ell_0)$, a constant in this
+fixed-parameter assertion.
 
-Why this is more than the old first-event test: the first many S\_D
-events can occur inside K and must be ignored. The earlier fixed-n event
+The spatially filtered query goes beyond the unfiltered first-event test of
+Section~\ref{predicting-the-next-old-black-read}: the first many $S_D$
+events can occur inside \(K\) and must be ignored. The earlier fixed-n event
 theorem alone does not say when that filtering loop stops. The endpoint
 tube plus finite-domain escape now proves that it always does.
 
 \subsection{Quantitative exterior feedback on every infinite event
 chain}\label{remote-6}
 
-Let N\_D(t) count all S\_D reads at offsets 0\textless=s\textless t, and
-M\_(D,K)(t) count those outside fixed K. Internal events occur in at
-most M+1 runs. Theorem 3 gives
+Let $N_D(t)$ count all $S_D$ reads at offsets $0\le s<t$, and let
+$M_{D,K}(t)$ count those outside fixed $K$. Put $b_K=b(K,D)$, as defined
+in the bounded-burst theorem. Internal events occur in at most
+$M_{D,K}(t)+1$ runs, so that theorem gives
 
-\begin{verbatim}
-N_D(t) <= b+(b+1)*M_(D,K)(t),
-M_(D,K)(t) >= floor(N_D(t)/(b+1)).                       (REMOTE11)
-\end{verbatim}
+\begin{equation}\label{eq:remote11}
+\begin{aligned}N_D(t)&\le b_K+(b_K+1)M_{D,K}(t),\\M_{D,K}(t)&\ge\left\lfloor\frac{N_D(t)}{b_K+1}\right\rfloor.\end{aligned}
+\end{equation}
 
-For an infinite S\_D chain, define the computable integer
+For an infinite $S_D$ chain, define the computable integer
 
-\begin{verbatim}
-n_D(t,W)=max{n>=0:T_D(n,W)<=t},                          (REMOTE12)
-\end{verbatim}
+\begin{equation}\label{eq:remote12}
+n_D(t,W)=\max\{n\ge0:T_D(n,W)\le t\}.
+\end{equation}
 
-with the retained deadline (REMOTE2). It follows that
+with the deadline \eqref{eq:event-budget}. It follows that
 
-\begin{verbatim}
-M_(D,K)(t) >= floor(n_D(t,W)/(b+1)).                     (REMOTE13)
-\end{verbatim}
+\begin{equation}\label{eq:remote13}
+M_{D,K}(t)\ge\left\lfloor\frac{n_D(t,W)}{b_K+1}\right\rfloor.
+\end{equation}
 
-For fixed X,D,K, this is an Omega(sqrt(t)) lower bound as t tends to
-infinity, with a very large fixed denominator b+1. It is not an asserted
-optimal density. No independent-bit count or computational power
-conclusion follows from it. For empty K, use M=N and b=0. No finite
-observation can establish the premise that the entire chain is infinite.
+For fixed $X,D,K$, this gives an $\Omega(\sqrt t)$ lower bound on the
+number of exterior events along an infinite event chain. The constant
+depends on the fixed region through $b_K+1$. For empty $K$, use
+$M_{D,K}=N_D$ and $b_K=0$.
 
 \subsubsection{A stronger exterior-only quadratic
 deadline}\label{a-stronger-exterior-only-quadratic-deadline}
 
-The factor b+1 in (REMOTE13) can be avoided in the LEADING quadratic
+The factor $b_K+1$ in \eqref{eq:remote13} can be avoided in the leading quadratic
 coefficient. Augment the state hull by the observation region:
 
-\begin{verbatim}
-C_K(X)=conv(B union {p} union K),
-W_K=diam_infinity(C_K(X_0)).
-\end{verbatim}
+\[
+C_K(X)=\operatorname{conv}(B\cup\{p\}\cup K),\qquad W_K=\operatorname{diam}_\infty C_K(X_0).
+\]
 
-A finite macro ending just after the FIRST EXTERNAL S\_D event satisfies
+A finite macro ending just after the first external $S_D$ event satisfies
 
-\begin{verbatim}
-C_K(X_new) subset C_K(X)+[-9Q,9Q]^2,                    (REMOTE13a)
-duration <= 2Q*diam_infinity(C_K(X))+20Q^2+b.            (REMOTE13b)
-\end{verbatim}
+\begin{equation}\label{eq:remote13ab}
+\begin{aligned}C_K(X_{\rm new})&\subset C_K(X)+[-9Q,9Q]^2,\\\text{duration}&\le2Q\operatorname{diam}_\infty C_K(X)+20Q^2+b_K.\end{aligned}
+\end{equation}
 
-To prove (REMOTE13a), if there are internal events, their entire prefix
-is in conv(\{p\} union K)+{[}-H\_D,H\_D{]}\^{}2 by (REMOTE7). The full
+To prove \eqref{eq:remote13ab}, if there are internal events, their entire prefix
+is in $\operatorname{conv}(\{p\}\cup K)+[-H_D,H_D]^2$ by \eqref{eq:remote7}. The full
 field at the last internal post-event state is therefore in
-C\_K(X)+{[}-H\_D,H\_D{]}\^{}2, WITHOUT dropping the initial field. Apply
-the retained 5Q next-event convex-halo theorem to the final ordinary
-event macro. Since H\_D+5Q=8Q+2\textless=9Q, (REMOTE13a) follows. With
-no internal event, the original 5Q bound is already sufficient.
+$C_K(X)+[-H_D,H_D]^2$, without dropping the initial field. Apply
+the \(5Q\) one-event convex-hull theorem of Section~\ref{quadratic-event-budgets} to the final ordinary
+event macro. Since $H_D+5Q=8Q+2\le9Q$, \eqref{eq:remote13ab} follows. With
+no internal event, the original \(5Q\) bound is already sufficient.
 
-For (REMOTE13b), (REMOTE4) bounds the first internal event duration by
-\[Q\operatorname{diam}(C_K(X))+5Q^2.\]
+For the duration calculation, put \(W:=\operatorname{diam}_\infty C_K(X)\).
+Then \eqref{eq:remote4} bounds the first internal event duration by
+\[QW+5Q^2.\]
 From its pre-read state through the last internal post-event state there are
-fewer than \(b\) further updates, by the burst proof. At that boundary the
+fewer than \(b_K\) further updates, by the burst proof. At that boundary the
 complete head-relative radius is at most \(W+2H_D=W+6Q+4\).
 The first-event estimate makes the last macro at most \(Q(W+8Q+14)\)
 updates. Adding these conservative bounds gives
 \[
-2QW+13Q^2+14Q+b\le2QW+20Q^2+b,
+2QW+13Q^2+14Q+b_K\le2QW+20Q^2+b_K,
 \]
 since \(Q\ge2\). With no internal event, the original
 \(Q(W+2Q+10)\) estimate is smaller. Overcounting the first internal read
-only weakens the bound. For empty \(K\), use \(b=0\).
+only weakens the bound. For empty \(K\), use \(b_K=0\).
 
-After n EXTERNAL events, (REMOTE13a) gives augmented width at most
-W\_K+18Qn. Consequently the post-nth-external-event time, IF PRESENT,
+After \(n\) external events, \eqref{eq:remote13ab} gives augmented width at most
+$W_K+18Qn$. Consequently the post-nth-external-event time, if present,
 satisfies
 
-\begin{verbatim}
-U_(D,K)(n,W_K)
-  = n*(2QW_K+20Q^2+b)+18Q^2*n*(n-1).                  (REMOTE13c)
-\end{verbatim}
+\begin{equation}\label{eq:remote13c}
+U_{D,K}(n,W_K)=n(2QW_K+20Q^2+b_K)+18Q^2n(n-1).
+\end{equation}
 
 On an infinite chain,
 
-\begin{verbatim}
-M_(D,K)(t) >= max{n>=0: U_(D,K)(n,W_K)<=t}.             (REMOTE13d)
-\end{verbatim}
+\begin{equation}\label{eq:remote13d}
+M_{D,K}(t)\ge\max\{n\ge0:U_{D,K}(n,W_K)\le t\}.
+\end{equation}
 
-For every fixed K this lower bound has leading asymptotic coefficient
-\(\sqrt{t}/(\sqrt{18}Q)\), INDEPENDENT of K. The linear coefficient
-and the onset of that asymptotic regime can grow enormously with K
-through b. There is no assertion of an estimate uniform in regions K
-that grow with time. The new spatial expansion is in EXTERNAL event
-count; the weaker bound obtained by multiplying the old all-event
-deadline by the internal burst count is not used.
+For every fixed \(K\), the leading asymptotic coefficient is
+\(\sqrt{t}/(\sqrt{18}Q)\), independent of \(K\). The spatial expansion
+is measured directly in exterior-event count.
 
 \subsection{Simultaneously remote, late-born, arbitrarily long black
 lifetimes}\label{remote-7}
 
-An orbit that is NOT eventually a nonzero translating periodic trace has
-infinitely many S\_D for EVERY D, by the existing stale-memory theorem.
+An orbit that is not eventually a nonzero translating periodic trace has
+infinitely many $S_D$ events for each $D$, by the first-event waiting theorem.
 
-\textbf{Theorem 6 (remote long feedback necessity).} On every such
-orbit, for every D\textgreater=1, finite K, and time T, there are
-infinitely many cells/lifetimes described by times b,e with
+\textbf{Theorem (remote long feedback necessity).} On every such
+orbit, for every $D\ge1$, finite \(K\), and time T, there are
+infinitely many cells/lifetimes described by times b,\(e\) with
 
-\begin{verbatim}
-T < b < e,       e-b>D,       x not in K,
-update b reads x white and makes it black,
-update e is its NEXT read, black.                       (REMOTE14)
-\end{verbatim}
+\begin{equation}\label{eq:remote14}
+\begin{gathered}T<b<e,\qquad e-b>D,\qquad x\notin K,\\\text{update }b\text{ reads }x\text{ white and makes it black},\\\text{update }e\text{ is its next read, black}.\end{gathered}
+\end{equation}
 
-These lifetimes can be chosen at infinitely many DISTINCT, unbounded
+These lifetimes can be chosen at infinitely many distinct, unbounded
 cells. This does not assert that the whole event sequence eventually
 avoids each cell.
 
-Proof: restart at the complete state at time T+1. Corollary 4 supplies
-infinitely many later S\_D events outside K. At most
-\textbar B\_(T+1)\textbar{} can consume black lifetimes already present
+Proof: restart at the complete state at time \(T+1\). The unbounded-event-location corollary supplies
+infinitely many later $S_D$ events outside \(K\). At most
+$|B_{T+1}|$ can consume black lifetimes already present
 at the restart. Every other such read consumes a lifetime born at a real
-forward white update b\textgreater=T+1, at the same exterior cell. The
-intrinsic S\_D condition then forces e-b\textgreater D. There was no
+forward white update $b\ge T+1$, at the same exterior cell. The
+intrinsic $S_D$ condition then forces $e-b>D$. There was no
 intermediate read because black lifetimes end at their next read.
 Removing the finitely many initial-lifetime events from an unbounded
 event-position set leaves an unbounded set, so the surviving lifetimes
-can be chosen at infinitely many distinct cells. Equations (REMOTE13)
-and (REMOTE13d) also give count bounds after subtracting the finite
+can be chosen at infinitely many distinct cells. Equations \eqref{eq:remote13}
+and \eqref{eq:remote13d} also give count bounds after subtracting the finite
 stock. \(\square\)
 
-This is a genuine quantifier strengthening. Separately knowing `some
-blockers are arbitrarily distant' and `some lifetimes are arbitrarily
-long' does NOT imply (REMOTE14); those could have been different
-families. The endpoint-tube argument is what forces long-lived feedback
-to recur outside every finite region.
-
-It concerns literal S\_D consumptions. It must not be relabelled as a
-theorem that the same long-lived cells are PG primary/secondary
-blockers: some S\_D events can occur inside one PG macro, and no
-transfer theorem is proved here.
-
-\input{birth-feedback}
+The same lifetimes satisfy all three requirements: late birth, large age
+and remote consumption. The endpoint-tube argument forces this feedback to
+recur outside every finite region.
+ \input{birth-feedback}
 
 \section{A twenty-black construction and the role of
 distance}\label{a-twenty-black-construction-and-the-role-of-distance}
@@ -1243,371 +1241,396 @@ distance}\label{a-twenty-black-construction-and-the-role-of-distance}
 The following construction realizes the spatial-scale obstruction with a
 fixed number of input cells and a fixed number of intervening events.
 Its lifetime has birth \(b=60\), consumption \(e=624n-1516\), and age
-\(e-b=624n-1576\). The exact first standard time (CIRCUIT1) is
+\(e-b=624n-1576\). The exact first permanent standard time is
 \(e+774\). All twenty cells are specified at input time. We give the
 full affine construction and the guard argument for every even
-\(n\ge20\). The outgoing port is the four-cell theorem {[}5{]}; the
-present paper owns the fixed-mass lifetime and event-count conclusion.
+\(n\ge20\). The outgoing port from the four-cell theorem {[}5{]} supplies
+the five building blocks used to control this lifetime and its event count.
 
 \subsection{Exact seed and the inherited reference}\label{circuit-2}
 
 The literal rule is white/right, black/left, toggle then move, on
-Z\^{}2. A state at time t precedes update t. Headings are
-N,E,S,W=0,1,2,3. All unspecified input cells are white.
+$\mathbb Z^2$. A state at time t precedes update t. Headings are
+$\mathrm N,\mathrm E,\mathrm S,\mathrm W=0,1,2,3$. All unspecified input cells are white.
 
 Use the already certified outgoing four-cell port
 
-\begin{verbatim}
-G={(0,-1),(1,1),(1,3),(2,2)}
-\end{verbatim}
+\[
+G=\{(0,-1),(1,1),(1,3),(2,2)\}.
+\]
 
-at the origin facing E. Let rho be clockwise quarter rotation. At a pose
-(p,h), write G{[}p,h{]}=p+rho\^{}(h-1)G. For even n\textgreater=20 the
+at the origin facing \(\mathrm E\). Let \(\rho(x,y)=(y,-x)\) be clockwise
+quarter rotation. At a pose
+\((p,h)\), write $G[p,h]=p+\rho^{h-1}G$. For even $n\ge20$ the
 complete input black set is
 
-\begin{verbatim}
-B_n = union of G[p_i,h_i], i=0,...,4,
-\end{verbatim}
+\[
+B_n=\bigcup_{i=0}^4G[p_i,h_i].
+\]
 
 with the following five poses:
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
-i & p\_i & h\_i \\
+$i$ & $p_i$ & $h_i$ \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0 & (0,0) & E \\
-1 & (n-1,n) & N \\
-2 & (-n,3n-4) & W \\
-3 & (-5n+5,-n) & S \\
-4 & (-3n,-3n+8) & E \\
+0 & $(0,0)$ & $\mathrm E$ \\
+1 & $(n-1,n)$ & $\mathrm N$ \\
+2 & $(-n,3n-4)$ & $\mathrm W$ \\
+3 & $(-5n+5,-n)$ & $\mathrm S$ \\
+4 & $(-3n,-3n+8)$ & $\mathrm E$ \\
 \end{longtable}
 
-Start the one physical ant at (0,0),E. Subsection \ref{circuit-3} proves
+Start the one physical ant at \((0,0),\mathrm E\). Subsection \ref{circuit-3} proves
 that these five four-cell sets are pairwise disjoint, so the input has
-EXACTLY twenty black sites.
+exactly twenty black sites.
 
 \subsubsection{Reference data, checked rather than inferred from a long
 run}\label{reference-data-checked-rather-than-inferred-from-a-long-run}
 
-From G the 182-step prefix A reaches position (5,1),E with 36 black
-sites. Its entire subsequent word is U\^{}omega, where U is the fixed
-standard 104-word with drift (2,2). Define q\_i and h\_i to be the
-absolute reference pose at time 182+i. The finite phase data used below
+Define \(A\) as the first 182 turns of the literal orbit from
+\((G,(0,0),\mathrm E)\), and \(U\) as its next 104 turns.
+The prefix \(A\) reaches \((5,1),\mathrm E\) with 36 black sites;
+Theorem~2 and Section~3 of {[}5{]} certify that the subsequent word is
+\(U^\omega\), with drift \((2,2)\). Define \(q_i\) and \(\theta_i\) as the
+absolute reference pose at time \(182+i\). The finite phase data used below
 are
 
-\begin{verbatim}
-q_14=(8,2), h_14=E, U_14=R;
-q_61=(7,8), h_61=N;
-q_71=(6,9), h_71=N.
-\end{verbatim}
+\[
+\begin{gathered}q_{14}=(8,2),\quad \theta_{14}=\mathrm E,\quad U_{14}=\mathrm R;\\q_{61}=(7,8),\quad \theta_{61}=\mathrm N;\\q_{71}=(6,9),\quad \theta_{71}=\mathrm N.\end{gathered}
+\]
 
-The reference reads (0,2) white at update 60, does not read it again in
+The reference reads \((0,2)\) white at update 60, does not read it again in
 the 182-step prelude, and never reads it on the tail (all tail
-x-coordinates are at least four). It is therefore a newly born,
-permanent black lifetime on the UNPERTURBED reference. The constructed
+\(x\)-coordinates are at least four). It is therefore a newly born,
+permanent black lifetime on the unperturbed reference. The constructed
 circuit will read it again.
 
-The four initial G sites are first read at offsets 1,22,32,58. The only
-later S\_128 reads of this reference are at offsets 157,280,281, with
+The four initial \(G\) sites are first read at offsets 1,22,32,58. The only
+later $S_{128}$ reads of this reference are at offsets 157,280,281, with
 respective previous reads 9,144,145. The no-later-events claim is
-checked for all future: for each L phase of U, there is a same-cell
-preceding phase at distance \textless=128 already available by tail
+checked for all future: for each \(\mathrm L\) phase of \(U\), there is a same-cell
+preceding phase at distance at most 128 already available by tail
 epoch one. The finite prelude/first epoch is checked literally. The
-stationary maximum black reread gap is 116, as in the retained
-standard-memory analysis.
+stationary maximum black reread gap on \(U^\omega\) is 116.
 
 The reference's complete 36-cell state passes both the all-epoch
 breakpoint parity verifier and the independent
-stable-class/clean-seed-and-ray verifier. The latter criterion retains
-its attribution to Jillhewar's 2026 supplied-word result, already cited
-in \texttt{periodic-candidate-certification.md}; neither it nor the
-four-cell port is claimed new here.
+stable-class/clean-seed-and-ray verifier. The latter criterion uses
+Jillhewar's supplied-word realization criterion {[}3{]}.
+The four-cell port is the construction of {[}5{]}.
 
 \subsection{Universal autonomous execution of the five
 stages}\label{circuit-3}
 
-Put n=2k, k\textgreater=10. The five claimed stage words, in their
+Put \(n=2k\), $k\ge10$. The five claimed stage words, in their
 respective rotated poses, are
 
-\begin{verbatim}
-A U^(k-4)  U[:61],
-A U^(2k-5) U[:71],
-A U^(4k-6) U[:61],
-A U^(2k-7) U[:71],
-A U^(3k-4) U[:14].                                      (CIRCUIT2)
-\end{verbatim}
+\begin{equation}\label{eq:circuit2}
+\begin{gathered}AU^{k-4}U[0:61],\\AU^{2k-5}U[0:71],\\AU^{4k-6}U[0:61],\\AU^{2k-7}U[0:71],\\AU^{3k-4}U[0:14].\end{gathered}
+\end{equation}
 
 The endpoint identities from the phase data give the start times
 
-\begin{verbatim}
-t_0=0,
-t_1=52n-173,
-t_2=156n-440,
-t_3=364n-821,
-t_4=468n-1296,
-e=624n-1516.                                             (CIRCUIT3)
-\end{verbatim}
+\begin{equation}\label{eq:circuit3}
+\begin{gathered}t_0=0,\quad t_1=52n-173,\quad t_2=156n-440,\\t_3=364n-821,\quad t_4=468n-1296,\quad e=624n-1516.\end{gathered}
+\end{equation}
 
-Stages 0 through 3 end at the next table pose. Stage 4 ends at (0,2),E,
-BEFORE its next update. This final update is not included in (CIRCUIT2).
+Stages 0 through 3 end at the next table pose. Stage 4 ends at \((0,2),\mathrm E\),
+before its next update. This final update is not included in \eqref{eq:circuit2}.
 
 Endpoint algebra alone would not prove these words executable: previous
 wakes and future initial ports could cause an earlier divergence. The
 next certificate is the missing physical guard.
 
-\subsubsection{3.1 Pairwise separation of all stage READ
+\subsubsection{Pairwise separation of all stage read
 sets}\label{pairwise-separation-of-all-stage-read-sets}
 
-Let V\_i(k) be the full set of pre-update read positions in stage i of
-(CIRCUIT2), not its black set and not just its net flips. The following
-ten strict separations cover every pair. A row states max l(V\_A)
-\textless{} beta \textless= min l(V\_B).
+Let $V_i(k)$ be the full set of pre-update read positions in stage i of
+\eqref{eq:circuit2}, not its black set and not just its net flips. The following
+ten strict separations cover every pair. A row states $\max\ell(V_A)<\beta\le\min\ell(V_B)$.
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
-A & B & l(x,y) & beta(k) \\
+A & \(B\) & $\ell(x,y)$ & $\beta(k)$ \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0 & 1 & y & 2k \\
-2 & 0 & x & 0 \\
-3 & 0 & y & -2 \\
-4 & 0 & x & 0 \\
-2 & 1 & x & -2k+1 \\
-3 & 1 & y & 2k \\
-4 & 1 & y & 2k \\
-3 & 2 & y & -2k+1 \\
-2 & 4 & x-y & -11 \\
-3 & 4 & x & -6k \\
+0 & 1 & $y$ & $2k$ \\
+2 & 0 & $x$ & $0$ \\
+3 & 0 & $y$ & $-2$ \\
+4 & 0 & $x$ & $0$ \\
+2 & 1 & $x$ & $-2k+1$ \\
+3 & 1 & $y$ & $2k$ \\
+4 & 1 & $y$ & $2k$ \\
+3 & 2 & $y$ & $-2k+1$ \\
+2 & 4 & $x-y$ & $-11$ \\
+3 & 4 & $x$ & $-6k$ \\
 \end{longtable}
 
 Here is the all-parameter checking argument. Each read set is exactly a
 union of 182 affine points, 104 affine arithmetic segments, and the
-stated 14/61/71 partial-epoch points. For a segment
+stated 14/61/71 partial-epoch points. For stage \(i\), put
+\(r_i\equiv h_i-1\pmod4\) and \(d_i=\rho^{r_i}(2,2)\). Here \(h_i\) is the
+heading of the stage pose in the five-port table. Define the full-period
+exponents in \eqref{eq:circuit2} by
+\[
+(R_0(k),\ldots,R_4(k))=(k-4,2k-5,4k-6,2k-7,3k-4).
+\]
+A repeated-phase segment has the form
 
-\begin{verbatim}
-p_i(k)+rho^r q_j + a*d_i,    0<=a<R_i(k),
-\end{verbatim}
+\[
+p_i(k)+\rho^{r_i}q_j+ad_i,\qquad0\le a<R_i(k),
+\]
 
-its extrema under l are at a=0 or a=R\_i(k)-1, according to the sign of
-l(d\_i). They are affine integer functions of k. Partial-epoch positions
-use a=R\_i(k). Thus each table row reduces to FINITELY many inequalities
-alpha*k+gamma\textgreater=0. Such an inequality holds for all integers
-k\textgreater=10 iff alpha\textgreater=0 and
-10*alpha+gamma\textgreater=0. These two conditions are checked exactly,
+Its extrema under \(\ell\) are at \(a=0\) or \(a=R_i(k)-1\), according to the sign of
+$\ell(d_i)$. They are affine integer functions of \(k\). Partial-epoch positions
+use \(a=R_i(k)\). Thus each table row reduces to finitely many inequalities
+$\alpha k+\gamma\ge0$. Such an inequality holds for all integers
+$k\ge10$ iff $\alpha\ge0$ and
+$10\alpha+\gamma\ge0$. These two conditions are checked exactly,
 for every point and segment; no sampling or floating-point optimization
 is involved.
 
-The regenerated certificate contains 6,832 such inequalities and has
-minimum integer slack zero. Every R\_i(k) is also checked to be positive
-throughout the domain. In particular the table establishes V\_i(k)
-intersect V\_j(k)=empty. Every initial port cell belongs to the
-corresponding reference's first 59 reads, hence to its V\_i. The twenty
+The certificate mapped in Subsection~\ref{finite-premises} contains 6,832 such inequalities and has
+minimum integer slack zero. Every $R_i(k)$ is also checked to be positive
+throughout the domain. In particular the table establishes $V_i(k)\cap V_j(k)=\varnothing$. Every initial port cell belongs to the
+corresponding reference's first 59 reads, hence to its $V_i$. The twenty
 input cells are consequently distinct, and a port belonging to another
 stage is outside the whole current read set.
 
-\subsubsection{3.2 Why the disjoint read sets
+\subsubsection{Why the disjoint read sets
 suffice}\label{why-the-disjoint-read-sets-suffice}
 
 At the start of stage i, previous stages have changed only cells in
-their V\_j. Every other initial port is also outside V\_i. On V\_i the
-complete true field therefore agrees with a fresh rotated G, with white
+their $V_j$. Every other initial port is also outside $V_i$. On $V_i$ the
+complete true field therefore agrees with a fresh rotated \(G\), with white
 everywhere else on that read set. First-difference induction makes the
-entire stage word in (CIRCUIT2) literal. Induction over the five stages
-proves (CIRCUIT2)--(CIRCUIT3) for the ONE complete input B\_n. All
+entire stage word in \eqref{eq:circuit2} literal. Induction over the five stages
+proves \eqref{eq:circuit2}--\eqref{eq:circuit3} for the one complete input $B_n$. All
 previous black residue is still present outside the current stage reads.
 
-The apparent online placing of gates used during discovery is not the
-theorem's execution model. Formula B\_n places all gates at time zero,
-and the read-set separation proves precisely why these remote initial
-additions do not alter an earlier stage.
+Formula $B_n$ places all gates at time zero. The read-set separation
+therefore proves that each distant gate leaves all earlier stages unchanged.
 
-\subsubsection{3.3 The actual long-memory return and the count
+\subsubsection{The actual long-memory return and the count
 31}\label{the-actual-long-memory-return-and-the-count-31}
 
-The target x=(0,2) is not initially black. Stage 0 writes it black at
-b=60. It is not read again in that stage, and the read-set separations
-exclude it from stages 1--4 up to time e. At time e the ant reaches x,
-E, and reads it black; its next turn is L, while the fresh stage-4
-reference would require R. This is an exact first returned lifetime, not
+The target \(x=(0,2)\) is not initially black. Stage 0 writes it black at
+\(b=60\). It is not read again in that stage, and the read-set separations
+exclude it from stages 1--4 up to time \(e\). At time \(e\) the ant reaches
+\(x,\mathrm E\) and reads it black; its next turn is \(\mathrm L\), while
+the fresh stage-4 reference would require \(\mathrm R\). This is an exact first returned lifetime, not
 a geometric near-return.
 
-In (60,e), stage 0 contributes its three offsets 157,280,281. Each of
+In \((60,e)\), stage 0 contributes its three offsets 157,280,281. Each of
 stages 1--4 contributes all seven reference offsets
 1,22,32,58,157,280,281. No other stage has read any of its cells. Its
 four initial black first reads occur at absolute times greater than 128,
-and so are genuine intrinsic S\_128 events. All other gaps are those of
+and so are genuine intrinsic $S_{128}$ events. All other gaps are those of
 the reference. Therefore the count is exactly
 
-\begin{verbatim}
-3+4*7=31.                                                (CIRCUIT4)
-\end{verbatim}
+\begin{equation}\label{eq:circuit4}
+3+4\cdot7=31.
+\end{equation}
 
-The consumption at time e itself is NOT included. This convention
+The consumption at time \(e\) itself is not included. This convention
 matters.
 
-\subsection{The loop does not renew: a full-history P104 recovery
+\subsection{Full-history P104 recovery
 certificate}\label{circuit-4}
 
-To decide whether the return might start another enlarged circuit,
-retain the FULL endpoint B\_e(n). It has all five old wakes. We do not
+For the future after the return, retain the complete endpoint $B_e(n)$. It has all five old wakes. We do not
 replace the physical input by a cleaned configuration.
 
 Use the fixed unbounded region
 
-\begin{verbatim}
-Omega={ (x,y): x>=-16 and -14<=x+y<=12 }.                 (CIRCUIT5)
-\end{verbatim}
+\begin{equation}\label{eq:circuit5}
+\Omega=\{(x,y):x\ge-16,\ -14\le x+y\le12\}.
+\end{equation}
 
-We prove that the restriction of B\_e(n) to Omega is the SAME 90-cell
-set C for every k\textgreater=10. This is an equality of restrictions
-for this constructed family, not a confinement hypothesis on arbitrary
-HC inputs.
+We prove that the restriction of $B_e(n)$ to \(\Omega\) is the same 90-cell
+set \(C\) for every $k\ge10$. This is an equality of restrictions
+for every parameter in this constructed family.
 
-\subsubsection{4.1 All-parameter equality of the protected
+\subsubsection{All-parameter equality of the protected
 field}\label{all-parameter-equality-of-the-protected-field}
 
 The complete endpoint is the XOR of all twenty initial sites and every
-actual read position in (CIRCUIT2), counted with its visit parity. The
-stage-1 read set has x+y\textgreater12. Stage 3 has x+y\textless-14.
-Stage 2 has x-y\textless-44, whereas Omega entails
-x-y=2x-(x+y)\textgreater=-44. Those three stages and their initial ports
-miss Omega.
+actual read position in \eqref{eq:circuit2}, counted with its visit parity. The
+stage-1 read set has $x+y>12$. Stage 3 has $x+y<-14$.
+Stage 2 has $x-y<-44$, whereas \(\Omega\) entails
+$x-y=2x-(x+y)\ge-44$. Those three stages and their initial ports
+miss \(\Omega\).
 
 Stage 0 has a fixed prefix and NE period streams. Every epoch
-j\textgreater=6 has x+y\textgreater12; all k\textgreater=10 include the
-first six epochs. Its terminal partial epoch is outside Omega. Thus its
+$j\ge6$ has $x+y>12$; all $k\ge10$ include the
+first six epochs. Its terminal partial epoch is outside \(\Omega\). Thus its
 restriction is constant.
 
-For stage 4, let r=3k-4 and change epoch variable from j to v=j-r. Every
+For stage 4, let \(r=3k-4\) and change epoch variable from \(j\) to \(v=j-r\). Every
 tail point becomes
 
-\begin{verbatim}
-p_4(k)+q_i+j*(2,2) = q_i+(-8,0)+v*(2,2),               (CIRCUIT6)
-\end{verbatim}
+\begin{equation}\label{eq:circuit6}
+p_4(k)+q_i+j(2,2)=q_i+(-8,0)+v(2,2).
+\end{equation}
 
-independent of k. Complete epochs have -r\textless=v\textless=-1; the
-partial epoch has v=0 and i\textless14. At k=10, r=26. Every additional
-epoch v\textless=-27 lies below x+y=-14. The stage-4 initial port and
-182-step prefix also lie below that line for all k\textgreater=10.
+independent of \(k\). Complete epochs have $-r\le v\le-1$; the
+partial epoch has \(v=0\) and $i<14$. At \(k=10\), \(r=26\). Every additional
+epoch $v\le-27$ lies below \(x+y=-14\). The stage-4 initial port and
+182-step prefix also lie below that line for all $k\ge10$.
 
-Consequently C is the following finite XOR, restricted to Omega:
+Consequently \(C\) is the following finite XOR, restricted to \(\Omega\):
 
-\begin{verbatim}
-G;
-all 182 stage-0 prefix reads;
-q_i+j*(2,2), 0<=i<104, 0<=j<6;
-q_i+(-8,0)+v*(2,2), 0<=i<104, -26<=v<0;
-q_i+(-8,0), 0<=i<14.                                    (CIRCUIT7)
-\end{verbatim}
+\begin{equation}\label{eq:circuit7}
+\begin{gathered}G;\quad\text{all 182 stage-zero prefix reads};\\q_i+j(2,2),\quad0\le i<104,\ 0\le j<6;\\q_i+(-8,0)+v(2,2),\quad0\le i<104,\ -26\le v<0;\\q_i+(-8,0),\quad0\le i<14.\end{gathered}
+\end{equation}
 
-The checker evaluates (CIRCUIT7), not an assumed invisible-history
-oracle. It obtains 90 cells. It additionally verifies all 1,247 affine
+The checker identified in Subsection~\ref{finite-premises} evaluates
+the finite XOR expression \eqref{eq:circuit7} directly. It obtains 90 cells. It additionally verifies all 1,247 affine
 and 208 constant inequalities used above. The genuine full endpoints for
 eight parameters are checked against an independent literal replay as a
 control, not as the universal argument.
 
-\subsubsection{4.2 Protected scattering and exact first standard
+\subsubsection{Protected scattering and exact first standard
 time}\label{protected-scattering-and-exact-first-standard-time}
 
-From the reference state (C,(0,2),E), execute 774 literal updates. All
-positions remain in Omega. The complete reference endpoint has 162 black
-cells and pose (5,-3),E. Its next 104-word is the cyclic phase-103 shift
-of the inherited U, with drift (2,-2). Both independent infinite checks
-certify its entire future. Every tail phase lies in Omega, and adding
-(2,-2) preserves x+y and increases x. Thus the whole infinite reference
-future stays in Omega.
+From the reference state \((C,(0,2),\mathrm E)\), execute 774 literal updates. All
+positions remain in \(\Omega\). The complete reference endpoint has 162 black
+cells and pose \((5,-3),\mathrm E\). Its next 104-word is the cyclic phase-103 shift
+of \(U\), with drift \((2,-2)\). Both independent infinite checks
+certify its entire future. Every tail phase lies in \(\Omega\), and adding
+\((2,-2)\) preserves \(x+y\) and increases \(x\). Thus the whole infinite reference
+future stays in \(\Omega\).
 
-The TRUE state at time e agrees with this reference on all of Omega. By
+The true state at time \(e\) agrees with this reference on all of \(\Omega\). By
 first-difference coupling its whole future read trace is the same, for
-every n, irrespective of the physically retained exterior wakes. This
-proves standardness from e+774.
+every \(n\), irrespective of the physically retained exterior wakes. This
+proves standardness from \(e+774\).
 
-The reference turn at offset 773 is R; the preceding letter in the
-backwards 104-periodic extension of the certified tail is L. Therefore a
-standard future cannot start at or before e+773: any such 104-periodic
+The reference turn at offset 773 is \(\mathrm R\); the preceding letter in the
+backwards 104-periodic extension of the certified tail is \(\mathrm L\). Therefore a
+standard future cannot start at or before \(e+773\): any such 104-periodic
 word would agree with the known tail over a whole period and hence at
 the preceding offset as well. The mismatch contradicts that. Together
-with the positive certificate, this proves the exact FIRST time
-(CIRCUIT1), including the exclusion of starts before e. It does not rely
+with the positive certificate, this proves the exact first time
+claimed above, including the exclusion of starts before \(e\). It does not rely
 on a finite observed repetition as an infinite certificate.
 
-This closes this particular self-renewal attempt in the positive
-direction. At the return it does NOT recreate the original five-port
-input. The certified future is P104, not a second expanding circuit.
+Every member of the constructed family therefore reaches the standard
+highway at the exact time \(624n-742\).
 
-\subsection{Precise consequence for the attempted global
-bound}\label{circuit-5}
+\subsection{Why a lifetime bound needs spatial information}\label{circuit-5}
 
-Let N\_D(b,e) count S\_D reads strictly between a black lifetime's birth
+Let $N_D(b,e)$ count $S_D$ reads strictly between a black lifetime's birth
 and its consumption. On all complete finite-support classical inputs
-there is no finite- valued function F(D,m,M), computable or otherwise,
+there is no finite-valued function \(F(D,m,M)\), computable or otherwise,
 satisfying
 
-\begin{verbatim}
-e-b <= F(D,N_D(b,e),|B_0|)                               (CIRCUIT8)
-\end{verbatim}
+\begin{equation}\label{eq:circuit8}
+e-b\le F(D,N_D(b,e),|B_0|).
+\end{equation}
 
 for every post-input-created consumed black lifetime. In this family the
-three arguments are fixed at (128,31,20), while e-b=624n-1576 is
+three arguments are fixed at \((128,31,20)\), while \(e-b=624n-1576\) is
 unbounded. The same examples refute a bound in terms of an upper budget
-m=31 and M=20. Their excursion radius is unbounded as well.
+\(m=31\) and \(M=20\). Their excursion radius is unbounded as well.
 
-By contrast, the zero-intervening-event estimate remains true. At a
-white birth b there is no S\_D event. If e-b\textgreater D and there is
-none in (b,e), the death is the FIRST S\_D from X\_b and its
-source/event positions are equal. The endpoint-tube time estimate gives
-e-b+1\textless=5*4\^{}D. If e-b\textless=D the weaker bound
-e-b\textless=5*4\^{}D is immediate. Thus
+The no-intervening-event bound \eqref{eq:circuit9} shows that zero events do give a
+diameter-independent lifetime bound. The twenty-cell family shows why this
+cannot be extended to an arbitrary fixed positive event count.
 
-\begin{verbatim}
-N_D(b,e)=0 => e-b<=5*4^D.                                (CIRCUIT9)
-\end{verbatim}
+The quadratic event deadline retains the input diameter and therefore
+allows these delays: in this family $|B_0|=20$ while
+$\operatorname{diam}(B_0)=\Theta(n)$. The construction varies the input with
+$n$ and every member eventually reaches the standard highway.
 
-Equation (CIRCUIT9) is a direct corollary of the retained theorem, not a
-separate rediscovery of its predictor proof. The false step was
-extending it across an arbitrary finite number of intervening events
-without carrying spatial scale.
+\subsubsection{A corresponding count of ten-turn violations}\label{the-same-obstruction-for-the-concurrent-j10-event}
 
-No bound depending on the complete input, its coordinate bit length or
-spatial diameter is refuted. Here \textbar B\_0\textbar=20 but
-diam(B\_0)=Theta(n). The retained quadratic event deadline explicitly
-includes input diameter and is fully consistent with these linear-in-n
-delays. Nor does this show that one fixed seed has unbounded lifetimes,
-or refute a uniform bound on event count for each input.
+Let $\mathcal L_{10}$ contain the cyclic ten-turn factors of the
+standard word $U$, and let $J_{10}$ test whether the true ten-turn window
+ending now is outside this set. There are
+84 allowed factors. On every $X_n$ the number of \(J_{10}\) events strictly in
+\((60,e)\) is exactly \textbf{264}.
 
-\subsubsection{The same obstruction for the concurrent J10
-event}\label{the-same-obstruction-for-the-concurrent-j10-event}
-
-The concurrent factor-language import defines L10 as the ten-letter
-cyclic factors of U, and J10 as a true ten-turn window outside L10. We
-use only this definition, not its separate rigidity theorem. There are
-84 allowed factors. On every X\_n the number of J10 events strictly in
-(60,e) is exactly \textbf{264}.
-
-To check this uniformly, replace each U\^{}r in (CIRCUIT2) by one U. All
-r are positive. Every removed complete standard cycle contains only
+To check this uniformly, replace each $U^r$ in \eqref{eq:circuit2} by one \(U\). All
+\(r\) are positive. Every removed complete standard cycle contains only
 allowed factors; both length-nine boundary contexts are unchanged and
 one retained cycle is longer than their combined lengths. Therefore no
 forbidden-factor occurrence is lost or created at a splice. Direct
 counting on the fixed compressed word gives 264. The same calculation
 through the protected recovery and nine following standard turns gives
-532 J10 events from absolute update 9 onwards, with the last at e+782.
+532 J10 events from absolute update 9 onwards, with the last at \(e+782\).
 Later factors are standard. Eight uncompressed physical runs corroborate
 the interior count.
 
-Thus a bound using only J10 count and initial black count cannot bound
-this newly created lifetime's age either. This does NOT refute a bound
-on the TOTAL number of J10 events as a function of the complete input;
-that is a different potential route to HC. The concurrent import and its
-evidence remain unchanged.
+Thus initial black mass and the number of intervening ten-turn
+violations also leave these lifetime durations unbounded.
 
-\section{Reproduction and
-perspective}\label{reproduction-and-perspective}
+\subsection{Exact finite premises and immutable supplement}\label{finite-premises}
+
+The finite premises in this section are regenerated by the twenty-cell
+checker \nolinkurl{memory_feedback/verification/scalable_feedback_circuit/check.py}.
+Its source, helper \nolinkurl{circuit.py}, and retained \nolinkurl{report.json}
+are fixed in the scientific supplement at commit
+\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/memory_feedback/verification/scalable_feedback_circuit}{\nolinkurl{e93252230ea9109908c23a009824d72d30fb91e2}}.
+Paths below are relative to that directory. The checker uses Python 3.10+
+with assertions enabled and only the standard library. Copy that directory to a disposable location
+and run \nolinkurl{python3 check.py}; compare the resulting JSON with the
+immutable retained report. The dependency map is as follows.
+
+\begin{enumerate}
+\item \nolinkurl{circuit.reference()} defines \(A,U,q_i,\theta_i\) by literal
+replay from \(G\). \nolinkurl{check.reference_controls()} checks the
+36-cell endpoint, offsets \(14,61,71\), birth at update 60, seven event
+offsets, and the all-future predecessor bound with maximum stationary
+gap 116. Its two infinite-tail checks appear in the report under
+\nolinkurl{reference.period_parity} and \nolinkurl{reference.ordered_classes};
+the gap and offsets are recorded in the same \nolinkurl{reference} object.
+The previous reads \(9,144,145\) are obtained by replaying the first
+390 updates, as in that function's literal control.
+\item \nolinkurl{check.affine_endpoint_controls()} checks the 20 affine
+pose/time equalities in \eqref{eq:circuit3}, recorded under
+\nolinkurl{endpoints}. \nolinkurl{circuit.separation_certificate()} checks
+all ten rows of the separation table, all 6,832 affine inequalities,
+their minimum slack zero and positivity of every repeat count; its
+output is \nolinkurl{separation}. These are universal affine checks on
+\(k\ge10\), not a sampled-parameter inference.
+\item \nolinkurl{circuit.protected_core()} evaluates exactly the XOR in
+\eqref{eq:circuit7}. \nolinkurl{circuit.protected_region_certificate()}
+checks the 1,247 affine and 208 constant inequalities that justify this
+restriction for all \(k\ge10\). The \nolinkurl{protected_region} object
+records these counts and the 90-cell result; \nolinkurl{recovery.core_sha256}
+identifies the sorted coordinate list evaluated by the checker.
+\item \nolinkurl{check.recovery_controls()} checks all 774 protected
+updates, the 162-cell endpoint \(((5,-3),\mathrm E)\), the phase-103
+shift, drift \((2,-2)\), containment of every prefix/tail phase in
+\(\Omega\), and the incompatible turn at offset 773. The
+\nolinkurl{recovery} object records these results. Its all-future checks
+are \nolinkurl{circuit.verify_period()} (parity breakpoints) and
+\nolinkurl{check.ordered_class_check()} (full-drift chronology and
+clean-seed/ray equality). Region invariance then protects the whole
+tail, as proved above.
+\item \nolinkurl{check.finite_family_controls()} independently replays
+the eight listed parameters, checks full endpoint fields and the exact
+31-event count, and records them under \nolinkurl{finite_family}.
+The universal count follows from the reference offsets and stage
+separation, rather than from those eight controls.
+\nolinkurl{check.factor_controls()} records the exact ten-factor counts
+\(84,264,532\) and final offset 782 under \nolinkurl{factor_counts}.
+\end{enumerate}
+
+The report also records SHA256 digests of both verifier sources. The
+trusted finite basis is this explicit integer replay and the two
+implemented infinite-tail criteria, together with the analytic coverage
+and coupling arguments above; it has not been formalized in a proof
+assistant.
+
+\section{Reproduction}\label{reproduction-and-perspective}
 
 Run \texttt{python3\ memory\_feedback/reproduce.py} to replay the six
 scoped modules: first-event prediction, exact XOR continuation, event
@@ -1616,6 +1639,31 @@ compare full finite fields, reconstruct integer and rational
 inequalities, and verify permanent periodic tails at all parity
 breakpoints. Parameter families are covered by the affine and geometric
 proofs above; finite controls test their numerical premises.
+
+\section{Limitations}\label{limitations}
+
+The polynomial bounds fix \(D\), and the spatially filtered query also
+fixes \(K\) in the normalized input frame. The factor \(f(D)\) may be
+doubly exponential, and the finite-region escape constant can be enormous.
+The event count \(n\) is measured numerically, not by \(\log n\);
+the bounds do not give a polynomial ordinary-step simulation. Arbitrary
+compressed input strides retain totality but need not obey the bounded
+residue periods of histories generated from explicit sparse inputs.
+For fixed \(K\), the exterior deadline has a leading coefficient
+independent of \(K\); its linear coefficient and asymptotic onset depend
+on \(b_K\). This gives no uniform estimate for regions growing with time.
+
+The total queries decide a next event or a finite event prefix. They do
+not decide whether an infinite event chain occurs, nor whether every
+finite seed eventually reaches a standard highway. The directional tube
+bounds control ranges rather than limiting speeds or angular convergence.
+Remote feedback is necessary on the stated non-eventually-translating
+orbits; the construction supplies a family of increasingly long lifetimes
+with different finite inputs. Each member reaches the standard highway,
+so autonomous infinite renewal from one fixed seed remains open.
+
+\clearpage
+\section{Perspective}
 
 The predictor supplies a total query, while the XOR representation
 supplies its reusable physical output. The tube and escape arguments
@@ -1627,6 +1675,7 @@ one fixed seed can renew feedback indefinitely.
 
 \section{References}\label{references}
 
+\begingroup\small
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
@@ -1658,5 +1707,6 @@ one fixed seed can renew feedback indefinitely.
   Langton's ant}. Discrete Applied Mathematics 117, 41--50 (2002).
   \href{https://doi.org/10.1016/S0166-218X(00)00334-6}{doi:10.1016/S0166-218X(00)00334-6}.
 \end{enumerate}
+\endgroup
 
 \end{document}

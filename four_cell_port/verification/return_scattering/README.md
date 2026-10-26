@@ -1,7 +1,7 @@
 # Composable unbounded-return scattering
 
 Exact standard-library checker for the analytic theorem in
-`proof/results/return-scattering-closure.md`. This is NOT HC or a self-renewing
+[return-scattering-closure](../../proof/return-scattering-closure.md). This is NOT HC or a self-renewing
 controller. All obstacles are finite and preinstalled at input time.
 
 Each parameter n>=100 makes a NW excursion, a phase-72 reversal, a real read of
@@ -11,7 +11,7 @@ arbitrarily many such packets to be composed. The old lifetime has exact age
 208n+53684. Packet size and backward displacement are unbounded.
 
 ```
-python experiments/hc_global/return_scattering/check.py --compare experiments/hc_global/return_scattering/report.json
+python four_cell_port/verification/return_scattering/check.py --compare four_cell_port/verification/return_scattering/report.json
 ```
 
 No `-O`. The checker pins the unchanged neighbouring `guarded_scattering/check.py`

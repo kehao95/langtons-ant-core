@@ -50992,7 +50992,7 @@
   "schema": "langton-memory-interactive-v1",
   "scope": "Exact finite witnesses and arithmetic certificates; universal proofs remain with the linked publication.",
   "source_sha256": {
-    "memory_feedback/verification/birth_filtered_feedback/PROOF.md": "8738d314b5717bc787d53a88f22cec7734d13b510c06adb7e72029b2cb3c8cb7",
+    "memory_feedback/verification/birth_filtered_feedback/PROOF.md": "db6dedba7a484af6cc6a830db101b4ff63573765a89a5b4394592ac6407a125a",
     "memory_feedback/verification/birth_filtered_feedback/code/renewal.py": "5a10ede90fc96322d3fdffb100bc0d72bbec75e59c62706853df0def858abeb9",
     "memory_feedback/verification/scalable_feedback_circuit/circuit.py": "71d003d419995ea742e9a71f309f32df9329f886d186e6951b04b80b2ab0feca"
   }

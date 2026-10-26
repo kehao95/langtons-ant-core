@@ -11,7 +11,7 @@ thin-wake enumeration. The [profile proof](PROFILE_CLASSIFICATION.md) gives the 
 
 ## Proof dependencies
 
-The current main theorem fixes full drift `(2,-2)`, growth `12`, transverse
+The main theorem fixes full drift `(2,-2)`, growth `12`, transverse
 width `10`, and at most one odd translation class on each interior level.
 It derives the standard period-104 word and the complete standard wake.
 
@@ -23,20 +23,20 @@ The proof chain is:
    90,158 integer inequalities give caps 192/168/160/168/192; all 83 jobs finish.
 3. [Standard-profile corollary](proof/layer-profile.md): the fixed count profile
    allows unspecified longitudinal residues. This intermediate theorem is
-   subsumed by the current classification.
-4. The retained proof below establishes the complete-wake special case,
+   subsumed by the thin-wake classification.
+4. The proof below establishes the complete-wake special case,
    ordered-event coverage, general budgets and terminating inverse synthesis.
 
-# Retained complete-wake and general-synthesis proof
+# Complete-wake and general-synthesis proof
 
 The [article](paper/main.tex) proves conditional uniqueness and general
 wake-dependent bounds, inverse synthesis and a detour obstruction.
 
-The new proof joins an integer period bound `P<=168` to complete enumeration of
+The proof joins an integer period bound `P<=168` to complete enumeration of
 ordered visits. Its conventional coverage and pruning arguments are given here
 and in the paper; exact programs regenerate the finite certificates.
 [Verification code](verification/standard_wake/) and
-[evidence](evidence/standard_wake/) belong to this publication project.
+[evidence](evidence/standard_wake/) supply the computational certificates.
 The [clock companion](../clock_escape/PROOF.md) owns the shared integer clock.
 The supplied-word criterion and constructive seed are attributed to Jillhewar.
 
@@ -544,7 +544,7 @@ This holds for arbitrarily long inserted detours, not merely the finite search
 reported below. It does NOT exclude detours changing wake budgets, replacements
 that remove other steps, or arbitrary nonstandard periodic trajectories.
 
-## 12. Verification and publication evidence
+## 12. Verification and computational evidence
 
 `python3 wake_synthesis/reproduce.py` runs the complete standard-wake certificate
 and classification replay, together with the general algebraic checks.
@@ -562,21 +562,20 @@ The optional detour experiment examines 1,496,144 insertion pairs; the analytic
 wake-budget obstruction is proved for arbitrary closed-pose insertions in
 Section 11.
 
-## 13. Attribution and version continuity
+## 13. Attribution
 
 Jillhewar's finite-word realization criterion, constructive seed, extremal
 rigidity and special-width period bounds are explicitly attributed; see the
 [article bibliography](paper/main.tex). The integer clock belongs to
 [An Ant on the Clock](https://doi.org/10.5281/zenodo.23402379).
 
-## Recovery and geometry — research 9223766d
+## Quadratic wake geometry and analytic unit-diagonal exclusion
 
-The manuscript now includes the [general quadratic wake proof](verification/general_wake_parity/PROOF.md)
+The article includes the [general quadratic wake proof](verification/general_wake_parity/PROOF.md)
 and [analytic unit-diagonal proof](verification/unit_diagonal_analytic/PROOF.md).
 The former reconstructs odd-used edges from the boundary, derives the one-tour
-sign and evaluates it through arithmetic runs; the latter replaces the old local
-enumeration premise with forced words and a binary interleaving contradiction.
+sign and evaluates it through arithmetic runs; the latter uses forced words and a binary interleaving contradiction.
 The [thin parity splice](proof/thin-wake-parity-splice.md) eliminates three
-missing-layer cases analytically. Its alternative route inherits the old h=-7
+missing-layer cases analytically. Its alternative route uses the h=-7
 exhaustion and the separate standard-profile classification. The original
-five-profile exhaustive route remains the default replay and is unchanged.
+five-profile exhaustive route is the default replay.

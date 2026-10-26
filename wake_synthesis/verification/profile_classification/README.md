@@ -15,7 +15,7 @@ The full replay regenerates the integer period-168 witness, the 256 count
 relaxations, the 216 all-period modular exclusions, all 40 exact remaining
 searches, independent infinite-tail checks, and 40 cap-104 sanitized comparisons
 against the inherited baseline. Resource-limited searches fail as INCONCLUSIVE.
-No retained evidence or publication artifact is overwritten.
+Replay uses a disposable directory and preserves the supplied evidence.
 
 `counts_profile.py` owns the parameterized count relaxation;
 `audit_profile.py` independently checks local strings and modular necessities;

@@ -18,7 +18,7 @@ No source code from those works is copied. This is not global priority assurance
 
 The theorem is a necessary obstruction, NOT a realization criterion, a decision
 of HC for a supplied seed, or an assertion that all growth-eight highways are
-impossible. Published releases and the existing papers are not changed.
+impossible.
 
 ## 1. Model and theorem
 

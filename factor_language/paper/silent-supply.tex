@@ -53,7 +53,10 @@ only 44 sites directly to each later axial block.
 
 \subsection{Complete-field cofactor accounting}
 Let $k_T,k_W,k_1,k_2,k_3$ be the whole-period counts, inserting zeros for
-absent stages, and put $q=m+F$. Initially $2k_T\le q$.
+absent stages, and put $q=m+F$, allocating all literal flips from the
+start. Initially $2k_T\le q$, so the $T$ stage adds at most
+$4k_T\le2q$ black cells. The mass budget before the $W$ stage is therefore
+at most $q+4k_T\le3q$.
 Let $D$ be the complete net toggle set of the $W$ block. After that block
 write the actual field as $B=R\mathbin{\triangle}D$. The cofactor $R$ is
 an algebraic device, not a substituted physical state. Every cell of $D$
@@ -65,8 +68,9 @@ continues to participate in the actual evolution. For any toggle set $Z$,
 This holds pointwise: outside $Z\cap D$ the mass changes agree, and at an
 intersection site they differ by at most two. Consequently an $A^k$ block
 increases cofactor mass by at most $4k+88$, and at most 44 of its required
-first-L sites can be supplied by $D$. Allocating all $F$ literal flips from
-the start gives
+first-L sites can be supplied by $D$. The cofactor starts with the
+pre-$W$ mass budget $3q$; each earlier $A^{k_j}$ block adds at most
+$4k_j+88$. Hence
 \[
  5k_i\le3q+4\sum_{j<i}k_j+88(i-1)+44,\qquad i=1,2,3.
 \]
@@ -99,8 +103,7 @@ and the word on $[b,e)$ is ten-legal, its endpoints coincide. Thus
 \[
  e-b\le114|B_b|+223437.
 \]
-The mass belongs to the birth checkpoint. Repeated use of this inequality
-does not replace changing checkpoint masses by the original input mass.
+The mass belongs to the birth checkpoint.
 
 There is also an exact first-$J_{10}$ algorithm using one standard-periodic
 query and at most $114m+154694$ ordinary forward updates on an explicit
@@ -116,12 +119,10 @@ The core bound limits all remaining literal work and proves totality.
 The returned endpoint contains the original points, $O(m+1)$ point changes
 and at most 104 finite translating segments. Coordinates and elapsed time
 may be arbitrarily large binary integers; the algorithm has polynomial bit
-complexity in the explicit sparse input. This does not improve the older
-five-plan algorithm's guarantee for compressed inputs representing huge
+complexity in the explicit sparse input. This complements the five-plan algorithm of Theorem F for compressed inputs representing huge
 black mass. Both algorithms retain all unread debris.
 
 For a fixed finite target $K$, put
 $R=\max_{q\in K}\|q-p_0\|_\infty$. If the first future event lies in $K$,
 its pre-update index is at most $52R+114m+223437$. This bounds a first-event
-query, not later returns to $K$. No total event budget or cross-event
-descending rank follows.
+query for the specified initial state.

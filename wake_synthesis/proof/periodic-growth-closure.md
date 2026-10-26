@@ -1,7 +1,5 @@
 # Closing the periodic-growth proof: residues, ranks, and small drifts
 
-**15 October 2026. Research baseline read: `11894a516e40fef9be730e266936071c7750142c`.**
-
 This note supplies the proofs behind the previously external dependencies of the
 claim that a finite-support periodic highway has growth at least eight. It also
 extracts two all-growth restrictions from those proofs. The unit-diagonal theorem
@@ -10,7 +8,7 @@ controls. This is a complete written proof with finite exact checks, NOT a Lean
 formalization, independent peer review, priority certification, or a solution of
 HC. In particular no theorem here proves eventual periodicity of arbitrary seeds.
 
-## Attribution and changes
+## Attribution and proof dependencies
 
 A. Jillhewar, *Finite-Support Periodic Highways of Langton's Ant: Necessary
 Conditions, Transverse Exclusions, and Exact Search*, 2026, is the source of the
@@ -22,7 +20,7 @@ The original paper/prose is CC BY 4.0. This is an attributed rewritten proof,
 not a claim to have discovered those results. The two MIT audit scripts in
 `third_party/` are preserved byte-for-byte and carry the original license.
 
-Changes in the present reconstruction are: explicit coordinate formulas instead
+The reconstruction supplies explicit coordinate formulas instead
 of an implicit mod-four cocycle; a complete dependency chain avoiding the separate
 clean-translator theorem; an all-growth axis divisibility consequence; the
 all-growth version of the checker-pure obstruction; and the combination with the

@@ -1,14 +1,11 @@
 # Endpoint tubes and remote long-memory feedback
 
-**15 October 2026. Base read: `0bcaad6ce318b79479f03e9c9d89cb3fcd4d4489`.**
+The all-input arguments are analytic. Exact deterministic checks include
+separately implemented finite dynamics and two infinite-period checks.
+The computational trust boundary consists of the analytic coverage arguments
+and the supplied exact checkers; these results are not Lean-formalized.
 
-Evidence: the all-input arguments below are analytic and unformalized. The
-isolated implementation has exact deterministic controls, including independent
-finite dynamics and two different infinite-period checks. Neither a Lean proof,
-external mathematical review, publication priority, HC proof, nor an HC
-counterexample is claimed. Earlier theorem implementations are not modified.
-
-## 1. Model, existing inputs, and what is new
+## 1. Model and dependencies
 
 A complete state is X=(B,p,h), with finite B in Z^2 and all other cells white.
 Updates read the current cell, turn white/right or black/left, toggle, then move.
@@ -356,11 +353,10 @@ not a total ETC/HIGHWAY algorithm and not a proof that every X satisfies (16).
 
 ## 9. Reproduction and evidence
 
-Run `python scripts/check_remote_stale_feedback.py`. It copies the isolated
-three-file package into a temporary directory, reruns only these controls, and
-requires byte-identical JSON against the retained report. Python 3.10+ standard
-library suffices. No shared simulator, old one-black proof, whole-repository
-regression suite, SMT search or 40-million-node wake enumeration is rerun.
+Run `python3 memory_feedback/reproduce.py` from the repository root. The runner
+checks this module alongside the other memory results in disposable copies,
+comparing deterministic reports with the retained evidence. Python 3.10+ and
+its standard library suffice.
 
 The actual run checks 32,107 finite event intervals, 146,940 exact rational tube
 memberships, 96 first-external-event answers against independent dynamics, 384 complete-field
@@ -378,4 +374,4 @@ created-then-consumed lifetimes; this is a scoped replay, not a new constructor.
 
 All universal claims are carried by the written arguments and their stated
 imported results. These finite controls do not replace the missing global
-renewal theorem. External publication priority has not been audited.
+renewal theorem.

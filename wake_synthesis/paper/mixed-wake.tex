@@ -26,7 +26,7 @@ only the occupied odd classes, irrespective of transverse gap sizes.
 
 \subsection{Signed residues and the rank factorization}
 We use the stable-class and signed-residue arguments of
-Jillhewar~\cite{Jillhewar2026}. The supplemental
+Jillhewar~\cite[Section~7, ``Signed mod-four wake-residue identity'', and the proof of ``Even-diagonal growth four is impossible'', equation labelled \texttt{eq:diagK}]{Jillhewar2026}. The supplemental
 \texttt{proof/periodic-growth-closure.md} supplies an attributed derivation,
 including an explicit mod-four potential. For a function
 \(f:\Z\to\Z/4\Z\), choose \(S(0)=0\) and
@@ -53,7 +53,17 @@ Quarter-turning gives the vertical counterpart. In particular, with
 \]
 Thus \(V\) is even and \(V/2\equiv q_0\pmod2\).
 
-For completeness we state the port argument used in the new identity.
+The phase successor acts on the $P$ period events. Order those events
+first by translation class and then by stable rank within each class. The
+actual map sends phase $i$ to phase $i+1\pmod P$, so it is one $P$-cycle.
+To factor it in the class order, match incoming rank to outgoing rank at
+each local turn, sort outgoing events by their port bits, transfer each
+directed edge block in its preserved order, and undo the incoming-port
+sorting at the target. Multiplying the signs of these permutations gives
+the relation used below. The same factorization applies to the general
+drift in Appendix~\ref{app:quadratic}.
+
+For completeness we evaluate the local signs.
 At each class, order visits by stabilized rank \(k\), and record positive
 incoming and outgoing port bits \(\alpha_k,\beta_k\): the positive ports
 are N/E at \(Q\), E/N at \(C\). For a binary string with \(m\) positions

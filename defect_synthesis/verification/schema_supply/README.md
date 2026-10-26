@@ -12,10 +12,10 @@ bound `10D<=9C-309` and maximum `15+9*floor((m-51)/10)` at input mass m>=51.
 Only its original one-parameter subfamily has the separate existing full-recovery
 proof. No all-future claim is made for every new asymmetric seed.
 
-Full proof: `proof/results/flat-schema-supply-dichotomy.md`.
+Full proof: [supply dichotomy](../../proof/flat-schema-supply-dichotomy.md).
 
 ```
-python experiments/hc_global/schema_supply/reproduce.py
+python3 defect_synthesis/verification/schema_supply/reproduce.py
 ```
 
 Requirements: Python 3.10+, system libisl (frozen report: isl-0.27-GMP), g++
@@ -35,9 +35,3 @@ vertical-ray control is arithmetic-only, not a discovered ant counterexample.
 Native ISL/GMP and this Python compiler are trusted for universal symbolic checks.
 The C++ literal implementation is an independent finite control, not an outside
 mathematical review. No Lean or priority claim is made.
-
-Concurrent scope: remote `6afea97c` already proves general supply/count
-semilinearity. This package corroborates that theorem and adds an explicit
-finite-portfolio budget dichotomy and the three-parameter sharp physical result.
-It does not register semilinearity as another discovery. The preceding recovery
-payload is already archived remotely at `4b229dc7` and is not imported twice.

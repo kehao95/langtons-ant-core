@@ -91,7 +91,7 @@ precisely $G_d(O)$, whatever their unknown even parts may be.
 
 This argument explains the domain restriction. For axis drift, one direction
 has quotient cycles, and a boundary-free cycle can be added to parity data.
-Axis drift is unsupported here, not classified as impossible.
+See Section~\ref{sec:limitations} for the resulting axis-scope boundary.
 
 The actual period has signed seam crossing number one across the cut from
 $x$ residue $a-1$ to $0$. For a horizontal interval from $X_L$ to $X_R$, its
@@ -189,7 +189,7 @@ $\qd=J+V/2$ under signed residues, where $J$ counts $Q$-before-$C$ odd-class pai
 in transverse order and $V=|O_Q|$. Thus the earlier formula $J+V/2=1$ is recovered.
 
 \subsection{Compressed evaluation}\label{qw:sec:algorithm}
-The signed residue theorem~\cite{Jillhewar2026} gives, in every $x$ residue modulo $a$ and
+The signed residue theorem~\cite[Section~7, ``Signed mod-four wake-residue identity'']{Jillhewar2026} gives, in every $x$ residue modulo $a$ and
 every $y$ residue modulo $|b|$, signed odd-class sum $2\pmod4$, with sign
 $(-1)^{x+y}$. In particular $g\ge2\max(a,|b|)$.
 Check positivity and $4\mid g$, then density \emph{before} allocating residue-sized
@@ -306,13 +306,13 @@ edges, 23 inversions and $C=5$. For contrast,
  \{(0,1),(0,5),(1,-4),(1,-2),(1,5),(1,6),(2,-4),(2,4)\}
 \]
 has the same signed fibre populations and winding, but $\qd=0$.
-It is \texttt{NOT\_EXCLUDED}, not known realizable here. Thus the character
-strictly strengthens the specified signed-residue/density/winding screens;
-no claim of independence from every possible arithmetic invariant is made.
+It satisfies this necessary parity condition. Thus the character strengthens
+the specified signed-residue, density and winding conditions. Physical
+realization additionally requires chronological compatibility of the visits.
 
-\subsection{Exact arithmetic audits}
+\subsection{Exact computational checks}
 The proof and complexity theorem do not depend on bounded experiments. Exact
-affine algebra establishes the entire family parameter range. Separate audits
+affine algebra establishes the entire family parameter range. Independent implementations
 check 10,000 floor sums and 10,000 pair-count instances against literal sums,
 4,000 individual-edge reconstructions for eight drift types, vertex-order and
 checker-convention independence, and quadratic polarization.
@@ -325,7 +325,7 @@ in $\{0,1\}$ are additionally cross-checked against the wake-only formula. These
 geometric words are not asserted physically realizable.
 All 104 standard-highway phases, four rotations and powers one through four
 provide 1,664 positive controls using their \emph{full} displacements.
-Undefined-behavior sanitizer is enabled. Huge representatives and $n=10^{100}$
+Representatives with large coordinates and $n=10^{100}$
 are checked without traversing their gaps; the latter still uses 32 runs.
 Exact reports and source manifests are in the supplement.
 

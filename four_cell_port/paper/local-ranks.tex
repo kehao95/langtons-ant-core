@@ -1,0 +1,103 @@
+\section{Termination ranks for certified scattering descriptions}\label{scattering-6}
+
+The following rank is defined on the certified scattering train, whose
+checkpoints are its finite recovery boundaries.
+
+During a recovery choose its finite read rectangle Q, including its
+endpoint. Exterior colours remain unchanged. Let $s=x+y-c$, with integer c
+centering the rectangle's diagonal range, and $M=\max_{p\in Q}|s(p)|$. Write $\chi(x,y)=(-1)^{x+y}$ and let $\sigma=\chi(p)$ when the
+head is vertical and $\sigma=-\chi(p)$ when it is horizontal. This sign is
+invariant under an update. With this convention,
+use the scaled integer clock
+
+\[
+C_Q(X)=-5\sigma\sum_{q\in B\cap Q}\chi(q)\bigl(4^{M+s(q)}+4^{M-s(q)}\bigr)+G(p,h),
+\]
+
+where $G(p,h)=2(4^{M+s(p)}-4^{M+1-s(p)})$ for $h=\mathrm N,\mathrm E$ and
+$G(p,h)=2(4^{M-s(p)}-4^{M+1+s(p)})$ for $h=\mathrm S,\mathrm W$. It is $5\cdot4^M$ times the $r=4$
+clock, with the unchanged outside contribution subtracted. Writing $F$ for the single-step update map, every
+internal literal update satisfies
+
+\begin{equation}\label{eq:sc4}
+C_Q(FX)-C_Q(X)\ge2\cdot4^M.
+\end{equation}
+
+A computable upper bound $U_Q$ for all internal colourings and poses is
+
+\[
+5\sum_{q\in Q}\bigl(4^{M+s(q)}+4^{M-s(q)}\bigr)+\max_{p\in Q,h}|G(p,h)|.
+\]
+
+Thus
+
+\begin{equation}\label{eq:sc5}
+\rho_Q(X)=\left\lceil\frac{U_Q-C_Q(X)}{2\cdot4^M}\right\rceil.
+\end{equation}
+
+is a nonnegative integer which strictly decreases on every internal
+recovery update. Each stored finite recovery checks \eqref{eq:sc4}, \eqref{eq:sc5}, and the
+complete endpoint clock again. The universal identity is imported from
+the clock theorem~\cite{clock2026}; these finite checks validate the particular
+representation and convention.
+
+The whole certified computation has a lexicographic rank in $\mathbb N\times\{0,1\}\times\mathbb N$:
+
+\[
+(\text{unread input markers},\ \text{mode},\ \text{local fuel}),
+\]
+
+with recovery mode 1 and flight mode 0. During flight, local fuel is the
+exact number of updates to the next marked read, computed by \eqref{eq:sc1}.
+Reading that marker decreases the first coordinate, permitting a reset
+to recovery mode. During recovery, use $\rho_Q$; returning to flight
+decreases mode, permitting the next flight fuel to be reset. After the
+last recovery the certificate program halts. This is a rank on the state
+with its finite checked train description, not a claimed all-input
+physical-state rank. It stops at certification; the actual ant then
+continues forever along its highway.
+
+The logical role of closure is crucial: generated historical black cells
+do not create further unaccounted marker obligations because their
+possible interactions have been absorbed in the verified recovery and
+then isolated by the guard. The rank is defined for a state together
+with its certified finite train description.
+
+\subsection{A finite-stage rank for return packets}\label{returns-9}
+
+The return pattern gives a finite sequence of certified stages. Use a finite-stage
+lexicographic rank
+
+\[
+(\text{unfinished patterns},\ \text{remaining stage index},\ \text{local fuel}),
+\]
+
+The stage order is incoming NE flight, A, B, C, D, E. Each flight has
+the exact remaining update count from the formulas above. In each finite
+A, C or E block, choose its finite read rectangle, including the last
+endpoint, and use the scaled integer $r=4$ clock already proved in
+the clock construction above. The unchanged exterior contribution cancels. Its computable
+upper bound over all internal fields and poses yields the nonnegative
+integer fuel
+
+\[
+\left\lceil\frac{U_Q-C_Q(X)}{\epsilon_Q}\right\rceil,\qquad\epsilon_Q=2\cdot4^M,
+\]
+
+which decreases at every internal literal update. This remains valid for
+the true complete field: unread differences inside that rectangle merely
+contribute constant terms, and the universal clock inequality holds for
+every colouring. Transitions to the next stage decrease the middle
+coordinate, allowing fuel to reset. Completing a packet decreases the
+first coordinate and starts the next incoming flight; completing the
+last packet halts the certificate program. The actual ant continues
+forever along its highway.
+
+Unbounded excursion n makes the two flight counters large but does not
+create new unbudgeted stages: the exact XOR return query and full
+return-region equality proved that there is exactly the certified old
+collision and recovery. That is the closure fact on which the rank
+relies. The clock did not prove the guard, the return-field equality, or
+all-input coverage.
+
+This rank carries the finite description of the prescribed return train.

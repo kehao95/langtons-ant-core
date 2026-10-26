@@ -88,7 +88,7 @@ crossing defines a computable representative C and unique integer k with
 X=F^k C. The inverse update and the proof that infinitely many distinct
 representatives occur are given in the manuscript's orbit section.
 
-## 5. Evidence and provenance
+## 5. Evidence and dependencies
 
 - `python3 clock_escape/reproduce.py --integer-only`: all 24 algebraic sign
   branches; 100 range sums; all 18,696 states of squares through side three.
@@ -97,9 +97,8 @@ representatives occur are given in the manuscript's orbit section.
 - `python3 clock_escape/reproduce.py`: also the earlier rational-clock,
   exhaustive four-by-four domain and Lean 4.30.0 local-lemma evidence.
 
-The integer clock originates in research commit 9c50691 and the square
-range argument in c56a76b. The current manuscript assigns clocks, escape and
-complete-state algorithms to this project. The separate [wake project](../wake_synthesis/)
+The article develops the integer clock, its square-range argument and
+complete-state orbit algorithms. The separate [wake project](../wake_synthesis/)
 uses their whole-period increments to solve the prescribed-wake inverse problem.
 The [article](paper/paper.pdf) presents the clocks, escape bounds and orbit
 algorithms together.

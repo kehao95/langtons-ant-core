@@ -285,8 +285,8 @@ seed-size induction. The clock alone cannot supply that guard.
 
 Run without Python -O:
 
-    python experiments/hc_global/guarded_scattering/check.py \
-      --compare experiments/hc_global/guarded_scattering/check_results.json
+    python four_cell_port/verification/guarded_scattering/check.py \
+      --compare four_cell_port/verification/guarded_scattering/check_results.json
 
 Actual scoped run: 30 kernels; 185224 recovery updates per simulator and 185224
 integer clock-step checks; all 448 compatible affine connectors; 27 complete

@@ -11,8 +11,8 @@ It depends only on the Python standard library and does not import or modify
 shared repository code. Do not run with `-O`.
 
 ```sh
-python experiments/hc_global/guarded_scattering/check.py \
-  --compare experiments/hc_global/guarded_scattering/check_results.json
+python four_cell_port/verification/guarded_scattering/check.py \
+  --compare four_cell_port/verification/guarded_scattering/check_results.json
 ```
 
 `construct(spec)` takes a sequence of `(fresh_phase, gap_periods)` with each gap

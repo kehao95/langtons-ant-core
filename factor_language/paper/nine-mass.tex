@@ -21,10 +21,13 @@ graph has 157,114 vertices. Every longer real word is its initial history
 followed by a graph path; the converse need not hold.
 
 There are three cyclic components: simple cycles of lengths 104 and 24,
-and a component with 34,712 vertices. Successor-signature refinement maps
-the latter to a 1,213-state follower quotient without changing any edge
-label. Fourteen explicitly checked forbidden words each demand two
-consecutive same-colour reads of one site and are physically impossible.
+and a component with 34,712 vertices. A label-preserving graph map sends
+the latter to a 1,213-state quotient: every source edge maps to an edge with
+the same R/L label. This property preserves all physical paths even though
+the quotient may admit additional paths. The refinement procedure finds the
+map; checking its complete edge table establishes the property used here. Fourteen explicitly checked forbidden words each demand two
+consecutive same-colour reads of one site and are physically impossible;
+Appendix~\ref{app:nine-forbidden} prints the words and conflict indices.
 The reachable product avoiding these words has 9,154 states and 9,550 edges.
 Every quotient state is allowed as an entry with empty suffix history,
 which preserves coverage even when a conflict crosses component boundaries.
@@ -85,5 +88,5 @@ Thus $D(u^n)=66n$, disproving a seed-independent constant for window eight
 and every smaller window. For $k\ge9$, a $k$-legal word of length at least
 $k$ is nine-legal; shorter words have deficit at most $29(k-1)$.
 Therefore a finite uniform constant exists exactly when $k\ge9$.
-These finite prefixes do not provide a nonstandard infinite finite-seed
-orbit, and this mass theorem supplies no nine-factor attraction claim.
+This threshold concerns finite-word mass deficit, whereas eventual
+attraction is governed by the ten-factor theorem.

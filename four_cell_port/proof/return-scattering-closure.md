@@ -46,7 +46,7 @@ State t is before update t. Rotations are clockwise quarter-turns, never an
 unannounced reflection of the LR rule.
 
 Use exactly the standard word w and thirteen-cell NE seed K from
-`experiments/hc_global/guarded_scattering/check.py`. Let P_i,H_i be its 104
+`four_cell_port/verification/guarded_scattering/check.py`. Let P_i,H_i be its 104
 pre-update positions and headings, with P_0=0, H_0=E and d=(2,2). Its minimum
 future value of x+y is zero. Write w_a for its cyclic word beginning at phase a,
 and R_k for clockwise rotation through k quarter-turns. The new checker pins
@@ -424,8 +424,8 @@ seeds enter this interface.
 
 Run from repository root, without Python -O:
 
-    python experiments/hc_global/return_scattering/check.py \
-      --compare experiments/hc_global/return_scattering/report.json
+    python four_cell_port/verification/return_scattering/check.py \
+      --compare four_cell_port/verification/return_scattering/report.json
 
 The declarative recipe consists of (2.1), the specified phases/endpoints/block
 lengths, and the finite stable-XOR formula in Section 5. The checker rebuilds

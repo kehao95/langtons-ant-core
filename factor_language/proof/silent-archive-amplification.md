@@ -1,10 +1,10 @@
-# Silent archive manufacture, defect amplification, and a failed J10 bridge
+# Silent archive manufacture, defect amplification, and endpoint geometry
 
 This all-parameter finite-orbit construction has a written coverage proof and
 an exact integer certificate. “Silent” means no J10 event; S_D reads and memory
 use may occur during such an interval.
 
-## 1. What was tested
+## 1. Geometric question and construction
 
 The existing first-J10 macro preserves complete fields and has a hull bound
 relative to the COMPLETE input support. The earlier S_D macro has the stronger
@@ -291,9 +291,9 @@ with P on its first two letters, then differs: P[2]=R. Thus the first failure
 is exactly 20(n+1)+2. This is a proved failure of the proposed pulse continuation,
 not an implementation cap and not a proof of standardness after that time.
 
-## 7. Consequence for the HC programme
+## 7. Scope of the construction
 
-The earlier plan to link J10 to remote old feedback needs this correction:
+The construction places the following restrictions on J10-based feedback arguments:
 
 * A J10-free macro can make a long foldback and manufacture a large latent
   archive. Its full input geometry cannot be replaced by its two endpoints.
@@ -307,15 +307,15 @@ The remaining useful obligation is to control or realize the COMPOSITION of
 archive-producing and archive-consuming episodes, retaining their full output
 fields and verifying the next producer's input. A bound on how many times that
 composition can renew, or a real infinite finite-seed composition, would address
-the global issue. The present result repairs false premises on that route; it
-is not reported as a new exclusion of an entire HC-counterexample branch.
+the global issue. The construction establishes these geometric and lifetime obstructions; it
+does not exclude an entire HC-counterexample branch.
 
 ## 8. Reproduction and trust boundary
 
 From the repository root run
 
 ```sh
-python experiments/hc_global/silent_archive_amplification/check.py --compare experiments/hc_global/silent_archive_amplification/checked_report.json
+python3 factor_language/reproduce.py --extensions-only
 ```
 
 Python 3.10+ and a C++17 compiler named `g++` suffice; there are no third-party

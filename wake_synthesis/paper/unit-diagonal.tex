@@ -188,7 +188,7 @@ preserves the rule and finite support. No finite enumeration is a premise.
 \end{proof}
 
 \subsection{Growth consequence and attribution}
-Jillhewar's results~\cite{Jillhewar2026} give $g\in4\Z_{>0}$ and
+Jillhewar's results~\cite[Section~7, signed-residue theorem and the axis/even-diagonal growth-four theorems]{Jillhewar2026} give $g\in4\Z_{>0}$ and
 $g\ge2\max(|d_x|,|d_y|)$. For $g=4$, both coordinates have absolute value at
 most two. Since heading restoration makes $P$ even, $d_x+d_y$ is even.
 Up to quarter-turns, the only nonzero drift types are $(1,-1)$, $(2,0)$ and
@@ -199,7 +199,7 @@ of those external dependencies. Neither these earlier algebraic results nor
 the growth corollary is claimed as new here. The analytic unit-diagonal proof
 uses only the preceding stable-rank and interleaving arguments and does not rely on those other exclusions.
 
-\subsection{Independent regressions}
+\subsection{Independent computational checks}
 The supplement's \texttt{reproduce.py} reruns a complete-row Python enumerator,
 an independently written C++ vector-geometry enumerator, and witness audits.
 They agree on $4/124/12\,756$ local candidates and $2/2/0$ survivors. A separate
@@ -208,6 +208,6 @@ words, $32$ small count domains, eight compass port cases, two corrupt-witness
 negative controls, and $936$ genuine P104 prefix controls retaining the full
 $(2,-2)$ quotient. An additional analytic audit verifies the displayed first
 return paths, the forced words~\eqref{ud:eq:B}, and the interleaving implication
-on all candidates of the old finite certificate. These computations are
-\emph{regressions only}. The proof is the symbolic forcing and contradiction
-above, not their output table.
+on every candidate in the finite enumeration. These checks corroborate the
+local identities; the symbolic forcing and contradiction above establish the
+all-period exclusion.

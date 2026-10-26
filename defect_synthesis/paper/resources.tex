@@ -39,6 +39,45 @@ unbounded defects and no vertical ray, its least supply for at least $N$
 defects is $\Theta(N)$: the affine budget gives the lower bound, and any
 positive-defect generator gives the upper bound.
 
+\subsection{A two-fold warm-up}
+The arithmetic construction gives the following exact family. Using the
+words of Appendix~\ref{app:words}, put $A=\Ll B_{75}\cdots B_{101}$
+with $|B|=102$. All word indices start at zero.
+\begin{proposition}\label{prop:two}
+The finite word $BA^nBA^m$ is realizable from some finite support exactly when
+$n\ge1$ and $0\le m<n$. Its minimum initial-black cardinality is
+\[
+ c(n,m)=5n+5m+47.
+\]
+\end{proposition}
+The feasible domain is computed using \eqref{eq:alternate}. Its equality with
+the displayed integer region is checked by exact Presburger set operations.
+For the cost, the first $B$ supplies 24 distinct first-left reads, the second
+supplies 23, and every copy in either $A$ run supplies exactly the five local
+indices $0,9,15,26,27$. The full time-set identity is checked parametrically,
+not extrapolated from sample values. Its disjoint blocks give the formula.
+Here is the complete first-left table. A row gives global times by adding
+its offset to its local indices; each $j$ ranges over integers.
+\begin{center}\small
+\begin{tabular}{lll}
+block & offset & local indices \\\hline
+first $B$ & $0$ & $F_0$ \\
+first $A$ run & $102+28j$, $0\le j<n$ & $0,9,15,26,27$ \\
+second $B$ & $102+28n$ & $F_2$ \\
+second $A$ run & $204+28n+28j$, $0\le j<m$ & $0,9,15,26,27$
+\end{tabular}
+\end{center}
+\begin{align*}
+F_0={}&\{2,3,4,9,20,21,23,24,26,28,29,37,44,45,46,\\
+&55,61,72,73,74,83,89,100,101\},\qquad F_2=F_0\setminus\{9\}.
+\end{align*}
+The supplement's
+\path{verification/defect_resource_spectrum/code/check.py}, function
+\texttt{check\_parametric}, proves equality of these four rows with the
+complete first-left time set on the full feasible region. All supplement
+paths here and below are relative to the immutable defect project identified
+in the Reproducibility section.
+
 \subsection{Three independent fold and consumer parameters}
 Use the inherited 28-letter word $A$, 102-letter connector $B$, and
 \[P=\mathrm{RLRRRRLRRRRLLLLRLRRL}.\]
@@ -81,6 +120,19 @@ fibre, so its integer length counts all first-left reads. Their sum is
 $46+5a+5b$. The shifted ten-letter matcher includes all junction windows and
 zero powers, and its time-set count gives the stated $D$. These are exact
 symbolic identities in the supplied finite certificate.
+The declarative file \path{verification/schema_supply/witness.json}
+uses schema \texttt{flat-schema-supply-v1}; its SHA256 is
+\begin{center}\scriptsize\texttt{5792fad3124ba6293edfdce5fedc1850e42d5304927edd7f56e4c8853b895b0a}.\end{center}
+The checker \path{verification/schema_supply/check.py} constructs the
+\texttt{archive} schema in \texttt{schemas()} and, in \texttt{check()},
+compares the computed feasible, supply and defect relations with those three
+declarations. It checks equality of the projected joint relation with the
+linear components, the mass optimum and equality ray. The compiler
+\path{verification/schema_supply/supply.py} derives same-cell successors
+and first-left time fibres; its interval/residue counting routine accepts a
+piece only after exact set equality. These universal arithmetic checks trust
+the Python compiler and native ISL/GMP. The separate \texttt{independent.cpp}
+implementation checks finite literal trajectories as an independent control.
 
 For $r=0,1$, put $b=0,a=1+s$ to obtain the first two components. For $r\ge2$,
 put $r=q+2$; its least feasible $b,a$ are $q,q+1$. Increasing $a$ supplies

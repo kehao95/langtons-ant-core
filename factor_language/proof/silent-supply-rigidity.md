@@ -1,15 +1,12 @@
 # Finite-horizon ballistic rigidity and black-supply bounds
 
-**20 October 2026. Mathematical base inspected:**
-`kehao95/langtons-ant@8c414b8963260f5d4d394dc5b4c53065028b4c6e`.
-
-**Status.** Complete written analytic argument with exact finite certificates and
-an executable first-event algorithm. Unformalized; no external mathematical
-review or priority guarantee. The finite-path fold cover and common-normal lemma
-are inherited project results, not new claims. The supply/cofactor estimate,
-finite-horizon core theorem, return inequality and one-jump algorithm below are
-the new conclusions. None is a proof or disproof of HC. Persistence on a remote
-branch must be reported separately; a local delivery is not a remote commit.
+The proof combines an analytic argument, exact finite certificates and an
+executable first-event algorithm. The analytic proof is not Lean-formalized.
+The finite-path fold cover and common-normal lemma are dependencies proved in
+[ten-factor attraction](ten.md), [event macros](ten-event-macros.md) and
+[axis-strip geometry](silent-axis-return.md). The supply/cofactor estimate,
+finite-horizon core theorem, return inequality and one-jump algorithm apply
+within their stated finite-horizon scope and do not prove or disprove HC.
 
 ## 1. Statements and precise finite-horizon scope
 
@@ -339,8 +336,7 @@ Most importantly, m in a restarted interval is that interval's FULL starting
 mass. It can grow along an unknown infinite event chain. The core bound is not
 a well-founded cross-event rank, and summing it cannot turn |B_t| into a fixed
 original resource. Bounded J10 positions in the axial cross remain unresolved;
-so do unbounded moving defect locations and other periodic tails. Neither
-mu(N)->infinity nor a total event budget has been obtained.
+so do unbounded moving defect locations and other periodic tails. No total event budget is established here.
 
 This result does rule out, uniformly over ALL silent geometries and ALL input
 coordinates, a mechanism left open by the endpoint-strip theorem alone: a fixed
@@ -350,12 +346,11 @@ starting black supply, or by actual violations of the ten-factor language.
 
 ## 8. What is checked and what is not
 
-Run `python scripts/check_silent_supply.py`. The runner makes a disposable copy,
+Run `python3 factor_language/reproduce.py --new-results-only`. The runner makes a disposable copy,
 regenerates the report and requires exact equality with the frozen `report.json`.
-Only Python standard library and a C++17 compiler are required. No old simulator,
-public manuscript, singleton Lean build or unrelated large wake search is altered.
+Only Python standard library and a C++17 compiler are required.
 
-The report records the ACTUALLY completed scope: independent complete finite-word
+The report records: independent complete finite-word
 enumeration, full graph order and common-normal checks, every phase supply/width
 identity, exact rational recurrence arithmetic, structured and random finite-word
 controls, independently simulated first-event endpoints and a huge-coordinate
@@ -365,14 +360,13 @@ uses one standard plan and 150 literal forward updates; it is not simulated over
 compared by an independent translation-class parity sweep.
 
 These checks corroborate rather than replace the analytic all-length proof.
-The small finite SCC certificate imports its generic folding argument. No source
-in this package has been Lean-kernel checked or reviewed by an external referee.
-A separate scope record explains the limited literature search; no independent
-publication acceptance or exhaustive novelty determination is asserted.
+The finite SCC certificate uses the generic folding argument recalled in
+Appendix A. Its finite premises supplement the analytic proof; they do not
+replace all-length coverage. The proof is not Lean-formalized.
 
 ## Appendix A. Inherited three-fold exclusion and why it covers finite paths
 
-This appendix recalls the argument in `ten-factor-attraction.md`, Section 4.
+This appendix recalls the argument in [ten-factor attraction](ten.md), Section 4.
 It is reproduced for proof closure, not claimed as a new lemma. With A28 and
 B102 as pinned in `model.py`, the word B A^n B A^m B is infeasible for ALL n,m>=0.
 A specific cell has two consecutive reads both requesting R:
@@ -410,17 +404,17 @@ justify this step.
 
 ## References and attribution
 
-- Project: `proof/results/ten-factor-attraction.md` and
-  `proof/results/ten-event-macros.md`, at the pinned mathematical base.
-- Project: `proof/results/silent-axis-return.md`, especially its all-path common
-  coordinate-normal certificate. This work does not rebrand the strip theorem.
-- Project: `proof/results/silent-fold-reset.md` and
-  `proof/results/defect-resource-spectrum.md`, for inherited controlled families.
+- Project: [ten.md](ten.md) and
+  [ten-event-macros.md](ten-event-macros.md), for the finite-path fold cover.
+- Project: [silent-axis-return.md](silent-axis-return.md), especially its all-path common
+  coordinate-normal certificate. The common-normal argument is established there.
+- Project: [silent fold/reset](silent-fold-reset.md) and
+  [defect-resource spectrum](../../defect_synthesis/proof/defect-resource-spectrum.md), for controlled families.
 - A. Gajardo, *A symbolic projection of Langton's Ant*, DMCS 2003, pp. 57-68,
   DOI 10.46298/dmtcs.2312. Symbolic forbidden-word/physical feasibility methodology.
 - Exact periodic phase-ray checks retain the attribution of the parent project
   to Jillhewar's 2026 full-drift chronology method. They are not newly invented
   by the one-jump implementation.
 
-The finite-support rule, old theorem scopes, and the distinction between an
-all-input finite-event query and HC are unchanged.
+The finite-support rule and the distinction between an all-input finite-event
+query and HC apply throughout.

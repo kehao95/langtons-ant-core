@@ -1,7 +1,7 @@
 {
   "schema": "schema-supply-source-manifest-v1",
   "sha256": {
-    "README.md": "e196d475d7f82d9390aeacf2a79dcc65ba2a1f7953c50e7994468871d24ac861",
+    "README.md": "a8020cd04daf6ab1b4b037296b2a594612498b96e3d324108ef5710b60706624",
     "check.py": "eb8e40aab3b97eb7faa40c17f5ecab6bde48895b565afee4f1d40db72063293f",
     "dichotomy.py": "3a48cb6a763e98cc88b599b13bfc4e9e8296d0221dd90dbf3acbeac939debacf",
     "independent.cpp": "e0a0d5c93b405a3da0abcc7dc9ddfcb1a8d73f35db7ff76ff91881c89a7f263f",

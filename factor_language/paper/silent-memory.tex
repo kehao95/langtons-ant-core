@@ -1,4 +1,4 @@
-\section{Memory produced during legal intervals}
+\section{Memory produced during legal intervals}\label{app:legal-memory}
 \label{sec:silent-memory}
 A finite ten-legal interval can perform substantial computation on its
 complete input field. We give an explicit family that manufactures black
@@ -109,10 +109,10 @@ The construction supplies \(2(n+1)\) distinct black lifetimes produced
 without a violation and later consumed at violations. At least \(n+1\)
 have age at least \(48n+124\). The cell \((1,4)\) is born at the fixed
 time 44 and survives until the first violation, with age \(56n+124\).
-For any fixed \(D\), those sufficiently old consumptions are simultaneously
-\(J_{10}\) and \(S_D\) events. Here \(S_D\) denotes a black read
-whose cell was not visited in the actual preceding \(D\) updates; this
-is a different predicate from a forbidden ten-letter factor.
+For any fixed $D$, let $S_D$ mean a black read at a site absent from the
+preceding $D$ actual visits. Those sufficiently old consumptions are simultaneously
+\(J_{10}\) and \(S_D\) events, with these two predicates testing the
+turn vocabulary and visit recency respectively.
 
 The fixed source and event poses accompany an unbounded excursion. Thus a
 first-\(J_{10}\) macro requires information about its complete source
@@ -135,14 +135,14 @@ black mass while exhausting the input it needs to continue.
 
 \input{archive-recovery}
 
-\subsection{Autonomous recovery of a folded ribbon}
+\subsection{Autonomous recovery of a folded ribbon}\label{app:folded-ribbon}
 A second family gives a full infinite continuation, providing a separate
 reset-cost comparison with the producer family. Define
 \[
 \begin{split}
- C&=\mathrm{RLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLL},\\
+ C_0&=\mathrm{RLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLL},\\
  D_0&=\mathrm{LLRRRRLRRLRRRRLLLLRLRRRRLRL},\\
- w_n&=CA^{n+6}BA^{n+2}D_0,\qquad |w_n|=56n+397,
+ w_n&=C_0A^{n+6}BA^{n+2}D_0,\qquad |w_n|=56n+397,
  \quad n\ge0.
 \end{split}
 \]
@@ -161,7 +161,8 @@ future violation count are
  \tau(X_n)=152n+2527,\qquad
  \#\{t\ge0:J_{10}(F^tX_n)\}=56n+926.
 \]
-Let \(Y_n=F^{56n+398}X_n\). Any literal repair of length \(\ell\) from
+Let \(Y_n=F^{56n+398}X_n\). A literal repair of length $\ell$ means an actual ant trajectory
+$Y_n\mapsto F^\ell Y_n$, with no external edits. Any such repair from
 \(Y_n\) enabling the prefix \(w_m\), at any translated and quarter-turned
 pose and with arbitrary unread debris, satisfies
 \[
@@ -185,7 +186,7 @@ where
 \]
 The seven fixed words \(E_i\), of lengths
 \(3,258,2,142,449,566,542\), are the literal finite data in the supplied
-\texttt{silent\_fold\_reset/grammar.json}. Their geometric phases and all
+\texttt{verification/silent\_fold\_reset/grammar.json}. Their geometric phases and all
 variable scans are checked from their letters. This recovery has length
 \(96n+2338\), ends at \((8,7)\), east, with mass \(18n+301\), and preserves
 every historical cell.
@@ -232,11 +233,12 @@ needs at least as many updates as distinct necessary corrections.
 
 For a clean reset to exactly the complete seed of size \(10m+76\), the
 output mass change from \(Y_n\) is \(10m-18n-52\). The mass--defect
-inequality proved next consequently gives
+inequality of Theorem E consequently gives
 \[
- 351N_{10}\ge3\ell+468n-260m+1030.
+ 351N_{10}(0,\ell)\ge3\ell+468n-260m+1030.
 \]
-For \(m=n\ge34\), the flip lower bound yields
-\(N_{10}\ge\lceil(220n+622)/351\rceil\). This last event bound concerns
+Here $N_{10}(0,\ell)$ counts forbidden ten-windows wholly contained in
+the $\ell$-step repair. For \(m=n\ge34\), the flip lower bound yields
+\(N_{10}(0,\ell)\ge\lceil(220n+622)/351\rceil\). This last event bound concerns
 a clean reset; the flip bound itself permits arbitrary unread debris.
 Neither statement assumes that such a reset exists.

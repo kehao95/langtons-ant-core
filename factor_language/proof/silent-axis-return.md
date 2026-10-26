@@ -1,10 +1,8 @@
 # Axis-strip geometry of arbitrary silent returns
 
-`53f98d2e93614a8eea5424b0bb967c7311bb97f7`.
-
 **Evidence.** An all-length analytic lifting/telescoping proof with complete finite
 integer certificates, independently regenerated finite words, and scoped literal
-controls. Not Lean-formalized, externally reviewed, or a publication-priority claim.
+controls. The analytic argument is not Lean-formalized.
 This is a geometric restriction on genuine dynamics, not a compiler speedup, an
 HC proof, or a proof that bounded J10 positions imply H.
 
@@ -84,7 +82,7 @@ that the remaining axis-cross dynamics is impossible. The oblique-strip and
 DIAGONAL-cross bounded-visit theorems do not apply to (3): their positive corner
 increments explicitly exclude horizontal/vertical strip directions.
 
-## 3. Imported finite-path coverage, and what was actually rebuilt
+## 3. Finite-path coverage and its certificate
 
 The [exact J10 macro theorem](ten-event-macros.md), Sections 3--4, provides:
 
@@ -232,7 +230,7 @@ No such global termination theorem or finite negative seed is proved here.
 
 ## 8. Reproduction
 
-Run `python scripts/check_silent_axis_geometry.py`. It uses a disposable directory,
+Run `python3 factor_language/reproduce.py --extensions-only`. It uses a disposable directory,
 reconstructs the complete finite graph and certificates, compiles the independent
 C++17 enumerator, and requires an exact match with the frozen deterministic report.
 Python standard library and g++ are sufficient; no numerical optimizer, ISL, SMT

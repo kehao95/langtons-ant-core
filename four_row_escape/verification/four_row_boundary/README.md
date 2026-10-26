@@ -16,7 +16,7 @@ assume general plane trajectories are confined to four rows.
 Run from the repository root:
 
 ```sh
-python scripts/check_four_row_escape.py
+python four_row_escape/reproduce.py
 ```
 
 Dependencies: Python standard library (3.10+), `g++` with C++17. Typical replay
@@ -38,9 +38,9 @@ separate explicit development action, not called by the replay entrypoint.
 - `report.json` pins all numeric claims, source hashes, catalog/graph serialization
   and affine-vector hashes. Large tables are regenerated in a temporary directory.
 
-No earlier project theorem, graph enumerator, simulator, SMT/ISL backend, or
-Lean proof is imported. The analytic arguments and exact certificate checker
-are the trusted base; the work is not externally reviewed or formalized.
+The analytic arguments and exact certificate checker form the trusted base.
+The verifier uses the supplied finite response classification and integer
+recurrence; this proof is not Lean-formalized.
 
 ## Infinite-width coverage
 
@@ -51,8 +51,8 @@ oracle. The exact weighted graph has 21,248 vertices, 527,764 edges and 1,078
 root goals. A two-phase vector certificate at widths 20 and 21 proves the
 formula at ALL future widths. Simulations through width 1001 are controls only.
 
-See `proof/results/four-row-exact-escape.md` for the full argument and
-`paper/four_row_escape/main.tex` for the independent eight-page working paper.
+See [four-row-exact-escape](../../proof/four-row-exact-escape.md) for the full argument and
+[main](../../paper/main.tex) for the complete article.
 
 ## Maximal examples
 
@@ -60,7 +60,7 @@ The native checker reconstructs maximal seeds for widths 1..23, 40,41,200,201,
 1000,1001. Export and independently replay them with:
 
 ```sh
-python experiments/hc_global/four_row_boundary/check.py \
+python four_row_escape/verification/four_row_boundary/check.py \
   --witnesses /tmp/four-row-maximizers.txt
 ```
 

@@ -1,8 +1,8 @@
 {
   "schema": "langton-semilinear-source-v1",
   "sha256": {
-    "README.md": "e8196b6fbf7a15e2b811f8789c993ac8a82d479c0942a1a774d26a37cfe4b477",
-    "PROOF.md": "df607a269d5b1adb67d60dd862ef61b462d8a7e85076ee8a1d89bd28fd430312",
+    "README.md": "04072f215ac5acb2df5903ae631625f6d452fb205dc79edd1c457305201ec1d6",
+    "PROOF.md": "cf81aa86a4e16fc59279f935c6cfc7cbadfc8355e0ddacc6e93a85d94a36cffb",
     "reproduce.py": "20baef3057a1256d9e493e1dc5ba3f61123708fd130a98613791f8edff01f579",
     "evidence/replay.json": "63c82ace56de64fffdfd5099c8afabcf71f9b68262ed790c926022a20d6e0376",
     "code/budget_schema.py": "1b032603ba5d893e509d010846c692affb8822ed3591ef2d11464104b0e8b0c4",
