@@ -4,6 +4,8 @@ Eight publication projects about the classical white-right / black-left Langton
 ant, by Hao Ke. Each project provides its article, proof dependencies,
 executable verification and published artifacts.
 
+**Cross-project research perspective:** [Conceptual map](research/README.md) · [How a self-writing medium creates complexity](research/SELF_WRITING_MEDIA.md) · [Testable research agenda](research/NEXT_QUESTIONS.md). These are interpretive research notes and conjectural directions, **not additional published theorems**; the eight article modules, their sources and certificate interfaces remain authoritative.
+
 ## Results and manuscripts
 
 | Project | Result | Publication |
