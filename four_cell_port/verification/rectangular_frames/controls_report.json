@@ -1,0 +1,300 @@
+{
+  "blank_reference": {
+    "mass": 715,
+    "pose": [
+      -15,
+      10,
+      3
+    ],
+    "tail": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR",
+    "time": 9977
+  },
+  "finite_schema_controls": 42,
+  "frame_complete_field_comparisons": 736,
+  "frame_literal_updates": 912688,
+  "frame_outputs_sha256": "4947d8750979fa1986527e90341928933c57f755031f758c0fdca7045e893e13",
+  "inert_marker": [
+    10000000000000000000000000000000000000000000000000000000000000000000000,
+    0
+  ],
+  "rejected_mutations": [
+    "first_colour",
+    "tail_length",
+    "source_boundary",
+    "negative_exponent",
+    "zero_drift",
+    "nonlinear_exponent"
+  ],
+  "remote_blocker_epoch": "1000000000000000000000000000000000000000000000000000000000000",
+  "schema": "rectangular-scope-controls-v1",
+  "schema_literal_updates": 600153,
+  "schema_rows": [
+    {
+      "endpoint_mass": 221,
+      "endpoint_sha256": "93f34fb00a5bac9f08a63a0fd59297c710048f93c5b36cc9c06c6d8d4cfb4f70",
+      "name": "corner_00_rebuilt",
+      "steps": 1775
+    },
+    {
+      "endpoint_mass": 208,
+      "endpoint_sha256": "65957b1496ae61690fe98b7b8651a0aa6c85b78a9ce40e271948b4ca6d4e9679",
+      "name": "corner_01_rebuilt",
+      "steps": 1222
+    },
+    {
+      "endpoint_mass": 338,
+      "endpoint_sha256": "fec0bc8e8d468961931c44bd305ccbe8a918344fd984db682a44ad1d58d2097c",
+      "name": "corner_10_rebuilt",
+      "steps": 2576
+    },
+    {
+      "endpoint_mass": 188,
+      "endpoint_sha256": "86d591d0b3c5e7be0f813acaf745eeeeca40f0716c23a465ce49160882b8c1be",
+      "name": "corner_11_rebuilt",
+      "steps": 903
+    },
+    {
+      "endpoint_mass": 309,
+      "endpoint_sha256": "8d1919120c5bd0605baff09b4388259d109ec0d1f6615679ab3b5fdbf7bae0fa",
+      "name": "thin_m1_0_rebuilt",
+      "steps": 3469
+    },
+    {
+      "endpoint_mass": 295,
+      "endpoint_sha256": "48fb84e074671b04cc0ee11949ef6aae9472d9f7be59f8e22ba6131119208297",
+      "name": "thin_m1_1_rebuilt",
+      "steps": 6884
+    },
+    {
+      "endpoint_mass": 535,
+      "endpoint_sha256": "504d8635591fd97f7e5aee5a274208e1d504b0d032b5a338d37f96e54985ae49",
+      "name": "thin_m2_0_rebuilt",
+      "steps": 2783
+    },
+    {
+      "endpoint_mass": 512,
+      "endpoint_sha256": "9ee3a5a9a11211e76caf5268262d2d7422330bf0f070a75b974d813d9c104bea",
+      "name": "thin_m2_1_rebuilt",
+      "steps": 7884
+    },
+    {
+      "endpoint_mass": 698,
+      "endpoint_sha256": "8a7115c94763457de88bd903160eff2609feb576a871c1cabcee3285a3fd800f",
+      "name": "thin_m3_0_rebuilt",
+      "steps": 6550
+    },
+    {
+      "endpoint_mass": 957,
+      "endpoint_sha256": "9d4467b1a52ef90cd306825b46e5ea169d5e7bb771e3ff15920fa066b495953b",
+      "name": "thin_m3_1_rebuilt",
+      "steps": 25702
+    },
+    {
+      "endpoint_mass": 2362,
+      "endpoint_sha256": "d37fcca36c86ed6960fb8d9f34612b49e1fe120f56b15928ad4f6bfb4a78de6c",
+      "name": "thin_m4_0_rebuilt",
+      "steps": 42924
+    },
+    {
+      "endpoint_mass": 1202,
+      "endpoint_sha256": "139593401ee1342ac1680ead7fb23bd70e900a31ffffa081072c5c46288a0645",
+      "name": "thin_m4_1_rebuilt",
+      "steps": 16678
+    },
+    {
+      "endpoint_mass": 1098,
+      "endpoint_sha256": "b60d0b5fbde5c871c24fb7711204acc17da436d186f614b01a376186346650c0",
+      "name": "thin_m5_0_rebuilt",
+      "steps": 6630
+    },
+    {
+      "endpoint_mass": 1848,
+      "endpoint_sha256": "4552c7fff0dfc1180dfd36c387ae934cbbd63eebd33b5dc09a64a29721e58db0",
+      "name": "thin_m5_1_rebuilt",
+      "steps": 57345
+    },
+    {
+      "endpoint_mass": 1344,
+      "endpoint_sha256": "a229efe043b3f2345f5554a627d495609c21775da1f0e74155f3b43a2424acd3",
+      "name": "thin_m6_0_rebuilt",
+      "steps": 14630
+    },
+    {
+      "endpoint_mass": 1434,
+      "endpoint_sha256": "b2dae448cbe4ae8da3bd535942fffe068c292968da94cec99200b85605904386",
+      "name": "thin_m6_1_rebuilt",
+      "steps": 9548
+    },
+    {
+      "endpoint_mass": 1498,
+      "endpoint_sha256": "feebbd7781648573f869ad2b6140aae03d3ab6401633c73f997e6e0ae5567daf",
+      "name": "thin_m7_0_rebuilt",
+      "steps": 6746
+    },
+    {
+      "endpoint_mass": 1530,
+      "endpoint_sha256": "a9ec7a65e076bceec13635b78ef6eb1190d4e991d35b136324751ecc149a17c1",
+      "name": "thin_m7_1_rebuilt",
+      "steps": 9039
+    },
+    {
+      "endpoint_mass": 1721,
+      "endpoint_sha256": "842ceeb020ab5bcb95a5220ed8fbe58db1ea34c654f19f7fd8c9af15387ad71e",
+      "name": "thin_m8_0_rebuilt",
+      "steps": 16507
+    },
+    {
+      "endpoint_mass": 1836,
+      "endpoint_sha256": "96f786dd3ac25bcb4bfc0594301d6b18620dbd6e8616fdc70f947dc681feea88",
+      "name": "thin_m8_1_rebuilt",
+      "steps": 9672
+    },
+    {
+      "endpoint_mass": 1898,
+      "endpoint_sha256": "8fbe1b095ddb471ed7307269c40320ed8d3f2e99903233b1c71588c15bb3ebc1",
+      "name": "thin_m9_0_rebuilt",
+      "steps": 6834
+    },
+    {
+      "endpoint_mass": 1876,
+      "endpoint_sha256": "b3c03c9ea96f1bec0b16719eafeee5caf9f4f9a34a9b4c984370669e1dd07f25",
+      "name": "thin_m9_1_rebuilt",
+      "steps": 6167
+    },
+    {
+      "endpoint_mass": 790,
+      "endpoint_sha256": "0e8970dc14f31b77ab9b516187018114ec7fb3b41961e16164d90eeca38d3350",
+      "name": "thin_n1_0_rebuilt",
+      "steps": 19728
+    },
+    {
+      "endpoint_mass": 1250,
+      "endpoint_sha256": "4e7b2ccec020896ba9dda096c621dcd6a69e537880edc61d0c8e63e9dd92cbee",
+      "name": "thin_n1_1_rebuilt",
+      "steps": 32385
+    },
+    {
+      "endpoint_mass": 559,
+      "endpoint_sha256": "05bdbc9e26b8badd50f8f20fff82fcbb2e357825418bcebdc9b9ffd77367883c",
+      "name": "thin_n2_0_rebuilt",
+      "steps": 9227
+    },
+    {
+      "endpoint_mass": 501,
+      "endpoint_sha256": "e6a18ee244fb92e8af75e232dc52c89d890959413f658d605def310588afed86",
+      "name": "thin_n2_1_rebuilt",
+      "steps": 7035
+    },
+    {
+      "endpoint_mass": 645,
+      "endpoint_sha256": "36d12fc7e52fcebc63f2dba2e17d16a8e58779bf48f299c703e86d5506ba0b97",
+      "name": "thin_n3_0_rebuilt",
+      "steps": 6191
+    },
+    {
+      "endpoint_mass": 723,
+      "endpoint_sha256": "3b6e9d975a955746d44493e89bcc82cf1365519eccf988a45951c9720139fff4",
+      "name": "thin_n3_1_rebuilt",
+      "steps": 5396
+    },
+    {
+      "endpoint_mass": 1363,
+      "endpoint_sha256": "548cb2e07694f844545a8c6bf230c969690f38e3d9b40e332027c0e4ab237e49",
+      "name": "thin_n4_0_rebuilt",
+      "steps": 26973
+    },
+    {
+      "endpoint_mass": 1010,
+      "endpoint_sha256": "b6fa4e97954cd026606f62b37e3b3e38250c86a7fc9241e6bf54bfc5d765358e",
+      "name": "thin_n4_1_rebuilt",
+      "steps": 13924
+    },
+    {
+      "endpoint_mass": 1243,
+      "endpoint_sha256": "13d41f013511df5a78d8a8047bb91228a7eeb7751e4aacd1ed6a80a217854ad7",
+      "name": "thin_n5_0_rebuilt",
+      "steps": 17239
+    },
+    {
+      "endpoint_mass": 1072,
+      "endpoint_sha256": "5e0a0eec61bcd1e055c37f0a5f6928cdfd37f148688be3ea0f3295a0803bcccd",
+      "name": "thin_n5_1_rebuilt",
+      "steps": 6055
+    },
+    {
+      "endpoint_mass": 1682,
+      "endpoint_sha256": "7c3251054743a32aa3d14952b030b641cb564aa829f7b14882433453bd9de879",
+      "name": "thin_n6_0_rebuilt",
+      "steps": 16768
+    },
+    {
+      "endpoint_mass": 1304,
+      "endpoint_sha256": "289819fd6eb0b9e98991dddb71a5df447874aeeb694300c99d3c847a2f4c63f7",
+      "name": "thin_n6_1_rebuilt",
+      "steps": 10254
+    },
+    {
+      "endpoint_mass": 1605,
+      "endpoint_sha256": "a5a4a0d9096156acede76e02efaad1b887f2d668925b02fd6df76c94127520b4",
+      "name": "thin_n7_0_rebuilt",
+      "steps": 14151
+    },
+    {
+      "endpoint_mass": 1474,
+      "endpoint_sha256": "920b4eab8422a3c177c65aa4344b194b6c518b0ebf07c9d7c475f966257db15f",
+      "name": "thin_n7_1_rebuilt",
+      "steps": 6111
+    },
+    {
+      "endpoint_mass": 2338,
+      "endpoint_sha256": "745584970caa7b9c55fdb2f50412bb6a9459fbc37763d831c672793190adc9fa",
+      "name": "thin_n8_0_rebuilt",
+      "steps": 39506
+    },
+    {
+      "endpoint_mass": 1706,
+      "endpoint_sha256": "60306d90b0f6d6786e23fd019ba3be6ad6795400ea42cc34c23b38426403a4a4",
+      "name": "thin_n8_1_rebuilt",
+      "steps": 9522
+    },
+    {
+      "endpoint_mass": 2024,
+      "endpoint_sha256": "9390527ce2e4b2df6e76865dab9e5953a8da230c4218dc05e96d9099cb77dc96",
+      "name": "thin_n9_0_rebuilt",
+      "steps": 14272
+    },
+    {
+      "endpoint_mass": 1876,
+      "endpoint_sha256": "911b3e63cb987977d08b89d002a6d69c66049f5398a93c2ab8d4c88e3ee90a5c",
+      "name": "thin_n9_1_rebuilt",
+      "steps": 6167
+    },
+    {
+      "endpoint_mass": 3534,
+      "endpoint_sha256": "dfb5321c1681e049348ffddf32895357b7bd6cb6ae78e7c20cb8f3627820e875",
+      "name": "center_0_rebuilt",
+      "steps": 17411
+    },
+    {
+      "endpoint_mass": 7391,
+      "endpoint_sha256": "f8204448ed8f41f537ac26c8b57edb88ebc080beec2a14c91a439999aa1b51d4",
+      "name": "center_1_rebuilt",
+      "steps": 59370
+    }
+  ],
+  "three_layer_trace_counterexample": {
+    "first_difference": 1242,
+    "m": 10,
+    "modified_letter": "R",
+    "n": 10,
+    "reference_letter": "L",
+    "removed_cell": [
+      3,
+      3
+    ]
+  },
+  "translation": [
+    100000000000000000000000000000000000000000000000000000000000000000000000000000000,
+    -100000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ]
+}

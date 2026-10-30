@@ -92,12 +92,11 @@ Section~\ref{sec:small} supplies polynomial-bit witnesses, which can be
 checked in polynomial time. This uses the complete physical cover;
 satisfiability of a graph relaxation alone would not suffice.
 
-The finite row construction $(LRRL)^L$ gives
-$\mu(N)\le2\lceil(N+9)/4\rceil$. A finite prefix can be padded by unread
-black cells outside its footprint, so the NP query for exactly $m$ points
-decides $\mu(N)\le m$ without additional side conditions. Binary search
-over this $O(N)$ range needs $O(\log(N+1))$ NP-oracle queries of polynomial
-unary-$N$ size. This is a complexity classification; no numerical table of $\mu$ is computed here.
+Theorem~\ref{thm:six} gives $\mu(N)\le6$. A finite prefix can be padded
+by unread black cells outside its footprint, so the NP query for exactly $m$
+points decides $\mu(N)\le m$ without additional side conditions. Searching
+$m\in\{0,\ldots,6\}$ uses a constant number of NP-oracle queries, each of
+polynomial unary-$N$ size, and proves the stated function-class bound.
 \end{proof}
 
 The encoding applies to the stated segment-source syntax and endpoint

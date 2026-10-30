@@ -11,3 +11,15 @@ python3 memory_feedback/reproduce.py
 ```
 
 [Proof dependencies](../PROOF.md) · [Source file hashes](../sources.json)
+
+## Crossing information
+
+Full-field Python/C++ comparisons, exact capacity and packing, corner bounds and remote-history guards.
+
+[Module and retained evidence](../verification/crossing_gap/). Run
+`python3 memory_feedback/reproduce.py --crossing-only`. The analytic coverage
+argument is in the article and [proof map](../PROOF.md).
+
+The [request-capacity report](../verification/crossing_supply/report.json)
+binds the request reconstruction and packing controls. The same
+`--crossing-only` command replays both crossing modules.

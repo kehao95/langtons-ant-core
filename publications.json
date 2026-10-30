@@ -24,7 +24,7 @@
     "pdf_sha256": "95df7c87e572d2b14add016754b2fd7093691460648fa2f7a8162883801bbb49"
   },
   "factor_language": {
-    "title": "Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant",
+    "title": "Local Factor Rigidity and Mass\u2013Defect Bounds for Langton\u2019s Ant",
     "doi": "10.5281/zenodo.23675965",
     "version": "0.1.1",
     "pdf": "factor_language/paper/paper.pdf",
@@ -37,30 +37,30 @@
     "version": "0.1.1",
     "pdf": "defect_synthesis/paper/paper.pdf",
     "sources": "defect_synthesis/sources.json",
-    "pdf_sha256": "159275b6823a40529bee7ae258500e9ec51b7150192ee9c85c6660d7df158736"
+    "pdf_sha256": "692219cb30bc6f1713e63f273950d9dc5c82984d976d4ae64fb4441d1408ac46"
   },
   "memory_feedback": {
-    "title": "Finite-Memory Prediction and Remote Feedback in Langton’s Ant",
+    "title": "Memory and Spatial Constraints on Eventual Translation in Langton's Ant",
     "doi": "10.5281/zenodo.23675969",
     "version": "0.1.1",
     "pdf": "memory_feedback/paper/paper.pdf",
     "sources": "memory_feedback/sources.json",
-    "pdf_sha256": "8c4a900572cb25501c51455577024b6bc0354fcca6b85f4d50e3e4a540cce121"
+    "pdf_sha256": "0fb7d346403fa848841ca49993caefc3f4e0236e6d7efcb4f304bffe0f230615"
   },
   "wake_synthesis": {
-    "title": "Uniqueness of the Classical Langton Ant Highway from Its Layer Profile",
+    "title": "Wake Parity and Highway Rigidity in Langton's Ant",
     "doi": "10.5281/zenodo.23675970",
     "version": "0.3.1",
     "pdf": "wake_synthesis/paper/paper.pdf",
     "sources": "wake_synthesis/sources.json",
-    "pdf_sha256": "7791c7d4f0dbcba4e7c2b78c0b0f864ca0ff7ce5e1619878af5debf3e2b6f223"
+    "pdf_sha256": "fa06c8c21d2755ce1be83f2dda055d4540e20824328e45ca2dee6e0b6e485ac8"
   },
   "four_cell_port": {
-    "title": "Four-Cell Ports and Composable Highway Scattering for Langton’s Ant",
+    "title": "Protected Highway Formation and Scattering in Langton's Ant",
     "doi": "10.5281/zenodo.23675974",
     "version": "0.2.1",
     "pdf": "four_cell_port/paper/paper.pdf",
     "sources": "four_cell_port/sources.json",
-    "pdf_sha256": "39cd2048aefa7957d812c0ce8c5710e45ccfe95ed07dd51713aa22789ec3fd69"
+    "pdf_sha256": "77c34797483673220add8e82a3184570b6a03df36c0a1bfd5127f832fd6a8a18"
   }
 }

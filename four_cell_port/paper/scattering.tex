@@ -80,18 +80,18 @@ $h\equiv H_a+k'\pmod4$. The same file defines the literal 104-letter
 together with the displayed mature-field formula, completely determine
 all thirty kernels and their endpoints. The graph is:
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
 \toprule\noalign{}
 Incoming & Outgoing & Allowed collision phases \\
 \midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
 NE & NE & 13,14,27,28,60,61,70,75,89 \\
 NE & SE & 29,32,38,55,56,62,71 \\
 SE & SE & 13,14,27,28,60,61,70,75,89 \\
 SE & NE & 15,45,46,47,57 \\
-\end{longtable}
+\bottomrule
+\end{tabular}
+\end{center}
 
 There are 16 NE-input rules and 14 SE-input rules. Recovery lengths
 range from 312 to 32656 updates. These are supplied sufficient recovery
@@ -195,7 +195,7 @@ strictly to the right of:
 The last maximum is finite and, relative to $v_r$, equals
 
 \begin{equation}\label{eq:sc2}
-\max_i\left[(R_kP_i)_x-(R_kP_a)_x+\begin{cases}0&i<a,\\-2&i\ge a.\end{cases}\right].
+\max_{0\le i<104}\left[(R_kP_i)_x-(R_kP_a)_x+\begin{cases}0&i<a,\\-2&i\ge a.\end{cases}\right].
 \end{equation}
 
 Earlier epochs only decrease x by further multiples of 2. Formula \eqref{eq:sc2},
@@ -278,8 +278,8 @@ standard P104 by time
 T=\sum_{i=1}^m\bigl[104n_i+((j_i-a_{i-1})\bmod104)+t_{r_i}\bigr].
 \end{equation}
 
-For $m=0$ take $T=0$. The final direction is the graph's final NE or SE
-orientation.
+For $m=0$ take $T=0$ and final orientation NE. For $m>0$, the final
+direction is the graph's final NE or SE orientation.
 \end{theorem}
 
 \textbf{Proof.} The canonical tail has minimum read x=-1, so G cannot

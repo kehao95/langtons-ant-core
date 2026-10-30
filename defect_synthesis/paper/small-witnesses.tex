@@ -2,7 +2,9 @@
 Semilinearity provides a decision procedure. The fixed geometry of the cycle
 library also gives a quantitative size bound on a positive certificate.
 Let $E(m,N)$ mean that some complete seed of at most $m$ black cells produces
-at least $N$ contained defects, with all coordinates unrestricted. Put
+at least $N$ contained defects, with all coordinates unrestricted. This is an
+existential decision problem; $E_{m,N}$ in Theorem~\ref{thm:main} is instead
+the relation on tuples of exactly $m$ distinct initial cells. Put
 \[
  s=5(N+1),\quad K=2570(N+1),\quad d=s+2m,\quad
  H=2^{24}(K+d+1),\quad R=64\bigl((d+1)!H^d+1\bigr).
@@ -104,10 +106,9 @@ The minimum initial mass $\mu(N)$ needed for at least $N$ contained defects
 can be computed in deterministic time $2^{O(N^2\log(N+2))}$.
 \end{corollary}
 \begin{proof}
-The word $(\Ll\Rr\Rr\Ll)^q$ has minimum supply $2q$ and
-$\max(0,4q-9)$ defects, so $\mu(N)\le2\lceil(N+9)/4\rceil=O(N)$.
-Enumerate the bounded positive certificates for successive masses through
-this upper bound. The preceding bit-size estimate gives the claimed time.
+Theorem~\ref{thm:six} bounds the minimum by six. Enumerate the bounded
+positive certificates for successive masses $0,\ldots,6$. The preceding
+bit-size estimate gives the stated conservative deterministic time bound.
 \end{proof}
 Short schemas and small integer solutions are established tools for flat
 counter systems~\cite{demri}. Here the mutable-field interval verifier supplies

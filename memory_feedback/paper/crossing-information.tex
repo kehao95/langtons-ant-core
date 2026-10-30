@@ -1,0 +1,432 @@
+\section{Crossing information and spatial growth}\label{cross:sec:crossing}
+Remote feedback is a temporal requirement on persistent nontranslation. Crossing
+records give an additional spatial requirement. They describe the information
+carried by the head through a cut, a method introduced for Turing machines by
+Hennie [7]. The following argument proves the needed half-plane coupling directly.
+Its local incoming-axis invariant is standard ant geometry [2].
+The log-log work-space threshold reviewed in [8] concerns input length; here
+the independent variable is the elapsed time of one complete ant orbit.
+
+Write $\ETC$ for eventual translation of position, heading and turn with a
+nonzero drift and a fixed period. The complete black field may retain a growing
+wake. This is the same translating alternative used in the feedback theorems.
+
+For real $\alpha,\beta\ne0$, normalize
+$\min(|\alpha|,|\beta|)=1$ and define
+\[
+ w_{\alpha,\beta}(T)=
+ \max_{0\le t\le T}(\alpha p_t.x+\beta p_t.y)
+ -\min_{0\le t\le T}(\alpha p_t.x+\beta p_t.y).
+\]
+Here $p_t.x$ and $p_t.y$ denote the horizontal and vertical coordinates of $p_t$.
+This is normal-coordinate width, not Euclidean width when the normal has a
+large norm. Both components must be nonzero.
+
+\begin{theorem}[Width gap]\label{cross:thm:gap}
+Every classical finite-support orbit that is not $\ETC$ satisfies, for every
+such normal,
+\[
+ \liminf_{T\to\infty}\frac{w_{\alpha,\beta}(T)}{\log\log T}
+ \ge\frac1{\log2}.
+\]
+The finite bound from which this follows is uniform in the normalized normal.
+Consequently the conclusion also holds for time-dependent normal choices,
+and for the infimum of these widths over all admissible normals at each time.
+\end{theorem}
+\subsection{A finite certificate with its own future protection}
+For an integer $a$ write $R_a=\{(x,y):x>a\}$. Suppose two times $s<t$ and cuts
+$a<b$ satisfy
+\begin{align}
+ p_t&=p_s+d,\quad h_t=h_s,\quad d=(b-a,\delta),\label{cross:eq:poses}\\
+ (B_s\cap R_a)+d&=B_t\cap R_b,\label{cross:eq:field}\\
+ p_u&\in R_a\quad(s\le u\le t).\label{cross:eq:guard}
+\end{align}
+The comparison in \eqref{cross:eq:field} is the complete inside field.
+
+\begin{lemma}[Nested-domain pumping]\label{cross:lem:nested}
+Conditions \eqref{cross:eq:poses}--\eqref{cross:eq:guard} imply that the trace from $s$ is
+permanently translating with period $t-s$ and drift $d$.
+\end{lemma}
+\begin{proof}
+Until its first exit, the trajectory in a half-plane depends only on its inside
+field and starting pose. Thus the two inside states have the same first-exit
+duration $\tau\in\N\cup\{\infty\}$. Put $P=t-s$. If $\tau\le P$, the finite
+guard fails. If $P<\tau<\infty$, the orbit must exit the smaller $R_b$ between
+$t$ and its exit from $R_a$ at $s+\tau$. But the second inside state predicts
+its first exit at $t+\tau>s+\tau$. Therefore $\tau=\infty$. Determinism now
+identifies the entire two futures up to translation. Since $b>a$, the drift
+is nonzero. No exterior cell has been removed from the physical state.
+\end{proof}
+
+Set
+\[
+ a_0=\max\bigl(\{p_0.x\}\cup\{q.x:q\in B_0\}\bigr).
+\]
+For a finite actual prefix through $T$, the crossing record of the cut
+$x=c+\tfrac12$ lists every crossing in chronological order, with its direction
+and height. Normalize heights by subtracting their minimum. If $c\ge a_0$ and
+$p_T.x>c$, the directions are necessarily $E,W,\ldots,E$.
+
+\begin{lemma}[Complete crossing records]\label{cross:lem:records}
+Two equal nonempty normalized records at cuts $a_0\le a<b<p_T.x$ produce a
+certificate satisfying Lemma~\ref{cross:lem:nested} at times no later than $T$.
+\end{lemma}
+\begin{proof}
+Both right half-planes are initially white. Their first complete right-side
+excursions have translated entry poses and therefore translated read/write
+histories until the first exit. Between excursions, left-side updates do not
+change the right-side field. Induction over the equal records gives translated
+complete inside fields at their last eastward entries, at times $s$ and $t$.
+The translation in height is the difference of record minima. The last entry
+at $b$ must follow the last entry at $a$, since otherwise ending beyond $b$
+would require a later $b$-entry. There is no exit from $R_a$ between $s$ and
+$t$, because $s$ is its last entry before $T$. All three conditions follow.
+\end{proof}
+The records are finite histories, not a query to the infinite future. A far
+initial black cell to the right invalidates the hypothesis even when it has
+not yet altered the observed finite path.
+
+\subsection{Exact record capacity and crossing work}
+Number headings $N,E,S,W$ by $0,1,2,3$. The value $h-x-y\pmod2$ is invariant.
+An east crossing of cut $c+\tfrac12$ arrives in column $c+1$; a west crossing
+arrives in column $c$. Both arrivals have horizontal heading, so their height
+parities differ. Consecutive heights in a crossing record therefore alternate
+parity, also after normalization.
+
+For $H\ge0$ put
+\[
+ E=\lfloor H/2\rfloor+1,\qquad O=\lceil H/2\rceil,
+ \qquad U=EO,\qquad V=(E-1)O.
+\]
+\begin{proposition}[Parity capacity]\label{cross:prop:count}
+The number of normalized height words of length $2j+1$, with span at most $H$
+and alternating parity, is
+\[
+ c_H(j)=(H+1)U^j-HV^j,\qquad j\ge0,
+\]
+where $0^0=1$.
+\end{proposition}
+\begin{proof}
+Over $\{0,\ldots,H\}$ the count before requiring minimum zero is
+$E^{j+1}O^j+O^{j+1}E^j=(H+1)U^j$. Words omitting zero use $E-1$ even symbols
+and $O$ odd symbols, giving $HV^j$. Subtract them.
+\end{proof}
+Not every word counted by this proposition is necessarily physically
+realizable. It is an exact count of a necessary combinatorial class.
+
+\paragraph{Incoming requests reconstruct the record.}
+For an eligible cut the genuine record has the form
+\[
+ E(y_0),W(z_0),E(y_1),W(z_1),\ldots,E(y_j).
+\]
+The exit heights $z_i$ are determined responses to the incoming heights $y_i$.
+This causal constraint gives a smaller capacity than the parity count.
+
+\begin{lemma}[Request injectivity]\label{cross:lem:requests}
+The incoming heights $(y_0,\ldots,y_j)$ determine every completed right-side
+excursion: its exit height, duration and complete inside field after return.
+They also determine the complete inside field immediately before the final
+entry. Vertically translated request lists give translated full records.
+\end{lemma}
+\begin{proof}
+The first entry sees an entirely white half-plane. Literal dynamics uniquely
+determine its first exit and all writes up to that exit, when it exists.
+During an outside excursion no inside cell changes. The next entry therefore
+sees exactly the retained field produced by the preceding calls. Induction
+proves the assertion for all completed excursions. Translation invariance
+also identifies histories at horizontally shifted cuts. The final request
+records its entry; it need not return.
+\end{proof}
+All entry heights have the same parity. Put $m=\min_i y_i$ and encode the
+record by the integer word
+\[
+ \rho_c=((y_0-m)/2,\ldots,(y_j-m)/2).
+\]
+Two genuine records agree up to translation if and only if these request codes
+agree: restriction to the entries gives one direction, and
+Lemma~\ref{cross:lem:requests} gives the other. Thus equal request codes at two
+eligible cuts yield the certificate of Lemma~\ref{cross:lem:records}.
+
+\begin{proposition}[Request capacity]\label{cross:prop:requests}
+For $H\ge1$, put $q=\lfloor H/2\rfloor+1$. The number of genuine normalized
+records of length $2j+1$ and span at most $H$ is at most
+\begin{equation}
+ b_H(j)=q^{j+1}-(q-1)^{j+1}.\label{cross:eq:request-capacity}
+\end{equation}
+For $H=0$, only the one-letter signature exists.
+\end{proposition}
+\begin{proof}
+A request code has $j+1$ letters in $\{0,\ldots,q-1\}$ and contains zero.
+Subtracting the words omitting zero gives \eqref{cross:eq:request-capacity}.
+Request injectivity makes this an upper bound for genuine signatures. At
+height zero a completed return would violate the opposite parities of entry
+and exit heights.
+\end{proof}
+For example, at $H=10$ and $j=5$ the parity capacity is $169{,}643{,}750$,
+whereas the request capacity is $31{,}031$. These count combinatorial classes;
+a request code contributes an available object even when it has no returning,
+span-admissible physical response.
+
+Write $A_H^*(r)=\sum_{j=0}^r b_H(j)$, with $A_H^*(-1)=0$ and
+$b_0(j)=\mathbf1_{j=0}$. Let $\mathcal P_H^*(N)$ be the minimum total length
+of $N$ distinct objects, with $b_H(j)$ objects of length $2j+1$.
+If $r$ is the first index with $A_H^*(r)\ge N$, shortest-layer filling gives
+\begin{equation}
+ \mathcal P_H^*(N)=\sum_{j<r}(2j+1)b_H(j)
+ +(2r+1)\bigl(N-A_H^*(r-1)\bigr).\label{cross:eq:packing}
+\end{equation}
+Set $\mathcal P_H^*(0)=0$ and $\mathcal P_0^*(N)=\infty$ for $N>1$.
+At height one, $b_1(j)=1$, so $\mathcal P_1^*(N)=N^2$.
+For $q\ge2$, the cumulative capacity is the integer geometric sum
+\[
+ A_H^*(r)=\frac{q(q^{r+1}-1)}{q-1}
+ -(q-1)\sum_{j=0}^r(q-1)^j.
+\]
+
+\begin{theorem}[Request-work dichotomy]\label{cross:thm:work}
+Let $N=(p_T.x-a_0)_+$. For $N>0$ let $H$ be the maximum span of the crossing
+records at the $N$ cuts $a_0,\ldots,p_T.x-1$. Either a permanent translation
+certificate occurs in this finite prefix or
+\[
+ \mathcal P_H^*(N)\le\lceil T/2\rceil.
+\]
+\end{theorem}
+\begin{proof}
+Without a certificate, the $N$ request codes are distinct. Request capacity
+therefore bounds their summed full-record lengths below by
+\eqref{cross:eq:packing}. Each listed crossing is a different horizontal update,
+and horizontal and vertical updates alternate.
+\end{proof}
+
+\begin{corollary}[Entropy form]\label{cross:cor:entropy}
+In the second alternative, when $H\ge2$ and $N>0$, let
+$\overline J=\lfloor(\lceil T/2\rceil-N)/2\rfloor$. Then
+\begin{equation}
+ \log(N!)\le\overline J\log q
+       +N\log\bigl(2(1+\overline J/N)\bigr).
+ \label{cross:eq:entropy}
+\end{equation}
+\end{corollary}
+\begin{proof}
+The difference-of-powers identity gives $b_H(j)\le(j+1)q^j$, and hence
+$A_H^*(r)\le2(r+1)q^r$ for $q\ge2$. Order the pair counts of the $N$ actual
+records as $j_1\le\cdots\le j_N$ and put $J=\sum_i j_i$. Since
+$i\le A_H^*(j_i)$, summing logarithms and applying concavity gives
+\[
+ \log(N!)\le J\log q+N\log\bigl(2(1+J/N)\bigr).
+\]
+Their total length is $2J+N\le\lceil T/2\rceil$, so $J\le\overline J$.
+The right-hand side increases with $J$.
+\end{proof}
+
+\begin{corollary}[Speed--spread tradeoff]\label{cross:cor:speed}
+For an orbit which is not $\ETC$, suppose $T_i\to\infty$ and
+$N(T_i)/T_i\to v>0$. Then $v<1/2$ and its record spans satisfy
+\[
+ \liminf_i\frac{\log(H(T_i)+2)}{\log T_i}\ge\frac{4v}{1-2v}.
+\]
+\end{corollary}
+\begin{proof}
+The cases $H\le1$ give at least quadratic work or exclude $N>1$, and are
+therefore eventually absent. Also $H\le\lceil T/2\rceil$, since height
+variation cannot exceed the number of vertical moves. The work inequality
+already gives $v\le1/2$. If $v=1/2$, then $\overline J=o(T)$, and the
+right-hand side of \eqref{cross:eq:entropy} is $o(T\log T)$, contradicting
+$\log(N!)\sim vT\log T$. For $v<1/2$, divide by $T\log T$ and use
+$\overline J/T\to(1-2v)/4$ and $\log N/\log T\to1$.
+\end{proof}
+Half-turns and quarter-turns give the other directions. For example, speed
+$v=1/52$ requires exponent at least $2/25$ on a nontranslating orbit.
+Subpolynomial crossing-height spread is consequently incompatible with
+positive horizontal upper speed. Together with $H=O(T)$ the bound also gives
+$v\le1/6$. No bound on repeated visits is assumed.
+
+\subsection{A numerical finite-profile deadline}
+For $H\ge0$, $C\ge1$, and a complete source, define
+\begin{align*}
+ R&=\max\bigl(\{0\}\cup\{|q.x-p_0.x|:q\in B_0\}\bigr),\\
+ L&=H+1,\qquad M(H,C)=A_H^*(LC-1),\\
+ D(R,H,C)&=\bigl[2(R+M(H,C))+1\bigr]LC.
+\end{align*}
+\begin{theorem}[Profile deadline]\label{cross:thm:profile}
+Suppose a finite prefix through $T$ has vertical span at most $H$ in every
+visited column and at most $C$ updates of every site. Either it contains a
+permanent translation certificate or $T\le D(R,H,C)$.
+\end{theorem}
+\begin{proof}
+In an eligible record, east crossings update their departure sites in its left
+column. There are at most $LC$ such updates. Since the record starts and ends
+east, its odd length is at most $2LC-1$. Every such record therefore lies in a
+class of size $M(H,C)$. Reaching a point with
+$x>p_0.x+R+M(H,C)$ would give more than $M(H,C)$ cuts beyond the complete initial
+support at that subprefix endpoint, forcing a duplicate record. A half-turn
+gives the analogous left bound. If no certificate occurs, every head position
+has $|x-p_0.x|\le R+M(H,C)$. There are at most $2(R+M)+1$ visited columns,
+each with at most $L$ updated sites and at most $C$ updates per site.
+\end{proof}
+The final unupdated head is not charged as an update. At a final east crossing,
+its departure is still in the counted left column; all west crossings of an
+eligible record are earlier. Black cells outside the corridor remain present.
+Their coordinates matter through the initial frontier, not through an assumed
+future-active quotient. The bound is linear in numerical $R$ at fixed $H,C$,
+but is not a polynomial bit-complexity claim.
+
+\subsection{Local visit bounds and slowly widening trajectories}
+Let $n(v)$ count updates in a finite segment, excluding the terminal position.
+For either adjacent pair $u=v+(\pm1,0)$ and $z=v+(0,\pm1)$,
+\begin{equation}
+ n(v)\le2n(u)+2n(z)+5.\label{cross:eq:corner}
+\end{equation}
+For completeness, the incoming axis at $v$ is fixed. A visit is exceptional if
+it is the initial update, arrives from the selected incoming neighbour, or
+leaves to the selected outgoing neighbour. On every other visit both directions
+are fixed, hence the turn and read color are fixed. Alternation of colors forces
+at least $\lfloor n(v)/2\rfloor$ exceptions. There are at most $n(u)+n(z)+2$,
+including the initial and terminal allowances, proving \eqref{cross:eq:corner}.
+
+If all head positions of a prefix lie in $a\le\alpha x+\beta y\le b$ with
+$\min(|\alpha|,|\beta|)=1$, choose the adjacent pair increasing the linear form.
+Both children increase it by at least one. The analogous pair decreases it.
+Iterating toward the nearer boundary, with $F(-1)=0$ and $F(d)=4F(d-1)+5$, gives
+\[
+ n(v)\le C_h:=\frac{5(4^{\lfloor h/2\rfloor+1}-1)}3,
+ \qquad h=\lfloor b-a\rfloor.
+\]
+Each column contains at most $\lfloor(b-a)/|\beta|\rfloor+1\le h+1$ lattice
+sites. Therefore Theorem~\ref{cross:thm:profile} proves the explicit alternative
+\begin{equation}
+ \text{a certificate occurs, or}\qquad
+ T\le D_{\mathrm{obl}}(R,h):=D(R,h,C_h).\label{cross:eq:deadline}
+\end{equation}
+No infinite confinement is assumed in \eqref{cross:eq:deadline}.
+
+\begin{proof}[Proof of Theorem~\ref{cross:thm:gap}]
+For $h\ge2$, $C_h\le(20/3)2^h$ and $q\le h+1$. Bounding $A_h^*$ by
+$2(r+1)q^r$ at $r=(h+1)C_h-1$ yields
+\[
+ \log D_{\mathrm{obl}}(R,h)
+ =O_R\bigl((h+1)2^h\log(h+2)\bigr).
+\]
+On an orbit which is not $\ETC$, no finite certificate can occur. Thus for every
+$T$, with $h=\lfloor w_{\alpha,\beta}(T)\rfloor$,
+\[
+ \log\log T\le h\log2+\log(h+1)+\log\log(h+2)+O_R(1).
+\]
+This first forces $h\to\infty$ and then gives the claimed liminf. All constants
+are independent of the normalized normal. For an infimum choose a normal with
+width less than one above the infimum; the bounded difference does not change
+the asymptotic conclusion.
+\end{proof}
+
+For example, an eventual tube
+\[
+ |y-\theta x|\le g(|x|),\qquad \theta\ne0,
+ \qquad g(r)=o\bigl(\log\log(r+e^e)\bigr)
+\]
+forces $\ETC$: unit speed makes its prefix normal span $o(\log\log T)$; a finite
+initial part contributes only a constant. For irrational $\theta$ this is
+impossible, because a nonzero integer translating drift has a nonzero linear
+deviation from that slope. The width $g$ is allowed to tend to infinity.
+
+There is a corresponding nonstraight extension. Let $f:\Z\to\Z$ be
+nondecreasing with $f(x+L)\ge f(x)+1$ for some fixed $L\ge1$. A north/west path
+of length $L(H+1)$ leaves the corridor $f(x)\le y\le f(x)+H$ above its top.
+Expanding \eqref{cross:eq:corner} along this binary tree gives
+\[
+ C_{L,H}=\frac{5(4^{L(H+1)}-1)}3.
+\]
+The profile deadline then implies, for any nontranslating orbit whose prefix
+fits that corridor with a possibly increasing $H(T)$,
+\[
+ \liminf_{T\to\infty}\frac{H(T)}{\log\log T}\ge\frac1{L\log4}.
+\]
+The bound $H(T)$ covers the entire prefix, not a window from which old deviations
+have been deleted.
+
+\subsection{Nonconstant cyclic turning rules}
+The geometric information argument also applies to generalized cyclic ants.
+Let a rule $\omega\in\{R,L\}^m$ contain both letters, let a read increment its
+cell state modulo $m$, and let only finitely many initial states differ from
+zero. Put
+\[
+ a=\min(\#R(\omega),\#L(\omega)),\qquad \kappa=m/a.
+\]
+For a cyclic prefix at phase $s$, let $n_c(s,r)$ count turn $c$. Define
+\[
+ b_\omega=\max_{s,c,\,0\le r<m}\{r-\kappa n_c(s,r)\}.
+\]
+Every full $m$-block has at least $a$ copies of either turn, so
+$n\le\kappa n_c(s,n)+b_\omega$ for every prefix length. In the corner argument,
+all nonexceptional visits require one fixed turn. Visits with the opposite turn
+are exceptional, giving
+\[
+ n(v)\le\kappa(n(u)+n(z))+2\kappa+b_\omega.
+\]
+The rest of the proof is unchanged, replacing $C_h$ by
+\[
+ C_\omega(h)=\left\lceil
+ (2\kappa+b_\omega)
+ \frac{(2\kappa)^{\lfloor h/2\rfloor+1}-1}{2\kappa-1}
+ \right\rceil.
+\]
+
+\begin{theorem}[Frequency-dependent width gap]
+Every non-eventually-translating finite-support orbit for the fixed rule
+$\omega$ satisfies
+\[
+ \liminf_{T\to\infty}\frac{w_{\alpha,\beta}(T)}{\log\log T}
+ \ge\frac2{\log(2\kappa)}.
+\]
+\end{theorem}
+\begin{proof}
+Heading-axis parity and crossing parity still alternate. Complete
+half-plane coupling and request reconstruction remain deterministic with $m$ colors. The local visit
+bound grows as $O_\omega((2\kappa)^{h/2})$. Substitution into the same finite
+profile deadline and taking two logarithms proves the claim.
+\end{proof}
+For classical $RL$, $\kappa=2$, $b_\omega=1$, recovering the exact earlier
+local-time constant. Every balanced cyclic rule has the same asymptotic
+coefficient $1/\log2$, though its finite constants may differ.
+
+\subsection{Effectivity and reproducibility}
+For a supplied rational non-axis normal and integer width bound, an implemented
+algorithm follows complete states, checks the running width, and compares all
+crossing records at new left/right horizontal records beyond the full initial
+support. It returns a first observed width violation or a permanent translating
+certificate. Without a user cap, \eqref{cross:eq:deadline} proves termination. It need
+not construct the large deadline integer during execution. A capped run returns
+\texttt{UNKNOWN}, never a negative dynamical conclusion.
+
+The certificate checker independently replays the finite source, compares the
+full half-plane fields, and checks the finite no-exit guard. A separate phase-ray
+parity check tests all initial black hits, all self-write breakpoints, and the
+final infinite interval. An unseen forward defect is therefore not ignored.
+A translating answer does not assert permanent satisfaction of the supplied
+width bound; a non-tangent translator may later leave it.
+
+The Python simulator and an independently written C++ vector simulator agree
+on every path position and complete endpoint field of 100 supplied inputs,
+totalling 113,152 updates per implementation. Further checks exhaust the
+stated small parity-word classes, verify integer packing and entropy inequalities,
+check finite corner bounds, and reject malformed or unguarded certificates.
+Four actual standard-tail inputs in different rotations return 104-step
+certificates. These are implementation checks, not proofs that all tails are
+standard. The finite cyclic-rule balance calculation is checked for every
+nonconstant rule word of lengths two through eight. The general-rule classifier
+is not implemented; its extension is analytic.
+
+The request-capacity module separately checks 78 complete inputs and 86,647
+updates per literal implementation. A persistent half-plane replay compares
+186 complete residual fields; the controls also compare request-code and
+full-signature equality, exact integer packing, and damaged histories.
+It uses the same hash-pinned baseline simulator and C++ oracle as the preceding
+module, together with a separate right-excursion implementation.
+
+The reproduction entry point is
+\begin{quote}\ttfamily
+python3 memory\_feedback/reproduce.py --crossing-only
+\end{quote}
+using Python's standard library and a C++17 compiler. The default replay works
+in a temporary directory and compares an immutable report. The universal
+claims are the displayed analytic arguments, not extrapolations of the tests.
+

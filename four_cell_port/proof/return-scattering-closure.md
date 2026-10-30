@@ -91,7 +91,8 @@ with 580 black cells and a certified standard NW tail w_58. Every A read has
 -10<=s<=9 and every tail read has s>=G. Both infinite checkers accept this
 COMPLETE reference endpoint. Its initial field has 484 cells.
 
-Let Q_B,i be the phase positions of w_58 from this endpoint. Then
+Let Q_B,i be the phase positions in the primary collision frame of w_58
+launched from this endpoint: Q_B,0=(-12,12) and Q_B,14=(-15,11). Then
 
     q2(n)=Q_B,14+n*(-2,2),
 

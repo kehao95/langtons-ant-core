@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "blocks": 156,
+  "certificate_sha256": "8d2e603352802a844a9915bec261717cc817a916c812c707533fca438ae9b297",
+  "deep_interior_never_read": false,
+  "drift": [
+    -2,
+    -2
+  ],
+  "first_entrance": "(57345+484*a)",
+  "geometry_checks": 0,
+  "isl_version": "isl-0.27-GMP",
+  "matching_suffix": 0,
+  "name": "thin_m5_1_rebuilt",
+  "read_checks": 5647,
+  "tail_boundary": "(57345+484*a)",
+  "tail_pose": [
+    "(191+2*a)",
+    "(-10)",
+    3
+  ]
+}

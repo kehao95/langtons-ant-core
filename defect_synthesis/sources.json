@@ -1,14 +1,15 @@
 {
   "schema": "article-sources-v1",
   "sha256": {
-    "PROOF.md": "3cc49613c98fe9ee7682a10db7a5faf570ab86483813df3d3c6b2aece4edcc70",
-    "README.md": "5ca90aa84df1df57d99f96bbc7ebb7864cbcea05bbbcae7f6f86042eab73fa60",
-    "evidence/README.md": "b0290f096524b45176837f986e617a2c3c07249885921a62416555560e81203d",
+    "PROOF.md": "bd4276dba819cd385c7370722deb65061dc2b6240b53f33def07ee5e458edd59",
+    "README.md": "da79aed90167f8dce886a0c0237b6760c2b81460e17b8686e2e1636f664d141b",
+    "evidence/README.md": "dbedfee188d0182fe3f0e03f489c432266d00a3c318f06c64a3948fc47c2d6c7",
     "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
-    "paper/main.tex": "21472891478a670e5e654c19125e3c05e6cb78022ce618ba01bade36346d5c76",
-    "paper/quantifier-free.tex": "9709ead371c0e9b552e9afa1ecee9a8a50ac76c57859188603c8e9056f6040f5",
-    "paper/resources.tex": "c6379ac4187d925a1b86b7e458e0a542e59247f4b40adfca22f96642fc5efef9",
-    "paper/small-witnesses.tex": "9cc35b66eec789b6ca0650bf8b327a63b67b053af4c4188fb28483638303e1da",
+    "paper/main.tex": "dce8a81036f7686e6243057a4d7de6fbc144ffef50738708026eca16335f625d",
+    "paper/quantifier-free.tex": "db49cf4ed210aae4ffbf2268c1dcca1f8319e9ca1ac945643dd8869bf159105e",
+    "paper/resources.tex": "06ae38b6326d66f365598d010338a53bd8144ab7927cf7ad7e7a65d3539db57d",
+    "paper/six-cell.tex": "b80aee42bb91914db75ae92f974c298c70bf823f5339138bdb35a0aff01629c4",
+    "paper/small-witnesses.tex": "f42232e8feded6de33aadd3046a54be9a3124d77c1a8a9a1cd6abced9a2af835",
     "proof/defect-compiler-optimization.md": "63a20363d40a79868562158baf3ecb38392330cde811d3dfa3b2f46ad9bd188e",
     "proof/defect-resource-spectrum.md": "1d402b8afb1871674688f24295f13f0153bfd2e4b7d288f2ff37ad649727aac1",
     "proof/defect-small-witnesses.md": "5ee824e04dd586d2f1069499422e5a236830fdf3f32ed270e4acb45f6da3b868",
@@ -17,7 +18,7 @@
     "proof/quantifier-free-defect-complexity.md": "2ecafc2ffa054e07309d230cb4619ca7f6983cae4a0b8672b54b040bec569461",
     "proof/ten-event-macros.md": "ce64c566be3203c676dd04aa333aea2651a52c2e20a6311500d8df361786e225",
     "proof/ten-factor-attraction.md": "86b968c4578fbaee0e2e38202858b32917a47e494f6bdb74ecf42921a5cae7d8",
-    "reproduce.py": "532d7a5eb2ecac29e3be1dcc5c9b5ecfa215f3b1ea5d4974c1c2648de58b08c9",
+    "reproduce.py": "0e4b4942e6de669db9b0d82d2cb34326232ac9f91e964d6286b35bb55b351d9a",
     "verification/defect_compiler_optimization/README.md": "bda4146d8ae305cdb4f42ec72697bd237c33873536504e2881d44dad01d2973b",
     "verification/defect_compiler_optimization/benchmark.py": "df44be292da129871d7049c171e919d5aff04c4b3518ab4ddda33579e034a21c",
     "verification/defect_compiler_optimization/benchmark_results.json": "aff40065edf24d1853948e71e5c4cbade3134e4c54f0b4a9a0b3de17151df8f5",
@@ -64,6 +65,12 @@
     "verification/schema_supply/report.json": "04aaf77e9dc1bb4a244a78347b05f0cde1281acbc8c5ec1ed1521731c6fb60e6",
     "verification/schema_supply/reproduce.py": "e1728ac66785bb320d6afb7124238819e11e02a329e8921412d67f1108b6c772",
     "verification/schema_supply/supply.py": "2f8f1f04d967fde7101504fcffe75fcc64076aa9d45fd1965f8015ef7790476a",
-    "verification/schema_supply/witness.json": "5792fad3124ba6293edfdce5fedc1850e42d5304927edd7f56e4c8853b895b0a"
+    "verification/schema_supply/witness.json": "5792fad3124ba6293edfdce5fedc1850e42d5304927edd7f56e4c8853b895b0a",
+    "verification/six_cell_feedback/README.md": "d446c8b672fde0c27665dba44522a0364a7ede8459edbe8bdd883f1ba1666b4d",
+    "verification/six_cell_feedback/independent.cpp": "256ab208e3c23e120c93fea187e83e294b6639936a4550c714655d582a8d4368",
+    "verification/six_cell_feedback/query.py": "5d65e415c0c92a21b361660e4975158b139b54bf07ddd147eb2a3b0d7eacf182",
+    "verification/six_cell_feedback/report.json": "f0f6169a1832fc398e537da2d70a11943ca7a47114cf331f994edaccc3e55880",
+    "verification/six_cell_feedback/verify.py": "882f101f9445ef8a5146e357db560360a6a71a0006ba324fcb69f62cfd49e756",
+    "verification/six_cell_feedback/witness.json": "c03a5ca147417e2abef29331f8a68ef417bc66c10a1555c8b78b420057365e21"
   }
 }

@@ -1,0 +1,42 @@
+{
+  "cases": {
+    "4": {
+      "cyclic_descent_histogram": {
+        "1": 4,
+        "2": 16,
+        "3": 4
+      },
+      "excluded": 8,
+      "not_excluded": 16,
+      "total": 24
+    },
+    "6": {
+      "cyclic_descent_histogram": {
+        "1": 6,
+        "2": 156,
+        "3": 396,
+        "4": 156,
+        "5": 6
+      },
+      "excluded": 408,
+      "not_excluded": 312,
+      "total": 720
+    },
+    "8": {
+      "cyclic_descent_histogram": {
+        "1": 8,
+        "2": 960,
+        "3": 9528,
+        "4": 19328,
+        "5": 9528,
+        "6": 960,
+        "7": 8
+      },
+      "excluded": 19072,
+      "not_excluded": 21248,
+      "total": 40320
+    }
+  },
+  "schema": "axis-cycle-count-v1",
+  "total_assignments": 41064
+}

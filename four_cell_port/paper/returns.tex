@@ -38,7 +38,9 @@ return region from the fields left by earlier stages.
 \subsection{Convention, standard word, and finite mature
 restrictions}\label{returns-2}
 
-Use the state and clockwise-rotation conventions of Section~1. All
+Use the state and clockwise-rotation conventions of Section~1 and the integer
+heading convention $\mathrm N,\mathrm E,\mathrm S,\mathrm W=0,1,2,3$ of
+Section~\ref{scattering-2}. All
 fields in this section are complete finite black sets.
 
 Use exactly the standard word w and thirteen-cell NE seed K from
@@ -103,8 +105,9 @@ read has $-10\le s\le9$ and every tail read has
 $s\ge G$. Both infinite checkers accept this complete reference
 endpoint. Its initial field has 484 cells.
 
-Let $Q_{B,i}$ be the relative step positions of $w_{58}$ from this endpoint.
-In particular $Q_{B,14}=(-15,11)$, so
+Let $Q_{B,i}$ be the pre-update positions in the primary collision frame of
+the flight $w_{58}$ launched from $v_A$ at $n=0$. Thus $Q_{B,0}=v_A=(-12,12)$
+and $Q_{B,14}=(-15,11)$, so
 
 \[
 q_2(n)=Q_{B,14}+n(-2,2)=(-2n-15,2n+11),
@@ -322,8 +325,8 @@ gives the different, permanent SE future just proved.
 \subsection{Single-packet theorem and protection under later
 interruptions}\label{returns-6}
 
-\begin{theorem}[One return pattern]\label{th:return-one} Every complete state \eqref{eq:rt22}, for $n\ge100$
-and arbitrary finite $H\subset\{s<G\}$, has the three-marker
+\begin{theorem}[One return pattern]\label{th:return-one} Every state with initial field \eqref{eq:rt22}, initial pose
+$(0,0),\mathrm S$, $n\ge100$ and arbitrary finite $H\subset\{s<G\}$, has the three-marker
 behavior just described and reaches NE standard phase 94 by time
 $208n+75609$. The two-marker state has the SE output from Subsection~\ref{two-marker-output}. All supplied black history remains physically
 present.

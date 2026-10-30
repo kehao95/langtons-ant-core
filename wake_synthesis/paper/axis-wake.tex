@@ -1,0 +1,444 @@
+\section{Axis-wake inversion parity}\label{axis:sec:axis}
+We use the complete-state and pre-update conventions of Section~2.
+
+We study a nonempty turn word $w=w_0\cdots w_{P-1}$ whose infinite repetition
+is executed from such an input. Its heading returns after $P$ updates, and its
+\emph{full} displacement is a nonzero axis vector. A quarter-turn rotation
+normalizes it to $d=(a,0)$ with $a>0$. The word need not be a least period.
+The complete colouring need not translate: it retains all emitted wake and
+unread debris. A finite transient before the repeated suffix is allowed,
+since the field at its end is still finite.
+
+Let $q_i$ be the pre-update position of phase $i$. Translation classes are
+cells modulo $\Z(a,0)$, represented by $(x\bmod a,y)$. Let $O$ be the finite
+set of classes containing an odd number of the $P$ phases, and let $g=|O|$.
+Define the \emph{strict inversion count}
+\begin{equation}\label{axis:eq:I}
+ I(O)=\#\{(u,v)\in O^2:x_u<x_v,\ y_u>y_v\}.
+\end{equation}
+Equal rows or columns do not contribute. Equivalently, sort $O$ by increasing
+$(y,x)$ and count strict inversions of the resulting $x$ list.
+
+\begin{theorem}[Axis-wake obstruction]\label{axis:thm:main}
+Every finite-support periodic realization with full displacement $(a,0)$,
+$a>0$, has even $a$ and satisfies
+\[
+ \boxed{I(O)\equiv0\pmod2.}
+\]
+There is no bound on $P$, vertical span, $g$, even visit multiplicities,
+initial black cardinality or initial coordinates.
+\end{theorem}
+
+The test is intrinsic to the cylindrical wake. Translating the coordinates,
+changing the phase origin or changing representatives does not alter its
+parity on the relevant domain.
+
+\paragraph{Relation to earlier results.}
+Jillhewar's stabilized-class criterion, signed mod-four residues and
+special-axis lifted-rank factorization supply the underlying methodology
+\cite{Jillhewar2026}. The non-axis wake character in Appendix~\ref{app:quadratic}
+uses uniqueness of finite horizontal and vertical boundary antiderivatives.
+That uniqueness fails on an axis cylinder: a whole horizontal row can be
+added without changing any endpoint. The new step here is to prove that
+these row cycles lie in the radical of the inversion polarization and to
+eliminate their remaining scalar contribution using winding. A second step
+reduces the resulting character to the endpoint order \eqref{axis:eq:I}.
+For $a=2$ the result recovers the existing growth divisibility condition;
+the new scope includes every larger even full axis displacement.
+
+\subsection{Stable visits and the cylindrical parity graph}\label{axis:sec:stable}
+Write positions in a fixed translation class as $q_i=b_v+k_i d$. A visit to
+the physical cell $b_v+nd$ at phase $i$ occurs at time
+\[
+ nP+\tau_i,\qquad \tau_i=i-Pk_i,
+\]
+provided $n\ge k_i$. For sufficiently large $n$ all phases occur, and the cell
+was initially white. Thus increasing $\tau_i$ orders the class visits as
+$\Rr,\Ll,\Rr,\Ll,\ldots$. Different phases have different keys, since equality
+would imply equality modulo $P$. This is the necessary part of the
+periodic-realisability criterion of \cite{Jillhewar2026}.
+
+The signed excess $D_v=\#\Rr-\#\Ll$ in a class is zero or one, and is exactly
+its odd indicator. Hence the total excess is $g$. Heading restoration gives
+$4\mid g$. It also makes $P$ even. Since horizontal and vertical moves
+alternate and the net vertical displacement is zero, $P/2$ is even. Therefore
+$4\mid P$, and the horizontal net displacement $a$ is even.
+
+The product of checker parity with the sign distinguishing horizontal and
+vertical incoming headings is invariant. Label vertical-arrival vertices
+$Q$, horizontal-arrival vertices $C$, choosing the coordinate gauge in which
+$Q$ has even $x+y$. Horizontal directed edges run from $Q$ to $C$ and vertical
+edges from $C$ to $Q$. Each visit uses one edge of each axis. Consequently the
+horizontal and vertical boundaries of the traversed-edge indicator modulo two
+are both $D=\mathbf1_O$. Every row and every column of $O$ has even population.
+
+Pair consecutive $y$ endpoints on each column to obtain the unique finite
+vertical edge set with boundary $D$. On each row choose the horizontal seam
+edge from column $a-1$ to column zero to be absent, and pair consecutive $x$
+endpoints in $0,\ldots,a-1$. Call the union of these horizontal and vertical
+interval edges $G_0(O)$. All edges retain their physical direction and port.
+For $a=2$, the east and west edges between the same quotient vertices remain
+distinct parallel edges.
+
+\begin{lemma}[All possible parity lifts]\label{axis:lem:lifts}
+The actual parity graph of any period with wake $O$ is
+\begin{equation}\label{axis:eq:lifts}
+ G=G_0(O)\xor\mathop{\triangle}_{y:h_y=1}R_y,
+\end{equation}
+where $R_y$ is the full horizontal row cycle and only finitely many $h_y$ are
+nonzero. Moreover $\sum_yh_y\equiv1\pmod2$.
+\end{lemma}
+\begin{proof}
+A finite boundary-free edge set on a vertical line is empty. On a horizontal
+cycle it is either empty or the full cycle. Subtracting $G_0$ from the actual
+edge indicator gives \eqref{axis:eq:lifts}. There is no assumption that the added
+cycles are between the highest and lowest wake endpoints.
+
+Lift the closed quotient walk to the plane. Its full displacement is $(a,0)$,
+so its signed crossing number of the seam is one. Modulo two signs disappear.
+The seam-zero graph contributes zero and each $R_y$ contributes one. This gives
+the asserted parity. Even traversal multiplicities do not affect it.
+\end{proof}
+
+\subsection{The one-tour port sign}\label{axis:sec:sign}
+Order the finite set of relevant vertices by any total order, and at each
+vertex put the negative port before the positive port. Positive means movement
+N or E, for both incoming and outgoing ports. For a finite directed parity
+edge set $G$, let $E(G)$ be the inversion parity between the list of its edges
+ordered by source port and the same edges ordered by target port. Let
+$N_+(G)$ count its positive edges. Define
+\begin{equation}\label{axis:eq:q}
+ q(G;O)=E(G)+N_+(G)+|O\cap C|\pmod2.
+\end{equation}
+We suppress $O$ when it is fixed. The next factorization extends the
+special-drift port argument in \cite{Jillhewar2026}; we include its derivation.
+
+\begin{lemma}[Actual-period character]\label{axis:lem:actual}
+The parity graph of every period under consideration satisfies $q(G)=1$.
+\end{lemma}
+\begin{proof}
+At a vertex with $m$ stable-ranked events, record their positive incoming and
+outgoing bits as $\alpha_k,\beta_k$, $0\le k<m$. Put
+$A=\sum\alpha_k$, $B=\sum\beta_k$ and $p=A+B\pmod2$. For any binary list,
+\begin{equation}\label{axis:eq:binary}
+ \inv(\alpha)=A(m-1)+\sum_k k\alpha_k+\binom A2\pmod2.
+\end{equation}
+Indeed, a one at position $k$ sees $m-1-k$ later positions, from which its
+later ones are subtracted; the latter count sums to $\binom A2$.
+
+Write $K$ for the sum of the stable ranks of all left turns, modulo two, and
+$I_{\rm port}$ for the sum of incoming and outgoing binary inversions.
+At $Q$ a left turn means unequal port bits, whereas at $C$ it means equal
+bits. Applying \eqref{axis:eq:binary} to both lists gives local corrections
+$p(m-1)$ at $Q$ and $p(m-1)+\binom m2$ at $C$. The positive-edge binomial terms
+cancel globally, because a directed edge has equal source and target counts.
+At $C$ one also has
+\[
+ D=2(A+B)-4\sum_k\alpha_k\beta_k-m,\qquad m\equiv2p-D\pmod4.
+\]
+Using $D\in\{0,1\}$ and $m\equiv D\pmod2$ therefore gives
+\begin{equation}\label{axis:eq:local}
+ K=I_{\rm port}+L,\qquad
+ L=\sum_Qp(D+1)+\sum_CD(p+1)\pmod2.
+\end{equation}
+
+A quotient edge of voltage $\nu$ changes stable time by $1-P\nu$. This same
+constant applies to all its occurrences, including the period seam. Source
+and target occurrences therefore match first to first. Sorting outgoing
+ports, transferring edge blocks and unsorting incoming ports factors the
+phase successor. That successor is one even-length $P$-cycle, even when the
+chosen word is a power. Hence
+\begin{equation}\label{axis:eq:tour}
+ I_{\rm port}+E(G)=1\pmod2.
+\end{equation}
+Exchanging blocks of sizes $r,s$ contributes $rs$ modulo two, so the edge-block
+sign depends only on edge-count parities, precisely as in the definition of
+$E(G)$.
+
+It remains to simplify $L$. In $G_0$, a paired horizontal or vertical interval
+contributes positive-incidence parity $1+c(u)+c(v)$ at its endpoints, where
+$c=0$ on $Q$ and $1$ on $C$. There are $g/2$ intervals of each axis. Each
+endpoint checker bit is counted twice; thus $\sum_{v\in O}p_v=0$.
+Adding $R_y$ changes $p_v$ once at every vertex on that row. The row population
+of $O$ is even, so the same cancellation holds for every graph \eqref{axis:eq:lifts}.
+Furthermore $\sum_Qp=N_+$: each positive edge has exactly one $Q$ endpoint.
+Expanding \eqref{axis:eq:local} gives
+\[
+ L=N_+(G)+|O\cap C|\pmod2.
+\]
+Every left turn in a stable alternating class has odd rank, so
+$K=\#\Ll=(P-g)/2\equiv0\pmod2$, since $4\mid P,g$.
+Equations \eqref{axis:eq:local} and \eqref{axis:eq:tour} now give $q(G)=1$.
+\end{proof}
+
+\subsection{Eliminating unknown row circulations}\label{axis:sec:radical}
+For a fixed edge universe and vertex order, $E$ is a quadratic polynomial over
+$\F$ in the edge indicators: each inverted pair contributes the product of
+its two indicators. Its polarization
+\[
+ \mathcal B(G,H)=E(G\xor H)+E(G)+E(H)
+\]
+is bilinear. The following lemma is the axis-specific cancellation.
+
+\begin{lemma}[Row-cycle radical]\label{axis:lem:radical}
+For every finite edge set $G$ and every full horizontal row cycle $R_y$,
+\[
+ \mathcal B(G,R_y)=0,\qquad E(R_y)+N_+(R_y)=1\pmod2.
+\]
+The first assertion does not require a boundary condition on $G$.
+\end{lemma}
+\begin{proof}
+Every source and target degree of $R_y$ is even. Swapping vertices in the
+common order therefore leaves $\mathcal B(G,R_y)$ unchanged. Place its row
+vertices first, ordered by column, and use bilinearity to reduce to a single
+edge $e$.
+
+An edge off the row sees only complete source and target blocks of $R_y$,
+each of size two, so its mixed inversion count is even. A vertical edge
+touching the row has its row source at $C$, where $R_y$ has no source block,
+or its row target at $Q$, where $R_y$ has no target block. The remaining
+whole blocks again have size two. Finally a horizontal edge on the row is
+itself in $R_y$. Its inversion count with the other row edges has parity equal
+to the sum of its zero-based source and target indices. Both indices have
+the parity of its port bit, so their sum is even. This also covers the two
+parallel ports when $a=2$. Thus the polarization vanishes.
+
+Put $a=2m$. With the row order just chosen, one sign of horizontal port
+matches identically among $m$ slots and the other matches by a cyclic shift
+among $m$ slots. Its sign is $m-1$ modulo two. There are $m$ positive edges.
+Their sum is $2m-1\equiv1$.
+\end{proof}
+
+Since edge-number parity is linear, toggling a row cycle changes $q$ by one.
+Lemma~\ref{axis:lem:lifts} and Lemma~\ref{axis:lem:actual} consequently imply
+\begin{equation}\label{axis:eq:q0zero}
+ q(G_0(O);O)=0.
+\end{equation}
+The entire unknown set of row circulations has disappeared. In particular,
+no bound on its support or on the number of even visits was needed.
+
+\subsection{Evaluating the character from endpoints}\label{axis:sec:endpoints}
+The next statement is purely combinatorial, on a larger domain than that of
+realizable wakes.
+
+\begin{theorem}[Endpoint identity]\label{axis:thm:endpoint}
+For even $a>0$ and any finite $O\subset\{0,\ldots,a-1\}\times\Z$ with even
+populations on every row and column,
+\begin{equation}\label{axis:eq:endpoint}
+ q(G_0(O);O)=I(O)+|O|/2\pmod2.
+\end{equation}
+It holds for either checker/arrival-axis convention.
+\end{theorem}
+\begin{proof}
+At every vertex the incoming and outgoing degree parities of $G_0$ are both
+$D_v$. Exchanging vertices $v,w$ changes $E$ by
+$D_vD_w+D_vD_w=0$. We may therefore put every $Q$ vertex before every $C$
+vertex, using row-major order within each checker colour.
+
+Every horizontal/vertical edge pair is inverted: its sources are in the order
+$Q,C$ and its targets in the order $C,Q$. The parity of the horizontal edge
+count is $|O\cap Q|$, and that of the vertical count is $|O\cap C|$.
+The two endpoint populations have the same parity because $|O|$ is even.
+Thus the mixed inversions cancel the checker term in \eqref{axis:eq:q}, leaving
+\begin{equation}\label{axis:eq:axes}
+ q(G_0)=(E_H+N_H)+(E_V+N_V).
+\end{equation}
+
+Consider a paired horizontal interval $[l,r]$. Its inversions are exactly its
+internal $C$ vertices, where the two incoming edges reverse port order.
+Its positive edges are counted by $Q$ vertices from $l$ inclusive to $r$
+exclusive. Summing modulo two gives $c(r)$. Distinct horizontal intervals
+have no mutual inversions in row-major order. Therefore
+\[
+ E_H+N_H=\sum_{\text{horizontal pairs}}c(\text{right endpoint}).
+\]
+
+To evaluate the vertical part, change to column-major order within each
+checker colour. A paired vertical interval $[b,t]$ contributes
+$1+c(t)$: its inversions are its internal $Q$ vertices and its positive
+edges start at $C$ vertices from $b$ inclusive to $t$ exclusive. Distinct
+paired vertical intervals have no mutual inversions in column-major order.
+Changing the order back adds $J_{\rm same}$, the strict inversion count among
+endpoint pairs of the same checker colour. This follows by block exchanges:
+vertical source degrees at $C$ and target degrees at $Q$ have parity $D_v$.
+Together with \eqref{axis:eq:axes}, this gives
+\begin{equation}\label{axis:eq:ranks}
+ q(G_0)=|O|/2+J_{\rm same}
+ +\sum_{\text{horizontal pairs}}c(r)+\sum_{\text{vertical pairs}}c(t).
+\end{equation}
+
+Let $r(v)$ and $s(v)$ be the zero-based ranks of endpoints in row-major and
+column-major order. Because every row and column has even population, paired
+right endpoints are precisely the odd row-major ranks, and paired top
+endpoints precisely the odd column-major ranks. The last two sums in
+\eqref{axis:eq:ranks} equal $\sum_vc(v)(r(v)+s(v))$ modulo two.
+The parity of an endpoint's rank change is the number of endpoints with which
+it exchanges order. Each inverted pair $u,v$ therefore contributes
+$c(u)+c(v)$ to this sum. The sum is exactly $J_{\rm mixed}$, the count of
+inversions with unlike checker colours. Adding $J_{\rm same}$ proves
+\eqref{axis:eq:endpoint}. The same argument works after exchanging the checker labels.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{axis:thm:main}]
+Section~\ref{axis:sec:stable} gives even $a$, even fiber populations and $4\mid g$.
+Equation~\eqref{axis:eq:q0zero} and Theorem~\ref{axis:thm:endpoint} give
+$0=I(O)+g/2=I(O)\pmod2$.
+\end{proof}
+
+\paragraph{Translation and phase invariance.}
+Vertical translation does not change row order. To move the horizontal seam,
+it suffices to move one column from the start of the column order to its end.
+If this column has $n$ endpoints, the number of strict comparisons reversed is
+\[
+ n(g-n)-\sum_{v\text{ in that column}}(\#\text{endpoints in row }v-1).
+\]
+Both $n$ and $g$ are even; each row population is even, and there are an even
+number $n$ of terms in the sum. The displayed number is even. Hence cyclic
+column shifts preserve $I$ modulo two. Changing the phase origin translates
+the odd classes: visits shifted across the period seam differ by full copies
+of $d$ and remain in their classes. Normalizing representatives also leaves
+the same set. These observations prove the asserted invariances without a
+geometric cutoff.
+
+\paragraph{Quadratic structure.}
+On the vector space of finite indicators with even row and column populations,
+$O\mapsto G_0(O)$ is linear: in each line or cut cycle, cumulative boundary
+parity is a linear antiderivative. Thus $q(G_0(O);O)$ is a quadratic form.
+Its polarization is bilinear. Addition here is symmetric difference of
+indicators, not superposition of physical ant trajectories.
+
+\subsection{A fast screen and excluded families}\label{axis:sec:families}
+Given $g$ explicit class representatives in binary, reduce their horizontal
+coordinates modulo $a$, deduplicate and sort by $(y,x)$. Merge-sort inversion
+counting computes $I$ in $O(g\log(g+1))$ comparisons and arithmetic operations
+and $O(g)$ space. Equal column values must be treated as noninversions.
+The integers have polynomial bit size in the input coordinates and $\log(g+1)$.
+The algorithm never expands a vertical gap.
+
+For comparison with existing arithmetic screens we use the signed residue
+conditions from \cite{Jillhewar2026}:
+\begin{equation}\label{axis:eq:residues}
+ \sum_{(x,y)\in O:\,x=r}(-1)^{x+y}\equiv2\pmod4,
+ \qquad
+ \sum_{(x,y)\in O:\,y=s}(-1)^{x+y}\equiv0\pmod4.
+\end{equation}
+They imply $g\ge2a$, and impose even populations on each fiber. For clarity,
+their mod-four potential can be written explicitly. For arbitrary
+$f:\Z\to\Z/4\Z$, choose $S$ with $S(x+1)-S(x)=f(x)+f(x+1)$ and put
+\[
+ F_N=-\chi S(x),\quad F_E=\chi(S(x)-f(x)),\quad
+ F_S=-\chi(S(x)+2f(x)),\quad F_W=\chi(S(x)+f(x)),
+\]
+where $\chi=(-1)^{x+y}$. Direct substitution in the eight turn/heading cases
+shows that $\sum_{z\in B}\chi(z)f(z_x)+F_h(p)$ is invariant modulo four.
+For $a$-periodic $f$, its head monodromy along $(a,0)$ is $2\sum_{r=0}^{a-1}f(r)$.
+The field increment is $\sum_{v\in O}\chi(v)f(v_x)$ by stable alternation.
+Choosing residue indicators gives the first condition in \eqref{axis:eq:residues}.
+Rotating the formula and using zero vertical displacement gives the second,
+for arbitrary single-row indicators. This also specifies their exact-row scope.
+
+\begin{theorem}[Staircase exclusions]\label{axis:thm:staircase}
+For every even $a\ge2$ and every list of strictly increasing heights
+$y_0<\cdots<y_{a-1}$ of a single parity, define
+\[
+ O_a=\bigcup_{j=0}^{a-2}\{(j,y_j),(j+1,y_j)\}
+ \ \cup\ \{(0,y_{a-1}),(a-1,y_{a-1})\}.
+\]
+These $2a$ classes satisfy \eqref{axis:eq:residues}, $4\mid g$ and $g=2a$, but
+no finite-support periodic trace of full drift $(a,0)$ has this wake.
+\end{theorem}
+\begin{proof}
+Every column has two endpoints of the same checker sign, giving $\pm2\equiv2$
+modulo four. Each row has two endpoints of opposite sign, giving zero.
+The row-major column list is
+\[
+ 0,1,\ 1,2,\ldots,\ a-2,a-1,\ 0,a-1.
+\]
+Only the penultimate zero causes strict inversions. Exactly $2a-3$ preceding
+entries are positive. This is odd, contradicting Theorem~\ref{axis:thm:main}.
+\end{proof}
+
+For $a=4$, heights $0,10,20,30$ give eight endpoints and $I=5$.
+For contrast, all four columns on rows zero and twenty give $I=6$ and pass
+both the old conditions and the new screen. Passing establishes only
+\texttt{NOT\_EXCLUDED}, not a realizable periodic word.
+
+At $a=2$, even row population means that every occupied row contains both
+classes. If there are $m$ occupied rows, $g=2m$ and $I=\binom m2$.
+Since $4\mid g$, $m$ is even, so $I\equiv g/4\pmod2$. The theorem recovers
+$8\mid g$, an already established two-column consequence of the attributed
+rank argument. It does not claim a new proof of the separate condition
+$P\equiv4\pmod8$.
+
+\subsection{An exact rejection count in a factorial family}\label{axis:sec:count}
+Fix even $a\ge4$ and $a$ strictly increasing same-parity heights. Let the
+cycle edges on the columns be
+\[
+ E_j=\{j,j+1\}\ (0\le j<a-1),\qquad E_{a-1}=\{a-1,0\}.
+\]
+Assign these $a$ distinct edges in any order to the $a$ rows, placing endpoints
+at the assigned columns. There are $a!$ distinct labelled wakes. Each column
+still has degree two, and each row contains opposite checker signs, so all
+these wakes satisfy the conditions of Theorem~\ref{axis:thm:staircase} before its
+inversion test.
+
+Let $\pi_j$ be the row rank assigned to edge $E_j$. Define
+\[
+ D_{\rm cyc}(\pi)=\sum_{j=0}^{a-1}\mathbf1_{\{\pi_j>\pi_{j+1\bmod a}\}}.
+\]
+Let $A(n,k)$ be the Eulerian number counting permutations of $n$ elements with
+$k$ ordinary descents.
+
+\begin{theorem}[Cycle-edge parity and counting]\label{axis:thm:count}
+For this family,
+\[
+ I(O_\pi)\equiv D_{\rm cyc}(\pi)\pmod2.
+\]
+The number excluded by Theorem~\ref{axis:thm:main} is exactly
+\begin{equation}\label{axis:eq:count}
+ N_a=a\sum_{k\ {\rm even}} A(a-1,k).
+\end{equation}
+This counts labelled wake assignments rejected by the screen, not all
+unrealizable wakes and not classes modulo symmetry.
+\end{theorem}
+\begin{proof}
+Exchange two adjacent rows, carrying column pairs $E_i,E_j$.
+Exactly $4-|E_i\cap E_j|$ unequal-column comparisons reverse. The inversion
+parity therefore changes by $|E_i\cap E_j|$. For $a\ge4$ this is one precisely
+when the two cycle edges are adjacent. Starting from the staircase order,
+whose inversion count is $2a-3$, and sorting any row permutation by adjacent
+exchanges gives
+\[
+ I(O_\pi)\equiv (2a-3)+
+ \sum_{j=0}^{a-2}\mathbf1_{\{\pi_j>\pi_{j+1}\}}
+ +\mathbf1_{\{\pi_0>\pi_{a-1}\}}.
+\]
+The final indicator is complementary to the closing cyclic descent. The odd
+constant cancels, proving the parity formula.
+
+Rotate the list $(\pi_0,\ldots,\pi_{a-1})$ until its smallest entry is first.
+Every rotation orbit has $a$ members because its entries are distinct.
+The first comparison is an ascent and the closing comparison a descent.
+The remaining $a-1$ entries form an arbitrary permutation with, say, $k$
+ordinary descents, so $D_{\rm cyc}=k+1$. There are $aA(a-1,k)$ such lists.
+Odd cyclic descent count corresponds exactly to even $k$, giving \eqref{axis:eq:count}.
+The recurrence
+\[
+ A(n,k)=(k+1)A(n-1,k)+(n-k)A(n-1,k-1),\qquad A(1,0)=1,
+\]
+follows by inserting the largest entry into a permutation: there are $k+1$
+slots preserving $k$ descents, and $n-k$ slots increasing $k-1$ to $k$.
+Thus the displayed count is effective for every $a$.
+\end{proof}
+
+\begin{center}
+\begin{tabular}{rrrr}\toprule
+Full displacement & Labelled wakes & Excluded & Not excluded\\\midrule
+$(4,0)$ & 24 & 8 & 16\\
+$(6,0)$ & 720 & 408 & 312\\
+$(8,0)$ & 40320 & 19072 & 21248\\\bottomrule
+\end{tabular}
+\end{center}
+The heights may have arbitrary gaps. Hence each rejected assignment supplies
+an unbounded family of all-period exclusions.
+

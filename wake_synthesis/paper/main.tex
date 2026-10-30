@@ -3,7 +3,7 @@
 \usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
 \usepackage[margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Uniqueness of the Classical Langton Ant Highway from Its Layer Profile},pdfauthor={Hao Ke},pdfsubject={Computer-assisted conditional highway classification},pdfkeywords={Langton ant, finite support, wake rigidity}}
+\hypersetup{pdftitle={Wake Parity and Highway Rigidity in Langton's Ant},pdfauthor={Hao Ke},pdfsubject={Computer-assisted conditional highway classification},pdfkeywords={Langton ant, finite support, wake rigidity}}
 \usepackage{fancyhdr,listings}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -26,33 +26,30 @@
 \newcommand{\Ll}{\mathrm L}
 \newcommand{\ind}{\mathbf1}
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small Thin width-ten wake rigidity}\fancyhead[R]{\small H. Ke}
+\fancyhead[L]{\small Wake parity and highway rigidity}\fancyhead[R]{\small H. Ke}
 \fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
 \setlength{\emergencystretch}{2em}
 \lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible,frame=single}
-\title{\bfseries Uniqueness of the Classical Langton Ant Highway\\
-from Its Layer Profile}
+\title{\bfseries Wake Parity and Highway Rigidity in Langton's Ant}
 \author{Hao Ke\\\small\texttt{i@kehao.me}}
 \date{}
 \begin{document}\maketitle
 \begin{abstract}
-Can the trail left by a periodic Langton ant determine its entire turn
-sequence? We prove a uniqueness theorem from sparse geometric information
-about that trail. Consider a periodic trace generated from a finite black
-seed whose period restores the heading, translates by $(2,-2)$, increases
-the number of black cells by twelve, and has transverse coordinate $x+y$
-spanning ten units. On each interior level of $x+y$, suppose at most one of
-the two residue classes modulo this translation is visited an odd number of
-times per period. Then the period is 104 and the turn sequence is the
-standard highway, up to cyclic phase. The locations of the odd classes and
-the period length are derived from these assumptions. The proof first uses
-parity to restrict the possible layer profiles, then obtains a finite period
-bound from an integer certificate, and finally exhausts the remaining traces
-with their chronological visit order preserved. A second part treats the
-inverse problem with a prescribed wake: for every non-axis drift, a computable
-period bound makes synthesis terminate. Additional parity tests extend to
-general non-axis drifts and give a purely analytic exclusion of unit-diagonal
-full drift.
+What can the trail of a periodically translating Langton ant reveal about its
+turn sequence? We develop parity constraints on the odd-visit translation
+classes that form the persistent wake, and use geometric information to prove
+rigidity of the classical highway. For full drift $(2,-2)$, black growth twelve,
+transverse width ten and at most one odd class on each interior layer, the turn
+word is the standard period-104 word, up to cyclic phase. Parity restricts the
+profiles, an integer certificate bounds the period, and chronology-preserving
+enumeration completes the classification. For a prescribed wake and any full
+non-axis drift, a computable period bound makes inverse synthesis terminate;
+quadratic parity tests also give analytic exclusions. For full axis drift
+$(a,0)$, represent odd classes in $0\le x<a$. Their strict inversion count is
+even, at every period and height. The axis proof eliminates unknown horizontal
+row circulations through a port-permutation identity and seam winding, reducing
+the obstruction to the order of the wake endpoints. It gives excluded families
+and a sparse integer-operation parity test.
 \end{abstract}
 \noindent\textbf{Keywords.} Langton's ant; finite support; periodic highway;
 computer-assisted proof; wake rigidity; exact enumeration.
@@ -62,6 +59,10 @@ A periodically translating ant leaves a black trail behind it. Its turn word
 determines that trail, but the reverse question is less clear: how much of the
 trail determines the word? We prove that a sparse description of the layers
 of the classical highway already forces its full 104-turn sequence.
+A complementary question asks which trails can occur at all. Non-axis wakes
+have a quadratic parity character; axis wakes have an inversion law after
+unknown row circulations are eliminated. These conditions and the rigidity
+theorem use the same stabilized ordering of visits to full translation classes.
 
 The classical ant turns right on white and left on black, toggles the current
 cell, and moves one lattice edge. We use Cartesian headings
@@ -153,7 +154,7 @@ necessary parity test for arbitrary-width mixed wakes, extending the attributed
 port-permutation factorization.
 
 \section{Finite support and stabilized visit order}
-A complete state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite and
+A complete state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite, $p\in\Z^2$ is the head position, and
 $h\in\{N,E,S,W\}$. Write $F$ for one literal update and
 $\chi(x,y)=(-1)^{x+y}$. The quantity
 \[
@@ -215,7 +216,8 @@ interval is a consequence of the candidate's stated width and normalization;
 it is not a wall added to the original dynamics.
 
 \section{Five possible profiles, derived analytically}
-Let $m_t$ count the phase events on level $t$. Let $u_t$ count straight passages
+In the top-rail gauge ($\sigma=-1$) of Lemma~\ref{lem:rails}, let $m_t$ count
+the phase events on level $t$. Let $u_t$ count straight passages
 from $t-1$ through $t$ to $t+1$. Flow balance in the closed transverse walk gives
 the same number of reverse straight passages. At even $t$, right turns reverse
 the transverse direction and left turns continue it; at odd $t$ the roles
@@ -571,21 +573,23 @@ Then $V=k-1$ and $J=(k+2)(k-1)/2+j$, so the identity requires $j$ odd,
 equivalently $h\equiv1\pmod4$. This derivation supplies the necessary
 single-gap parity test at every such width.
 
+\input{axis-wake}
+
 \section{Evidence and reproducibility}\label{sec:verification}
 The core theorem is computer-assisted: its logical coverage is a written
 mathematical argument and its finite claims are checked by integer programs.
 The supplemental source hashes identify the executed programs and the
 complete run records identify the finite exclusions.
 
-The computational supplement is the immutable snapshot of
-\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/wake_synthesis}
-{\texttt{kehao95/langtons-ant-core}, revision \texttt{e93252230ea9}}.
+The accompanying source package contains the computational supplement.
+Its public project is
+\url{https://github.com/kehao95/langtons-ant-core/tree/main/wake_synthesis}.
 Within \texttt{wake\_synthesis/}, \texttt{sources.json} lists the distributed
 files and their SHA256 hashes; \path|evidence/profile_classification/manifest.json|
 identifies the classification programs and run evidence, and the adjacent
 \texttt{summary.json} and \texttt{searches.json.gz} record all 76 cases and 83 jobs.
 The entrypoint is \texttt{wake\_synthesis/reproduce.py}, run from the repository root.
-This snapshot identifies the present thin-wake computation separately from the
+The manifest identifies the thin-wake computation separately from the
 standard-wake archive~\cite{KeStandard} and the inverse-synthesis archive~\cite{previous}.
 
 The supplement contains the count routines, both ordered-event traversal
@@ -628,7 +632,21 @@ finite test proves every future read. The independent implementation is
 \path|verification/profile_classification/verify_word.py|, function
 \texttt{forever}, in the pinned supplement.
 
+The axis module checks exact port and endpoint identities on 33,312 closed
+patterns, 3,491 heading-restoring geometric words and independently constructed
+parity controls. A separate enumeration of 41,064 cycle-edge assignments agrees
+with the proved Eulerian recurrence. Run
+\texttt{python3 wake\_synthesis/reproduce.py --axis-only} for this module.
+These finite controls test the implementation; the radical, winding and
+endpoint arguments establish the unrestricted parameter claim. The checker
+sources and deterministic reports are bound by \texttt{sources.json}.
+
 \section{Limitations}\label{sec:limitations}
+Axis parity is a necessary condition; it does not construct a realization of a
+passing wake. Terminating inverse synthesis retains its non-axis hypothesis.
+The sparse axis screen counts integer operations, with coordinate bit costs
+additional. No primitive-direction quotient may replace the full displacement.
+
 The theorem reduces the remaining periodic problem: a
 nonstandard highway retaining drift $(2,-2)$, growth twelve and width ten must
 have a thicker interior wake. It remains necessary to determine whether such

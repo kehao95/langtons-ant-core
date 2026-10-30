@@ -1,0 +1,205 @@
+{
+  "name": "thin_n9_0_rebuilt",
+  "parameters": [
+    "a"
+  ],
+  "domain": "a>=0",
+  "rect": [
+    0,
+    "(9)-1",
+    0,
+    "(200+2*a)-1"
+  ],
+  "head": [
+    0,
+    0,
+    0
+  ],
+  "blocks": [
+    {
+      "word": "LRRL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "4+(0)*a"
+    },
+    {
+      "word": "RR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "4+(0)*a"
+    },
+    {
+      "word": "RRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLRRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LLRLRRRRLRRRRLLLLRLL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "LLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "LLRRRRLLRLLLLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "LRLRRRRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRLRRRRLRL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "R",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "LLRR",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "LLRLRRRRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "L",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LLRR",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "LRRRRLLLLRLRRLRRRRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RRLRRRRLLLLRLRRRRLLLLRLRRRRLRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "98+(1)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "98+(1)*a"
+    },
+    {
+      "word": "RRLRRRRLLLLRLRRRRLRRRRLLLLRLLRRRRLLRLRRRRLRRRRLLLLRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRLRLLRRRRLLRRRRLLRLRRRRLRRLLRLRLRRRRLRLRRRRLRLLLLRLRRLLRRRRLLRRLLLLRRLLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRLRRLRLLLLRLLLLRRRRLRLLLLRRRRLRRLRRLLRLLLLRRRRLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRLRRLRLRRLLRRLRRRRLRRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "L",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LLRR",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "LL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LLRR",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "LRLLRRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "RLLLLRLLRRRRLLRRRRLLRLRLRRRRLLLLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "97+(1)*a"
+    },
+    {
+      "word": "RLLLLRLRLLLLRRRRLRRLLRRRRLLRRLRRLLLLRRLLLLRRLRLRRRRLRLLLLRLRRLRRLLRRRRLLRRLLLLRRLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLRRRRLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRRRLRRLLLLRRLLLLRRLRRLRRLLRRRRLLRRLLLLRRLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLLLLRRRRLRRRRLRRRRLLLLRLLRRLLLLRRLLRLLRRLRRRRLLLLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRRLRRRRLLLLRLRRRRLLLLRLRLLRLLRRLRRRRLLLLRLRRRRLRLLLLRRRRLRLRLLLLRLRRRRLRRRRLLLLRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRLLLLRLRRLLRRRRLLRRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRLLRRLLRLLLLRLLRRRRLLRRRRLLRLRRRRLRLRRRRLRRRRLLLLRLLLLRLLRRLLRRRRLLRRLLRRRRLLRRLLRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRRLRRRRLLL",
+      "repeat": "1+(0)*a"
+    }
+  ],
+  "tail": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR"
+}

@@ -1,35 +1,31 @@
-# Finite-Memory Prediction and Remote Feedback in Langton’s Ant
-
-Total fixed-D old-black event prediction, exact full-history XOR continuation, quadratic finite-event budgets, endpoint tubes, fixed-region event filtering, remote long-lived feedback necessity, and the twenty-black spatial-scale obstruction.
-
-## Constructions and algorithms
-
-The construction gives [birth-filtered feedback](proof/birth-filtered-feedback.md):
-the first remote old lifetime created since the source checkpoint is totally
-computable, with exact birth, consumption and complete XOR endpoint. Initially
-black coordinates remain eligible after erasure and rebirth. On non-eventually-
-translating orbits, uniform deadlines yield `Omega(sqrt(H)/log(H))` late-born
-lifetimes at simultaneously growing radius and age. Complexity is polynomial
-for fixed D and fixed K on explicit sparse input; the theorem is not uniform
-polynomial in binary D or K's diameter.
-
-## Article
+# Memory and Spatial Constraints on Eventual Translation in Langton's Ant
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675969)
+[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675969)
 
-## Exact scope
+## Results
 
-The next-event and fixed-region queries are total; iteration over every event need not terminate. S_D, J10 and physical gate events remain distinct. The twenty-cell family excludes a lifetime bound based only on D, intervening event count and initial mass; coordinates still encode its growing scale.
+- Exact next-event prediction for fixed finite memory, with complete finite XOR-field continuation and quadratic finite-event time budgets.
+- Total remote and birth-filtered feedback queries, and simultaneous remote, late-born, long-lived readback requirements for non-eventually-translating orbits.
+- A twenty-cell family with exactly 31 intervening S_128 events and arbitrarily long feedback lifetimes, exhibiting the role of spatial scale.
+- Incoming-request reconstruction, the capacity `q^(j+1)-(q-1)^(j+1)`, finite profile deadlines and speed/spread exponent `4v/(1-2v)` for nontranslating orbits with positive horizontal asymptotic speed v along a time sequence. Every non-eventually-translating orbit satisfies `liminf w(T)/log(log(T))>=1/log(2)` for whole-prefix width along non-axis normals normalized by `min(|alpha|,|beta|)=1`.
 
 ## Reproduce
 
 ```sh
-python3 memory_feedback/reproduce.py --output-report /tmp/memory_feedback-checks.json
+python3 memory_feedback/reproduce.py
+python3 memory_feedback/reproduce.py --crossing-only
 make -C memory_feedback/paper
 ```
 
-Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. The manuscript uses XeLaTeX (DejaVu fonts). Builds write to `paper/build/`.
+Python 3.10+, C++17 and XeLaTeX with DejaVu fonts. Run without Python `-O`.
 
-Use `--extensions-only` to replay just birth-filtered feedback. The default
-continues to cover the complete main-paper dependency chain.
+The full replay covers memory prediction, symbolic continuation, geometry, remote feedback, the twenty-cell construction, birth filtering, crossing information and request reconstruction. `--extensions-only` runs birth-filtered feedback and both crossing modules.
+
+The scoped second command checks only the corresponding added theorem. Each
+entrypoint preserves retained evidence and uses disposable working copies.
+`sources.json` binds the article, proof and verifier files.
+
+## Scope
+
+Translation certificates allow any nonzero drift, not only P104. S_D, J10 and crossing records are distinct objects. The geometric width bound uses the full head prefix and its stated non-axis normalization. Fixed-D complexity is not a uniform polynomial claim in binary D.

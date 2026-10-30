@@ -1,0 +1,56 @@
+{
+  "HC_proved": false,
+  "base_commit": "de342f553520c0e003bcc83c2a6ae6d4b9e80a75",
+  "baseline_sha256": {
+    "core.py": "0d033be9fa0d8e7f59df0013f2ee3bd7b20c926c30d643b47550b9ae1c8ed5e3",
+    "oracle.cpp": "7d9da953dc64eae2e79fb594f7c877c5863f259773f86dce488cb588e15f8d13"
+  },
+  "blank_certificate": {
+    "T": 12000,
+    "crossings_per_cut": 33,
+    "drift": [
+      2,
+      2
+    ],
+    "end": 10391,
+    "left": 19,
+    "period": 104,
+    "right": 21,
+    "start": 10287,
+    "word": "LRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRL"
+  },
+  "combinatorics": {
+    "capacity_checks": 204,
+    "count_identities": 50,
+    "inequality_compatibility_controls_not_ant_trajectories": 248,
+    "integer_entropy_checks": 1335,
+    "packing_checks": 1380,
+    "strict_layer_improvements": 176,
+    "tuples_enumerated": 20723
+  },
+  "example_capacity_H10_length11": {
+    "new_request_upper": 31031,
+    "old_parity_only": 169643750
+  },
+  "general_halfplane_return_decider_implemented": false,
+  "negative_controls": 6,
+  "physical_controls": {
+    "complete_endpoints_compared": 78,
+    "complete_inputs": 78,
+    "distinct_observed_request_keys": 84,
+    "full_halfplane_residual_comparisons": 186,
+    "guarded_infinite_certificates": 3,
+    "independent_halfplane_updates": 186310,
+    "nonrepeating_prefix_inequalities": 19,
+    "pairwise_key_equivalence_checks": 2562,
+    "strict_packing_improvements_on_controls": 0,
+    "updates_per_literal_implementation": 86647
+  },
+  "schema": "crossing-request-capacity-v1",
+  "scope": "analytic request-injectivity and finite-prefix upper capacity; no total fuel budget or HC proof",
+  "source_sha256": {
+    "check.py": "caede8c666fb32155d20470633b73e39627b385382ca081fa370277619cbd58c",
+    "core.py": "3c3be9eff3d1b75c4cb1bc606bf27f4c47081f905f9a6e81452d0a7c15307b64"
+  },
+  "status": "passed"
+}

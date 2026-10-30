@@ -1,37 +1,31 @@
-# Uniqueness of the Classical Langton Ant Highway from Its Layer Profile
-
-Thin-wake rigidity derives the standard layer profile and all longitudinal residues from full drift (2,-2), growth twelve, width ten and at most one odd class on each interior level. General non-axis wake budgets and inverse synthesis remain.
-
-## Constructions and algorithms
-
-The article includes the general non-axis quadratic wake character,
-its polynomial-bit-time evaluator and all-scale growth-eight exclusion family.
-The unit-diagonal exclusion now has a purely analytic layer-forcing proof.
-The special `(2,-2)` mixed-wake identity analytically removes three of the five
-thin-profile cases; the original complete classification remains available.
-These results are integrated into the paper and its `--extensions-only` replay.
-The [profile proof](PROFILE_CLASSIFICATION.md) remains bundled for the alternate
-shortened classification route. [Current proof map](PROOF.md).
-
-## Article
+# Wake Parity and Highway Rigidity in Langton's Ant
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675970)
+[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675970)
 
-## Exact scope
+## Results
 
-The theorem classifies periodic traces under the stated drift, growth, width and interior-thinness hypotheses. It derives the standard profile; it does not derive those hypotheses for every finite seed. Full standard-profile and complete-wake uniqueness are corollaries.
+- Full drift `(2,-2)`, growth twelve, transverse width ten and at most one odd class per interior layer force the standard P104 turn word and wake.
+- For every full non-axis drift and explicit odd-class wake, a computable period bound gives terminating inverse synthesis.
+- Non-axis quadratic wake characters and an analytic unit-diagonal exclusion constrain possible periodic traces.
+- For full axis displacement `(a,0)`, the strict inversion count of odd classes in `0<=x<a` is even. This gives all-period excluded families and an `O(g log(g+1))` integer-operation sparse test.
 
 ## Reproduce
 
 ```sh
-python3 wake_synthesis/reproduce.py --output-report /tmp/wake_synthesis-checks.json
+python3 wake_synthesis/reproduce.py
+python3 wake_synthesis/reproduce.py --axis-only
 make -C wake_synthesis/paper
 ```
 
-Run from the repository root, using Python 3.10+ without `-O`. Checks use disposable copies and retain the imported source and evidence. A C++17 compiler is required. The manuscript uses pdfLaTeX. Builds write to `paper/build/`.
+Python 3.10+, C++17 and pdfLaTeX. Run without Python `-O`.
 
-Default replay covers the full 76-case/83-job classification, its 90,158-edge upper certificate, and the retained standard-wake/general-synthesis checks. `--quick` skips the 76-case exhaustion but still rebuilds its upper graph, all count tables and controls. `--jobs 4` controls native concurrency. `--baseline` additionally repeats the older exact enumerators.
+Default replay includes axis parity, periodic arithmetic and the complete 76-case/83-job thin-wake classification. `--extensions-only` runs the arithmetic modules including axis parity. `--quick` skips the large thin-wake exhaustion while retaining its upper graph and controls. `--jobs 4` sets native concurrency.
 
-Use `--extensions-only` to replay the periodic arithmetic modules. The default
-continues to cover the complete main-paper dependency chain.
+The scoped second command checks only the corresponding added theorem. Each
+entrypoint preserves retained evidence and uses disposable working copies.
+`sources.json` binds the article, proof and verifier files.
+
+## Scope
+
+Parity conditions are necessary screens. The inverse-synthesis termination theorem assumes non-axis drift. The uniqueness theorem retains its drift, growth, width and interior-thinness hypotheses; the standard layer profile follows from them.

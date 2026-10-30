@@ -1,0 +1,170 @@
+\section{Six cells and arbitrarily many defects}\label{sec:six}
+The resource-spectrum dichotomy has a physical fixed-mass branch. A single
+six-cell shape, moved farther from the initial head, produces arbitrarily many
+nonstandard windows before a certified standard future. Thus the minimum
+initial mass for any finite defect target has a uniform upper bound.
+
+Let $F$ denote one complete ant update and put
+$\operatorname{trans}_v(B,p,h)=(B+v,p+v,h)$.
+An intrinsic $J_{10}$ event occurs precisely when the window formed by the
+current turn and the actual preceding nine turns lies outside $\mathcal L_{10}$.
+The preceding turns are obtained by reversing $F$. Let $v_h$ be the unit vector
+$(0,1),(1,0),(0,-1),( -1,0)$ for heading $h=\mathrm N,\mathrm E,\mathrm S,\mathrm W$,
+respectively. To undo an update, move from
+$p$ to $p-v_h$, undo that cell's flip, and undo the turn determined by its
+restored colour. This defines the history also for windows reaching before
+time zero. A forward contained defect uses only turns at nonnegative times.
+
+\begin{theorem}[Six-cell family]\label{thm:six}
+Start at the origin facing north, with complete initial black set
+\begin{gather*}
+ B_k=B_*+k(-2,-2),\qquad k\in\mathbb N,\\
+ B_*=\{(-87,-55),(-87,-52),(-84,-55),(-82,-61),(-81,-55),(-80,-60)\}.
+\end{gather*}
+The entire future contains exactly $6702+47k$ forward ten-factor defects.
+Its first permanent standard-P104 entrance is $18743+220k$.
+The first read of an initially black cell occurs at $13318+104k$.
+The same future has $6706+47k$ intrinsic $J_{10}$ events, the last at
+$18751+220k$. In particular $\mu(N)\le6$ for every $N\ge1$.
+\end{theorem}
+
+The shape has $\ell^\infty$ diameter nine. Its distance from the head varies
+with $k$, and its recovery after the first initial-black impact lasts
+$5425+116k$ updates. We prove the parameter dependence by an exact complete-field
+recurrence. All set sums in the proof below are symmetric differences, denoted
+$\triangle$, unless written as translations.
+
+\subsection{Canonical data and the incoming field}
+Put $d=(2,-2)$ and use south as the canonical heading. The finite sets are
+\begin{align*}
+P={}&\{(0,-2),(0,-1),(0,0),(1,-1),(2,-1),(2,1),(3,-2),\\
+ &\hspace{1em}(3,1),(4,-2),(4,0),(5,-1),(5,0),(6,0)\},\\
+D={}&\{(0,-3),(0,0),(1,-4),(1,-3),(1,-2),(2,-1),\\
+ &\hspace{1em}(2,0),(3,0),(6,-1),(7,-1),(7,0),(8,-1)\},\\
+M={}&\{(-2,-8),(1,-8),(1,-5),(1,-2),(6,-1),(7,-3)\}.
+\end{align*}
+The literal word data $W_\star,U,V,Z,O$ have lengths $104,1210,116,4406,104$,
+respectively, and are supplied in \texttt{verification/six\_cell\_feedback/witness.json}.
+Here $W_\star$ is the left cyclic rotation by 57 letters of the word $W$
+in Appendix~\ref{app:words}, $O$ is a cyclic phase of $W_\star$, and $V$ is the
+finite return word. The blank trajectory, launched on the all-white plane from the origin facing
+north, has word $C$ through 9977 updates, pose
+$p_*=(-15,10),\mathrm W$, and 715 black cells. With
+$\rho(x,y)=(y,-x)$, its complete field, translated by $-p_*$ and rotated by $\rho^{-1}$
+to the canonical south heading, is $P\triangle E$, where $|E|=702$.
+This defines $E$ by finite replay.
+
+The exact finite and ray checks establish
+\[
+ F^{104}(P,(0,0),\mathrm S)=((P+d)\triangle D,d,\mathrm S),
+\]
+and permanent $W_\star$ futures for both $P$ and $P\triangle E$; $E$ avoids all
+future reads. Consequently the complete field after $N$ standard periods,
+normalized by subtracting $Nd$, is
+\[
+ P\triangle\mathop{\triangle}_{j=1}^{N}(D-jd)\triangle(E-Nd).
+\]
+For $N=32+k$, the initial markers are $p_*+N\rho(d)+\rho(M)=B_k$.
+Integer-ray tests show that none belongs to the blank prefix footprint, to any
+of the preceding $N$ standard periods, or to the initial inverse-nine history.
+For example the standard-period condition reduces to excluding
+$w_i=m+jd$ for each phase read $w_i$, $m\in M$ and integer $j\ge1$.
+First-difference coupling therefore gives the physical prefix $CW_\star^N$, ending
+at the complete collision field
+\begin{equation}\label{eq:six-Y}
+ Y_N=P\triangle M\triangle\mathop{\triangle}_{j=1}^{N}(D-jd)
+          \triangle(E-Nd).
+\end{equation}
+
+\subsection{A full-field recurrence with protected archives}
+Replay $U$ at $Y_{32}$. It ends at $a=(-1,-1)$, heading south. Let $Z_U$
+be its odd write set, and define
+\[
+ K=P\triangle M\triangle Z_U,\qquad
+ S_N=K\triangle\mathop{\triangle}_{j=1}^{N}(D-jd)\triangle(E-Nd).
+\]
+The read footprints of $U$ and of $V$ from $a$ avoid both
+$\bigcup_{j\ge33}(D-jd)$ and $\bigcup_{j\ge32}(E-jd)$.
+Thus $U$ executes identically for every $N\ge32$, and $V$ restores the
+heading and displaces by $-d$. Let $R$ be the absolute board cells toggled an odd number of times by $V$
+launched from $a$, in the same canonical coordinates as $K$ and $D$. Put
+\[
+ Q=K\triangle(K+d)\triangle D\triangle(R+d),\qquad |Q|=140.
+\]
+Expanding the preceding field formula proves, for every $N\ge33$,
+\begin{equation}\label{eq:six-recurrence}
+ \operatorname{trans}_{d}F^{116}(S_N,a,\mathrm S)
+       =(S_{N-1}\triangle Q,a,\mathrm S).
+\end{equation}
+Every surviving deposit and the old blank debris appear on both sides.
+
+The finite footprints of $V$ and of the recovery word $Z$ from $S_{32}$,
+and every ray of its infinite $O$ suffix, avoid
+$\mathcal A=\bigcup_{r\ge0}(Q+rd)$.
+For a suffix phase $v_i$ and $q\in Q$, the last assertion reduces to
+\[
+ v_i+je=q+rd,\qquad j,r\ge0,\qquad e=(-2,-2).
+\]
+Since $e$ and $d$ are independent, determinants give the unique candidate
+solution, which exact integrality and sign tests reject. The finite-point
+versions use the same integer-ray equations.
+Let $A_k=\mathop{\triangle}_{r=0}^{k-1}(Q+rd)$. Induction in
+\eqref{eq:six-recurrence}, using the avoidance of $\mathcal A$, gives the
+actual state after $k$ return words from $S_{32+k}$ as
+\[
+ \operatorname{trans}_{-kd}(S_{32}\triangle A_k,a,\mathrm S).
+\]
+The recovery word and its complete periodic future therefore execute with
+all archives still present. The full infinite turn word is exactly
+\begin{equation}\label{eq:six-word}
+ CW_\star^{32+k}UV^kZO^\omega.
+\end{equation}
+
+\subsection{Exact counts and first entrance}
+The chosen suffix boundary in \eqref{eq:six-word} is
+$T(k)=9977+104(32+k)+1210+116k+4406=18921+220k$.
+At $k=0$, comparison with the backward extension of $O$ puts the last
+mismatch immediately before time 18743. It is inside the fixed word $Z$,
+so its location shifts by $220k$. Primitivity of $W_\star$ identifies any permanent
+standard suffix with the same phase. This proves the stated first entrance.
+
+A suffix register of nine turns gives the following complete forward counts:
+\begin{center}
+\begin{tabular}{lr}\toprule
+Block with its actual incoming suffix & Defects\\\midrule
+$C$ &4537\\
+First $W_\star$ after $C$ &5\\
+Further $W_\star$ copies &0\\
+$U$ after $W_\star$ &483\\
+First $V$ after $U$ &50\\
+Each further $V$ &47\\
+$Z$ directly after $U$ ($k=0$)&1677\\
+$Z$ after $V$ ($k\ge1$)&1674\\
+$O^\omega$ after $Z$&0\\\bottomrule
+\end{tabular}
+\end{center}
+Both parameter cases sum to $6702+47k$. The true inverse-nine history is
+\texttt{LLLLRLLLL}; four additional bad windows end at times zero through
+eight. Hence the intrinsic count is $6706+47k$. Its last bad window ends
+eight updates after first permanent entrance, because it still includes
+preceding history. The first marker read has index 13 within $U$, giving
+$9977+104(32+k)+13=13318+104k$.
+
+For any target $N\ge1$, choose
+$k=\max(0,\lceil(N-6702)/47\rceil)$ and take a prefix through its $N$th
+defect. This proves $\mu(N)\le6$ and realizes the unbounded resource ray
+$(c,d_{10})=(6,6702)+k(0,47)$.
+
+\paragraph{Verification of the finite premises.}
+The checker reconstructs all finite words and fields, proves every required
+ray avoidance, evaluates all factor seams, and checks earliest entrance.
+For an infinite phase ray $q_i+ne$, the read colour is initial membership
+XOR earlier-write parity. Each old cell gives at most one hit, and each
+self-overlap changes parity at one integer threshold. Zero, each threshold,
+each hit and its successor therefore cover every epoch, including the final
+infinite interval. This is the full-drift chronological criterion used
+throughout the article. The universal parameter in
+\eqref{eq:six-word} follows from the recurrence and guards above.
+An independent C++ implementation checks complete fields and all-future guards;
+20 finite parameter controls perform 835,360 updates in each implementation.
+Run \texttt{python3 defect\_synthesis/reproduce.py --six-cell-only}.

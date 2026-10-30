@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "blocks": 44,
+  "certificate_sha256": "7404a0d0ee8db10e2fd4c7c4e6e9cd299c382518dd81a63d9d5f52389602f3f5",
+  "deep_interior_never_read": false,
+  "drift": [
+    -2,
+    2
+  ],
+  "first_entrance": "(9672+76*a)",
+  "geometry_checks": 0,
+  "isl_version": "isl-0.27-GMP",
+  "matching_suffix": 0,
+  "name": "thin_m8_1_rebuilt",
+  "read_checks": 990,
+  "tail_boundary": "(9672+76*a)",
+  "tail_pose": [
+    "(210+2*a)",
+    "(20)",
+    0
+  ]
+}

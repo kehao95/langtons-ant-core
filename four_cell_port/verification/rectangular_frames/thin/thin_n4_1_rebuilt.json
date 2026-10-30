@@ -1,0 +1,193 @@
+{
+  "name": "thin_n4_1_rebuilt",
+  "parameters": [
+    "a"
+  ],
+  "domain": "a>=0",
+  "rect": [
+    0,
+    "(4)-1",
+    0,
+    "(201+2*a)-1"
+  ],
+  "head": [
+    0,
+    0,
+    0
+  ],
+  "blocks": [
+    {
+      "word": "LRRL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "RRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "RLRRLLRRRRLLRRLRRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRLLLLRRLLLLRRLRRLRRLLRRRRLLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRRRLLRLLLLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "98+(1)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "98+(1)*a"
+    },
+    {
+      "word": "RRLRLLRRLLRRRRLLRRLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "98+(1)*a"
+    },
+    {
+      "word": "RRRRLRRLRLRRRRLRLLRRRRLLRLRRLLRRRRLLRRLRRRRLLLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "RLLLLRLLRRRRLLRRRRLLRLRLRRRRLLLLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRLRRLLLLRRLRRRRLLLLRLRRLRRLLLLRRLLLLRRLRLLRRRRLLRLRLRRRRLRRLLLLRRLLLLRRLRRRRLRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRRLLLLRRLLLLRRLRRLLLLRRLRLLRRLRRRRLRRRRLLLLRLRLLLLRLRLRRLLLLRRLLLLRRLRRRRLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLRRRRLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRLRRRRLRLLRRRRLLRLRRRRLLLLRLLLLRLLLLRRRRLRLLLLRLLRRRRLLRRRRLLRLLRLRLLRLRRRRLRLLRLRLRRRRLRRRRLLLLRLRRLLRRRRLLRRLRRLRRLRRRRLRLLLLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "LRLL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "97+(1)*a"
+    },
+    {
+      "word": "RLRRRRLLLLRLRLLRRLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLRRRRLLRRLLRRRRLLRRLLRLRRRRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRLRRRRLRLRRRRLLLLRLLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLRRLLRLRRRRLRRLRRLLRLLRLLLLRRRRLRLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRLRLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLRRRRLLLLRLRRRRLRRL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "RLRLRRRRLLLLRLRRRRLLLLRLLRLRLLLLRRRRLRRLRLRLLLLRLLLLRRRRLRRRRLRRLRRRRLRLLRLLRLLLLRLRRRRLRRLRRRRLRLLRLLLLRRRRLRLLLLRRRRLRLRRLRLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "97+(1)*a"
+    },
+    {
+      "word": "RLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "97+(1)*a"
+    },
+    {
+      "word": "LLRR",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "LLRLRLLLLRRRRLRRLRLRLRLRRLLLLRRLLLLRRLRLLLLRLLLLRRRRLRRRRLRLRRRRLRLRLRRRRLRLRLRRLRLLRRRRLLRRRRLLRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLRRLLRLLLLRLRLLLLRLLRLLRRLLRLLLLRRRRLRLRLLLLRLRL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLLRLRLRRLLLLRRLRRLLRRRRLLRRLLLLRRLLRLRRRRLRRRRLLLLRLRRRRLRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "LRLRRRRLLLLRLLLLRLRRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRLLRRLLLLRRLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "L",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LLRR",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "LRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLRRRRLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRRLRRRRLRLRRRRLLLLRLLLLRLLRLLRRLRLRRLLLLRRLRLRRRRLLLLRLLRRRRLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "96+(1)*a"
+    },
+    {
+      "word": "RLRLLRLLRRRRLLRLRLLRLRRLLLLRRLRRRRLLLLRLRRLRLLLLRRRRLR",
+      "repeat": "1+(0)*a"
+    }
+  ],
+  "tail": "RLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLL"
+}

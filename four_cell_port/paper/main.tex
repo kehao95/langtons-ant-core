@@ -8,38 +8,38 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,tikz,microtype,xcolor}
 \hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black,
- pdftitle={Four-Cell Ports and Composable Highway Scattering for Langton's Ant},pdfauthor={Hao Ke}}
+ pdftitle={Protected Highway Formation and Scattering in Langton's Ant},pdfauthor={Hao Ke}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
+\usepackage{placeins,needspace}
+\newcommand{\xor}{\mathbin{\triangle}}
+\newcommand{\Read}{\operatorname{Read}}
 \newcommand{\HH}{\mathcal H}
-\title{Four-Cell Ports and Composable Highway Scattering\\for Langton's Ant}
+\title{Protected Highway Formation and Scattering\\in Langton's Ant}
 \author{Hao Ke\\Independent researcher\\\texttt{i@kehao.me}}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-How few black cells can send a Langton ant permanently into an otherwise
-white half-plane, and can such outgoing motion be composed with later
-collisions? With the ant starting on the boundary and facing inward, four
-black cells suffice to launch the standard period-104 highway without ever
-leaving the half-plane. Three cells never suffice: the ant exits within
-918 updates, and this bound is attained. For any finitely supported initial
-colouring, placing a four-cell pattern beyond a finite observed trajectory
-preserves that observation and makes
-the subsequent motion converge to the highway. We then construct finite
-sequences of highway collisions. Thirty certified scattering rules compose
-along every compatible rule sequence when successive collisions are separated
-by at least one hundred full periods. A second construction permits
-arbitrarily long excursions that return to black cells written earlier by
-the same ant, then recover the incoming highway orientation. Any finite
-number of these excursions can be arranged in one finite initial colouring.
-The composition proofs compare the entire colouring in protected regions;
-expanding these regions keeps past writes from interfering with later
-stages. Exact finite trajectories, affine separation inequalities and
-infinite-tail checks certify the interfaces used in the proofs.
+Which parts of an initial colouring can determine a Langton ant's permanent
+motion while shielding other cells from every future read? We give three
+constructions based on equality of complete colourings in protected regions.
+First, four black cells launch the standard period-104 highway into a half-plane;
+three cells force exit within the sharp bound of 918 updates. This port also
+completes any finite observation to a highway by four exterior additions.
+Second, a four-layer rectangular black frame shields every interior colouring:
+all fillings produce the same entire trace, with exact entrance times determined
+by the dimensions and their parity. Solid rectangles from the southwest corner
+facing north satisfy the sharp bound $242(n+m)+29325$ on first highway entrance.
+Third, certified highway scattering rules compose along arbitrary finite compatible
+sequences, including excursions that read back old wake. All obstacles are present
+initially and all written history is retained. First-difference coupling isolates
+the protected regions; exact read-colour identities, affine separation inequalities
+and infinite-tail certificates establish the required interfaces.
 \end{abstract}
 
 \section{A sharp outgoing interface}
@@ -69,7 +69,14 @@ entire future from any configuration on the other side, making the pattern
 an outgoing interface for arbitrary finite histories. A matching lower bound
 shows that four cells are necessary for this one-sided interface.
 
-The second part starts from an explicit thirteen-cell standard-highway
+Rectangular frames provide a second geometry for protection. With a white
+exterior and the southwest/north pose, four black layers keep every future read
+outside an arbitrary deep interior. We determine the first permanent highway
+entrance for all such frames and all solid rectangles, and give a separate
+classification for centre-started solid squares. Four layers minimize this
+common-trace shielding contract; the port theorem minimizes black-cell count.
+
+The scattering part starts from an explicit thirteen-cell standard-highway
 seed and composes protected scattering rules. The central
 closure condition is equality of the entire field in the next protected
 region. Increasing guards establish this condition for arbitrarily many
@@ -142,7 +149,7 @@ the $\ell^\infty$ ball of radius $T$ about $p$, one can compute a four-element
 set $A\subset\Z^2\setminus Q$ such that the evolution of
 $X^+=(B\cup A,p,h)$ satisfies
 \[
- O_t(X^+)=O_t(X)\qquad(0\le t<T)
+ O_t(X^+)=O_t(X)\quad(0\le t<T),\qquad (B\cup A)\cap P=B\cap P
 \]
 and eventually has the standard P104 trace. If $Q$ has $n$ cells per side,
 that trace starts by update
@@ -155,8 +162,8 @@ four-cell infinite trajectory. Finally, the port is placed beyond the first
 exit from $Q$, so its future avoids every earlier black cell.
 
 \section{First-contact coverage and the sharp bound}
-For a finite seed $S\subset\HH_+$, let $t(S)$ be its first exit, when finite.
-Let $V(S)$ contain each cell whose first read before $t(S)$ is white. Define
+For a finite seed $S\subset\HH_+$, start at $(0,0)$ facing east, with all other cells white. Let $t(S)$ be the first-exit time from $\HH_+$, when finite.
+Let $V(S)$ contain each cell visited before $t(S)$ whose first read is white. Define
 \[
  \mathcal F_0=\{\varnothing\},\qquad
  \mathcal F_{j+1}=\{S\cup\{q\}:S\in\mathcal F_j,\ q\in V(S)\}.
@@ -327,6 +334,8 @@ $\forall X\,\forall P\,\forall T\,\exists A$ with $|A|=4$: its conclusion
 concerns the augmented input $X^+$. The matching lower bound characterizes
 one-sided ports from a boundary pose.
 
+\input{rectangular-frames}
+
 \input{scattering}
 \input{returns}
 
@@ -358,7 +367,20 @@ protected composition and return theorems. The general
 periodic-realisability criterion~\cite{jillhewar2026} is used as a verification
 method; the new threshold is established by first-contact coverage.
 
+The rectangle module supplies 42 all-parameter certificates and a finite
+complement of 3,538 complete inputs. Its ISL/GMP checks~\cite{islframes} decide emptiness of
+bad-read sets and avoidance of the protected interior; independent Python/C++
+trajectories cover the finite leaves. Run
+\texttt{python3 four\_cell\_port/reproduce.py --frames-only --jobs 3}
+for this full chain. The source manifest binds the word data, checkers and
+retained reports. The integrated entrypoint also checks ports and scattering.
+
 \section{Limitations}
+Rectangle statements retain the specified pose and white exterior. Three layers
+can change the trace, which proves sharpness for shielding rather than a claim
+about convergence. A frame becomes a scattering input only if the separate
+scattering interface conditions are verified.
+
 The constructions prescribe a finite initial field and finitely many
 preinstalled instructions. Their train lengths, gaps and excursion parameters
 are arbitrary within the stated domains, including $n_i,m_i\ge100$ where
@@ -373,6 +395,11 @@ three/four-cell threshold concerns inward boundary ports; it does not assert
 minimality among all exterior modifications of an individual input.
 
 \section{Conclusion}
+Protected interiors give a second application of the same coupling principle.
+The rectangle classification covers every interior filling behind four black
+layers and determines exact permanent entrance times, while the solid-rectangle
+family gives sharp global constants within its specified input contract.
+
 The sharp four-cell port connects a local resource threshold with effective
 completion of finite histories. The scattering constructions give explicit standard-highway seeds with
 composable collision interfaces. Its proof requires agreement on a complete
@@ -387,17 +414,16 @@ be arbitrarily large. Each theorem specifies its complete initial field and prov
 sequence of encounters from those pre-placed markers.
 
 \paragraph{Reproducibility.}
-The source, finite certificates and checkers are in the
-\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/four_cell_port}{public project directory}.
-The complete verification source and certificate snapshot is Git commit
-\texttt{e93252230ea9109908c23a009824d72d30fb91e2}.
-From that repository revision, run:
+The accompanying source package contains the complete article, finite
+certificates and checkers. Its \texttt{sources.json} manifest binds every input
+by SHA-256. The public project is
+\url{https://github.com/kehao95/langtons-ant-core/tree/main/four_cell_port}.
+Run from the repository or extracted source package:
 \begin{verbatim}
 python3 four_cell_port/reproduce.py
 make -C four_cell_port/paper
 \end{verbatim}
-The checks use Python 3.10+
-and the standard library. The proofs combine analytic arguments and exact
+The checks use Python 3.10+, a C++17 compiler and ISL/GMP for the rectangle integer-set obligations. The proofs combine analytic arguments and exact
 finite computation. Input hashes and the scope of each check are recorded
 with the verification evidence.
 
@@ -407,6 +433,7 @@ verification programs, and revising the exposition.
 
 \appendix
 \input{local-ranks}
+\input{rectangular-details}
 
 \begin{thebibliography}{9}
 \bibitem{gajardo2002} A. Gajardo, A. Moreira and E. Goles,
@@ -427,5 +454,10 @@ Period-104 Highway: A Lean-Checked Proof,'' Zenodo, version 0.2.0 (2026).
 \bibitem{clock2026} H. Ke, ``An Ant on the Clock: Exponential Escape Bounds
 for Langton's Ant,'' Zenodo, version 0.4.0 (2026).
 \href{https://doi.org/10.5281/zenodo.23402379}{doi:10.5281/zenodo.23402379}.
+\bibitem{gajardo2003} A. Gajardo, ``A symbolic projection of Langton's Ant
+(Extended Abstract),'' DMTCS Proceedings AB (2003), 57--68.
+\href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
+\bibitem{islframes} Integer Set Library, \emph{Manual}, Sets and Relations.
+\url{https://libisl.sourceforge.io/user.html}.
 \end{thebibliography}
 \end{document}

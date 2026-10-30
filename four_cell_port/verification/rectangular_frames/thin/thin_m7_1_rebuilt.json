@@ -1,0 +1,117 @@
+{
+  "name": "thin_m7_1_rebuilt",
+  "parameters": [
+    "a"
+  ],
+  "domain": "a>=0",
+  "rect": [
+    0,
+    "(201+2*a)-1",
+    0,
+    "(7)-1"
+  ],
+  "head": [
+    0,
+    0,
+    0
+  ],
+  "blocks": [
+    {
+      "word": "LRRL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RRLRRRRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "R",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRLLLLRRRRLRRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRRRLLRLLLLRRRRLRLLLLRLLLLRRRRLRRLLRRRRLLRRLRLLLLRLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "4+(0)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLRRRRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "4+(0)*a"
+    },
+    {
+      "word": "RRRRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRLRRRRLLLLRLRRLLRRLRLRRLLLLRRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLRRLLRRLRLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "RRLLRRLLLLRRLLRRLRLRLRLLRLRRRRLRLLRLRRRRLLLLRLLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLRRRRLLRLRRRRLRRRRLLLLRLRRRRLRLLLLRRRRLRRRRLRRLRRLLRLRRLLLLRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLLLLRLLRLRLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLLLLRLLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLLRRRRLLRLRRRRLRRRRLLLLRLRRRRLRLLLLRRRRLRRRRLRRLRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LLRLRRRRLRRRRLLLLRLL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "LLRLLRLRLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLRRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRLRLLRLLRRRRLLRRRRLLRLRLRRRRLLL",
+      "repeat": "1+(0)*a"
+    }
+  ],
+  "tail": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR"
+}

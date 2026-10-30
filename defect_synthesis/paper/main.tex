@@ -40,6 +40,10 @@ are written in unary. A restricted quantifier-free encoding makes the
 spatial read/write tests polynomial in the supplied description size.
 Together these results turn finite departure targets into exact arithmetic
 questions about complete ant states.
+A fixed six-cell initial shape supplies an unbounded resource ray:
+translation by a parameter $k$ produces exactly $6702+47k$ forward defects
+before permanent highway entrance at $18743+220k$. Consequently every finite
+defect target can be reached with at most six initially black cells.
 \end{abstract}
 
 \section{Problem and main result}
@@ -134,6 +138,12 @@ as factor counts in polynomial size. Unary counting and piecewise-affine
 Presburger functions are established tools~\cite{counting,cluckers}; the
 explicit fold--consumer spectrum is an application with sharp ant-specific
 constants.
+
+The construction in Section~\ref{sec:six} makes the fixed-cost branch of the
+resource spectrum explicit. Its complete-field recurrence carries the ant
+through arbitrarily many return words, then into the standard highway. The
+result reduces the unconstrained minimum-cost search to masses zero through
+six, while the synthesis theorem handles coordinates and prescribed constraints.
 
 \section{Consecutive reads without a parity-counting oracle}
 Fix a parameter tuple $\theta$ in a Presburger domain $D$. Suppose a prescribed
@@ -230,12 +240,16 @@ Consider a finite bounded-power schema
  v_0u_1^{k_1}v_1\cdots u_s^{k_s}v_s,\qquad k_i\ge0,
 \end{equation}
 with fixed words and heading-restoring $u_i$. Fixed pieces may rotate heading.
-An occurrence at phase $r$ and copy index $j$ has time and position of the form
+For a phase $r$ in the $i$th powered block $u_i^{k_i}$, an occurrence at copy
+index $j$ has time and position of the form
 \begin{equation}\label{eq:affine}
  t=b_r+c_r k+\ell_r j,\qquad q=a_r+A_r k+d_r j,
  \qquad 0\le j<k_i.
 \end{equation}
-The coefficients are fixed integers. There are no products of two unbounded
+Here $k=(k_1,\ldots,k_s)$ is the exponent vector,
+$c_r\in\mathbb Z^{1\times s}$ and $A_r\in\mathbb Z^{2\times s}$;
+the remaining coefficients are fixed integer scalars or vectors of the
+indicated dimensions. There are no products of two unbounded
 variables. Zero powers and affine reparameterizations are allowed. A final
 infinite power simply replaces its copy bound by $j\ge0$.
 
@@ -301,9 +315,9 @@ is not a fixed infinite counterexample.
 The ant-specific bridge is the existing ten-factor macro theorem
 \cite{project}. We state its certificate content to make the dependency explicit.
 The vertices are feasible 149-letter words whose every contained ten-factor
-is legal; an edge appends one letter
+belongs to $\mathcal L_{10}$ (is legal); an edge appends one letter
 and discards the first, provided the resulting 150-letter word is feasible
-and every ten-factor is legal. The graph has 6,501 vertices and 6,605 edges. Its cyclic components have 104, 24 and 366 vertices.
+and every ten-factor is legal. The graph has 6,501 vertices and 6,605 edges. Its cyclic components have 104 (the standard word $W$), 24 (the word $T$) and 366 vertices.
 The fixed words are printed in Appendix~\ref{app:words}. The 366-state
 component maps to a graph with two loops: a translating word
 $A$ of length 28 and a heading-reversing word $B$ of length 102. The established
@@ -364,6 +378,8 @@ schemas representing the same prefix agree by determinism.
 The finite union supplies a total mathematical decision procedure; all
 remaining parameters are eliminated by exact integer arithmetic.
 
+\input{six-cell}
+
 \input{resources}
 
 \input{small-witnesses}
@@ -378,21 +394,12 @@ computed from finite feasible words:
 \]
 Indeed every input supplies the first-left reads of each prefix, and every
 feasible word has the minimal seed in~\eqref{eq:root}.
-A row scanner $(\Ll\Rr\Rr\Ll)^q$ uses $2q$ initial black cells and has
-$\max(0,4q-9)$ defects. Hence
-\[
- 0\le\mu(N)\le2\left\lceil\frac{N+9}{4}\right\rceil.
-\]
+The six-cell construction in Theorem~\ref{thm:six} gives $0\le\mu(N)\le6$.
 Theorem~\ref{thm:main} makes every fixed-mass query decidable, so this finite
 upper bound proves that $\mu$ is a total computable nondecreasing function.
 Corollary~\ref{cor:mu} supplies a quantitative computation bound for this function.
 
-The finite-support Highway Conjecture asks for
-$\bigcap_NE_{m,N}=\varnothing$ for every $m$, whereas a
-coordinate-independent event budget asks that some individual $E_{m,N}$ be
-empty. Nested semilinear sets $\{a:a\ge N\}$ show that these quantifiers cannot
-be interchanged. A family of increasingly remote finite witnesses need not
-contain one infinite counterexample.
+Theorem~\ref{thm:six} places a point in $E_{6,N}$ for every $N$. The chosen point varies with the target: each constructed input has finitely many defects and then enters P104. Thus the fixed-mass resource ray has a complete positive dynamical realization.
 
 The synthesis theorem fixes the requested event count and quantifies over
 all coordinates. The supply dichotomy instead fixes a finite schema collection
@@ -400,6 +407,10 @@ and allows unbounded repetitions. Keeping these two inputs explicit gives a
 way to study which physical mechanisms can produce many defects at low cost.
 
 \section{Limitations}
+The bound $\mu(N)\le6$ is a uniform upper bound; minimality of six is a separate
+question. The six-cell family moves its initial shape relative to the head as
+$k$ grows. Each member has its own finite defect total and a permanent P104 tail.
+
 The all-coordinate construction takes fixed numerical budgets $m,N$;
 its formulas need not have uniformly bounded size when these budgets vary.
 The supply dichotomy applies to a supplied finite schema collection. Its
@@ -426,8 +437,7 @@ compiler and the system ISL/GMP and Z3 shared libraries are required. The arithm
 backend performs exact integer set operations~\cite{isl}; the retained
 computational reports use ISL 0.27.
 
-The computational supplement is fixed at
-\href{https://github.com/kehao95/langtons-ant-core/tree/e93252230ea9109908c23a009824d72d30fb91e2/defect_synthesis}{repository commit \texttt{e932522}, defect project}.
+The accompanying source package is bound by its explicit \texttt{sources.json} manifest; it includes the six-cell word data, recurrence checks and independent C++ replay.
 Its \texttt{sources.json} lists the exact source and certificate hashes.
 The imported factor results are Theorems A--B (attraction), Subsection 3.3
 (the all-parameter fold obstruction), and Theorem F with its finite

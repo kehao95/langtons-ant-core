@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "blocks": 32,
+  "certificate_sha256": "beb48c5e8625d93cf9446f74c3de26df2845b36bd39959e7e29332ba488d1de7",
+  "deep_interior_never_read": false,
+  "drift": [
+    2,
+    -2
+  ],
+  "first_entrance": "(6834+60*a)",
+  "geometry_checks": 0,
+  "isl_version": "isl-0.27-GMP",
+  "matching_suffix": 0,
+  "name": "thin_m9_0_rebuilt",
+  "read_checks": 538,
+  "tail_boundary": "(6834+60*a)",
+  "tail_pose": [
+    "(199+2*a)",
+    "(-3)",
+    2
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "name": "thin_n5_1_rebuilt",
+  "parameters": [
+    "a"
+  ],
+  "domain": "a>=0",
+  "rect": [
+    0,
+    "(5)-1",
+    0,
+    "(201+2*a)-1"
+  ],
+  "head": [
+    0,
+    0,
+    0
+  ],
+  "blocks": [
+    {
+      "word": "LRRL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "100+(1)*a"
+    },
+    {
+      "word": "RRLRRRRLRRR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "R",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLLRLLLL",
+      "repeat": "99+(1)*a"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLLRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRLLLLRRRRLRRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRRRLLRLLLLRRRRLRLLLLRLLLLRRRRLRRLLRRRRLL",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "RRLRLLLLRLLLLRRRRLRR",
+      "repeat": "97+(1)*a"
+    },
+    {
+      "word": "RRLRLLLLRLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLRRRRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "101+(1)*a"
+    },
+    {
+      "word": "RRRRLLLLR",
+      "repeat": "1+(0)*a"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "3+(0)*a"
+    },
+    {
+      "word": "RRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRLRLLRLLRRRRLLRRRRLLRLRLRRRRLLL",
+      "repeat": "1+(0)*a"
+    }
+  ],
+  "tail": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR"
+}

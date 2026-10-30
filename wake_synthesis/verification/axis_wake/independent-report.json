@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "large_gap_staircases": 6,
+    "row_cycle_toggles": 16896,
+    "seam_shifts": 8256,
+    "sector_graphs": 3136
+  },
+  "schema": "axis-wake-independent-v1",
+  "windows": {
+    "2x6": 32,
+    "4x4": 512,
+    "6x3": 1024
+  }
+}

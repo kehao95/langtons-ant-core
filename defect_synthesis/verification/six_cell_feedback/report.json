@@ -1,0 +1,270 @@
+{
+  "base_commit": "16b9b465a291933d0229f8febf180fcc3be7fddc",
+  "basis": {
+    "D": 12,
+    "K": 127,
+    "M": 6,
+    "P": 13,
+    "Q": 140,
+    "R": 26,
+    "U_defects": 483,
+    "Z_from_U_defects": 1677,
+    "Z_from_V_defects": 1674,
+    "base_endpoint_sha256": "31adab720bcbff5dfe752f56235e63d4c4768cdc4f2a50976b90192ad5e5b9a8",
+    "base_suffix_parity_breakpoints": 193,
+    "blank_contained_defects": 4537,
+    "blank_debris": 702,
+    "blank_mass": 715,
+    "canonical_debris_pairs": 28080,
+    "cyclic_V_defects": 47,
+    "first_V_defects": 50,
+    "first_W_seam_defects": 5,
+    "initial_guard_pairs": 8538,
+    "input_guard_pairs": 176358,
+    "original_lifetimes_consumed_by_U": [
+      [
+        -2,
+        -8,
+        908
+      ],
+      [
+        1,
+        -8,
+        849
+      ],
+      [
+        1,
+        -5,
+        38
+      ],
+      [
+        1,
+        -2,
+        13
+      ],
+      [
+        6,
+        -1,
+        179
+      ],
+      [
+        7,
+        -3,
+        114
+      ]
+    ],
+    "output_point_guard_pairs": 151900,
+    "output_ray_guard_pairs": 14560,
+    "pump_archive_sha256": "db77e09f748b1bb50491bfda6a08f99c797029e8f35250ee21cfd0ac5c60be76",
+    "recovery_mass": 1645,
+    "world_endpoint": [
+      [
+        -19,
+        30
+      ],
+      3
+    ]
+  },
+  "formulas": {
+    "all_k_nonnegative": true,
+    "certificate_boundary": "18921+220*k",
+    "contained_defects": "6702+47*k",
+    "endpoint_black_mass": "1645+24*k",
+    "first_permanent_P104": "18743+220*k",
+    "first_source_impact": "13318+104*k",
+    "initial_black_diameter": 9,
+    "initial_black_mass": 6,
+    "intrinsic_defects": "6706+47*k",
+    "newborn_lifetime_age": "1528+220*j, 0<=j<k"
+  },
+  "independent_cpp": {
+    "algorithm": "ordered-set state, direct string-window count and signed-vector rotations",
+    "all_parameter_ray_guards_independent": true,
+    "cases": 20,
+    "complete_endpoint_equalities": 20,
+    "updates": 835360
+  },
+  "literal_controls": [
+    {
+      "black_count": 1645,
+      "contained_defects": 6702,
+      "full_field_sha256": "31adab720bcbff5dfe752f56235e63d4c4768cdc4f2a50976b90192ad5e5b9a8",
+      "k": 0,
+      "newborn_lifetimes_checked": 0,
+      "time": 18921
+    },
+    {
+      "black_count": 1669,
+      "contained_defects": 6749,
+      "full_field_sha256": "b768b9a6963c71a5b45c87d03759aa59270a7dba87aaf783511b35aecea0a950",
+      "k": 1,
+      "newborn_lifetimes_checked": 1,
+      "time": 19141
+    },
+    {
+      "black_count": 1693,
+      "contained_defects": 6796,
+      "full_field_sha256": "e060ca6cb78a622d2f03a9ea74709a614941798c9509fd10f2ac01176be6d3e2",
+      "k": 2,
+      "newborn_lifetimes_checked": 2,
+      "time": 19361
+    },
+    {
+      "black_count": 1717,
+      "contained_defects": 6843,
+      "full_field_sha256": "0129c8aeeeaca397500f34b05b19ced96efab00bb32f8c9bfc74c3abaf96bedf",
+      "k": 3,
+      "newborn_lifetimes_checked": 3,
+      "time": 19581
+    },
+    {
+      "black_count": 1741,
+      "contained_defects": 6890,
+      "full_field_sha256": "599421e6131b4d1366b01e29e6f8662176162d28704aae00ce8c656396cd3c1c",
+      "k": 4,
+      "newborn_lifetimes_checked": 4,
+      "time": 19801
+    },
+    {
+      "black_count": 1765,
+      "contained_defects": 6937,
+      "full_field_sha256": "f65cf394b9e80d3fcb36871acdbed087a0b62b0cf95241d44afc2f9ea5ba4890",
+      "k": 5,
+      "newborn_lifetimes_checked": 5,
+      "time": 20021
+    },
+    {
+      "black_count": 1789,
+      "contained_defects": 6984,
+      "full_field_sha256": "ee4f9c1a7ebbca1d2db2c0cc9debe9ca1c26b4fc6f983abb6548c2ef9491b131",
+      "k": 6,
+      "newborn_lifetimes_checked": 6,
+      "time": 20241
+    },
+    {
+      "black_count": 1813,
+      "contained_defects": 7031,
+      "full_field_sha256": "1cacf9f377662093132192b68645a4043699c3171b02d44a17faef862d94a2e1",
+      "k": 7,
+      "newborn_lifetimes_checked": 7,
+      "time": 20461
+    },
+    {
+      "black_count": 1837,
+      "contained_defects": 7078,
+      "full_field_sha256": "b7e8d5e87caa90188b91dd829e0b5e0591743bccd677fbec9d77d68c9994d8e4",
+      "k": 8,
+      "newborn_lifetimes_checked": 8,
+      "time": 20681
+    },
+    {
+      "black_count": 1861,
+      "contained_defects": 7125,
+      "full_field_sha256": "a216171ff0e507de6f81886481c9e0685eaa18f91dd1123601cc1179c9615f31",
+      "k": 9,
+      "newborn_lifetimes_checked": 9,
+      "time": 20901
+    },
+    {
+      "black_count": 1885,
+      "contained_defects": 7172,
+      "full_field_sha256": "6f0bee9c3a2898520fcca433c75d2179c1e18e555b39ba6b22bb39619de1369c",
+      "k": 10,
+      "newborn_lifetimes_checked": 10,
+      "time": 21121
+    },
+    {
+      "black_count": 1909,
+      "contained_defects": 7219,
+      "full_field_sha256": "effaeb391bc4455736fef25de7fe8f521b74c037547ca9a0619bdb991e4feb8c",
+      "k": 11,
+      "newborn_lifetimes_checked": 11,
+      "time": 21341
+    },
+    {
+      "black_count": 2029,
+      "contained_defects": 7454,
+      "full_field_sha256": "a8de04c1fa84260a636b95c5aef5f4c92d4012778503804aa13899a5db154b81",
+      "k": 16,
+      "newborn_lifetimes_checked": 16,
+      "time": 22441
+    },
+    {
+      "black_count": 2389,
+      "contained_defects": 8159,
+      "full_field_sha256": "00dd31565a4467a21e0dd3ec5d61f8c5efbec813bd062e2a1c05350505b4e9d7",
+      "k": 31,
+      "newborn_lifetimes_checked": 31,
+      "time": 25741
+    },
+    {
+      "black_count": 2413,
+      "contained_defects": 8206,
+      "full_field_sha256": "0c1f31b6cc16de201cb050659e791f82d03dff31860139cb9907e46731aecdcb",
+      "k": 32,
+      "newborn_lifetimes_checked": 32,
+      "time": 25961
+    },
+    {
+      "black_count": 3157,
+      "contained_defects": 9663,
+      "full_field_sha256": "774e16e7462704de00808f920fef6836d84979d66b6b0c9c25f3d9553a65d9c1",
+      "k": 63,
+      "newborn_lifetimes_checked": 63,
+      "time": 32781
+    },
+    {
+      "black_count": 4045,
+      "contained_defects": 11402,
+      "full_field_sha256": "fe17ddc4e0d7049cfddf6e8dfb54a486cfa0eae412b7cf7a68b52a035645b435",
+      "k": 100,
+      "newborn_lifetimes_checked": 100,
+      "time": 40921
+    },
+    {
+      "black_count": 7813,
+      "contained_defects": 18781,
+      "full_field_sha256": "3ebd9c6a60c3fcb085e51a8448b8e8a38c7116b21632cfdbe49c71c3e44df950",
+      "k": 257,
+      "newborn_lifetimes_checked": 257,
+      "time": 75461
+    },
+    {
+      "black_count": 13933,
+      "contained_defects": 30766,
+      "full_field_sha256": "9fcb7fe6aff2e3663fde02ee4d271dfb4b0c44dd5f940c06b72ad72f3dcd8dc4",
+      "k": 512,
+      "newborn_lifetimes_checked": 512,
+      "time": 131561
+    },
+    {
+      "black_count": 25645,
+      "contained_defects": 53702,
+      "full_field_sha256": "00ff8514aac4938c8c0084637354bfcecbbd10c91e94bd12ec110ca31f47a309",
+      "k": 1000,
+      "newborn_lifetimes_checked": 1000,
+      "time": 238921
+    }
+  ],
+  "literal_updates": 835360,
+  "negative_controls": {
+    "ray_controls": 800,
+    "rejected": [
+      "turn",
+      "source coordinate",
+      "archive identity",
+      "defect total",
+      "10^60-period outgoing blocker",
+      "archive at recovery head"
+    ],
+    "resource_limits_are_not_NO": true
+  },
+  "schema": "six-cell-feedback-check-v1",
+  "scope": "all-parameter XOR pumping and all-future positive family; no HC proof or negative seed",
+  "sources_sha256": {
+    "independent.cpp": "256ab208e3c23e120c93fea187e83e294b6639936a4550c714655d582a8d4368",
+    "verify.py": "882f101f9445ef8a5146e357db560360a6a71a0006ba324fcb69f62cfd49e756"
+  },
+  "status": "passed",
+  "witness_sha256": "c03a5ca147417e2abef29331f8a68ef417bc66c10a1555c8b78b420057365e21"
+}

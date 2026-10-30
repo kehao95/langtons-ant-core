@@ -7,7 +7,13 @@
 ]{article}
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}
+\newcommand{\ETC}{\mathrm{ETC}}\newcommand{\spanw}{\operatorname{span}}
 \setcounter{secnumdepth}{3}
 \usepackage{iftex}
 \ifPDFTeX
@@ -60,7 +66,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Finite-Memory Prediction and Remote Feedback in Langton's Ant},
+  pdftitle={Memory and Spatial Constraints on Eventual Translation in Langton's Ant},
   pdfauthor={Hao Ke},
   colorlinks=true,
   linkcolor={Maroon},
@@ -69,7 +75,7 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{Finite-Memory Prediction and Remote Feedback in Langton's Ant}
+\title{Memory and Spatial Constraints on Eventual Translation in Langton's Ant}
 \author{Hao Ke}
 \date{}
 
@@ -78,23 +84,23 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-A Langton ant can encounter a black cell long after it last visited that
-location. How far can its future be predicted from only its last $D$ turns,
-and how can the prediction resume after such an encounter? We call a black
-read old when the cell was absent from the preceding $D$ visits. From any
-complete finite initial state, we compute the next old-black read, or certify
-that none occurs. For fixed $D$, the algorithm is polynomial in the sparse
-binary input size. It also returns the complete resulting black field, using
-finite arithmetic segments to represent all skipped writes exactly.
-Geometric bounds make the time to $n$ events at most quadratic in $n$, with
-constants depending on $D$ and the initial spatial extent. They also allow
-queries restricted to events outside a given finite region. Any orbit that
-never settles into a periodically translating trace must repeatedly read
-back black cells created arbitrarily late, left unread arbitrarily long,
-and consumed arbitrarily far away; all three properties hold for the same
-cell lifetimes. Finally, a family of twenty-black inputs has unbounded
-feedback lifetimes with exactly 31 intervening old-black reads at $D=128$.
-This explains why spatial extent is essential in uniform lifetime bounds.
+How much memory and space does a Langton ant need to sustain motion that
+never becomes periodically translating? We first give an exact prediction
+algorithm. A black read is old at memory length $D$ when its cell was absent
+from the preceding $D$ visits. From any complete finite initial state, the next
+old-black read is computable, with polynomial bit complexity for fixed $D$.
+Finite arithmetic segments retain every skipped write and allow exact continuation.
+Geometric bounds give quadratic deadlines for finite event prefixes and total
+queries outside any fixed finite region. They imply that a non-eventually-
+translating orbit must repeatedly consume black marks that are simultaneously
+remote, created late and left unread for a long time. A twenty-cell construction
+shows why spatial scale remains necessary in lifetime bounds even when the
+intervening event count is fixed. Independently, exact crossing-record counts
+and a local visit inequality force whole-prefix oblique width at least
+$(1-o(1))\log_2\log T$ by time $T$ on every non-eventually-translating orbit.
+Width uses non-axis normals normalized by $\min(|\alpha|,|\beta|)=1$.
+Together these results provide effective event queries and necessary temporal
+and spatial resources for persistent nontranslation.
 \end{abstract}
 
 \section{Introduction}\label{introduction}
@@ -125,11 +131,20 @@ are simultaneously newly created, arbitrarily old when read, and arbitrarily
 far away. Here a mark's lifetime begins with a white-to-black update and ends
 at the next read of that cell, which turns it white.
 
-A final construction explains the spatial parameter in these bounds. With
+A twenty-cell construction explains the spatial parameter in these bounds. With
 only twenty initially black cells and exactly 31 intervening failures for
 $D=128$, a family of inputs produces lifetimes of unbounded duration. The
 inputs spread farther apart as the duration grows. Thus fixed black mass and
 a fixed number of failures do not by themselves control a lifetime.
+
+Crossing records then quantify how much transverse space persistent
+nontranslation requires. Equal guarded records force a permanently translating
+future. Incoming heights determine the entire crossing history and its retained
+inside field. Counting these requests gives a minimum amount of crossing work, while a local corner inequality bounds repeated visits in a narrow
+band. Combining the two yields a double-logarithmic lower bound on whole-prefix
+oblique width, uniformly over normalized non-axis normals. This argument uses
+crossings rather than old-black events, and supplies an independent geometric
+constraint on the same class of orbits.
 
 Gajardo's symbolic treatment relates long return paths to infinite memory
 effects {[}1{]}. Gajardo, Moreira and Goles establish P-hardness of arbitrary
@@ -146,8 +161,9 @@ Sections~\ref{sec:endpoint-tube}--\ref{quadratic-event-budgets} prove the
 geometric bounds, which then control the cost of exact continuation in
 Section~\ref{exact-continuation-with-complete-history}.
 Sections~\ref{endpoint-tubes-and-spatially-filtered-feedback}--\ref{sec:birth-feedback}
-derive remote feedback. The final construction explains the spatial scale
-in the estimates.
+derive remote feedback. Section~\ref{a-twenty-black-construction-and-the-role-of-distance}
+presents the twenty-cell construction and explains the role of spatial scale in the event estimates.
+Section~\ref{cross:sec:crossing} derives the independent crossing-information width bound.
 
 \section{Model and results}\label{model-and-results}
 
@@ -223,6 +239,17 @@ it at \(624n-1516\), with exactly 31 intervening \(S_{128}\) events. Its
 first permanent P104 time is \(624n-742\). Thus no lifetime bound
 depending only on \(D\), intervening event count and initial mass can
 hold uniformly.
+
+\textbf{Crossing information and oblique width.} Independently of prediction
+failures, crossing-record counts and a local visit inequality force every
+finite-support orbit that is not eventually translating to satisfy
+\[
+\liminf_{T\to\infty}\frac{w_{\alpha,\beta}(T)}{\log\log T}\ge\frac1{\log2}
+\]
+for every non-axis normal normalized by $\min(|\alpha|,|\beta|)=1$.
+Here $w_{\alpha,\beta}(T)$ is the range of $\alpha x_t+\beta y_t$ over the
+whole prefix $0\le t\le T$. Section~\ref{cross:sec:crossing} gives the uniform
+finite profile deadline behind this bound.
 
 \section{Predicting the next old-black
 read}\label{predicting-the-next-old-black-read}
@@ -1022,7 +1049,7 @@ keeps the whole actual path, through every completed internal event in
 the run, inside the square in \eqref{eq:remote9}. Its first exit is no later than
 \(E(\ell)\). Thus the elapsed time through any such consecutive completed run
 is strictly less than \(E(\ell)\), and the number of distinct event reads is
-at most that elapsed time. The slightly weaker integer bound b is
+at most that elapsed time. The slightly weaker integer bound $b(K,D)$ is
 sufficient. Exterior colours can be arbitrary because they stay
 unchanged before first exit. \(\square\)
 
@@ -1555,7 +1582,7 @@ Let $\mathcal L_{10}$ contain the cyclic ten-turn factors of the
 standard word $U$, and let $J_{10}$ test whether the true ten-turn window
 ending now is outside this set. There are
 84 allowed factors. On every $X_n$ the number of \(J_{10}\) events strictly in
-\((60,e)\) is exactly \textbf{264}.
+\((60,e)\) is exactly 264.
 
 To check this uniformly, replace each $U^r$ in \eqref{eq:circuit2} by one \(U\). All
 \(r\) are positive. Every removed complete standard cycle contains only
@@ -1630,17 +1657,33 @@ implemented infinite-tail criteria, together with the analytic coverage
 and coupling arguments above; it has not been formalized in a proof
 assistant.
 
+\input{crossing-information}
+
 \section{Reproduction}\label{reproduction-and-perspective}
 
-Run \texttt{python3\ memory\_feedback/reproduce.py} to replay the six
+Run \texttt{python3\ memory\_feedback/reproduce.py} to replay the eight
 scoped modules: first-event prediction, exact XOR continuation, event
-geometry, remote filtering, birth-filtered feedback, and the twenty-cell circuit. The checks
+geometry, remote filtering, birth-filtered feedback, the twenty-cell circuit, crossing information, and request reconstruction. The checks
 compare full finite fields, reconstruct integer and rational
 inequalities, and verify permanent periodic tails at all parity
 breakpoints. Parameter families are covered by the affine and geometric
 proofs above; finite controls test their numerical premises.
 
-\section{Limitations}\label{limitations}
+\section{Limitations}
+
+Request capacity counts possible incoming codes; it is an upper bound on genuine
+crossing histories, not a physical realization count or a stock fixed by the
+initial state. Request injectivity proves uniqueness of completed excursions;
+it does not decide whether an arbitrary proposed excursion returns. The work
+bound concerns distinct records, without assuming statistically independent
+input information.
+\label{limitations}
+The width estimate uses whole-prefix normal-coordinate width with both normal
+components nonzero. The exact combinatorial capacity does not establish physical
+sharpness of the asymptotic width coefficient. A translating certificate allows
+general periods and drifts. The extension to nonconstant cyclic turning rules is
+analytic; a generalized-rule classifier is not implemented.
+
 
 The polynomial bounds fix \(D\), and the spatially filtered query also
 fixes \(K\) in the normalized input frame. The factor \(f(D)\) may be
@@ -1669,9 +1712,11 @@ The predictor supplies a total query, while the XOR representation
 supplies its reusable physical output. The tube and escape arguments
 make fixed-region filtering total and force nonperiodic behaviour to
 renew memory remotely. The construction shows that mass and event count
-alone cannot replace spatial information. Dependence on full coordinates
-or diameter remains available, as does the separate question of whether
-one fixed seed can renew feedback indefinitely.
+alone cannot replace spatial information. The crossing argument supplies a
+complementary requirement: persistent nontranslation forces every normalized
+oblique width to grow at least double-logarithmically with elapsed time.
+Complete-field coupling connects both parts: it makes event continuation exact
+and turns repeated guarded crossing records into permanent translation.
 
 \section{References}\label{references}
 
@@ -1706,6 +1751,13 @@ one fixed seed can renew feedback indefinitely.
   Anahí Gajardo, Andrés Moreira and Eric Goles. \emph{Complexity of
   Langton's ant}. Discrete Applied Mathematics 117, 41--50 (2002).
   \href{https://doi.org/10.1016/S0166-218X(00)00334-6}{doi:10.1016/S0166-218X(00)00334-6}.
+\item F. C. Hennie. One-Tape, Off-Line Turing Machine Computations.
+\emph{Information and Control} 8 (1965), 553--578.
+\href{https://doi.org/10.1016/S0019-9958(65)90399-2}{doi:10.1016/S0019-9958(65)90399-2}.
+\item D. Ranjan, R. Chang and J. Hartmanis. \emph{Space Bounded Computations:
+Review and New Separation Results}. Cornell University report,
+20 December 1989, Section 2.
+\url{https://userpages.cs.umbc.edu/chang/papers/loglog/loglog.pdf}.
 \end{enumerate}
 \endgroup
 

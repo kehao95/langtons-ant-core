@@ -1,0 +1,119 @@
+{
+  "base_commit": "3f70d44bf8907a0efade67d052f9b8a51519d5f1",
+  "blank_certificate": {
+    "crossings_per_cut": 33,
+    "drift": [
+      2,
+      2
+    ],
+    "end": 10391,
+    "left": 19,
+    "period": 104,
+    "right": 21,
+    "start": 10287,
+    "word": "LRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRL"
+  },
+  "classifiers": {
+    "arithmetic_cap_is_not_a_dynamical_answer": true,
+    "axis_normals_rejected": true,
+    "cap_returns_unknown": true,
+    "first_width_violation_times": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "translator_certificate_times": [
+      383,
+      430,
+      383,
+      430
+    ]
+  },
+  "combinatorics": {
+    "candidate_words": 123735,
+    "exact_count_equalities": 25,
+    "exact_minimum_packing_checks": 1345,
+    "integer_entropy_checks": 184
+  },
+  "cyclic_rule_balance": {
+    "classical_kappa_balance_corner_constant": [
+      "2",
+      "1",
+      "5"
+    ],
+    "exact_balance_checks": 212612,
+    "general_rule_classifier_implemented": false,
+    "nonconstant_cyclic_rules": 494
+  },
+  "exact_bound_bitlengths": [
+    {
+      "capacity_bits": 1,
+      "deadline_bits": 4,
+      "max_pairs": 4,
+      "visit_bound": 5,
+      "width": 0
+    },
+    {
+      "capacity_bits": 5,
+      "deadline_bits": 9,
+      "max_pairs": 9,
+      "visit_bound": 5,
+      "width": 1
+    },
+    {
+      "capacity_bits": 77,
+      "deadline_bits": 84,
+      "max_pairs": 74,
+      "visit_bound": 25,
+      "width": 2
+    },
+    {
+      "capacity_bits": 201,
+      "deadline_bits": 209,
+      "max_pairs": 99,
+      "visit_bound": 25,
+      "width": 3
+    },
+    {
+      "capacity_bits": 1358,
+      "deadline_bits": 1368,
+      "max_pairs": 524,
+      "visit_bound": 105,
+      "width": 4
+    },
+    {
+      "capacity_bits": 1997,
+      "deadline_bits": 2007,
+      "max_pairs": 629,
+      "visit_bound": 105,
+      "width": 5
+    }
+  ],
+  "finite_bounds": {
+    "distinct_record_packing_checks": 516,
+    "finite_deadline_controls": 1987,
+    "finite_prefixes_with_repeated_signatures": 0,
+    "per_cell_bound_checks": 140334
+  },
+  "guards": {
+    "exact_full_field_certificates": 14,
+    "rejected_guard_or_future_controls": 5
+  },
+  "literal_crosscheck": {
+    "adjacent_crossing_parity_checks": 54618,
+    "complete_sources": 100,
+    "corner_inequalities": 98656,
+    "full_endpoint_comparisons": 100,
+    "full_path_comparisons": 100,
+    "literal_updates_per_implementation": 113152
+  },
+  "proof_scope": "Analytic all-prefix bounds with exact scoped controls; not HC or period-104 uniqueness.",
+  "schema": "crossing-information-width-gap-v1",
+  "source_sha256": {
+    "check.py": "a5ae01ab8e9e6f8ccd434ca5d8fba0079bc951553c12ce57e16b576211c24405",
+    "core.py": "0d033be9fa0d8e7f59df0013f2ee3bd7b20c926c30d643b47550b9ae1c8ed5e3",
+    "oracle.cpp": "7d9da953dc64eae2e79fb594f7c877c5863f259773f86dce488cb588e15f8d13"
+  },
+  "status": "passed"
+}

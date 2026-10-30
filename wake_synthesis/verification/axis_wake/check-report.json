@@ -1,0 +1,91 @@
+{
+  "all_even_fiber_windows": {
+    "2x6": 32,
+    "4x4": 512,
+    "6x4": 32768
+  },
+  "example": {
+    "drift": [
+      4,
+      0
+    ],
+    "growth": 8,
+    "inversion_parity": 1,
+    "seam_zero_character": 1,
+    "status": "EXCLUDED_BY_AXIS_WAKE_PARITY",
+    "strict_inversions": 5,
+    "wake": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        30
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        20
+      ],
+      [
+        3,
+        20
+      ],
+      [
+        3,
+        30
+      ]
+    ]
+  },
+  "four_level_gap_controls": 216,
+  "large_coordinate_control": {
+    "max_coordinate_bits": 1002,
+    "runs": 14,
+    "strict_inversions": 15
+  },
+  "passing_contrast": {
+    "drift": [
+      4,
+      0
+    ],
+    "growth": 8,
+    "inversion_parity": 0,
+    "seam_zero_character": 0,
+    "status": "NOT_EXCLUDED",
+    "strict_inversions": 6
+  },
+  "random_and_basis_controls": {
+    "checker_reversals": 400,
+    "radical_basis_checks": 200,
+    "row_cycle_toggles": 1200,
+    "three_way_comparisons": 400,
+    "translations": 400,
+    "vertex_orders": 400
+  },
+  "schema": "axis-wake-reconstruction-check-v1",
+  "scope_controls": 5,
+  "short_word_factorization": {
+    "by_period": {
+      "12": 220,
+      "16": 3255,
+      "4": 1,
+      "8": 15
+    },
+    "stable_realizable": 0,
+    "total": 3491
+  },
+  "staircase_controls": 60,
+  "two_column_controls": 510
+}

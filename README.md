@@ -11,16 +11,18 @@ executable verification and published artifacts.
 | [One-black](one_black/) | Every one-black finite state, at every position and heading, reaches the complete standard P104 trace. | [Zenodo](https://doi.org/10.5281/zenodo.23675960) |
 | [Clock and escape](clock_escape/) | Square exit ≤ `(13·3^(n−1)−2n²−4n−5)/2`; fixed-height rectangle degree `⌊H/2⌋+1`; complete-state orbit algorithms. | [Zenodo](https://doi.org/10.5281/zenodo.23675963) |
 | [Four-row escape](four_row_escape/) | Exact all-color first-exit maxima: `S(4,n)=34n-150` for every `n>=13`; closed persistent-response classification. | [Zenodo](https://doi.org/10.5281/zenodo.23675964) |
-| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. General inverse synthesis, non-axis quadratic wake tests and analytic unit-diagonal exclusion. | [Zenodo](https://doi.org/10.5281/zenodo.23675970) |
+| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. Non-axis inverse synthesis and quadratic wake tests; all-axis inversion parity; analytic unit-diagonal exclusion. | [Zenodo](https://doi.org/10.5281/zenodo.23675970) |
 | [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequalities with sharp nine-factor window threshold; finite-horizon core/supply bound; archive recovery. | [Zenodo](https://doi.org/10.5281/zenodo.23675965) |
-| [Defect synthesis](defect_synthesis/) | All-coordinate bounded-defect semilinearity; complete endpoints; sharp supply spectra; small witnesses, unary NP membership and a restricted polynomial-size QF decision backend. | [Zenodo](https://doi.org/10.5281/zenodo.23675966) |
-| [Memory and feedback](memory_feedback/) | Exact finite-memory event prediction and full-history continuation; exact newly generated remote feedback, growing-scale necessity and a fixed-mass lifetime obstruction. | [Zenodo](https://doi.org/10.5281/zenodo.23675969) |
-| [Ports and scattering](four_cell_port/) | Sharp four-cell ports; arbitrary finite protected scattering trains, including unbounded return excursions and old-wake readback. | [Zenodo](https://doi.org/10.5281/zenodo.23675974) |
+| [Defect synthesis](defect_synthesis/) | All-coordinate bounded-defect semilinearity and resource spectra; a six-cell family with arbitrarily many defects and uniform `mu(N)<=6`; small witnesses and a restricted QF decision backend. | [Zenodo](https://doi.org/10.5281/zenodo.23675966) |
+| [Memory and feedback](memory_feedback/) | Exact event prediction and full-history continuation; remote feedback and fixed-mass lifetime obstruction; request-only crossing capacity, speed/spread bounds and a double-logarithmic oblique-width gap. | [Zenodo](https://doi.org/10.5281/zenodo.23675969) |
+| [Ports and scattering](four_cell_port/) | Sharp four-cell ports; four-layer rectangle shielding and exact P104 entrance; sharp solid-rectangle bound; finite protected scattering trains and old-wake readback. | [Zenodo](https://doi.org/10.5281/zenodo.23675974) |
 
 [Articles](PREPRINTS.md)
 
 Each project supplies an article PDF built from its accompanying source. Zenodo
-DOIs identify the published articles and their supplementary files.
+DOIs identify archived editions in the same article series. In `publications.json`,
+`doi` and `version` refer to that archived edition; `pdf` and `pdf_sha256`
+identify the accompanying repository article.
 
 ## Project layout
 
@@ -35,7 +37,9 @@ the exact fixed-height-four classification. Wake uses them for period budgets;
 memory uses escape to bound events in a fixed region; port uses a local clock
 inside certified recovery stages. Factor's finite-word mass proof is independent
 of its infinite-future attraction proof. Memory owns the twenty-black lifetime
-obstruction; port owns the arbitrary finite scattering composition theorems.
+obstruction and the crossing-capacity/width theorems. Defect owns the six-cell
+unbounded-defect family. Port owns protected rectangular formation and arbitrary
+finite scattering composition.
 
 One-black has a complete Lean proof. The other new results combine analytic
 coverage arguments with exact finite checks. The clock also contains Lean
@@ -56,8 +60,8 @@ python3 four_cell_port/reproduce.py
 
 Wake defaults to the full 76-case, 83-job exhaustion. Its `--quick` mode checks
 the upper graph, count tables and controls but skips those large exclusions.
-Factor, wake and defect synthesis require a C++17 compiler.
-Defect synthesis additionally uses the system ISL/GMP and Z3 shared libraries.
+Factor, wake, defect, memory and port use a C++17 compiler.
+Defect and port use ISL/GMP; defect additionally uses Z3.
 All use Python 3.10+ without `-O`.
 One-black and full clock reproduction additionally require Lean 4.30.0; their
 unchanged commands remain in their project READMEs.

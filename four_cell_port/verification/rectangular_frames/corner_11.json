@@ -1,0 +1,114 @@
+{
+  "name": "corner_11_rebuilt",
+  "parameters": [
+    "a",
+    "b"
+  ],
+  "domain": "a>=0 and b>=0",
+  "rect": [
+    0,
+    "10+2*a",
+    0,
+    "10+2*b"
+  ],
+  "head": [
+    0,
+    0,
+    0
+  ],
+  "blocks": [
+    {
+      "word": "LRRL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRLRRRRLRRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "6+(1)*a+(0)*b"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLL",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "6+(1)*a+(0)*b"
+    },
+    {
+      "word": "R",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "6+(1)*a+(0)*b"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLLRLLLL",
+      "repeat": "4+(0)*a+(1)*b"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLLRLRRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "4+(1)*a+(0)*b"
+    },
+    {
+      "word": "RLLLLRLRRRRLRLLLLRRRRLRRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRRRLLRLLLLRRRRLRLLLLRLLLLRRRRLRRLLRRRRLL",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLRLLLLRLLLLRRRRLRR",
+      "repeat": "2+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRLRLLLLRLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "6+(1)*a+(0)*b"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "6+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRRRLRRRRLLLLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "6+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRRRLLLLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "6+(1)*a+(0)*b"
+    },
+    {
+      "word": "RRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLRLRLLRLLRRRRLLRRRRLLRLRLRRRRLLL",
+      "repeat": "1+(0)*a+(0)*b"
+    }
+  ],
+  "tail": "LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR"
+}

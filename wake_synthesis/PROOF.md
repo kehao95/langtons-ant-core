@@ -1,5 +1,27 @@
 # Layer-profile uniqueness and inverse synthesis
 
+## Axis-wake parity
+
+For a complete finite-support periodic realization with full displacement
+(a,0), rotated so a>0, a is even. Represent odd-visit translation classes O
+in 0<=x<a. The strict inversion count
+`I(O)=#{(u,v): x_u<x_v and y_u>y_v}` is even. Equal rows and columns are excluded
+from that count. Period, height, mass and coordinate magnitudes are unrestricted.
+
+The article proves five bridges: stabilized class alternation; port-permutation
+parity; the radical identity for arbitrary horizontal row circulations; odd
+seam winding; and the endpoint formula `q(G0)=I(O)+|O|/2 (mod 2)`.
+Together with `4 | |O|` these eliminate the unknown circulations. The stabilized
+criterion and port method are attributed to Jillhewar's pinned primary source.
+The axis-specific radical and endpoint argument supply the additional result.
+
+[Axis certificates](verification/axis_wake/) check the finite algebra identities,
+independent examples and exact cycle-edge family counts. Run
+`python3 wake_synthesis/reproduce.py --axis-only`. The all-period claim is carried
+by the analytic argument; this is a necessary parity screen. The terminating
+inverse-synthesis theorem below retains its non-axis displacement hypothesis.
+
+
 ## Arithmetic and feedback constructions
 
 The construction gives [mixed-wake interleaving](proof/mixed-wake-interleaving.md):

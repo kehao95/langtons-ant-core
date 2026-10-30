@@ -1,0 +1,158 @@
+{
+  "name": "corner_01_rebuilt",
+  "parameters": [
+    "a",
+    "b"
+  ],
+  "domain": "a>=0 and b>=0",
+  "rect": [
+    0,
+    "9+2*a",
+    0,
+    "10+2*b"
+  ],
+  "head": [
+    0,
+    0,
+    0
+  ],
+  "blocks": [
+    {
+      "word": "LRRL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRLRRRRLRRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "5+(1)*a+(0)*b"
+    },
+    {
+      "word": "RLRRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "6+(0)*a+(1)*b"
+    },
+    {
+      "word": "RLRRRRLRRRRLLLL",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLR",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "R",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "4+(1)*a+(0)*b"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "4+(1)*a+(0)*b"
+    },
+    {
+      "word": "RRLRRRRLLLLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "6+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRLRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRRRLRRLRLRRRRLRLLRRRRLLR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "4+(1)*a+(0)*b"
+    },
+    {
+      "word": "LRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLL",
+      "repeat": "4+(1)*a+(0)*b"
+    },
+    {
+      "word": "RRLRRRRLLLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRRLRRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RLLLLRLRRRRLRRRRLLLL",
+      "repeat": "5+(0)*a+(1)*b"
+    },
+    {
+      "word": "RLLLLRLLRRRRLLRRRRLLRLRLRRRRLLLLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRL",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLRRRRLLLLRLLLLRLRR",
+      "repeat": "2+(1)*a+(0)*b"
+    },
+    {
+      "word": "RRLRLLLLRRRRLRRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRRRLLRLLLLRRRRLRLLLLRLLLLRRRRLRRLLRRRRLL",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "RRLRLLLLRLLLLRRRRLRR",
+      "repeat": "2+(0)*a+(1)*b"
+    },
+    {
+      "word": "RRLRLLLLRLRLRLRRRRLLLLRLRRRRLRRRRLLLLRLLLLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRR",
+      "repeat": "1+(0)*a+(0)*b"
+    },
+    {
+      "word": "LRRL",
+      "repeat": "3+(1)*a+(0)*b"
+    },
+    {
+      "word": "LRLLRRLLLLRRLLRLRRRRLRRRRLLLLRLLLLR",
+      "repeat": "1+(0)*a+(0)*b"
+    }
+  ],
+  "tail": "LRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRL"
+}

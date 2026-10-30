@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "blocks": 15,
+  "certificate_sha256": "c129d2f81856f9f3e75bdbf8c589120d3be79fbd3f0e76aa887da1f9f19ed53c",
+  "deep_interior_never_read": false,
+  "drift": [
+    2,
+    -2
+  ],
+  "first_entrance": "(6550+60*a)",
+  "geometry_checks": 0,
+  "isl_version": "isl-0.27-GMP",
+  "matching_suffix": 0,
+  "name": "thin_m3_0_rebuilt",
+  "read_checks": 453,
+  "tail_boundary": "(6550+60*a)",
+  "tail_pose": [
+    "(199+2*a)",
+    "(-3)",
+    2
+  ]
+}

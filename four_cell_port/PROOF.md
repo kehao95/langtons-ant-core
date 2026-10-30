@@ -1,5 +1,30 @@
 # Ports and composable highway scattering
 
+## Protected rectangular interiors
+
+Let R=[0,n-1] x [0,m-1], n,m>=10, with ant at (0,0) facing north and white
+exterior. Put I=[4,n-5] x [4,m-5]. For every A contained in I, the complete
+initial field `(R minus I) union A` gives the same entire head and turn trace;
+I is never read. The first standard entrance times, by (n,m) parity, are
+`78n+44m+555`, `30n+44m+438`, `38n+62m+1538`, and `28n+28m+287` for
+even/even, even/odd, odd/even, and odd/odd respectively.
+Four layers are minimal for this common-trace shielding property.
+
+All solid rectangles with positive dimensions at that corner pose satisfy
+`tau(n,m)<=242(n+m)+29325`. The family m=5, odd n>=201 has
+`tau=242n+8703`, fixing the coefficient; (30,4) has tau=37553, fixing the
+intercept once the coefficient is 242. Centered solid odd squares have a separate
+complete classification, given in the article.
+
+[Exact rectangle certificates](verification/rectangular_frames/) prove every
+read obligation by integer-set emptiness, every protected-interior avoidance
+obligation, and the complete infinite suffix. Four frame, 36 thin-rectangle and
+two centered-square parameter domains combine with 3538 finite inputs.
+Run `python3 four_cell_port/reproduce.py --frames-only --jobs 3` for the full
+chain. The shared first-difference coupling principle connects ports, frames and
+scattering; each construction retains its own verified interface conditions.
+
+
 The manuscript joins the retained sharp port proof below with two constructive
 composition theorems:
 
