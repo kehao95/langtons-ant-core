@@ -33,32 +33,32 @@
   },
   "defect_synthesis": {
     "title": "Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant",
-    "doi": "10.5281/zenodo.23675966",
-    "version": "0.1.1",
+    "doi": "10.5281/zenodo.23819737",
+    "version": "0.2.0",
     "pdf": "defect_synthesis/paper/paper.pdf",
     "sources": "defect_synthesis/sources.json",
     "pdf_sha256": "692219cb30bc6f1713e63f273950d9dc5c82984d976d4ae64fb4441d1408ac46"
   },
   "memory_feedback": {
     "title": "Memory and Spatial Constraints on Eventual Translation in Langton's Ant",
-    "doi": "10.5281/zenodo.23675969",
-    "version": "0.1.1",
+    "doi": "10.5281/zenodo.23819749",
+    "version": "0.2.0",
     "pdf": "memory_feedback/paper/paper.pdf",
     "sources": "memory_feedback/sources.json",
     "pdf_sha256": "0fb7d346403fa848841ca49993caefc3f4e0236e6d7efcb4f304bffe0f230615"
   },
   "wake_synthesis": {
     "title": "Wake Parity and Highway Rigidity in Langton's Ant",
-    "doi": "10.5281/zenodo.23675970",
-    "version": "0.3.1",
+    "doi": "10.5281/zenodo.23819745",
+    "version": "0.4.0",
     "pdf": "wake_synthesis/paper/paper.pdf",
     "sources": "wake_synthesis/sources.json",
     "pdf_sha256": "fa06c8c21d2755ce1be83f2dda055d4540e20824328e45ca2dee6e0b6e485ac8"
   },
   "four_cell_port": {
     "title": "Protected Highway Formation and Scattering in Langton's Ant",
-    "doi": "10.5281/zenodo.23675974",
-    "version": "0.2.1",
+    "doi": "10.5281/zenodo.23819753",
+    "version": "0.3.0",
     "pdf": "four_cell_port/paper/paper.pdf",
     "sources": "four_cell_port/sources.json",
     "pdf_sha256": "77c34797483673220add8e82a3184570b6a03df36c0a1bfd5127f832fd6a8a18"

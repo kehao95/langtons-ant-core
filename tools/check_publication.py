@@ -49,7 +49,8 @@ def check(root=ROOT):
         listed.add('docs/' + name)
     listed.update({'AGENTS.md', 'README.md', 'PREPRINTS.md', 'publications.json',
                    '.gitignore', 'docs/sources.json', 'tools/check_publication.py',
-                   '.github/workflows/deploy-pages.yml'})
+                   '.github/workflows/deploy-pages.yml', 'research/README.md',
+                   'research/NEXT_QUESTIONS.md', 'research/SELF_WRITING_MEDIA.md'})
     tracked = subprocess.check_output(
         ['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=root
     ).decode().split('\0')
