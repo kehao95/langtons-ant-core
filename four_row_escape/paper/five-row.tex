@@ -1,4 +1,9 @@
 \section{Five rows and autonomous persistent memory}\label{sec:five}
+The finite response catalogue at height four made every return amenable to
+a bounded interface description. At height five, repeated returns can instead
+distinguish arbitrarily many stored counter values. We construct this larger
+response family and couple two of its counters to obtain quadratic confinement.
+
 Let $S(h,n)$ be the largest first-exit time from an $h$-row, $n$-column
 rectangle, over all initial colors and all internal poses. The exit-producing
 update is counted. Exterior cells are never read before this exit and may be
@@ -162,11 +167,13 @@ complemented and the constructed black set remains finite.
 
 For $l,r\ge0$, place $\R(0,r)$ in columns $0,\ldots,2r+3$, and the reflected,
 complemented $\Lft(0,l)$ in columns $-2l-5,\ldots,-1$. Start at $(0,3),\E$.
+On column-mask words this operation is
+$\J(c_1,\ldots,c_n)=(31-c_n,\ldots,31-c_1)$.
 In an ordinary left-to-right list the complete input is
 \begin{equation}\label{five:eq:source}
- \operatorname{rev}\bigl(31-((5)CV^l)\bigr)\;CV^r,
+ \J((5)CV^l)\;CV^r,
 \end{equation}
-where $31-$ acts entrywise. The rectangle has width $2(l+r)+9$ and exactly
+The rectangle has width $2(l+r)+9$ and exactly
 $6r+4l+23$ black cells. The rest of the plane is white.
 
 A right return has pose $(-1,2),\W$, precisely the entry for the reflected
@@ -234,7 +241,7 @@ claim optimality of the quadratic coefficient or of the constructed family.
 \subsection{The finite/infinite response boundary}
 To complete Theorem~\ref{five:thm:index}, we specify the finite closure being used
 on the other side of the threshold. The invariant
-$\epsilon=(h-x-y)\bmod2$ fixes the horizontal entry rows of a column.
+$\epsilon=(\theta-x-y)\bmod2$ fixes the horizontal entry rows of a column.
 Writing $p=(x+\epsilon)\bmod2$, entry rows have parity $1-p$ and output rows
 have parity $p$.
 
@@ -285,6 +292,11 @@ The counter construction admits a compact macro-description: the processed
 length $j$, remaining lengths $l-j,r-j$, and current side specify the complete
 column words and pose. Counter updates and the duration of one call are affine.
 There are, however, an input-dependent number of calls, and their sum is quadratic.
+
+A source family is Presburger-definable with finite fibers when black
+membership is given by a Presburger formula in its integer parameters and
+cell coordinates, with only finitely many black cells for each parameter value;
+the initial pose is specified by Presburger-definable coordinate functions.
 
 \begin{corollary}\label{five:cor:nonsemi}
 There is a Presburger-definable finite-fiber family of complete initial ant

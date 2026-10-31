@@ -50,8 +50,8 @@ period-104 highway trace up to translation and quarter-turn rotation. The
 proof couples the perturbed orbit to the finite blank-orbit transient and
 reduces the unbounded part of the scattering problem to 22 affine frontier
 channels.
-Moving a defect farther down a channel adds translated XOR wakes, allowing
-finite scattering anchors to extend by induction to every depth. Twenty-one
+Moving a defect farther down a channel accumulates translated changes to the
+cell colours, allowing finite base simulations to extend by induction to every depth. Twenty-one
 channels admit geometric separation from the blank orbit's historical wake.
 The remaining channel creates a reverse highway that returns to a fixed
 historical cell; an affine collision-time law and a second archive induction
@@ -100,9 +100,10 @@ cutoff by proving an all-depth reduction.
 
 \begin{theorem}[Universal one-black theorem]\label{thm:main}
 For every Langton-ant state $s$ on $\Z^2$, if the black set of $s$ is a
-singleton, then there exists a time $N$ such that its entire observation
-sequence from $\operatorname{run}(N,s)$ agrees with a translation and
-quarter-turn rotation of the blank orbit from update 9,977 onward.
+singleton, then there exists a time $N$ such that its entire sequence of
+positions, headings and read colours from update $N$ onward agrees with a
+translation and quarter-turn rotation of the all-white orbit from update
+9,977 onward.
 In particular, this is the fixed standard period-104 read trace with a
 quarter-turn rotation of drift $(-2,-2)$.
 \end{theorem}
@@ -283,9 +284,10 @@ Thus $E$ has 715 black cells in total.
 Moreover, the 104-step block iterates permanently.
 \end{proposition}
 
-To prove permanent iteration, a finite XOR comparison between one block and its translate produces a wake
-$W$; affine ray checks prove that all later translated read supports avoid all
-archived copies of $W$. Induction then proves
+For a state $s$, write $\mathcal B(s)$ for its black set. The finite difference
+$W_E=\mathcal B(\operatorname{run}(104,E))\mathbin{\triangle}\mathcal B(T_vE)$
+compares one block with its translate. Affine ray checks show that all later
+translated read supports avoid every archived copy of $W_E$. Induction then proves
 Definition \ref{def:p104} for every future cycle.
 
 # The finite prefix and first-contact coupling
@@ -381,6 +383,9 @@ For every $q\notin P$, an ordered case split gives one of the following:
 Furthermore, $|H|=22$.
 \end{proposition}
 
+All black cells of $E$ lie in $P$, since the blank prefix created them.
+Thus Branch 1 is empty under $q\notin P$; the four-way partition also
+applies to a general defect at the entry state, as in the formal proof.
 Branches 1--3 already reach P104: Branch 1 leaves $E$ unchanged;
 Branch 2 has the 27 checked replays; and Branch 3 follows the blank highway
 by untouched-region coupling since its future reads are
@@ -618,10 +623,11 @@ checks these guards for every historical cell and the ordinary stable
 snapshot; ray lemmas extend them to all deeper translations.
 
 \begin{lemma}[Historical transfer]\label{lem:history}
-Let $h$ be ordinary and $n\ge0$. Up to the historical region $H_E$, the orbit
-from $\Sigma_E(h,A_h+n)$ agrees with the corresponding pristine orbit at depth
-$P_h+L_h+n$. The common path avoids $H_E$ through the scattering trace and
-through its permanent terminal corridor.
+Let $h$ be ordinary and $n\ge0$. The states $\Sigma_E(h,A_h+n)$ and
+the corresponding pristine state at depth $P_h+L_h+n$ agree outside $H_E$.
+The pristine path avoids $H_E$ through the scattering trace and its permanent
+terminal corridor. Untouched-region coupling therefore gives identical
+positions, headings and read colours for the two orbits at every future update.
 \end{lemma}
 
 The key point is temporal as well as spatial. A finite check shows separation
@@ -715,14 +721,22 @@ state $\Sigma_E(h_{72},15+n)$, before its forward prefix.
 
 Increasing physical obstacle depth from $15+n$ to $15+(n+1)$ inserts one
 forward block before reversal and one reverse block before the collision. The
-remaining phase and collision cell are unchanged. Consequently
+extra forward displacement $v$ is cancelled by the extra reverse displacement
+$-v$, preserving the collision cell and phase. Consequently
 
 $$t_{\mathrm{hit}}(n)=t_{\mathrm{hit}}(0)+208n.
 \tag{3}\label{eq:hitlaw}
 $$
 
-More strongly, there is a finite XOR layer $L$ and a checked collision state
-$C$ such that
+Define the complete base collision state
+$C=\operatorname{run}(54{,}223,\Sigma_E(h_{72},15))$; its pose is
+$(20,-22)$ heading north. For the pristine entry state $B$, let
+$W_{\mathrm{cl}}=\mathcal B(\operatorname{run}(104,B))\mathbin{\triangle}\mathcal B(T_vB)$.
+The finite layer carried by each added depth is explicitly
+$L=T_{4v}(W_{\mathrm{cl}}\mathbin{\triangle}T_vW_r)$,
+where $W_r$ is the reverse wake in Equation \ref{eq:reverse}.
+These are respectively \texttt{actualHit}, \texttt{cleanWake}, and
+\texttt{layer} in \texttt{PhaseChecks}. The checked collision normal form is
 
 $$
 \operatorname{run}(t_{\mathrm{hit}}(n),\Sigma_E(h_{72},15+n))
@@ -911,7 +925,9 @@ Here `HasStandardTrace` quantifies a symmetry placement of the fixed actual
 blank state at update 9977 and equality of every future position, heading and
 read colour. Both final theorems have exactly the same three native computation
 leaves. The trace bridge is proved without additional native computation.
-The interactive website illustrates the proof geometry and channel classification.
+The [interactive proof guide](https://www.kehao.me/langtons-ant-core/one-black.html)
+illustrates the proof geometry and channel classification; its source is
+`docs/one-black.html` in the accompanying repository.
 
 # Related work
 

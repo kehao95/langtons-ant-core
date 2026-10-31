@@ -69,12 +69,10 @@ where $B$ bounds coordinate and drift bit lengths. Passing means only
 \end{theorem}
 
 \subsection{Boundary reconstruction and winding}
-In a full $d$-class write phase positions $q_i=b_v+k_i d$. A sufficiently distant
-cell $b_v+nd$ is initially white and eventually has all the phase visits, at
-times $nP+i-Pk_i$. The necessary stable-class condition of~\cite{Jillhewar2026} therefore
-orders visits by $\tau_i=i-Pk_i$ and gives letters $R,L,R,L,\ldots$.
-The signed excess in a class is its odd indicator $D_v\in\{0,1\}$.
-Thus $g=\sum D_v$, and heading restoration gives $4\mid g$.
+Apply Lemma~\ref{lem:criterion} with the stable keys $\tau_i=i-Pk_i$
+for phase positions $q_i=b_v+k_i d$. The signed excess in a class is its
+odd indicator $D_v\in\{0,1\}$. Thus $g=\sum D_v$, and heading restoration
+gives $4\mid g$.
 
 The checker/heading-axis invariant assigns incoming axes alternately to the
 two checker colours. Every visit uses one horizontal and one vertical edge.

@@ -39,7 +39,7 @@ A clock that gains at least one per update turns this temporal question into
 a spatial one: bound the range of its values inside the region.
 
 A state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite, $p\in\Z^2$, and
-$h\in\{N,E,S,W\}$. Headings are encoded cyclically by $0,1,2,3$.
+$h\in\{N,E,S,W\}$. Headings are encoded cyclically by $N=0,E=1,S=2,W=3$.
 The unit vectors are $e_N=(0,1)$, $e_E=(1,0)$, $e_S=(0,-1)$ and $e_W=(-1,0)$.
 A state at time $t$ is observed
 \emph{before} update $t$. The update is
@@ -106,7 +106,8 @@ The complete-state clock is
  \Theta_c(X)=-\sigma(X)\sum_{q\in B}\chi(q)f(s(q))
                 +J(s(p),\eps(h)).
 \end{equation}
-Every $f(s)$ is even, so the finite sum defines a computable integer.
+Every $f(s)$ is even, so the heading correction $J$ is integer-valued.
+The finite field sum therefore makes $\Theta_c$ a computable integer.
 The heading correction balances the current-cell flip, including at the
 centre where the absolute-value weight changes branch.
 
@@ -266,7 +267,8 @@ $3NHb^k$. Each $G_h$ is a sum of four monomials with coefficient magnitudes at
 most~2; each monomial has magnitude at most $3b^k$. Hence
 $|G_h|\le24b^k$, and the head range is at most $48b^k$.
 
-The first move in the asserted pair is vertical, say by $v\in\{-1,1\}$.
+A horizontal heading turns to a vertical heading before the first move in
+the pair. Its first displacement is therefore $(0,v)$, with $v\in\{-1,1\}$.
 The two entries of Table~\ref{crit:tab:increments} have vertical factors
 $b^j$ and $b^{-j-1}$, where $j=v(y-c_y)$ is an integer.
 Both are read at the same $x$, so both horizontal factors are at least
@@ -277,8 +279,11 @@ because $a^{N-1}<3$.
 
 \begin{proof}[Proof of \eqref{crit:eq:rectangle}]
 The arrival axes alternate. The internal-to-internal updates can thus be grouped
-into the pairs of Lemma~\ref{crit:lem:rectangle}, omitting at most one initial and
-one final update. With $r$ pairs, $T\le2r+3$ and $r\delta_N\le R_{N,H}$.
+into the pairs of Lemma~\ref{crit:lem:rectangle}. Among these internal updates,
+omit at most one initial update to obtain a horizontal starting heading and
+at most one trailing update to leave an even number. The final exit update
+is also excluded. Thus at most three updates lie outside the $r$ pairs, giving
+$T\le2r+3$ and $r\delta_N\le R_{N,H}$.
 An indefinitely confined trajectory contradicts the same finite range.
 Consequently
 \[

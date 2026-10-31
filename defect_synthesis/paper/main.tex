@@ -30,7 +30,7 @@ producing at least $N$ such departures form an effectively computable
 semilinear set: a finite union of integer translates of finitely generated
 additive monoids. Initial coordinates are unrestricted. The construction also
 describes the exact time, pose and entire black field just after the $N$th
-departure. The key reduction represents the intervening legal motion by a
+departure. The key reduction represents the intervening defect-free motion by a
 finite collection of words with variable repetition counts. Consecutive visits
 to each cell enforce the ant's read-and-flip rule throughout these compressed
 traces. This yields decidable synthesis under integer-linear coordinate
@@ -62,7 +62,8 @@ $a,v_i$. Such a description allows one to test whether any initial placement
 meets additional coordinate constraints. Our construction also records the
 complete state when the target is first reached.
 A state is $(B,p,h)$, where $B\subset\Z^2$ is the \emph{complete} finite set of
-black cells, $p$ is the head position, and $h\in\{N,E,S,W\}$. A white read turns
+black cells, $p\in\Z^2$ is the head position, and $h\in\{N,E,S,W\}$.
+Encode these headings by the integers $0,1,2,3$, respectively. A white read turns
 right, a black read turns left, the current cell flips, and the ant then moves
 one unit. Time $t$ denotes the state immediately before update $t$.
 
@@ -81,6 +82,8 @@ Normalize the head to the origin facing north. For fixed $m\ge0$ and $N\ge1$,
 let $E_{m,N}$ contain the ordered, pairwise-distinct tuples
 $z=(x_1,y_1,\ldots,x_m,y_m)$ for which the actual ant with exactly these black
 cells has at least $N$ contained defects. Coordinates have no range restriction.
+For $m=0$, the tuple is empty and the relation asks this question of the
+all-white initial plane.
 
 A finite-fibre field family is a definable set of pairs $(z,q)$ such that,
 for each parameter tuple $z$, only finitely many lattice cells $q$ belong to

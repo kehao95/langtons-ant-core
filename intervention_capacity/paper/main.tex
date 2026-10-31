@@ -92,12 +92,18 @@ use $O(T^2)$ black cells, and recover a certified standard highway after every
 scheduled intervention used in the lower-bound proof.
 \end{theorem}
 
+Here $a$ counts the bits visible in the earliest data lane and $n$ counts
+the lanes with a visible bit. Their trigger times are 312 updates apart,
+and each bit uses four updates, so each later lane loses $312/4=78$ visible
+bits. Summing this arithmetic progression gives the term $39n(n-1)$.
+
 For one prescribed intervention time, the same task has linear storage
 order. Allowing the time to select a channel changes the prediction problem.
 
 \begin{theorem}[Exact complete-control quotient]\label{th:all}
 Let $D$ be the entire read footprint of $W^\omega$, and let $\RR$ be the set of
-sites a turn-at-every-step head can read before time $T$. Then
+sites a head alternating horizontal and vertical moves can read before
+time $T$, as required by the classical turn-at-every-step rule. Then
 \[
 C_{\mathrm{all}}(T)=2^{|\RR\setminus D|}.
 \]
@@ -132,7 +138,7 @@ LRRLLLLRRLLRRRRLLRRLRLLRLL
 The executable certificate stores and checks the literal word of length 104.
 The word in the displayed line wrapping is also checked against that source.
 
-The seed $P$ from heading $E$ executes $W^\omega$ with displacement $(2,-2)$
+The seed $P$ from the origin with heading $E$ executes $W^\omega$ with displacement $(2,-2)$
 per period. Its period reads satisfy $-4\le x+y\le6$ and $0\le x\le8$.
 The seed $Q$ from the origin with heading $N$ executes the same word with displacement $(2,2)$.
 Its infinite read footprint has
@@ -156,14 +162,16 @@ At phase 72 of the $P$ execution the pose is $(8,-2),E$ and the ordinary turn is
 $R$. The pre-update toggle makes that cell black. The ordinary update then turns
 left and restores the cell to white, leaving the head at $(8,-1),N$ and the
 pre-update background unchanged.
-There is one important boundary exception. The possible next left turn reads
-$(7,-1)$, whose coordinate sum is 6 rather than 7. This cell is not in $P$ and
+The data tiles defined in Section~\ref{sec:channels} can make the first
+post-activation turn left. From $(8,-1),N$, that turn moves the head to
+$(7,-1)$, which is read on the following update. Its coordinate sum is 6
+rather than 7, so this boundary cell needs a separate check. This cell is not in $P$ and
 not among its first 72 reads. In period $a$, a read of its translate by an earlier
 period $b<a$ would require phase $x$-coordinate $7+2(a-b)\ge9$, exceeding the
 period maximum 8. It is consequently white at activation for every $a\ge0$.
 This check is essential: a bare half-plane argument would not suffice.
 
-\section{Protected time-addressed data channels}
+\section{Protected time-addressed data channels}\label{sec:channels}
 For $b\in\{0,1\}$ define binary tiles and their exact outputs by
 \[
 A_0=\{1,2\}\times\{0,1\},\quad A_1=\{0,3\}\times\{0,1\},
@@ -456,7 +464,8 @@ its frozen data by
 python intervention\_capacity/reproduce.py
 \end{center}
 The computational trusted base includes both programs and their runtimes; no
-formal proof assistant is assumed.
+formal proof assistant is assumed. The complete source package is available
+in the \href{https://github.com/kehao95/langtons-ant-core/tree/3ae4ce12abf6ad44a5c7625b31d25e6f1365ffa3/intervention_capacity}{immutable public intervention-capacity snapshot}.
 
 \section{Limitations}
 The results concern source-dependent summary size. The initial matrices are

@@ -8,7 +8,7 @@ a translated and rotated blank highway.
 ## Article
 
 [PDF](paper/paper.pdf) · [Source](paper/paper.md) · [Proof](PROOF.md) ·
-[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23675960)
+[Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23844645)
 
 ## Reproduce
 

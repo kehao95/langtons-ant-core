@@ -1,90 +1,90 @@
 {
   "one_black": {
     "title": "Every One-Black-Cell Langton Ant Reaches the Period-104 Highway: A Lean-Checked Proof",
-    "doi": "10.5281/zenodo.23675960",
-    "version": "0.2.1",
+    "doi": "10.5281/zenodo.23844645",
+    "version": "0.2.2",
     "pdf": "one_black/paper/paper.pdf",
     "sources": "one_black/sources.json",
-    "pdf_sha256": "0164ead6d2429f46016681f04b7fd743c71cfba587be0cf7ea113881902c79de"
+    "pdf_sha256": "79175d219bbc25d07aeac66cd6347479149cb5e1619a4c0f299e27d068662bbf"
   },
   "clock_escape": {
     "title": "An Ant on the Clock: Exponential Escape Bounds for Langton's Ant",
-    "doi": "10.5281/zenodo.23675963",
-    "version": "0.4.1",
+    "doi": "10.5281/zenodo.23844652",
+    "version": "0.4.2",
     "pdf": "clock_escape/paper/paper.pdf",
     "sources": "clock_escape/sources.json",
-    "pdf_sha256": "8a5e444b250c0b0dfeb4c33c770d6bc417f335d062487850b9c6cda39f557c3c"
+    "pdf_sha256": "1917c66d8d6f99706735c522f688d3afb8988123f6da8066211dc28cb73f2f63"
   },
   "four_row_escape": {
     "title": "From Four Rows to Five: Escape Times and Persistent Memory in Langton's Ant",
-    "doi": "10.5281/zenodo.23838424",
-    "version": "0.2.0",
+    "doi": "10.5281/zenodo.23844660",
+    "version": "0.2.1",
     "pdf": "four_row_escape/paper/paper.pdf",
     "sources": "four_row_escape/sources.json",
-    "pdf_sha256": "94a269704b3a263b185c593f03f4cbd8d9ca17f8be6819373f25aaffd8e32786"
+    "pdf_sha256": "dd517f20f036f94f1e922cb99db6eafb05a7210e60585eb53d8fa947994f9743"
   },
   "factor_language": {
     "title": "Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant",
-    "doi": "10.5281/zenodo.23675965",
-    "version": "0.1.1",
+    "doi": "10.5281/zenodo.23844669",
+    "version": "0.1.2",
     "pdf": "factor_language/paper/paper.pdf",
     "sources": "factor_language/sources.json",
-    "pdf_sha256": "60e1cda18a57b49a19ce107b4b48accb15b50082e4a791805ff1ecb97f87e710"
+    "pdf_sha256": "0ce7de81c53c6de04cf5cbc11a1cdd1046e7a06d6feaaedb27ad6d83e2b4edcf"
   },
   "defect_synthesis": {
     "title": "Counting Defects: Semilinear Reachability and Resource Bounds for Langton's Ant",
-    "doi": "10.5281/zenodo.23819737",
-    "version": "0.2.0",
+    "doi": "10.5281/zenodo.23844674",
+    "version": "0.2.1",
     "pdf": "defect_synthesis/paper/paper.pdf",
     "sources": "defect_synthesis/sources.json",
-    "pdf_sha256": "692219cb30bc6f1713e63f273950d9dc5c82984d976d4ae64fb4441d1408ac46"
+    "pdf_sha256": "13c657a7b566fa0d8022fbd8614f6dd4f3eb49d51c76fe53a032ab9836d58aab"
   },
   "memory_feedback": {
     "title": "Memory and Spatial Constraints on Eventual Translation in Langton's Ant",
-    "doi": "10.5281/zenodo.23819749",
-    "version": "0.2.0",
+    "doi": "10.5281/zenodo.23844677",
+    "version": "0.2.1",
     "pdf": "memory_feedback/paper/paper.pdf",
     "sources": "memory_feedback/sources.json",
-    "pdf_sha256": "0fb7d346403fa848841ca49993caefc3f4e0236e6d7efcb4f304bffe0f230615"
+    "pdf_sha256": "63b8c9565f774a8de01e5ac23253d02ca5f49d11fa4af8ecc1c4d6bfb826479d"
   },
   "wake_synthesis": {
     "title": "Wake Parity and Highway Rigidity in Langton's Ant",
-    "doi": "10.5281/zenodo.23838427",
-    "version": "0.5.0",
+    "doi": "10.5281/zenodo.23844688",
+    "version": "0.5.1",
     "pdf": "wake_synthesis/paper/paper.pdf",
     "sources": "wake_synthesis/sources.json",
-    "pdf_sha256": "ba6f8df5585446d258f823a878945e4297f8557bfd37db68dcb0263812e7d512"
+    "pdf_sha256": "f5b75308cb5ceda315ffbaecb1a6a6a5046c1976003c4945150d8ffea47d1aed"
   },
   "four_cell_port": {
     "title": "Protected Highway Formation and Scattering in Langton's Ant",
-    "doi": "10.5281/zenodo.23819753",
-    "version": "0.3.0",
+    "doi": "10.5281/zenodo.23844695",
+    "version": "0.3.1",
     "pdf": "four_cell_port/paper/paper.pdf",
     "sources": "four_cell_port/sources.json",
-    "pdf_sha256": "77c34797483673220add8e82a3184570b6a03df36c0a1bfd5127f832fd6a8a18"
+    "pdf_sha256": "3e71f2bcbdc0f17e0aa0c91720197e9455ac00dcee5c7310d118562ac1debad6"
   },
   "intervention_capacity": {
-    "doi": "10.5281/zenodo.23838429",
-    "version": "0.1.0",
+    "doi": "10.5281/zenodo.23844704",
+    "version": "0.1.1",
     "title": "When to Intervene: Predictive Memory in a Langton Highway",
     "pdf": "intervention_capacity/paper/paper.pdf",
     "sources": "intervention_capacity/sources.json",
-    "pdf_sha256": "5d2cca87ad3778f9466d0ae10e946d64f9ca74c408fc06f4be80e85bd3b77655"
+    "pdf_sha256": "166e0f56799e623d4438a1eb982a1259244e005074eeadb311da0c26ec132f2c"
   },
   "phase_cocycle": {
-    "doi": "10.5281/zenodo.23838431",
-    "version": "0.1.0",
+    "doi": "10.5281/zenodo.23844710",
+    "version": "0.1.1",
     "title": "Maximal Separated Phase Clocks and Spatial Charges for Cyclic Langton Ants",
     "pdf": "phase_cocycle/paper/paper.pdf",
     "sources": "phase_cocycle/sources.json",
-    "pdf_sha256": "506d6d212542f747139515b4d0849f03ab9948ce6c649b2427f00fdf4fe62c7b"
+    "pdf_sha256": "9f0778228a916abef203cee5c7ae4660b518075c994e898a0f5d18383dac60a5"
   },
   "sparse_trace_space": {
-    "doi": "10.5281/zenodo.23838433",
-    "version": "0.1.0",
+    "doi": "10.5281/zenodo.23844714",
+    "version": "0.1.1",
     "title": "Sparse Initial Conditions and the Trace Space of Langton's Ant",
     "pdf": "sparse_trace_space/paper/paper.pdf",
     "sources": "sparse_trace_space/sources.json",
-    "pdf_sha256": "8741f8eff4714fdbfc68f505e8368e2780eee088e8faeb60b732bf8188638d33"
+    "pdf_sha256": "742027e3e2266e93311db24b0ba9ec1ec90ced76d60e21720acc43628c5a2958"
   }
 }

@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "c3597d03143987225eaa543e9d2825d540e62115761c013bd25b5f489a534f02",
-    "README.md": "e0c504aaf4be6b008a127be2829c158ffd2e5660919ba81fc00ab4096559f927",
+    "README.md": "ac1f48ce36b89af476af3b408a71a8682ecb5ab5665bfeba9c689b754f7d2832",
     "evidence/README.md": "bafd071b569529048f3212fb52c987051959d6ce012f1dc60b4594cc03a920bf",
     "evidence/affine_certificate_checks.json": "c16fe69b886011de461314a3d72320e7d1c43a78b0ca160e1412613e9b9bc15e",
     "evidence/critical/README.md": "955ace9f6045bc75dbeac87abe58cad3512be7e4512f29f22c5e699a213d8e71",
@@ -19,7 +19,7 @@
     "lean/ClockLemmas.lean": "879cb3cd6aa53fad4095ffd45164e72c788f8a2fa0f299fa3dad2fb07ba21c15",
     "lean/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
     "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
-    "paper/main.tex": "9bce9d3cdd262f502af24450a6f4714b9fa276d45b522f78cde113e4fb425cc9",
+    "paper/main.tex": "56e90d95486237c52c65b3f880ffde775cec6075d5b8afe15fcaef5521c4d180",
     "reproduce.py": "a70aec0d29cc458daab12d6306601ac69cddab33e5e3e30ec4f5cb30031ced40",
     "verification/baseline/affine_clock_certificates.json": "88422db63d719c4424352350b5291ff8c375b9129dfae7968d74ae6d79ce940f",
     "verification/baseline/check_affine_certificates.py": "d1e8fb4171642f9b634aa873d8ecd25f374f5606203096d963e2b09a1a96ba04",

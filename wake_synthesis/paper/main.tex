@@ -60,7 +60,7 @@ and a sparse integer-operation parity test.
 \noindent\textbf{Keywords.} Langton's ant; finite support; periodic highway;
 computer-assisted proof; wake rigidity; exact enumeration.
 
-\section{Introduction and main theorem}
+\section{Introduction and main results}
 A periodically translating ant leaves a black trail behind it. Its turn word
 determines that trail, but the reverse question is less clear: how much of the
 trail determines the word? We prove that a sparse description of the layers
@@ -139,6 +139,25 @@ twelve, and transverse width ten has both longitudinal residue classes odd
 on at least one strictly interior transverse level.
 \end{corollary}
 
+Our second criterion uses an extremal statistic. Translate the lowest
+transverse level to zero and let $o_j$ count the odd classes at level $j$.
+The following statement permits all growth values and interior multiplicities
+compatible with the fixed drift and width.
+
+\begin{theorem}[Sharp width-ten moment]\label{moment:thm:main}
+Every complete finite-support periodic realization with full drift $(2,-2)$
+and transverse width $W=10$ satisfies
+\[
+ \mathcal K=2\sum_{j=0}^{10}(-1)^j(j-5)^2o_j\ge168.
+\]
+Equality holds exactly for the standard period-104 turn word, up to cyclic
+phase and the declared lattice normalization.
+\end{theorem}
+
+The two criteria address complementary wake data: fixed growth with interior
+sparsity, and minimal quadratic moment. Section~\ref{sec:moment} proves the
+second by deriving a period cap separately for each candidate wake.
+
 The full displacement is measured over the chosen word. For example,
 repeating the standard word twice gives displacement $(4,-4)$ and growth
 $24$. Fixing $(2,-2)$ therefore fixes the scale of the period in the
@@ -155,14 +174,16 @@ The proof combines analytical reductions with finite integer computations.
 The supplied-word realization criterion is prior work~\cite[Section~3, ``Periodic-realisability criterion'']{Jillhewar2026};
 short-factor constraints belong to the symbolic study of the ant~\cite{Gajardo2003}.
 The specific upper certificate and ordered-event engine are retained from the
-standard-wake project~\cite{KeStandard}. The contribution here is the removal
+standard-wake project~\cite{KeStandard}. The thin-wake contribution is the removal
 of the complete-wake and missing-level hypotheses, together with the complete
-classification of the resulting finite family. No lower-width exclusion is
+classification of the resulting finite family. The extremal-moment theorem
+then uses the shared graph with wake-dependent caps, and the axis theorem
+turns the same class chronology into an endpoint-order obstruction. No lower-width exclusion is
 used as a premise. Appendix~\ref{app:mixed} develops a separate
 necessary parity test for arbitrary-width mixed wakes, extending the attributed
 port-permutation factorization.
 
-\section{Finite support and stabilized visit order}
+\section{Finite support and stabilized visit order}\label{sec:chronology}
 A complete state is $X=(B,p,h)$, where $B\subset\Z^2$ is finite, $p\in\Z^2$ is the head position, and
 $h\in\{N,E,S,W\}$. Write $F$ for one literal update and
 $\chi(x,y)=(-1)^{x+y}$. The quantity
@@ -178,7 +199,11 @@ A visit to the physical cell $b+n d$ at phase $i$ occurs, when present, at time
 (n-a_i)P+i.
 \]
 Thus the stabilized order of phases in that class is decreasing $a_i$, followed
-by increasing $i$. Equivalently, its keys are $i-Pa_i$.
+by increasing $i$. Equivalently, define the stable-time keys
+\begin{equation}\label{eq:stable-order}
+ \tau_i=i-Pa_i;
+\end{equation}
+the physical arrival time is $nP+\tau_i$ whenever $n\ge a_i$.
 
 \begin{lemma}[Supplied-word criterion]\label{lem:criterion}
 A heading-restoring nonzero-drift word admits a finite-support realization if
@@ -476,7 +501,7 @@ be the unknown phase of the first event on path $c$. The stabilized time is
 \]
 Consecutive class ranks require a gap at least four by~\eqref{eq:phase}.
 A simple cycle of these difference inequalities on $q$ chain variables has
-weight $C+KP$ with integer $K$. Indeed a required rank step $u\to u'$
+weight $C+\nu P$ with integer $\nu$. Indeed a required rank step $u\to u'$
 gives
 \[
  z_{c(u')}\ge z_{c(u)}+4+p_u-p_{u'}+P(v_{u'}-v_u).
@@ -484,8 +509,8 @@ gives
 A simple constraint cycle uses each of its $q$ paths once. On a path with
 $n_c$ events, the two selected offsets differ by at least $-(n_c-1)$.
 Thus $C\ge4q-\sum_c(n_c-1)\ge5q-n$, where $n$ events have been built.
-If $K\ge1$ it is positive at every $P\ge n$; if $K=0$ its sign is constant;
-if $K<0$ it decreases with $P$. Thus a positive constraint cycle at the search
+If $\nu\ge1$ it is positive at every $P\ge n$; if $\nu=0$ its sign is constant;
+if $\nu<0$ it decreases with $P$. Thus a positive constraint cycle at the search
 cap excludes every admissible smaller period. All operations use exact integers.
 
 No pruning assumes bounded physical memory or a preselected seed box. Only
@@ -505,7 +530,7 @@ cut list, so their disjoint union covers the entire search. Every shard must fin
 digests are additional implementation controls, not a replacement for this
 partition argument.
 
-\section{Completed classification and proof of the main theorem}\label{sec:classification}
+\section{Thin-wake classification and proof}\label{sec:classification}
 Table~\ref{tab:classification} gives the completed search totals. These count
 constructed prefixes, not distinct words or simulated ant updates. The last
 row includes prefixes repeated before the partition frontier in the eight shards.
@@ -713,7 +738,8 @@ Fix an integer $c$, set $s=x+y-c$, and put
  \epsilon(h)=\begin{cases}+1,&h=N,E,\\-1,&h=S,W,\end{cases}\qquad
  G(s,e)=\begin{cases}\tfrac12 f(s),&es\ge0,\\-\tfrac32 f(s),&es<0.\end{cases}
 \]
-Use the integer clock of~\cite{clock} on the complete finite state
+We recall the integer clock of~\cite{clock}, including its increment proof
+to keep the inverse-synthesis argument self-contained. On a complete finite state, set
 \begin{equation}\label{eq:integer}
  \Theta_c(X)=-\sigma(X)\sum_{q\in B}\chi(q)f(q_x+q_y-c)
              +G(p_x+p_y-c,\epsilon(h)).

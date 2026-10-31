@@ -57,7 +57,7 @@ answer is exactly linear and the effect of every return to a previously
 visited block can still be classified by a finite interface.
 The ant moves on $\ZZ^2$. At a white cell it turns right, changes the cell to
 black and moves forward by one unit; at a black cell it turns left, changes the
-cell to white and moves. Headings N,E,S,W are $0,1,2,3$, with step vectors
+cell to white and moves. The heading $\theta$ takes values $0,1,2,3$ for N,E,S,W, with step vectors
 $(0,1),(1,0),(0,-1),(-1,0)$, respectively. A state at time $t$ is
 observed before update $t$. A pose consists of a position and a heading. For
 \[
@@ -119,10 +119,10 @@ of columns. Fix its near side, $s=0$ for left or $s=1$ for right. The other
 vertical boundary is its far side. A caller enters horizontally through the
 near boundary and observes the side and row at which the ant next leaves.
 
-Put $\epsilon=(h-x-y)\bmod2$. Each update changes both heading parity and
+Put $\epsilon=(\theta-x-y)\bmod2$. Each update changes both heading parity and
 cell parity, so $\epsilon$ is invariant. At column $x$ write
 $p=(x+\epsilon)\bmod2$; the parity of a block means that of its near column.
-On horizontal entry $h$ is odd, so the entry row satisfies
+On horizontal entry $\theta$ is odd, so the entry row satisfies
 $y\equiv1-p\pmod2$. There are exactly two such rows,
 \[
  I_p=(1-p,3-p).
@@ -233,7 +233,7 @@ most 34 times. A vertical cut is crossed at most 21 times. Both bounds are attai
 \begin{proof}
 The central-column check enumerates the two parities, all pairs of 269 side
 types, 16 masks, and eight compatible internal row/heading poses. For
-each of the four rows, $h-y\equiv p\pmod2$ allows two headings, giving exactly
+each of the four rows, $\theta-y\equiv p\pmod2$ allows two headings, giving exactly
 $2\cdot269^2\cdot16\cdot8=18,524,416$ cases. The largest local count is 34.
 The cut handshake chooses two parities, two entry sides, two entry
 channels and a pair of block types: $2\cdot2\cdot2\cdot269^2=578,888$

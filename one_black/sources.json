@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "72cac3f5255bf1975231e4c9b0e6cc1067a8cce386f22f80b9f235d8d75f56ec",
-    "README.md": "7751bbfbd9eeb59d5c458101523da5a7c8ce5481dd2d7ddc58a16934de3d124f",
+    "README.md": "0757821124a8af449324e72b08643cbe9f1b6e415247f797fb960cda023d2f8e",
     "__init__.py": "27312e1203ae62f7f1e00eb28be86f795331be916c6bf4bf766f273d2fb1b8da",
     "evidence/README.md": "a068dc1abcdcef6bd0bfe74f904397c210b4b9c4c5de7cf5a3f7f900884727ee",
     "langtons_ant/__init__.py": "a87d8a3f644c703aefca1184170d934b953e77bb7861f5923f8510e90009bc54",
@@ -93,7 +93,7 @@
     "paper/figures/stages/stage-04-finite-history.png": "f51836b45293e2f80819c44f237d2664fadaa069a4b6209d5d58c54efb7c9218",
     "paper/figures/stages/stage-06-global-map.png": "46b1436b5172ef21d6a3a1e2a70420adc00ad0230b7386c6efd0a612a3786d7b",
     "paper/optimize_pdf.py": "1acd698c4c734e17faa99de97e58ba11327c6f3d32b10b1d0721a6c46810e743",
-    "paper/paper.md": "6e8bcbdf5704e884733df6bab1b4df454b53e8cc2aaee76d9169d63fed541445",
+    "paper/paper.md": "d619229489e40e27f2153ed0ffdfaca78236bbc549fe240caf75397945cd0fb0",
     "paper/references.bib": "b1e9379966b9311099b18de825e2dcc078eaadafcd6d0d2bc6f8bad87d318718",
     "reproduce.py": "949cbf3d3385632e3b53e6e7ea94e4fac55b43398e9fff9e4d161742600e0160"
   }

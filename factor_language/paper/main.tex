@@ -196,8 +196,10 @@ $(0,1),(1,0),(0,-1),(-1,0)$. The update is invertible: step back along the
 current heading, flip that cell, and undo the turn determined by its recovered
 colour. Thus each complete state determines its turn sequence at all integer
 times, including the nine turns preceding the input checkpoint.
+
+\paragraph*{Turn language and convergence.}
 Let \(W\) be the standard 104-letter turn word
-in the appendix and let \(\mathcal L_k\) contain all its cyclic factors
+in Appendix~\ref{exact-words} and let \(\mathcal L_k\) contain all its cyclic factors
 of length \(k\). A \emph{factor} is a consecutive subword; cyclic factors
 may cross the end of $W$ and continue at its beginning. A stream is
 \(k\)-legal if every future length-\(k\) window belongs to
@@ -206,19 +208,24 @@ on a specified colouring. The \emph{standard trace} repeats $W$, together
 with its induced positions, headings and read colours, up to translation,
 rotation and cyclic phase. The entry time $\tau(X)$ is the earliest update
 from which this complete future trace is standard. The mass is $|B_t|$;
-unvisited initial black cells remain part of that set. Write $H(X)$ for
-$\tau(X)<\infty$. The vocabulary $\mathcal L_{10}$ contains 84 distinct
-words. Forward legality tests windows starting at times $t\ge0$; the intrinsic
-predicate $J_{10}$ tests the window ending now, including inverse-recovered
-turns near the input checkpoint. The contained count $N_{10}(s,t)$ tests only
-windows wholly inside the specified interval. These conventions agree away
-from its first nine updates. For finite words, we also use \emph{silent}
-to mean ten-legal; an event-free trajectory interval excludes the intrinsic
-$J_{10}$ tests at the times specified.
+unvisited initial black cells remain part of that set. Let $H(X)$ denote
+highway convergence, namely $\tau(X)<\infty$.
+
+\paragraph*{Violation events and interval counts.}
+The vocabulary $\mathcal L_{10}$ contains 84 distinct words. Forward legality
+tests windows starting at times $t\ge0$. To define an event from the current
+complete state alone, reconstruct its nine preceding turns by inverse dynamics.
+Define $J_{10}(X)=1$ exactly when those nine turns followed by the current turn
+form a word outside $\mathcal L_{10}$; otherwise $J_{10}(X)=0$.
+This also defines the event at the input checkpoint without a supplied history.
+The contained count $N_{10}(s,t)$ counts only forbidden windows wholly inside
+$[s,t)$. It counts $J_{10}$ at ending times $s+9,\ldots,t-1$; it is zero when
+$t-s<10$. For finite words, \emph{silent} means ten-legal; an event-free
+trajectory interval excludes $J_{10}$ at each of its specified times.
 
 \textbf{Theorem A (eventual modes).} Every physical ten-legal stream on
 an arbitrary initial colouring eventually has least period 104, 28 or
-24, with the respective words \(W,U,T\) given below.
+24, with the respective words \(W,U,T\) printed in Appendix~\ref{exact-words}.
 
 \textbf{Theorem B (finite-mass attraction).} For a complete finite
 initial black set of cardinality \(m\), a ten-legal future reaches the
@@ -267,8 +274,10 @@ first-read assignment and its forbidden-word formulation.
 
 Let \(E\) contain every physically feasible 150-letter word whose
 10-factors lie in \(\mathcal L_{10}\). Construct a graph \(G\) with edge
-\(v_0\cdots v_{148}\to v_1\cdots v_{149}\) for each \(v\in E\). No word
-is removed because it looks unlikely or because its seed is large.
+\(v_0\cdots v_{148}\to v_1\cdots v_{149}\) for each \(v\in E\). The length 150 provides a finite cover containing the candidate periods
+104, 28 and 24 within a window. Its role is to expose a graph whose cyclic
+components and physical exclusions can be completely certified; no minimality
+of this window length is needed.
 Complete enumeration follows all whitelist-compatible extensions and
 rejects exactly the same-cell alternation conflicts. Induction on word
 length proves completeness of that enumeration.
@@ -276,16 +285,12 @@ length proves completeness of that enumeration.
 Any actual infinite 10-legal stream gives an infinite path in \(G\),
 since each of its length-150 windows is feasible under its own actual
 execution. The graph can admit paths that fail longer physical
-consistency. It is an OVERAPPROXIMATION; this does not invalidate
-exclusion, but prevents interpreting every graph path as a physical
-orbit.
+consistency. It is an overapproximation: every physical stream is represented, and
+additional paths are eliminated by the physical conflicts below.
 
-The immutable certificate
-\texttt{verification/ten/certificates/windows10.txt} contains 6,605 edge
-words. Both verifiers regenerate the entire set and require exact
-equality, including cardinality and absence of duplicates. Their
-complete graph has 6,501 vertices and precisely three cyclic strongly
-connected components:
+Complete enumeration gives 6,605 edge words and 6,501 vertices. The
+finite certificate, identified in Section~\ref{reproducibility-and-conclusion},
+checks that the graph has precisely three cyclic strongly connected components:
 
 \begin{longtable}[]{@{}lrrl@{}}
 \toprule\noalign{}
@@ -311,8 +316,8 @@ physical conflict, rather than by assuming its paths are periodic.
 \subsection{Exact two-loop description of the non-simple
 component}\label{ten-3}
 
-The certificate \texttt{quotient.tsv} assigns each of the 366 vertices
-of \(\mathcal H\) a state in \(\{0,\ldots,101\}\). It is a
+An explicitly tabulated map assigns each of the 366 vertices of
+\(\mathcal H\) a state in \(\{0,\ldots,101\}\). It is a
 label-preserving homomorphism onto this explicit graph:
 
 \begin{itemize}
@@ -331,11 +336,11 @@ this formula. The homomorphism is used only in the forward direction:
 every infinite internal path projects to a word that, after at most 101
 letters, is an arbitrary concatenation of \(A\) and \(B\).
 
-The edge label is the letter APPENDED to the 149-letter history. It is
+The edge label is the letter appended to the 149-letter history. It is
 shifted 149 places from the original stream. This finite shift is
 harmless for eventual-mode classification. Subsection \ref{ten-5}
-instead uses the CURRENT letter \(v_0\) of a future-window vertex, and
-does not confuse these conventions.
+instead uses the current letter \(v_0\) of a future-window vertex,
+149 positions before this appended-edge label.
 
 The exact geometric data, starting north at the origin, are
 
@@ -375,6 +380,13 @@ candidate word is feasible.
 \(102+28n\), \(204+28n\), and \(204+28(n+m)\). Their respective poses
 are \((0,0),N\); \((1,11),S\); \((1,11+4n),S\); \((0,4n),N\); and
 \((0,4(n-m)),N\).
+
+Local word coordinates below are based at the origin heading north. A word
+placed at $p$ heading north sends a local point $q$ to $p+q$; heading south
+sends it to $p-q$. In particular, copy $j$ of the first $A$ run starts at
+$(1,11+4j),S$, so its local column $x=0$ is global column $x=1$, and local
+height $y$ becomes $11+4j-y$. The second $A$ run instead starts north and
+uses the unrotated local axes.
 
 The following finite coordinate facts are computed directly from the two
 displayed words and checked independently: \(A\) has \(-3\le x\le0\); on
@@ -672,8 +684,8 @@ arbitrary finite input, with no legality promise:
 \item
   At time \(M\), test the complete-state predicate \(P_{now}\) for
   permanent standard P104. If it fails, return YES (a future event is
-  forced by Theorem B). This is not an assertion that the event was
-  observed or that its first time has been computed.
+  forced by Theorem B). This branch decides existence without simulating
+  to the event; the exact first-time algorithm is developed in Section~\ref{macro-5}.
 \item
   If \(P_{now}\) holds, simulate nine additional updates to check all
   windows crossing this boundary. Return YES if one is bad; otherwise
@@ -779,11 +791,9 @@ complete enumeration of physically feasible ten-legal words through
 depth 300. Words of lengths below ten are initially unrestricted by
 the standard factor table.
 
-The Python implementation uses breadth-first cloned last-read maps. The
-C++ implementation instead uses depth-first reversible current-colour
-assignments. No seed-size or spatial cutoff is used. Their complete
-sorted depth-300 edge sets and their integer potentials have identical
-hashes.
+The enumeration has no seed-size or spatial cutoff. Its certificate
+checks every accepted word and the integer potentials on the complete graph;
+Section~\ref{reproducibility-and-conclusion} describes the two reconstructions.
 
 \subsection{The finite graph certificate covers arbitrarily long finite
 words}\label{mass-3}
@@ -838,11 +848,9 @@ lengths.
 The source witness fixes SHA256 hashes for the sorted depth-300 words
 and the potentials in lexicographic vertex order.
 
-The complete finite sets are reconstructed deterministically and checked
-against those hashes and the local inequalities. They need not be stored
-as a nine-megabyte enumeration dump. \texttt{verification/mass/witness.json}
-contains the immutable numerical claim, exact short witness and its
-complete minimal seed.
+The finite sets are reconstructed deterministically and checked against
+these hashes and the local inequalities. The mass certificate also supplies
+the following equality witness and its complete minimal seed.
 
 \subsection{Sharpness}\label{mass-4}
 
@@ -854,8 +862,8 @@ LLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLR
 
 has length 90, 44 right turns and 46 left turns. It is physically
 feasible and all of its 81 ten-factors are allowed. Its unique minimal
-first-read seed has 28 black cells and is listed in
-\texttt{verification/mass/witness.json}. Literal execution leaves 26 black cells.
+first-read seed has 28 black cells, obtained by blackening precisely the
+first-L sites of the displayed word. Literal execution leaves 26 black cells.
 Thus
 
 \[
@@ -869,9 +877,8 @@ The standard word has 104 updates and 12 more R than L. Its certified
 finite-support realization supplies physically feasible words $W^k$ for
 every $k\ge1$. Thus any uniform lower estimate
 $g\ge\rho n-C$ with $\rho>12/104=3/26$ fails as $k$ tends
-to infinity. The standard tail is an existing certified input here; this
-work uses that standard growth as its sharpness witness. The supplementary literal $W^4$ check is a control, not the
-justification of the universal $k$ quantifier.
+to infinity. Permanent repetition of the standard highway supplies the
+universal $k$ quantifier; its net mass gain is exactly 12 per block.
 
 \subsection{Derivation of the unrestricted inequality}\label{mass-5}
 
@@ -948,6 +955,15 @@ event lift additionally checks all 7763 edges and component-rank maxima
 5, 956 and 212. The all-parameter foldback exclusion, seed induction and spiral separation
 are proved in the text; finite geometric checks verify their stated
 numerical premises.
+
+The attraction edge list and quotient map are
+\path{verification/ten/certificates/windows10.txt} and
+\texttt{quotient.tsv}; the mass witness is
+\path{verification/mass/witness.json}. These are paths within the public
+source package pinned below. For the mass graph, Python uses breadth-first
+last-read maps and C++ depth-first reversible colour assignments; their sorted
+edge and potential hashes agree. The event lift is reconstructed using two-pass
+and Tarjan SCC algorithms, with identical sorted edge and rank hashes.
 
 The memory constructions additionally reconstruct every affine read interval,
 compare complete endpoint fields, verify the all-future standard recovery,

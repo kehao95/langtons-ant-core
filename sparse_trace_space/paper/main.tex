@@ -39,6 +39,12 @@ unrestricted initial coordinates, transient times and future geometries.
 \end{abstract}
 
 \section{The anchored sparse-source question}
+A fixed number of black cells can be placed arbitrarily far apart, so their
+effect on an ant may first appear after a long flight. We ask how this sparse
+initial information limits the number of different observations, without
+restricting those distances or the subsequent trajectory. The object is a
+family of traces from a common starting pose, rather than one selected orbit.
+
 We use $\N=\{0,1,2,\ldots\}$.
 A classical ant state is a complete finite black set $B\subset\Z^2$, a head
 position $p$ and a heading $h\in\{N,E,S,W\}$. At each update a white read turns
@@ -74,7 +80,9 @@ The exponent is exact; an exact leading coefficient is not claimed.
 The uniform bounds \eqref{eq:upper}--\eqref{eq:lower} also permit $m$ to vary.
 For $m=0$ there is just the blank-orbit prefix, so both counts equal one.
 
-Equip the stream space with the prefix topology. For a subspace $X$, let $X'$
+Equip $\{\Rr,\Ll\}^{\N}$ with its product (Cantor) topology: sets
+specifying a finite prefix form a basis of sets that are both open and closed.
+For a subspace $X$, let $X'$
 be its set of accumulation points, and define $X^{(0)}=X$,
 $X^{(j+1)}=(X^{(j)})'$. The rank convention below is the first empty derivative.
 
@@ -111,6 +119,12 @@ complete half-plane form rather than claim a new scattering response or a new
 one-black theorem. The question addressed here is the sharp all-$m$ census and
 hierarchy of anchored sparse-source traces, including simultaneous saturation
 by positive inputs.
+
+Cantor--Bendixson rank is also used to study countable sofic shifts, for
+example by Salo and T\"orm\"a~\cite{salo}; our spaces are anchored and need
+not be shift-invariant. Worst-case mistake counts are a classical criterion
+for online prediction~\cite{littlestone}. The exact hierarchy and budget here
+are proved directly from sparse first reads and the protected ant channel.
 
 \section{First-read times encode the entire finite history}
 For a prescribed word $w$, its positions and headings are obtained by turning
@@ -166,6 +180,8 @@ finite subsets of the countable lattice are countable. The infinite union in
 Lemma~\ref{lem:branch} defines the unique minimal source $M(w)$ of a stream.
 No algorithm deciding which cells of a given source are never read is assumed.
 
+We recall the classical unboundedness argument, attributed to Bunimovich and
+Troubetzkoy in the exposition of Gajardo, Lutfalla and Rao~\cite[Section~2]{highway}.
 \begin{lemma}[Fresh sites occur arbitrarily late]\label{lem:fresh}
 A classical ant orbit cannot visit only finitely many cells.
 \end{lemma}
@@ -209,7 +225,9 @@ are printed in Appendix~\ref{app:data} and independently replayed. Let
 \]
 Blank execution for $t_0$ updates has pose $(p_0,\text{west})$ and a complete black field
 $B_*$ of size 835. Its part in $p_0+H$ is $p_0+C$, where $C$ is the displayed
-21-cell set. Every other cell of $B_*$ is strictly outside that half-plane.
+21-cell set. It is the advancing front in the protected southwest half-plane:
+the local identity below translates it by $d$ and leaves a finite residue
+behind. Every other cell of $B_*$ is strictly outside that half-plane.
 The blank prelude reads none of the ray $p_0+q+2 i d$, $i\ge 0$.
 
 Let $w_{\rm start}$ denote the turn word of the first $t_0$ blank updates.
@@ -312,6 +330,8 @@ The all-zero source produces the blank orbit, so $\Pos_0=\Tr_0$.
 The prefix lower bound is the one just proved.
 \end{proof}
 
+For prediction we count incorrect next-turn guesses, using the usual
+worst-case mistake criterion~\cite{littlestone}.
 \begin{corollary}[Sharp passive mistake budget]\label{cor:prediction}
 With unknown initial source and observed past turns, the optimal worst-case
 number of mistakes of a deterministic next-turn predictor on $\Tr_m$ is $m$.
@@ -362,19 +382,19 @@ root. The default copies only the theorem-local package into a temporary
 directory, recomputes a deterministic report, and compares it with the frozen
 one. It does not rewrite evidence. Python standard library and C++17 suffice.
 The kernels, source fields and complete residues are explicit in the supplement;
-its source hashes identify the actual checked inputs.
+its source hashes identify the actual checked inputs. They are available in
+the \href{https://github.com/kehao95/langtons-ant-core/tree/3ae4ce12abf6ad44a5c7625b31d25e6f1365ffa3/sparse_trace_space}{immutable public sparse-trace source package}.
 
-The complete finite first-read tree to depth 24 with source budget 3 has 508
-leaves; all encode and decode. Independent heading-index Python and vector-turn
-C++ simulations compare 1063 inputs, including every one of 511 binary source
-words of length at most 8, all 512 fields on a $3\times 3$ set and 40 additional
-sources with remote unread inventory. Each implementation executes 6529739
-ordinary updates, and full endpoint coordinate lists agree. All 32640 pairs
-of eight-bit sources have the exact distinction time. The checks also cover
-32 fresh-site approximations, 105 large integer counting identities, three
-symbolic huge-slot identities and ten malformed inputs. Huge slots are not
-literally simulated. Infinite and all-$m$ claims are proved in the arguments
-above, not extrapolated from these controls.
+The verification reconstructs the complete first-read tree to depth 24 with
+source budget three and checks every time-code encoding and decoding.
+Independent heading-index Python and vector-turn C++ simulations compare
+complete endpoints for every binary source word of length at most eight,
+every field on a $3\times3$ set, and additional sources with remote unread
+inventory. Every pair of eight-bit sources has the prescribed first distinction
+time. Further controls check fresh-site approximation, exact integer counting,
+huge symbolic slots and malformed inputs. The source-bound report records the
+individual cases and counts. Infinite and all-$m$ claims follow from the
+coverage and geometric induction above.
 
 \appendix
 \section{Complete local data}\label{app:data}
@@ -433,5 +453,17 @@ Period-104 Highway: A Lean-Checked Proof}. 2026.
 The phase-13, 228-step channel is also recorded in the original single-obstacle
 and separated-obstacle certificate families; the local data required here are
 fully reproduced in Appendix~\ref{app:data}.
+\bibitem{salo} V.~Salo and I.~T\"orm\"a.
+\emph{Complexity of Conjugacy, Factoring and Embedding for Countable Sofic
+Shifts of Rank 2}. Author preprint, 2014.
+\href{https://arxiv.org/abs/1408.6695v1}{arXiv:1408.6695v1}.
+\bibitem{littlestone} N.~Littlestone.
+Learning quickly when irrelevant attributes abound: A new linear-threshold algorithm.
+\emph{Machine Learning} 2 (1988), 285--318.
+\href{https://doi.org/10.1007/BF00116827}{doi:10.1007/BF00116827}.
+\bibitem{highway} A.~Gajardo, V.~H.~Lutfalla and M.~Rao.
+Ants on the highway. \emph{Natural Computing} 24 (2025), 497--509.
+\href{https://doi.org/10.1007/s11047-025-10018-9}{doi:10.1007/s11047-025-10018-9}.
+Author version: \href{https://arxiv.org/abs/2409.10124v1}{arXiv:2409.10124v1}.
 \end{thebibliography}
 \end{document}

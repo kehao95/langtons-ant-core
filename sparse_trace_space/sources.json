@@ -2,10 +2,10 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "2d77ac51fbfdf3a93ad3dc13cd3b07fd65488920eda0019957ead2b0b4898e72",
-    "README.md": "6e305455f8e445f1b769ebaff78c7d8a37eb640b57deeb043ee61779d1195cc7",
+    "README.md": "cb6820bdb7ca248bf91f526b5b382bf4a4b59f3b6f4ff6d3e4e4d3e9dae919ca",
     "evidence/README.md": "4bbe663ac1a274be85b2527ad935a2827c8630a101d5fb2da13571825ca38271",
     "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
-    "paper/main.tex": "bea977ff0cecfd0245d91a8df9822c99f75660e200f44e2f54b4a9beef100ac5",
+    "paper/main.tex": "4e957a062d50dac811349d4b90453e9aba69f82e3e44788f1940c84d29cb4536",
     "reproduce.py": "c309876b07702fee5bd80b97dbf5b2fa0ca6f924cb7ba2340653aa9144258b67",
     "verification/sparse_trace_space/README.md": "84319d929e02eb722be2c06d3616cca4f8ba2622bf047c6e748256e8591cc063",
     "verification/sparse_trace_space/check.py": "0931861ce68614c965f90666a670a3612aaafcb6657081f8746f7a630a41bda3",

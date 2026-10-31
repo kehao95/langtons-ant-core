@@ -1,7 +1,7 @@
 # Protected Highway Formation and Scattering in Langton's Ant
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23819753)
+[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23844695)
 
 ## Results
 

@@ -120,10 +120,10 @@ checked. The maxima of the three ranks are
 5,\qquad956,\qquad212.
 \end{equation}
 
-Python uses the base's iterative two-pass SCC routine; the independent
-native checker reconstructs the lift and uses Tarjan SCCs. Sorted full
-edge and rank hashes agree. The source witness fixes the complete edge and rank hashes. Integer inequalities, complete reconstruction and \eqref{eq:macro2}, not a
-floating-point solver, carry the proof.
+The source witness fixes the complete edge and rank hashes. Complete
+reconstruction and the checked integer inequalities, together with
+\eqref{eq:macro2}, give the stated rank bounds. Algorithm comparisons are
+recorded in Section~\ref{reproducibility-and-conclusion}.
 
 \subsection{Exact physical acceleration on a simple
 component}\label{macro-5}

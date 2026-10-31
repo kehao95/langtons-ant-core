@@ -70,6 +70,12 @@ $l<r$, $l\ge9$, $d=r-l$ & $d=1$ & $72l+1427$\\
 covered by Table~\ref{basin:tab:small}, not omitted.}\label{basin:tab:recovery}
 \end{table}
 
+The delay $\rho$ counts updates from rectangle exit to permanent highway
+entry. The constant tails in Table~\ref{basin:tab:small} reflect geometric
+screening: beyond a finite counter-length difference, additional columns are
+never read. Corollary~\ref{basin:cor:clip} proves this for the entire future
+trace, with screening threshold at most ten.
+
 \begin{table}[t]
 \centering\small
 \begin{tabular}{rl}
@@ -150,7 +156,8 @@ finite runs exhibit it: every read is proved correct by the following algebra.
 Throughout a program the row of a phase is independent of $k$ and its horizontal
 position is $ak+b$, with $a$ even. Variable repetitions add $\pm2j$. Fix a row
 $y$ and horizontal parity $p\in\{0,1\}$, and write $x=2z+p$. A black arithmetic interval
-is represented exactly by two jumps:
+is represented exactly by two jumps. Here $[P]$ is the indicator of a
+condition $P$, equal to one when $P$ holds and zero otherwise:
 \begin{equation}
  [L(k)\le z\le U(k)]
    =[z\ge L(k)]\mathbin\oplus[z\ge U(k)+1].               \label{basin:eq:jumps}

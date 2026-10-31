@@ -2,7 +2,7 @@
 
 For a cyclic n-color ant, all-state observables separating the complete coloring from the head pose admit a constant-rate phase clock of maximal order 8n when both turn counts are odd, and 4n otherwise. One common coloring function for both checkerboard sectors has maximal order 4n. The article gives the full mixed-rule face equations, an explicit classical modulo-16 clock and the complete compact-charge basis over abelian groups.
 
-[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof map](PROOF.md) · [Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23838431)
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof map](PROOF.md) · [Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23844710)
 
 ## Reproduce
 

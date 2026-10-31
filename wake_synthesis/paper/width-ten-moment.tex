@@ -3,33 +3,17 @@ Normalize the lowest transverse level to zero, and write $o_j$ for the number
 of odd full-drift classes at level $j$, $0\le j\le10$. This is a translation of
 the earlier top-zero convention; longitudinal lanes remain distinct.
 
-\begin{theorem}[Sharp width-ten moment]\label{moment:thm:main}
-Every complete finite-support periodic realization with full drift $(2,-2)$
-and transverse width $W=10$ satisfies
-\[
- \mathcal K=2\sum_{j=0}^{10}(-1)^j(j-5)^2o_j\ge168.
-\]
-Equality holds exactly for the standard period-104 turn word, up to cyclic
-phase and the declared lattice normalization.
-\end{theorem}
+We prove Theorem~\ref{moment:thm:main} using the same finite-word graph
+as the thin-wake classification, now with a separate period cap for each wake.
+
 The theorem allows every growth, interior multiplicity and finite initial
 field compatible with these geometric hypotheses. The proof derives its own
 period bound separately for each wake. The standard profile attains 168.
 
 \subsection{Finite-support colour chronology}
-A phase $i$ in the drift class of $q_i$ can be written $q_i=b+a_i d$.
-At the physical cell $b+nd$, for sufficiently large $n$, all phases of that
-class are present. Their time order is by
-\begin{equation}\label{moment:eq:stable}
-\tau_i=i-Pa_i.
-\end{equation}
-Because the input black support is finite, such a far-ahead cell starts
-white. Consecutive visits flip it. Hence the letters in every drift class,
-ordered by \eqref{moment:eq:stable}, must alternate $R,L,R,L,\ldots$ starting $R$.
-Conversely, the boundary colours at the finitely many truncated classes can
-be chosen to realize any geometric periodic word obeying these alternations;
-this exact criterion is due to Jillhewar~\cite{Jillhewar2026} and is also derived
-in Lemma~\ref{lem:criterion}.
+Lemma~\ref{lem:criterion} gives white-first alternation in each full drift
+class, ordered by the keys $\tau_i=i-Pa_i$ of \eqref{eq:stable-order}.
+We apply that common chronology with the bottom-zero level convention.
 
 In particular, the signed excess $R-L$ in one drift class is $0$ or $1$;
 it equals the indicator of an odd class. Thus
@@ -96,19 +80,11 @@ Applying both extreme-level conditions, \eqref{moment:eq:mod4}, \eqref{moment:eq
 and \eqref{moment:eq:growth} yields $13,216$ normalized pairs. We do not bound a
 black source's coordinates, nor choose a maximum length of a periodic word.
 
-At one full class of transverse parity $j\bmod2$, let $I,J$ count its
-incoming and outgoing ports on the already processed side. If $A$ of the
-$I$ arrivals occupy even stable visit ranks and the class has odd indicator
-$o\in\{0,1\}$, its total visit count is exactly
-\begin{align}
- m&=2(I+J-2A)+o&&\text{on even }j,\label{moment:eq:evencount}\\
- m&=2(J-I+2A)-o&&\text{on odd }j,\label{moment:eq:oddcount}
-\end{align}
-with the necessary bounds
-\begin{equation}\label{moment:eq:bounds}
- 0\le A\le\lceil m/2\rceil,\quad
- 0\le I-A\le\lfloor m/2\rfloor,\quad m\ge0.
-\end{equation}
+Apply the local count identities \eqref{eq:counts} at each full class,
+with $t=j$ and $a=A$ in the bottom-zero convention. The shift of ten levels
+preserves transverse parity, so the same formulas and integer bounds apply.
+Here $I,J$ again count processed-side ports, $A$ counts even-rank arrivals,
+and $o$ is the class's odd indicator.
 Matching port counts across adjacent layers supplies a four-integer boundary.
 The dynamic program retains the minimum cumulative event cost at each complete
 boundary, growth and horizontal displacement. Because future count constraints
@@ -162,8 +138,8 @@ where $\ell_A$ is the length of chain $A$. For ranks in the same chain one
 checks the direct gap four, not the cross-chain length. Each cross-chain
 edge in \eqref{moment:eq:separation} has an integer constant term at least
 $\ell_A>0$. Along a cycle of difference constraints the total bound has
-form $C+KP$ with $C>0$. When $K\ge0$ positivity precludes every positive
-period; when $K<0$ positivity at an upper cutoff $L$ implies positivity for
+form $C+\nu P$ with $C>0$. When $\nu\ge0$ positivity precludes every positive
+period; when $\nu<0$ positivity at an upper cutoff $L$ implies positivity for
 all $P\le L$. Thus testing a positive constraint cycle at the proved cap
 $L=\mathcal K$ cannot wrongly reject a smaller real period. The within-chain
 case follows by its direct monotonicity in $P$.

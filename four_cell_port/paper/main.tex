@@ -28,8 +28,10 @@
 Which parts of an initial colouring can determine a Langton ant's permanent
 motion while shielding other cells from every future read? We give three
 constructions based on equality of complete colourings in protected regions.
-First, four black cells launch the standard period-104 highway into a half-plane;
-three cells force exit within the sharp bound of 918 updates. This port also
+First, from the boundary origin facing east, four black cells launch the
+standard period-104 highway while keeping every read and position in $x\ge0$;
+at most three black cells in that half-plane force exit within the sharp bound
+of 918 updates, whatever the exterior colouring. This port also
 completes any finite observation to a highway by four exterior additions.
 Second, a four-layer rectangular black frame shields every interior colouring:
 all fillings produce the same entire trace, with exact entrance times determined
@@ -42,7 +44,13 @@ the protected regions; exact read-colour identities, affine separation inequalit
 and infinite-tail certificates establish the required interfaces.
 \end{abstract}
 
-\section{A sharp outgoing interface}
+\section{Introduction}
+Every update changes the colour of a cell. A later collision therefore occurs
+in a field containing the wakes of all earlier encounters, and matching the
+head position and direction alone does not close a scattering construction.
+We compare complete colourings on regions containing all future reads. This
+first-difference coupling turns geometric protection into a reusable interface.
+
 A colouring is a set $B\subseteq\Z^2$ of black cells; $p$ and $h$ denote the
 ant's position and cardinal heading. On an update, the ant turns left on
 black and right on white, toggles the current cell, and moves one unit in the
@@ -74,7 +82,8 @@ exterior and the southwest/north pose, four black layers keep every future read
 outside an arbitrary deep interior. We determine the first permanent highway
 entrance for all such frames and all solid rectangles, and give a separate
 classification for centre-started solid squares. Four layers minimize this
-common-trace shielding contract; the port theorem minimizes black-cell count.
+common-trace shielding contract; the port theorem minimizes black-cell count
+for the specified one-sided boundary pose.
 
 The scattering part starts from an explicit thirteen-cell standard-highway
 seed and composes protected scattering rules. The central
@@ -93,6 +102,8 @@ exterior completion theorem applies after any prescribed finite observation.
 Etse's finite-rectangle escape problem~\cite{etse2026} instead bounds time in
 a finite domain; our half-plane threshold bounds the initial black inventory
 in an infinite domain.
+
+\section{A sharp outgoing boundary port}
 
 \begin{theorem}[Sharp half-plane escape]\label{th:threshold}
 Start at $(0,0)$ facing east. For every initial colouring with at most three
@@ -294,8 +305,9 @@ $q_i+\N d$, and remain as stationary physical history.
 \begin{proof}[Proof of Theorem~\ref{th:extension}]
 Simulate the original state to its first exit from $Q$, at time $\tau$,
 exterior position $e=p_\tau\notin Q$ and heading $g=h_\tau$.
-Finite-domain escape ensures termination;
-the integer-clock bound~\cite{clock2026} gives
+The classical unboundedness theorem, recalled in~\cite{etse2026}, ensures
+termination and hence qualitative existence of the completion. For the
+explicit time estimate, the integer-clock bound~\cite{clock2026} gives
 $\tau\le E(n)$. Since $Q$ contains the radius-$T$ ball and each step has
 unit length, $\tau>T$.
 
@@ -434,6 +446,53 @@ verification programs, and revising the exposition.
 \appendix
 \input{local-ranks}
 \input{rectangular-details}
+
+\section{Complete scattering rule data}\label{app:scattering-table}
+The columns below use the conventions of Section~\ref{the-30-checked-rules}:
+$k$ is the incoming rotation, $j$ the collision phase, $g$ the guard,
+$t$ the recovery duration including the marker update, $a$ the outgoing
+phase, $(x,y)$ the endpoint, and $h$ its heading in N,E,S,W $=0,1,2,3$.
+These are the literal thirty rows of the certificate's \texttt{TABLE}.
+\begin{center}\small
+\begin{longtable}{rrrrrrrr}
+\caption{Complete guarded-scattering parameters.}\label{tab:scattering-data}\\
+\toprule $k$ & $j$ & $g$ & $t$ & $a$ & $x$ & $y$ & $h$ \\ \midrule
+\endfirsthead
+\toprule $k$ & $j$ & $g$ & $t$ & $a$ & $x$ & $y$ & $h$ \\ \midrule
+\endhead
+0 & 13 & -3 & 312 & 97 & 2 & 6 & 2 \\
+0 & 14 & -11 & 416 & 102 & 2 & 4 & 1 \\
+0 & 27 & -9 & 520 & 103 & 4 & 6 & 0 \\
+0 & 28 & -33 & 6552 & 34 & 8 & 10 & 3 \\
+0 & 29 & -42 & 12792 & 100 & 18 & -16 & 2 \\
+0 & 32 & -13 & 8528 & 97 & 22 & -32 & 3 \\
+0 & 38 & -30 & 5928 & 27 & 2 & -24 & 1 \\
+0 & 55 & -31 & 6656 & 76 & -4 & -34 & 0 \\
+0 & 56 & -19 & 7696 & 83 & 22 & -24 & 1 \\
+0 & 60 & -21 & 2600 & 90 & 14 & 2 & 1 \\
+0 & 61 & -32 & 32656 & 51 & 40 & -14 & 2 \\
+0 & 62 & -33 & 7488 & 17 & 8 & -26 & 1 \\
+0 & 70 & -15 & 8632 & 70 & 30 & 14 & 3 \\
+0 & 71 & -25 & 15808 & 20 & 8 & -20 & 0 \\
+0 & 75 & -18 & 3848 & 79 & 18 & 12 & 2 \\
+0 & 89 & -4 & 312 & 57 & 10 & 4 & 2 \\
+1 & 13 & -3 & 312 & 97 & 6 & -2 & 3 \\
+1 & 14 & 0 & 416 & 102 & 4 & -2 & 2 \\
+1 & 15 & -14 & 3952 & 94 & 26 & 16 & 1 \\
+1 & 27 & -1 & 520 & 103 & 6 & -4 & 1 \\
+1 & 28 & -26 & 6552 & 34 & 10 & -8 & 0 \\
+1 & 45 & -25 & 2184 & 76 & 6 & 14 & 3 \\
+1 & 46 & -11 & 832 & 47 & 12 & 14 & 2 \\
+1 & 47 & -10 & 832 & 4 & 10 & 12 & 3 \\
+1 & 57 & -7 & 832 & 58 & 12 & 12 & 3 \\
+1 & 60 & -26 & 2600 & 90 & 2 & -14 & 2 \\
+1 & 61 & -36 & 32656 & 51 & -14 & -40 & 3 \\
+1 & 70 & -13 & 8632 & 70 & 14 & -30 & 0 \\
+1 & 75 & -15 & 3848 & 79 & 12 & -18 & 3 \\
+1 & 89 & -6 & 312 & 57 & 4 & -10 & 3 \\
+\bottomrule
+\end{longtable}
+\end{center}
 
 \begin{thebibliography}{9}
 \bibitem{gajardo2002} A. Gajardo, A. Moreira and E. Goles,

@@ -1,6 +1,8 @@
 \section{Random access to the complete evolving field}\label{sec:access}
 The formulas above describe more than the time of an event. They give a succinct
-representation of the entire field at any requested time. A finite arithmetic
+representation of the entire field at any requested time. Thus long confinement
+in this family can be followed without stepping through every intermediate
+update, while retaining all stored colours. A finite arithmetic
 segment $[x,y,d_x,d_y,n]$ denotes
 $\{(x+id_x,y+id_y):0\le i<n\}$. Combining segments by XOR means that a cell
 is black exactly when an odd number of the segments contain it.

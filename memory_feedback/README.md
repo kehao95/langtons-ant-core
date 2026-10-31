@@ -1,7 +1,7 @@
 # Memory and Spatial Constraints on Eventual Translation in Langton's Ant
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23819749)
+[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23844677)
 
 ## Results
 

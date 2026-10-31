@@ -120,13 +120,13 @@ Every $F$ in \eqref{eq:separated} has a unique representation
 \begin{equation}\label{eq:additive}
  F(C)=F(0)+\sum_{v\in\Z^2} f_v(c_v),\qquad f_v(0)=0.
 \end{equation}
-For a mixed rule, meaning $r,l>0$, there exist $a_v,b_v\in G$ such that
-\begin{equation}\label{eq:increments}
- f_v(c)=R(c)a_v+L(c)b_v,\qquad r a_v+l b_v=0,
-\end{equation}
 For the representative $0\le c<n$, define
 $R(c)=\#\{0\le i<c:\tau_i=\R\}$ and
 $L(c)=\#\{0\le i<c:\tau_i=\Lturn\}$.
+For a mixed rule, meaning $r,l>0$, there exist $a_v,b_v\in G$ such that
+\begin{equation}\label{eq:increments}
+ f_v(c)=R(c)a_v+L(c)b_v,\qquad r a_v+l b_v=0.
+\end{equation}
 \end{lemma}
 \begin{proof}
 Choose an allowed heading at $v$ and a coloring with $C(v)=c$.
@@ -180,7 +180,10 @@ gives \eqref{eq:Rface} or \eqref{eq:Lface}.
 For sufficiency let $U(v)$ be the correction at the primary heading, N on
 even sites and E on odd sites. The opposite heading is assigned $U(v)+d_v$.
 Orient horizontal grid edges from even sites to odd sites and vertical edges
-from odd sites to even sites. Assign the following increments of $U$:
+from odd sites to even sites. Every horizontal edge has one even and one odd
+endpoint, so its chosen orientation appears as either an east or a west step
+from an even site. The two vertical cases similarly start at odd sites.
+Assign the following increments of $U$:
 \begin{center}
 \begin{tabular}{lll}
 \toprule
@@ -423,7 +426,8 @@ unique finite sum of elementary face boundaries. One elementary proof is to
 integrate edge labels along dual paths starting outside a bounding box of
 the support, assigning exterior faces coefficient zero. Zero boundary makes
 the integration path independent; finite support leaves only finitely many
-faces with nonzero coefficients.
+faces with nonzero coefficients. The dual vertices here correspond to the
+original L-faces, together with the exterior face of the finite support box.
 If every edge difference is zero, all face coefficients equal the exterior
 zero, proving uniqueness. Elementary faces of this graph correspond to the
 original L-faces. This proves the first direct sum in
@@ -436,7 +440,8 @@ and $z\in G[2]$, define
  J^R_{S,z}(C,p,h)
  =z\left(\sum_{v\in\partial S}R(c_v)+\ind_{(p,h)\in\Pi_L(S)}\right).
 \end{equation}
-The wrap in color is well defined because $r$ is even. A right turn at a
+The superscript R names the color weight $R(c)$; the supporting face and
+its pose circuit are of L-type. The wrap in color is well defined because $r$ is even. A right turn at a
 corner changes the field sum by $z$ and moves the pose into or out of
 $\Pi_L(S)$, changing its correction by $z$; all other transitions change
 neither contribution. Thus the total is conserved. When $l$ is even the
@@ -471,7 +476,9 @@ Both periodically recompute the entire coloring contribution. The classical
 closed formula~\eqref{eq:Q16} is checked separately. The deterministic report
 records performed counts, negative controls and source hashes. Reproduction uses
 \texttt{python phase\_cocycle/reproduce.py}; exact matrix checks require
-SymPy and the native control requires a C++17 compiler.
+SymPy and the native control requires a C++17 compiler. The complete source
+package and immutable implementation snapshot are available in the
+\href{https://github.com/kehao95/langtons-ant-core/tree/3ae4ce12abf6ad44a5c7625b31d25e6f1365ffa3/phase_cocycle}{public phase-cocycle project}.
 
 \section{Limitations}
 The maximality theorem concerns the separated, constant-rate, all-state class
