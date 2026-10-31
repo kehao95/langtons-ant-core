@@ -1,0 +1,55 @@
+{
+  "baseline_sha256": {
+    "witness.json": "b0165e849a723e9ed77168e2a5cce36ce1acc80f983b0b674720b5bd67124e52"
+  },
+  "huge": {
+    "complete_one_step_equalities": 132,
+    "example": {
+      "black_mass": "22000000000000000000000000000000000000000000000000000000000141",
+      "left": "1000000000000000000000000000000000000000000000000000000000000",
+      "next_turn": "R",
+      "pose": [
+        "2000000000000000000000000000000000000000000000000000000000009",
+        "2000000000000000000000000000000000000000000000000000000000009",
+        3
+      ],
+      "right": "1000000000000000000000000000000000000000000000000000000000000",
+      "segments": 213,
+      "stats": {
+        "bounded_exception_steps": 0,
+        "phase_points": 1148,
+        "protected_toggles": 0,
+        "rounds_skipped": 0,
+        "segments": 213,
+        "standard_cycles_skipped": "1000000000000000000000000000000000000000000000000000000000000"
+      },
+      "time": "8000000000000000000000000000000000000000000000000000000000204000000000000000000000000000000000000000000000000000000001084"
+    },
+    "huge_ordinary_updates_simulated": 0,
+    "maximum_segments": 668,
+    "negative_controls": 8,
+    "parameter_cases": 15,
+    "protected_payload_controls": 8,
+    "whole_period_mass_equalities": 15
+  },
+  "literal": {
+    "complete_inputs": 111,
+    "full_snapshots": 6291,
+    "full_states_sha256": "c73a8668efc95897f41c09381fc66c50b9311bf90bfbb23696055dad4e81322a",
+    "literal_updates_per_implementation": 644361,
+    "maximum_segments": 946
+  },
+  "schema": "counter-basin-random-access-v1",
+  "scope": "all times on the inherited explicit two-counter family, not arbitrary seeds or HC",
+  "segment_algebra": {
+    "finite_arrangements": 1000,
+    "huge_three_and_four_way_crossings": 2
+  },
+  "source_sha256": {
+    "check.py": "e7043763dcd4b8b4d86c4995478ea3eb59ef74c0792ef1cbe5376d552e999fed",
+    "core.py": "b0da08f9c271c0b4391ab14162c134f64a6f4364b036ee58e27e9c54dca883a9",
+    "oracle.cpp": "9df427eec56f65e78d4db9419e981bab5430a8b9f8d1764d186dae98f55fca60"
+  },
+  "status": "passed",
+  "universal_claim_basis": "written acceleration induction and inherited all-parameter basin certificate"
+}

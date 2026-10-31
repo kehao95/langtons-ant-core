@@ -1,0 +1,149 @@
+{
+  "autonomous_inputs": 268,
+  "catalogs": [
+    {
+      "certificate_sha256": "17d9c83d2985bd5c12875665d4e4252987ac03af56859e1c241b7e6cbeb85519",
+      "closed_width": 1,
+      "counts": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "height": 1,
+      "max_rank": 0,
+      "types_each_parity": 1
+    },
+    {
+      "certificate_sha256": "07cf7bb55f80d8b81f604e6048377f34be3aaef69bfb2d2e6b5da1ed249039de",
+      "closed_width": 2,
+      "counts": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "height": 2,
+      "max_rank": 1,
+      "types_each_parity": 2
+    },
+    {
+      "certificate_sha256": "e8158c228da73b00579b9841a76490871ec82ac68b83f4980898b8c3ed394991",
+      "closed_width": 3,
+      "counts": [
+        [
+          1,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          7
+        ]
+      ],
+      "height": 3,
+      "max_rank": 3,
+      "types_each_parity": 7
+    },
+    {
+      "certificate_sha256": "dc12fff5ce00c453ab9971f5bb7a4c63f7318a726dcac36bb0dcbd70dfbc3219",
+      "closed_width": 8,
+      "counts": [
+        [
+          1,
+          1
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          240,
+          240
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          269,
+          269
+        ]
+      ],
+      "height": 4,
+      "max_rank": 13,
+      "types_each_parity": 269
+    }
+  ],
+  "complete_python_checkpoints": 3955,
+  "cpp_complete_endpoint_equalities": 268,
+  "date": "2026-10-30",
+  "kernels": 6,
+  "literal_updates_per_implementation": 9028056,
+  "local_catalog_equations": 17402,
+  "mathematical_base": "54d14c7589dc41247157463dd0aa12119a9a56ed",
+  "maximal_parameter": 1000,
+  "negative_controls": {
+    "damaged_catalog": true,
+    "damaged_kernel": true,
+    "invalid_parameters": 3,
+    "resource_cap_is_unknown": true
+  },
+  "recurrence_control_updates": 8632,
+  "recurrence_controls": 117,
+  "remote_black_cells_retained": true,
+  "representative_requests": 5328,
+  "representative_updates": 23510,
+  "same_width_response_cases": 66,
+  "same_width_response_updates": 211374,
+  "schema": "persistent-boundary-memory-v1",
+  "scope": "sharp boundary-response height threshold and autonomous quadratic first-exit family; no HC proof",
+  "sources_sha256": {
+    "check.py": "6ab3a63e70fd3e78b160cdea85414e817c6e9086499680ef1ec21624375f3355",
+    "core.py": "95a8434d4bfcf40d34f21f9f379151364cd5231217e374eed649a1d433f78c88",
+    "independent.cpp": "0c91c10c101ce79e61bcaa57fb2dbfd4ddce6b3b0c634650499873a47258a153",
+    "witness.json": "d23de58f5e2cf02ecf31c0c64c2ff8aa76676ddd6340ee5aa0b5ceec8a5e4d3d"
+  },
+  "status": "passed",
+  "symmetric_formula": [
+    8,
+    60,
+    16
+  ],
+  "trajectory_report_sha256": "1e173232cb8954491e9945d4b011a635fe6fb5d6b4065a651830bcae21dd943d"
+}

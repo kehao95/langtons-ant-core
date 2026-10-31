@@ -1,0 +1,309 @@
+\section{Five rows and autonomous persistent memory}\label{sec:five}
+Let $S(h,n)$ be the largest first-exit time from an $h$-row, $n$-column
+rectangle, over all initial colors and all internal poses. The exit-producing
+update is counted. Exterior cells are never read before this exit and may be
+arbitrary; our constructions set them white.
+
+\begin{theorem}[Quadratic five-row confinement]\label{five:thm:quadratic}
+For every $k\in\N$, an explicitly given complete finite coloring has $10k+23$
+black cells in a five-row rectangle of width $n=4k+9$. From its specified pose,
+the first-exit time is
+\[
+ T_k=8k^2+60k+16=\tfrac12 n^2+6n-\tfrac{157}{2}.
+\]
+The trajectory crosses its central vertical seam exactly $2k$ times. Its complete
+coloring after each round and at exit is given explicitly. Consequently
+$S(h,n)=\Omega(n^2)$ for each fixed $h\ge5$.
+\end{theorem}
+
+This is an exact formula for the constructed family, not for the maximum
+$S(5,n)$. It answers the concluding fixed-height linear-bound question
+of~\cite{etse}, while retaining that paper's polynomial upper bound.
+Together with the linear bounds through height four~\cite{etse} and Theorem~\ref{thm:main}, five
+is the least height admitting superlinear worst-case first escape.
+
+A second result concerns a deliberately modest observable. A block is repeatedly
+entered from the same vertical side. Colors persist between calls. We observe
+the returned row, or termination when the ant leaves another side, but not elapsed
+time or which terminal side is used.
+\begin{theorem}[Boundary-response threshold]\label{five:thm:index}
+For each fixed entry side and parity sector, this interface has respectively
+$1,2,7,269$ response types at heights $1,2,3,4$, over all finite widths and all
+colorings. At every height $h\ge5$ its index is infinite. More precisely, at
+width $2m+4$ there are $m+1$ pairwise distinguishable five-row colorings, even
+when the only experiment is repetition of a single input row.
+\end{theorem}
+
+The height-four catalogue was established above; the same finite closure
+check gives the smaller-height cases. The construction below establishes
+the infinite-index side and its autonomous composition.
+
+\subsection{Complete column states and local transformations}
+\subsubsection{Conventions}
+Rows are $y=0,1,2,3,4$. Headings north, east, south, west are $0,1,2,3$.
+Time $t$ is observed before update $t$. A column mask is
+$b=\sum_{y=0}^4 b_y2^y$, with $b_y=1$ for black. A word of masks denotes all
+colors in consecutive columns, left to right. Products concatenate; powers
+are ordinary finite repetitions, not symmetric differences.
+
+Define four fixed complete column words
+\begin{equation}\label{five:eq:blocks}
+ A=(6,5),\qquad B=(10,9),\qquad
+ C=(6,10,12,17),\qquad V=(18,29),
+\end{equation}
+and, for $j,k\ge0$,
+\begin{equation}\label{five:eq:counter}
+ \R(j,k)=A^jCV^k,\qquad \Lft(j,k)=(5)\R(j,k).
+\end{equation}
+The respective entry poses are $(0,3),\E$ and $(0,2),\E$.
+Every cell outside a displayed block is white unless part of an explicitly
+specified neighboring block. An excursion ends as soon as its head leaves the
+block, before reading an exterior cell.
+
+\subsubsection{Six finite kernels}
+The following table gives literal executions. Every pre-update read occurs
+inside the displayed block; the final move is the only block exit.
+\begin{center}\small
+\begin{tabular}{@{}llllrl@{}}
+\toprule
+Input & Entry & Turns & Output & Steps & Exit\\
+\midrule
+$A$ & $(0,3),\E$ & $P$ & $B$ & 4 & $(2,3),\E$\\
+$B$ & $(1,2),\W$ & $P$ & $A$ & 4 & $(-1,2),\W$\\
+$CV$ & $(0,3),\E$ & $K$ & $AC$ & 30 & $(-1,2),\W$\\
+$C$ & $(0,3),\E$ & $E$ & $B(10,18)$ & 16 & $(4,1),\E$\\
+$(5)$ & $(0,2),\E$ & $\word{LR}$ & $(9)$ & 2 & $(1,3),\E$\\
+$(9)$ & $(0,2),\W$ & $\word{RL}$ & $(5)$ & 2 & $(-1,3),\W$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The turn words are
+\begin{align*}
+P&=\word{RLLR},\\
+K&=\word{RLRLRRRRLLLLRLLRLRLLRLLRLRRLLR},\\
+E&=\word{RLRLRRRRLLLLRLLR}.
+\end{align*}
+These are finite proof obligations, not hypotheses inferred from long simulations.
+For example, the reads on $A$ are $(0,3),(0,2),(1,2),(1,3)$, requesting
+$R,L,L,R$ and changing the masks to $(10,9)$. On $B$ the westward reads are
+$(1,2),(1,3),(0,3),(0,2)$ and restore $(6,5)$. For $CV$ and $C$, the displayed
+words, initial masks, and pose determine all 30 or 16 reads; direct application
+of the rule verifies the output masks and exit. The supplementary immutable
+witness lists each read coordinate and the complete output for all six rows.
+
+\subsection{A unary counter with a persistent complete residual}
+\begin{lemma}[Counter recurrence]\label{five:lem:counter}
+For $k>0$, an excursion in $\R(j,k)$ from $(0,3),\E$ returns at $(-1,2),\W$
+after $8j+30$ updates and leaves exactly $\R(j+1,k-1)$. For $k=0$, it exits
+at $(2j+4,1),\E$ after $4j+16$ updates, leaving $B^{j+1}(10,18)$.
+\end{lemma}
+\begin{proof}
+Apply the eastward $A\to B$ kernel $j$ times. The prefix $A^j$ becomes $B^j$
+and the head reaches the first column of $C$, at row 3 facing east, after $4j$
+updates. No later block has yet been read.
+
+When $k>0$, apply the $CV\to AC$ kernel. Its final position is the preceding
+column at row 2 facing west. It then traverses $B^j$ backwards, using the
+$B\to A$ kernel $j$ times. The prefix is restored, the shifted cap is $AC$,
+and the untouched suffix is $V^{k-1}$. Thus the entire block is
+$A^{j+1}CV^{k-1}$ and the duration is $4j+30+4j$. All stages read only their
+stated subblocks; a final move into a neighboring block does not update it.
+
+When $k=0$, the terminal $C$ kernel exits right. There is no return scan, so
+$B^j$ remains and the complete output is $B^{j+1}(10,18)$. The duration is
+$4j+16$. None of the kernels exits through a horizontal boundary.
+\end{proof}
+
+Consequently, repeated row-3 requests produce $k$ row-2 replies followed by a
+terminal reply on request $k+1$. The residual after $q$ successes is exactly
+$\R(j+q,k-q)$, not a reset or a retained core with unspecified debris.
+
+\begin{lemma}[Port adjustment]\label{five:lem:port}
+A successful request to $\Lft(j,k)$ from $(0,2),\E$, for $k>0$, returns at
+$(-1,3),\W$, takes $8j+34$ updates, and leaves $\Lft(j+1,k-1)$. At $k=0$
+it exits far at $(2j+5,1),\E$ in $4j+18$ updates, leaving
+$(9)B^{j+1}(10,18)$.
+\end{lemma}
+\begin{proof}
+The leading column executes $5\to9$ on entry, supplying the row-3 entry for
+Lemma~\ref{five:lem:counter}. A successful return supplies row 2 facing west to the
+$9\to5$ kernel, restoring the leading column and returning at row 3. At
+exhaustion there is no return through that column, so its mask remains 9.
+\end{proof}
+
+\begin{proposition}[Distinguishable histories at a common width]\label{five:prop:distinguish}
+For fixed $m\ge0$, the complete colorings $\R(m-k,k)$, $0\le k\le m$, all have
+width $2m+4$ and have pairwise distinct time-blind same-side response types.
+\end{proposition}
+\begin{proof}
+For two remaining counts $k<k'$, issue $k+1$ copies of the row-3 request. The
+first block terminates on the last request while the second still returns
+row 2. Both share the same physical width; neither time nor interior colors
+are observed. Adding white rows above row 4 does not change any read, and
+termination is through the far vertical boundary. The construction therefore
+works at every height at least five. Lemma~\ref{five:lem:port} covers the other
+entry parity, and rotation covers the opposite side.
+\end{proof}
+An exact summary capable of answering these experiments at width $2m+4$ must
+therefore have at least $m+1$ values, or at least $\lceil\log_2(m+1)\rceil$
+bits. This is a memory lower bound for the specified response observable as the
+finite source width grows.
+
+\subsection{Autonomous composition and the exact quadratic exit}
+An interface request is an intervention: the experimenter supplies the next
+entry. We now remove that intervention entirely.
+
+Let $\J$ reflect a five-row block in the line $x=-1/2$ and complement every
+color inside that block. Reflection alone exchanges left and right turns;
+color complementation exchanges their conditions, restoring the original
+rule. Thus $\J$ is an exact conjugacy on every update inside the block. This
+is only a local transformation up to exit: the infinite exterior is not
+complemented and the constructed black set remains finite.
+
+For $l,r\ge0$, place $\R(0,r)$ in columns $0,\ldots,2r+3$, and the reflected,
+complemented $\Lft(0,l)$ in columns $-2l-5,\ldots,-1$. Start at $(0,3),\E$.
+In an ordinary left-to-right list the complete input is
+\begin{equation}\label{five:eq:source}
+ \operatorname{rev}\bigl(31-((5)CV^l)\bigr)\;CV^r,
+\end{equation}
+where $31-$ acts entrywise. The rectangle has width $2(l+r)+9$ and exactly
+$6r+4l+23$ black cells. The rest of the plane is white.
+
+A right return has pose $(-1,2),\W$, precisely the entry for the reflected
+left block. A left return has pose $(0,3),\E$, precisely the right entry.
+No pointer, phase, color, or environment is reset between requests.
+
+\begin{lemma}[Complete round induction]\label{five:lem:round}
+After $j$ complete right/left pairs, for $0\le j\le\min(l,r)$, the head is
+$(0,3),\E$ and the full two-sided field is
+\begin{equation}\label{five:eq:checkpoint}
+ \J\bigl[(5)\R(j,l-j)\bigr]\quad\big|\quad\R(j,r-j).
+\end{equation}
+The time is $t_j=8j^2+56j$. No prior update has left the original rectangle.
+\end{lemma}
+\begin{proof}
+The claim at zero is the definition. If both counters are positive, the next
+right excursion takes $8j+30$ steps and the next left excursion takes $8j+34$,
+by Lemmas~\ref{five:lem:counter} and~\ref{five:lem:port} with the local conjugacy.
+Their complete outputs give~\eqref{five:eq:checkpoint} at $j+1$. Their kernel
+footprints exclude premature vertical or far exits. Summing $16j+64$ over
+$j=0,\ldots,q-1$ gives $8q^2+56q$.
+\end{proof}
+
+\begin{theorem}[Two-parameter complete exit]\label{five:thm:asym}
+The source~\eqref{five:eq:source} first exits at
+\[
+T(l,r)=
+\begin{cases}
+8r^2+60r+16,&r\le l,\\
+8l^2+68l+48,&l<r.
+\end{cases}
+\]
+For $r\le l$, the exit pose is $(2r+4,1),\E$, and the full endpoint is
+\[
+ \J[(5)\R(r,l-r)]\quad\big|\quad B^{r+1}(10,18).
+\]
+For $l<r$, the exit pose is $(-2l-6,1),\W$, and the full endpoint is
+\[
+ \J[(9)B^{l+1}(10,18)]\quad\big|\quad\R(l+1,r-l-1).
+\]
+\end{theorem}
+\begin{proof}
+If $r\le l$, execute $r$ full pairs and then the right terminal call. Its
+$4r+16$ additional updates give the first formula and the full endpoint.
+If $l<r$, execute $l$ pairs, one successful right call costing $8l+30$, and a
+terminal left call costing $4l+18$. These give the second formula and endpoint.
+The footprint guards prove this is the first exit, not only an observed exit.
+\end{proof}
+
+Taking $l=r=k$ proves Theorem~\ref{five:thm:quadratic}. Each completed excursion
+crosses the seam once; the terminal right excursion does not cross it, so
+there are $2k$ seam crossings. The pair-checkpoint black mass stays
+$6r+4l+23$: the right block loses two black cells per pair while the complemented
+left block gains two. Equality of black mass and pose does not mean equality
+of complete states; the cap locations and rewritten columns change.
+
+For arbitrary $n\ge9$, use $k=\lfloor(n-9)/4\rfloor$ and add white columns to
+the observation rectangle. Enlarging a region cannot decrease its first-exit
+time. White rows added above likewise preserve the lower bound. Hence no
+finite-valued $f(h)$ can bound $S(h,n)$ by $f(h)n$ for all $h,n$. In particular,
+the open linear-bound question of~\cite{etse} already has a negative answer at
+height five. The known $O(n^3)$ upper bound there leaves a gap; we do not
+claim optimality of the quadratic coefficient or of the constructed family.
+
+\subsection{The finite/infinite response boundary}
+To complete Theorem~\ref{five:thm:index}, we specify the finite closure being used
+on the other side of the threshold. The invariant
+$\epsilon=(h-x-y)\bmod2$ fixes the horizontal entry rows of a column.
+Writing $p=(x+\epsilon)\bmod2$, entry rows have parity $1-p$ and output rows
+have parity $p$.
+
+A finite persistent response type is a tuple with one branch for each allowed
+input row. Each branch is terminal or consists of an output channel and a
+residual type. Define its rank as the maximal number of successful returns
+along any input sequence. Colors persist through all these calls. Terminal
+side and time are deliberately unobserved, so this quotient does not by itself
+encode the exact time calculations in the preceding sections.
+
+\subsubsection{Finite certificate and its interpretation}
+The finite catalogs are
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}\toprule
+Height & Types per side/parity & Maximal rank & Closure width\\\midrule
+1&1&0&1\\2&2&1&2\\3&7&3&3\\4&269&13&8\\\bottomrule
+\end{tabular}
+\end{center}
+The fourth row is the persistent response classification of~Proposition~\ref{prop:catalogue}.
+The supplementary checker independently rebuilds all four rows. For height
+four the exact-width type sets, at widths zero through eight, have sizes
+\[1,\ 12,\ 36,\ 83,\ 158,\ 240,\ 264,\ 269,\ 269.\]
+Importantly, the last two \emph{sets}, not merely their cardinalities, coincide.
+
+Adjoin any possible near-column mask to any opposite-parity child type.
+A horizontal one-column excursion makes at most two updates, then exits that
+column or the strip. If it enters the child, use the child's declared response,
+retain its residual type and resume with the modified near-column mask.
+Every successful child reply decreases child rank. A near-side parent reply
+must match the declared residual product and decrease parent rank.
+
+The certificate checks these local equations for every mask, child type and
+input channel. Induction on width proves their physical interpretation:
+assuming the complete child has the specified persistent behavior, the exact
+one-column transitions and its retained replies uniquely determine the parent.
+Child rank ensures each request terminates; parent rank controls repeated
+requests. The empty block starts the induction. Every catalog type has a
+concrete representative, whose full response tree is also replayed.
+
+Finally, distinct finite labeled response trees have a distinguishing finite
+input word: select a branch on which they differ, or recurse to distinct residuals.
+Thus the catalog is an exact quotient for the stated observable, not only an
+overapproximation. Proposition~\ref{five:prop:distinguish} proves infinite index
+starting at five rows and completes Theorem~\ref{five:thm:index}.
+
+\subsection{Exact macro-dynamics beyond semilinear output}
+The counter construction admits a compact macro-description: the processed
+length $j$, remaining lengths $l-j,r-j$, and current side specify the complete
+column words and pose. Counter updates and the duration of one call are affine.
+There are, however, an input-dependent number of calls, and their sum is quadratic.
+
+\begin{corollary}\label{five:cor:nonsemi}
+There is a Presburger-definable finite-fiber family of complete initial ant
+states whose exact first-exit-time graph is not semilinear.
+\end{corollary}
+\begin{proof}
+In~\eqref{five:eq:source} with $l=r=k$, black membership is specified by linear
+interval endpoints, parity and fixed row masks. Hence the source family and
+its observation rectangle are Presburger-definable. Its time graph is
+$\{(k,8k^2+60k+16):k\ge0\}$.
+
+If this graph were a finite union of linear sets, some infinite component
+would contain $(k_0+ma,t_0+mb)$ for all $m\ge0$, with nonzero period $(a,b)$.
+A graph of a function cannot have $a=0,b\ne0$; nonnegativity forces $a>0$.
+The quadratic identity then has a nonzero $m^2$ coefficient $8a^2$, contradicting
+the affine second coordinate. Thus the graph is not semilinear.
+\end{proof}
+
+Thus a finite-parameter macro-description can give a nonsemilinear accumulated
+time graph. The displayed quadratic remains directly evaluable in polynomial
+bit time, a distinction used in the complete-state algorithm below.
+

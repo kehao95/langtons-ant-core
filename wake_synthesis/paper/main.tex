@@ -42,7 +42,13 @@ rigidity of the classical highway. For full drift $(2,-2)$, black growth twelve,
 transverse width ten and at most one odd class on each interior layer, the turn
 word is the standard period-104 word, up to cyclic phase. Parity restricts the
 profiles, an integer certificate bounds the period, and chronology-preserving
-enumeration completes the classification. For a prescribed wake and any full
+enumeration completes the classification. With growth and interior thinness
+left free, every width-ten trace of full drift $(2,-2)$ satisfies the sharp
+wake-moment inequality $2\sum_{j=0}^{10}(-1)^j(j-5)^2o_j\ge168$, where $o_j$
+counts odd classes at level $j$ after translating the lowest level to zero.
+Equality again characterizes the standard highway. A wake-specific period
+bound and complete enumeration of 1,616 masks prove this extremal statement.
+For a prescribed wake and any full
 non-axis drift, a computable period bound makes inverse synthesis terminate;
 quadratic parity tests also give analytic exclusions. For full axis drift
 $(a,0)$, represent odd classes in $0\le x<a$. Their strict inversion count is
@@ -59,7 +65,10 @@ A periodically translating ant leaves a black trail behind it. Its turn word
 determines that trail, but the reverse question is less clear: how much of the
 trail determines the word? We prove that a sparse description of the layers
 of the classical highway already forces its full 104-turn sequence.
-A complementary question asks which trails can occur at all. Non-axis wakes
+A second rigidity statement uses an extremal statistic instead of prescribing
+growth or interior sparsity: among all width-ten traces of full drift $(2,-2)$,
+the standard highway uniquely minimizes a signed quadratic wake moment
+(Theorem~\ref{moment:thm:main}). A complementary question asks which trails can occur at all. Non-axis wakes
 have a quadratic parity character; axis wakes have an inversion law after
 unknown row circulations are eliminated. These conditions and the rigidity
 theorem use the same stabilized ordering of visits to full translation classes.
@@ -573,6 +582,7 @@ Then $V=k-1$ and $J=(k+2)(k-1)/2+j$, so the identity requires $j$ odd,
 equivalently $h\equiv1\pmod4$. This derivation supplies the necessary
 single-gap parity test at every such width.
 
+\input{width-ten-moment}
 \input{axis-wake}
 
 \section{Evidence and reproducibility}\label{sec:verification}
@@ -641,7 +651,23 @@ These finite controls test the implementation; the radical, winding and
 endpoint arguments establish the unrestricted parameter claim. The checker
 sources and deterministic reports are bound by \texttt{sources.json}.
 
+\subsection{Reproducing the extremal-moment classification}
+The moment module reconstructs every necessary wake mask and the exact integer
+count relaxation. Its full mode runs all 1,616 chronology searches at their
+individual proved caps, rejects any incomplete search, and independently
+validates the entire infinite future of the accepted word. The source package
+pins the graph certificate shared with Section~\ref{sec:upper} and the source
+and frozen per-case outputs of this enumeration. From the repository root:
+\begin{lstlisting}
+python3 wake_synthesis/reproduce.py --moment-only --full
+\end{lstlisting}
+The default moment mode checks the masks, four representative searches and
+the positive infinite tail. The distinction between that quick check and a
+complete replay is explicit in the command and its output.
+
 \section{Limitations}\label{sec:limitations}
+The moment theorem fixes full drift and width. Wakes with moment strictly
+greater than 168 are outside its extremal classification.
 Axis parity is a necessary condition; it does not construct a realization of a
 passing wake. Terminating inverse synthesis retains its non-axis hypothesis.
 The sparse axis screen counts integer operations, with coordinate bit costs

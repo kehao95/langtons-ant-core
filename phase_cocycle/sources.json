@@ -1,0 +1,17 @@
+{
+  "schema": "article-sources-v1",
+  "sha256": {
+    "PROOF.md": "159dc59165d761984f9cb8f0fafee2c898ee0c2f76b9d512ab6a4d510f331618",
+    "README.md": "a2097672f2e5190078889d0898251103b77bc7371d54dd448ca0a03853dddec6",
+    "evidence/README.md": "77084585c079651e96fecafe501530c0cbc71d00b0864b553bbee781b5341345",
+    "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
+    "paper/main.tex": "ac0010a388618492936f176d7eac921fc6f8797fc4cbeb92dcb736a783efc372",
+    "reproduce.py": "5074b8728476b5b1be76d7da52f87b8004005051094a514d305e81510c30bbf2",
+    "verification/phase_cocycle/README.md": "e9c608fa3b12c63a8c3493e0a7effd5d769a504be33a25c0368a0859537cd38a",
+    "verification/phase_cocycle/check.py": "1218e86eeb3755bcdb2a8c9988cf396536ade93c8fbfa9754c2a51bacf311f63",
+    "verification/phase_cocycle/core.py": "dfc450d33faa80f6fdb20f612f9d483def33601292fc599a0b58948434685b29",
+    "verification/phase_cocycle/linear_audit.py": "77f88f11fe6564daabe76c889b5bf8c5d9710ea48864dcef4e802f0799e71198",
+    "verification/phase_cocycle/oracle.cpp": "a5a092de2481d77941ec00b5cbbc23bdb5805fb9e9373d21a607aa18caaa1bbc",
+    "verification/phase_cocycle/report.json": "c1eb1470e26f788ddd8af3fed80ebdf42fb2e30ed90ac4f2285eed5bd5d76a9a"
+  }
+}

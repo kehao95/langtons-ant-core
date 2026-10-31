@@ -1,0 +1,208 @@
+{
+  "all_input_HC_proved": false,
+  "analytic_targets": [
+    "all-m polynomial prefix exponent m",
+    "derived set T_m prime equals T_(m-1)",
+    "full-complexity compact subfamily of eventual-standard inputs"
+  ],
+  "finite_tree": {
+    "code_table_sha256": "fca6a30991270a3312a7ca74d7940539c5d8bceefd428fbc8766706421ecc2b8",
+    "complete_leaf_decodings": 508,
+    "full_depth": 24,
+    "prefix_counts_by_depth_m0_to_m3": [
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        3,
+        4,
+        4
+      ],
+      [
+        1,
+        4,
+        7,
+        8
+      ],
+      [
+        1,
+        5,
+        11,
+        15
+      ],
+      [
+        1,
+        5,
+        14,
+        24
+      ],
+      [
+        1,
+        6,
+        17,
+        35
+      ],
+      [
+        1,
+        7,
+        21,
+        47
+      ],
+      [
+        1,
+        8,
+        26,
+        60
+      ],
+      [
+        1,
+        8,
+        32,
+        75
+      ],
+      [
+        1,
+        8,
+        37,
+        94
+      ],
+      [
+        1,
+        9,
+        41,
+        117
+      ],
+      [
+        1,
+        10,
+        44,
+        141
+      ],
+      [
+        1,
+        11,
+        48,
+        160
+      ],
+      [
+        1,
+        11,
+        53,
+        180
+      ],
+      [
+        1,
+        11,
+        58,
+        205
+      ],
+      [
+        1,
+        11,
+        62,
+        238
+      ],
+      [
+        1,
+        11,
+        64,
+        268
+      ],
+      [
+        1,
+        11,
+        67,
+        296
+      ],
+      [
+        1,
+        11,
+        71,
+        321
+      ],
+      [
+        1,
+        11,
+        77,
+        351
+      ],
+      [
+        1,
+        12,
+        83,
+        389
+      ],
+      [
+        1,
+        13,
+        89,
+        426
+      ],
+      [
+        1,
+        14,
+        96,
+        467
+      ],
+      [
+        1,
+        14,
+        104,
+        508
+      ]
+    ],
+    "source_budget": 3
+  },
+  "literal_controls": {
+    "coded_blocks": 3586,
+    "complete_endpoint_comparisons": 1063,
+    "complete_inputs": 1063,
+    "first_disagreement_pairs": 32640,
+    "fresh_site_accumulation_controls": 32,
+    "kernel": {
+      "common_displacement": [
+        -4,
+        -4
+      ],
+      "complete_endpoint_identities": true,
+      "first_divergence_offset": 13,
+      "front_cells": 21,
+      "marker_block": 228,
+      "marker_residue_cells": 25,
+      "standard_block": 208,
+      "standard_phase_index": 57,
+      "standard_residue_cells": 24,
+      "startup_black_cells": 835,
+      "startup_updates": 11017,
+      "whole_marker_ray_checked": true
+    },
+    "literal_updates_per_implementation": 6529739,
+    "positive_code_inputs": 511,
+    "turn_stream_sha256": "97d40d54a91554c8fec5d7b81e4915da070f60abc1b947fa58218d2e6d3b82fc"
+  },
+  "negative_and_large_controls": {
+    "huge_slot_literal_simulation_claimed": false,
+    "huge_slot_symbolic_checks": 3,
+    "large_exact_combinatorial_checks": 105,
+    "malformed_controls_rejected": 10
+  },
+  "publication_or_external_review_claimed": false,
+  "schema": "sparse-trace-space-v1",
+  "source_sha256": {
+    "check.py": "0931861ce68614c965f90666a670a3612aaafcb6657081f8746f7a630a41bda3",
+    "core.py": "43094fec4bd79853b22b2b6ec0c86716c06746980dc5a9993d2312e900a4c33b",
+    "oracle.cpp": "dba698508beaa2f07bfc4c65d9a00bfabcf3ce906397e3f6033956b7daa3e9eb",
+    "witness.json": "fd847faff35e81361b3802cfb137c72fc1e9575ee6f51f045c6853569e4c34f6"
+  },
+  "status": "scoped_checks_passed"
+}

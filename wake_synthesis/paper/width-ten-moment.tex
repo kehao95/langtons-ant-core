@@ -1,0 +1,206 @@
+\section{A sharp width-ten wake moment}\label{sec:moment}
+Normalize the lowest transverse level to zero, and write $o_j$ for the number
+of odd full-drift classes at level $j$, $0\le j\le10$. This is a translation of
+the earlier top-zero convention; longitudinal lanes remain distinct.
+
+\begin{theorem}[Sharp width-ten moment]\label{moment:thm:main}
+Every complete finite-support periodic realization with full drift $(2,-2)$
+and transverse width $W=10$ satisfies
+\[
+ \mathcal K=2\sum_{j=0}^{10}(-1)^j(j-5)^2o_j\ge168.
+\]
+Equality holds exactly for the standard period-104 turn word, up to cyclic
+phase and the declared lattice normalization.
+\end{theorem}
+The theorem allows every growth, interior multiplicity and finite initial
+field compatible with these geometric hypotheses. The proof derives its own
+period bound separately for each wake. The standard profile attains 168.
+
+\subsection{Finite-support colour chronology}
+A phase $i$ in the drift class of $q_i$ can be written $q_i=b+a_i d$.
+At the physical cell $b+nd$, for sufficiently large $n$, all phases of that
+class are present. Their time order is by
+\begin{equation}\label{moment:eq:stable}
+\tau_i=i-Pa_i.
+\end{equation}
+Because the input black support is finite, such a far-ahead cell starts
+white. Consecutive visits flip it. Hence the letters in every drift class,
+ordered by \eqref{moment:eq:stable}, must alternate $R,L,R,L,\ldots$ starting $R$.
+Conversely, the boundary colours at the finitely many truncated classes can
+be chosen to realize any geometric periodic word obeying these alternations;
+this exact criterion is due to Jillhewar~\cite{Jillhewar2026} and is also derived
+in Lemma~\ref{lem:criterion}.
+
+In particular, the signed excess $R-L$ in one drift class is $0$ or $1$;
+it equals the indicator of an odd class. Thus
+\begin{equation}\label{moment:eq:growth}
+ g=\#R-\#L=\sum_j o_j\equiv0\pmod4.
+\end{equation}
+The end rails of a translating trace are geometric turning points. There
+all visits to a given class must have the same required turn; alternation
+forces exactly one white-first right turn. Consequently the extremal occupied
+levels are also extremal odd-class levels and the incoming axis is horizontal.
+Translation and the top-class phase fix a normalization with levels $0$ and
+$10$, and two longitudinal lanes $r=0,1$.
+
+Let $c_r$ count odd classes on even levels of lane $r$, and $q_r$ those on odd
+levels. The signed mod-four residue restrictions and the two-lane mixed-wake
+interleaving identity of Appendix~\ref{app:mixed} give
+\begin{align}
+ c_0-q_0&\equiv c_1-q_1\equiv c_0-q_1\equiv c_1-q_0\equiv2\pmod4,\label{moment:eq:mod4}\\
+ V&=q_0+q_1\equiv0\pmod2,\qquad J+V/2\equiv1\pmod2,\label{moment:eq:mixed}
+\end{align}
+where $J$ counts ordered pairs of an odd class on an odd level and an odd
+class on a higher even level. These are necessary tests, never a sufficient
+realizability test. Previously established finite-support restrictions proved in the attributed residue analysis of Appendix~\ref{app:mixed}
+ensure $g\in\{8,12,16\}$ at width ten; these restrictions reduce the possible growth without prescribing it as input.
+For completeness, positive growth is divisible by four and there are at most
+22 full classes. Growth four is excluded by the finite-support restrictions
+summarized in Appendix~\ref{app:unit}. At growth twenty, the residue
+conditions force six occupied even levels and four occupied odd levels in each
+lane: all even levels then have both classes. Each odd class has an even number
+of even classes above it, so $J$ is even; also $V=8$. This contradicts
+\eqref{moment:eq:mixed}, leaving exactly the three stated growth values.
+
+\subsection{An all-period bound from the wake}
+The residue-independent forbidden-factor graph for this
+width contains $54,718$ vertices and $90,158$ directed edges. Its integer
+certificate consists of vertex potentials $y_v$ with
+\begin{equation}\label{moment:eq:edge}
+ y_v-y_{v'}+\alpha_j\epsilon\le-1,
+ \qquad \alpha_j=-2(-1)^j(j-5)^2,
+\end{equation}
+for each edge $v\to v'$ from transverse level $j$, where $\epsilon=+1$ on
+an $R$ and $-1$ on an $L$ turn. Every physically realizable periodic word of
+width ten lifts to a closed walk in this graph. Importantly, the argument
+covers walks with repeated vertices; it is not a simple-cycle-only bound.
+Section~\ref{sec:upper} constructs this graph, proves coverage and gives
+the integer inequalities. Those arguments do not assume a particular odd wake.
+
+Summing \eqref{moment:eq:edge} over a true period eliminates the $y$ terms.
+The stable-class alternation makes the total signed turn contribution at level
+$j$ equal to $o_j$. Therefore
+\begin{equation}\label{moment:eq:bound}
+ P\le-\sum_{j=0}^{10}\alpha_jo_j=\mathcal K.
+\end{equation}
+This is an effective, wake-specific cutoff \emph{derived from}, rather than
+added to, the hypotheses. If $\mathcal K<4$, no nonempty heading-restoring
+candidate exists. To prove Theorem~\ref{moment:thm:main} it remains to exhaust all
+permitted wakes with $4\le\mathcal K\le168$.
+
+\subsection{Complete finite reduction}
+\subsubsection{Wake masks and exact crossing-count relaxation}
+Encode the odd set of each lane by an $11$-bit mask $a,b$.
+There are exactly $496$ signed-residue-feasible masks for one lane.
+Applying both extreme-level conditions, \eqref{moment:eq:mod4}, \eqref{moment:eq:mixed}
+and \eqref{moment:eq:growth} yields $13,216$ normalized pairs. We do not bound a
+black source's coordinates, nor choose a maximum length of a periodic word.
+
+At one full class of transverse parity $j\bmod2$, let $I,J$ count its
+incoming and outgoing ports on the already processed side. If $A$ of the
+$I$ arrivals occupy even stable visit ranks and the class has odd indicator
+$o\in\{0,1\}$, its total visit count is exactly
+\begin{align}
+ m&=2(I+J-2A)+o&&\text{on even }j,\label{moment:eq:evencount}\\
+ m&=2(J-I+2A)-o&&\text{on odd }j,\label{moment:eq:oddcount}
+\end{align}
+with the necessary bounds
+\begin{equation}\label{moment:eq:bounds}
+ 0\le A\le\lceil m/2\rceil,\quad
+ 0\le I-A\le\lfloor m/2\rfloor,\quad m\ge0.
+\end{equation}
+Matching port counts across adjacent layers supplies a four-integer boundary.
+The dynamic program retains the minimum cumulative event cost at each complete
+boundary, growth and horizontal displacement. Because future count constraints
+use only these data, keeping the cheapest partial count history is exact for
+this \emph{necessary relaxation}; no chronological realizability is inferred
+from a count survivor.
+
+All $13,216$ necessary masks are processed. Exactly $2,790$ pass the complete
+integer port relaxation. When both top classes are present, choosing the other
+top visit as origin exchanges longitudinal residues, yielding exactly $876$
+paired duplicate masks. Thus $1,914$ canonical representatives remain.
+Of those, $1,616$ have $\mathcal K\le168$ (Table~\ref{moment:tab:counts}).
+
+\begin{table}[t]
+\centering
+\begin{tabular}{rrr}
+\toprule
+Growth $g$ & $\mathcal K\le168$ reps & Realizations \\
+\midrule
+8 & 371 & 0\\
+12 & 1,020 & 1\\
+16 & 225 & 0\\
+\midrule
+Total & 1,616 & 1\\
+\bottomrule
+\end{tabular}
+\caption{Complete bounded-moment realization search; the middle column counts
+full wake masks, not trajectories. The solution column counts accepted
+normalized words, verified to be one standard P104 phase.}
+\label{moment:tab:counts}
+\end{table}
+
+\subsubsection{Physical chronology and completeness}
+The count relaxation is not enough. The second stage attaches all actual
+visit events in each full class in stable-rank order. Each $k$th ranked visit
+has turn $R$ if $k$ is even, $L$ otherwise; its entering direction determines
+its leaving direction. Directed-edge occurrences are matched first-to-first
+in the stable order, as their lifted times differ by a fixed
+$1-P\cdot\text{voltage}$ along a directed quotient edge. Each partial
+object is therefore a union of directed chains. A premature closed component
+is rejected, since it cannot later join the unique complete periodic cycle.
+
+Let $z_A$ be a chain-root time, $p_i$ the position of event $i$ in chain
+$A$ and $v_i$ its accumulated displacement voltage. Its stabilized time is
+$z_A+p_i-Pv_i$. For consecutive stable ranks $i$ and $j$ on different
+chains $A,B$, physical non-overlap requires
+\begin{equation}\label{moment:eq:separation}
+ z_B-z_A\ge \max\{4+p_i-p_j,\ell_A\}+(v_j-v_i)P,
+\end{equation}
+where $\ell_A$ is the length of chain $A$. For ranks in the same chain one
+checks the direct gap four, not the cross-chain length. Each cross-chain
+edge in \eqref{moment:eq:separation} has an integer constant term at least
+$\ell_A>0$. Along a cycle of difference constraints the total bound has
+form $C+KP$ with $C>0$. When $K\ge0$ positivity precludes every positive
+period; when $K<0$ positivity at an upper cutoff $L$ implies positivity for
+all $P\le L$. Thus testing a positive constraint cycle at the proved cap
+$L=\mathcal K$ cannot wrongly reject a smaller real period. The within-chain
+case follows by its direct monotonicity in $P$.
+
+An incrementally maintained difference system applies this pruning after
+each port addition and supports exact rollback. A separately constructed
+root-variable constraint oracle rebuilds the entire partial problem and
+checks the new incremental algorithm on selected streams. This is a scoped
+implementation audit, not a replacement for the mathematical coverage
+argument or for the complete enumeration.
+
+At a fully matched object, acceptance requires \emph{one} directed phase
+cycle, full voltage $+1$, horizontal drift $+2$, strictly increasing stable
+ranks within every class, and exact heading restoration. Following the cycle
+recovers a geometric turn word. Conversely, every realizable periodic trace
+with the supplied odd mask creates exactly such a ranked event object; all
+enumeration and pruning rules above preserve it. The entire future of an
+accepted word is checked separately using complete finite-support parity
+rather than inferred from a repeated finite prefix.
+
+\subsubsection{Finite certificate and equality}
+The machine-readable certificate lists the mask, growth, individual cap,
+number of explored prefixes, and number of accepted words for \emph{every}
+$\mathcal K\le168$ canonical representative. All $1,616$ searches terminated
+with status \texttt{COMPLETE}. The accepted list has exactly one period-$104$ word, with the
+standard $12$ odd classes. The aggregate explored-prefix count is
+$767,594,212$; it is a code-coverage count, not an ant update count.
+
+An independent ray-parity checker constructs a complete nineteen-black-cell
+boundary source for that word and verifies its first required colour at each
+phase. It tests the finitely many old-black-hit epochs, all self-write parity
+thresholds and the final unbounded epoch interval. All $194$ required
+phase/epoch checks pass. This establishes the positive realization and the
+value $\mathcal K=168$.
+
+Every candidate with $\mathcal K<168$ has no accepted word. At equality the
+only accepted word is the standard phase. The cover and the derived cutoff
+exclude any other periodic realization in the declared class at or below this moment value.
+This proves Theorem~\ref{moment:thm:main}.\qed
+

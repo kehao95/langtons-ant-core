@@ -1,10 +1,10 @@
 # 研究导航：自写介质、因果记忆与宏观可预测性
 
-**Research lens / 项目级思考地图** · 2026-10-30
+**Research lens / 项目级思考地图** · 2026-10-31
 
 > The research question is not only whether every finite seed reaches P104. It is how a four-heading controller and a mutable planar medium jointly create long memory, and when that memory admits an exact, composable macro-description.
 
-**定位。** 这是跨论文的解释性导航，不是第九篇论文、HC 证明，也不改变既有证书的证明等级。论文中各定理的前提、版本和完整证明，以对应模块为准。
+**定位。** 这是跨论文的解释性导航，其结论应按对应论文的定理前提和证据范围阅读。论文中各定理的前提、版本和完整证明，以对应模块为准。
 
 ## 一句话地图
 
@@ -23,18 +23,21 @@
 
 不要把左支当作必然永久混沌，也不要把右支当作历史被物理删除。全状态是完整黑场、头部位置和朝向，所选的宏观响应可以更简单。
 
-## 从问题进入八个证明模块
+## 从问题进入各个证明模块
 
 | 要理解的机制 | 最直接的论文模块 | 已证范围中的一个抓手 | 尚缺的桥梁 |
 |---|---|---|---|
 | 初态如何进入稳定运动 | [one_black](../one_black/) | 单黑任意相对位置与朝向的 P104 完整未来、Lean 证明 | 任意有限初态的统一吸引 |
 | 时间如何被空间限制 | [clock_escape](../clock_escape/) | 全状态严格整数时钟、有限区域首次退出上界 | 首次退出不等于永久逃逸；指数界不是三进制计数器 |
-| 巨量颜色信息何时可压缩 | [four_row_escape](../four_row_escape/) | 四行持久同侧接口每个方向/奇偶扇区 269 个响应类型，闭合后恢复精确耗时 | 固定高度的接口不代表全平面 |
+| 巨量颜色信息何时可压缩 | [four_row_escape](../four_row_escape/) | 四行 269 个响应类型与精确线性逃逸；五行无限响应、二次逃逸及完整状态直接计算 | 固定高度的接口不代表全平面 |
 | 局部语法为何有条件地刚性化 | [factor_language](../factor_language/) | 十因子未来全合法时的周期吸引；质量—缺陷不等式 | 没证明所有有限初态最终十合法 |
 | 复杂历史何时呈算术结构 | [defect_synthesis](../defect_synthesis/) | 固定违例预算的半线性关系；六格固定形状无界有限违例 | 固定预算的可算性不等于无限链终止 |
 | 久远历史何时重新影响控制 | [memory_feedback](../memory_feedback/) | 可计算的有限旧事件查询、远方新生长期记忆的必要条件 | 非周期轨迹的远方反馈并未被全局排除 |
-| 为什么某些周期尾迹刚性 | [wake_synthesis](../wake_synthesis/) | 有明确漂移/增长/宽度等前提的标准尾迹唯一性及尾迹算术筛选 | 还没有全输入的周期性或所有周期尾迹标准性 |
+| 为什么某些周期尾迹刚性 | [wake_synthesis](../wake_synthesis/) | 宽十、完整漂移 (2,-2) 的尾迹矩下界 168 与等号唯一性；尾迹算术筛选 | 还没有全输入的周期性或所有周期尾迹标准性 |
 | 如何实现并组合受保护散射 | [four_cell_port](../four_cell_port/) | 指定端口的四格阈值、矩形保护、有限散射列车 | 任意长度的预置列车不等于单个有限输入永久再生 |
+| 同一被动轨迹隐藏多少可干预信息 | [intervention_capacity](../intervention_capacity/) | 单次可选时刻翻色的 Θ(T²) 预测存储；q 时刻菜单的 Θ(qT) | 具体观察与干预协议决定预测等价 |
+| 完整颜色场能携带哪些相位与守恒量 | [phase_cocycle](../phase_cocycle/) | 分离观测量的完整面方程；经典模 16 时钟；紧支撑电荷基 | 分离场与姿态的观测量类别 |
+| 固定初始质量允许多少不同观察 | [sparse_trace_space](../sparse_trace_space/) | n^m 前缀指数、精确导集层级与秩 m+1 | 固定初始姿态的轨迹空间 |
 
 ## 阅读顺序
 

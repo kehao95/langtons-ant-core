@@ -1,0 +1,112 @@
+\section{Random access to the complete evolving field}\label{sec:access}
+The formulas above describe more than the time of an event. They give a succinct
+representation of the entire field at any requested time. A finite arithmetic
+segment $[x,y,d_x,d_y,n]$ denotes
+$\{(x+id_x,y+id_y):0\le i<n\}$. Combining segments by XOR means that a cell
+is black exactly when an odd number of the segments contain it.
+
+\begin{theorem}[Exact complete-state random access]\label{thm:access}
+For all nonnegative binary integers $l,r,T$, the complete state $F^T(X(l,r))$
+is computable in polynomial bit time in $\log(l+r+T+2)$. Its field is an XOR
+of at most 20,000 finite segments. Every nonsingleton has $d_x=2$ and
+$d_y\in\{-2,0,2\}$; coordinates and lengths have $O(\log(l+r+T+2))$ bits.
+The representation gives the exact pose, next turn, cell membership and total
+black mass, and supports exact equality of two complete fields.
+With $M$ explicitly supplied initial toggles inside the certified unread
+half-strips, the bound is $20,000+M$ and time is polynomial in total input length.
+\end{theorem}
+Here $F$ is the ordinary one-update map. The input is the compact pair of counter
+lengths, and the output is a succinct complete field. We use the original
+coordinate frame of Section~\ref{sec:basin} throughout.
+
+\subsection{Powered words retain every write}
+Suppose a certified word $w$ restores heading, has displacement $d$, and has
+phase read positions $q_i$ relative to its entry head $p$. For $n$ full copies,
+\begin{equation}\label{eq:powered-field}
+ p_{\rm new}=p+nd,\qquad
+ B_{\rm new}=B\xor\mathop{\bigtriangleup}_{i<|w|}
+           \{p+q_i+jd:0\le j<n\}.
+\end{equation}
+Every update flips exactly its read cell, so this identity preserves all
+self-intersections and earlier colors with the correct parity. A partial copy
+is handled by quotient and remainder and its finite list of reads. The counter
+and recovery words have displacement $(\pm2,0)$; the standard tail has diagonal
+displacement with components $\pm2$. Reversing a negatively directed finite
+segment normalizes $d_x$ to 2. Singletons can use direction $(2,0)$.
+
+\subsection{Locating the requested time}
+Let $m=\min(l,r)$. Before first exit, the largest completed round is
+\[
+ j=\min\left(m,\left\lfloor
+       \frac{\operatorname{isqrt}(\lfloor T/2\rfloor+49)-7}{2}
+       \right\rfloor\right).
+\]
+Indeed $t_j=8j^2+56j=2(2j+7)^2-98$. The integer square root therefore inverts
+the exact round inequality without approximation. Write the complete checkpoint
+$\J((5)\R(j,l-j))\R(j,r-j)$ directly and apply
+\eqref{eq:powered-field} to at most one remaining pair of excursions.
+With $P=\word{RLLR}$ and the kernel words $K,E$ of
+Section~\ref{sec:five}, the right success is $P^jKP^j$ and its terminal call
+is $P^jE$. The left words are the letterwise R/L swaps of
+$\word{LR}P^jKP^j\word{RL}$ and $\word{LR}P^jE$, respectively.
+Their execution follows from the proved reflection/complement identities.
+
+For $T$ after first exit, start directly with the complete exit formula
+\eqref{basin:eq:exit}. Scan the fixed list of recovery blocks, subtracting
+lengths arithmetically until the requested block is found. Its partial execution
+uses \eqref{eq:powered-field}. The nine infinite parameter domains are covered
+by the exact affine verifiers. The 59 exceptional clipped sources have bounded
+parameters and recovery words of length at most 17,106, so their words may be
+computed by a fixed finite execution. Once $T\ge\tau$, divide $T-\tau$ by 104.
+The resulting finite diagonal segments describe every written cell of the
+whole growing wake, together with the remainder of the current period.
+
+\subsection{Restoring the original unbounded counter}
+Let $(l_c,r_c)$ be the clipped pair in Corollary~\ref{basin:cor:clip}, and set
+$s=(2(l-l_c),0)$. If $B_0$ is the complete initial source, put
+\[
+ D=B_0(l,r)\xor(B_0(l_c,r_c)+s).
+\]
+Every point of $D$ is unread for the entire common future by the proved
+protection guards. First-disagreement induction gives
+\[
+ p_T(l,r)=p_T(l_c,r_c)+s,\qquad
+ B_T(l,r)=(B_T(l_c,r_c)+s)\xor D.
+\]
+Both source fields in $D$ are constant-sized arithmetic expressions. Thus the
+extra counter remains present in the output. Explicit toggles in the certified
+unread half-strips append singleton terms; their guard is checked at input.
+
+\subsection{Uniform size and exact set operations}
+Each source, checkpoint or exit field has fewer than 15 blocks of width at most
+four and at most five black cells per column. A repeated block has width two,
+so fewer than 300 segments suffice for each complete such field. The remaining
+counter round has phase budget below 150; the largest generic recovery program
+has budget 4,074, plus at most 19 remainder reads. A standard tail adds at most
+$104+103=207$ segments. The largest exceptional branch is bounded by
+\[
+ 300+17,106+207+2\cdot300=18,213<20,000.
+\]
+The last two terms restore the source difference. Cancellation only reduces
+the count. Coordinates have magnitude $O(l+r+T+1)$ by the source formulas and
+unit-step motion. The algorithm uses a bounded number of integer operations,
+including one square root, on numbers of logarithmic bit length. This proves
+the representation and bit-complexity claims.
+
+Membership is the parity of divisibility and interval tests on the segments.
+For total mass, group segments by direction $d_y$, $x$ parity $a$, and intercept
+$y-d_y(x-a)/2$. XOR-sweep their integer endpoints, obtaining disjoint intervals
+on each line. Distinct parallel lines are disjoint. Two nonparallel lines
+intersect in at most one point; exact integer determinants and interval tests
+identify every such intersection. Group coincident points and collect all
+incident segment identifiers, so triple intersections are counted together.
+If $m(p)$ is the number of retained segments meeting at an intersection, then
+\[
+ |B|=\sum_i |S_i|-\sum_p\bigl(m(p)-(m(p)\bmod2)\bigr).
+\]
+Ordinary points occur once; this correction replaces each crossing multiplicity
+by its XOR parity. There are polynomially many endpoints and pair intersections
+in the number of terms, regardless of numeric segment length. Applying the
+same mass calculation to the XOR of two fields decides equality. Membership
+at the returned pose gives the next turn. These operations complete the proof
+of Theorem~\ref{thm:access}.\qed

@@ -28,6 +28,25 @@ def replay_added_result(command):
     return {'module': MODULE, 'status': 'passed', 'command': command}
 
 
+
+def replay_moment(full):
+    """Join the inherited all-period graph bound to the extremal search."""
+    sources=json.loads((ROOT/'sources.json').read_text())['sha256']
+    for name,digest in sources.items():
+        if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
+            raise RuntimeError('Source mismatch: '+name)
+    with tempfile.TemporaryDirectory(prefix='wake-moment-') as td:
+        work=Path(td)/'verification'
+        shutil.copytree(ROOT/'verification',work,ignore=shutil.ignore_patterns('__pycache__'))
+        result=subprocess.run([sys.executable,str(work/'standard_wake/upper_pruning.py'),'--upper-source',str(work/'standard_wake/inputs/upper_bound.py')],capture_output=True,text=True,check=True)
+        actual=json.loads(result.stdout)
+        expected=json.loads((ROOT/'evidence/standard_wake/upper-pruning.json').read_text())
+        if actual!=expected:raise RuntimeError('Upper graph certificate mismatch')
+        command=[sys.executable,str(work/'width10_moment/check.py')]
+        if full:command+=['--full','--time-per-class','300']
+        subprocess.run(command,cwd=work/'width10_moment',check=True)
+    return {'status':'passed','scope':'full' if full else 'quick','upper_graph_replayed':True,'all_1616_cases_replayed':full}
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--extensions-only',action='store_true',help='replay only new periodic arithmetic; inherit unchanged classification evidence')
@@ -37,8 +56,18 @@ def main():
     parser.add_argument('--baseline', action='store_true', help='also replay both preceding exact enumerators')
     parser.add_argument('--output-report', type=Path, help='write a fresh verification record')
     parser.add_argument('--axis-only', action='store_true', help='replay only the added theorem; inherit unchanged evidence')
+    parser.add_argument('--moment-only',action='store_true',help='check the sharp moment and shared period bound')
+    parser.add_argument('--full',action='store_true',help='with --moment-only, replay all 1616 chronology cases')
     args = parser.parse_args()
     if not __debug__: raise SystemExit('Run without Python -O')
+    if args.moment_only:
+        report=replay_moment(args.full)
+        if args.output_report:
+            args.output_report.parent.mkdir(parents=True,exist_ok=True)
+            args.output_report.write_text(json.dumps(report,indent=2)+'\n')
+        return
+    if not args.axis_only and not args.extensions_only:
+        replay_moment(not args.quick)
     added_result = replay_added_result(['reproduce.py'])
     if args.axis_only:
         report = {'status': 'passed', 'scope': 'axis-only', 'stages': [added_result], 'inherited_checks_replayed': False}

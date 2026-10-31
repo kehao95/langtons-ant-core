@@ -1,0 +1,17 @@
+{
+  "encoding": "gzip; original UTF-8 bytes recovered exactly",
+  "files": {
+    "report.json": {
+      "bytes": 21175,
+      "compressed_sha256": "519f2ed403e88658bf47d7fa0b408722115a9750e538b16295e5b0940f6a6557",
+      "raw_git_blob": "dd728aae5586ffea94b27d471158f554471f6628",
+      "raw_sha256": "5d7e09f3997036458f511840467f911ee6cdecce976debebe21727572ae888f4"
+    },
+    "witness.json": {
+      "bytes": 45392,
+      "compressed_sha256": "6488b7d0a88358c50c72f03fac5d53316adb5e41cd34abacf23c0c8775a77acd",
+      "raw_git_blob": "1a2f06715fb028a8cf9a9ee7663a01fb68e6cfbf",
+      "raw_sha256": "b0165e849a723e9ed77168e2a5cce36ce1acc80f983b0b674720b5bd67124e52"
+    }
+  }
+}

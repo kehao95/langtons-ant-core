@@ -1,10 +1,10 @@
 # Langton’s Ant: Proofs and Preprints
 
-Eight publication projects about the classical white-right / black-left Langton
-ant, by Hao Ke. Each project provides its article, proof dependencies,
+Eleven article projects about the classical white-right / black-left Langton
+ant and cyclic-color generalizations, by Hao Ke. Each project provides its article, proof dependencies,
 executable verification and published artifacts.
 
-**Cross-project research perspective:** [Conceptual map](research/README.md) · [How a self-writing medium creates complexity](research/SELF_WRITING_MEDIA.md) · [Testable research agenda](research/NEXT_QUESTIONS.md). These are interpretive research notes and conjectural directions, **not additional published theorems**; the eight article modules, their sources and certificate interfaces remain authoritative.
+**Cross-project research perspective:** [Conceptual map](research/README.md) · [How a self-writing medium creates complexity](research/SELF_WRITING_MEDIA.md) · [Testable research agenda](research/NEXT_QUESTIONS.md). These are interpretive research notes and conjectural directions, **not additional published theorems**; the article modules, their sources and certificate interfaces remain authoritative.
 
 ## Results and manuscripts
 
@@ -12,18 +12,21 @@ executable verification and published artifacts.
 |---|---|---|
 | [One-black](one_black/) | Every one-black finite state, at every position and heading, reaches the complete standard P104 trace. | [Zenodo](https://doi.org/10.5281/zenodo.23675960) |
 | [Clock and escape](clock_escape/) | Square exit ≤ `(13·3^(n−1)−2n²−4n−5)/2`; fixed-height rectangle degree `⌊H/2⌋+1`; complete-state orbit algorithms. | [Zenodo](https://doi.org/10.5281/zenodo.23675963) |
-| [Four-row escape](four_row_escape/) | Exact all-color first-exit maxima: `S(4,n)=34n-150` for every `n>=13`; closed persistent-response classification. | [Zenodo](https://doi.org/10.5281/zenodo.23675964) |
-| [Wake rigidity](wake_synthesis/) | Drift `(2,-2)`, growth 12, width 10 and interior odd-class thinness force P104. Non-axis inverse synthesis and quadratic wake tests; all-axis inversion parity; analytic unit-diagonal exclusion. | [Zenodo](https://doi.org/10.5281/zenodo.23819745) |
+| [Four and five rows](four_row_escape/) | Exact four-row maximum `34n-150`; five-row quadratic escape and infinite boundary memory; complete two-counter highway recovery and succinct full-state random access. | [Zenodo](https://doi.org/10.5281/zenodo.23675964) |
+| [Wake rigidity](wake_synthesis/) | P104 uniquely minimizes the signed quadratic odd-wake moment at full drift `(2,-2)` and width ten. Thin-wake rigidity; Non-axis inverse synthesis and quadratic wake tests; all-axis inversion parity; analytic unit-diagonal exclusion. | [Zenodo](https://doi.org/10.5281/zenodo.23819745) |
 | [Factor language](factor_language/) | Ten-factor attraction with sharp slope 12; exact intrinsic local-event macros and quadratic deadlines; all-input mass–defect inequalities with sharp nine-factor window threshold; finite-horizon core/supply bound; archive recovery. | [Zenodo](https://doi.org/10.5281/zenodo.23675965) |
 | [Defect synthesis](defect_synthesis/) | All-coordinate bounded-defect semilinearity and resource spectra; a six-cell family with arbitrarily many defects and uniform `mu(N)<=6`; small witnesses and a restricted QF decision backend. | [Zenodo](https://doi.org/10.5281/zenodo.23819737) |
 | [Memory and feedback](memory_feedback/) | Exact event prediction and full-history continuation; remote feedback and fixed-mass lifetime obstruction; request-only crossing capacity, speed/spread bounds and a double-logarithmic oblique-width gap. | [Zenodo](https://doi.org/10.5281/zenodo.23819749) |
 | [Ports and scattering](four_cell_port/) | Sharp four-cell ports; four-layer rectangle shielding and exact P104 entrance; sharp solid-rectangle bound; finite protected scattering trains and old-wake readback. | [Zenodo](https://doi.org/10.5281/zenodo.23819753) |
+| [Intervention capacity](intervention_capacity/) | One timed toggle within a common passive highway needs Θ(T²) predictive bits; a q-time menu needs Θ(qT); exact all-control quotient. | [Article](intervention_capacity/paper/paper.pdf) |
+| [Phase clocks and charges](phase_cocycle/) | Complete separated-observable classification; sharp clock order 8n or 4n; classical modulo-16 clock and compact-charge basis. | [Article](phase_cocycle/paper/paper.pdf) |
+| [Sparse trace spaces](sparse_trace_space/) | At most m black cells give prefix complexity Θ_m(n^m), exact derived-set hierarchy and rank m+1, attained inside a positive highway family. | [Article](sparse_trace_space/paper/paper.pdf) |
 
 [Articles](PREPRINTS.md)
 
 Each project supplies an article PDF built from its accompanying source. Zenodo
 DOIs identify archived editions in the same article series. In `publications.json`,
-`doi` and `version` refer to that archived edition; `pdf` and `pdf_sha256`
+`doi` and `version`, when present, refer to that archived edition; `pdf` and `pdf_sha256`
 identify the accompanying repository article.
 
 ## Project layout
@@ -35,13 +38,15 @@ also contain `lean/`. One-black retains its established dynamics package.
 package. `publications.json` records the current article and DOI for each project.
 
 The clock paper owns general clocks and escape bounds; the four-row paper owns
-the exact fixed-height-four classification. Wake uses them for period budgets;
+the four/five-row boundary, exact counter-family recovery and full-state random access. Wake uses them for period budgets;
 memory uses escape to bound events in a fixed region; port uses a local clock
 inside certified recovery stages. Factor's finite-word mass proof is independent
 of its infinite-future attraction proof. Memory owns the twenty-black lifetime
 obstruction and the crossing-capacity/width theorems. Defect owns the six-cell
 unbounded-defect family. Port owns protected rectangular formation and arbitrary
-finite scattering composition.
+finite scattering composition. Intervention owns counterfactual predictive
+storage on one passive trace; phase owns separated clocks and charges; sparse
+trace space owns all-coordinate fixed-mass observation complexity and topology.
 
 One-black has a complete Lean proof. The other new results combine analytic
 coverage arguments with exact finite checks. The clock also contains Lean
@@ -54,17 +59,22 @@ Run a project's scoped checks from the repository root:
 ```sh
 python3 wake_synthesis/reproduce.py --jobs 4
 python3 four_row_escape/reproduce.py
+python3 intervention_capacity/reproduce.py
+python3 sparse_trace_space/reproduce.py
+uv run --no-project --with sympy==1.14.0 python phase_cocycle/reproduce.py
 python3 factor_language/reproduce.py
 python3 defect_synthesis/reproduce.py
 python3 memory_feedback/reproduce.py
 python3 four_cell_port/reproduce.py
 ```
 
-Wake defaults to the full 76-case, 83-job exhaustion. Its `--quick` mode checks
+Wake defaults to the complete extremal-moment and thin-wake exhaustions.
+Use `--moment-only --full` for the 1,616 moment cases with the shared upper
+certificate. The thin-wake stage has 76 cases and 83 jobs. Its `--quick` mode checks
 the upper graph, count tables and controls but skips those large exclusions.
 Factor, wake, defect, memory and port use a C++17 compiler.
 Defect and port use ISL/GMP; defect additionally uses Z3.
-All use Python 3.10+ without `-O`.
+All use Python 3.10+ without `-O`; phase additionally uses SymPy 1.14.0.
 One-black and full clock reproduction additionally require Lean 4.30.0; their
 unchanged commands remain in their project READMEs.
 

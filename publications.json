@@ -16,15 +16,15 @@
     "pdf_sha256": "8a5e444b250c0b0dfeb4c33c770d6bc417f335d062487850b9c6cda39f557c3c"
   },
   "four_row_escape": {
-    "title": "Exact Escape Times of Langton's Ant in Four Rows",
+    "title": "From Four Rows to Five: Escape Times and Persistent Memory in Langton's Ant",
     "doi": "10.5281/zenodo.23675964",
     "version": "0.1.1",
     "pdf": "four_row_escape/paper/paper.pdf",
     "sources": "four_row_escape/sources.json",
-    "pdf_sha256": "95df7c87e572d2b14add016754b2fd7093691460648fa2f7a8162883801bbb49"
+    "pdf_sha256": "94a269704b3a263b185c593f03f4cbd8d9ca17f8be6819373f25aaffd8e32786"
   },
   "factor_language": {
-    "title": "Local Factor Rigidity and Mass\u2013Defect Bounds for Langton\u2019s Ant",
+    "title": "Local Factor Rigidity and Mass–Defect Bounds for Langton’s Ant",
     "doi": "10.5281/zenodo.23675965",
     "version": "0.1.1",
     "pdf": "factor_language/paper/paper.pdf",
@@ -53,7 +53,7 @@
     "version": "0.4.0",
     "pdf": "wake_synthesis/paper/paper.pdf",
     "sources": "wake_synthesis/sources.json",
-    "pdf_sha256": "fa06c8c21d2755ce1be83f2dda055d4540e20824328e45ca2dee6e0b6e485ac8"
+    "pdf_sha256": "ba6f8df5585446d258f823a878945e4297f8557bfd37db68dcb0263812e7d512"
   },
   "four_cell_port": {
     "title": "Protected Highway Formation and Scattering in Langton's Ant",
@@ -62,5 +62,29 @@
     "pdf": "four_cell_port/paper/paper.pdf",
     "sources": "four_cell_port/sources.json",
     "pdf_sha256": "77c34797483673220add8e82a3184570b6a03df36c0a1bfd5127f832fd6a8a18"
+  },
+  "intervention_capacity": {
+    "doi": null,
+    "version": null,
+    "title": "When to Intervene: Predictive Memory in a Langton Highway",
+    "pdf": "intervention_capacity/paper/paper.pdf",
+    "sources": "intervention_capacity/sources.json",
+    "pdf_sha256": "5d2cca87ad3778f9466d0ae10e946d64f9ca74c408fc06f4be80e85bd3b77655"
+  },
+  "phase_cocycle": {
+    "doi": null,
+    "version": null,
+    "title": "Maximal Separated Phase Clocks and Spatial Charges for Cyclic Langton Ants",
+    "pdf": "phase_cocycle/paper/paper.pdf",
+    "sources": "phase_cocycle/sources.json",
+    "pdf_sha256": "506d6d212542f747139515b4d0849f03ab9948ce6c649b2427f00fdf4fe62c7b"
+  },
+  "sparse_trace_space": {
+    "doi": null,
+    "version": null,
+    "title": "Sparse Initial Conditions and the Trace Space of Langton's Ant",
+    "pdf": "sparse_trace_space/paper/paper.pdf",
+    "sources": "sparse_trace_space/sources.json",
+    "pdf_sha256": "8741f8eff4714fdbfc68f505e8368e2780eee088e8faeb60b732bf8188638d33"
   }
 }

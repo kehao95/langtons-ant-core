@@ -1,0 +1,345 @@
+\section{The complete two-counter highway basin}\label{sec:basin}
+A standard highway is permanent
+agreement of the pose and turn trace with the usual translating period-$104$
+word, up to phase and quarter-turn rotation. Historical black cells need not
+become a translated finite motif. To fix the convention completely, our standard
+word is the concatenation of these two displayed strings:
+\begin{center}\scriptsize\ttfamily
+RRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRL\\
+LRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRR
+\end{center}
+It has primitive length 104; its cyclic phases and quarter-turns are allowed.
+
+For the remainder of the paper we translate the source of
+Section~\ref{sec:five} so its leftmost column is $x=0$. This changes its
+initial head from $(0,3)$ to $(2l+5,3)$ and leaves all durations unchanged.
+\subsection{Encoding}
+A column of height five is the integer $\sum_{y=0}^4b_y2^y$. Column words are
+placed from $x=0$ to the right in rows $0,\ldots,4$; every omitted lattice cell
+is white. Set
+\[
+ A=(6,5),\quad B=(10,9),\quad C=(6,10,12,17),\quad V=(18,29),
+ \qquad \R(j,k)=A^jCV^k.
+\]
+For a column word define
+\[
+ \J(c_1,\ldots,c_n)=(31-c_n,\ldots,31-c_1).
+\]
+Thus $\J$ reflects and complements \emph{inside the indicated finite block};
+it does not complement the exterior. For $l,r\in\N=\{0,1,\ldots\}$, let
+$X(l,r)$ have column word and initial pose
+\begin{equation}
+ \J((5)CV^l)\,CV^r,\qquad ((2l+5,3),\E).                 \label{basin:eq:source}
+\end{equation}
+Its width is $n=2(l+r)+9$, its initial black mass is $4l+6r+23$, and all these
+cells are retained throughout our argument.
+
+\begin{theorem}[Complete counter basin]\label{basin:thm:main}
+For every $l,r\in\N$, the source $X(l,r)$ eventually enters the standard
+highway. Its earliest permanent entrance time is
+\[
+ \tau(l,r)=E(l,r)+\rho(l,r),\qquad
+ E(l,r)=\begin{cases}8r^2+60r+16,&r\le l,\\8l^2+68l+48,&l<r,\end{cases}
+\]
+where $E$ is the first rectangle-exit time and $\rho$ is completely specified
+by Tables~\ref{basin:tab:recovery} and~\ref{basin:tab:small}. In the balanced case,
+\begin{equation}
+ \tau(k,k)=8k^2+100k+1047\quad(k\ge2),                    \label{basin:eq:balanced}
+\end{equation}
+while $\tau(0,0)=11576$ and $\tau(1,1)=1024$.
+\end{theorem}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{lll}
+\toprule
+Region & Condition & Recovery delay $\rho$\\\midrule
+$r\le l$, $d=l-r$ & $d=0,r=0$ & $11560$\\
+ & $d=0,r=1$ & $940$\\
+ & $d=0,r\ge2$ & $40r+1031$\\
+ & $d=1$ & $32r+883$\\
+ & $d\ge2$ & $32r+799$\\\midrule
+$l<r$, $l\ge9$, $d=r-l$ & $d=1$ & $72l+1427$\\
+ & $d=2$ & $128l+2611$\\
+ & $d=3$ & $144l+3011$\\
+ & $d=4$ & $176l+3658$\\
+ & $d=5$ & $176l+3678$\\
+ & $d\ge6$ & $176l+3570$\\\bottomrule
+\end{tabular}
+\caption{All unbounded parameter cones. The remaining fixed-$l$ strips are
+covered by Table~\ref{basin:tab:small}, not omitted.}\label{basin:tab:recovery}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{rl}
+\toprule
+$l$ & Delays for $d=r-l=1,2,\ldots$; the final entry repeats forever\\\midrule
+0 & $17106,2789,1479,2661,5711,2665,2557$\\
+1 & $1516,1423,1591,6410,6430,6322$\\
+2 & $1547,1925,1945,1837$\\
+3 & $1635,2021,2041,1933$\\
+4 & $1715,2883,3787,3915,3413,3433,3325$\\
+5 & $1787,3071,3447,4199,4495,4859,6975,7638,7658,7550$\\
+6 & $1859,4607,4451,4471,4363$\\
+7 & $1931,3543,3931,4491,4771,4470,4490,4382$\\
+8 & $2003,3635,4163,6057,6077,5969$\\\bottomrule
+\end{tabular}
+\caption{The finite base table and its protected infinite extensions. Each row
+is a formula for all $d\ge1$, not an observation up to its printed length.}
+\label{basin:tab:small}
+\end{table}
+
+The theorem is computer-assisted in a precise finite sense. The infinite
+domains are checked by integer-affine identities with proved coverage, and
+only fifty-nine isolated states require literal finite execution. We supply
+full words, source formulas and exact verification programs. None of the
+parameter cutoffs in the finite controls is a premise of the theorem.
+
+The round induction and two terminal kernels in
+Section~\ref{sec:five}, after the indicated translation, give the complete exit states
+\begin{equation}
+\begin{array}{ll}
+r\le l:&\J((5)\R(r,l-r))B^{r+1}(10,18),\quad (n,1),\E,\\
+l<r:&\J((9)B^{l+1}(10,18))\R(l+1,r-l-1),\quad (-1,1),\West.
+\end{array}                                                    \label{basin:eq:exit}
+\end{equation}
+\subsection{Recovery certificates for every parameter}
+\subsubsection{The nine affine-word programs}
+A program is a finite concatenation
+\begin{equation}
+ u_0v_1^{a_1k+b_1}u_1\cdots v_s^{a_sk+b_s}u_s,             \label{basin:eq:program}
+\end{equation}
+where the $u_i,v_i$ are explicit LR words. Each variable block $v_i$ restores
+the heading and has displacement $(2,0)$ or $(-2,0)$ in its actual pose. The
+counts are positive on the declared entire ray $k\ge k_0$.
+Table~\ref{basin:tab:schemas} gives the domains and sizes. The literal fixed words
+and integer exponents are the immutable data in \word{witness.json}.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llllrr}
+\toprule
+Program & $(l,r)$ & Domain & Length & Powers & Read tests\\\midrule
+E0 & $(k,k)$ & $k\ge2$ & $40k+1031$ & 6 & 1007\\
+E1 & $(k+1,k)$ & $k\ge0$ & $32k+883$ & 4 & 839\\
+E2 & $(k+2,k)$ & $k\ge0$ & $32k+799$ & 4 & 751\\
+W1 & $(k,k+1)$ & $k\ge9$ & $72k+1427$ & 9 & 1431\\
+W2 & $(k,k+2)$ & $k\ge9$ & $128k+2611$ & 17 & 2795\\
+W3 & $(k,k+3)$ & $k\ge9$ & $144k+3011$ & 19 & 3203\\
+W4 & $(k,k+4)$ & $k\ge9$ & $176k+3658$ & 22 & 4050\\
+W5 & $(k,k+5)$ & $k\ge9$ & $176k+3678$ & 22 & 4074\\
+W6 & $(k,k+6)$ & $k\ge9$ & $176k+3570$ & 22 & 3970\\\bottomrule
+\end{tabular}
+\caption{A test for a variable phase covers all its repetitions, not one
+sample. The sum is 22,120 read obligations on unbounded domains.}\label{basin:tab:schemas}
+\end{table}
+
+For illustration, E0 has fixed-block lengths
+$114,108,3,9,3,169,577$, separated by powers of
+\[
+\begin{split}
+ &\word{RLLR}^{2k+3},\quad\word{LRRL}^{2k+3},\quad\word{RRLL}^{2k+3},\\
+ &\word{LRRL}^{k+1},\quad\word{RRLL}^{k+1},\quad\word{LRRL}^{2k+1}.
+\end{split}
+\]
+The length is $40k+1031$. This word pattern is not accepted merely because
+finite runs exhibit it: every read is proved correct by the following algebra.
+
+\subsubsection{Complete affine fields}
+Throughout a program the row of a phase is independent of $k$ and its horizontal
+position is $ak+b$, with $a$ even. Variable repetitions add $\pm2j$. Fix a row
+$y$ and horizontal parity $p\in\{0,1\}$, and write $x=2z+p$. A black arithmetic interval
+is represented exactly by two jumps:
+\begin{equation}
+ [L(k)\le z\le U(k)]
+   =[z\ge L(k)]\mathbin\oplus[z\ge U(k)+1].               \label{basin:eq:jumps}
+\end{equation}
+Here $L,U$ have integer affine coefficients. Equal jumps cancel by XOR.
+Zero-length intervals cancel as well. This representation includes all
+initial cells and all complete earlier writes; it never extracts an assumed
+active subset.
+
+Suppose the phase reads $q_i+jd$ in a variable block, with $d=(\pm2,0)$.
+The pre-block field is an XOR of tests $j\ge f(k)$ for integer-affine $f$.
+For a previous phase $q_t$, the unique copy that could have written this cell
+has index $j-s$, where $q_t-q_i=sd$. It is earlier exactly when
+$s>0$, or $s=0$ and $t<i$, and it exists exactly when $j\ge s$.
+Include those constant thresholds and the required L bit at $j=0$. The read
+condition becomes
+\begin{equation}
+ \bigoplus_{f\in\mathcal E}[j\ge f(k)]=0,
+ \qquad k\ge k_0,\quad 0\le j<ak+b.                     \label{basin:eq:read}
+\end{equation}
+Fixed reads are the special case with one epoch. Once a block is verified,
+all of its phase intervals are added to the complete field. Induction over
+ordinary time proves that satisfying these constraints executes the literal
+program, rather than just an abstract trace.
+
+\begin{lemma}[Exact affine epoch test]\label{basin:lem:affine}
+For finite $\mathcal E$ and a positive affine epoch count on $k\ge k_0$,
+condition~\eqref{basin:eq:read} is decidable by finite integer sign and intersection
+checks, including the final infinite parameter interval.
+\end{lemma}
+\begin{proof}
+First check parity at $j=0$. It changes only at the roots $f(k)=0$; isolating
+$\lfloor\text{root}\rfloor$ and its successor separates all integer sign regions.
+For every distinct affine jump $f$, solve
+$1\le f(k)\le ak+b-1$. This is an integer interval. If it is infinite, the
+jump cannot coincide with other distinct affine jumps throughout it: finitely
+many other lines give only finitely many intersections. Thus the condition
+fails. If the interval is finite, enumerate every integer intersection with
+other jumps. Their distinct parameter values must cover the whole interval,
+and every coincident jump there must have even multiplicity. These conditions
+are exactly absence of odd interior jumps. Along with zero initial parity they
+prove the claimed XOR identity.
+\end{proof}
+
+A second implementation instead partitions at every pairwise affine-order
+root, including comparisons with zero and the epoch count. In each resulting
+integer interval all order relations are fixed, so one representative checks
+initial parity and every interior multiplicity. Both algorithms use exact
+integers; neither uses floating-point feasibility, a parameter cutoff, or an
+SMT solver. They agree on the complete fields and lengths of all nine programs.
+The common geometric compilation remains an explicitly stated part of the
+verification boundary.
+
+\subsection{Permanent standard tails and unused data}
+\subsubsection{An all-future phase test}
+Let $B(k)$ be a program's complete endpoint field. For a proposed standard word,
+write $q_i(k)$ for its 104 phase reads and $d$ for its diagonal displacement.
+At phase $i$, epoch $n$, its actual read bit is
+\begin{equation}
+ \mathbf{1}_{B(k)}(q_i(k)+nd)
+ \oplus\#\{t:q_t-q_i=sd,\ s>0\text{ or }(s=0,t<i),\ s\le n\}\pmod2.
+                                                               \label{basin:eq:tail}
+\end{equation}
+This is obtained directly by counting all preceding planned flips. Because
+$B(k)$ uses finitely many rows independently of $k$ and $d_y=\pm2$, a phase
+ray meets each such row at only one possible nonnegative epoch. Check those
+epochs and their successors, all prior-write thresholds, zero and one epoch
+beyond the last change. Between them the bit is constant. At each chosen epoch
+the remaining condition is an affine test in $k$ handled by
+Lemma~\ref{basin:lem:affine}. This proves all epochs, not a fixed number of repetitions.
+
+There are 4,415 such all-parameter phase/epoch checks. The certified word is a
+cyclic phase of the standard primitive word. E0--E2 and W1--W3 finish at
+$(n+3,7),\North$; W4--W6 finish at $(14,14),\West$. Their tail drift is
+$(-2,2)$. The standard-word identity is also independently checked against a
+complete blank-orbit state and the same infinite criterion.
+
+\begin{lemma}[Earliest entrance]\label{basin:lem:first}
+Each listed completion time is the earliest permanent standard time.
+\end{lemma}
+\begin{proof}
+The last actual pre-completion letter differs from the letter immediately
+preceding the certified standard phase. An earlier permanent standard suffix
+would have the same unique 104-periodic backwards extension, since the standard
+word is primitive and both futures agree. This contradicts that letter. The
+argument also excludes an earlier permanent suffix during the counter phase.
+\end{proof}
+
+\subsubsection{Protection of arbitrary extra counter lengths}
+E2 proves the base $l=r+2$. Increasing $l$ prepends more copies of $\J(V)$.
+After aligning the common part, the difference lies in $x<0$, rows $0,\ldots,4$.
+All finite-program reads in those rows have $x\ge0$. For each variable scan,
+it is enough to check both affine endpoints; all future phase-ray encounters
+with those rows are checked as well. Consequently the whole actual future
+ignores that difference, by induction up to a hypothetical first differing
+read. The added cells stay in the field.
+
+Similarly W6 extends from $r=l+6$ to every larger $r$: the extra $V$ blocks
+are beyond $x=4l+21$ in the five data rows, and no finite-program read or future
+phase-ray encounter reaches them. The final finite base in each row of
+Table~\ref{basin:tab:small} has the corresponding guard. Some small cases eventually
+drift right, but their rays leave the data rows before reaching the extensions;
+a drift sign alone is not used as a protection proof.
+
+The two balanced exceptions and all 57 left-exhausted finite bases are replayed
+from~\eqref{basin:eq:exit}. Their complete fields satisfy~\eqref{basin:eq:tail} and
+Lemma~\ref{basin:lem:first}; the designated nine bases also satisfy the extension
+guards. These domains exhaust $\N^2$. Together with the nine programs, this
+proves Theorem~\ref{basin:thm:main}.
+
+\begin{corollary}[Exact trace clipping]\label{basin:cor:clip}
+For $l\ge r$, replace $l$ by $\min(l,r+2)$. For $l<r$, replace $r$ by
+$\min(r,l+D(l))$, where $D(l)$ is the length of row $l$ in
+Table~\ref{basin:tab:small} for $l<9$, and $D(l)=6$ otherwise. After aligning their
+initial heads, the original and clipped inputs have the same entire forward
+head and turn trace. Their complete fields differ by the static untouched
+extra columns. In particular $D(l)\le10$ for every $l$.
+\end{corollary}
+\begin{proof}
+During the initial counter exchanges the six kernels cannot reach the omitted
+blocks: both counters make only the shorter number of successful exchanges,
+with one additional right success when the left counter exhausts first.
+The complete post-exit states therefore differ only in those blocks. The
+finite and infinite guards just proved continue the equality forever.
+\end{proof}
+
+The same first-disagreement argument allows arbitrary finite payloads in the
+protected omitted half-strips, rather than only the indicated counter pattern.
+This is a proved guard for these specific common sources, not a procedure for
+discarding arbitrary cells by assumed future liveness.
+
+\subsection{Exact extrema and nonlinear entrance times}
+\begin{theorem}[Worst entrance at fixed smaller counter]\label{basin:thm:max}
+The quantity $M(m)=\max_{\min(l,r)=m}\tau(l,r)$ is finite.
+The maximum allows unbounded width and aspect ratio.
+For $m=0,\ldots,8$, respectively, its values are
+\[
+ 17154,6554,2161,2365,4363,8246,5351,5687,7181,
+\]
+and for every $m\ge9$,
+\begin{equation}
+ M(m)=8m^2+244m+3726.                                     \label{basin:eq:max}
+\end{equation}
+Consequently, for all $l,r\ge0$ and $m=\min(l,r)$,
+\begin{equation}
+ \tau(l,r)\le8m^2+244m+17154.                             \label{basin:eq:uniform}
+\end{equation}
+The coefficients $8,244,17154$ are lexicographically optimal among bounds of
+this polynomial form.
+\end{theorem}
+\begin{proof}
+For $m\ge9$, the choice $(l,r)=(m,m+5)$ gives~\eqref{basin:eq:max}. Subtracting the
+other affine delays in Table~\ref{basin:tab:recovery} proves that none is larger.
+For $m<9$, maximize the three right-exit cases and the finite row of left-exit
+values; the last row value already covers all larger aspect ratios. This gives
+the displayed table and~\eqref{basin:eq:uniform}. The ray $(m,m+5)$ forces first the
+quadratic coefficient to be at least eight, then, with eight fixed, the linear
+coefficient to be at least 244. With both fixed, $(l,r)=(0,1)$ forces the constant
+to be at least 17154.
+\end{proof}
+
+The lower bound $E(l,r)$ and~\eqref{basin:eq:uniform} show, uniformly in the larger
+counter,
+\[
+ \tau(l,r)=8\min(l,r)^2+O(\min(l,r)+1).
+\]
+This uniformity is a dynamical conclusion: adding an arbitrarily long memory
+tail does not necessarily prolong the execution, because a verified finite
+margin screens it from every future read.
+
+\begin{corollary}[Nonsemilinear entrance graph]\label{basin:cor:nonsemi}
+The complete source family~\eqref{basin:eq:source} is Presburger-definable with
+finite fibers. Every member lies in the standard-highway basin, but the graph
+$\{(l,r,\tau(l,r)):l,r\in\N\}$ is not semilinear.
+\end{corollary}
+\begin{proof}
+The column boundaries are affine and the two-column words use congruences
+modulo two, so the source family is Presburger-definable. If the entrance graph
+were semilinear, intersecting with $l=r=k\ge2$ and projecting would give a
+semilinear graph for~\eqref{basin:eq:balanced}. An infinite linear component of such
+a function graph must contain an arithmetic ray with positive increment $a$
+in $k$. Its second difference in the output is zero, whereas the quadratic has
+second difference $16a^2>0$. Hence no infinite linear component is possible,
+and finitely many finite components cannot cover the graph.
+\end{proof}
+
+Every nonnegative parameter pair belongs to the highway basin, and its entrance
+time is evaluable by the displayed integer formulas in polynomial bit time.
+The correspondence
+between Presburger-definable sets and semilinear sets is the classical
+theorem of Ginsburg and Spanier~\cite[Theorem~1.3]{gs}.
+

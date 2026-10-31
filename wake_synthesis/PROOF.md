@@ -1,4 +1,21 @@
-# Layer-profile uniqueness and inverse synthesis
+# Wake rigidity, sharp moment and inverse synthesis
+
+## Sharp width-ten moment
+
+The [moment proof](paper/width-ten-moment.tex) fixes full drift `(2,-2)` and
+transverse span ten, while leaving growth and odd-class multiplicities free.
+For `K=2*sum((-1)^j*(j-5)^2*o_j)`, the shared residue-independent graph proves
+`P<=K` by telescoping integer potentials on every closed walk. Signed residues,
+mixed parity and an exact port-count relaxation reduce all possible masks to
+1,914 representatives; 1,616 have `K<=168`. Complete physical-chronology search
+accepts only P104 at equality. An independent finite ray-parity check verifies
+the whole future of its nineteen-cell source. Thus `K>=168` and equality is rigid.
+
+The [module](verification/width10_moment/) retains the complete per-mask results.
+The reproduction entrypoint rechecks the shared upper graph and offers explicit
+quick and full moment modes. The numerical cap is a proved consequence of the
+wake, not an assumption on the period. Moments above 168 remain outside this
+extremal classification.
 
 ## Axis-wake parity
 

@@ -1,0 +1,448 @@
+{
+  "base_commit": "80a96531f26dcc361ebfa1bef47b0e6953c29b77",
+  "claims": "analytic all-state classification plus exact scoped controls; not HC or unrestricted joint-state invariants",
+  "linear": {
+    "compact_binary_boxes": 988,
+    "compact_binary_raw_equations": 428708,
+    "compact_integer_smith": [
+      {
+        "rule": "RL",
+        "side": 3,
+        "torsion_factors": [],
+        "variables": 27
+      },
+      {
+        "rule": "LR",
+        "side": 3,
+        "torsion_factors": [],
+        "variables": 27
+      },
+      {
+        "rule": "RRL",
+        "side": 3,
+        "torsion_factors": [
+          2,
+          2
+        ],
+        "variables": 36
+      },
+      {
+        "rule": "RLL",
+        "side": 3,
+        "torsion_factors": [
+          2,
+          2
+        ],
+        "variables": 36
+      },
+      {
+        "rule": "RRLL",
+        "side": 3,
+        "torsion_factors": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "variables": 45
+      },
+      {
+        "rule": "RLRL",
+        "side": 3,
+        "torsion_factors": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "variables": 45
+      },
+      {
+        "rule": "RRRL",
+        "side": 3,
+        "torsion_factors": [],
+        "variables": 45
+      },
+      {
+        "rule": "RRRLLL",
+        "side": 3,
+        "torsion_factors": [],
+        "variables": 63
+      },
+      {
+        "rule": "RRRRLL",
+        "side": 3,
+        "torsion_factors": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "variables": 63
+      },
+      {
+        "rule": "RRRRLLLL",
+        "side": 3,
+        "torsion_factors": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "variables": 81
+      }
+    ],
+    "infinite_plane_maximality_is_from_written_proof": true,
+    "phase_orders": [
+      {
+        "period_four_ansatz_order": 4,
+        "period_two_ansatz_order": 4,
+        "rule": "L"
+      },
+      {
+        "period_four_ansatz_order": 4,
+        "period_two_ansatz_order": 4,
+        "rule": "R"
+      },
+      {
+        "period_four_ansatz_order": 8,
+        "period_two_ansatz_order": 8,
+        "rule": "LL"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 8,
+        "rule": "LR"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 8,
+        "rule": "RL"
+      },
+      {
+        "period_four_ansatz_order": 8,
+        "period_two_ansatz_order": 8,
+        "rule": "RR"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "LLL"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "LLR"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "LRL"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "LRR"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "RLL"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "RLR"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "RRL"
+      },
+      {
+        "period_four_ansatz_order": 12,
+        "period_two_ansatz_order": 12,
+        "rule": "RRR"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "LLLL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "LLLR"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "LLRL"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "LLRR"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "LRLL"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "LRLR"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "LRRL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "LRRR"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "RLLL"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "RLLR"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "RLRL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "RLRR"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "RRLL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "RRLR"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 16,
+        "rule": "RRRL"
+      },
+      {
+        "period_four_ansatz_order": 16,
+        "period_two_ansatz_order": 16,
+        "rule": "RRRR"
+      },
+      {
+        "period_four_ansatz_order": 20,
+        "period_two_ansatz_order": 20,
+        "rule": "LLLLL"
+      },
+      {
+        "period_four_ansatz_order": 20,
+        "period_two_ansatz_order": 20,
+        "rule": "RLLLL"
+      },
+      {
+        "period_four_ansatz_order": 20,
+        "period_two_ansatz_order": 20,
+        "rule": "RRLLL"
+      },
+      {
+        "period_four_ansatz_order": 20,
+        "period_two_ansatz_order": 20,
+        "rule": "RRRLL"
+      },
+      {
+        "period_four_ansatz_order": 20,
+        "period_two_ansatz_order": 20,
+        "rule": "RRRRL"
+      },
+      {
+        "period_four_ansatz_order": 20,
+        "period_two_ansatz_order": 20,
+        "rule": "RRRRR"
+      },
+      {
+        "period_four_ansatz_order": 24,
+        "period_two_ansatz_order": 24,
+        "rule": "LLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 48,
+        "period_two_ansatz_order": 24,
+        "rule": "RLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 48,
+        "period_two_ansatz_order": 24,
+        "rule": "RLRLRL"
+      },
+      {
+        "period_four_ansatz_order": 24,
+        "period_two_ansatz_order": 24,
+        "rule": "RRLLLL"
+      },
+      {
+        "period_four_ansatz_order": 48,
+        "period_two_ansatz_order": 24,
+        "rule": "RRRLLL"
+      },
+      {
+        "period_four_ansatz_order": 24,
+        "period_two_ansatz_order": 24,
+        "rule": "RRRRLL"
+      },
+      {
+        "period_four_ansatz_order": 48,
+        "period_two_ansatz_order": 24,
+        "rule": "RRRRRL"
+      },
+      {
+        "period_four_ansatz_order": 24,
+        "period_two_ansatz_order": 24,
+        "rule": "RRRRRR"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "LLLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RLLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RRLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RRRLLLL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RRRRLLL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RRRRRLL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RRRRRRL"
+      },
+      {
+        "period_four_ansatz_order": 28,
+        "period_two_ansatz_order": 28,
+        "rule": "RRRRRRR"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "LLLLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 64,
+        "period_two_ansatz_order": 32,
+        "rule": "RLLLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "RLRLRLRL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "RRLLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "RRLLRRLL"
+      },
+      {
+        "period_four_ansatz_order": 64,
+        "period_two_ansatz_order": 32,
+        "rule": "RRRLLLLL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "RRRRLLLL"
+      },
+      {
+        "period_four_ansatz_order": 64,
+        "period_two_ansatz_order": 32,
+        "rule": "RRRRRLLL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "RRRRRRLL"
+      },
+      {
+        "period_four_ansatz_order": 64,
+        "period_two_ansatz_order": 32,
+        "rule": "RRRRRRRL"
+      },
+      {
+        "period_four_ansatz_order": 32,
+        "period_two_ansatz_order": 32,
+        "rule": "RRRRRRRR"
+      }
+    ],
+    "raw_periodic_presentations": 126,
+    "solver": "exact Smith form over Z (SymPy); XOR rank for GF(2)"
+  },
+  "literal": {
+    "color_stream_sha256": "4cb843b9a0cb91547d1751e5c7137f7c1ffdb16de1e6889b92d2f5656524dec3",
+    "complete_endpoint_field_comparisons": 1528,
+    "complete_inputs": 1528,
+    "exact_read_color_stream_comparisons": 1528,
+    "huge_coordinate_python_inputs": 16,
+    "literal_updates_per_implementation": 438144,
+    "native_pose_potential": "independently integrated on the raw 4x4 pose graph",
+    "python_complete_field_clock_recomputations": 8376
+  },
+  "local": {
+    "color_cycle_relations": 8160,
+    "color_transition_equalities": 114752,
+    "face_relations": 8160,
+    "four_period_pose_equalities": 16320,
+    "huge_integer_local_equalities": 480,
+    "invalid_inputs_rejected": 7,
+    "mod32_naive_lift_detected": true,
+    "nonlinear_pair_increment_conflict": [
+      0,
+      1
+    ],
+    "rules": 510
+  },
+  "schema": "separated-phase-cocycles-v1",
+  "source_sha256": {
+    "check.py": "1218e86eeb3755bcdb2a8c9988cf396536ade93c8fbfa9754c2a51bacf311f63",
+    "core.py": "dfc450d33faa80f6fdb20f612f9d483def33601292fc599a0b58948434685b29",
+    "linear_audit.py": "77f88f11fe6564daabe76c889b5bf8c5d9710ea48864dcef4e802f0799e71198",
+    "oracle.cpp": "a5a092de2481d77941ec00b5cbbc23bdb5805fb9e9373d21a607aa18caaa1bbc"
+  },
+  "status": "passed"
+}

@@ -1,0 +1,513 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\R}{\mathrm R}
+\newcommand{\Lturn}{\mathrm L}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\tape}{\mathcal C_n}
+\newcommand{\eps}{\varepsilon}
+\title{Maximal Separated Phase Clocks and Spatial Charges\\for Cyclic Langton Ants}
+\author{Hao Ke}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a cyclic $n$-color Langton ant, we classify observables that separate the
+complete coloring from the head pose and have a constant increment on every
+update. The coloring statistic is allowed to be arbitrary, rather than assumed
+additive, local, or spatially periodic. In one invariant heading--checkerboard
+sector, the largest modulus of a unit-increment clock is $8n$ when the rule
+contains odd numbers of both right and left turns, and $4n$ otherwise. Explicit
+four-periodic spatial coefficients attain the bound. A coloring statistic
+shared by both sectors has maximal modulus $4n$. For the classical two-color
+ant this gives a sharp sixteen-phase clock, together with a complete
+classification of separated cocycles over every abelian coefficient group.
+For mixed rules we also classify all compactly supported coloring potentials:
+they are unique finite sums of explicit order-two plaquette charges, with the
+available face families determined by the two turn-count parities. The proofs
+use forced additivity, local pose equations, and planar integration. Exact
+Smith-form audits and independent literal implementations provide reproducible
+controls. The resulting formulas describe the exact phase information available from
+separated full-state observations.
+\end{abstract}
+
+\section{Introduction}
+A cyclic Langton ant reads a cell, turns left or right according to its color,
+advances that color through a finite cycle, and moves one lattice step.
+The alternating horizontal and vertical moves partition its possible incoming
+poses into two checkerboard sectors. This representation, and its interpretation
+through local Truchet connections, go back to the study of generalized ants by
+Gale, Propp, Sutherland and Troubetzkoy~\cite{gale}.
+
+A natural way to seek algebraic information about the dynamics is to combine
+a statistic of the entire coloring with a correction depending only on the
+position and heading. Such observables include familiar spatial charges and
+modular counters. We ask a completeness question: how much elapsed-time phase
+can any observable of this separated form retain, even if its coloring
+statistic is nonlinear and has unrestricted spatial dependence?
+
+Our answer is exact. For a rule with $r$ right-turn colors and $l$ left-turn
+colors, $r+l=n$, a sector-specific unit clock has maximal modulus
+\begin{equation}\label{eq:mainM}
+ M=\begin{cases}8n,&r,l\text{ both odd},\\4n,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+The classical rule has $M=16$. The extra factor of two requires spatial
+resolution beyond period two, and disappears when one insists on a single
+coloring statistic for both sectors. We additionally give a complete local
+presentation for the separated cocycles of every mixed rule, and a basis for
+all their compactly supported coloring potentials.
+
+\paragraph{Relation to previous work.}
+Jillhewar~\cite{jillhewar}, in the proposition labelled \texttt{prop:cocycle},
+proves the classical additive-charge conditions $4w=0$ and the zero four-corner
+sum, with sufficiency over $\Z/4\Z$. We use and explicitly recover this
+zero-rate calculation; the familiar row and column charges are not newly
+introduced here. McNamara~\cite{mcnamara} studies fixed finite ansatz families
+with affine coordinate/time terms and zero-, one-, or two-bit site classes.
+That study already explains why grouping the increments by turn removes the
+order of the colors from the parameter equations. Our contribution is the
+unrestricted spatial and arbitrary-coloring problem, its sharp nonzero phase
+order, and the complete compact-charge basis. Order-blindness of the grouped
+parameter equations is credited to that earlier observation, not claimed anew.
+
+\section{All-state separated observables}
+Let $\tau=(\tau_0,\ldots,\tau_{n-1})\in\{\R,\Lturn\}^n$ be nonempty. A
+coloring $C:\Z^2\to\Z/n\Z$ belongs to $\tape$ if it is zero outside a finite
+set. A state is $X=(C,p,h)$, where $p=(x,y)$ and $h\in\{0,1,2,3\}$ denotes
+north, east, south, west, with step vectors
+$e_0=(0,1),e_1=(1,0),e_2=(0,-1),e_3=(-1,0)$.
+Set $r=\#\{i:\tau_i=\R\}$ and $l=\#\{i:\tau_i=\Lturn\}$,
+where $0\le i<n$. Reading color $c=C(p)$ changes $h$ by $+1$ for $\R$ or
+$-1$ for $\Lturn$, changes $c$ to $c+1\pmod n$, and moves in the new heading.
+Denote this map by $T_\tau$.
+
+The value
+\[
+ \eps=h-x-y\pmod2
+\]
+is conserved. We first fix $\eps=0$: even sites have incoming headings N/S
+and odd sites E/W. The quarter-turn $(x,y,h)\mapsto(-y,x,h-1)$ carries the other
+sector to this one and preserves the rule. All statements quantify over every
+finite coloring and every pose in the stated sector, not merely over the orbit
+of a blank input.
+
+Let $G$ be an arbitrary abelian group and $\kappa\in G$. We call
+\begin{equation}\label{eq:separated}
+ I(C,p,h)=F(C)+\phi(p,h),\qquad
+ I(T_\tau X)-I(X)=\kappa
+\end{equation}
+a separated cocycle of constant rate $\kappa$. No initial assumption is made
+on $F$ except that it is a function on $\tape$. In particular it can initially
+be nonlinear or depend on the entire finite coloring. A conserved quantity has
+$\kappa=0$. A unit phase clock modulo $m$ has $G=\Z/m\Z$ and $\kappa=1$.
+
+\begin{lemma}[Forced additivity]\label{lem:additive}
+Every $F$ in \eqref{eq:separated} has a unique representation
+\begin{equation}\label{eq:additive}
+ F(C)=F(0)+\sum_{v\in\Z^2} f_v(c_v),\qquad f_v(0)=0.
+\end{equation}
+For a mixed rule, meaning $r,l>0$, there exist $a_v,b_v\in G$ such that
+\begin{equation}\label{eq:increments}
+ f_v(c)=R(c)a_v+L(c)b_v,\qquad r a_v+l b_v=0,
+\end{equation}
+For the representative $0\le c<n$, define
+$R(c)=\#\{0\le i<c:\tau_i=\R\}$ and
+$L(c)=\#\{0\le i<c:\tau_i=\Lturn\}$.
+\end{lemma}
+\begin{proof}
+Choose an allowed heading at $v$ and a coloring with $C(v)=c$.
+Write $C^{v,+}$ for the coloring equal to $C$ away from $v$ and with value
+$c+1\pmod n$ at $v$; let $h'$ be the resulting heading. The update affects
+no other cell. Equation~\eqref{eq:separated} gives
+\[
+ F(C^{v,+})-F(C)=\kappa+\phi(v,h)-\phi(v+e_{h'},h').
+\]
+The right side is independent of all other colors. Increment the finitely
+many nonzero coordinates of $C$ from zero, in any fixed order. Their increments
+therefore add, proving \eqref{eq:additive}. The single-cell colorings fix the
+$f_v$ uniquely. Equal-turn colors have the same target pose and hence the same
+increment: $a_v$ for R and $b_v$ for L. Summing these increments gives the first
+part of \eqref{eq:increments}; going around the color cycle gives the second.
+\end{proof}
+
+The lemma does not say that every invariant of the ant is additive. The
+separation in \eqref{eq:separated} is an essential hypothesis. A head correction
+that also sees nearby colors is outside that hypothesis.
+
+\section{A complete face presentation}
+Write $d_v=a_v-b_v$. A square is an \emph{R-face} when its lower-left corner has
+odd checker parity, and an \emph{L-face} when that corner has even parity.
+Write $\partial S$ for the four corner vertices of a unit square $S$.
+The directed four-pose circuit around an R-face uses four right turns; around
+an L-face it uses four left turns. For example the L-face based at $(0,0)$ has
+incoming poses $(0,0,\mathrm S),(1,0,\mathrm E),(1,1,\mathrm N),(0,1,\mathrm W)$.
+
+\begin{theorem}[Face presentation]\label{thm:presentation}
+For a mixed cyclic rule, weights \eqref{eq:increments} admit a pose correction
+of constant rate $\kappa$ in sector zero if and only if
+\begin{align}
+ 2d_v&=0,&r a_v+l b_v&=0 &&\text{at every site},\label{eq:site}\\
+ \sum_{v\in\partial S}a_v&=4\kappa &&&&\text{for every R-face }S,\label{eq:Rface}\\
+ \sum_{v\in\partial S}b_v&=4\kappa &&&&\text{for every L-face }S.\label{eq:Lface}
+\end{align}
+The pose correction is unique up to a constant.
+\end{theorem}
+\begin{proof}
+At an even site, compare the N and S input equations with the same E or W
+target pose. The two comparisons yield
+\[
+ \phi(v,\mathrm S)-\phi(v,\mathrm N)=a_v-b_v=b_v-a_v.
+\]
+Thus $2d_v=0$. At an odd site the identical calculation gives
+$\phi(v,\mathrm W)-\phi(v,\mathrm E)=d_v$. The color-cycle relation was proved
+in Lemma~\ref{lem:additive}. Summing the four pose equations on a face circuit
+gives \eqref{eq:Rface} or \eqref{eq:Lface}.
+
+For sufficiency let $U(v)$ be the correction at the primary heading, N on
+even sites and E on odd sites. The opposite heading is assigned $U(v)+d_v$.
+Orient horizontal grid edges from even sites to odd sites and vertical edges
+from odd sites to even sites. Assign the following increments of $U$:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Source parity & Edge to $u$ & $U(u)-U(v)$\\
+\midrule
+even & east & $\kappa-a_v$\\
+even & west & $\kappa-a_v+d_v-d_u$\\
+odd & north & $\kappa-a_v+d_v$\\
+odd & south & $\kappa-a_v-d_u$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Reverse traversal negates the increment. Its circulation is
+$4\kappa-\sum a_v$ on an R-face, and $4\kappa-\sum b_v$ on an L-face;
+the latter simplification uses $2d_v=0$. Both vanish.
+
+Every finite closed walk in the square grid is a sum of elementary face
+boundaries and edge backtracks. This can also be proved by successively
+interchanging neighboring horizontal and vertical steps and removing
+backtracks. Consequently path integration from the origin defines $U$ on all
+of $\Z^2$. Substitute $\phi=U$ at primary headings and $\phi=U+d$ at opposite
+headings into the local transitions. The table gives the required equations;
+the remaining opposite-heading equalities use $2d=0$. The color-cycle relation
+ensures that the functions $f_v$ wrap consistently. This proves sufficiency.
+The edge gradients and the opposite-heading differences determine every pose
+once $U(0,0)$ is fixed, proving uniqueness.
+\end{proof}
+
+This presentation includes arbitrary spatial coefficients and arbitrary
+abelian targets. The rule order still enters the actual color functions through
+$R(c),L(c)$; it disappears only from the equations on $a,b$. The latter
+reduction is the order-blindness mechanism identified in~\cite{mcnamara}.
+
+\section{The maximal phase period}
+\begin{theorem}[Sharp phase order]\label{thm:period}
+Let $M$ be given by \eqref{eq:mainM}. For any abelian group $G$, there is a
+separated cocycle of rate $\kappa$ in one fixed sector if and only if
+$M\kappa=0$. Its coloring coefficients and pose correction can be chosen
+four-periodic in each coordinate. If the same coloring function must work in
+both sectors, existence is equivalent to $4n\kappa=0$.
+\end{theorem}
+\begin{proof}
+First suppose the rule is mixed. From \eqref{eq:site},
+\[
+ n a_v=l d_v,\qquad n b_v=-r d_v.
+\]
+Multiplying a face equation by $n$ gives
+\begin{equation}\label{eq:necessaryorder}
+ 4n\kappa=l\sum_{\partial S_R}d_v
+          =-r\sum_{\partial S_L}d_v,
+\end{equation}
+where any one face of each kind may be used. Since $2d_v=0$,
+$8n\kappa=0$ is necessary. If $l$ is even the first expression vanishes; if
+$r$ is even the second vanishes. This gives the required necessary order.
+
+For existence when $4n\kappa=0$, write
+$z(x,y)=\ind_{x\text{ odd},\,y\text{ odd}}$ and choose
+\begin{equation}\label{eq:universalclock}
+ a_v=b_v=4z(v)\kappa.
+\end{equation}
+Every face contains exactly one odd/odd vertex. All site and face equations
+hold, so Theorem~\ref{thm:presentation} applies.
+
+Now suppose $r,l$ are odd, so $n$ is even, and $8n\kappa=0$. Put
+\begin{align}
+ \chi(x,y)&=(-1)^{x+y},\notag\\
+ u(x,y)&=(1-n/2)z(x,y)-(n/2)\chi(x,y)xy,\label{eq:u}\\
+ a_v&=4u(v)\kappa,\qquad b_v=(1-n)a_v.\label{eq:doubled}
+\end{align}
+Then $d_v=na_v$ has $2d_v=0$, and
+$r a_v+l b_v=n(1-l)a_v=0$, because $1-l$ is even.
+The corner sum of $\chi xy$ is the checker sign of the lower-left corner.
+It follows that the corner sum of $u$ is $1$ on R-faces and $1-n$ on L-faces.
+Thus \eqref{eq:Rface} holds and
+\[
+ \sum_{\partial S_L}b_v=4(1-n)^2\kappa=4\kappa,
+\]
+since $4n(n-2)\kappa=0$. Theorem~\ref{thm:presentation} proves existence.
+Taking $\kappa=1$ in $\Z/(8n)$ attains the upper bound.
+
+The coefficients in \eqref{eq:doubled} have period four: the change after
+$x\mapsto x+4$ is a multiple of $8n\kappa$, and similarly for $y$. The edge
+increments in the proof of Theorem~\ref{thm:presentation} are also
+four-periodic. Along either coordinate axis their four-edge sum is zero
+(the terms alternate $\kappa,-\kappa$). Zero face circulation carries this
+identity to every parallel line. Hence the integrated $U$, and then $\phi$,
+can be four-periodic. Construction~\eqref{eq:universalclock} has the same
+property.
+
+For a constant all-R or all-L rule, the blank ant circles four cells. After
+$4n$ updates its complete coloring and pose return, so $4n\kappa=0$ is
+necessary for \emph{any} state observable of constant increment. For sufficiency set $a_v=b_v=4z(v)\kappa$, where $z(v)$ is the indicator
+that both coordinates are odd. Then $d_v=0$, $na_v=0$, and every unit square
+has corner sum $4\kappa$. The edge table in the sufficiency proof of
+Theorem~\ref{thm:presentation} therefore has zero circulation even in this
+constant-rule case. Its path integral $U$ supplies $\phi(p,h)=U(p)$, and direct
+substitution verifies every allowed transition with
+$f_v(c)=4c\,z(v)\kappa$. This constructs the clock whenever $4n\kappa=0$,
+including a unit clock modulo $4n$.
+
+Finally suppose one field function $F$ works in both sectors for a mixed
+rule. Its increments $a_v,b_v$ are common to the sectors. Every geometric
+face is an R-face in one sector and an L-face in the other. Therefore both
+corner sums equal $4\kappa$, and every corner sum of $d$ vanishes. Multiplying
+the sum of $a$ by $n$ gives $4n\kappa=0$. Construction
+\eqref{eq:universalclock} uses one and the same $F$ in both sectors and is sharp.
+\end{proof}
+
+\begin{corollary}[Spatial resolution]\label{cor:resolution}
+If the increments $a_v,b_v$ are two-periodic in either coordinate, a separated
+constant-rate cocycle necessarily satisfies $4n\kappa=0$, even without a
+periodicity assumption on $\phi$. When $r,l$ are odd, four-periodic coefficients
+attain order $8n$.
+\end{corollary}
+\begin{proof}
+Under two-periodicity in $x$, a four-corner sum is unchanged by moving the face
+one column. The neighboring face has the opposite type. Hence both sums,
+for $a$ and $b$, equal $4\kappa$ on every face. The final argument in
+Theorem~\ref{thm:period} applies. The $y$ case is identical.
+\end{proof}
+
+Thus the small sublattice ansatz is a genuine restriction for detecting the
+extra phase. For example RL has maximum $8$ under that restriction and $16$
+without it; RRRL has $16$ and $32$, whereas RRLL has $16$ in both cases.
+
+\section{The classical ant: a sixteen-phase formula}
+For the rule RL, write $B$ for the complete finite black set. The two increments
+are $a_v=w_v$, $b_v=-w_v$, and $4w_v=0$.
+
+\begin{theorem}[Complete classical separated form]\label{thm:classical}
+In sector zero, an observable \eqref{eq:separated} exists precisely when
+$16\kappa=0$ and
+\begin{equation}\label{eq:classicalform}
+ F(B)=F(\varnothing)+\sum_{(x,y)\in B}
+ (-1)^{x+y}\bigl(f(x)+g(y)-4xy\kappa\bigr),
+\end{equation}
+where $f,g$ take values in $G[4]=\{a:4a=0\}$. One may normalize $g(0)=0$;
+then the functions are unique. The pose correction is unique up to a constant.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:additive} first forces $F$ to be a sum of weights $w_v$.
+For a square based at $(x,y)$ the two face equations reduce to
+\[
+ \sum_{v\in\partial S} w_v=-4(-1)^{x+y}\kappa.
+\]
+Let $A(x,y)=(-1)^{x+y}w(x,y)$. Its mixed difference is $-4\kappa$.
+Telescoping over rectangles, including signed rectangles for negative
+coordinates, gives
+\[
+ A(x,y)=A(x,0)+A(0,y)-A(0,0)-4xy\kappa.
+\]
+Take $f(x)=A(x,0)$ and $g(y)=A(0,y)-A(0,0)$. Both are 4-torsion. Applying
+$4$ to the mixed difference forces $16\kappa=0$. Conversely, these conditions
+make every weight 4-torsion and satisfy both face equations, so
+Theorem~\ref{thm:presentation} applies.
+\end{proof}
+
+At zero rate this recovers the classical checker-signed row and column charges;
+the underlying local cocycle condition is due to~\cite{jillhewar}. The theorem
+adds the nonzero-rate term, sharp order, and the removal of an a priori
+additivity assumption.
+
+For an explicit unit clock modulo 16 take $f=g=0$. Set
+\begin{equation}\label{eq:Phi}
+ U(x,y)=\begin{cases}
+ 0,&x,y\text{ even},\\
+ 1,&x\text{ odd},\ y\text{ even},\\
+ 4y-2,&x,y\text{ odd},\\
+ 4x-1,&x\text{ even},\ y\text{ odd},
+ \end{cases}\quad
+ \Phi(x,y,h)=U(x,y)+8xy\ind_{h\in\{\mathrm S,\mathrm W\}}.
+\end{equation}
+Then
+\begin{equation}\label{eq:Q16}
+ Q(B,p,h)=-4\sum_{(x,y)\in B}(-1)^{x+y}xy+\Phi(p,h)\pmod {16}
+\end{equation}
+satisfies $Q(T_{\mathrm{RL}}X)=Q(X)+1$. This follows either by substitution
+in the eight heading/color cases or from the integrated construction above.
+For sector one evaluate the formula on the quarter-rotated state. In particular,
+\begin{equation}\label{eq:time}
+ t\equiv Q(X_t)-Q(X_0)\pmod {16}.
+\end{equation}
+All black cells enter the finite sum, including cells not yet read. The formula
+is spatially four-periodic, and its evaluation needs no past trajectory.
+
+\begin{corollary}
+No separated unit clock modulo 32 exists for classical RL on one full sector,
+even with an arbitrary nonlinear $F$ and arbitrary spatial pose correction.
+For any mixed cyclic rule there is no nonconstant separated first integral
+with values in a torsion-free abelian group, and no such clock of a fixed
+positive real increment.
+\end{corollary}
+\begin{proof}
+The first assertion is Theorem~\ref{thm:period}. For a torsion-free target,
+that theorem forces $\kappa=0$. Equations~\eqref{eq:site} give $d=0$ and
+$na=0$, hence $a=b=0$. The integrated pose correction is constant.
+\end{proof}
+This does not exclude strict clocks whose increment is positive but varies
+with the state. It also does not put a bound of sixteen on information available
+to a genuinely joint function of the complete state.
+
+\section{All compact separated invariants}
+We now set $\kappa=0$ and assume the rule is mixed. Call $F$ \emph{compact}
+when it depends only on the colors in some fixed finite set of sites. By
+Lemma~\ref{lem:additive}, this means that $a,b$ are finitely supported.
+
+\begin{theorem}[Compact-charge basis]\label{thm:compact}
+Modulo additive constants, the compact separated invariants over $G$ form
+\begin{equation}\label{eq:compactmodule}
+ \left(\bigoplus_{S\text{ an L-face}}G[2]\right)_{r\ \mathrm{even}}
+ \ \oplus\
+ \left(\bigoplus_{S\text{ an R-face}}G[2]\right)_{l\ \mathrm{even}},
+\end{equation}
+where a parenthesized summand is omitted when its subscript condition fails.
+Every invariant is a unique finite sum of the plaquette generators below.
+Thus classical RL has no nontrivial compact separated field invariant, over
+any abelian group.
+\end{theorem}
+\begin{proof}
+Since $2d=0$, we have $2a=2b$. Doubling the two face conditions shows that $2a$
+has zero corner sum on every square. Therefore $\chi\,2a$ is a sum of a row
+function and a column function. A finitely supported function of this form is
+zero: outside its horizontal support the column function must be constant,
+and outside its vertical support the row function must cancel that constant.
+Hence $2a=2b=0$.
+
+The color-cycle equation is now
+$(r\bmod2)a+(l\bmod2)b=0$. If both counts are odd, $a=b$ and the all-face
+zero-sum argument forces $a=b=0$. If $r$ is even and $l$ odd, $b=0$ and $a$
+has only its R-face constraint. The other case is symmetric. If both counts
+are even, the R-face constraint on $a$ and the L-face constraint on $b$ are
+independent.
+
+To solve the remaining R-face constraint, make a graph whose vertices are the
+centers of the R-faces. Each original lattice vertex joins its two diagonally
+opposite incident R-faces, and is an edge of this rotated square lattice. The
+condition $\sum_{\partial S_R}a=0$ says exactly that this finitely supported
+edge assignment is a cycle with coefficients in $G[2]$. Every such cycle is a
+unique finite sum of elementary face boundaries. One elementary proof is to
+integrate edge labels along dual paths starting outside a bounding box of
+the support, assigning exterior faces coefficient zero. Zero boundary makes
+the integration path independent; finite support leaves only finitely many
+faces with nonzero coefficients.
+If every edge difference is zero, all face coefficients equal the exterior
+zero, proving uniqueness. Elementary faces of this graph correspond to the
+original L-faces. This proves the first direct sum in
+\eqref{eq:compactmodule}; exchange the face colors for the second.
+
+It remains to provide the actual pose corrections. For an L-face $S$, let
+$\Pi_L(S)$ be the four incoming poses of its all-L circuit. If $r$ is even,
+and $z\in G[2]$, define
+\begin{equation}\label{eq:compactgenerator}
+ J^R_{S,z}(C,p,h)
+ =z\left(\sum_{v\in\partial S}R(c_v)+\ind_{(p,h)\in\Pi_L(S)}\right).
+\end{equation}
+The wrap in color is well defined because $r$ is even. A right turn at a
+corner changes the field sum by $z$ and moves the pose into or out of
+$\Pi_L(S)$, changing its correction by $z$; all other transitions change
+neither contribution. Thus the total is conserved. When $l$ is even the
+analogous $J^L$ uses an R-face, $L(c)$ and the all-R pose circuit. Their
+coefficients are exactly the elementary boundaries already classified, so
+they realize and exhaust the direct sums, with unique normalized pose corrections.
+\end{proof}
+
+The condition is on the total counts, not on consecutive run lengths. For
+example RLRL has both families in \eqref{eq:compactmodule}, despite its odd run
+lengths. This is distinct from the even-run hypothesis used for recurrent
+symmetry in~\cite{gale}; no conclusion about recurrence follows here.
+
+\section{Verification and reproducibility}
+The proofs above are analytic over all parameters and all abelian coefficient
+groups. The accompanying implementation performs three kinds of exact control.
+First, it checks every color transition at every four-periodic coordinate and
+allowed heading for all rules of lengths one through eight, including color
+wrap. It also evaluates local identities at very large integer coordinates.
+Second, an independent raw linear presentation assigns a separate unknown to
+every site/color and every pose, without assuming same-turn reduction. Exact
+integer Smith forms on two- and four-periodic grids recover the respective phase
+orders. Finite-box binary kernels and integer presentations recover the compact
+basis and its order-two factors. These finite presentations do not replace the
+all-plane proof.
+
+Third, independent Python and C++ literal dynamics compare complete read-color
+streams and complete final colorings for finite inputs in both sectors, including
+unread remote cells. The Python head potential is computed by coordinate-path
+integration; C++ reconstructs its potential independently on the raw pose graph.
+Both periodically recompute the entire coloring contribution. The classical
+closed formula~\eqref{eq:Q16} is checked separately. The deterministic report
+records performed counts, negative controls and source hashes. Reproduction uses
+\texttt{python phase\_cocycle/reproduce.py}; exact matrix checks require
+SymPy and the native control requires a C++17 compiler.
+
+\section{Limitations}
+The maximality theorem concerns the separated, constant-rate, all-state class
+\eqref{eq:separated}. It does not classify arbitrary joint-state functions,
+pose corrections that inspect colors, variable-increment potentials, or
+identities restricted to a selected orbit. A modular clock does not decrease
+and cannot by itself be a finite-resource termination argument. Neither the
+phase classification nor the compact-charge basis proves eventual periodicity,
+period-104 uniqueness, the finite-support Highway Conjecture, or universality.
+The new classification is not a claim that the earlier classical charges or
+same-turn reduction were unknown. The verification is unformalized analytic
+proof with exact computational controls, not a theorem-prover formalization.
+
+\paragraph{Computational assistance.}
+Mathematical exploration, source drafting and test implementation were assisted
+by a language model. All claimed general results have explicit proofs above;
+finite tests are reported only for their stated verification scope.
+
+\begin{thebibliography}{9}
+\bibitem{gale}
+D. Gale, J. Propp, S. Sutherland and S. Troubetzkoy,
+\emph{Further Travels with My Ant}, The Mathematical Intelligencer
+\textbf{17}(3) (1995), 48--56.
+\href{https://arxiv.org/abs/math/9501233v1}{arXiv:math/9501233v1}.
+
+\bibitem{jillhewar}
+A. Jillhewar, \emph{Finite-Support Periodic Highways of Langton's Ant:
+Necessary Conditions, Transverse Exclusions, and Exact Search}, manuscript
+source dated 17 August 2026. Additive-charge proposition
+\texttt{prop:cocycle},
+\href{https://github.com/Atharva12456/langtons-ant-highway/blob/76a7e234e577d992d086c204c3dea00ae72cf10a/paper/main.tex}{source revision 76a7e234e577}.
+
+\bibitem{mcnamara}
+T.S. McNamara, \emph{Invariant mining, stage 2: all moduli at once, sublattice
+families, and what the rule can and cannot change}, research report,
+22 October 2026. \texttt{turmite-autoresearch},
+\href{https://github.com/timClicks/turmite-autoresearch/blob/8904956fbb5a0e3bce676a39e92f4543f3774c5f/experiments/archive/2026-10-invariant-mining-snf/README.md}{archived report, revision 8904956fbb5a}.
+\end{thebibliography}
+\end{document}

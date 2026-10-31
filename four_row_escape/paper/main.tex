@@ -15,29 +15,38 @@
 \newcommand{\minusinf}{-\infty}
 \newcommand{\NN}{\mathbb N}
 \newcommand{\ZZ}{\mathbb Z}
-\title{Exact Escape Times of Langton's Ant in Four Rows\\[4pt]
-\large A finite persistent-response classification and an all-width certificate}
+\newcommand{\R}{\mathcal R}
+\newcommand{\Lft}{\mathcal L}
+\newcommand{\J}{\mathcal J}
+\newcommand{\E}{\mathrm E}
+\newcommand{\W}{\mathrm W}
+\newcommand{\West}{\mathrm W}
+\newcommand{\North}{\mathrm N}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\word}[1]{\texttt{#1}}
+\newcommand{\xor}{\mathbin{\triangle}}
+\title{From Four Rows to Five:\\Escape Times and Persistent Memory in Langton's Ant}
 \author{Hao Ke}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-How long can Langton's ant remain inside a rectangle with four rows?
-We maximize the time of its first exit over every initial colouring and every
-starting position and heading. For a rectangle of width $n$, the exact maximum
-is $S_{4,n}=34n-150$ for all $n\ge13$; we also determine every smaller case.
-This proves Etse's conjectured upper bound $S_{4,n}\le34n$ and matches his
-lower-bound family from width fourteen onward. The main difficulty is that a
-returning ant encounters the colours changed on its previous visits, so a
-block cannot be replaced by a device that resets after each crossing.
-We classify blocks by their responses to repeated entries, retaining the
-changed response after each return. Exactly 269 response types occur for
-each choice of entry side and parity, and this collection is closed under
-adjoining a column. A weighted version gives an exact recurrence for the
-maximum escape time. Finite integer inequalities then prove its affine
-behaviour for every larger width. The proof combines an induction covering
-arbitrarily wide rectangles with exact finite certificates, and reconstructs
-colourings attaining each maximum.
+How does one extra row change the time Langton's ant can spend inside a
+rectangle? For four rows and width $n$, the exact maximum first-exit time is
+$34n-150$ for $n\ge13$, with every smaller value also determined. A closed
+catalogue of 269 persistent boundary-response types gives this all-width result.
+Five rows instead admit infinitely many distinguishable boundary responses.
+An explicit pair of unary counters turns that memory into autonomous motion:
+a width-$4k+9$ rectangle confines the ant for exactly $8k^2+60k+16$ updates.
+This answers negatively the question of linear escape bounds at every fixed
+height. We then determine the entire future of the same two-counter family,
+including its earliest permanent period-104 highway entrance for every pair
+of counter lengths. Finally, an exact algorithm computes its complete state
+at any binary-specified time using fewer than 20,000 finite arithmetic XOR
+segments and polynomial bit time. Finite interface closure, local counter
+identities and integer-affine recovery certificates connect these results
+without resetting the field or discarding its history.
 \end{abstract}
 
 \section{The exact question and answer}
@@ -86,7 +95,18 @@ The coefficient $34$ is consequently optimal. The first-exit convention agrees
 with~\cite{etse}; our reduction includes all internal poses and does not rely
 on a boundary-start lemma.
 
-The proof has three stages. Section~2 replaces each coloured block by the
+Etse also asks whether a bound linear in width holds at every fixed height
+\cite[Section~5, p.~49:16]{etse}. The five-row construction in
+Section~\ref{sec:five} answers this question: it gives quadratic residence times
+and identifies the first height with infinite persistent response index.
+Section~\ref{sec:basin} follows the very same complete source through recovery
+to its permanent highway. Section~\ref{sec:access} computes its whole state at
+arbitrary times from the two counter lengths, including the accumulated wake.
+Finite ant computation followed by a highway has precedents in the circuit
+construction of Gajardo, Moreira and Goles~\cite{gmg}; here the original
+counter source itself has an explicitly classified autonomous infinite future.
+
+The four-row proof has three stages. Section~2 replaces each coloured block by the
 responses that a caller can observe after repeated entries, with all colour
 changes retained. Section~3 uses the finite response catalogue to bound local
 visits. Sections~4--5 attach durations and prove an exact recurrence by integer
@@ -368,6 +388,10 @@ explicit masks. Its reconstruction is an output-sensitive finite algorithm,
 not a demand to simulate an unbounded run. In particular the asymptotic lower
 coefficient 34 is established independently of the earlier lower construction.
 
+\input{five-row}
+\input{counter-basin}
+\input{random-access}
+
 \section{Computational proof obligations}
 The finite certificate has four roles: it verifies the response products and
 ranks of Proposition~\ref{prop:catalogue}, the local products of
@@ -390,10 +414,11 @@ also holds on an infinite initial colouring.
 The infinite-strip consequence assumes that the orbit stays in the band.
 A general planar orbit can leave a band and return after modifying its
 exterior. Extending the method requires interfaces that account for those
-excursions. For larger fixed heights, a first question is whether repeated
-entries still admit a finite response catalogue. The four-row proof isolates
-the closure property and the weighted induction that such a catalogue would
-need to support. The finite tables and their coverage arguments are verified
+excursions. The five-row family supplies a quadratic lower bound; the exact maximal
+five-row escape function remains to be determined. Its recovery and succinct
+state algorithm apply to the explicitly encoded two-counter family. The
+20,000-term bound is conservative, and explicit enumeration of every black
+coordinate has output cost proportional to the field being printed. The finite tables and their coverage arguments are verified
 by exact programs and written inductions. Their translation into a formal
 proof assistant remains a separate task; the computational trust base is
 described in Appendix~\ref{app:reproduction}.
@@ -469,6 +494,33 @@ added as exterior controls. The first-exit calculation does not read outside
 the rectangle. The source also records an attaining 34-update column and an
 autonomous 21-crossing cut witness.
 
+\subsection{Five-row, recovery and complete-state certificates}
+The six literal kernels and all-parameter round induction in
+Section~\ref{sec:five} establish the autonomous construction. Its dedicated
+checker also reconstructs the finite height-one through height-four response
+catalogues. Python and C++ full-field controls cover both exhaustion orders
+and all zero-counter boundaries.
+
+For recovery, the source package contains the nine literal affine-word programs,
+the 59 base cases, their complete field compiler and two exact integer epoch
+checkers. Each infinite parameter ray and final infinite epoch interval is
+covered by the finite sign and intersection reductions proved in
+Section~\ref{sec:basin}. The extra-counter guards are checked on both finite
+programs and every possible tail encounter with the data rows.
+
+The random-access checker compares 6,291 intermediate complete states on
+111 original sources with literal implementations. It checks finite segment
+arrangements against direct sets and tests exact one-update identities on
+parameters as large as $10^{120}$. These are controls on the implementation;
+the uniform term and bit bounds are proved in Section~\ref{sec:access}.
+All three components are run by the same reproduction entrypoint. Individual
+modules can also be checked with \texttt{--component five},
+\texttt{--component basin}, or \texttt{--component access}.
+
+\paragraph{Assistance.} AI-assisted tools supported proof development,
+exposition and verification code. The written coverage arguments, immutable
+witnesses and exact verifier programs specify the mathematical evidence.
+
 \begin{thebibliography}{9}
 \bibitem{etse}
 Kossi Roland Etse.
@@ -478,5 +530,11 @@ Computer Science (MFCS 2026)}, LIPIcs 386, 49:1--49:17, 2026.
 \newblock \href{https://doi.org/10.4230/LIPIcs.MFCS.2026.49}{doi:10.4230/LIPIcs.MFCS.2026.49}.
 \newblock Full version: \href{https://arxiv.org/abs/2606.26677}{arXiv:2606.26677v1}.
 Published conjecture number 11; preprint conjecture number 13.
+\bibitem{gmg} A. Gajardo, A. Moreira and E. Goles.
+Complexity of Langton's Ant. \emph{Discrete Applied Mathematics} 117 (2002),
+41--50. \href{https://doi.org/10.1016/S0166-218X(00)00334-6}{doi:10.1016/S0166-218X(00)00334-6}.
+\bibitem{gs} S. Ginsburg and E. H. Spanier. Semigroups, Presburger formulas,
+and languages. \emph{Pacific Journal of Mathematics} 16 (1966), 285--296.
+\href{https://doi.org/10.2140/pjm.1966.16.285}{doi:10.2140/pjm.1966.16.285}.
 \end{thebibliography}
 \end{document}

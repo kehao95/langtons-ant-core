@@ -1,27 +1,8 @@
-# Exact Escape Times of Langton's Ant in Four Rows
+# From Four Rows to Five: Escape Times and Persistent Memory in Langton's Ant
 
-For every coloring and internal starting pose of a four-row, n-column rectangle,
-the maximum first-exit time is `S(4,n)=34n-150` for every `n>=13`. All smaller
-values are determined. Exterior colors are arbitrary and unread before exit;
-the exit-producing update is counted. This resolves Etse's MFCS 2026 four-row
-linear-bound conjecture (published Conjecture 11; arXiv v1 Conjecture 13).
+Four rows have exact maximal first-exit time `34n-150` for `n>=13`, with all smaller values determined. Five rows admit an explicit width-`4k+9` source with exact exit time `8k²+60k+16` and infinitely many persistent boundary responses. The complete two-counter family has an exact earliest P104 entrance formula and polynomial-bit-time random access to its full evolving state.
 
-[Manuscript](paper/main.tex) · [PDF](paper/paper.pdf) ·
-[Proof map](PROOF.md) · [Verification](evidence/README.md) ·
-[Zenodo](https://doi.org/10.5281/zenodo.23675964)
-
-## Proof and scope
-
-A persistent same-side interface retains residual color behavior after every
-return. Four side/parity catalogs each contain 269 types and are closed under
-all 16 new-column masks. A weighted graph with 21,248 states and 527,764 edges
-restores durations and covers every initial internal pose. Integer inequalities
-and tight-edge attainment prove the formula for all widths by induction.
-The sharp per-column update bound is 34 and the vertical-cut crossing bound is 21.
-
-The analytic reductions and finite certificates are computer-assisted and
-unformalized. Separate Python and C++ implementations check the finite premises. No arbitrary-height linear bound, unrestricted
-plane transience or Highway Conjecture conclusion follows.
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof map](PROOF.md) · [Evidence](evidence/README.md) · [Archived edition](https://doi.org/10.5281/zenodo.23675964)
 
 ## Reproduce
 
@@ -30,8 +11,11 @@ python3 four_row_escape/reproduce.py
 make -C four_row_escape/paper
 ```
 
-Use Python 3.10+ without `-O`, a C++17 compiler and pdfLaTeX for the manuscript.
-The checker reconstructs the complete certificate in a disposable directory
-and compares the frozen report. There is no research-checkout dependency.
-`[1,...,12]` maxima are
-`[2,18,28,46,64,86,104,146,156,206,224,266]`.
+Python 3.10+ without `-O`, a C++17 compiler and pdfLaTeX.
+Checks run in a disposable copy and compare frozen evidence without replacing it.
+The package has no dependency on a separate research checkout.
+
+Use `--component four`, `five`, `basin`, or `access` for a theorem-local replay.
+The default checks all four components.
+
+`sources.json` fixes all article and certificate inputs by SHA-256.

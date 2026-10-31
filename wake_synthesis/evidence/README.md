@@ -20,3 +20,10 @@ Three frozen reports for analytic identities, independent parity controls and ex
 [Module and retained evidence](../verification/axis_wake/). Run
 `python3 wake_synthesis/reproduce.py --axis-only`. The analytic coverage
 argument is in the article and [proof map](../PROOF.md).
+
+## Extremal width-ten moment
+
+[Exact masks and complete chronology certificate](../verification/width10_moment/)
+are paired with the residue-independent integer upper graph already in the
+package. Use `python3 wake_synthesis/reproduce.py --moment-only --full` for the
+complete 1,616-case replay; omission of `--full` selects a deterministic sample.

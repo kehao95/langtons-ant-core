@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Sparse Initial Conditions and the Trace Space of Langton's Ant},pdfauthor={Hao Ke}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Tr}{\mathcal T}
+\newcommand{\Pos}{\mathcal P}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Rr}{\mathrm R}
+\newcommand{\Ll}{\mathrm L}
+\title{Sparse Initial Conditions and the Trace Space of Langton's Ant}
+\author{Hao Ke}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+How many different observations can an ant with at most $m$ initially black
+cells produce in its first $n$ updates, when the cell coordinates are unrestricted?
+We prove that the number of anchored turn prefixes is $\Theta_m(n^m)$ for every
+fixed $m$. The upper bound encodes a history by the times of its first black
+reads. The matching lower exponent is realized by a protected single-cell
+scattering channel, repeated with complete history retained. Every input in
+this lower-bound family ultimately follows the standard highway.
+For infinite streams, the countable compact trace spaces obey the exact
+derived-set identity $\Tr_m'=\Tr_{m-1}$: their Cantor--Bendixson rank is $m+1$.
+An explicit compact subfamily of eventually standard streams has the same
+rank and prefix exponent. We also determine the optimal passive prediction
+mistake budget to be $m$. These results classify sparse-source observation complexity uniformly over
+unrestricted initial coordinates, transient times and future geometries.
+\end{abstract}
+
+\section{The anchored sparse-source question}
+We use $\N=\{0,1,2,\ldots\}$.
+A classical ant state is a complete finite black set $B\subset\Z^2$, a head
+position $p$ and a heading $h\in\{N,E,S,W\}$. At each update a white read turns
+right, a black read turns left, the current cell toggles, and the ant moves one
+edge. We fix the initial pose to $(0,0),N$; translations and quarter turns
+normalize all other poses without changing the turn word. Time $t$ is before
+update $t$.
+
+Let $\Tr_m\subset\{\Rr,\Ll\}^{\N}$ be the infinite turn streams of complete
+inputs with at most $m$ black cells. Initial coordinates have no size bound.
+Let $p_m(n)$ count their length-$n$ prefixes. Let $p_m^H(n)$ count prefixes from
+those inputs whose future is eventually the standard period-104 highway.
+A statement about $p_m$ describes the entire sparse-source family, rather than
+the factor complexity of one selected trace.
+
+\begin{theorem}[Sharp prefix exponent]\label{thm:prefix}
+For all nonnegative integers $n,m$,
+\begin{equation}\label{eq:upper}
+ p_m^H(n)\le p_m(n)\le\sum_{j=0}^{\min(m,n)}\binom nj.
+\end{equation}
+For every $L\ge 0$ such that $11017+208L+20\min(m,L)\le n$,
+\begin{equation}\label{eq:lower}
+ \sum_{j=0}^{\min(m,L)}\binom Lj\le p_m^H(n).
+\end{equation}
+Consequently, for each fixed $m$,
+\[
+ p_m(n)=\Theta_m(n^m),\qquad p_m^H(n)=\Theta_m(n^m),\qquad
+ \lim_{n\to\infty}\frac{\log p_m(n)}{\log n}=m.
+\]
+\end{theorem}
+
+The exponent is exact; an exact leading coefficient is not claimed.
+The uniform bounds \eqref{eq:upper}--\eqref{eq:lower} also permit $m$ to vary.
+For $m=0$ there is just the blank-orbit prefix, so both counts equal one.
+
+Equip the stream space with the prefix topology. For a subspace $X$, let $X'$
+be its set of accumulation points, and define $X^{(0)}=X$,
+$X^{(j+1)}=(X^{(j)})'$. The rank convention below is the first empty derivative.
+
+\begin{theorem}[Exact derivative hierarchy]\label{thm:topology}
+Each $\Tr_m$ is countable and compact, and
+\[
+ \Tr_m'=\Tr_{m-1}\quad(m\ge 1),\qquad
+ \Tr_m^{(m)}=\Tr_0,\qquad \Tr_m^{(m+1)}=\varnothing.
+\]
+Thus its Cantor--Bendixson rank is exactly $m+1$.
+\end{theorem}
+
+\begin{theorem}[Complexity inside the positive basin]\label{thm:positive}
+There are explicit compact spaces $\Pos_m\subset\Tr_m$, all of whose streams
+are eventually standard, such that $\Pos_m'=\Pos_{m-1}$ for $m\ge 1$,
+$\Pos_0=\Tr_0$, and their prefixes satisfy \eqref{eq:lower}.
+\end{theorem}
+
+The last assertion separates observation complexity from convergence:
+eventually standard inputs already achieve the largest polynomial exponent
+and derived-set depth allowed by their initial mass. The spaces $\Tr_m$ are
+not assumed shift-invariant. In particular we do not identify their anchored
+prefix exponent with entropy of a bounded-mass dynamical system.
+
+\paragraph{Prior methods and attribution.}
+Gajardo~\cite{gajardo} introduced the symbolic read/turn projection for arbitrary
+colorings and studied its subshift. Same-cell alternation and the corresponding
+minimal first-read source are established semantics. The compactness and
+encoding arguments below are elementary persistent-query arguments; the
+particular dynamics enter the lower bound and the availability of arbitrarily
+late fresh cells. The 228-update, phase-13 single-obstacle response used here
+is already present in the one-black project~\cite{oneblack}. We reconstruct its
+complete half-plane form rather than claim a new scattering response or a new
+one-black theorem. The question addressed here is the sharp all-$m$ census and
+hierarchy of anchored sparse-source traces, including simultaneous saturation
+by positive inputs.
+
+\section{First-read times encode the entire finite history}
+For a prescribed word $w$, its positions and headings are obtained by turning
+and moving without yet assigning colors. Consecutive reads of the same cell
+must alternate between $\Rr$ and $\Ll$. This condition is sufficient: blacken
+exactly the cells whose first read is $\Ll$, and start every other cell white.
+An induction on time verifies the whole word.
+
+Write $M(w)$ for this unique minimal source, and write $E(w)$ for the times of
+its first black reads. Then $|E(w)|=|M(w)|$. Any other realizing source agrees
+with $M(w)$ on the complete read footprint, but can contain additional unread
+black cells. We retain those cells in physical execution.
+
+A finite word is called feasible if it is realized from the fixed initial
+pose by some finite initial black field. Equivalently, successive visits to
+each cell request alternating colors.
+
+\begin{lemma}[Time-code injection]\label{lem:code}
+A feasible length-$n$ word is uniquely determined by $E(w)\subset\{0,\ldots,n-1\}$.
+\end{lemma}
+\begin{proof}
+Starting from the normalized pose, at an unvisited cell choose $\Ll$ exactly
+when the present time is in $E(w)$, otherwise choose $\Rr$. At a visited cell
+use the opposite of its preceding read. Toggle and move. Each decision and
+hence every future position is determined. A proposed code marking a revisit
+is rejected. For a code from an actual word this decoder reproduces the word
+by induction.
+\end{proof}
+The upper bound \eqref{eq:upper} follows by counting subsets of size at most $m$.
+This is a time encoding, not a count of coordinate tuples in a radius-$n$ box.
+It saves one power of $n$ per source cell relative to the crude planar count.
+
+\begin{remark}[Exactly versus at most]
+For fixed finite $n$, the sets of prefixes produced by exactly $m$ and by at
+most $m$ initially black cells coincide: add padding outside the finite read
+footprint. This is not an assertion about equality of their infinite trace
+spaces. A padding cell may be reached later.
+\end{remark}
+
+\section{The complete infinite trace hierarchy}
+\begin{lemma}[Bounded-cost branches have one finite source]\label{lem:branch}
+Suppose each finite prefix of an infinite word is feasible and has minimal
+source of size at most $m$. Then the word belongs to $\Tr_m$.
+\end{lemma}
+\begin{proof}
+Minimal sources of nested prefixes are nested: an extension can add a first
+black cell only outside the earlier read footprint. Their union has at most
+$m$ elements. On every finite prefix, that union agrees with its minimal source
+on all read cells. It therefore realizes every prefix and the entire stream.
+\end{proof}
+Thus $\Tr_m$ is closed in the compact product space. It is countable because
+finite subsets of the countable lattice are countable. The infinite union in
+Lemma~\ref{lem:branch} defines the unique minimal source $M(w)$ of a stream.
+No algorithm deciding which cells of a given source are never read is assumed.
+
+\begin{lemma}[Fresh sites occur arbitrarily late]\label{lem:fresh}
+A classical ant orbit cannot visit only finitely many cells.
+\end{lemma}
+\begin{proof}
+Otherwise let $I$ be the nonempty finite set visited infinitely often, and
+choose $v\in I$ maximizing $x+y$. Its north and east neighbors eventually
+are never visited. The parity of the heading axis plus checkerboard position
+is invariant; hence every arrival at $v$ has a fixed axis. Late horizontal
+arrivals must come from the west, heading east. Alternating reads at $v$
+eventually force a north departure. Late vertical arrivals must come from
+the south, heading north, and alternation forces an east departure. Either
+case contradicts the absent neighbor. This is the usual corner argument.
+\end{proof}
+This lemma does not claim that individual cells are visited finitely often.
+
+\begin{proof}[Proof of Theorem~\ref{thm:topology}]
+If $|M(w)|=m$, choose a prefix that has read all its $m$ initially black cells.
+Any stream in $\Tr_m$ with this prefix must contain exactly those required
+source cells and can have no additional first black read. Its minimal source
+is $M(w)$ and its entire future is fixed by determinism. Hence $w$ is isolated.
+
+If $|M(w)|=r<m$, choose successive fresh cells of $w$, at times tending to
+infinity and after all cells of $M(w)$ have been read. Blacken one of them in
+addition to $M(w)$. The corresponding complete input agrees with $w$ until
+that first visit, and disagrees at that visit. These distinct streams lie in
+$\Tr_m$ and converge to $w$. Therefore the nonisolated points of $\Tr_m$ are
+exactly $\Tr_{m-1}$. Iteration, with singleton $\Tr_0$, proves the theorem.
+\end{proof}
+In particular the point rank of $w\in\Tr_m$ is $m-|M(w)|$.
+The prefix tree is decidable by same-cell alternation and first-read counting,
+and every admitted finite node extends from its finite minimal source.
+Compactness does not assert that this source is effectively identifiable from
+an infinite stream after a uniformly bounded observation time.
+
+\section{A whole-history protected binary channel}
+This section supplies the ant-specific lower construction. The finite data
+are printed in Appendix~\ref{app:data} and independently replayed. Let
+\[
+ t_0=11017,\quad p_0=(-35,-10),\quad d=(-2,-2),\quad q=(-2,-1),
+ \qquad H=\{(x,y):x+y\le 0\}.
+\]
+Blank execution for $t_0$ updates has pose $(p_0,\text{west})$ and a complete black field
+$B_*$ of size 835. Its part in $p_0+H$ is $p_0+C$, where $C$ is the displayed
+21-cell set. Every other cell of $B_*$ is strictly outside that half-plane.
+The blank prelude reads none of the ray $p_0+q+2 i d$, $i\ge 0$.
+
+Let $w_{\rm start}$ denote the turn word of the first $t_0$ blank updates.
+Let $F$ denote the one-update map on complete states $(B,p,h)$, and write
+$0=(0,0)$ for the coordinate origin.
+Let $W$ be the standard 104-letter word in the appendix. The same letter $W$
+for a heading is always explicitly called ``west'' below. Let $S$ be its
+228-letter single-cell perturbation word. Exact literal execution verifies
+\begin{align}
+ F^{104}(C,0,\text{west})
+   &=((C+d)\sqcup R,d,\text{west}),\label{eq:kernel0}\\
+ F^{228}(C\cup\{q\},0,\text{west})
+   &=((C+2 d)\sqcup R_1,2 d,\text{west}).\label{eq:kernel1}
+\end{align}
+Every read in both equations lies in $H$. The entire residue $R$ has size 12
+and lies in $-4<x+y\le 0$. The entire residue $R_1$ has size 25 and lies in
+$-8<x+y\le 0$. In particular these are complete-field equations, not equality
+modulo erased debris. Equation~\eqref{eq:kernel0} implies that $W$ repeats
+forever, since each new copy stays in a strictly nested half-plane and never
+reads an earlier residue.
+
+Put $A_0=WW$ and $A_1=S$. Both blocks have the same final pose $2 d,\text{west}$
+and the same retained front $C+2 d$. The zero-block residue is
+$R_0=R\sqcup(R+d)$, of size 24; both residues are in $-8<x+y\le 0$.
+Neither block reads any point $q+2 i d$ with $i\ge 1$. Both first read $q$ at
+update 13, where their turns disagree; their preceding turns agree.
+
+\begin{lemma}[Complete binary composition]\label{lem:binary}
+For any finite $J\subset\N$, take the time-zero input
+\begin{equation}\label{eq:seed}
+ B_J=\{p_0+q+2 i d:i\in J\},
+\end{equation}
+with all other cells white. If $b_i=[i\in J]$, its entire turn stream is
+\begin{equation}\label{eq:stream}
+ w_{\rm start} A_{b_0} A_{b_1} A_{b_2}\cdots.
+\end{equation}
+After $L$ blocks its time and pose are
+\[
+ t_L=t_0+208L+20\sum_{i<L}b_i,\qquad
+ p_L=p_0+2Ld,\qquad h_L=\text{west}.
+\]
+Its complete black field is
+\begin{equation}\label{eq:full}
+ \bigl(B_*\setminus(p_0+C)\bigr)
+ \sqcup\bigsqcup_{i<L}(p_0+2 id+R_{b_i})
+ \sqcup(p_L+C)
+ \sqcup\{p_0+q+2 id:i\in J,\ i\ge L\}.
+\end{equation}
+Every such input eventually follows $W^\omega$.
+\end{lemma}
+\begin{proof}
+All input markers avoid the startup footprint. At block $i$ the current
+protected half-plane is $x+y\le p_{0,x}+p_{0,y}-8 i$. Every older residue lies
+strictly outside it. The later markers lie inside but neither local block
+reads them. Translate \eqref{eq:kernel0} twice or \eqref{eq:kernel1} according
+to $b_i$. The complete residue falls into this block's own eight-level slab;
+these slabs are disjoint. This proves \eqref{eq:full} and the pose/time
+identities by induction. After the last marker only $WW$ blocks remain.
+All markers were present at time zero; no intervention or replenishment occurs.
+\end{proof}
+For $|J|=m$, equation~\eqref{eq:full} has $835+24L+m$ black cells. The original
+mass is $m$, whereas the evolving complete mass is unbounded. This illustrates
+why a sparse-source complexity bound is not a bounded-memory assertion.
+
+\begin{lemma}[Exact distinction time]\label{lem:distinction}
+If two binary inputs first differ at slot $i$, with $r$ common earlier ones,
+their turn streams first differ at update
+\[
+ t_0+208 i+20 r+13.
+\]
+\end{lemma}
+\begin{proof}
+All preceding blocks coincide. The two current blocks have a common prefix
+of length 13 and opposite next turns, by the checked kernels.
+\end{proof}
+
+\section{Sharpness, topology inside the highway basin, and prediction}
+\begin{proof}[Proof of Theorem~\ref{thm:prefix}]
+The upper bound was proved in Section 2. For the lower bound choose all subsets
+of $\{0,\ldots,L-1\}$ of size at most $m$ in \eqref{eq:seed}. Their first $L$
+blocks finish by $t_0+208L+20\min(m,L)$. Lemma~\ref{lem:distinction} distinguishes
+all the resulting prefixes by that time, and Lemma~\ref{lem:binary} proves each
+input positive. This proves \eqref{eq:lower}. For fixed $m\ge 1$ take
+$L=\max(0,\lfloor(n-t_0-20 m)/208\rfloor)$. The lower term $\binom Lm$ is
+asymptotic to $n^m/(208^m m!)$ and the upper sum to $n^m/m!$. These prove the
+sharp exponent, not equality of those constants.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:positive}]
+Let $\mathcal S_m\subset\{0,1\}^{\N}$ contain all binary sequences with at
+most $m$ ones. It is compact. Equations~\eqref{eq:seed}--\eqref{eq:stream}
+define a continuous injection into the turn space: every finite observation
+depends on finitely many slots. Lemma~\ref{lem:distinction} also gives a
+continuous inverse on the image, which we call $\Pos_m$. The image is compact
+and consists entirely of positive inputs. In $\mathcal S_m$, a point with
+exactly $m$ ones is isolated; every point with fewer ones is approached by
+adding a one at a coordinate tending to infinity. Thus
+$\mathcal S_m'=\mathcal S_{m-1}$, giving the same identity for $\Pos_m$.
+The all-zero source produces the blank orbit, so $\Pos_0=\Tr_0$.
+The prefix lower bound is the one just proved.
+\end{proof}
+
+\begin{corollary}[Sharp passive mistake budget]\label{cor:prediction}
+With unknown initial source and observed past turns, the optimal worst-case
+number of mistakes of a deterministic next-turn predictor on $\Tr_m$ is $m$.
+This remains a lower bound when inputs are restricted to $\Pos_m$.
+\end{corollary}
+\begin{proof}
+The observed turns determine the current position and all earlier reads.
+Predict the forced color on revisits and $\Rr$ on first visits. Exactly the
+first reads of initially black cells cause mistakes, at most $m$ of them.
+For any competing deterministic predictor, choose $m$ successive binary
+slots. At the decisive update 13 in each slot, choose the source bit opposite
+to its prediction. The decisions are well-defined from the preceding chosen
+history. They specify one complete finite seed with at most $m$ black cells,
+not interventions during execution. Lemma~\ref{lem:binary} realizes it and
+Lemma~\ref{lem:distinction} supplies $m$ mistakes.
+\end{proof}
+The predictor can store an unbounded visited-cell map. This statement neither
+supplies a finite-state predictor nor accelerates a known input's simulation.
+For a supplied $n$, distinguishing all prefixes needs
+$m\log_2 n+O_m(1)$ bits of advice: the upper bound encodes first-black times,
+and the positive lower family gives the matching order.
+
+\section{Limitations}
+The upper bound and derivative identity apply to every complete finite source
+in the stated mass class, regardless of which HC branch it might follow.
+They do not assume convergence, classify possible periodic wakes, or require a
+strip. The protected family is only the witness of sharpness, not a substitute
+for that all-input scope.
+
+The result is not a termination rank. Shifting the blank stream by four updates
+gives a word beginning $\Ll$, whereas the unique member of $\Tr_0$ begins
+$\Rr$. Thus $\Tr_0$ is not shift-invariant; more generally an update can increase
+the mass of the complete current state. The derived-set rank belongs to a
+space of inputs at a specified origin of time. It does not decrease along a
+physical orbit. Zero exponential anchored prefix rate and finite rank therefore
+do not imply eventual periodicity.
+
+The theorem does not assert that the full positive subset of $\Tr_m$ is closed;
+only the explicitly constructed $\Pos_m$ is compact. No existence or exclusion
+of a finite HC counterexample is obtained. The open all-input question still
+asks whether a single finite source can support infinitely many nonstandard
+events. The present census answers how many observable histories that family
+can contain, not whether every one of them standardizes.
+
+\section{Reproduction and evidence}
+Run \texttt{python sparse\_trace\_space/reproduce.py} from the repository
+root. The default copies only the theorem-local package into a temporary
+directory, recomputes a deterministic report, and compares it with the frozen
+one. It does not rewrite evidence. Python standard library and C++17 suffice.
+The kernels, source fields and complete residues are explicit in the supplement;
+its source hashes identify the actual checked inputs.
+
+The complete finite first-read tree to depth 24 with source budget 3 has 508
+leaves; all encode and decode. Independent heading-index Python and vector-turn
+C++ simulations compare 1063 inputs, including every one of 511 binary source
+words of length at most 8, all 512 fields on a $3\times 3$ set and 40 additional
+sources with remote unread inventory. Each implementation executes 6529739
+ordinary updates, and full endpoint coordinate lists agree. All 32640 pairs
+of eight-bit sources have the exact distinction time. The checks also cover
+32 fresh-site approximations, 105 large integer counting identities, three
+symbolic huge-slot identities and ten malformed inputs. Huge slots are not
+literally simulated. Infinite and all-$m$ claims are proved in the arguments
+above, not extrapolated from these controls.
+
+\appendix
+\section{Complete local data}\label{app:data}
+All listed coordinates are relative to a west-facing head at the origin.
+The 21-cell front is
+\[
+\begin{split}
+C=\{&(-2,-4),(-2,-3),(-2,0),(-2,1),(-1,-5),(-1,-2),(-1,-1),\\
+&(-1,0),(-1,1),(0,-6),(0,-5),(0,-4),(0,0),(1,-6),(1,-5),\\
+&(1,-4),(1,-3),(1,-2),(2,-5),(3,-4),(3,-3)\}.
+\end{split}
+\]
+The standard word, with line breaks omitted, is
+\begin{quote}\ttfamily\small
+LRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLL\\
+LRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLR
+\end{quote}
+The perturbed word $S$, with line breaks omitted, is
+\begin{quote}\ttfamily\small
+LRLLRRRRLLRLLLLRRRRLRLRRRRLRRRRLLLLRLRRRRLRRRRLLLLRL\\
+RLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLL\\
+RRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRL\\
+RLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLRRRRLRLLRRLLLL\\
+RRLLRRRRLLRRLRLLRLLR
+\end{quote}
+The complete residue after $W$ is
+\[
+\begin{split}
+R=\{&(-3,0),(-2,-1),(-2,1),(-1,-2),(-1,1),(0,-3),\\
+ &(0,-2),(0,0),(1,-4),(2,-5),(3,-4),(3,-3)\}.
+\end{split}
+\]
+The complete residue after $S$ is
+\[
+\begin{split}
+R_1=\{&(-5,-2),(-5,-1),(-5,0),(-4,-3),(-4,1),(-3,-4),(-3,-1),\\
+&(-3,2),(-2,-5),(-2,-4),(-2,-2),(-2,2),(-1,-6),(-1,-2),\\
+&(-1,1),(0,-7),(0,-3),(0,-2),(0,0),(1,-6),(1,-5),(1,-4),\\
+&(2,-5),(3,-4),(3,-3)\}.
+\end{split}
+\]
+These tuples and words determine the full finite checks
+\eqref{eq:kernel0}--\eqref{eq:kernel1}. The 835-cell startup state is generated
+by exactly 11017 literal updates from the empty source, rather than specified
+by a truncated window. Each startup read is tested against the entire marker
+ray: membership requires equal coordinate differences, divisibility by 4,
+and a nonnegative index. The two blocks are checked the same way.
+
+\begin{thebibliography}{9}
+\bibitem{gajardo} A.~Gajardo. A symbolic projection of Langton's Ant
+(Extended Abstract). \emph{DMTCS Proceedings AB, DMCS'03}, 57--68, 2003.
+\href{https://doi.org/10.46298/dmtcs.2312}{doi:10.46298/dmtcs.2312}.
+\bibitem{oneblack} H.~Ke. \emph{Every One-Black-Cell Langton Ant Reaches the
+Period-104 Highway: A Lean-Checked Proof}. 2026.
+\href{https://github.com/kehao95/langtons-ant-core/tree/08fd2a5fd07dde19ecf0177498e07463f2bb55f9/one_black}{Article and proof project}.
+The phase-13, 228-step channel is also recorded in the original single-obstacle
+and separated-obstacle certificate families; the local data required here are
+fully reproduced in Appendix~\ref{app:data}.
+\end{thebibliography}
+\end{document}

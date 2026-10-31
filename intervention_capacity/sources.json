@@ -1,0 +1,16 @@
+{
+  "schema": "article-sources-v1",
+  "sha256": {
+    "PROOF.md": "b51b95bd1f2e9ab3d9f9a96fdd01b4f4809e8e2fd7b2539b6275a0b44e96e78b",
+    "README.md": "c57da104a69f27e24a228a4c854c63eda099fcf17028a5bc6c5bee3c14736060",
+    "evidence/README.md": "ce707ae307f269018dcf2f70a45425dcc4a91176f3c20945a943dbe624dce6b6",
+    "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
+    "paper/main.tex": "fe208137982be816a9f5f3455e59ca33ba0ec3f4e994eb1b26950468f8844472",
+    "reproduce.py": "b3ac484fb191d047501d89e5e3d555ac8992d26e731dc79a8bdcce3d7a5e4996",
+    "verification/intervention_capacity/README.md": "e6fade9e4548437a00c623967bf789549c73037f9615b9116d20c03a7377531b",
+    "verification/intervention_capacity/check.py": "9a05b4b01e205f68e161de9656308359b9bd1e8d637f4dec298529d5d8d10f50",
+    "verification/intervention_capacity/core.py": "844919de16a77dc431b5b4a3f53951cab690c0f36223701abfad4d1af5f90e45",
+    "verification/intervention_capacity/independent.cpp": "7fc983e65f36163e3a1eb38ba4c0c5180de671fa3aa8ed1b7be79cf0df688145",
+    "verification/intervention_capacity/report.json": "bd62e62101db03f763848220c36b5484bd9ac7303121cd3ed0d9a40448a8e03a"
+  }
+}

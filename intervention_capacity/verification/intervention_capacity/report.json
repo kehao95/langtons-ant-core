@@ -1,0 +1,382 @@
+{
+  "all_parameter_bridge": "written constant-spacing lane-separation and exact read/write induction",
+  "controls": {
+    "exact_full_control_quotients": [
+      {
+        "T": 1,
+        "actions": 2,
+        "classes": 1,
+        "free_cells": 0
+      },
+      {
+        "T": 2,
+        "actions": 4,
+        "classes": 2,
+        "free_cells": 1
+      },
+      {
+        "T": 3,
+        "actions": 8,
+        "classes": 16,
+        "free_cells": 4
+      },
+      {
+        "T": 4,
+        "actions": 16,
+        "classes": 512,
+        "free_cells": 9
+      }
+    ],
+    "full_control_quasipolynomial_from": 13,
+    "future_ray_blocker_rejected": true,
+    "lower_bounds": [
+      {
+        "T": 0,
+        "bits": 0,
+        "columns": 0,
+        "rows": 0
+      },
+      {
+        "T": 1,
+        "bits": 0,
+        "columns": 0,
+        "rows": 0
+      },
+      {
+        "T": 70,
+        "bits": 0,
+        "columns": 0,
+        "rows": 0
+      },
+      {
+        "T": 73,
+        "bits": 0,
+        "columns": 0,
+        "rows": 0
+      },
+      {
+        "T": 74,
+        "bits": 1,
+        "columns": 1,
+        "rows": 1
+      },
+      {
+        "T": 100,
+        "bits": 7,
+        "columns": 7,
+        "rows": 1
+      },
+      {
+        "T": 1000,
+        "bits": 462,
+        "columns": 232,
+        "rows": 3
+      },
+      {
+        "T": 10000,
+        "bits": 40736,
+        "columns": 2482,
+        "rows": 32
+      },
+      {
+        "T": 1000000000000000000000000000000000000000000000000000000000000,
+        "bits": 400641025641025641025641025641025641025641025641025641025708333333333333333333333333333333333333333333333333333333330,
+        "columns": 249999999999999999999999999999999999999999999999999999999982,
+        "rows": 3205128205128205128205128205128205128205128205128205128205
+      }
+    ],
+    "negative_controls": 7,
+    "passive_ray_bases": [
+      [
+        0,
+        -4
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        -5
+      ],
+      [
+        1,
+        -4
+      ],
+      [
+        1,
+        -3
+      ],
+      [
+        1,
+        -2
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        -2
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        -1
+      ],
+      [
+        5,
+        -1
+      ],
+      [
+        6,
+        -2
+      ],
+      [
+        6,
+        -1
+      ],
+      [
+        7,
+        -2
+      ],
+      [
+        7,
+        -1
+      ],
+      [
+        8,
+        -2
+      ]
+    ],
+    "reachable_area_counts": [
+      1,
+      3,
+      7,
+      13,
+      21,
+      31,
+      43,
+      57,
+      73,
+      91,
+      111,
+      133,
+      157,
+      183,
+      211,
+      241,
+      273,
+      307,
+      343,
+      381,
+      421,
+      463,
+      507,
+      553,
+      601,
+      651,
+      703,
+      757,
+      813,
+      871,
+      931,
+      993
+    ]
+  },
+  "finite_leaves": {
+    "background_strip": [
+      -4,
+      6
+    ],
+    "guard_inequalities": 6,
+    "kernels": [
+      {
+        "bit": 0,
+        "reads": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "source": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "target": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "turns": "RLLR"
+      },
+      {
+        "bit": 1,
+        "reads": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "source": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "turns": "LRRL"
+      }
+    ],
+    "outgoing_normal_min": -4,
+    "outgoing_period": {
+      "alternation_checks": 130,
+      "chronology_sha256": "d0d056c840478e9fb1ab945b201851cada473186e74e0cd7824981d38b9f1095",
+      "classes": 22,
+      "drift": [
+        2,
+        2
+      ]
+    },
+    "passive_period": {
+      "alternation_checks": 130,
+      "chronology_sha256": "4fb28bb0fdf90d681e9d701ca798692a531c99805443c5f8d6cc5520f76d2727",
+      "classes": 22,
+      "drift": [
+        2,
+        -2
+      ]
+    },
+    "phase": 72,
+    "phase_pose": [
+      8,
+      -2,
+      1
+    ]
+  },
+  "literal": {
+    "complete_intermediate_checks": 490,
+    "complete_native_runs": 3874,
+    "exact_profile_checks": 410,
+    "first_entry_checks": 3838,
+    "huge_unread_cell_controls": 7,
+    "matrices": 1474,
+    "trajectory_sha256": "52e42c883be653c1338dbfd76b631d83fbe082508357c636ea6f3db1bf3468e4",
+    "updates_per_implementation": 2276414
+  },
+  "schema": "quadratic-interventional-capacity-v1",
+  "scope": "one passive P104 class; one current-site toggle at a chosen time; no HC theorem",
+  "sources_sha256": {
+    "check.py": "9a05b4b01e205f68e161de9656308359b9bd1e8d637f4dec298529d5d8d10f50",
+    "core.py": "844919de16a77dc431b5b4a3f53951cab690c0f36223701abfad4d1af5f90e45",
+    "independent.cpp": "7fc983e65f36163e3a1eb38ba4c0c5180de671fa3aa8ed1b7be79cf0df688145"
+  },
+  "status": "passed"
+}

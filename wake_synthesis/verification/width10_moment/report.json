@@ -1,0 +1,56 @@
+{
+  "certificate_sha256": "3a0a53bb5a1a5928c238ddec7ac9b74535e37f850413aeb10a295e509b21ac1f",
+  "evidence": "analytic coverage with exact C++ chronology exhaustion and independent positive-ray verification; no Lean or external referee",
+  "finite_exhaustion": {
+    "COMPLETE": 1616,
+    "UNKNOWN_final": 0,
+    "accepted_standard_P104": true,
+    "accepted_words": 1,
+    "max_node_visits": 35413437,
+    "source_timeouts_retried": 6,
+    "sum_node_visits": 767594212,
+    "sum_order_rejections": 467998693
+  },
+  "imported_large_graph_certificate_rerun": false,
+  "mask_sha256": "15f0cf8d79684866490393bf268a5eebc5c74ce2d5784442f8266abe13e5b5cc",
+  "normalization": {
+    "count_feasible": 2790,
+    "growth_by_wake": {
+      "12": 1020,
+      "16": 225,
+      "8": 371
+    },
+    "lane_symmetry_duplicates": 876,
+    "normalized_representatives": 1914,
+    "signed_mixed_screener": 13216,
+    "wakes_with_K_leq168": 1616
+  },
+  "schema": "width10-moment-proof-v1",
+  "scope": {
+    "claim_is_HC": false,
+    "exact_transverse_width": 10,
+    "finite_support": true,
+    "full_drift": [
+      2,
+      -2
+    ],
+    "period_bound_input": null,
+    "supplied_odd_wake": false
+  },
+  "source_sha256": {
+    "audit_incremental.cpp": "b7d19a55cdec32a1ead6abb2d1a9c07bee724e18f8b12cd2e335d96e1517ed2f",
+    "build_masks.py": "4b2dbab7d016c9bfdb6c20bf5188ff6d16ac4da29188e773d30e6aacad2c4932",
+    "check.py": "ce1adfbf8267816cda0b3fab76d8ea310d4d16eddde77af78922f0caefc1cde2",
+    "count_screen.cpp": "359d2b923713841ee5538511b112a46437e762031743b03fd827be2d361a001a",
+    "engine.cpp": "fca8e001080e104713df16dd39dfaff8fcaed5d7d1ca3d6d05e6b3777cf0b1c1",
+    "masks.py": "f49ddbac0cc5f0e7bb0fc491a316c7a6ba9738a45cdd8f6f988dc25f618b6f9b",
+    "word_certifier.py": "3a5e5aa01b2dda035616f37003d9e902ba2a4d5b5a0b6cfd72801258b2b9fd66"
+  },
+  "unique_positive": {
+    "exact_infinite_breakpoint_checks": 194,
+    "index": 4328,
+    "minimum_seed_cells": 19,
+    "period": 104,
+    "word": "RRRLRLLRRLLLLRRLLRRRRLLRRLRLLRLLRLRLLRRRRLLRLLRRRRLLRRRRLLRLRRRRLRLLLLRRRRLRRLRRRRLLLLRLRRRRLRRRRLLLLRLR"
+  }
+}
