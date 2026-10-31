@@ -2,7 +2,7 @@
 
 Four rows have exact maximal first-exit time `34n-150` for `n>=13`, with all smaller values determined. Five rows admit an explicit width-`4k+9` source with exact exit time `8k²+60k+16` and infinitely many persistent boundary responses. The complete two-counter family has an exact earliest P104 entrance formula and polynomial-bit-time random access to its full evolving state.
 
-[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof map](PROOF.md) · [Evidence](evidence/README.md) · [Archived edition](https://doi.org/10.5281/zenodo.23675964)
+[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof map](PROOF.md) · [Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23838424)
 
 ## Reproduce
 

@@ -1,7 +1,7 @@
 # Wake Parity and Highway Rigidity in Langton's Ant
 
 [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
-[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23819745)
+[Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23838427)
 
 ## Results
 

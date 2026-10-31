@@ -17,8 +17,8 @@
   },
   "four_row_escape": {
     "title": "From Four Rows to Five: Escape Times and Persistent Memory in Langton's Ant",
-    "doi": "10.5281/zenodo.23675964",
-    "version": "0.1.1",
+    "doi": "10.5281/zenodo.23838424",
+    "version": "0.2.0",
     "pdf": "four_row_escape/paper/paper.pdf",
     "sources": "four_row_escape/sources.json",
     "pdf_sha256": "94a269704b3a263b185c593f03f4cbd8d9ca17f8be6819373f25aaffd8e32786"
@@ -49,8 +49,8 @@
   },
   "wake_synthesis": {
     "title": "Wake Parity and Highway Rigidity in Langton's Ant",
-    "doi": "10.5281/zenodo.23819745",
-    "version": "0.4.0",
+    "doi": "10.5281/zenodo.23838427",
+    "version": "0.5.0",
     "pdf": "wake_synthesis/paper/paper.pdf",
     "sources": "wake_synthesis/sources.json",
     "pdf_sha256": "ba6f8df5585446d258f823a878945e4297f8557bfd37db68dcb0263812e7d512"
@@ -64,24 +64,24 @@
     "pdf_sha256": "77c34797483673220add8e82a3184570b6a03df36c0a1bfd5127f832fd6a8a18"
   },
   "intervention_capacity": {
-    "doi": null,
-    "version": null,
+    "doi": "10.5281/zenodo.23838429",
+    "version": "0.1.0",
     "title": "When to Intervene: Predictive Memory in a Langton Highway",
     "pdf": "intervention_capacity/paper/paper.pdf",
     "sources": "intervention_capacity/sources.json",
     "pdf_sha256": "5d2cca87ad3778f9466d0ae10e946d64f9ca74c408fc06f4be80e85bd3b77655"
   },
   "phase_cocycle": {
-    "doi": null,
-    "version": null,
+    "doi": "10.5281/zenodo.23838431",
+    "version": "0.1.0",
     "title": "Maximal Separated Phase Clocks and Spatial Charges for Cyclic Langton Ants",
     "pdf": "phase_cocycle/paper/paper.pdf",
     "sources": "phase_cocycle/sources.json",
     "pdf_sha256": "506d6d212542f747139515b4d0849f03ab9948ce6c649b2427f00fdf4fe62c7b"
   },
   "sparse_trace_space": {
-    "doi": null,
-    "version": null,
+    "doi": "10.5281/zenodo.23838433",
+    "version": "0.1.0",
     "title": "Sparse Initial Conditions and the Trace Space of Langton's Ant",
     "pdf": "sparse_trace_space/paper/paper.pdf",
     "sources": "sparse_trace_space/sources.json",

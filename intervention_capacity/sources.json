@@ -2,7 +2,7 @@
   "schema": "article-sources-v1",
   "sha256": {
     "PROOF.md": "b51b95bd1f2e9ab3d9f9a96fdd01b4f4809e8e2fd7b2539b6275a0b44e96e78b",
-    "README.md": "c57da104a69f27e24a228a4c854c63eda099fcf17028a5bc6c5bee3c14736060",
+    "README.md": "5ce5347480222394e161a183ab7307b711b0ca16cd669822771be2a10c56a746",
     "evidence/README.md": "ce707ae307f269018dcf2f70a45425dcc4a91176f3c20945a943dbe624dce6b6",
     "paper/Makefile": "0b047dcf1f2d707e10e25576f1a8b2fea1d7a2df9641177af505d53ff8b49a44",
     "paper/main.tex": "fe208137982be816a9f5f3455e59ca33ba0ec3f4e994eb1b26950468f8844472",
