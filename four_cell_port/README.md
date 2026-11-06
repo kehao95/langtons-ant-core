@@ -1,6 +1,6 @@
 # Protected Highway Formation and Scattering in Langton's Ant
 
-[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
+[Paper page](https://www.kehao.me/papers/langtons-ant-four-cell-port/) · [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
 [Evidence](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23844695)
 
 ## Results

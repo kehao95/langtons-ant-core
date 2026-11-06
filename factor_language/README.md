@@ -39,7 +39,7 @@ consecutive events localized in K have an axis-cross container with padding 44.
 
 ## Article
 
-[PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
+[Paper page](https://www.kehao.me/papers/langtons-ant-factors/) · [PDF](paper/paper.pdf) · [Source](paper/main.tex) · [Proof](PROOF.md) ·
 [Reproduction details](evidence/README.md) · [Zenodo](https://doi.org/10.5281/zenodo.23844669)
 
 ## Exact scope
